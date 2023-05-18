@@ -1,0 +1,107 @@
+@layer utils {
+    /* Layout classes that handle 80% of the layout*/
+    .box {
+        padding: var(--spacing-base);
+    }
+
+    .stack {
+        display: grid;
+        gap: var(--gap, var(--spacing-base));
+        grid-template-columns: minmax(0, 1fr);
+        align-items: flex-start;
+
+        & > * {
+            min-width: 0;
+        }
+    }
+
+    .stack.-stretched {
+        width: 100%;
+
+        & > * {
+            width: 100%;
+        }
+    }
+
+    .flow > * + * {
+        margin-block-start: var(--gap, var(--spacing-base));
+    }
+
+    .flow > *:is(h1,h2,h3,h4,h5,h6) {
+        --gap: var(--spacing-far);
+    }
+
+    .flow > *:is(h1,h2,h3,h4,h5,h6) + p {
+        --gap: var(--spacing-near);
+    }
+
+    .flow > p + p {
+        --gap: var(--spacing-base);
+    }
+
+    .flow > figure {
+        margin-inline: 0;
+    }
+
+    .flow .breakAfter {
+        margin-block-end: auto;
+    }
+
+    .section {
+        padding-block: var(--spacing-far);
+    }
+
+    .layout-container {
+        margin-inline: auto;
+        width: 100%;
+        max-width: var(--layout-max-width);
+        padding-inline: var(--layout-padding);
+        display: grid;
+        justify-items: start;
+
+        & > * {
+            min-width: 0;
+        }
+    }
+
+    .cluster {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--gap, var(--spacing-base));
+    }
+
+
+    .-layout-farthest {
+        --gap: var(--spacing-farthest);
+    }
+
+    .-layout-far {
+        --gap: var(--spacing-far);
+    }
+
+    .-layout-base {
+        --gap: var(--spacing-base);
+    }
+
+    .-layout-near {
+        --gap: var(--spacing-near);
+    }
+
+    .-layout-nearest {
+        --gap: var(--spacing-nearest);
+    }
+
+    .-layout-tiny {
+        --gap: var(--spacing-tiny);
+    }
+
+    .-layout-none {
+        --gap: 0;
+    }
+
+    .layout-reset {
+        --gap: unset;
+    }
+
+}

@@ -7,6 +7,20 @@
     "access": "public"
   },
   "exports": {
-    "./bundle": "./src/styles/global.css"
+    "./bundle": "./src/styles/bundle.css",
+    "./compiled/bundle": "./out/bundle.css"
+  },
+  "scripts": {
+    "lib:all": "postcss src/styles/**/*.css --base src/styles --dir out",
+    "lib:bundle": "postcss src/styles/bundle.css -o out/bundle.css",
+    "build": "concurrently pnpm:lib:*"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "postcss": "^8.4.23",
+    "postcss-cli": "^10.1.0",
+    "postcss-combine-duplicated-selectors": "^10.0.3",
+    "postcss-import": "^15.1.0",
+    "postcss-preset-env": "^8.3.2"
   }
 }

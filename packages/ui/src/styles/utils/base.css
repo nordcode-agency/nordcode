@@ -1,4 +1,3 @@
-// Extras, TBD, could be moved under class
 :where(ol, ul, dl) {
     display: flex;
     flex-direction: column;
@@ -67,7 +66,6 @@ li:has(ol) + li {
 
     & > *:not(summary):first-of-type {
         margin-block-start: var(--spacing-base);
-        margin-inline-start: var(--spacing-base);
     }
 
     & > summary {
