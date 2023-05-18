@@ -58,7 +58,7 @@ pnpm dev
 
 ### Generate
 
-To generate a new workspace in the monorepo, run the following command:
+To generate a new app or package, run the following command:
 
 ```sh
 pnpm gen
