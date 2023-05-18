@@ -8,10 +8,16 @@ Run the following command:
 pnpm i
 ```
 
-Run `@nordcode/web`
+Run single package (e.g. `@nordcode/web`)
 
 ```sh
 pnpm --filter "@nordcode/web" dev
+```
+
+Run all packages
+
+```sh
+pnpm dev
 ```
 
 ## What's inside?
@@ -48,6 +54,14 @@ To develop all apps and packages, run the following command:
 
 ```sh
 pnpm dev
+```
+
+### Generate
+
+To generate a new workspace in the monorepo, run the following command:
+
+```sh
+pnpm gen
 ```
 
 ### Remote Caching
