@@ -1,0 +1,54 @@
+@layer config {
+    :where(html) {
+        /*Light Theme*/
+        --color-brand-primary-light-strong: lch(85.88% 67.67 193.21);
+        --color-brand-primary-light-base: lch(85.88% 67.67 193.21);
+        --color-brand-primary-light-subtle: oklch(48% 0.289 193.21);
+
+        --color-brand-secondary-light-strong: lch(85.88% 67.67 193.21);
+        --color-brand-secondary-light-base: lch(85.88% 67.67 193.21);
+        --color-brand-secondary-light-subtle: oklch(48% 0.289 193.21);
+
+        --color-text-light-strong: lch(1% 0 193.21);
+        --color-text-light-base: lch(1% 0 193.21);
+        --color-text-light-subtle: oklch(4% 0.013 193.21);
+
+        --color-surface-light-strong: oklch(100% 0.006 193.21);
+        --color-surface-light-base: oklch(100% 0.006 193.21);
+        --color-surface-light-subtle: oklch(98.0% 0.002 193.21);
+
+        --color-border-light-strong: oklch(100% 0.006 193.21);
+        --color-border-light-base: oklch(100% 0.006 193.21);
+        --color-border-light-subtle: oklch(100% 0.006 193.21);
+
+        --color-shadow-light-strong: oklch(100% 0.006 193.21);
+        --color-shadow-light-base: oklch(100% 0.006 193.21);
+        --color-shadow-light-subtle: oklch(100% 0.006 193.21);
+
+        /* Dark Theme */
+
+        --color-brand-primary-dark-strong: lch(85.88% 67.67 193.21);
+        --color-brand-primary-dark-base: lch(85.88% 67.67 193.21);
+        --color-brand-primary-dark-subtle: oklch(48% 0.289 193.21);
+
+        --color-brand-secondary-dark-strong: lch(85.88% 67.67 193.21);
+        --color-brand-secondary-dark-base: lch(85.88% 67.67 193.21);
+        --color-brand-secondary-dark-subtle: oklch(48% 0.289 193.21);
+
+        --color-text-dark-strong: lch(1% 0 193.21);
+        --color-text-dark-base: lch(1% 0 193.21);
+        --color-text-dark-subtle: oklch(4% 0.013 193.21);
+
+        --color-surface-dark-strong: oklch(100% 0.006 193.21);
+        --color-surface-dark-base: oklch(100% 0.006 193.21);
+        --color-surface-dark-subtle: oklch(98.0% 0.002 193.21);
+
+        --color-border-dark-strong: oklch(100% 0.006 193.21);
+        --color-border-dark-base: oklch(100% 0.006 193.21);
+        --color-border-dark-subtle: oklch(100% 0.006 193.21);
+
+        --color-shadow-dark-strong: oklch(100% 0.006 193.21);
+        --color-shadow-dark-base: oklch(100% 0.006 193.21);
+        --color-shadow-dark-subtle: oklch(100% 0.006 193.21);
+    }
+}

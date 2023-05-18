@@ -1,0 +1,30 @@
+@layer config {
+    :where(html) {
+        --font-family-mono: "DMMono", monospace;
+        --font-family-sans: system-ui, sans-serif;
+        --font-family-serif: serif;
+        --font-family-default: var(--font-family-sans);
+
+        --font-weight-bold: 900;
+        --font-weight-regular: 400;
+        --font-weight-light: 300;
+
+        --line-height-large: 2;
+        --line-height-base: 1.728;
+        --line-height-small: 1.2;
+
+        --tracking-standard: normal;
+        --tracking-tight: -0.04em;
+        --tracking-wide: 0.06em;
+
+        --measure-large: 88ch;
+        --measure-base: 72ch;
+        --measure-small: 44ch;
+
+        --font-size-smallest: 0.75rem;
+        --font-size-small: 0.875rem;
+        --font-size-base: 1rem;
+        --font-size-large: 1.25rem;
+        --font-size-largest: 1.5rem;
+    }
+}

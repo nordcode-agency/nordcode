@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1234 1234"><path fill-rule="evenodd" d="M717 217c0 112.561-37.194 216.434-99.963 300H1017v200.164C855.944 722.438 727 854.661 727 1017H517c0-112.561 37.194-216.434 99.963-300H217V516.836c3.32.109 6.654.164 10 .164 165.685 0 300-134.315 300-300h190Z" clip-rule="evenodd"/>
+<style>
+        path { fill: #000; }
+        @media (prefers-color-scheme: dark) {
+            path { fill: #FFF; }
+        }
+    </style>
+</svg>

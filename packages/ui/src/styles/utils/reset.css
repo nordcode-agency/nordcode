@@ -1,0 +1,119 @@
+@layer utils {
+
+    *,
+    :after,
+    :before {
+        box-sizing: border-box;
+        accent-color: var(--color-brand-primary-strong);
+    }
+
+    :where(:not(dialog)) {
+        margin: 0;
+    }
+
+    :where(:not(fieldset, progress, meter)) {
+        border-width: 0;
+        border-style: solid;
+        background-origin: border-box;
+        background-repeat: no-repeat;
+    }
+
+    @media (--motionOK) {
+        :where(:focus-visible) {
+            transition: outline-offset 145ms var(--ease-2);
+        }
+
+        :where(:not(:active):focus-visible) {
+            transition-duration: 0.25s;
+        }
+    }
+
+    :where(:focus-visible, :focus) {
+        outline: var(--border-base) solid var(--color-brand-primary-strong);
+        outline-offset: 1ch;
+    }
+
+    :where(:focus:not(:focus-visible)) {
+        outline: none;
+    }
+
+
+    :where(html) {
+        block-size: 100%;
+        inline-size: 100%;
+        -webkit-text-size-adjust: none; /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+
+        @media (--motionOK) {
+            & {
+                scroll-behavior: smooth;
+            }
+        }
+    }
+
+    :where(body) {
+        min-block-size: 100%;
+        min-inline-size: 100%;
+
+        font-weight: var(--font-weight-regular);
+
+        color: var(--color-text-base);
+        background-color: var(--color-surface-base);
+
+        font-family: var(--font-family-default);
+        line-height: var(--line-height-base);
+        font-style: normal;
+    }
+
+    :where(img, svg, video, canvas, audio, iframe, embed, object) {
+        display: block;
+    }
+
+    :where(img, svg, video) {
+        max-inline-size: 100%;
+        block-size: auto;
+    }
+
+    :where(figure) {
+        display: grid;
+        gap: 0;
+        place-items: center;
+    }
+
+    :where(
+    a[href],
+    area,
+    button,
+    input,
+    label[for],
+    select,
+    summary,
+    textarea,
+    [tabindex]:not([tabindex*="-"])
+  ) {
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    :where(input, button, textarea, select),
+    :where(input[type="file"])::-webkit-file-upload-button {
+        font: inherit;
+        color: inherit;
+        letter-spacing: inherit;
+    }
+
+    :where(
+    label:not(class) + input,
+    label:not(class) + select,
+    label:not(class) + textarea
+  ) {
+        display: block;
+    }
+
+    :where(p, li, dd, dt, summary) {
+        max-inline-size: var(--measure-base);
+        font-size: inherit;
+        line-height: var(--line-height-base);
+        margin: 0;
+    }
+}

@@ -1,0 +1,267 @@
+// Extras, TBD, could be moved under class
+:where(ol, ul, dl) {
+    display: flex;
+    flex-direction: column;
+    max-inline-size: max-content;
+    padding-inline: 0;
+}
+
+:where(ol, ul) {
+    gap: var(--spacing-base);
+}
+
+:where(li, dd) {
+    max-inline-size: var(--measure-small);
+}
+
+:where(dt) {
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-base);
+}
+
+:where(dd) {
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-strong);
+}
+
+:where(dl) {
+    & * + * {
+        margin-block-start: var(--spacing-near);
+    }
+
+    & * + dt {
+        margin-block-start: var(--spacing-base);
+    }
+}
+
+:where(li > ul, li > ol) {
+    margin-block-start: var(--spacing-near);
+    margin-inline-start: var(--spacing-near);
+}
+
+li:has(ul) + li,
+li:has(ol) + li {
+    margin-block-start: var(--spacing-base);
+    margin-inline-start: var(--spacing-near);
+}
+
+:where(small) {
+    font-size: var(--font-size-small);
+}
+
+:where(figcaption) {
+    display: block;
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-surface-subtle);
+    background-color: var(--color-text-base);
+    padding: 0 var(--spacing-near);
+}
+
+:where(details) {
+    inline-size: 100%;
+    background-color: var(--color-surface-strong);
+    padding: var(--spacing-near);
+    border-radius: var(--border-radius-base);
+    border: var(--border-width-thin) solid var(--color-text-strong);
+
+    & > *:not(summary):first-of-type {
+        margin-block-start: var(--spacing-base);
+        margin-inline-start: var(--spacing-base);
+    }
+
+    & > summary {
+        cursor: pointer;
+        color: var(--color-text-strong);
+        inline-size: 100%;
+    }
+}
+
+.note,
+blockquote {
+    padding: var(--spacing-base);
+    inline-size: 100%;
+    background-color: var(--color-surface-strong);
+    color: var(--color-text-subtle);
+    position: relative;
+    border: var(--border-width-thin) solid var(--color-text-strong);
+    margin-block-start: var(--spacing-far);
+    border-radius: var(--border-radius-base);
+    margin-inline: 0;
+}
+
+
+cite {
+    font-family: var(--font-family-serif);
+    font-style: normal;
+}
+
+:where(hr) {
+    inline-size: 100%;
+    block-size: 0;
+    border-top: var(--border-width-base) solid var(--color-border-base);
+    background-color: var(--color-text-strong);
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+    line-height: var(--line-height-small);
+    color: var(--color-text-strong);
+    overflow-wrap: break-word;
+    max-inline-size: 100%;
+    hyphens: auto;
+    text-wrap: balance;
+
+    & > span {
+        overflow-wrap: break-word;
+        max-inline-size: 100%;
+        hyphens: auto;
+    }
+}
+
+:where(h1) {
+    font-size: var(--font-size-largest);
+    font-weight: var(--font-weight-bold);
+}
+
+:where(h2) {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+}
+
+:where(h3) {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+}
+
+:where(h4) {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+}
+
+:where(h5) {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+}
+
+:where(h6) {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-bold);
+}
+
+::marker {
+    color: var(--color-brand-primary-strong);
+}
+
+::selection,
+mark {
+    background-color: var(--color-brand-primary-strong);
+    color: var(--color-surface-strong);
+}
+
+:where(a, .link) {
+    color: inherit;
+    font-family: var(--font-family-link);
+    text-decoration: underline;
+    text-underline-offset: var(--spacing-tiny);
+    text-decoration-thickness: from-font;
+    font-weight: var(--font-weight-regular);
+    text-decoration-color: currentColor;
+    cursor: pointer;
+    letter-spacing: var(--tracking-tight);
+
+    &:visited {
+        color: var(--color-text-subtle);
+    }
+
+    &:hover {
+        text-decoration-color: var(--color-brand-primary-strong);
+    }
+}
+
+.list-reset {
+    list-style: none;
+    max-inline-size: 100%;
+
+    & li {
+        margin-inline: 0;
+        max-inline-size: 100%;
+    }
+}
+
+:where(strong, b) {
+    font-weight: var(--font-weight-bold);
+}
+
+:where(dfn, var) {
+    font-family: var(--font-family-mono);
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--font-weight-regular);
+}
+
+:where([aria-disabled="true"], .disabled, :disabled) {
+    color: inherit;
+    opacity: 1;
+    cursor: not-allowed;
+    filter: contrast(0.64) opacity(0.64);
+}
+
+.text-assistive {
+    -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    box-sizing: border-box;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        -webkit-clip-path: none;
+        clip-path: none;
+        z-index: 999;
+        height: var(--button-height-base);
+        line-height: var(--button-height-base);
+        background: var(--color-surface-strong);
+        font-size: var(--font-size-base);
+        text-decoration: none;
+        color: var(--color-text-strong);
+        text-align: center;
+        padding-inline: var(--spacing-base);
+        font-weight: var(--font-weight-regular);
+    }
+}
+
+#content-start:focus {
+    background: var(--color-surface-strong);
+    color: var(--color-text-strong);
+}
+
+:where(code) {
+    font-family: var(--font-family-mono);
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--font-weight-regular);
+}
+
+:where(pre) {
+    padding: var(--spacing-base);
+    inline-size: 100%;
+    max-inline-size: var(--measure-base);
+    overflow-x: auto;
+    color: var(--color-text-strong);
+    border: var(--border-width-base) solid var(--color-text-strong);
+    border-radius: var(--border-radius-base);
+}
+
+
+:where(table) {
+    inline-size: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    text-align: left;
+    background-color: var(--color-surface-strong);
+    border: var(--border-width-thick) solid var(--color-text-strong);
+    border-radius: var(--border-radius-base);
+}
+
+:where(td,th) {
+    padding: var(--spacing-near);
+    border: var(--border-width-thin) solid var(--color-text-subtle);
+}
