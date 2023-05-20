@@ -93,3 +93,14 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+## Inspiration
+
+- <https://www.domesiconcepthouse.cz/>
+- <https://tailwindcss.com/>
+- <https://www.earlydog.com/>
+- <https://make.studio/>
+- <https://titansinkware.com/>
+- <https://www.createwithplay.com/>
+- <https://clay.global/> *
+- <https://wise.com/de/>
