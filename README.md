@@ -68,16 +68,10 @@ pnpm gen
 
 Also see [changesets/intro](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)
 
-To add a new changeset to a package, run the following command:
+To add a new changeset, run the following command:
 
 ```sh
 pnpm changeset
-```
-
-To [check for changesets](https://github.com/changesets/changesets/blob/main/docs/checking-for-changesets.md), run the following command:
-
-```sh
-pnpm changeset-status
 ```
 
 To create a new version of packages, run the following command:
@@ -90,6 +84,12 @@ To publish all changes ([turbo/publishing-packages](https://turbo.build/repo/doc
 
 ```sh
 pnpm publish-packages
+```
+
+To [check for changesets](https://github.com/changesets/changesets/blob/main/docs/checking-for-changesets.md), run the following command:
+
+```sh
+pnpm changeset-status
 ```
 
 ### Remote Caching
