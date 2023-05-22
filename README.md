@@ -74,6 +74,12 @@ To add a new changeset to a package, run the following command:
 pnpm changeset
 ```
 
+To [check for changesets](https://github.com/changesets/changesets/blob/main/docs/checking-for-changesets.md), run the following command:
+
+```sh
+pnpm changeset-status
+```
+
 To create a new version of packages, run the following command:
 
 ```sh
