@@ -11,7 +11,11 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^2.2.0",
+    "@nordcode/ui": "workspace:^",
     "astro": "^2.5.2",
     "svelte": "^3.54.0"
+  },
+  "devDependencies": {
+    "@nordcode/postcss-config": "workspace:^"
   }
 }
