@@ -64,6 +64,28 @@ To generate a new app or package, run the following command:
 pnpm gen
 ```
 
+### Version and Publish
+
+Also see [changesets/intro](https://github.com/changesets/changesets/blob/main/docs/intro-to-using-changesets.md)
+
+To add a new changeset to a package, run the following command:
+
+```sh
+pnpm changeset
+```
+
+To create a new version of packages, run the following command:
+
+```sh
+pnpm version-packages
+```
+
+To publish all changes ([turbo/publishing-packages](https://turbo.build/repo/docs/handbook/publishing-packages/versioning-and-publishing#using-changesets-with-turborepo)) to npm, run the following command:
+
+```sh
+pnpm publish-packages
+```
+
 ### Remote Caching
 
 Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
