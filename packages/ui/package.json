@@ -8,7 +8,8 @@
   },
   "exports": {
     "./bundle": "./src/styles/bundle.css",
-    "./compiled/bundle": "./out/bundle.css"
+    "./compiled/bundle": "./out/bundle.css",
+    "./fonts": "./src/assets/fonts/fonts.css"
   },
   "scripts": {
     "lib:all": "postcss src/styles/**/*.css --base src/styles --dir out",
