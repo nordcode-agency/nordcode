@@ -1,6 +1,6 @@
 {
   "name": "@nordcode/postcss-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Base postcss config for packages to extend from",
   "main": "index.js",
   "scripts": {
