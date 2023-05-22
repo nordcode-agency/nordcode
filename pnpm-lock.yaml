@@ -25,12 +25,19 @@ importers:
       '@astrojs/svelte':
         specifier: ^2.2.0
         version: 2.2.0(astro@2.5.2)(svelte@3.59.1)(typescript@4.9.5)(vite@4.3.7)
+      '@nordcode/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
       astro:
         specifier: ^2.5.2
         version: 2.5.2
       svelte:
         specifier: ^3.54.0
         version: 3.59.1
+    devDependencies:
+      '@nordcode/postcss-config':
+        specifier: workspace:^
+        version: link:../../packages/postcss-config
 
   packages/eslint-config-custom:
     dependencies:
@@ -47,9 +54,7 @@ importers:
         specifier: 7.28.0
         version: 7.28.0(eslint@7.32.0)
 
-  packages/tsconfig: {}
-
-  packages/ui:
+  packages/postcss-config:
     devDependencies:
       postcss:
         specifier: ^8.4.23
@@ -66,6 +71,14 @@ importers:
       postcss-preset-env:
         specifier: ^8.3.2
         version: 8.3.2(postcss@8.4.23)
+
+  packages/tsconfig: {}
+
+  packages/ui:
+    devDependencies:
+      '@nordcode/postcss-config':
+        specifier: workspace:^
+        version: link:../postcss-config
 
 packages:
 
