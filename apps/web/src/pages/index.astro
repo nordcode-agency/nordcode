@@ -1,13 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import "@nordcode/ui/bundle";
-import "@nordcode/ui/fonts";
+import Card from '../components/Card.svelte';
+import Gallery from '../components/Gallery.svelte';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<h1>Welcome to nordcode</h1>
+		<Gallery>
+			{Array.from(Array(5).keys()).map(() => (
+
+				<li>
+					<Card>
+						<h1>Welcome to nordcode.</h1>
+					</Card>
+				</li>
+			))}
+		</Gallery>
 	</main>
 </Layout>
 
