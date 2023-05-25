@@ -1,0 +1,11 @@
+{
+  "name": "@nordcode/types",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "turbo build"
+  }
+}
