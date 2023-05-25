@@ -1,7 +1,6 @@
 {
   "name": "@nordcode/ui",
   "version": "0.0.1",
-  "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -9,7 +8,8 @@
   "exports": {
     "./bundle": "./src/styles/bundle.css",
     "./compiled/bundle": "./out/bundle.css",
-    "./fonts": "./src/assets/fonts/fonts.css"
+    "./fonts": "./src/assets/fonts/fonts.css",
+    "./logo": "./src/assets/logos/nordcode-logo.svg"
   },
   "scripts": {
     "lib:all": "postcss src/styles/**/*.css --base src/styles --dir out",

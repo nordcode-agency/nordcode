@@ -38,6 +38,9 @@ importers:
       '@nordcode/postcss-config':
         specifier: workspace:^
         version: link:../../packages/postcss-config
+      '@nordcode/types':
+        specifier: workspace:^
+        version: link:../../packages/types
 
   packages/eslint-config-custom:
     dependencies:
@@ -73,6 +76,8 @@ importers:
         version: 8.3.2(postcss@8.4.23)
 
   packages/tsconfig: {}
+
+  packages/types: {}
 
   packages/ui:
     devDependencies:
