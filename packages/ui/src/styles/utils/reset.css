@@ -89,7 +89,7 @@
     summary,
     textarea,
     [tabindex]:not([tabindex*="-"])
-  ) {
+    ) {
         cursor: pointer;
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
@@ -106,7 +106,7 @@
     label:not(class) + input,
     label:not(class) + select,
     label:not(class) + textarea
-  ) {
+    ) {
         display: block;
     }
 
