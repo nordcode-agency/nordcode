@@ -16,6 +16,7 @@
     "svelte": "^3.54.0"
   },
   "devDependencies": {
-    "@nordcode/postcss-config": "workspace:^"
+    "@nordcode/postcss-config": "workspace:^",
+    "@nordcode/types": "workspace:^"
   }
 }
