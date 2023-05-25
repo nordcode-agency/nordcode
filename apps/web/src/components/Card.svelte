@@ -1,0 +1,60 @@
+<script lang="ts">
+	import type { Size } from '@nordcode/types/src/index';
+	export const size: Extract<Size, Size.Xs | Size.Sm> | undefined = undefined;
+</script>
+
+<div class="card" data-size={size}>
+	<slot />
+</div>
+
+<style>
+.card {
+  --_card-background-color: var(--card-background-color, var(--color-surface-base));
+  --_card-color: var(--card-color, var(--color-text-base));
+  --_card-border-color: var(--card-border-color, var(--color-border-base));
+  --_card-shadow: var(--card-shadow, var(--shadow-away));
+  --_card-padding-inline: var(--card-padding-inline, var(--spacing-base));
+  --_card-padding-block: var(--card-padding-block, var(--spacing-far));
+  --_card-border-radius: var(--card-border-radius, var(--border-radius-large));
+
+  &[data-size="xs"] {
+    --_card-padding-inline: var(--card-padding-inline, var(--spacing-nearest));
+    --_card-padding-block: var(--card-padding-block, var(--spacing-near));
+    --_card-border-radius: var(--card-border-radius, var(--border-radius-base));
+  }
+
+  &[data-size="sm"] {
+    --_card-padding-inline: var(--card-padding-inline, var(--spacing-near));
+    --_card-padding-block: var(--card-padding-block, var(--spacing-base));
+  }
+
+  /* &[data-variant="inverted"] {
+    --card-background-color: var();
+    --card-color: var();
+    --info-text-color: var();
+    --card-border-color: var();
+  } */
+
+  inline-size: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-inline: var(--_card-padding-inline);
+  padding-block: var(--_card-padding-block);
+  color: var(--_card-color);
+
+  appearance: none;
+  border: 1px solid var(--_card-border-color);
+
+  background-color: var(--_card-background-color);
+  border-radius: var(--_card-border-radius);
+  box-shadow: var(--_card-shadow);
+
+  @media (--sm-n-above) {
+    --_card-padding-inline: var(--card-padding-inline, var(--spacing-far));
+  }
+
+  @media (--lg-n-above) {
+    --_card-padding-inline: var(--card-padding-inline, var(--spacing-farthest));
+  }
+}
+</style>
