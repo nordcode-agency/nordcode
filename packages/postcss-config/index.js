@@ -21,6 +21,7 @@ module.exports = {
         "focus-visible-pseudo-class": false,
         "focus-within-pseudo-class": false,
         "color-functional-notation": false,
+        "cascade-layers": false // @url https://github.com/nordcode-agency/nordcode/issues/1#issuecomment-1563886414
       },
     }),
     combineSelectors(),
