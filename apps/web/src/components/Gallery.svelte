@@ -9,6 +9,7 @@
   --_gallery-padding-block: var(--gallery-padding-block, 0);
 
   display: flex;
+  flex-direction: row;
   gap: calc(var(--_gallery-gap) / 2);
   margin: 0;
   max-inline-size: 100%;
