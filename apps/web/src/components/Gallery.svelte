@@ -1,4 +1,3 @@
-
 <ul class="gallery">
   <slot />
 </ul>
@@ -39,9 +38,7 @@
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
-  scroll-padding-left: var(--_gallery-gap);
-  scroll-padding-right: var(--_gallery-gap);
-  scroll-padding-inline: var(--_gallery-gap);
+  scroll-padding-inline: var(--gallery-scroll-padding-inline, var(--gallery-padding-inline, var(--_gallery-gap)));
   list-style: none;
 
   @media (prefers-reduced-motion: no-preference) {
