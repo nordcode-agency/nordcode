@@ -1,0 +1,9 @@
+@layer spacing-utils {
+    .mt-base {
+        margin-top: var(--spacing-base);
+    }
+
+    .mt-auto {
+        margin-top: auto;
+    }
+}
