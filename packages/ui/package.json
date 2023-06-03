@@ -8,6 +8,7 @@
   "exports": {
     "./bundle": "./src/styles/bundle.css",
     "./compiled/bundle": "./out/bundle.css",
+    "./media": "./src/styles/utils/media.css",
     "./fonts": "./src/assets/fonts/fonts.css",
     "./logo": "./src/assets/logos/nordcode-logo.svg"
   },
