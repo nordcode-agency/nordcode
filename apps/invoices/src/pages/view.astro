@@ -1,0 +1,11 @@
+---
+import MinimalLayout from '../layouts/MinimalLayout.astro';
+import InvoiceDisplay from "../modules/invoice/components/InvoiceDisplay.svelte";
+---
+
+<MinimalLayout title="Norcode Rechnungen">
+	<main>
+        <InvoiceDisplay client:only="svelte" />
+	</main>
+</MinimalLayout>
+

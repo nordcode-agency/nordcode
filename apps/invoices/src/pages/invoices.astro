@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InvoiceList from "../modules/invoice/components/InvoiceList.svelte"
+---
+
+<Layout title="Alle Rechnungen">
+    <div class="stack">
+        <h1>Alle Rechnungen</h1>
+        <InvoiceList client:load="svelte"/>
+    </div>
+</Layout>

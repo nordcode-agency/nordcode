@@ -1,0 +1,23 @@
+{
+  "name": "@nordcode/invoices",
+  "version": "0.0.0",
+  "private": true,
+    "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^2.2.0",
+    "@nordcode/ui": "workspace:^",
+    "astro": "^2.5.2",
+    "svelte": "^3.54.0"
+  },
+  "devDependencies": {
+    "@nordcode/postcss-config": "workspace:^",
+    "@nordcode/types": "workspace:^"
+  }
+}
