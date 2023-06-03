@@ -1,24 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.svelte';
-import Gallery from '../components/Gallery.svelte';
+import Hero from '../components/Hero.svelte';
+import Navigation from '../components/Navigation.svelte';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<Gallery>
-			{Array.from(Array(5).keys()).map(() => (
-
-				<li>
-					<Card>
-						<h1>Welcome to nordcode.</h1>
-					</Card>
-				</li>
-			))}
-		</Gallery>
-	</main>
+	<div class="nc-stack">
+		<Hero />
+		<Navigation />
+	</div>
 </Layout>
 
 <style>
-	
+	.nc-stack {
+		block-size: 100svh;
+	}
+
+	.hero {
+		max-inline-size: calc(100vw - 2 * var(--gallery-padding-inline));
+		inline-size: calc(100vw - 2 * var(--gallery-padding-inline));
+	}
 </style>
