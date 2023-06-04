@@ -7,20 +7,32 @@
     let invoices: InvoiceListItem[] = []
 
     onMount(() => {
-       invoices = loadInvoiceListFromLocalStorage()
+        invoices = loadInvoiceListFromLocalStorage()
         console.log(invoices)
     })
 </script>
 
-<ul>
+<table>
+    <thead>
+    <tr>
+        <th>Invoice Number</th>
+        <th>Customer Name</th>
+        <th>Total</th>
+        <th>Date</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
     {#each invoices as invoice}
-        <li>
-            <a href={`/view?id=${invoice.invoiceNumber}`} class="cluster">
-                <span>{invoice.invoiceNumber}</span>
-                <span>{invoice.customerName}</span>
-                <span>{formatMoney(invoice.total)}</span>
-                <span>{formatDateString(invoice.date)}</span>
-            </a>
-        </li>
+        <tr>
+            <td>{invoice.invoiceNumber}</td>
+            <td>{invoice.customerName}</td>
+            <td>{formatMoney(invoice.total)}</td>
+            <td>{formatDateString(invoice.date)}</td>
+            <td><a href={`/view?id=${invoice.invoiceNumber}`} class="cluster">
+                View </a></td>
+
+        </tr>
     {/each}
-</ul>
+    </tbody>
+</table>

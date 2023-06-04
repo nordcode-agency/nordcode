@@ -9,13 +9,13 @@ const {title} = Astro.props;
 ---
 
 <MinimalLayout title={title}>
-    <header>
+    <header class="layout-container">
         <Logo/>
     </header>
     <main class="layout-container">
         <slot/>
     </main>
-    <footer>
+    <footer class="layout-container">
         Liebe Grüße aus Zeetze & Hamburg
     </footer>
 </MinimalLayout>
@@ -25,6 +25,10 @@ const {title} = Astro.props;
     header {
         display: grid;
         place-items: center;
+        padding-block: var(--spacing-far);
+    }
+
+    footer {
         padding-block: var(--spacing-far);
     }
 </style>
