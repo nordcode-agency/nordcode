@@ -13,9 +13,11 @@
     "./inputs": "./src/styles/components/inputs.css",
     "./buttons": "./src/styles/components/buttons.css",
     "./badges": "./src/styles/components/badges.css",
+    "./dialogs": "./src/styles/components/dialogs.css",
     "./components": "./src/styles/components/bundle.css",
     "./logo": "./src/assets/logos/nordcode-logo.svg",
-    "./src/modules/forms/": "./src/modules/forms/"
+    "./src/modules/forms/": "./src/modules/forms/",
+    "./src/modules/dialogs/": "./src/modules/dialogs/"
   },
   "scripts": {
     "lib:all": "postcss src/styles/**/*.css --base src/styles --dir out",
