@@ -13,10 +13,10 @@
     }
 
     .stack.-stretched {
-        width: 100%;
+        inline-size: 100%;
 
         & > * {
-            width: 100%;
+            inline-size: 100%;
         }
     }
 
@@ -50,14 +50,14 @@
 
     .layout-container {
         margin-inline: auto;
-        width: 100%;
-        max-width: var(--layout-max-width);
+        inline-size: 100%;
+        max-inline-size: var(--layout-max-width);
         padding-inline: var(--layout-padding);
         display: grid;
         justify-items: start;
 
         & > * {
-            min-width: 0;
+            min-inline-size: 0;
         }
     }
 
@@ -99,6 +99,10 @@
 
     .layout-reset {
         --gap: unset;
+    }
+
+    .-full-width {
+        inline-size: 100%;
     }
 
 }
