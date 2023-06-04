@@ -50,5 +50,10 @@
         --color-shadow-dark-strong: oklch(8% 0.01 195.3);
         --color-shadow-dark-base: oklch(8% 0.01 195.3);
         --color-shadow-dark-subtle: oklch(8% 0.01 195.3);
+
+
+        /*    Status */
+        --color-status-error: oklch(62.67% 0.289 25.41);
+
     }
 }

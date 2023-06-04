@@ -13,13 +13,13 @@
 
 
 
-<div class="input-field | cluster | checkbox-input">
+<div class="nc-input-field | cluster | nc-checkbox-wrapper">
     <label for={id} class="stack">
-        <span class="input-label">{label} {#if optional}(optional){/if}</span>
-        {#if hint}<span class="input-hint">{hint}</span>{/if}
+        <span class="nc-input-label">{label} {#if optional}(optional){/if}</span>
+        {#if hint}<span class="nc-input-hint">{hint}</span>{/if}
         {#if errors?.length > 0}
         {#each errors as error}
-            <span class="input-error">{error}</span>
+            <span class="nc-input-error">{error}</span>
         {/each}
         {/if}
     </label>

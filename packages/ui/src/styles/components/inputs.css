@@ -1,0 +1,358 @@
+@layer components {
+    :root {
+        --_input-background: var(--input-background, var(--color-surface-strong));
+        --_input-color: var(--input-color, var(--color-text-strong));
+        --_input-border: var(
+                --input-border,
+                var(--border-width-thin) solid var(--color-text-subtle)
+        );
+
+        --_input-outline: var(
+                --input-outline,
+                var(--border-width-thick) solid var(--color-brand-primary-strong)
+        );
+        --_input-disabled-filter: var(
+                --input-disabled-filter,
+                contrast(0.72) opacity(0.72)
+        );
+
+        --_input-padding-block: var(--input-padding-block, var(--spacing-nearest));
+        --_input-padding-inline: var(--input-padding-inline, var(--spacing-near));
+    }
+
+    :where(fieldset:not([class]), .nc-fieldset) {
+        padding: var(--spacing-near);
+        border: var(--border-width-thick) solid var(--color-text-strong);
+        background-color: var(--color-surface-subtle);
+    }
+
+    :where(legend:not([class]), .nc-legend) {
+        font-family: var(--font-family-mono);
+        letter-spacing: var(--tracking-tight);
+        font-weight: var(--font-weight-regular);
+        color: var(--color-text-strong);
+        display: block;
+        font-size: var(--font-size-large);
+        padding-inline: var(--spacing-near);
+        padding-block: 0;
+        background-color: var(--color-surface-subtle);
+        border: var(--border-width-thin) solid var(--color-text-strong);
+        box-shadow: var(--shadow-away);
+    }
+
+    :where(label:not([class]),
+    .nc-input-label) {
+        font-family: var(--font-family-mono);
+        letter-spacing: var(--tracking-tight);
+        font-weight: var(--font-weight-regular);
+        color: var(--color-text-strong);
+        display: inline-flex;
+        font-size: inherit;
+        cursor: pointer;
+        gap: 0.5em;
+        align-items: center;
+    }
+
+    @custom-selector :--input :where(
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="url"],
+    input[type="search"],
+    input[type="date"],
+    input[type="month"],
+    input[type="week"],
+    input[type="text"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="time"],
+    input[type="tel"],
+    input[type="color"],
+    textarea,
+    select,
+    .nc-input
+  );
+
+    :--input {
+        font: inherit;
+        letter-spacing: inherit;
+        word-spacing: inherit;
+
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+
+
+        color: var(--_input-color);
+        background-color: var(--_input-background);
+        border: var(--_input-border);
+        border-radius: var(--border-radius-base);
+        block-size: var(--button-height-base);
+        padding-inline: var(--_input-padding-inline);
+        box-shadow: var(--shadow-inset);
+
+        &:focus {
+            outline: var(--_input-outline);
+            outline-offset: 0;
+        }
+
+        &:disabled {
+            filter: var(--_input-disabled-filter);
+            cursor: not-allowed;
+        }
+
+        &[required] {
+            border-inline-start-width: var(--border-width-thick);
+        }
+    }
+
+    :where(select:not([class]), .nc-select) {
+        padding-inline-end: 0.8em;
+        background-image: var(--triangle-down-url);
+        background-position: right 0.4em top 50%;
+        background-size: 1em 0.85em;
+    }
+
+    :where(select:not([class])::-ms-expand, .nc-select::-ms-expand) {
+        display: none;
+    }
+
+    :where(textarea:not([class]), .nc-textarea) {
+        min-height: calc(var(--button-height-base) * 2);
+        max-inline-size: 100%;
+        padding-block: var(--_input-padding-block);
+    }
+
+    :where(input[type="checkbox"]:not([class]), input[type="radio"]:not([class]), .nc-input-checkbox, .nc-input-radio) {
+        inline-size: calc(1em * var(--line-height-base));
+        block-size: calc(1em * var(--line-height-base));
+        aspect-ratio: 1;
+        margin: 0;
+        padding: 0;
+        -webkit-appearance: none;
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        border: var(--_input-border);
+        --current-background: var(--_input-background);
+        background: var(--current-background);
+        cursor: pointer;
+        transition: 0s background var(--ease-2);
+        box-shadow: var(--shadow-inset);
+
+
+        @media (--motionOK) {
+            transition-duration: 250ms;
+        }
+
+        &:disabled {
+            filter: var(--_input-disabled-filter);
+            cursor: not-allowed;
+        }
+    }
+
+    :where(input[type="checkbox"]:not([class]), .nc-input-checkbox) {
+        &:before {
+            content: "";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            inline-size: 40%;
+            block-size: 60%;
+            background-color: var(--color-surface-strong);
+            opacity: 0;
+            transform: scale(0.9) translateX(100%);
+            transition: opacity var(--ease-2) 0ms, transform var(--ease-2) 0ms;
+            font-family: var(--font-family-sans);
+            --font-weight: var(--font-weight-bold);
+            line-height: 1;
+            color: var(--color-surface-strong);
+
+            @media (--motionOK) {
+                transition-duration: 50ms;
+            }
+        }
+
+        &:checked {
+            --current-background: var(--color-brand-primary-strong);
+
+            &:before {
+                opacity: 1;
+                transform: scale(1) translateX(0%);
+            }
+        }
+    }
+
+    :where(input[type="radio"], .nc-input-radio) {
+        &:before {
+            content: "";
+            display: inline-flex;
+            background: var(--_input-color);
+            block-size: calc(100% - 2 * var(--spacing-near));
+            inline-size: calc(100% - 2 * var(--spacing-near));
+            opacity: 0;
+            transition: opacity var(--ease-2) 250ms;
+        }
+
+        &:checked {
+            --current-background: var(--color-brand-primary-strong);
+
+            &:before {
+                opacity: 1;
+            }
+        }
+    }
+
+    :where(input[type="color"], .nc-input-color) {
+        aspect-ratio: 1;
+        width: auto;
+        padding: calc(var(--button-height-base) / 12);
+    }
+
+
+    /*EXTRAS START HERE */
+    :where(.nc-input-field) {
+        display: grid;
+        gap: var(--spacing-nearest);
+        grid-template-columns: minmax(0, 1fr);
+        width: fit-content;
+        place-items: start;
+
+        & > label {
+            --gap: var(--spacing-tiny);
+        }
+    }
+
+    :where(.nc-input-hint) {
+        --color-default: var(--color-text-subtle);
+        display: block;
+
+        &:before {
+            content: "?";
+        }
+    }
+
+    :where(.nc-input-error) {
+        --color-default: var(--color-status-error);
+        color: var(--color-default);
+
+        &:before {
+            content: "!";
+        }
+    }
+
+    :where(.nc-input-error,
+            .nc-input-hint) {
+        &:before {
+            font-family: var(--font-family-mono);
+            letter-spacing: var(--tracking-tight);
+            font-weight: var(--font-weight-regular);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-default);
+            color: var(--color-surface-strong);
+            margin-right: 0.5em;
+            inline-size: 1em;
+            block-size: 1em;
+            aspect-ratio: 1;
+        }
+    }
+
+    :where(.nc-checkbox-wrapper) {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: var(--spacing-near);
+        width: fit-content;
+        place-items: start;
+        font-size: inherit;
+    }
+
+    :where(.nc-input-switch) {
+        --_switch-width: var(--switch-width, calc(1em * var(--line-height-base) * 2));
+        --_switch-height: var(--switch-height, calc(var(--_switch-width) / 2));
+        --_switch-color: var(--switch-color, var(--_input-background));
+        --_switch-color-checked: var(
+                --switch-color-checked,
+                var(--color-brand-primary-strong)
+        );
+        --_thumb-margin: var(--thumb-margin, calc(var(--_switch-width) / 12));
+        --_thumb-color: var(--thumb-color, var(--_input-color));
+
+        vertical-align: var(--_thumb-margin);
+        inline-size: var(--_switch-width);
+        block-size: var(--_switch-height);
+        box-sizing: border-box;
+        border-radius: var(--border-radius-base);
+        --current-background: var(--_switch-color);
+        justify-content: flex-start;
+
+        @media (--motionOK) {
+            transition-duration: 250ms;
+        }
+
+        &:before {
+            content: "";
+            display: block;
+            aspect-ratio: 1;
+            margin: var(--_thumb-margin);
+            block-size: calc(100% - 2 * var(--_thumb-margin));
+            background: var(--_thumb-color);
+            border-radius: var(--border-radius-base);
+            transition: margin;
+            transition-duration: inherit;
+        }
+
+        &:checked {
+            --current-background: var(--_switch-color-checked);
+        }
+
+        &:checked:before {
+            margin-inline-start: calc(
+                    var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin)
+            );
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus:before {
+            outline: var(--_input-outline);
+            outline-offset: 0;
+        }
+    }
+
+
+    /* @todo: might be irrelevant */
+    :where(.nc-select-wrapper) {
+        display: grid;
+        grid-template: "select" 1fr / 1fr;
+        color: var(--_input-color);
+
+        &:after {
+            grid-area: select;
+            content: "V";
+            justify-self: end;
+            align-self: center;
+            width: 0.71em;
+            height: 0.48em;
+            background-color: var(--_input-color);
+            clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+            margin-inline-end: var(--spacing-near);
+        }
+    }
+
+    :where(select.nc-select) {
+        appearance: none;
+        grid-area: select;
+        padding-inline-end: var(--spacing-far);
+    }
+
+
+}
+
+

@@ -10,7 +10,9 @@
     "./compiled/bundle": "./out/bundle.css",
     "./media": "./src/styles/utils/media.css",
     "./fonts": "./src/assets/fonts/fonts.css",
-    "./logo": "./src/assets/logos/nordcode-logo.svg"
+    "./inputs": "./src/styles/components/inputs.css",
+    "./logo": "./src/assets/logos/nordcode-logo.svg",
+    "./src/modules/forms/": "./src/modules/forms/"
   },
   "scripts": {
     "lib:all": "postcss src/styles/**/*.css --base src/styles --dir out",
@@ -18,6 +20,7 @@
     "build": "pnpm run '/^lib:.*/'"
   },
   "devDependencies": {
-    "@nordcode/postcss-config": "workspace:^"
+    "@nordcode/postcss-config": "workspace:^",
+    "postcss-cli": "^10.1.0"
   }
 }

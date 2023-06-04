@@ -36,7 +36,7 @@
 </script>
 
 
-<input class="input"
+<input class="nc-input"
        id={id}
        name={name}
        aria-required={!optional}

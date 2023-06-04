@@ -25,11 +25,11 @@
 </script>
 
 <InputWrapper {id} {label} {optional} {errors} {hint}>
-    <textarea class="input textarea" id={id}
-           name={name}
-           aria-required={!optional}
-           value={splitLines ? value?.join("\n") : value}
-           on:input={handleInput}
+    <textarea class="nc-input nc-textarea" id={id}
+              name={name}
+              aria-required={!optional}
+              value={splitLines ? value?.join("\n") : value}
+              on:input={handleInput}
     ></textarea>
     <slot></slot>
 </InputWrapper>
