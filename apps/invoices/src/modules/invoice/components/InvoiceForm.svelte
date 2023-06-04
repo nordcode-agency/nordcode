@@ -14,9 +14,9 @@
     }
 </script>
 
-<div>
+<div class="stack -full-width">
     <h1 class="typo-2xl mb-s1">Neue Rechnung anlegen</h1>
-    <form class="stack -layout-l" on:submit={createInvoice}>
+    <form class="stack -layout-l -full-width" on:submit={createInvoice}>
         <Input bind:errors={$currentInvoice.errors.title}
                name="title"
                label="Rechnungs Titel"
@@ -24,7 +24,7 @@
                type="text"
                bind:value={$currentInvoice.invoice.title}
         />
-        <fieldset class="stack -layout-m">
+        <fieldset class="stack -layout-m -full-width">
             <legend>Allgemeines</legend>
 
             <Input errors={$currentInvoice.errors.invoiceNumber}
@@ -60,7 +60,7 @@
             />
         </fieldset>
 
-        <fieldset class="stack -layout-m">
+        <fieldset class="stack -layout-m -full-width">
             <legend>Empfänger</legend>
             <Input errors={$currentInvoice.errors.recipient}
                    name="recipientName"
@@ -79,7 +79,7 @@
 
         </fieldset>
 
-        <fieldset class="stack -layout-m">
+        <fieldset class="stack -layout-m -full-width">
             <legend>Leistungen</legend>
             <Input errors={$currentInvoice.errors.jobDuration}
                    name="jobDuration"
@@ -103,7 +103,7 @@
             {/each}
             <button class="CTA-button" type="button" on:click={addJobDescription}>Leistung hinzufügen</button>
         </fieldset>
-        <fieldset class="stack -layout-m">
+        <fieldset class="stack -layout-m -full-width">
                         <legend>Rechnungsdetails</legend>
 
              <Textarea errors={$currentInvoice.errors.notes}
