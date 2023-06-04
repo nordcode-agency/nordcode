@@ -35,7 +35,7 @@
 
 </script>
 
-
+<div class="cluster -full-width nc-date-input">
 <input class="nc-input"
        id={id}
        name={name}
@@ -45,8 +45,14 @@
        value={internalValue}
        on:input={handleInput}
 >
-<button type="button" class="CTA-button" on:click={setToday}>
+<button type="button" class="nc-button" on:click={setToday}>
     Heute
 </button>
+</div>
 
+<style>
+    .nc-date-input {
+        flex-flow: row nowrap;
+    }
+</style>
 

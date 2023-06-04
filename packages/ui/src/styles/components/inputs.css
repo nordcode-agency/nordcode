@@ -94,6 +94,7 @@
         block-size: var(--button-height-base);
         padding-inline: var(--_input-padding-inline);
         box-shadow: var(--_input-box-shadow);
+        inline-size: 100%;
 
         &:focus {
             outline: var(--_input-outline);
@@ -221,7 +222,8 @@
         display: grid;
         gap: var(--spacing-nearest);
         grid-template-columns: minmax(0, 1fr);
-        width: fit-content;
+        inline-size: 100%;
+        max-inline-size: var(--input-field-max-inline-size);
         place-items: start;
 
         & > label {
@@ -266,12 +268,21 @@
     }
 
     :where(.nc-checkbox-wrapper) {
-        display: flex;
-        flex-flow: row nowrap;
+        display: grid;
+        grid-template:
+            "checkbox label" 1fr
+            / auto 1fr;
         gap: var(--spacing-near);
-        width: fit-content;
         place-items: start;
         font-size: inherit;
+
+        & > label {
+            grid-area: label;
+        }
+
+        & > input {
+            grid-area: checkbox;
+        }
     }
 
     :where(.nc-input-switch) {

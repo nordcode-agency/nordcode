@@ -23,7 +23,8 @@
         {/each}
         {/if}
     </label>
-    <input       id={id}
+    <input
+            id={id}
        name={name}
        aria-required={!optional}
        autocomplete={autocomplete}
