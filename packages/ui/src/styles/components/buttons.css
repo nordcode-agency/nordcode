@@ -1,0 +1,216 @@
+@layer components {
+    .buttonReset {
+        padding: 0;
+        border: none;
+        background: none;
+    }
+
+    :where(html) {
+        --_button-background: var(--button-background, var(--color-text-strong));
+        --_button-color: var(--button-color, var(--color-surface-subtle));
+        --_button-border-color: var(--button-border-color, var(--color-text-strong));
+        --_button-border-radius: var(--button-border-radius, var(--border-radius-base));
+        --_button-transform: var(--button-transform, translate(
+                calc(-2px),
+                calc(-2px)
+        ));
+        --_button-box-shadow: var(--button-box-shadow, var(--shadow-near));
+        --_button-background-hover: var(--button-background-hover, var(--color-brand-primary-strong));
+        --_button-color-hover: var(--button-color-hover, var(--color-text-strong));
+        --_button-border-color-hover: var(--button-border-color-hover, var(--color-text-strong));
+        --_button-hover-transform: var(--button-hover-transform, translate(
+                calc(-1px),
+                calc(-1px)
+        ));
+
+        --_button-hover-shadow: var(--button-hover-shadowm, var(--shadow-nearest));
+        --_button-padding-inline: var(--button-padding-inline, var(--spacing-near));
+    }
+
+    :where(
+    button,
+    button[type],
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"]
+  ),
+    :where(input[type="file"])::-webkit-file-upload-button,
+    :where(input[type="file"])::file-selector-button,
+    .nc-button {
+
+
+        background-color: var(--_button-background);
+        color: var(--_button-color);
+        border-width: var(--border-width-thin);
+        border-color: var(--_button-border-color);
+        border-style: solid;
+        border-radius: var(--_button-border-radius);
+        padding-inline: var(--_button-padding-inline);
+        min-block-size: var(--button-height-base);
+        padding-block: 0;
+        font-family: var(--font-family-mono);
+        letter-spacing: var(--tracking-tight);
+        font-weight: var(--font-weight-regular);
+        font-size: inherit;
+        cursor: pointer;
+        display: inline-flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        transition: box-shadow var(var(--transition-duration-base)) var(--ease-2),
+        transform var(--transition-duration-base) var(--ease-2);
+        text-decoration: unset;
+        box-shadow: var(--_button-box-shadow);
+        transform: var(--_button-transform);
+        will-change: transform;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        inset-block-start: 2px;
+        inset-inline-start: 2px;
+    }
+
+    :where(
+    button,
+    button[type],
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    .nc-button
+  ) {
+        &:after {
+            content: "" !important;
+        }
+
+        &:hover {
+            --_button-background: var(--_button-background-hover) !important;
+            --_button-color: var(--_button-color-hover) !important;
+            --_button-border-color: var(--_button-border-color-hover) !important;
+            --_button-box-shadow: var(--_button-hover-shadow) !important;
+            --_button-transform: var(--_button-hover-transform) !important;
+        }
+
+        &:hover:after {
+            inline-size: calc(100% + var(--spacing-near)) !important;
+            block-size: calc(100% + var(--spacing-near)) !important;
+            z-index: -1 !important;
+            position: absolute !important;
+            inset-block-start: 0 !important;
+            inset-inline-start: 0 !important;
+            pointer-events: none !important;
+        }
+
+        &:active {
+            box-shadow: none;
+            transform: none;
+        }
+
+        &[disabled] {
+            --button-background: none !important;
+            --button-background-hover: none !important;
+            --button-color: var(--color-text-subtle) !important;
+            --button-color-hover: var(--_button-color) !important;
+            --button-border-color: var(--color-text-subtle) !important;
+            --button-border-color-hover: var(--_button-border-color);
+
+            box-shadow: none !important;
+            transform: none !important;
+            filter: contrast(0.72) opacity(0.72);
+            cursor: not-allowed;
+        }
+
+        &.-active {
+            background-color: var(--_button-background-hover);
+            color: var(--_button-color-hover);
+            border-color: var(--_button-border-color-hover);
+
+            box-shadow: none;
+            transform: none;
+        }
+
+        &.-secondary {
+            --_button-background: var(--color-surface-subtle);
+            --_button-color: var(--color-text-subtle);
+            --_button-border-color: var(--color-text-strong);
+
+            --_button-background-hover: var(--color-surface-subtle);
+            --_button-color-hover: var(--color-text-strong);
+            --_button-border-color-hover: var(--color-text-strong);
+        }
+
+        &.-stealth {
+            --_button-background: transparent;
+            --_button-color: var(--color-text-strong);
+            --_button-border-color: transparent;
+
+            --_button-background-hover: transparent;
+            --_button-color-hover: var(--color-brand-primary-strong);
+            --_button-border-color-hover: transparent;
+
+            box-shadow: none !important;
+            transform: none !important;
+        }
+    }
+
+    :where(input[type="file"]) {
+        color: var(--color-text-strong);
+        background-color: var(--color-surface-strong);
+        border: var(--border-width-thin) solid var(--color-text-strong);
+        height: var(--button-height-base);
+        padding-inline-end: var(--spacing-near);
+        border-radius: var(--_button-border-radius);
+    }
+
+    :where(input[type="file"])::-webkit-file-upload-button,
+    :where(input[type="file"])::file-selector-button {
+        margin-inline-end: var(--spacing-near);
+        cursor: pointer;
+        box-shadow: none;
+        min-block-size: calc(var(--button-height-base) - var(--border-width-thin));
+        border: none;
+        border-inline-end: var(--border-width-thin) solid var(--color-text-strong);
+        transform: none;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        border-start-end-radius: 0;
+        border-end-end-radius: 0;
+    }
+
+    :where(button[type="reset"], .nc-button.-destructive) {
+        padding-inline-start: 0 !important;
+        --button-background-hover: var(--color-status-error) !important;
+
+        &:before {
+            border: var(--border-width-thin) solid transparent;
+            content: "⨯";
+            background: var(--_button-color);
+            color: var(--_button-background);
+            aspect-ratio: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-inline-end: var(--_button-padding-inline);
+            block-size: 1em;
+            inline-size: 1em;
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-large);
+            position: relative;
+            transform: translateX(25%);
+        }
+
+        &:hover:before {
+            background: var(--_button-color);
+            color: var(--color-status-error);
+        }
+
+        @supports not (aspect-ratio: 1) {
+            padding-inline-start: var(--_button-padding-inline);
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
