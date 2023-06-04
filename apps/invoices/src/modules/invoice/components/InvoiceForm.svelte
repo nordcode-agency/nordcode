@@ -15,8 +15,8 @@
 </script>
 
 <div class="stack -full-width">
-    <h1 class="typo-2xl mb-s1">Neue Rechnung anlegen</h1>
-    <form class="stack -layout-l -full-width" on:submit={createInvoice}>
+    <h1>Neue Rechnung anlegen</h1>
+    <form class="stack -layout-far -full-width" on:submit={createInvoice}>
         <Input bind:errors={$currentInvoice.errors.title}
                name="title"
                label="Rechnungs Titel"
@@ -24,7 +24,7 @@
                type="text"
                bind:value={$currentInvoice.invoice.title}
         />
-        <fieldset class="stack -layout-m -full-width">
+        <fieldset class="stack -layout-base -full-width">
             <legend>Allgemeines</legend>
 
             <Input errors={$currentInvoice.errors.invoiceNumber}
@@ -60,7 +60,7 @@
             />
         </fieldset>
 
-        <fieldset class="stack -layout-m -full-width">
+        <fieldset class="stack -layout-base -full-width">
             <legend>Empfänger</legend>
             <Input errors={$currentInvoice.errors.recipient}
                    name="recipientName"
@@ -79,7 +79,7 @@
 
         </fieldset>
 
-        <fieldset class="stack -layout-m -full-width">
+        <fieldset class="stack -layout-base -full-width">
             <legend>Leistungen</legend>
             <Input errors={$currentInvoice.errors.jobDuration}
                    name="jobDuration"
@@ -97,13 +97,13 @@
                     id={`job-${job.id}`}
                     bind:value={job.description}
             >
-                    <button class="CTA-button -small -secondary -destructive" type="button" on:click={() => removeJobDescription(job.id)}>Leistung "{index + 1}" löschen</button>
+                    <button class="nc-button -small -secondary -destructive" type="button" on:click={() => removeJobDescription(job.id)}>Leistung "{index + 1}" löschen</button>
                 </Textarea>
                 </div>
             {/each}
-            <button class="CTA-button" type="button" on:click={addJobDescription}>Leistung hinzufügen</button>
+            <button class="nc-button" type="button" on:click={addJobDescription}>Leistung hinzufügen</button>
         </fieldset>
-        <fieldset class="stack -layout-m -full-width">
+        <fieldset class="stack -layout-base -full-width">
                         <legend>Rechnungsdetails</legend>
 
              <Textarea errors={$currentInvoice.errors.notes}
@@ -126,6 +126,13 @@
                    type="checkbox"
                    bind:value={$currentInvoice.invoice.hasUmsatzSteuer} />
         </fieldset>
-        <button class="CTA-button" type="submit">Rechnung generieren</button>
+        <button class="nc-button" type="submit">Rechnung generieren</button>
     </form>
 </div>
+
+
+<style lang="postcss">
+    form {
+        --input-field-max-inline-size: 40ch;
+    }
+</style>
