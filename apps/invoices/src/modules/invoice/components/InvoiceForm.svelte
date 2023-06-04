@@ -1,7 +1,7 @@
 <script lang="ts">
     import {addJobDescription, currentInvoice, removeJobDescription} from "../invoiceStore";
-    import Input from "../../forms/InputFields/Input.svelte";
-    import Textarea from "../../forms/InputFields/Textarea.svelte";
+    import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
+    import Textarea from "@nordcode/ui/src/modules/forms/svelte/InputFields/Textarea.svelte";
     import {saveInvoiceToLocalStorage} from "../utils/invoiceToLocalStorage";
 
 
