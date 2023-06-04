@@ -6,7 +6,10 @@
                 --input-border,
                 var(--border-width-thin) solid var(--color-text-subtle)
         );
+        --_input-border-radius: var(--input-border-radius, var(--border-radius-base));
 
+
+        --_input-box-shadow: var(--input-box-shadow, var(--shadow-inset));
         --_input-outline: var(
                 --input-outline,
                 var(--border-width-thick) solid var(--color-brand-primary-strong)
@@ -87,10 +90,10 @@
         color: var(--_input-color);
         background-color: var(--_input-background);
         border: var(--_input-border);
-        border-radius: var(--border-radius-base);
+        border-radius: var(--_input-border-radius);
         block-size: var(--button-height-base);
         padding-inline: var(--_input-padding-inline);
-        box-shadow: var(--shadow-inset);
+        box-shadow: var(--_input-box-shadow);
 
         &:focus {
             outline: var(--_input-outline);
@@ -108,10 +111,10 @@
     }
 
     :where(select:not([class]), .nc-select) {
-        padding-inline-end: 0.8em;
+        padding-inline-end: var(--spacing-far);
         background-image: var(--triangle-down-url);
-        background-position: right 0.4em top 50%;
-        background-size: 1em 0.85em;
+        background-position: right var(--spacing-near) top 50%;
+        background-size: 1em 0.8em;
     }
 
     :where(select:not([class])::-ms-expand, .nc-select::-ms-expand) {
@@ -140,13 +143,9 @@
         --current-background: var(--_input-background);
         background: var(--current-background);
         cursor: pointer;
-        transition: 0s background var(--ease-2);
-        box-shadow: var(--shadow-inset);
+        transition: var(--transition-duration-short) background var(--ease-2);
+        box-shadow: var(--_input-box-shadow);
 
-
-        @media (--motionOK) {
-            transition-duration: 250ms;
-        }
 
         &:disabled {
             filter: var(--_input-disabled-filter);
@@ -155,53 +154,57 @@
     }
 
     :where(input[type="checkbox"]:not([class]), .nc-input-checkbox) {
+        --_transition-duration: 0ms;
+        overflow: hidden;
+        border-radius: var(--_input-border-radius);
+
         &:before {
             content: "";
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            inline-size: 40%;
-            block-size: 60%;
+            inline-size: 0.8em;
+            block-size: 0.8em;
             background-color: var(--color-surface-strong);
-            opacity: 0;
-            transform: scale(0.9) translateX(100%);
-            transition: opacity var(--ease-2) 0ms, transform var(--ease-2) 0ms;
+            transform: scale(0.8) translateY(2em);
+            transition: transform var(--ease-out-2) var(--transition-duration-short);
             font-family: var(--font-family-sans);
             --font-weight: var(--font-weight-bold);
             line-height: 1;
-            color: var(--color-surface-strong);
-
-            @media (--motionOK) {
-                transition-duration: 50ms;
-            }
+            color: var(--_input-background);
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
         }
+
 
         &:checked {
             --current-background: var(--color-brand-primary-strong);
 
             &:before {
-                opacity: 1;
-                transform: scale(1) translateX(0%);
+                transform: scale(1) translateY(0%);
             }
         }
     }
 
     :where(input[type="radio"], .nc-input-radio) {
+        border-radius: var(--border-radius-round);
+        overflow: hidden;
+
         &:before {
             content: "";
             display: inline-flex;
-            background: var(--_input-color);
+            background: var(--_input-background);
             block-size: calc(100% - 2 * var(--spacing-near));
             inline-size: calc(100% - 2 * var(--spacing-near));
-            opacity: 0;
-            transition: opacity var(--ease-2) 250ms;
+            border-radius: var(--border-radius-round);
+            transform: scale(0.8) translateY(2em);
+            transition: transform var(--ease-out-2) var(--transition-duration-short);
         }
 
         &:checked {
             --current-background: var(--color-brand-primary-strong);
 
             &:before {
-                opacity: 1;
+                transform: scale(1) translateY(0%);
             }
         }
     }
@@ -286,7 +289,7 @@
         inline-size: var(--_switch-width);
         block-size: var(--_switch-height);
         box-sizing: border-box;
-        border-radius: var(--border-radius-base);
+        border-radius: var(--_input-border-radius);
         --current-background: var(--_switch-color);
         justify-content: flex-start;
 
@@ -301,7 +304,7 @@
             margin: var(--_thumb-margin);
             block-size: calc(100% - 2 * var(--_thumb-margin));
             background: var(--_thumb-color);
-            border-radius: var(--border-radius-base);
+            border-radius: var(--_input-border-radius);
             transition: margin;
             transition-duration: inherit;
         }
@@ -325,34 +328,6 @@
             outline-offset: 0;
         }
     }
-
-
-    /* @todo: might be irrelevant */
-    :where(.nc-select-wrapper) {
-        display: grid;
-        grid-template: "select" 1fr / 1fr;
-        color: var(--_input-color);
-
-        &:after {
-            grid-area: select;
-            content: "V";
-            justify-self: end;
-            align-self: center;
-            width: 0.71em;
-            height: 0.48em;
-            background-color: var(--_input-color);
-            clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-            margin-inline-end: var(--spacing-near);
-        }
-    }
-
-    :where(select.nc-select) {
-        appearance: none;
-        grid-area: select;
-        padding-inline-end: var(--spacing-far);
-    }
-
-
 }
 
 

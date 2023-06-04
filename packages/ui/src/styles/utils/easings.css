@@ -36,5 +36,17 @@
     --ease-step-3: steps(4);
     --ease-step-4: steps(7);
     --ease-step-5: steps(10);
+
+    --transition-duration-instant: 0ms;
+    --transition-duration-short: 100ms;
+    --transition-duration-base: 200ms;
+    --transition-duration-long: 300ms;
+
+    @media (--motionNotOK) {
+        --transition-duration-instant: 0ms;
+        --transition-duration-short: 0ms;
+        --transition-duration-base: 0ms;
+        --transition-duration-long: 0ms;
+    }
   }
 }

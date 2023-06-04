@@ -26,6 +26,10 @@
         --shadow-away: var(--shadow-away-light);
         --shadow-near: var(--shadow-near-light);
         --shadow-nearest: var(--shadow-nearest-light);
+
+
+        --triangle-down-url: var(--triangle-down-url-light);
+        --triangle-up-url: var(--triangle-up-url-light);
     }
 
     @media (--OSdark) {
@@ -56,6 +60,9 @@
             --shadow-away: var(--shadow-away-dark);
             --shadow-near: var(--shadow-near-dark);
             --shadow-nearest: var(--shadow-nearest-dark);
+
+            --triangle-down-url: var(--triangle-down-url-dark);
+            --triangle-up-url: var(--triangle-up-url-dark);
         }
     }
 
@@ -85,7 +92,10 @@
         --shadow-inset: var(--shadow-inset-light);
         --shadow-away: var(--shadow-away-light);
         --shadow-near: var(--shadow-near-light);
-        --shadow-nearest: car(--shadow-nearest-light);
+        --shadow-nearest: var(--shadow-nearest-light);
+
+        --triangle-down-url: var(--triangle-down-url-light);
+        --triangle-up-url: var(--triangle-up-url-light);
 
 
     }
@@ -117,5 +127,9 @@
         --shadow-away: var(--shadow-away-dark);
         --shadow-near: var(--shadow-near-dark);
         --shadow-nearest: var(--shadow-nearest-dark);
+
+        --triangle-down-url: var(--triangle-down-url-dark);
+        --triangle-up-url: var(--triangle-up-url-dark);
+
     }
 }
