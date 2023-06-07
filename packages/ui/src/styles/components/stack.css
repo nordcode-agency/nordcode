@@ -1,0 +1,12 @@
+.nc-stack {
+  --_nc-stack-gap: var(--nc-stack-gap, var(--spacing-far));
+  --_nc-stack-justify-items: var(--nc-stack-justify-items, stretch);
+
+  display: grid;
+  gap: var(--_nc-stack-gap);
+  justify-items: var(--_nc-stack-justify-items);
+
+  & > * {
+    min-inline-size: 0;
+  }
+}
