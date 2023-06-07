@@ -1,0 +1,17 @@
+.nc-ram-grid {
+  --_nc-ram-grid-gap-row: var(--fd-ram-grid-gap-row, var(--_nc-ram-grid-gap));
+  --_nc-ram-grid-gap-column: var(--fd-ram-grid-gap-column, var(--_nc-ram-grid-gap));
+  --_nc-ram-grid-gap: var(--fd-ram-grid-gap, var(--size-fluid-2));
+  --_nc-ram-grid-min-width: var(--fd-ram-grid-min-width, 150px);
+  --_nc-ram-grid-repeat-count: var(--fd-ram-grid-repeat-count, auto-fit);
+
+
+  display: grid;
+  row-gap: var(--_nc-ram-grid-gap-row);
+  column-gap: var(--_nc-ram-grid-gap-column);
+  grid-template-columns:
+    repeat(
+      var(--_nc-ram-grid-repeat-count),
+      minmax(min(var(--_nc-ram-grid-min-width), 100%), 1fr)
+    );
+}
