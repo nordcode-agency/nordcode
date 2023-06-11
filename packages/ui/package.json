@@ -8,6 +8,7 @@
   "exports": {
     "./bundle": "./src/styles/bundle.css",
     "./compiled/bundle": "./out/bundle.css",
+    "./base": "./src/styles/utils/base.css",
     "./media": "./src/styles/utils/media.css",
     "./fonts": "./src/assets/fonts/fonts.css",
     "./inputs": "./src/styles/components/inputs.css",
