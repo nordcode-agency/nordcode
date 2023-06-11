@@ -42,6 +42,28 @@ importers:
         specifier: workspace:^
         version: link:../../packages/types
 
+  apps/ui-generator:
+    dependencies:
+      '@astrojs/svelte':
+        specifier: ^2.2.0
+        version: 2.2.0(astro@2.5.2)(svelte@3.54.0)(typescript@4.9.5)(vite@4.3.7)
+      '@nordcode/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
+      astro:
+        specifier: ^2.5.2
+        version: 2.5.2
+      svelte:
+        specifier: ^3.54.0
+        version: 3.54.0
+    devDependencies:
+      '@nordcode/postcss-config':
+        specifier: workspace:^
+        version: link:../../packages/postcss-config
+      '@nordcode/types':
+        specifier: workspace:^
+        version: link:../../packages/types
+
   apps/web:
     dependencies:
       '@astrojs/svelte':

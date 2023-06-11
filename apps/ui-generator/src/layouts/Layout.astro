@@ -1,0 +1,78 @@
+---
+import ConfigLoader from "../modules/config/components/ConfigLoader.svelte";
+export interface Props {
+    title: string;
+}
+
+const {title} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="generator" content={Astro.generator}/>
+    <title>{title}</title>
+</head>
+<body>
+<main>
+    <header>
+        <slot name="header"/>
+    </header>
+
+    <aside>
+        <slot name="aside"/>
+    </aside>
+    <section>
+        <ConfigLoader client:load="svelte">
+            <slot name="content"/>
+        </ConfigLoader>
+    </section>
+</main>
+</body>
+</html>
+<style is:global>
+    @import "@nordcode/ui/bundle";
+    @import "@nordcode/ui/fonts";
+    @import "@nordcode/ui/badges";
+    @import "@nordcode/ui/inputs";
+        @import "@nordcode/ui/buttons";
+
+    main {
+        display: grid;
+        grid-template:
+            "header header" 50px
+            "config content" calc(100% - 50px)
+            / 400px 1fr;
+        background: var(--color-surface-strong);
+        inline-size: 100%;
+        min-block-size: 100vh;
+        max-block-size: 100vh;
+        overflow: hidden;
+    }
+
+    header {
+        grid-area: header;
+        background: var(--color-surface-base);
+        padding-block: var(--spacing-near);
+        padding-inline: var(--spacing-base);
+    }
+
+    aside {
+        grid-area: config;
+        background: var(--color-surface-base);
+        padding-block: var(--spacing-base);
+        padding-inline: var(--spacing-base);
+                overflow-y: auto;
+    }
+
+    section {
+        grid-area: content;
+        background: var(--color-surface-base);
+        padding-block: var(--spacing-base);
+        padding-inline: var(--spacing-base);
+        overflow-y: auto;
+    }
+</style>
