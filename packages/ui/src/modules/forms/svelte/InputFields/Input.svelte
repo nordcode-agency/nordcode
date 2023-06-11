@@ -9,7 +9,7 @@
     export let id: string;
     export let errors: string[] = [];
     export let hint: string = '';
-    export let autocomplete: string;
+    export let autocomplete: string = 'off';
     export let type: string = 'text';
     export let optional: boolean = false;
 
@@ -19,11 +19,11 @@
 {#if type === "checkbox"}
     <CheckboxInput {id} {name} bind:value={value} {label} {autocomplete} {optional} {errors} {hint} />
 {:else}
-<InputWrapper {id} {label} {autocomplete} {optional} {errors} {hint}>
+<InputWrapper {id} {label} {optional} {errors} {hint}>
     {#if type === 'date'}
-    <DateInput {id} {name} {optional} {autocomplete} bind:value={value} />
+    <DateInput {id} {name} {optional} {autocomplete} bind:value={value}/>
     {:else}
-        <GenericInput {id} {name} {optional} {autocomplete} {type} bind:value={value} />
+        <GenericInput {id} {name} {optional} {autocomplete} {type} bind:value={value} {...$$restProps} />
     {/if}
     <slot></slot>
 </InputWrapper>

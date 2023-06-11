@@ -1,10 +1,9 @@
 <script lang="ts">
-    export let label: string;
     export let name: string;
     export let id: string;
     export let errors: string[] = [];
     export let hint: string = '';
-    export let autocomplete: string;
+    export let autocomplete: string = 'off';
     export let type: string = 'text';
     export let optional: boolean = false;
 
@@ -31,5 +30,6 @@
        type={type}
        value={value}
        on:input={handleInput}
+       {...$$restProps}
 >
 
