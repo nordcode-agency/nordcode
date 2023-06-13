@@ -1,7 +1,7 @@
 .badge {
   --color: currentColor;
 
-  font-family: var(--font-family-mono);
+  font-family: var(--font-family-sans);
   letter-spacing: var(--tracking-tight);
   font-weight: var(--font-weight-regular);
   color: var(--color);

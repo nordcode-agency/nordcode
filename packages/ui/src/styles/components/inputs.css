@@ -4,12 +4,12 @@
         --_input-color: var(--input-color, var(--color-text-strong));
         --_input-border: var(
                 --input-border,
-                var(--border-width-thin) solid var(--color-text-subtle)
+                var(--border-width-thin) solid var(--color-border-base)
         );
         --_input-border-radius: var(--input-border-radius, var(--border-radius-base));
 
 
-        --_input-box-shadow: var(--input-box-shadow, var(--shadow-inset));
+        --_input-box-shadow: none;
         --_input-outline: var(
                 --input-outline,
                 var(--border-width-thick) solid var(--color-brand-primary-strong)
@@ -25,27 +25,27 @@
 
     :where(fieldset:not([class]), .nc-fieldset) {
         padding: var(--spacing-near);
-        border: var(--border-width-thick) solid var(--color-text-strong);
-        background-color: var(--color-surface-subtle);
+        border: var(--border-width-thin) solid var(--color-border-subtle);
+        border-radius: var(--border-radius-large);
     }
 
     :where(legend:not([class]), .nc-legend) {
-        font-family: var(--font-family-mono);
+        font-family: var(--font-family-default);
         letter-spacing: var(--tracking-tight);
         font-weight: var(--font-weight-regular);
         color: var(--color-text-strong);
         display: block;
-        font-size: var(--font-size-large);
+        font-size: var(--font-size-base);
         padding-inline: var(--spacing-near);
         padding-block: 0;
         background-color: var(--color-surface-subtle);
         border: var(--border-width-thin) solid var(--color-text-strong);
-        box-shadow: var(--shadow-away);
+        border-radius: var(--border-radius-small);
     }
 
     :where(label:not([class]),
     .nc-input-label) {
-        font-family: var(--font-family-mono);
+        font-family: var(--font-family-default);
         letter-spacing: var(--tracking-tight);
         font-weight: var(--font-weight-regular);
         color: var(--color-text-strong);
@@ -252,7 +252,7 @@
     :where(.nc-input-error,
             .nc-input-hint) {
         &:before {
-            font-family: var(--font-family-mono);
+            font-family: var(--font-family-default);
             letter-spacing: var(--tracking-tight);
             font-weight: var(--font-weight-regular);
             display: inline-flex;

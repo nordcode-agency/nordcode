@@ -51,7 +51,7 @@
         padding-inline: var(--_button-padding-inline);
         min-block-size: var(--button-height-base);
         padding-block: 0;
-        font-family: var(--font-family-mono);
+        font-family: var(--font-family-default);
         letter-spacing: var(--tracking-tight);
         font-weight: var(--font-weight-regular);
         font-size: inherit;
@@ -197,7 +197,7 @@
             margin-inline-end: calc(var(--_button-padding-inline) + var(--spacing-near));
             block-size: 1em;
             inline-size: 1em;
-            font-family: var(--font-family-mono);
+            font-family: var(--font-family-default);
             font-size: var(--font-size-large);
             position: relative;
             transform: translateX(25%);
