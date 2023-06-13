@@ -13,7 +13,7 @@
         --line-height-base: 1.728;
         --line-height-small: 1.2;
 
-        --tracking-standard: normal;
+        --tracking-base: 0em;
         --tracking-tight: -0.04em;
         --tracking-wide: 0.06em;
 

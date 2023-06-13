@@ -191,16 +191,14 @@
             background: var(--_button-color);
             color: var(--_button-background);
             aspect-ratio: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
             margin-inline-end: calc(var(--_button-padding-inline) + var(--spacing-near));
             block-size: 1em;
             inline-size: 1em;
             font-family: var(--font-family-default);
             font-size: var(--font-size-large);
             position: relative;
-            transform: translateX(25%);
+            vertical-align: middle;
+            line-height: 0.5em;
         }
 
         &:hover:before {
