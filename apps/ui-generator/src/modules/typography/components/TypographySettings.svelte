@@ -180,5 +180,7 @@
                     step="0.01"
                     bind:value={$typoStore.measureSmall}/>
         </fieldset>
+
+        <button type="button" class="nc-button -destructive" on:click={typoStore.reset}>Reset</button>
     </form>
 </div>

@@ -41,9 +41,7 @@
 </script>
 
 
-<pre>
-   {JSON.stringify(Object.values($typoStore))}
-</pre>
+
 {#if Object.values($typoStore).length > 0}
 <div class="stack -layout-far">
     <div class="stack -layout-near">

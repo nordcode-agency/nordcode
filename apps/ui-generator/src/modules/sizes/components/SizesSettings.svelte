@@ -50,5 +50,7 @@
                     step="0.01"
                     bind:value={$sizesStore.spacingFarthest}/>
         </fieldset>
+                <button type="button" class="nc-button -destructive" on:click={sizesStore.reset}>Reset</button>
+
     </form>
 </div>

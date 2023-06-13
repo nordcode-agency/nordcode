@@ -28,5 +28,10 @@ export const localStore = <T>(key: string, initial: T) => {
       localStorage.setItem(key, toString(updated));
       return update(updateFn);
     },
+    reset: () => {
+      localStorage.setItem(key, toString(initial));
+      console.log("reset");
+      return set(initial);
+    },
   };
 };

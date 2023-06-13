@@ -22,7 +22,7 @@
         --line-height-base: ${$typoStore.lineHeightBase};
         --line-height-small: ${$typoStore.lineHeightSmall};
 
-        --tracking-standard: ${$typoStore.trackingStandard}em;
+        --tracking-base: ${$typoStore.trackingStandard}em;
         --tracking-tight: ${$typoStore.trackingTight}em;
         --tracking-wide: ${$typoStore.trackingWide}em;
 
