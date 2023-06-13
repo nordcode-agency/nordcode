@@ -133,3 +133,4 @@ Learn more about the power of Turborepo:
 - <https://clay.global/> *
 - <https://wise.com/de/>
 - <https://stripe.com/sessions> *
+- <https://resend.com/> *
