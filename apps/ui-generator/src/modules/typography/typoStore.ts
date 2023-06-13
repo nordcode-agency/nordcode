@@ -1,8 +1,8 @@
-import { localStore } from "./utils/localStore";
+import { localStore } from "../store/utils/localStore";
 
 const STORE_KEY = "TYPO_STORE";
 
-type TypoStore = {
+export type TypoStore = {
   fontFamilyMono: string;
   fontFamilySans: string;
   fontFamilySerif: string;

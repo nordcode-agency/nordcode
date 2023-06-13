@@ -1,11 +1,11 @@
 <script lang="ts">
     import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
-    import {sizesStore} from "../../config/sizesStore";
+    import {sizesStore} from "../sizesStore";
 </script>
 
 <div>
     <form class="stack -layout-far -full-width -stretched">
-        <fieldset class="stack -layout-base">
+        <fieldset class="nc-fieldset stack -layout-base">
             <legend>Spacings</legend>
             <Input
                     name="spacingTiny"

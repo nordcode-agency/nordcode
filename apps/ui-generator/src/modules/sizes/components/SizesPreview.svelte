@@ -1,7 +1,7 @@
 <script lang="ts">
 
     import SpacingRow from "./SpacingPreview.svelte";
-    import {sizesStore} from "../../config/sizesStore";
+    import {sizesStore} from "../sizesStore";
 
     const spacings = {
         '--spacing-tiny': 'gap: var(--spacing-tiny)',

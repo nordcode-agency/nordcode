@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import Header from "./components/Header.svelte";
+    import Header from "./components/Header.astro";
     import Preview from "./components/Preview.svelte";
     import Settings from "./components/Settings.svelte";
 </script>

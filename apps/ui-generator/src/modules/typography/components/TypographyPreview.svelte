@@ -1,7 +1,7 @@
 <script lang="ts">
 
     import TextPreviewRow from "./TextPreviewRow.svelte";
-    import {typoStore} from "../../config/typoStore";
+    import {typoStore} from "../typoStore";
 
     const fontFamilies = {
         '--font-family-sans': 'font-family: var(--font-family-sans)',

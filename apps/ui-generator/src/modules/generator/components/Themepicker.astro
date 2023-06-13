@@ -1,0 +1,34 @@
+<button class="nc-button theme-toggle">
+    Toggle Dark / Light
+</button>
+
+<script lang="ts">
+  const DARK = '(prefers-color-scheme: dark)';
+
+  const colorScheme = localStorage?.getItem('color-scheme');
+  const button = document.querySelector('.theme-toggle');
+
+  if (colorScheme) {
+    document.documentElement.setAttribute('color-scheme', colorScheme);
+    button.setAttribute('color-scheme', colorScheme);
+  } else if (window.matchMedia(DARK)) {
+    document.documentElement.setAttribute('color-scheme', 'dark');
+    button.setAttribute('color-scheme', 'dark');
+  } else {
+    document.documentElement.setAttribute('color-scheme', 'light');
+    button.setAttribute('color-scheme', 'light');
+  }
+
+  button.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('color-scheme');
+    if (currentTheme === 'dark') {
+      document.documentElement.setAttribute('color-scheme', 'light');
+      button.setAttribute('color-scheme', 'light');
+      localStorage.setItem('color-scheme', 'light');
+    } else {
+      document.documentElement.setAttribute('color-scheme', 'dark');
+      button.setAttribute('color-scheme', 'dark');
+      localStorage.setItem('color-scheme', 'dark');
+    }
+  });
+</script>

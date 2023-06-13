@@ -1,8 +1,8 @@
-import { localStore } from "./utils/localStore";
+import { localStore } from "../store/utils/localStore";
 
 const STORE_KEY = "SIZES_STORE";
 
-type SizesStore = {
+export type SizesStore = {
   spacingTiny: number;
   spacingNearest: number;
   spacingNear: number;

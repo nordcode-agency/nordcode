@@ -30,7 +30,6 @@ export const localStore = <T>(key: string, initial: T) => {
     },
     reset: () => {
       localStorage.setItem(key, toString(initial));
-      console.log("reset");
       return set(initial);
     },
   };

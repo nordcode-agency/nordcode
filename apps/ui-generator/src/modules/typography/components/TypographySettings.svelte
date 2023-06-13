@@ -1,13 +1,13 @@
 <script lang="ts">
-    import {typoStore, updateFontScale} from "../../config/typoStore";
     import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
     import Select from "@nordcode/ui/src/modules/forms/svelte/InputFields/Select.svelte";
     import InputWrapper from "@nordcode/ui/src/modules/forms/svelte/InputFields/InputWrapper.svelte"
+    import {typoStore, updateFontScale} from "../typoStore";
 </script>
 
 <div>
     <form class="stack -layout-far -full-width -stretched">
-        <fieldset class="stack -layout-base">
+        <fieldset class="nc-fieldset stack -layout-base">
             <legend>Font Families</legend>
             <Input
                     name="fontFamilySans"
@@ -42,7 +42,7 @@
                    }
             />
         </fieldset>
-        <fieldset class="stack -layout-base -stretched">
+        <fieldset class="nc-fieldset stack -layout-base">
             <legend>Font Sizes</legend>
 
 
@@ -67,7 +67,7 @@
 
             <details class="-full-width">
                 <summary>Use custom font sizes?</summary>
-                <fieldset class="stack -layout-base">
+                <fieldset class="nc-fieldset stack -layout-base">
                     <legend>Custom Font Sizes</legend>
                     <Input type="checkbox" name="useCustomFontsizes" label="Use custom font sizes?"
                            id="useCustomFontsizes"
@@ -111,7 +111,7 @@
                 </fieldset>
             </details>
         </fieldset>
-        <fieldset class="stack -layout-base">
+        <fieldset class="nc-fieldset stack -layout-base">
             <legend>Line Heights</legend>
             <Input
                     name="line-height-large"
@@ -132,7 +132,7 @@
                     type="number"
                     bind:value={$typoStore.lineHeightSmall}/>
         </fieldset>
-        <fieldset class="stack -layout-base">
+        <fieldset class="nc-fieldset stack -layout-base">
             <legend>Tracking</legend>
             <Input
                     name="tracking-wide"
@@ -156,7 +156,7 @@
                     step="0.01"
                     bind:value={$typoStore.trackingTight}/>
         </fieldset>
-        <fieldset class="stack -layout-base">
+        <fieldset class="nc-fieldset stack -layout-base">
             <legend>Measure</legend>
             <Input
                     name="measure-large"
