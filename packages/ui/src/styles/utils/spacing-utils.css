@@ -4,6 +4,14 @@
     }
 
     .mt-auto {
-        margin-top: auto;
+        margin-block-start: auto;
+    }
+
+    .ml-auto {
+        margin-inline-start: auto;
+    }
+
+    .mr-auto {
+        margin-inline-end: auto;
     }
 }

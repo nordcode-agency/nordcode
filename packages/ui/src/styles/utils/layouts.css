@@ -71,6 +71,10 @@
         &.-centered {
             align-items: center;
         }
+
+        &.-nowrap {
+            flex-wrap: nowrap;
+        }
     }
 
 
