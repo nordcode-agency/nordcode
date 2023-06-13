@@ -8,7 +8,6 @@
 
     onMount(() => {
         invoices = loadInvoiceListFromLocalStorage()
-        console.log(invoices)
     })
 </script>
 
