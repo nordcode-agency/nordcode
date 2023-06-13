@@ -8,11 +8,11 @@ Like propertio:
 - Left side settings, right side preview
 - Settings are grouped by category
 - Different major categoires:
-    - Typography
-    - Spacing
-    - Colors
-    - Shadows
-    - Borders
+    - [x] Typography
+    - [x] Spacing
+    - [ ] Colors
+    - [ ] Shadows
+    - [ ] Borders
 
 See ui package config.
 
@@ -21,5 +21,3 @@ See ui package config.
 - Preview like the HTML5 Design or and components
 - Export and Import settings
 
-
-- 

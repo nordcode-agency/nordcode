@@ -1,16 +1,18 @@
 <script lang="ts">
     export let style;
-    export let text;
     export let label;
 </script>
 
-<div class="text-preview-row">
+<div class="preview-row">
         <span class="label">{label}</span>
-        <p style={style}>{text}</p>
+        <div class="cluster spacings" style={style}>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
 <style>
-    .text-preview-row {
+    .preview-row {
         display: grid;
         grid-template-columns: 20ch 1fr;
         gap: var(--spacing-near);
@@ -21,6 +23,13 @@
     .label {
         font-size: 0.75rem;
         color: var(--color-brand-primary-base);
+    }
+
+    .spacings div {
+        inline-size: 2rem;
+        block-size: 2rem;
+        display: block;
+        background-color: var(--color-text-base);
     }
 
 </style>

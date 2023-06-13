@@ -1,46 +1,50 @@
 <script lang="ts">
 
     import TextPreviewRow from "./TextPreviewRow.svelte";
+    import {typoStore} from "../../config/typoStore";
 
     const fontFamilies = {
-        sans: 'font-family: var(--font-family-sans)',
-        serif: 'font-family: var(--font-family-serif)',
-        mono: 'font-family: var(--font-family-mono)',
-        default: 'font-family: var(--font-family-default)'
+        '--font-family-sans': 'font-family: var(--font-family-sans)',
+        '--font-family-serif': 'font-family: var(--font-family-serif)',
+        '--font-family-mono': 'font-family: var(--font-family-mono)',
+        '--font-familiy-default': 'font-family: var(--font-family-default)'
     }
 
     const fontSizes = {
-        largest: 'font-size: var(--font-size-largest)',
-        large: 'font-size: var(--font-size-large)',
-        base: 'font-size: var(--font-size-base)',
-        small: 'font-size: var(--font-size-small)',
-        smallest: 'font-size: var(--font-size-smallest)',
+        '--font-size-largest': 'font-size: var(--font-size-largest)',
+        '--font-size-large': 'font-size: var(--font-size-large)',
+        '--font-size-base': 'font-size: var(--font-size-base)',
+        '--font-size-small': 'font-size: var(--font-size-small)',
+        '--font-size-smallest': 'font-size: var(--font-size-smallest)',
     }
 
     const tracking = {
-        wide: 'letter-spacing: var(--tracking-wide)',
-        base: 'letter-spacing: var(--tracking-base)',
-        tight: 'letter-spacing: var(--tracking-tight)',
+        '--tracking-wide': 'letter-spacing: var(--tracking-wide)',
+        '--tracking-base': 'letter-spacing: var(--tracking-base)',
+        '--tracking-tight': 'letter-spacing: var(--tracking-tight)',
     }
 
     const lineheights = {
-        large: 'line-height: var(--line-height-large); background-color: var(--color-surface-subtle)',
-        base: 'line-height: var(--line-height-base); background-color: var(--color-surface-subtle)',
-        small: 'line-height: var(--line-height-small); background-color: var(--color-surface-subtle)',
+        '--line-height-large': 'line-height: var(--line-height-large); background-color: var(--color-surface-subtle)',
+        '--line-height-base': 'line-height: var(--line-height-base); background-color: var(--color-surface-subtle)',
+        '--line-height-small': 'line-height: var(--line-height-small); background-color: var(--color-surface-subtle)',
     }
 
     const measures = {
-        large: 'max-width: var(--measure-large)',
-        base: 'max-width: var(--measure-base)',
-        small: 'max-width: var(--measure-small)',
+        '--measure-large': 'max-width: var(--measure-large)',
+        '--measrue-base': 'max-width: var(--measure-base)',
+        '--measure-small': 'max-width: var(--measure-small)',
     }
 
     const text = "Hallo Luki"
     const longText = "Dies ist ein langer Text für dich Lukas. Ich hoffe, du kannst ihn lesen und er tut deinen Augen nicht weh."
 </script>
 
-PREVIEW
 
+<pre>
+   {JSON.stringify(Object.values($typoStore))}
+</pre>
+{#if Object.values($typoStore).length > 0}
 <div class="stack -layout-far">
     <div class="stack -layout-near">
         <h2>Font Families</h2>
@@ -76,3 +80,6 @@ PREVIEW
     </div>
 
 </div>
+    {:else}
+    <p>loading</p>
+{/if}

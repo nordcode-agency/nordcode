@@ -5,8 +5,8 @@ import TypographyPreview from "../modules/typography/components/TypographyPrevie
 import TypographySettings from "../modules/typography/components/TypographySettings.svelte";
 ---
 
-<Layout title="UI Generator">
+<Layout title="Typography">
         <Header client:load="svelte" slot="header" />
-        <TypographySettings client:load="svelte" slot="aside" />
-        <TypographyPreview client:load="svelte" slot="content" />
+        <TypographySettings client:only="svelte" slot="aside" />
+        <TypographyPreview client:only="svelte" slot="content" />
 </Layout>

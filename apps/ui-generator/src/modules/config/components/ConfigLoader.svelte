@@ -1,47 +1,63 @@
 <script lang="ts">
 
     import {typoStore} from "../typoStore";
+    import {sizesStore} from "../sizesStore";
 
-    let style = ""
+    let sizesStyle = ""
+    let typoStyle = ''
 
-    const updateStyle = (store) => {
-        style =
+    const updateTypoStyle = () => {
+        typoStyle =
             `
-        --font-family-mono: ${store.fontFamilyMono};
-        --font-family-sans: ${store.fontFamilySans};
-        --font-family-serif: ${store.fontFamilySerif};
-        --font-family-default: var(--font-family-${store.fontFamilyDefault});
+        --font-family-mono: ${$typoStore.fontFamilyMono};
+        --font-family-sans: ${$typoStore.fontFamilySans};
+        --font-family-serif: ${$typoStore.fontFamilySerif};
+        --font-family-default: var(--font-family-${$typoStore.fontFamilyDefault});
 
-        --font-weight-bold: ${store.fontWeightBold};
-        --font-weight-regular: ${store.fontWeightRegular};
-        --font-weight-light: ${store.fontWeightLight};
+        --font-weight-bold: ${$typoStore.fontWeightBold};
+        --font-weight-regular: ${$typoStore.fontWeightRegular};
+        --font-weight-light: ${$typoStore.fontWeightLight};
 
-        --line-height-large: ${store.lineHeightLarge};
-        --line-height-base: ${store.lineHeightBase};
-        --line-height-small: ${store.lineHeightSmall};
+        --line-height-large: ${$typoStore.lineHeightLarge};
+        --line-height-base: ${$typoStore.lineHeightBase};
+        --line-height-small: ${$typoStore.lineHeightSmall};
 
-        --tracking-standard: ${store.trackingStandard}em;
-        --tracking-tight: ${store.trackingTight}em;
-        --tracking-wide: ${store.trackingWide}em;
+        --tracking-standard: ${$typoStore.trackingStandard}em;
+        --tracking-tight: ${$typoStore.trackingTight}em;
+        --tracking-wide: ${$typoStore.trackingWide}em;
 
-        --measure-large: ${store.measureLarge}ch;
-        --measure-base: ${store.measureBase}ch;
-        --measure-small: ${store.measureSmall}ch;
+        --measure-large: ${$typoStore.measureLarge}ch;
+        --measure-base: ${$typoStore.measureBase}ch;
+        --measure-small: ${$typoStore.measureSmall}ch;
 
-        --font-size-smallest: ${store.fontSizeSmallest}${store.fontSizeUnit};
-        --font-size-small: ${store.fontSizeSmall}${store.fontSizeUnit};
-        --font-size-base: ${store.fontSizeBase}${store.fontSizeUnit};
-        --font-size-large: ${store.fontSizeLarge}${store.fontSizeUnit};
-        --font-size-largest: ${store.fontSizeLargest}${store.fontSizeUnit};
+        --font-size-smallest: ${$typoStore.fontSizeSmallest}${$typoStore.fontSizeUnit};
+        --font-size-small: ${$typoStore.fontSizeSmall}${$typoStore.fontSizeUnit};
+        --font-size-base: ${$typoStore.fontSizeBase}${$typoStore.fontSizeUnit};
+        --font-size-large: ${$typoStore.fontSizeLarge}${$typoStore.fontSizeUnit};
+        --font-size-largest: ${$typoStore.fontSizeLargest}${$typoStore.fontSizeUnit};
         `
     }
 
-    updateStyle($typoStore);
+    const updateSizesStyle = () => {
+        sizesStyle =
+            `
+        --spacing-tiny: ${$sizesStore.spacingTiny}rem;
+        --spacing-nearest: ${$sizesStore.spacingNearest}rem;
+        --spacing-near: ${$sizesStore.spacingNear}rem;
+        --spacing-base: ${$sizesStore.spacingBase}rem;
+        --spacing-far: ${$sizesStore.spacingFar}rem;
+        --spacing-farthest: ${$sizesStore.spacingFarthest}rem;
+        `
+    }
 
-    $: updateStyle($typoStore)
+    $: $typoStore && updateTypoStyle()
+    $: $sizesStore && updateSizesStyle()
 
 </script>
 
-<div style={style}>
+<div style={[
+    sizesStyle,
+    typoStyle
+].join('\n\n')}>
     <slot></slot>
 </div>
