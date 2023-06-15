@@ -24,10 +24,6 @@
 
     }
 
-
-
-
-
     .label {
         font-size: 0.75rem;
         color: var(--color-brand-primary-base);

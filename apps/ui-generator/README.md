@@ -10,7 +10,7 @@ Like propertio:
 - Different major categoires:
     - [x] Typography
     - [x] Spacing
-    - [ ] Colors
+    - [x] Colors
     - [ ] Shadows
     - [ ] Borders
 
