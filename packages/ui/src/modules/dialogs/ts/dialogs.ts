@@ -40,6 +40,9 @@ const closeCurrentDialog = () => {
     () => {
       currentDialog.classList.remove("-closing");
       currentDialog.close();
+      if (openDialogs.length === 0) {
+        return;
+      }
       openDialogs[openDialogs.length - 1].classList.remove("-inactive");
     },
     { once: true }

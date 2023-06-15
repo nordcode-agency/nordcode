@@ -1,98 +1,101 @@
-dialog {
-    --_dialog-radius: var(--dialog-radius, var(--border-radius-base));
-    --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
-    --_dialog-close-size: var(--dialog-close-size, var(--button-height-base));
+@layer components {
+    dialog {
+        --_dialog-radius: var(--dialog-radius, var(--border-radius-base));
+        --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
+        --_dialog-close-size: var(--dialog-close-size, var(--button-height-base));
 
-    --dialog-inative-offset: 0;
+        --dialog-inative-offset: 0;
 
-    border: var(--border-width-thin) solid var(--color-border-base);
-    inline-size: calc(100dvw - 2 * var(--spacing-base));
-    block-size: 90dvh;
-    max-inline-size: 28rem;
-    background: var(--color-surface-strong);
-    box-shadow: var(--shadow-away);
-    margin: 5dvh auto;
-    padding: 0;
-    border-radius: var(--_dialog-radius);
-    animation: open-dialog 0.3s cubic-bezier(0, 0.6, 0.58, 1);
-    position: fixed;
-    transition: transform 0.3s cubic-bezier(0, 0.6, 0.58, 1);
-}
+        border: var(--border-width-thin) solid var(--color-border-base);
+        inline-size: calc(100dvw - 2 * var(--spacing-base));
+        block-size: 90dvh;
+        max-inline-size: 28rem;
+        background: var(--color-surface-strong);
+        box-shadow: var(--shadow-away);
+        margin: 5dvh auto;
+        padding: 0;
+        border-radius: var(--_dialog-radius);
+        animation: open-dialog 0.3s cubic-bezier(0, 0.6, 0.58, 1);
+        position: fixed;
+        transition: transform 0.3s cubic-bezier(0, 0.6, 0.58, 1);
+    }
 
-.dialog-container {
-    display: grid;
-    grid-template:
+    .dialog-container {
+        display: grid;
+        grid-template:
       'header header' calc(2 * var(--spacing-near) + var(--_dialog-close-size))
       'content content' 1fr
       'footer footer' 1fr / 1fr 1fr;
-    inline-size: 100%;
-    block-size: 100%;
-}
-
-.dialog-header {
-    grid-area: header;
-    border-bottom: var(--border-width-thin) solid var(--color-border-subtle);
-    background-color: var(--color-surface-subtle);
-    padding-inline: var(--_dialog-padding-inline);
-    border-radius: var(--_dialog-radius) var(--_dialog-radius) 0 0;
-    display: grid;
-    grid-template: 'title close' / 1fr var(--_dialog-close-size);
-    align-items: flex-start;
-    padding-block: var(--spacing-near);
-}
-
-.dialog-header > button[data-closes-dialog] {
-    grid-area: close;
-    inline-size: var(--_dialog-close-size);
-    block-size: var(--_dialog-close-size);
-}
-
-.dialog-title {
-    font-size: var(--font-size-large);
-    margin: 0;
-    padding: 0;
-}
-
-.dialog-content {
-    grid-area: content;
-    padding-inline: var(--_dialog-padding-inline);
-    padding-block: var(--spacing-near);
-}
-
-html:has(dialog[open]) {
-    overflow: hidden;
-    max-inline-size: 100%;
-    max-block-size: 100%;
-}
-
-dialog::backdrop {
-    background: var(--color-text-strong);
-    opacity: 0.1;
-    backdrop-filter: blur(2px);
-}
-
-dialog.-closing {
-    animation: close-dialog 0.3s cubic-bezier(0.7, 0, 1, 1) forwards;
-}
-
-dialog.-inactive {
-    transform: translate(0, var(--dialog-inative-offset)) scale(0.98);
-}
-
-@keyframes open-dialog {
-    from {
-        transform: translate(100%, 10dvh) rotate(20deg);
+        inline-size: 100%;
+        block-size: 100%;
     }
-    to {
-        transform: translate(0dvh, 0%) rotate(0deg);
-    }
-}
 
-@keyframes close-dialog {
-    from {
-        transform: translate(0dvh, 0%) rotate(0deg);
+    .dialog-header {
+        grid-area: header;
+        border-bottom: var(--border-width-thin) solid var(--color-border-subtle);
+        background-color: var(--color-surface-subtle);
+        padding-inline: var(--_dialog-padding-inline);
+        border-radius: var(--_dialog-radius) var(--_dialog-radius) 0 0;
+        display: grid;
+        grid-template: 'title close' / 1fr var(--_dialog-close-size);
+        align-items: flex-start;
+        padding-block: var(--spacing-near);
     }
-    to {
-        transform: translate(-50%, 100dvh) rotate(-5deg);
+
+    .dialog-header > button[data-closes-dialog] {
+        grid-area: close;
+        inline-size: var(--_dialog-close-size);
+        block-size: var(--_dialog-close-size);
     }
+
+    .dialog-title {
+        font-size: var(--font-size-large);
+        margin: 0;
+        padding: 0;
+    }
+
+    .dialog-content {
+        grid-area: content;
+        padding-inline: var(--_dialog-padding-inline);
+        padding-block: var(--spacing-near);
+    }
+
+    html:has(dialog[open]) {
+        overflow: hidden;
+        max-inline-size: 100%;
+        max-block-size: 100%;
+    }
+
+    dialog::backdrop {
+        background: var(--color-text-strong);
+        opacity: 0.1;
+        backdrop-filter: blur(2px);
+    }
+
+    dialog.-closing {
+        animation: close-dialog 0.3s cubic-bezier(0.7, 0, 1, 1) forwards;
+    }
+
+    dialog.-inactive {
+        transform: translate(0, var(--dialog-inative-offset)) scale(0.98);
+    }
+
+    @keyframes open-dialog {
+        from {
+            transform: translate(100%, 10dvh) rotate(20deg);
+        }
+        to {
+            transform: translate(0dvh, 0%) rotate(0deg);
+        }
+    }
+
+    @keyframes close-dialog {
+        from {
+            transform: translate(0dvh, 0%) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, 100dvh) rotate(-5deg);
+        }
+    }
+
 }

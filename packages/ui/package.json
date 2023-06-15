@@ -18,7 +18,8 @@
     "./components": "./src/styles/components/bundle.css",
     "./logo": "./src/assets/logos/nordcode-logo.svg",
     "./src/modules/forms/": "./src/modules/forms/",
-    "./src/modules/dialogs/": "./src/modules/dialogs/"
+    "./src/modules/dialogs/": "./src/modules/dialogs/",
+    "./src/modules/copyButtons/": "./src/modules/copyButtons/"
   },
   "scripts": {
     "lib:all": "postcss src/styles/**/*.css --base src/styles --dir out",
