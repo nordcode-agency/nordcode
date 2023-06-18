@@ -15,7 +15,7 @@ export const getThemeFromOKLCH = (store: ColorsStore) => {
         --color-text-light-base: oklch(16% ${
           store.oklch.light.neutral.chroma
         } ${store.oklch.light.neutral.hue});
-        --color-text-light-subtle: oklch(24% ${
+        --color-text-light-subtle: oklch(30% ${
           store.oklch.light.neutral.chroma
         } ${store.oklch.light.neutral.hue});
 
@@ -39,13 +39,13 @@ export const getThemeFromOKLCH = (store: ColorsStore) => {
           store.oklch.light.neutral.chroma
         } ${store.oklch.light.neutral.hue});
 
-        --color-border-light-strong: oklch(4% ${
+        --color-shadow-light-strong: oklch(4% ${
           store.oklch.light.neutral.chroma
         } ${store.oklch.light.neutral.hue});
-        --color-border-light-base: oklch(20% ${
+        --color-shadow-light-base: oklch(20% ${
           store.oklch.light.neutral.chroma
         } ${store.oklch.light.neutral.hue});
-        --color-border-light-subtle: oklch(40% ${
+        --color-shadow-light-subtle: oklch(40% ${
           store.oklch.light.neutral.chroma
         } ${store.oklch.light.neutral.hue});
 
@@ -57,10 +57,10 @@ export const getThemeFromOKLCH = (store: ColorsStore) => {
         --color-text-dark-strong: oklch(99% ${
           store.oklch.dark.neutral.chroma
         } ${store.oklch.dark.neutral.hue});
-        --color-text-dark-base: oklch(95% ${store.oklch.dark.neutral.chroma} ${
+        --color-text-dark-base: oklch(94% ${store.oklch.dark.neutral.chroma} ${
     store.oklch.dark.neutral.hue
   });
-        --color-text-dark-subtle: oklch(88% ${
+        --color-text-dark-subtle: oklch(80% ${
           store.oklch.dark.neutral.chroma
         } ${store.oklch.dark.neutral.hue});
 
@@ -74,23 +74,23 @@ export const getThemeFromOKLCH = (store: ColorsStore) => {
           store.oklch.dark.neutral.chroma
         } ${store.oklch.dark.neutral.hue});
 
-        --color-border-dark-strong: oklch(4% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
-        --color-border-dark-base: oklch(20% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
-        --color-border-dark-subtle: oklch(40% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
-
         --color-border-dark-strong: oklch(99% ${
           store.oklch.dark.neutral.chroma
         } ${store.oklch.dark.neutral.hue});
-        --color-border-dark-base: oklch(88% ${
+        --color-border-dark-base: oklch(80% ${
           store.oklch.dark.neutral.chroma
         } ${store.oklch.dark.neutral.hue});
-        --color-border-dark-subtle: oklch(64% ${
+        --color-border-dark-subtle: oklch(54% ${
+          store.oklch.dark.neutral.chroma
+        } ${store.oklch.dark.neutral.hue});
+
+        --color-shadow-dark-strong: oklch(99% ${
+          store.oklch.dark.neutral.chroma
+        } ${store.oklch.dark.neutral.hue});
+        --color-shadow-dark-base: oklch(80% ${
+          store.oklch.dark.neutral.chroma
+        } ${store.oklch.dark.neutral.hue});
+        --color-shadow-dark-subtle: oklch(54% ${
           store.oklch.dark.neutral.chroma
         } ${store.oklch.dark.neutral.hue});
 

@@ -4,7 +4,7 @@
         --_input-color: var(--input-color, var(--color-text-strong));
         --_input-border: var(
                 --input-border,
-                var(--border-width-thin) solid var(--color-border-base)
+                var(--border-width-thin) solid var(--color-border-subtle)
         );
         --_input-border-radius: var(--input-border-radius, var(--border-radius-base));
 
@@ -24,7 +24,7 @@
     }
 
     :where(fieldset:not([class]), .nc-fieldset) {
-        padding: var(--spacing-near);
+        padding: var(--spacing-base);
         border: var(--border-width-thin) solid var(--color-border-subtle);
         border-radius: var(--border-radius-large);
     }
@@ -38,9 +38,9 @@
         font-size: var(--font-size-base);
         padding-inline: var(--spacing-near);
         padding-block: 0;
-        background-color: var(--color-surface-subtle);
-        border: var(--border-width-thin) solid var(--color-text-strong);
-        border-radius: var(--border-radius-small);
+        background-color: var(--color-surface-strong);
+        border: none;
+        border-radius: 0;
     }
 
     :where(label:not([class]),
@@ -48,7 +48,7 @@
         font-family: var(--font-family-default);
         letter-spacing: var(--tracking-tight);
         font-weight: var(--font-weight-regular);
-        color: var(--color-text-strong);
+        color: var(--color-text-subtle);
         display: inline-flex;
         font-size: inherit;
         cursor: pointer;

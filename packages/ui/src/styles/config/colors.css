@@ -1,6 +1,7 @@
 @layer config {
     :where(html) {
-        /*Light Theme*/
+        /* COLORS */
+
         /* Light Theme */
 
 
@@ -16,7 +17,7 @@
 
         --color-text-light-strong: oklch(8% 0.01 195);
         --color-text-light-base: oklch(16% 0.01 195);
-        --color-text-light-subtle: oklch(24% 0.01 195);
+        --color-text-light-subtle: oklch(30% 0.01 195);
 
         --color-surface-light-strong: oklch(99% 0.01 195);
         --color-surface-light-base: oklch(97% 0.01 195);
@@ -26,9 +27,9 @@
         --color-border-light-base: oklch(20% 0.01 195);
         --color-border-light-subtle: oklch(40% 0.01 195);
 
-        --color-border-light-strong: oklch(4% 0.01 195);
-        --color-border-light-base: oklch(20% 0.01 195);
-        --color-border-light-subtle: oklch(40% 0.01 195);
+        --color-shadow-light-strong: oklch(4% 0.01 195);
+        --color-shadow-light-base: oklch(20% 0.01 195);
+        --color-shadow-light-subtle: oklch(40% 0.01 195);
 
         /* Dark Theme */
 
@@ -44,20 +45,20 @@
 
 
         --color-text-dark-strong: oklch(99% 0.01 195);
-        --color-text-dark-base: oklch(95% 0.01 195);
-        --color-text-dark-subtle: oklch(88% 0.01 195);
+        --color-text-dark-base: oklch(94% 0.01 195);
+        --color-text-dark-subtle: oklch(80% 0.01 195);
 
         --color-surface-dark-strong: oklch(8% 0.01 195);
         --color-surface-dark-base: oklch(12% 0.01 195);
         --color-surface-dark-subtle: oklch(16% 0.01 195);
 
-        --color-border-dark-strong: oklch(4% 0.01 195);
-        --color-border-dark-base: oklch(20% 0.01 195);
-        --color-border-dark-subtle: oklch(40% 0.01 195);
-
         --color-border-dark-strong: oklch(99% 0.01 195);
-        --color-border-dark-base: oklch(88% 0.01 195);
-        --color-border-dark-subtle: oklch(64% 0.01 195);
+        --color-border-dark-base: oklch(80% 0.01 195);
+        --color-border-dark-subtle: oklch(54% 0.01 195);
+
+        --color-shadow-dark-strong: oklch(99% 0.01 195);
+        --color-shadow-dark-base: oklch(80% 0.01 195);
+        --color-shadow-dark-subtle: oklch(54% 0.01 195);
 
 
         /*    Status */
