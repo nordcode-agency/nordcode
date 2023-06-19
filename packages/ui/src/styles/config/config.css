@@ -1,11 +1,18 @@
 @layer config {
     :where(html) {
+
+
+        /* Spacing */
+
         --spacing-tiny: 0.125rem;
         --spacing-nearest: 0.25rem;
         --spacing-near: 0.5rem;
         --spacing-base: 1rem;
         --spacing-far: 2rem;
         --spacing-farthest: 4rem;
+
+
+        /* Borders */
 
         --border-width-thin: 1px;
         --border-width-base: 2px;
@@ -14,6 +21,7 @@
         --border-radius-small: 2px;
         --border-radius-base: 4px;
         --border-radius-large: 8px;
+        --border-radius-round: 1 e5px;
 
 
         /* SHADOWS */
@@ -31,11 +39,13 @@
 
         --shadow-inset-dark: inset 2px 2px 0px 0 var(--color-shadow-dark-subtle);
 
-        --shadow-nearest: 1px 1px 0 0 var(--color-shadow-dark-strong), 1px 1px 2px 0 var(--color-shadow-dark-subtle);
-        --shadow-near: 1px 1px 0 0 var(--color-shadow-dark-strong), 2px 2px 4px 0 var(--color-shadow-dark-subtle);
-        --shadow-base: 1px 1px 0 0 var(--color-shadow-dark-strong), 2px 2px 4px 0 var(--color-shadow-dark-subtle);
-        --shadow-far: 1px 1px 0 0 var(--color-shadow-dark-strong), 8px 8px 16px 0 var(--color-shadow-dark-subtle);
+        --shadow-nearest-dark: 1px 1px 0 0 var(--color-shadow-dark-strong), 1px 1px 2px 0 var(--color-shadow-dark-subtle);
+        --shadow-near-dark: 1px 1px 0 0 var(--color-shadow-dark-strong), 2px 2px 4px 0 var(--color-shadow-dark-subtle);
+        --shadow-base-dark: 1px 1px 0 0 var(--color-shadow-dark-strong), 2px 2px 4px 0 var(--color-shadow-dark-subtle);
+        --shadow-far-dark: 1px 1px 0 0 var(--color-shadow-dark-strong), 8px 8px 16px 0 var(--color-shadow-dark-subtle);
 
+
+        /* Typography */
 
         --font-family-mono: DMMono, monospace;
         --font-family-sans: system-ui, sans-serif;
@@ -128,6 +138,7 @@
 
         /*    Status */
         --color-status-error: oklch(62.67% 0.289 25.41);
+
 
     }
 }
