@@ -22,6 +22,11 @@
         --color-border-base: var(--color-border-light-base);
         --color-border-subtle: var(--color-border-light-subtle);
 
+        --color-shadow-subtle: var(--color-shadow-light-subtle);
+        --color-shadow-base: var(--color-shadow-light-base);
+        --color-shadow-strong: var(--color-shadow-light-strong);
+
+
         --shadow-inset: var(--shadow-inset-light);
         --shadow-away: var(--shadow-away-light);
         --shadow-near: var(--shadow-near-light);
@@ -56,6 +61,10 @@
             --color-border-base: var(--color-border-dark-base);
             --color-border-subtle: var(--color-border-dark-subtle);
 
+            --color-shadow-subtle: var(--color-shadow-dark-subtle);
+            --color-shadow-base: var(--color-shadow-dark-base);
+            --color-shadow-strong: var(--color-shadow-dark-strong);
+
             --shadow-inset: var(--shadow-inset-dark);
             --shadow-away: var(--shadow-away-dark);
             --shadow-near: var(--shadow-near-dark);
@@ -88,6 +97,10 @@
         --color-border-strong: var(--color-border-light-strong);
         --color-border-base: var(--color-border-light-base);
         --color-border-subtle: var(--color-border-light-subtle);
+
+        --color-shadow-subtle: var(--color-shadow-light-subtle);
+        --color-shadow-base: var(--color-shadow-light-base);
+        --color-shadow-strong: var(--color-shadow-light-strong);
 
         --shadow-inset: var(--shadow-inset-light);
         --shadow-away: var(--shadow-away-light);
@@ -122,6 +135,10 @@
         --color-border-strong: var(--color-border-dark-strong);
         --color-border-base: var(--color-border-dark-base);
         --color-border-subtle: var(--color-border-dark-subtle);
+
+        --color-shadow-subtle: var(--color-shadow-dark-subtle);
+        --color-shadow-base: var(--color-shadow-dark-base);
+        --color-shadow-strong: var(--color-shadow-dark-strong);
 
         --shadow-inset: var(--shadow-inset-dark);
         --shadow-away: var(--shadow-away-dark);
