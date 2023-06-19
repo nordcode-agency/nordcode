@@ -6,8 +6,8 @@ export const getThemeFromOKLCH = (store: ColorsStore) => {
 
         /* Light Theme */
         
-        ${getLightColorTheme("primary", store.oklch.light.primary.hue)} 
-        ${getLightColorTheme("secondary", store.oklch.light.secondary.hue)}
+        ${getLightColorTheme("primary", store.oklch.primaryHue)} 
+        ${getLightColorTheme("secondary", store.oklch.secondaryHue)}
 
         --color-text-light-strong: oklch(8% ${
           store.oklch.light.neutral.chroma
@@ -51,8 +51,8 @@ export const getThemeFromOKLCH = (store: ColorsStore) => {
 
         /* Dark Theme */
 
-        ${getDarkColorTheme("primary", store.oklch.dark.primary.hue)}
-        ${getDarkColorTheme("secondary", store.oklch.dark.secondary.hue)}
+        ${getDarkColorTheme("primary", store.oklch.primaryHue)}
+        ${getDarkColorTheme("secondary", store.oklch.secondaryHue)}
 
         --color-text-dark-strong: oklch(99% ${
           store.oklch.dark.neutral.chroma
@@ -96,7 +96,7 @@ export const getThemeFromOKLCH = (store: ColorsStore) => {
 
 
         /*    Status */
-        --color-status-error: ${store.default.status.error}
+        --color-status-error: ${store.default.status.error};
         `;
 
   return colorStyle;
@@ -104,17 +104,17 @@ export const getThemeFromOKLCH = (store: ColorsStore) => {
 
 const getLightColorTheme = (name: "primary" | "secondary", hue: number) => {
   return `
-        --color-brand-${name}-light-strong: oklch(75% 0.3 ${hue});
-        --color-brand-${name}-light-base: oklch(64% 0.19 ${hue});
-        --color-brand-${name}-light-subtle: oklch(48% 0.10 ${hue});
+        --color-brand-${name}-light-strong: oklch(45% 0.31 ${hue});
+        --color-brand-${name}-light-base: oklch(56% 0.23 ${hue});
+        --color-brand-${name}-light-subtle: oklch(64% 0.10 ${hue});
     `;
 };
 
 const getDarkColorTheme = (name: "primary" | "secondary", hue: number) => {
   return `
-        --color-brand-${name}-dark-strong: oklch(75% 0.3 ${hue});
-        --color-brand-${name}-dark-base: oklch(64% 0.19 ${hue});
-        --color-brand-${name}-dark-subtle: oklch(55% 0.10 ${hue});
+        --color-brand-${name}-dark-strong: oklch(60% 0.3 ${hue});
+        --color-brand-${name}-dark-base: oklch(68% 0.19 ${hue});
+        --color-brand-${name}-dark-subtle: oklch(75% 0.10 ${hue});
     `;
 };
 

@@ -9,6 +9,28 @@ export type SizesStore = {
   spacingBase: number;
   spacingFar: number;
   spacingFarthest: number;
+
+  spacingScale: number;
+
+  borderWidthThin: number;
+  borderWidthBase: number;
+  borderWidthThick: number;
+
+  borderWidthScale: number;
+
+  borderRadiusSmall: number;
+  borderRadiusBase: number;
+  borderRadiusLarge: number;
+
+  borderRadiusScale: number;
+
+  shadowDistanceInset: number;
+  shadowDistanceNearest: number;
+  shadowDistanceNear: number;
+  shadowDistanceBase: number;
+  shadowDistanceFar: number;
+
+  shadowDistanceScale: number;
 };
 
 const defaultStore: SizesStore = {
@@ -18,6 +40,81 @@ const defaultStore: SizesStore = {
   spacingBase: 1,
   spacingFar: 2,
   spacingFarthest: 4,
+
+  spacingScale: 2,
+
+  borderWidthThin: 1,
+  borderWidthBase: 2,
+  borderWidthThick: 4,
+
+  borderWidthScale: 2,
+
+  borderRadiusSmall: 2,
+  borderRadiusBase: 4,
+  borderRadiusLarge: 8,
+
+  borderRadiusScale: 2,
+
+  shadowDistanceInset: 2,
+  shadowDistanceNearest: 1,
+  shadowDistanceNear: 2,
+  shadowDistanceBase: 4,
+  shadowDistanceFar: 8,
+
+  shadowDistanceScale: 2,
+};
+
+const round = (num: number) => Math.round(num * 1000) / 1000;
+
+export const updateSpacingScale = (newScale: number) => {
+  sizesStore.update((store) => {
+    return {
+      ...store,
+      spacingScale: newScale,
+      spacingNear: round(store.spacingBase / newScale),
+      spacingNearest: round(store.spacingBase / Math.pow(newScale, 2)),
+      spacingTiny: round(store.spacingBase / Math.pow(newScale, 3)),
+      spacingFar: round(store.spacingBase * newScale),
+      spacingFarthest: round(store.spacingBase * Math.pow(newScale, 2)),
+    };
+  });
+};
+
+export const updateBorderWidthScale = (newScale: number) => {
+  sizesStore.update((store) => {
+    return {
+      ...store,
+      borderWidthScale: newScale,
+      borderWidthThin: round(store.borderWidthBase / newScale),
+      borderWidthThick: round(store.borderWidthBase * newScale),
+    };
+  });
+};
+
+export const updateBorderRadiusScale = (newScale: number) => {
+  sizesStore.update((store) => {
+    return {
+      ...store,
+      borderRadiusScale: newScale,
+      borderRadiusSmall: round(store.borderRadiusBase / newScale),
+      borderRadiusLarge: round(store.borderRadiusBase * newScale),
+    };
+  });
+};
+
+export const updateShadowDistanceScale = (newScale: number) => {
+  sizesStore.update((store) => {
+    return {
+      ...store,
+      shadowDistanceScale: newScale,
+      shadowDistanceNearest: round(store.shadowDistanceBase / newScale),
+      shadowDistanceNear: round(
+        store.shadowDistanceBase / Math.pow(newScale, 2)
+      ),
+      shadowDistanceInset: round(store.shadowDistanceBase * newScale),
+      shadowDistanceFar: round(store.shadowDistanceBase * newScale),
+    };
+  });
 };
 
 export const sizesStore = localStore<SizesStore>(STORE_KEY, defaultStore);

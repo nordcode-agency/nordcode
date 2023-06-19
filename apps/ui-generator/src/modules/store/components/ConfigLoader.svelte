@@ -12,6 +12,8 @@
     import ContextPreview from "./ContextPreview.svelte";
     import {slide} from 'svelte/transition';
     import {quintOut} from 'svelte/easing';
+    import {getShadows} from "../utils/getShadows";
+    import ExportDialog from "./ExportDialog.svelte";
 
 
     let sizesStyle = ""
@@ -22,6 +24,8 @@
     const updateTypoStyle = (store: TypoStore) => {
         typoStyle =
             `
+        /* Typography */
+        
         --font-family-mono: ${store.fontFamilyMono};
         --font-family-sans: ${store.fontFamilySans};
         --font-family-serif: ${store.fontFamilySerif};
@@ -54,12 +58,29 @@
     const updateSizesStyle = (store: SizesStore) => {
         sizesStyle =
             `
+
+        /* Spacing */
+
         --spacing-tiny: ${store.spacingTiny}rem;
         --spacing-nearest: ${store.spacingNearest}rem;
         --spacing-near: ${store.spacingNear}rem;
         --spacing-base: ${store.spacingBase}rem;
         --spacing-far: ${store.spacingFar}rem;
         --spacing-farthest: ${store.spacingFarthest}rem;
+
+
+        /* Borders */
+
+        --border-width-thin: ${store.borderWidthThin}px;
+        --border-width-base: ${store.borderWidthBase}px;
+        --border-width-thick: ${store.borderWidthThick}px;
+
+        --border-radius-small: ${store.borderRadiusSmall}px;
+        --border-radius-base: ${store.borderRadiusBase}px;
+        --border-radius-large: ${store.borderRadiusLarge}px;
+        --border-radius-round: 1e5px;
+
+        ${getShadows(store)}
         `
     }
 
@@ -93,41 +114,25 @@
 
 <div style={allStyles} class="stack container">
     <div class="cluster | actions">
-    <button class="nc-button export-button" data-opens-dialog="export-dialog">Export</button>
-    <button class="nc-button" on:click={togglePreview}>Preview</button>
-        </div>
-    <dialog data-id="export-dialog" data-level="1" style="max-inline-size: 40rem">
-      <div class="dialog-container">
-        <div class="dialog-header">
-          <h2 class="dialog-title">Export Theme</h2>
-          <button data-closes-dialog="export-dialog">X</button>
-        </div>
-        <div class="dialog-content">
-            <pre>
-                <code>
-                    {allStyles}
-                </code>
-            </pre>
-            <button data-copy-target={allStyles}>Copy to clipboard</button>
-        </div>
-      </div>
-    </dialog>
+        <button class="nc-button export-button" data-opens-dialog="export-dialog">Export</button>
+        <button class="nc-button" on:click={togglePreview}>Preview</button>
+    </div>
+    <ExportDialog allStyles={allStyles}/>
     {#if $previewShown}
         <div transition:slide={{axis: "x", ease: quintOut}}>
-        <ContextPreview/>
+            <ContextPreview/>
         </div>
-        {:else}
+    {:else}
         <div transition:slide={{axis: "x", ease: quintOut}}>
-    <slot></slot>
+            <slot></slot>
         </div>
     {/if}
 </div>
 
-<style lang="postcss">
-
-.container {
-    position: relative;
-}
+<style>
+    .container {
+        position: relative;
+    }
 
     .actions {
         position: sticky;
