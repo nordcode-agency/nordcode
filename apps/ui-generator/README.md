@@ -11,8 +11,9 @@ Like proportio:
     - [x] Typography
     - [x] Spacing
     - [x] Colors
-    - [ ] Shadows
-    - [ ] Borders
+    - [x] Shadows
+    - [x] Borders
+    - [ ] Extras
 
 See ui package config.
 

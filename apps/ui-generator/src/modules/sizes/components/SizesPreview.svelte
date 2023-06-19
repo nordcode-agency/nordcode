@@ -53,7 +53,6 @@
         {#each Object.entries(borderRadii) as [key, value]}
             <BlockPreview label="{key}" style="{value}" />
         {/each}
-d
     </div>
     <div class="stack -layout-near">
         <h2>Shadows</h2>
