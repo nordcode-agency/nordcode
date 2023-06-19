@@ -1,0 +1,133 @@
+@layer config {
+    :where(html) {
+        --spacing-tiny: 0.125rem;
+        --spacing-nearest: 0.25rem;
+        --spacing-near: 0.5rem;
+        --spacing-base: 1rem;
+        --spacing-far: 2rem;
+        --spacing-farthest: 4rem;
+
+        --border-width-thin: 1px;
+        --border-width-base: 2px;
+        --border-width-thick: 4px;
+
+        --border-radius-small: 2px;
+        --border-radius-base: 4px;
+        --border-radius-large: 8px;
+
+
+        /* SHADOWS */
+        /* Light Theme */
+
+
+        --shadow-inset-light: inset 2px 2px 0px 0 var(--color-shadow-light-subtle);
+
+        --shadow-nearest-light: 1px 1px 0 0 var(--color-shadow-light-strong), 1px 1px 2px 0 var(--color-shadow-light-subtle);
+        --shadow-near-light: 1px 1px 0 0 var(--color-shadow-light-strong), 2px 2px 4px 0 var(--color-shadow-light-subtle);
+        --shadow-base-light: 1px 1px 0 0 var(--color-shadow-light-strong), 2px 2px 4px 0 var(--color-shadow-light-subtle);
+        --shadow-far-light: 1px 1px 0 0 var(--color-shadow-light-strong), 8px 8px 16px 0 var(--color-shadow-light-subtle);
+
+        /* Dark Theme */
+
+        --shadow-inset-dark: inset 2px 2px 0px 0 var(--color-shadow-dark-subtle);
+
+        --shadow-nearest: 1px 1px 0 0 var(--color-shadow-dark-strong), 1px 1px 2px 0 var(--color-shadow-dark-subtle);
+        --shadow-near: 1px 1px 0 0 var(--color-shadow-dark-strong), 2px 2px 4px 0 var(--color-shadow-dark-subtle);
+        --shadow-base: 1px 1px 0 0 var(--color-shadow-dark-strong), 2px 2px 4px 0 var(--color-shadow-dark-subtle);
+        --shadow-far: 1px 1px 0 0 var(--color-shadow-dark-strong), 8px 8px 16px 0 var(--color-shadow-dark-subtle);
+
+
+        --font-family-mono: DMMono, monospace;
+        --font-family-sans: system-ui, sans-serif;
+        --font-family-serif: serif;
+        --font-family-default: var(--font-family-sans);
+
+        --font-weight-bold: 900;
+        --font-weight-regular: 400;
+        --font-weight-light: 300;
+
+        --line-height-large: 2;
+        --line-height-base: 1.728;
+        --line-height-small: 1.2;
+
+        --tracking-base: 0em;
+        --tracking-tight: -0.04em;
+        --tracking-wide: 0.06em;
+
+        --measure-large: 88ch;
+        --measure-base: 72ch;
+        --measure-small: 44ch;
+
+        --font-size-smallest: 0.444rem;
+        --font-size-small: 0.667rem;
+        --font-size-base: 1rem;
+        --font-size-large: 1.5rem;
+        --font-size-largest: 2.25rem;
+
+
+        /* COLORS */
+
+        /* Light Theme */
+
+
+        --color-brand-primary-light-strong: oklch(45% 0.31 265);
+        --color-brand-primary-light-base: oklch(56% 0.23 265);
+        --color-brand-primary-light-subtle: oklch(64% 0.10 265);
+
+
+        --color-brand-secondary-light-strong: oklch(45% 0.31 215);
+        --color-brand-secondary-light-base: oklch(56% 0.23 215);
+        --color-brand-secondary-light-subtle: oklch(64% 0.10 215);
+
+
+        --color-text-light-strong: oklch(8% 0.01 265);
+        --color-text-light-base: oklch(16% 0.01 265);
+        --color-text-light-subtle: oklch(30% 0.01 265);
+
+        --color-surface-light-strong: oklch(99% 0.01 265);
+        --color-surface-light-base: oklch(97% 0.01 265);
+        --color-surface-light-subtle: oklch(90% 0.01 265);
+
+        --color-border-light-strong: oklch(4% 0.01 265);
+        --color-border-light-base: oklch(20% 0.01 265);
+        --color-border-light-subtle: oklch(40% 0.01 265);
+
+        --color-shadow-light-strong: oklch(4% 0.01 265);
+        --color-shadow-light-base: oklch(20% 0.01 265);
+        --color-shadow-light-subtle: oklch(40% 0.01 265);
+
+        /* Dark Theme */
+
+
+        --color-brand-primary-dark-strong: oklch(60% 0.3 265);
+        --color-brand-primary-dark-base: oklch(68% 0.19 265);
+        --color-brand-primary-dark-subtle: oklch(75% 0.10 265);
+
+
+        --color-brand-secondary-dark-strong: oklch(60% 0.3 215);
+        --color-brand-secondary-dark-base: oklch(68% 0.19 215);
+        --color-brand-secondary-dark-subtle: oklch(75% 0.10 215);
+
+
+        --color-text-dark-strong: oklch(99% 0.01 265);
+        --color-text-dark-base: oklch(94% 0.01 265);
+        --color-text-dark-subtle: oklch(80% 0.01 265);
+
+        --color-surface-dark-strong: oklch(8% 0.01 265);
+        --color-surface-dark-base: oklch(12% 0.01 265);
+        --color-surface-dark-subtle: oklch(16% 0.01 265);
+
+        --color-border-dark-strong: oklch(99% 0.01 265);
+        --color-border-dark-base: oklch(80% 0.01 265);
+        --color-border-dark-subtle: oklch(54% 0.01 265);
+
+        --color-shadow-dark-strong: oklch(99% 0.01 265);
+        --color-shadow-dark-base: oklch(80% 0.01 265);
+        --color-shadow-dark-subtle: oklch(54% 0.01 265);
+
+
+        /*    Status */
+        --color-status-error: oklch(62.67% 0.289 25.41);
+
+    }
+}
