@@ -10,23 +10,26 @@
         --_button-color: var(--button-color, var(--color-surface-subtle));
         --_button-border-color: var(--button-border-color, var(--color-text-strong));
         --_button-border-radius: var(--button-border-radius, var(--border-radius-base));
+        --_button-offset-distance: var(--button-offset-distance, -2px);
+
         --_button-transform: var(--button-transform, translate(
-                calc(-2px),
-                calc(-2px)
+                var(--_button-offset-distance),
+                var(--_button-offset-distance)
         ));
-        --_button-box-shadow: var(--button-box-shadow, var(--shadow-near));
-        --_button-background-hover: var(--button-background-hover, var(--color-brand-primary-strong));
+
+        --_button-box-shadow: var(--button-box-shadow, calc(var(--_button-offset-distance) / -2) calc(var(--_button-offset-distance) / -2) 0 0 var(--color-shadow-strong), calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) 0 0 var(--color-shadow-strong), calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -2) 0 var(--color-shadow-subtle));
+        --_button-background-hover: var(--button-background-hover, var(--color-brand-primary-subtle));
         --_button-color-hover: var(--button-color-hover, var(--color-text-strong));
+        --_button-offset-distance-hover: var(--button-offset-distance-hover, -1px);
         --_button-border-color-hover: var(--button-border-color-hover, var(--color-text-strong));
         --_button-hover-transform: var(--button-hover-transform, translate(
-                calc(-1px),
-                calc(-1px)
+                var(--_button-offset-distance-hover),
+                var(--_button-offset-distance-hover)
         ));
 
-        --_button-hover-shadow: var(--button-hover-shadowm, var(--shadow-nearest));
+        --_button-hover-shadow: var(--button-hover-shadow, calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--color-shadow-strong), calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) / -2) 0 var(--color-shadow-subtle));
         --_button-padding-inline: var(--button-padding-inline, var(--spacing-near));
     }
-
 
 
     :where(
@@ -36,44 +39,42 @@
     input[type="button"]:not([class]),
     input[type="submit"]:not([class]),
     input[type="reset"]:not([class])
-  ),
     :where(input[type="file"]:not([class]))::-webkit-file-upload-button,
     :where(input[type="file"]:not([class]))::file-selector-button,
-    .nc-button {
-
-
-        background-color: var(--_button-background);
-        color: var(--_button-color);
-        border-width: var(--border-width-thin);
-        border-color: var(--_button-border-color);
-        border-style: solid;
-        border-radius: var(--_button-border-radius);
-        padding-inline: var(--_button-padding-inline);
-        min-block-size: var(--button-height-base);
-        padding-block: 0;
-        font-family: var(--font-family-default);
-        letter-spacing: var(--tracking-tight);
-        font-weight: var(--font-weight-regular);
-        font-size: inherit;
-        cursor: pointer;
-        display: inline-flex;
-        box-sizing: border-box;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        position: relative;
-        transition: box-shadow var(var(--transition-duration-base)) var(--ease-2),
-        transform var(--transition-duration-base) var(--ease-2);
-        text-decoration: unset;
-        box-shadow: var(--_button-box-shadow);
-        transform: var(--_button-transform);
-        will-change: transform;
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
-        -webkit-touch-callout: none;
-        inset-block-start: 2px;
-        inset-inline-start: 2px;
-    }
+    .nc-button
+) {
+    background-color: var(--_button-background);
+    color: var(--_button-color);
+    border-width: var(--border-width-thin);
+    border-color: var(--_button-border-color);
+    border-style: solid;
+    border-radius: var(--_button-border-radius);
+    padding-inline: var(--_button-padding-inline);
+    min-block-size: var(--button-height-base);
+    padding-block: 0;
+    font-family: var(--font-family-default);
+    letter-spacing: var(--tracking-tight);
+    font-weight: var(--font-weight-regular);
+    font-size: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    transition: box-shadow var(--transition-duration-base) var(--ease-2),
+    transform var(--transition-duration-base) var(--ease-2);
+    text-decoration: unset;
+    box-shadow: var(--_button-box-shadow);
+    transform: var(--_button-transform);
+    will-change: transform;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    inset-block-start: 2px;
+    inset-inline-start: 2px;
+}
 
     :where(
     button:not([class]),
@@ -81,8 +82,7 @@
     input[type="button"]:not([class]),
     input[type="submit"]:not([class]),
     input[type="reset"]:not([class]),
-    .nc-button
-  ) {
+    .nc-button) {
         &:after {
             content: "" !important;
         }
