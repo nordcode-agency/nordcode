@@ -4,10 +4,10 @@ Inspired by https://proportio.app/
 
 ## Design
 
-Like propertio:
+Like proportio:
 - Left side settings, right side preview
 - Settings are grouped by category
-- Different major categoires:
+- Different major categories:
     - [x] Typography
     - [x] Spacing
     - [x] Colors
@@ -18,6 +18,6 @@ See ui package config.
 
 ## Features
 
-- Preview like the HTML5 Design or and components
-- Export and Import settings
+- [x] Preview like the HTML5 Design or and components
+- [x] Export and Import settings
 

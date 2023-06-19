@@ -14,7 +14,7 @@
     <form class="stack -layout-far -full-width -stretched">
 
         <fieldset class="stack -layout-base">
-            <legend>Light</legend>
+            <legend>Colors</legend>
             <Input
                     name="colorLightPrimaryStrong"
                     label="Light Primary Strong"

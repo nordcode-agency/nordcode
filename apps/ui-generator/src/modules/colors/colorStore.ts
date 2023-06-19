@@ -26,14 +26,12 @@ type LCHColorDefinition = {
 export type ColorsStore = {
   useLCH: boolean;
   oklch: {
+    primaryHue: number;
+    secondaryHue: number;
     light: {
-      primary: LCHColorDefinition;
-      secondary: LCHColorDefinition;
       neutral: LCHColorDefinition;
     };
     dark: {
-      primary: LCHColorDefinition;
-      secondary: LCHColorDefinition;
       neutral: LCHColorDefinition;
     };
   };
@@ -49,31 +47,17 @@ export type ColorsStore = {
 const defaultStore: ColorsStore = {
   useLCH: true,
   oklch: {
+    primaryHue: 265,
+    secondaryHue: 215,
     light: {
-      primary: {
-        hue: 195,
-        chroma: 0,
-      },
-      secondary: {
-        hue: 312,
-        chroma: 0,
-      },
       neutral: {
-        hue: 195,
+        hue: 265,
         chroma: 0.01,
       },
     },
     dark: {
-      primary: {
-        hue: 195,
-        chroma: 0.2,
-      },
-      secondary: {
-        hue: 312,
-        chroma: 0.1,
-      },
       neutral: {
-        hue: 195,
+        hue: 265,
         chroma: 0.01,
       },
     },

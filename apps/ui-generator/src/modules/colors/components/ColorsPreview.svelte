@@ -24,6 +24,10 @@
         '--color-border-strong',
         '--color-border-base',
         '--color-border-subtle',
+
+        '--color-shadow-strong',
+        '--color-shadow-base',
+        '--color-shadow-subtle',
     ]
 
 </script>

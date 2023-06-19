@@ -4,26 +4,27 @@
 </script>
 
 <form class="stack -layout-far -full-width -stretched">
-
         <fieldset class="nc-fieldset stack -layout-base">
-            <legend>Light</legend>
+            <legend>Colors</legend>
                <Input
                     name="colorLCHLightPrimaryHue"
                     label="Primary Light Hue"
                     id="colorLCHLightPrimaryHue"
-                    type="number"
+                    type="range"
+                    max="360"
+                    min="0"
                     step="1"
-                    bind:value={$colorStore.oklch.light.primary.hue}/>
-            <hr />
+                    bind:value={$colorStore.oklch.primaryHue}/>
                <Input
                     name="colorLCHLightSecondaryHue"
                     label="Secondary Light Hue"
                     id="colorLCHLightSecondaryHue"
-                    type="number"
+                    type="range"
+                    max="360"
+                    min="0"
                     step="1"
-                    bind:value={$colorStore.oklch.light.secondary.hue}/>
+                    bind:value={$colorStore.oklch.secondaryHue}/>
 
-            <hr />
             <div class="cluster -nowrap">
                 <Input
                     name="colorLCHLightNeutralHue"
@@ -40,26 +41,6 @@
                     step="0.01"
                     bind:value={$colorStore.oklch.light.neutral.chroma}/>
             </div>
-        </fieldset>
-    <fieldset class="nc-fieldset stack -layout-base">
-            <legend>Dark</legend>
-               <Input
-                    name="colorLCHDarkPrimaryHue"
-                    label="Primary Dark Hue"
-                    id="colorLCHDarkPrimaryHue"
-                    type="number"
-                    step="1"
-                    bind:value={$colorStore.oklch.dark.primary.hue}/>
-            <hr />
-               <Input
-                    name="colorLCHDarkSecondaryHue"
-                    label="Secondary Dark Hue"
-                    id="colorLCHDarkSecondaryHue"
-                    type="number"
-                    step="1"
-                    bind:value={$colorStore.oklch.dark.secondary.hue}/>
-
-            <hr />
             <div class="cluster -nowrap">
                 <Input
                     name="colorLCHDarkNeutralHue"
@@ -77,6 +58,7 @@
                     bind:value={$colorStore.oklch.dark.neutral.chroma}/>
             </div>
         </fieldset>
+
                 <button type="button" class="nc-button -destructive" on:click={colorStore.reset}>Reset</button>
 
     </form>

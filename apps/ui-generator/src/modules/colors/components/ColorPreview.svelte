@@ -4,7 +4,7 @@
 
 <div class="preview-row">
         <span class="label">{color}</span>
-        <div class="cluster">
+        <div class="cluster -centered">
             <div class="color-bg live-theme" style={`background-color: var(${color})`}></div>
             <div class="color-fg live-theme" style={`color: var(${color})`}>
                 Color text
@@ -19,9 +19,6 @@
         gap: var(--spacing-near);
         inline-size: 100%;
         align-items: center;
-
-
-
     }
 
     .label {
@@ -30,8 +27,8 @@
     }
 
     .color-bg {
-        inline-size: 2rem;
-        block-size: 2rem;
+        inline-size: 3rem;
+        block-size: 3rem;
         display: block;
         border: 1px solid #eee;
     }
