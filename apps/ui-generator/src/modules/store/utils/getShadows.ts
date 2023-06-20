@@ -19,7 +19,7 @@ export const getShadows = (store: SizesStore) => {
               "light"
             )};
             --shadow-base-light: ${generateShadow(
-              store.shadowDistanceNear,
+              store.shadowDistanceBase,
               "light"
             )};
             --shadow-far-light: ${generateShadow(
@@ -42,7 +42,7 @@ export const getShadows = (store: SizesStore) => {
               "dark"
             )};
             --shadow-base-dark: ${generateShadow(
-              store.shadowDistanceNear,
+              store.shadowDistanceBase,
               "dark"
             )};
             --shadow-far-dark: ${generateShadow(

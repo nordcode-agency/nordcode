@@ -25,7 +25,7 @@
         typoStyle =
             `
         /* Typography */
-        
+
         --font-family-mono: ${store.fontFamilyMono};
         --font-family-sans: ${store.fontFamilySans};
         --font-family-serif: ${store.fontFamilySerif};
@@ -72,7 +72,7 @@
         /* Borders */
 
         --border-width-thin: ${store.borderWidthThin}px;
-        --border-width-base: ${store.borderWidthBase}px;
+        --border-width-normal: ${store.borderWidthNormal}px;
         --border-width-thick: ${store.borderWidthThick}px;
 
         --border-radius-small: ${store.borderRadiusSmall}px;

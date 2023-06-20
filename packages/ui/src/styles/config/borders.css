@@ -1,7 +1,7 @@
 @layer config {
     :where(html) {
         --border-width-thin: 1px;
-        --border-width-base: 2px;
+        --border-width-normal: 2px;
         --border-width-thick: 4px;
 
         --border-radius-small: 2px;

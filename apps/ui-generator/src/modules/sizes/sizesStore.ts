@@ -13,7 +13,7 @@ export type SizesStore = {
   spacingScale: number;
 
   borderWidthThin: number;
-  borderWidthBase: number;
+  borderWidthNormal: number;
   borderWidthThick: number;
 
   borderWidthScale: number;
@@ -44,7 +44,7 @@ const defaultStore: SizesStore = {
   spacingScale: 2,
 
   borderWidthThin: 1,
-  borderWidthBase: 2,
+  borderWidthNormal: 2,
   borderWidthThick: 4,
 
   borderWidthScale: 2,
@@ -85,8 +85,8 @@ export const updateBorderWidthScale = (newScale: number) => {
     return {
       ...store,
       borderWidthScale: newScale,
-      borderWidthThin: round(store.borderWidthBase / newScale),
-      borderWidthThick: round(store.borderWidthBase * newScale),
+      borderWidthNormal: round(store.borderWidthThin * newScale),
+      borderWidthThick: round(store.borderWidthThin * Math.pow(newScale, 2)),
     };
   });
 };

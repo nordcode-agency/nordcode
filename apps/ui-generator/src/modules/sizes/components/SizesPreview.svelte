@@ -15,7 +15,7 @@
 
     const borderWidths = {
         '--border-width-thin': 'border-width: var(--border-width-thin)',
-        '--border-width-base': 'border-width: var(--border-width-base)',
+        '--border-width-normal': 'border-width: var(--border-width-normal)',
         '--border-width-thick': 'border-width: var(--border-width-thick)',
     }
 

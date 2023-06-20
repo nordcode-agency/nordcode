@@ -98,7 +98,7 @@
     :where(hr) {
         inline-size: 100%;
         block-size: 0;
-        border-top: var(--border-width-base) solid var(--color-border-base);
+        border-top: var(--border-width-normal) solid var(--color-border-base);
         background-color: var(--color-text-strong);
     }
 
@@ -235,7 +235,7 @@
         max-inline-size: var(--measure-base);
         overflow-x: auto;
         color: var(--color-text-strong);
-        border: var(--border-width-base) solid var(--color-text-strong);
+        border: var(--border-width-normal) solid var(--color-text-strong);
         border-radius: var(--border-radius-base);
     }
 

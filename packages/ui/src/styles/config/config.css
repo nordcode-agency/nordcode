@@ -15,34 +15,35 @@
         /* Borders */
 
         --border-width-thin: 1px;
-        --border-width-base: 2px;
+        --border-width-normal: 2px;
         --border-width-thick: 4px;
 
         --border-radius-small: 2px;
         --border-radius-base: 4px;
         --border-radius-large: 8px;
-        --border-radius-round: 1 e5px;
+        --border-radius-round: 1e5px;
 
 
         /* SHADOWS */
         /* Light Theme */
 
 
-        --shadow-inset-light: inset 2px 2px 0px 0 var(--color-shadow-light-subtle);
+        --shadow-inset-light: inset 2px 2px 0px 0  var(--color-shadow-light-subtle);
 
-        --shadow-nearest-light: 1px 1px 0 0 var(--color-shadow-light-strong), 1px 1px 2px 0 var(--color-shadow-light-subtle);
-        --shadow-near-light: 1px 1px 0 0 var(--color-shadow-light-strong), 2px 2px 4px 0 var(--color-shadow-light-subtle);
-        --shadow-base-light: 1px 1px 0 0 var(--color-shadow-light-strong), 2px 2px 4px 0 var(--color-shadow-light-subtle);
-        --shadow-far-light: 1px 1px 0 0 var(--color-shadow-light-strong), 8px 8px 16px 0 var(--color-shadow-light-subtle);
+        --shadow-nearest-light: 1px 1px 0 0 var(--color-shadow-light-strong) , 1px 1px 2px 0 var(--color-shadow-light-subtle);
+        --shadow-near-light: 1px 1px 0 0 var(--color-shadow-light-strong) , 2px 2px 4px 0 var(--color-shadow-light-subtle);
+        --shadow-base-light: 1px 1px 0 0 var(--color-shadow-light-strong) , 4px 4px 8px 0 var(--color-shadow-light-subtle);
+        --shadow-far-light: 1px 1px 0 0 var(--color-shadow-light-strong) , 8px 8px 16px 0 var(--color-shadow-light-subtle);
 
         /* Dark Theme */
 
-        --shadow-inset-dark: inset 2px 2px 0px 0 var(--color-shadow-dark-subtle);
+        --shadow-inset-dark: inset 2px 2px 0px 0  var(--color-shadow-dark-subtle);
 
-        --shadow-nearest-dark: 1px 1px 0 0 var(--color-shadow-dark-strong), 1px 1px 2px 0 var(--color-shadow-dark-subtle);
-        --shadow-near-dark: 1px 1px 0 0 var(--color-shadow-dark-strong), 2px 2px 4px 0 var(--color-shadow-dark-subtle);
-        --shadow-base-dark: 1px 1px 0 0 var(--color-shadow-dark-strong), 2px 2px 4px 0 var(--color-shadow-dark-subtle);
-        --shadow-far-dark: 1px 1px 0 0 var(--color-shadow-dark-strong), 8px 8px 16px 0 var(--color-shadow-dark-subtle);
+        --shadow-nearest-dark: 1px 1px 0 0 var(--color-shadow-dark-strong) , 1px 1px 2px 0 var(--color-shadow-dark-subtle);
+        --shadow-near-dark: 1px 1px 0 0 var(--color-shadow-dark-strong) , 2px 2px 4px 0 var(--color-shadow-dark-subtle);
+        --shadow-base-dark: 1px 1px 0 0 var(--color-shadow-dark-strong) , 4px 4px 8px 0 var(--color-shadow-dark-subtle);
+        --shadow-far-dark: 1px 1px 0 0 var(--color-shadow-dark-strong) , 8px 8px 16px 0 var(--color-shadow-dark-subtle);
+
 
 
         /* Typography */
