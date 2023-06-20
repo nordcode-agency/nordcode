@@ -17,7 +17,7 @@
                 var(--_button-offset-distance)
         ));
 
-        --_button-box-shadow: var(--button-box-shadow, calc(var(--_button-offset-distance) / -2) calc(var(--_button-offset-distance) / -2) 0 0 var(--color-shadow-strong), calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) 0 0 var(--color-shadow-strong), calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -2) 0 var(--color-shadow-subtle));
+        --_button-box-shadow: var(--button-box-shadow, calc(var(--_button-offset-distance) / -2) calc(var(--_button-offset-distance) / -2) 0 0 var(--shadow-color), calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) 0 0 var(--shadow-color), calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -2) 0 var(--shadow-color));
         --_button-background-hover: var(--button-background-hover, var(--color-brand-primary-subtle));
         --_button-color-hover: var(--button-color-hover, var(--color-text-strong));
         --_button-offset-distance-hover: var(--button-offset-distance-hover, -1px);
@@ -27,7 +27,7 @@
                 var(--_button-offset-distance-hover)
         ));
 
-        --_button-hover-shadow: var(--button-hover-shadow, calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--color-shadow-strong), calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) / -2) 0 var(--color-shadow-subtle));
+        --_button-hover-shadow: var(--button-hover-shadow, calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--shadow-color), calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) / -2) 0 var(--shadow-color));
         --_button-padding-inline: var(--button-padding-inline, var(--spacing-near));
     }
 
