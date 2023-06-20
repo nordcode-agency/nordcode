@@ -113,6 +113,7 @@
                             id="borderWidthThin"
                             type="number"
                             step="1"
+                            hint="This is the base for scale calculations"
                             bind:value={$sizesStore.borderWidthThin}/>
                     <Input
                             name="borderWidthNormal"
@@ -159,6 +160,7 @@
                             id="borderRadiusSmall"
                             type="number"
                             step="1"
+                            hint="This is the base for scale calculations"
                             bind:value={$sizesStore.borderRadiusSmall}/>
                     <Input
                             name="borderRadiusNormal"
@@ -234,6 +236,7 @@
                             id="shadowDistanceNearest"
                             type="number"
                             step="1"
+                            hint="This is the base for scale calculations"
                             bind:value={$sizesStore.shadowDistanceNearest}/>
                     <Input
                             name="shadowDistanceNear"
@@ -260,7 +263,6 @@
             </details>
 
         </fieldset>
-
 
 
         <button type="button" class="nc-button -destructive" on:click={sizesStore.reset}>Reset</button>

@@ -28,7 +28,7 @@
         block-size: 3rem;
         display: block;
         background-color: var(--color-surface-strong);
-        border: 2px solid var(--color-brand-primary-base);
+        border: 2px solid var(--color-text-subtle);
     }
 
 </style>
