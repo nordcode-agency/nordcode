@@ -72,11 +72,11 @@
         /* Borders */
 
         --border-width-thin: ${store.borderWidthThin}px;
-        --border-width-normal: ${store.borderWidthNormal}px;
+        --border-width-medium: ${store.borderWidthMedium}px;
         --border-width-thick: ${store.borderWidthThick}px;
 
         --border-radius-small: ${store.borderRadiusSmall}px;
-        --border-radius-normal: ${store.borderRadiusNormal}px;
+        --border-radius-medium: ${store.borderRadiusMedium}px;
         --border-radius-large: ${store.borderRadiusLarge}px;
         --border-radius-round: 1e5px;
 

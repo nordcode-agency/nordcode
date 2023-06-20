@@ -166,7 +166,7 @@
                             id="borderRadiusNormal"
                             type="number"
                             step="1"
-                            bind:value={$sizesStore.borderRadiusNormal}/>
+                            bind:value={$sizesStore.borderRadiusMedium}/>
                     <Input
                             name="bordeRadiusLarge"
                             label="Border Radius Large"
@@ -180,6 +180,25 @@
 
         <fieldset class="nc-fieldset stack -layout-base">
             <legend>Shadows</legend>
+            <div class="cluster -nowrap">
+                <Input
+                        name="colorShadowHue"
+                        label="Color Shadow Hue"
+                        id="colorShadowHue"
+                        type="range"
+                        step="1"
+                        min="0"
+                        max="360"
+                        bind:value={$sizesStore.shadowColorHue}/>
+
+                <Input
+                        name="colorShadowChroma"
+                        label="Shadow Chroma"
+                        id="colorShadowChroma"
+                        type="number"
+                        step="0.01"
+                        bind:value={$sizesStore.shadowColorChroma}/>
+            </div>
             <InputWrapper
                     name="shadowDistanceScale"
                     label="Shadow Distance Scale"
@@ -224,12 +243,12 @@
                             step="1"
                             bind:value={$sizesStore.shadowDistanceNear}/>
                     <Input
-                            name="shadowDistanceBase"
-                            label="Shadow Distance Base"
-                            id="shadowDistanceBase"
+                            name="shadowDistanceMedium"
+                            label="Shadow Distance Medium"
+                            id="shadowDistanceMedium"
                             type="number"
                             step="1"
-                            bind:value={$sizesStore.shadowDistanceBase}/>
+                            bind:value={$sizesStore.shadowDistanceMedium}/>
                     <Input
                             name="shadowDistanceFar"
                             label="Shadow Distance Far"

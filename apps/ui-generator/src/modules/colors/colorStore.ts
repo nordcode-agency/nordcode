@@ -15,7 +15,6 @@ type ThemeDefinition = {
   text: ColorDefinition;
   surface: ColorDefinition;
   border: ColorDefinition;
-  shadow: ColorDefinition;
 };
 
 type LCHColorDefinition = {
@@ -89,11 +88,6 @@ const defaultStore: ColorsStore = {
         base: "oklch(24% 0.015 195.3)",
         subtle: "oklch(40% 0.01 195.3)",
       },
-      shadow: {
-        strong: "oklch(8% 0.01 195.3)",
-        base: "oklch(8% 0.01 195.3)",
-        subtle: "oklch(8% 0.01 195.3)",
-      },
     },
     dark: {
       primary: {
@@ -120,11 +114,6 @@ const defaultStore: ColorsStore = {
         strong: "oklch(98% 0.005 195.3)",
         base: "oklch(72% 0.009 195.3)",
         subtle: "oklch(60.1% 0.015 195.3)",
-      },
-      shadow: {
-        strong: "oklch(8% 0.01 195.3)",
-        base: "oklch(8% 0.01 195.3)",
-        subtle: "oklch(8% 0.01 195.3)",
       },
     },
     status: {

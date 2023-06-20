@@ -15,13 +15,13 @@
 
     const borderWidths = {
         '--border-width-thin': 'border-width: var(--border-width-thin)',
-        '--border-width-normal': 'border-width: var(--border-width-normal)',
+        '--border-width-medium': 'border-width: var(--border-width-medium)',
         '--border-width-thick': 'border-width: var(--border-width-thick)',
     }
 
     const borderRadii = {
         '--border-radius-small': 'border-radius: var(--border-radius-small)',
-        '--border-radius-normal': 'border-radius: var(--border-radius-normal)',
+        '--border-radius-medium': 'border-radius: var(--border-radius-medium)',
         '--border-radius-large': 'border-radius: var(--border-radius-large)',
         '--border-radius-round': 'border-radius: var(--border-radius-round)',
     }
@@ -30,7 +30,7 @@
         '--shadow-inset': 'box-shadow: var(--shadow-inset)',
         '--shadow-nearest': 'box-shadow: var(--shadow-nearest)',
         '--shadow-near': 'box-shadow: var(--shadow-near)',
-        '--shadow-base': 'box-shadow: var(--shadow-base)',
+        '--shadow-medium': 'box-shadow: var(--shadow-medium)',
         '--shadow-far': 'box-shadow: var(--shadow-far)',
     }
 
@@ -54,7 +54,7 @@
             <BlockPreview label="{key}" style="{value}" />
         {/each}
     </div>
-    <div class="stack -layout-near">
+    <div class="stack -layout-far">
         <h2>Shadows</h2>
         {#each Object.entries(shadows) as [key, value]}
             <BlockPreview label="{key}" style="{value}" />

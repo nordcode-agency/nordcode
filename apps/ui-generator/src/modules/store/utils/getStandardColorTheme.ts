@@ -26,10 +26,6 @@ export const getStandardColorTheme = (store: ColorsStore) => {
         --color-border-light-base:  ${store.default.light.border.base};
         --color-border-light-subtle:  ${store.default.light.border.subtle};
 
-        --color-shadow-light-strong:  ${store.default.light.shadow.strong};
-        --color-shadow-light-base:  ${store.default.light.shadow.base};
-        --color-shadow-light-subtle:  ${store.default.light.shadow.subtle};
-
         /* Dark Theme */
 
         --color-brand-primary-dark-strong: ${store.default.dark.primary.strong};
@@ -51,10 +47,6 @@ export const getStandardColorTheme = (store: ColorsStore) => {
         --color-border-dark-strong: ${store.default.dark.border.strong};
         --color-border-dark-base: ${store.default.dark.border.base};
         --color-border-dark-subtle: ${store.default.dark.border.subtle};
-
-        --color-shadow-dark-strong: ${store.default.dark.shadow.strong};
-        --color-shadow-dark-base: ${store.default.dark.shadow.base};
-        --color-shadow-dark-subtle: ${store.default.dark.shadow.subtle};
 
 
         /*    Status */

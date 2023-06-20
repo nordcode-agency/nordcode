@@ -24,8 +24,8 @@
     }
 
     .block {
-        inline-size: 2rem;
-        block-size: 2rem;
+        inline-size: 3rem;
+        block-size: 3rem;
         display: block;
         background-color: var(--color-surface-strong);
         border: 2px solid var(--color-brand-primary-base);

@@ -3,7 +3,6 @@
     import {colorStore} from "../colorStore";
     import ColorPreview from "./ColorPreview.svelte";
 
-    let rendered = [];
     const colors = [
         '--color-brand-primary-strong',
         '--color-brand-primary-base',
@@ -24,10 +23,6 @@
         '--color-border-strong',
         '--color-border-base',
         '--color-border-subtle',
-
-        '--color-shadow-strong',
-        '--color-shadow-base',
-        '--color-shadow-subtle',
     ]
 
 </script>
