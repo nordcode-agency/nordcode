@@ -1,6 +1,6 @@
 @layer components {
     dialog {
-        --_dialog-radius: var(--dialog-radius, var(--border-radius-base));
+        --_dialog-radius: var(--dialog-radius, var(--border-radius-normal));
         --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
         --_dialog-close-size: var(--dialog-close-size, var(--button-height-base));
 

@@ -115,12 +115,12 @@
                             step="1"
                             bind:value={$sizesStore.borderWidthThin}/>
                     <Input
-                            name="borderWidthBase"
-                            label="Border Width Base"
-                            id="borderWidthBase"
+                            name="borderWidthNormal"
+                            label="Border Width Normal"
+                            id="borderWidthNormal"
                             type="number"
                             step="1"
-                            bind:value={$sizesStore.borderWidthBase}/>
+                            bind:value={$sizesStore.borderWidthNormal}/>
                     <Input
                             name="borderWidthThick"
                             label="Border Width Thick"
@@ -161,12 +161,12 @@
                             step="1"
                             bind:value={$sizesStore.borderRadiusSmall}/>
                     <Input
-                            name="borderRadiusBase"
-                            label="Border Radius Base"
-                            id="borderRadiusBase"
+                            name="borderRadiusNormal"
+                            label="Border Radius Normal"
+                            id="borderRadiusNormal"
                             type="number"
                             step="1"
-                            bind:value={$sizesStore.borderRadiusBase}/>
+                            bind:value={$sizesStore.borderRadiusNormal}/>
                     <Input
                             name="bordeRadiusLarge"
                             label="Border Radius Large"

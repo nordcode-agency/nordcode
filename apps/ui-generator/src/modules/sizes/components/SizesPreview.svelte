@@ -21,7 +21,7 @@
 
     const borderRadii = {
         '--border-radius-small': 'border-radius: var(--border-radius-small)',
-        '--border-radius-base': 'border-radius: var(--border-radius-base)',
+        '--border-radius-normal': 'border-radius: var(--border-radius-normal)',
         '--border-radius-large': 'border-radius: var(--border-radius-large)',
         '--border-radius-round': 'border-radius: var(--border-radius-round)',
     }

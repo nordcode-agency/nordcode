@@ -76,7 +76,7 @@
         --border-width-thick: ${store.borderWidthThick}px;
 
         --border-radius-small: ${store.borderRadiusSmall}px;
-        --border-radius-base: ${store.borderRadiusBase}px;
+        --border-radius-normal: ${store.borderRadiusNormal}px;
         --border-radius-large: ${store.borderRadiusLarge}px;
         --border-radius-round: 1e5px;
 

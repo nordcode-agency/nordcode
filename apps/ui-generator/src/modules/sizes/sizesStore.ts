@@ -19,7 +19,7 @@ export type SizesStore = {
   borderWidthScale: number;
 
   borderRadiusSmall: number;
-  borderRadiusBase: number;
+  borderRadiusNormal: number;
   borderRadiusLarge: number;
 
   borderRadiusScale: number;
@@ -50,7 +50,7 @@ const defaultStore: SizesStore = {
   borderWidthScale: 2,
 
   borderRadiusSmall: 2,
-  borderRadiusBase: 4,
+  borderRadiusNormal: 4,
   borderRadiusLarge: 8,
 
   borderRadiusScale: 2,
@@ -96,8 +96,8 @@ export const updateBorderRadiusScale = (newScale: number) => {
     return {
       ...store,
       borderRadiusScale: newScale,
-      borderRadiusSmall: round(store.borderRadiusBase / newScale),
-      borderRadiusLarge: round(store.borderRadiusBase * newScale),
+      borderRadiusNormal: round(store.borderRadiusSmall * newScale),
+      borderRadiusLarge: round(store.borderRadiusSmall * Math.pow(newScale, 2)),
     };
   });
 };
@@ -107,11 +107,11 @@ export const updateShadowDistanceScale = (newScale: number) => {
     return {
       ...store,
       shadowDistanceScale: newScale,
-      shadowDistanceNearest: round(store.shadowDistanceBase / newScale),
-      shadowDistanceNear: round(
+      shadowDistanceNearest: round(
         store.shadowDistanceBase / Math.pow(newScale, 2)
       ),
-      shadowDistanceInset: round(store.shadowDistanceBase * newScale),
+      shadowDistanceNear: round(store.shadowDistanceBase / newScale),
+      shadowDistanceInset: round(store.shadowDistanceBase / newScale),
       shadowDistanceFar: round(store.shadowDistanceBase * newScale),
     };
   });

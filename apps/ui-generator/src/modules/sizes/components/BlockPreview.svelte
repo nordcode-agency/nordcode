@@ -5,7 +5,7 @@
 
 <div class="preview-row">
         <span class="label">{label}</span>
-        <div class="block" style={style}>
+        <div class="block live-theme" style={style}>
         </div>
     </div>
 

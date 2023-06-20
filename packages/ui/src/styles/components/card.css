@@ -10,7 +10,7 @@
   &[data-size="xs"] {
     --_card-padding-inline: var(--card-padding-inline, var(--spacing-nearest));
     --_card-padding-block: var(--card-padding-block, var(--spacing-near));
-    --_card-border-radius: var(--card-border-radius, var(--border-radius-base));
+    --_card-border-radius: var(--card-border-radius, var(--border-radius-normal));
   }
 
   &[data-size="sm"] {
