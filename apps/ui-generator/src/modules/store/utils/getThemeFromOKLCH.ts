@@ -39,16 +39,6 @@ export const getThemeFromOKLCH = (store: ColorsStore) => {
           store.oklch.light.neutral.chroma
         } ${store.oklch.light.neutral.hue});
 
-        --color-shadow-light-strong: oklch(4% ${
-          store.oklch.light.neutral.chroma
-        } ${store.oklch.light.neutral.hue});
-        --color-shadow-light-base: oklch(20% ${
-          store.oklch.light.neutral.chroma
-        } ${store.oklch.light.neutral.hue});
-        --color-shadow-light-subtle: oklch(40% ${
-          store.oklch.light.neutral.chroma
-        } ${store.oklch.light.neutral.hue});
-
         /* Dark Theme */
 
         ${getDarkColorTheme("primary", store.oklch.primaryHue)}
@@ -83,17 +73,6 @@ export const getThemeFromOKLCH = (store: ColorsStore) => {
         --color-border-dark-subtle: oklch(54% ${
           store.oklch.dark.neutral.chroma
         } ${store.oklch.dark.neutral.hue});
-
-        --color-shadow-dark-strong: oklch(99% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
-        --color-shadow-dark-base: oklch(80% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
-        --color-shadow-dark-subtle: oklch(54% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
-
 
         /*    Status */
         --color-status-error: ${store.default.status.error};

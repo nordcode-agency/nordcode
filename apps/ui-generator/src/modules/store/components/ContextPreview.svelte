@@ -1,5 +1,3 @@
-
-
 <div id="top" role="document">
     <nav>
         <ul>
@@ -142,9 +140,13 @@
                 <div class="box" style="box-shadow: var(--shadow-near)">
                     <small>Shadow near</small>
                 </div>
-                <div class="box" style="box-shadow: var(--shadow-away)">
-                    <small>Shadow away</small>
+                <div class="box" style="box-shadow: var(--shadow-medium)">
+                    <small>Shadow medium</small>
                 </div>
+                                <div class="box" style="box-shadow: var(--shadow-far)">
+                    <small>Shadow far</small>
+                </div>
+
             </div>
         </section>
         <section id="text">
@@ -663,15 +665,15 @@
                     </p>
                 </fieldset>
                 <p><a href="#top">[Top]</a></p>
-                <fieldset id="forms__action">
+                <fieldset id="forms__action" class="nc-fieldset stack">
                     <legend>Action buttons</legend>
-                    <p>
+                    <p class="cluster">
                         <input type="submit" value="<input type=submit>">
                         <input type="button" value="<input type=button>">
                         <input type="reset" value="<input type=reset>">
                         <input type="submit" value="<input disabled>" disabled>
                     </p>
-                    <p>
+                    <p class="cluster">
                         <button type="submit">&lt;button type=submit&gt;</button>
                         <button type="button">&lt;button type=button&gt;</button>
                         <button type="reset">&lt;button type=reset&gt;</button>
