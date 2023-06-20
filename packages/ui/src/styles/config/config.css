@@ -1,7 +1,5 @@
 @layer config {
     :where(html) {
-
-
         /* Spacing */
 
         --spacing-tiny: 0.125rem;
@@ -15,11 +13,11 @@
         /* Borders */
 
         --border-width-thin: 1px;
-        --border-width-normal: 2px;
+        --border-width-medium: 2px;
         --border-width-thick: 4px;
 
         --border-radius-small: 2px;
-        --border-radius-normal: 4px;
+        --border-radius-medium: 4px;
         --border-radius-large: 8px;
         --border-radius-round: 1e5px;
 
@@ -28,21 +26,26 @@
         /* Light Theme */
 
 
-        --shadow-inset-light: inset 2px 2px 0px 0  var(--color-shadow-light-subtle);
+        --shadow-inset-light: inset 3px 3px 0px 0 oklch(20% 0.1 265 / 10%);
 
-        --shadow-nearest-light: 1px 1px 0 0 var(--color-shadow-light-strong) , 1px 1px 2px 0 var(--color-shadow-light-subtle);
-        --shadow-near-light: 1px 1px 0 0 var(--color-shadow-light-strong) , 2px 2px 4px 0 var(--color-shadow-light-subtle);
-        --shadow-base-light: 1px 1px 0 0 var(--color-shadow-light-strong) , 4px 4px 8px 0 var(--color-shadow-light-subtle);
-        --shadow-far-light: 1px 1px 0 0 var(--color-shadow-light-strong) , 8px 8px 16px 0 var(--color-shadow-light-subtle);
+        --shadow-nearest-light: 0.04px 0.04px 0.1px 0px oklch(20% 0.1 265 / 20.48%), 0.09px 0.09px 0.22px 0px oklch(20% 0.1 265 / 25.6%), 0.2px 0.2px 0.5px 0px oklch(20% 0.1 265 / 32%), 0.45px 0.45px 1.13px 0px oklch(20% 0.1 265 / 40%), 1px 1px 2.5px 0px oklch(20% 0.1 265 / 50%);
+        --shadow-near-light: 0.12px 0.12px 0.3px 0px oklch(20% 0.1 265 / 20.48%), 0.27px 0.27px 0.68px 0px oklch(20% 0.1 265 / 25.6%), 0.61px 0.61px 1.53px 0px oklch(20% 0.1 265 / 32%), 1.35px 1.35px 3.38px 0px oklch(20% 0.1 265 / 40%), 3px 3px 7.5px 0px oklch(20% 0.1 265 / 50%);
+        --shadow-medium-light: 0.37px 0.37px 0.93px 0px oklch(20% 0.1 265 / 20.48%), 0.82px 0.82px 2.05px 0px oklch(20% 0.1 265 / 25.6%), 1.82px 1.82px 4.55px 0px oklch(20% 0.1 265 / 32%), 4.05px 4.05px 10.13px 0px oklch(20% 0.1 265 / 40%), 9px 9px 22.5px 0px oklch(20% 0.1 265 / 50%);
+        --shadow-far-light: 1.19px 1.19px 2.97px 0px oklch(20% 0.1 265 / 20.48%), 2.64px 2.64px 6.6px 0px oklch(20% 0.1 265 / 25.6%), 5.87px 5.87px 14.68px 0px oklch(20% 0.1 265 / 32%), 13.05px 13.05px 32.63px 0px oklch(20% 0.1 265 / 40%), 29px 29px 72.5px 0px oklch(20% 0.1 265 / 50%);
+
+        --shadow-color-light: oklch(20% 0.1 265);
 
         /* Dark Theme */
 
-        --shadow-inset-dark: inset 2px 2px 0px 0  var(--color-shadow-dark-subtle);
+        --shadow-inset-dark: inset 3px 3px 0px 0  oklch(80% 0.1 265 / 10%);
 
-        --shadow-nearest-dark: 1px 1px 0 0 var(--color-shadow-dark-strong) , 1px 1px 2px 0 var(--color-shadow-dark-subtle);
-        --shadow-near-dark: 1px 1px 0 0 var(--color-shadow-dark-strong) , 2px 2px 4px 0 var(--color-shadow-dark-subtle);
-        --shadow-base-dark: 1px 1px 0 0 var(--color-shadow-dark-strong) , 4px 4px 8px 0 var(--color-shadow-dark-subtle);
-        --shadow-far-dark: 1px 1px 0 0 var(--color-shadow-dark-strong) , 8px 8px 16px 0 var(--color-shadow-dark-subtle);
+        --shadow-nearest-dark: 0.04px 0.04px 0.1px 0px oklch(80% 0.1 265 / 20.48%), 0.09px 0.09px 0.22px 0px oklch(80% 0.1 265 / 25.6%), 0.2px 0.2px 0.5px 0px oklch(80% 0.1 265 / 32%), 0.45px 0.45px 1.13px 0px oklch(80% 0.1 265 / 40%), 1px 1px 2.5px 0px oklch(80% 0.1 265 / 50%);
+        --shadow-near-dark: 0.12px 0.12px 0.3px 0px oklch(80% 0.1 265 / 20.48%), 0.27px 0.27px 0.68px 0px oklch(80% 0.1 265 / 25.6%), 0.61px 0.61px 1.53px 0px oklch(80% 0.1 265 / 32%), 1.35px 1.35px 3.38px 0px oklch(80% 0.1 265 / 40%), 3px 3px 7.5px 0px oklch(80% 0.1 265 / 50%);
+        --shadow-medium-dark: 0.37px 0.37px 0.93px 0px oklch(80% 0.1 265 / 20.48%), 0.82px 0.82px 2.05px 0px oklch(80% 0.1 265 / 25.6%), 1.82px 1.82px 4.55px 0px oklch(80% 0.1 265 / 32%), 4.05px 4.05px 10.13px 0px oklch(80% 0.1 265 / 40%), 9px 9px 22.5px 0px oklch(80% 0.1 265 / 50%);
+        --shadow-far-dark: 1.19px 1.19px 2.97px 0px oklch(80% 0.1 265 / 20.48%), 2.64px 2.64px 6.6px 0px oklch(80% 0.1 265 / 25.6%), 5.87px 5.87px 14.68px 0px oklch(80% 0.1 265 / 32%), 13.05px 13.05px 32.63px 0px oklch(80% 0.1 265 / 40%), 29px 29px 72.5px 0px oklch(80% 0.1 265 / 50%);
+
+        --shadow-color-dark: oklch(80% 0.1 265);
+
 
 
 

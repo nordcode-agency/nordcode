@@ -9,7 +9,7 @@
         --_button-background: var(--button-background, var(--color-text-strong));
         --_button-color: var(--button-color, var(--color-surface-subtle));
         --_button-border-color: var(--button-border-color, var(--color-text-strong));
-        --_button-border-radius: var(--button-border-radius, var(--border-radius-normal));
+        --_button-border-radius: var(--button-border-radius, var(--border-radius-medium));
         --_button-offset-distance: var(--button-offset-distance, -2px);
 
         --_button-transform: var(--button-transform, translate(
