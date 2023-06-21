@@ -60,31 +60,45 @@ export const getShadows = (store: SizesStore) => {
         `;
 };
 
-// ideas from: https://shadows.brumm.af/ and material design
+// ideas from: https://shadows.brumm.af/ and material design and https://www.joshwcomeau.com/shadow-palette/
 const amountOfExtraShadows = 4;
-const scaleFactor = 0.45;
-const finalTransparency = 0.5;
-const transparencyScale = 0.8;
-const spreadReduction = 0;
-const blurFactor = 2.5;
+const scaleFactor = 0.64;
+const startTransparency = 0.25;
+const transparencyScale = 1.2;
+const spreadMax = -4;
+const spreadMin = 1;
+const blurFactor = 2.4;
+const distanceFactor = 2;
 const round = (num: number) => Math.round(num * 100) / 100;
 const getLCHColorWithTransparency = (color: string, transparency: number) =>
   `${color.slice(0, -1)} / ${round(transparency * 100)}%)`;
 
+const getSpread = (
+  min: number,
+  max: number,
+  totalSteps: number,
+  step: number
+) => {
+  const spread = min + ((max - min) / totalSteps) * step;
+  return round(spread);
+};
 // use color for creating the correct one
 const generateShadow = (distance: number, color: string) => {
   let shadowString = "";
-  const initialBlur = distance * blurFactor;
 
   for (let i = 0; i <= amountOfExtraShadows; i++) {
     const d = round(distance * Math.pow(scaleFactor, i));
     const blur = round(d * blurFactor);
     const shadowColor = getLCHColorWithTransparency(
       color,
-      finalTransparency * Math.pow(transparencyScale, i)
+      startTransparency * Math.pow(transparencyScale, i)
     );
+    const spread = getSpread(spreadMax, spreadMin, amountOfExtraShadows, i);
+    // const spread = 0;
 
-    shadowString = `${d}px ${d}px ${blur}px ${spreadReduction}px ${shadowColor}, ${shadowString}`;
+    shadowString = `${d}px ${
+      d * distanceFactor
+    }px ${blur}px ${spread}px ${shadowColor}, ${shadowString}`;
   }
   return shadowString.slice(0, -2);
 };
