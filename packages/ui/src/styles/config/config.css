@@ -30,10 +30,10 @@
 
         --shadow-inset-light: inset 3px 3px 0px 0 oklch(20% 0.1 265 / 10%);
 
-        --shadow-nearest-light: 0.04px 0.04px 0.1px 0px oklch(20% 0.1 265 / 20.48%), 0.09px 0.09px 0.22px 0px oklch(20% 0.1 265 / 25.6%), 0.2px 0.2px 0.5px 0px oklch(20% 0.1 265 / 32%), 0.45px 0.45px 1.13px 0px oklch(20% 0.1 265 / 40%), 1px 1px 2.5px 0px oklch(20% 0.1 265 / 50%);
-        --shadow-near-light: 0.12px 0.12px 0.3px 0px oklch(20% 0.1 265 / 20.48%), 0.27px 0.27px 0.68px 0px oklch(20% 0.1 265 / 25.6%), 0.61px 0.61px 1.53px 0px oklch(20% 0.1 265 / 32%), 1.35px 1.35px 3.38px 0px oklch(20% 0.1 265 / 40%), 3px 3px 7.5px 0px oklch(20% 0.1 265 / 50%);
-        --shadow-medium-light: 0.37px 0.37px 0.93px 0px oklch(20% 0.1 265 / 20.48%), 0.82px 0.82px 2.05px 0px oklch(20% 0.1 265 / 25.6%), 1.82px 1.82px 4.55px 0px oklch(20% 0.1 265 / 32%), 4.05px 4.05px 10.13px 0px oklch(20% 0.1 265 / 40%), 9px 9px 22.5px 0px oklch(20% 0.1 265 / 50%);
-        --shadow-far-light: 1.19px 1.19px 2.97px 0px oklch(20% 0.1 265 / 20.48%), 2.64px 2.64px 6.6px 0px oklch(20% 0.1 265 / 25.6%), 5.87px 5.87px 14.68px 0px oklch(20% 0.1 265 / 32%), 13.05px 13.05px 32.63px 0px oklch(20% 0.1 265 / 40%), 29px 29px 72.5px 0px oklch(20% 0.1 265 / 50%);
+        --shadow-nearest-light: 0.17px 0.34px 0.41px 1px oklch(20% 0.1 265 / 51.84%), 0.26px 0.52px 0.62px -0.25px oklch(20% 0.1 265 / 43.2%), 0.41px 0.82px 0.98px -1.5px oklch(20% 0.1 265 / 36%), 0.64px 1.28px 1.54px -2.75px oklch(20% 0.1 265 / 30%), 1px 2px 2.4px -4px oklch(20% 0.1 265 / 25%);
+        --shadow-near-light: 0.5px 1px 1.2px 1px oklch(20% 0.1 265 / 51.84%), 0.79px 1.58px 1.9px -0.25px oklch(20% 0.1 265 / 43.2%), 1.23px 2.46px 2.95px -1.5px oklch(20% 0.1 265 / 36%), 1.92px 3.84px 4.61px -2.75px oklch(20% 0.1 265 / 30%), 3px 6px 7.2px -4px oklch(20% 0.1 265 / 25%);
+        --shadow-medium-light: 1.51px 3.02px 3.62px 1px oklch(20% 0.1 265 / 51.84%), 2.36px 4.72px 5.66px -0.25px oklch(20% 0.1 265 / 43.2%), 3.69px 7.38px 8.86px -1.5px oklch(20% 0.1 265 / 36%), 5.76px 11.52px 13.82px -2.75px oklch(20% 0.1 265 / 30%), 9px 18px 21.6px -4px oklch(20% 0.1 265 / 25%);
+        --shadow-far-light: 4.87px 9.74px 11.69px 1px oklch(20% 0.1 265 / 51.84%), 7.6px 15.2px 18.24px -0.25px oklch(20% 0.1 265 / 43.2%), 11.88px 23.76px 28.51px -1.5px oklch(20% 0.1 265 / 36%), 18.56px 37.12px 44.54px -2.75px oklch(20% 0.1 265 / 30%), 29px 58px 69.6px -4px oklch(20% 0.1 265 / 25%);
 
         --shadow-color-light: oklch(20% 0.1 265);
 
@@ -41,10 +41,10 @@
 
         --shadow-inset-dark: inset 3px 3px 0px 0  oklch(80% 0.1 265 / 10%);
 
-        --shadow-nearest-dark: 0.04px 0.04px 0.1px 0px oklch(80% 0.1 265 / 20.48%), 0.09px 0.09px 0.22px 0px oklch(80% 0.1 265 / 25.6%), 0.2px 0.2px 0.5px 0px oklch(80% 0.1 265 / 32%), 0.45px 0.45px 1.13px 0px oklch(80% 0.1 265 / 40%), 1px 1px 2.5px 0px oklch(80% 0.1 265 / 50%);
-        --shadow-near-dark: 0.12px 0.12px 0.3px 0px oklch(80% 0.1 265 / 20.48%), 0.27px 0.27px 0.68px 0px oklch(80% 0.1 265 / 25.6%), 0.61px 0.61px 1.53px 0px oklch(80% 0.1 265 / 32%), 1.35px 1.35px 3.38px 0px oklch(80% 0.1 265 / 40%), 3px 3px 7.5px 0px oklch(80% 0.1 265 / 50%);
-        --shadow-medium-dark: 0.37px 0.37px 0.93px 0px oklch(80% 0.1 265 / 20.48%), 0.82px 0.82px 2.05px 0px oklch(80% 0.1 265 / 25.6%), 1.82px 1.82px 4.55px 0px oklch(80% 0.1 265 / 32%), 4.05px 4.05px 10.13px 0px oklch(80% 0.1 265 / 40%), 9px 9px 22.5px 0px oklch(80% 0.1 265 / 50%);
-        --shadow-far-dark: 1.19px 1.19px 2.97px 0px oklch(80% 0.1 265 / 20.48%), 2.64px 2.64px 6.6px 0px oklch(80% 0.1 265 / 25.6%), 5.87px 5.87px 14.68px 0px oklch(80% 0.1 265 / 32%), 13.05px 13.05px 32.63px 0px oklch(80% 0.1 265 / 40%), 29px 29px 72.5px 0px oklch(80% 0.1 265 / 50%);
+        --shadow-nearest-dark: 0.17px 0.34px 0.41px 1px oklch(80% 0.1 265 / 51.84%), 0.26px 0.52px 0.62px -0.25px oklch(80% 0.1 265 / 43.2%), 0.41px 0.82px 0.98px -1.5px oklch(80% 0.1 265 / 36%), 0.64px 1.28px 1.54px -2.75px oklch(80% 0.1 265 / 30%), 1px 2px 2.4px -4px oklch(80% 0.1 265 / 25%);
+        --shadow-near-dark: 0.5px 1px 1.2px 1px oklch(80% 0.1 265 / 51.84%), 0.79px 1.58px 1.9px -0.25px oklch(80% 0.1 265 / 43.2%), 1.23px 2.46px 2.95px -1.5px oklch(80% 0.1 265 / 36%), 1.92px 3.84px 4.61px -2.75px oklch(80% 0.1 265 / 30%), 3px 6px 7.2px -4px oklch(80% 0.1 265 / 25%);
+        --shadow-medium-dark: 1.51px 3.02px 3.62px 1px oklch(80% 0.1 265 / 51.84%), 2.36px 4.72px 5.66px -0.25px oklch(80% 0.1 265 / 43.2%), 3.69px 7.38px 8.86px -1.5px oklch(80% 0.1 265 / 36%), 5.76px 11.52px 13.82px -2.75px oklch(80% 0.1 265 / 30%), 9px 18px 21.6px -4px oklch(80% 0.1 265 / 25%);
+        --shadow-far-dark: 4.87px 9.74px 11.69px 1px oklch(80% 0.1 265 / 51.84%), 7.6px 15.2px 18.24px -0.25px oklch(80% 0.1 265 / 43.2%), 11.88px 23.76px 28.51px -1.5px oklch(80% 0.1 265 / 36%), 18.56px 37.12px 44.54px -2.75px oklch(80% 0.1 265 / 30%), 29px 58px 69.6px -4px oklch(80% 0.1 265 / 25%);
 
         --shadow-color-dark: oklch(80% 0.1 265);
 
