@@ -5,6 +5,7 @@
         configStore,
         updateBorderRadiusScale,
         updateBorderWidthScale,
+        updateShadowDistanceScale,
         updateSpacingScale
     } from "../../store/configStore";
 </script>
