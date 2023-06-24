@@ -28,6 +28,11 @@ export const localStore = <T>(key: string, initial: T) => {
       localStorage.setItem(key, toString(updated));
       return update(updateFn);
     },
+    export: () => toString(saved),
+    import: (valueString: string) => {
+      const value = toObj(valueString);
+      return set(value);
+    },
     reset: () => {
       localStorage.setItem(key, toString(initial));
       return set(initial);

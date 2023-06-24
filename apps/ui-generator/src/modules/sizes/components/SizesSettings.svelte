@@ -42,7 +42,8 @@
                             id="spacingTiny"
                             type="number"
                             step="0.01"
-                            bind:value={$configStore.spacingTiny}/>
+                            bind:value={$configStore.spacingTiny}
+                    />
                     <Input
                             name="spacingNearest"
                             label="Spacing Nearest"
