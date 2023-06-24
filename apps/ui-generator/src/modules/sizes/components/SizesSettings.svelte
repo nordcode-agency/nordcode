@@ -1,14 +1,12 @@
 <script lang="ts">
     import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
     import InputWrapper from "@nordcode/ui/src/modules/forms/svelte/InputFields/InputWrapper.svelte"
-
     import {
-        sizesStore,
+        configStore,
         updateBorderRadiusScale,
         updateBorderWidthScale,
-        updateShadowDistanceScale,
         updateSpacingScale
-    } from "../sizesStore";
+    } from "../../store/configStore";
 </script>
 
 <div>
@@ -29,7 +27,7 @@
                        autocomplete="off"
                        type="number"
                        step="0.1"
-                       value={$sizesStore.spacingScale}
+                       value={$configStore.spacingScale}
                        on:input={evt => updateSpacingScale(evt.target.value)}
                 />
             </InputWrapper>
@@ -43,42 +41,42 @@
                             id="spacingTiny"
                             type="number"
                             step="0.01"
-                            bind:value={$sizesStore.spacingTiny}/>
+                            bind:value={$configStore.spacingTiny}/>
                     <Input
                             name="spacingNearest"
                             label="Spacing Nearest"
                             id="spacingNearest"
                             type="number"
                             step="0.01"
-                            bind:value={$sizesStore.spacingNearest}/>
+                            bind:value={$configStore.spacingNearest}/>
                     <Input
                             name="spacingNear"
                             label="Spacing Near"
                             id="spacingNear"
                             type="number"
                             step="0.01"
-                            bind:value={$sizesStore.spacingNear}/>
+                            bind:value={$configStore.spacingNear}/>
                     <Input
                             name="spacingBase"
                             label="Spacing Base"
                             id="spacingBase"
                             type="number"
                             step="0.01"
-                            bind:value={$sizesStore.spacingBase}/>
+                            bind:value={$configStore.spacingBase}/>
                     <Input
                             name="spacingFar"
                             label="Spacing Far"
                             id="spacingFar"
                             type="number"
                             step="0.01"
-                            bind:value={$sizesStore.spacingFar}/>
+                            bind:value={$configStore.spacingFar}/>
                     <Input
                             name="spacingFarthest"
                             label="Spacing Farthest"
                             id="spacingFarthest"
                             type="number"
                             step="0.01"
-                            bind:value={$sizesStore.spacingFarthest}/>
+                            bind:value={$configStore.spacingFarthest}/>
                 </fieldset>
             </details>
         </fieldset>
@@ -99,7 +97,7 @@
                        autocomplete="off"
                        type="number"
                        step="0.1"
-                       value={$sizesStore.borderWidthScale}
+                       value={$configStore.borderWidthScale}
                        on:input={evt => updateBorderWidthScale(evt.target.value)}
                 />
             </InputWrapper>
@@ -114,21 +112,21 @@
                             type="number"
                             step="1"
                             hint="This is the base for scale calculations"
-                            bind:value={$sizesStore.borderWidthThin}/>
+                            bind:value={$configStore.borderWidthThin}/>
                     <Input
                             name="borderWidthNormal"
                             label="Border Width Normal"
                             id="borderWidthNormal"
                             type="number"
                             step="1"
-                            bind:value={$sizesStore.borderWidthNormal}/>
+                            bind:value={$configStore.borderWidthNormal}/>
                     <Input
                             name="borderWidthThick"
                             label="Border Width Thick"
                             id="borderWidthThick"
                             type="number"
                             step="1"
-                            bind:value={$sizesStore.borderWidthThick}/>
+                            bind:value={$configStore.borderWidthThick}/>
                 </fieldset>
             </details>
 
@@ -146,7 +144,7 @@
                        autocomplete="off"
                        type="number"
                        step="0.1"
-                       value={$sizesStore.borderRadiusScale}
+                       value={$configStore.borderRadiusScale}
                        on:input={evt => updateBorderRadiusScale(evt.target.value)}
                 />
             </InputWrapper>
@@ -161,21 +159,21 @@
                             type="number"
                             step="1"
                             hint="This is the base for scale calculations"
-                            bind:value={$sizesStore.borderRadiusSmall}/>
+                            bind:value={$configStore.borderRadiusSmall}/>
                     <Input
                             name="borderRadiusNormal"
                             label="Border Radius Normal"
                             id="borderRadiusNormal"
                             type="number"
                             step="1"
-                            bind:value={$sizesStore.borderRadiusMedium}/>
+                            bind:value={$configStore.borderRadiusMedium}/>
                     <Input
                             name="bordeRadiusLarge"
                             label="Border Radius Large"
                             id="bordeRadiusLarge"
                             type="number"
                             step="1"
-                            bind:value={$sizesStore.borderRadiusLarge}/>
+                            bind:value={$configStore.borderRadiusLarge}/>
                 </fieldset>
             </details>
         </fieldset>
@@ -191,7 +189,7 @@
                         step="1"
                         min="0"
                         max="360"
-                        bind:value={$sizesStore.shadowColorHue}/>
+                        bind:value={$configStore.shadowColorHue}/>
 
                 <Input
                         name="colorShadowChroma"
@@ -199,7 +197,7 @@
                         id="colorShadowChroma"
                         type="number"
                         step="0.01"
-                        bind:value={$sizesStore.shadowColorChroma}/>
+                        bind:value={$configStore.shadowColorChroma}/>
             </div>
             <InputWrapper
                     name="shadowDistanceScale"
@@ -215,7 +213,7 @@
                        autocomplete="off"
                        type="number"
                        step="0.1"
-                       value={$sizesStore.shadowDistanceScale}
+                       value={$configStore.shadowDistanceScale}
                        on:input={evt => updateShadowDistanceScale(evt.target.value)}
                 />
             </InputWrapper>
@@ -229,7 +227,7 @@
                             id="shadowDistanceInset"
                             type="number"
                             step="1"
-                            bind:value={$sizesStore.shadowDistanceInset}/>
+                            bind:value={$configStore.shadowDistanceInset}/>
                     <Input
                             name="shadowDistanceNearest"
                             label="Shadow Distance Nearest"
@@ -237,35 +235,35 @@
                             type="number"
                             step="1"
                             hint="This is the base for scale calculations"
-                            bind:value={$sizesStore.shadowDistanceNearest}/>
+                            bind:value={$configStore.shadowDistanceNearest}/>
                     <Input
                             name="shadowDistanceNear"
                             label="Shadow Distance Near"
                             id="shadowDistanceNear"
                             type="number"
                             step="1"
-                            bind:value={$sizesStore.shadowDistanceNear}/>
+                            bind:value={$configStore.shadowDistanceNear}/>
                     <Input
                             name="shadowDistanceMedium"
                             label="Shadow Distance Medium"
                             id="shadowDistanceMedium"
                             type="number"
                             step="1"
-                            bind:value={$sizesStore.shadowDistanceMedium}/>
+                            bind:value={$configStore.shadowDistanceMedium}/>
                     <Input
                             name="shadowDistanceFar"
                             label="Shadow Distance Far"
                             id="shadowDistanceFar"
                             type="number"
                             step="1"
-                            bind:value={$sizesStore.shadowDistanceFar}/>
+                            bind:value={$configStore.shadowDistanceFar}/>
                 </fieldset>
             </details>
 
         </fieldset>
 
 
-        <button type="button" class="nc-button -destructive" on:click={sizesStore.reset}>Reset</button>
+        <button type="button" class="nc-button -destructive" on:click={configStore.reset}>Reset</button>
 
     </form>
 </div>

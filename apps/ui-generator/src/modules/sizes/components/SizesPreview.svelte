@@ -1,8 +1,8 @@
 <script lang="ts">
 
     import SpacingRow from "./SpacingPreview.svelte";
-    import {sizesStore} from "../sizesStore";
     import BlockPreview from "./BlockPreview.svelte";
+    import {configStore} from "../../store/configStore";
 
     const spacings = {
         '--spacing-tiny': 'gap: var(--spacing-tiny)',
@@ -37,7 +37,7 @@
 
 </script>
 
-{#if Object.values($sizesStore).length > 0}
+{#if Object.values($configStore).length > 0}
 <div class="stack -layout-far">
     <div class="stack -layout-near">
         <h2>Spacings</h2>

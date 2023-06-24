@@ -1,7 +1,7 @@
 <script lang="ts">
 
-    import {colorStore} from "../colorStore";
     import ColorPreview from "./ColorPreview.svelte";
+    import {configStore} from "../../store/configStore";
 
     const colors = [
         '--color-brand-primary-strong',
@@ -27,7 +27,7 @@
 
 </script>
 
-{#if Object.values($colorStore).length > 0}
+{#if Object.values($configStore).length > 0}
     <div class="stack -layout-far">
         <div class="stack -layout-near">
             <h2>Colors</h2>

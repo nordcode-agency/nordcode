@@ -1,7 +1,7 @@
 <script lang="ts">
 
     import TextPreviewRow from "./TextPreviewRow.svelte";
-    import {typoStore} from "../typoStore";
+    import {configStore} from "../../store/configStore";
 
     const fontFamilies = {
         '--font-family-sans': 'font-family: var(--font-family-sans)',
@@ -42,7 +42,7 @@
 
 
 
-{#if Object.values($typoStore).length > 0}
+{#if Object.values($configStore).length > 0}
 <div class="stack -layout-far">
     <div class="stack -layout-near">
         <h2>Font Families</h2>

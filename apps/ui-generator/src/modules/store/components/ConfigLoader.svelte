@@ -1,11 +1,5 @@
 <script lang="ts">
 
-    import type {ColorsStore} from "../../colors/colorStore";
-    import {colorStore} from "../../colors/colorStore";
-    import type {TypoStore} from "../../typography/typoStore";
-    import {typoStore} from "../../typography/typoStore";
-    import type {SizesStore} from "../../sizes/sizesStore";
-    import {sizesStore} from "../../sizes/sizesStore";
     import {getThemeFromOKLCH} from "../utils/getThemeFromOKLCH";
     import {getStandardColorTheme} from "../utils/getStandardColorTheme";
     import {writable} from "svelte/store";
@@ -14,15 +8,14 @@
     import {quintOut} from 'svelte/easing';
     import {getShadows} from "../utils/getShadows";
     import ExportDialog from "./ExportDialog.svelte";
+    import type {ConfigStore} from "../configStore";
+    import {configStore} from "../configStore";
 
 
-    let sizesStyle = ""
-    let typoStyle = ''
-    let colorStyle = ''
     let allStyles = ''
 
-    const updateTypoStyle = (store: TypoStore) => {
-        typoStyle =
+    const updateStyles = (store: ConfigStore) => {
+        allStyles =
             `
         /* Typography */
 
@@ -52,12 +45,7 @@
         --font-size-base: ${store.fontSizeBase}${store.fontSizeUnit};
         --font-size-large: ${store.fontSizeLarge}${store.fontSizeUnit};
         --font-size-largest: ${store.fontSizeLargest}${store.fontSizeUnit};
-        `
-    }
 
-    const updateSizesStyle = (store: SizesStore) => {
-        sizesStyle =
-            `
 
         /* Spacing */
 
@@ -81,30 +69,12 @@
         --border-radius-round: 1e5px;
 
         ${getShadows(store)}
-        `
+
+        ${store.useLCH ? getThemeFromOKLCH(store) : getStandardColorTheme(store)}
+        `.replace(/^ +/gm, '')
     }
 
-    const updateColorStyle = (store: ColorsStore) => {
-        if (store.useLCH) {
-            colorStyle = getThemeFromOKLCH(store)
-        } else {
-            colorStyle = getStandardColorTheme(store)
-        }
-    }
-
-
-    typoStore.subscribe(store => updateTypoStyle(store))
-    sizesStore.subscribe(store => updateSizesStyle(store))
-    colorStore.subscribe(store => updateColorStyle(store))
-
-    $: {
-        allStyles = [
-            sizesStyle,
-            typoStyle,
-            colorStyle
-        ].join("\n").replace(/^ +/gm, '')
-
-    }
+    configStore.subscribe(updateStyles)
 
     const previewShown = writable(false)
     const togglePreview = () => {

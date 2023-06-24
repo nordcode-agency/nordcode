@@ -1,6 +1,6 @@
 <script lang="ts">
     import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
-    import {colorStore} from "../colorStore";
+    import {configStore} from "../../store/configStore";
 </script>
 
 <form class="stack -layout-far -full-width -stretched">
@@ -14,7 +14,7 @@
                     max="360"
                     min="0"
                     step="1"
-                    bind:value={$colorStore.oklch.primaryHue}/>
+                    bind:value={$configStore.oklch.primaryHue}/>
                <Input
                     name="colorLCHLightSecondaryHue"
                     label="Secondary Light Hue"
@@ -23,7 +23,7 @@
                     max="360"
                     min="0"
                     step="1"
-                    bind:value={$colorStore.oklch.secondaryHue}/>
+                    bind:value={$configStore.oklch.secondaryHue}/>
 
             <div class="cluster -nowrap">
                 <Input
@@ -32,14 +32,14 @@
                     id="colorLCHLightNeutralHue"
                     type="number"
                     step="1"
-                    bind:value={$colorStore.oklch.light.neutral.hue}/>
+                    bind:value={$configStore.oklch.light.neutral.hue}/>
                 <Input
                     name="colorLCHLightNeutralChroma"
                     label="Neutral Light Chroma"
                     id="colorLCHLightNeutralChroma"
                     type="number"
                     step="0.01"
-                    bind:value={$colorStore.oklch.light.neutral.chroma}/>
+                    bind:value={$configStore.oklch.light.neutral.chroma}/>
             </div>
             <div class="cluster -nowrap">
                 <Input
@@ -48,17 +48,17 @@
                     id="colorLCHDarkNeutralHue"
                     type="number"
                     step="1"
-                    bind:value={$colorStore.oklch.dark.neutral.hue}/>
+                    bind:value={$configStore.oklch.dark.neutral.hue}/>
                 <Input
                     name="colorLCHDarkNeutralChroma"
                     label="Neutral Dark Chroma"
                     id="colorLCHDarkNeutralChroma"
                     type="number"
                     step="0.01"
-                    bind:value={$colorStore.oklch.dark.neutral.chroma}/>
+                    bind:value={$configStore.oklch.dark.neutral.chroma}/>
             </div>
         </fieldset>
 
-                <button type="button" class="nc-button -destructive" on:click={colorStore.reset}>Reset</button>
+                <button type="button" class="nc-button -destructive" on:click={configStore.reset}>Reset</button>
 
     </form>

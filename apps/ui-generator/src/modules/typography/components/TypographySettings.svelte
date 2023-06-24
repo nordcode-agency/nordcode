@@ -2,7 +2,7 @@
     import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
     import Select from "@nordcode/ui/src/modules/forms/svelte/InputFields/Select.svelte";
     import InputWrapper from "@nordcode/ui/src/modules/forms/svelte/InputFields/InputWrapper.svelte"
-    import {typoStore, updateFontScale} from "../typoStore";
+    import {configStore, updateFontScale} from "../../store/configStore";
 </script>
 
 <div>
@@ -14,25 +14,25 @@
                     label="Font Family Sans"
                     id="fontFamilySans"
                     type="text"
-                    bind:value={$typoStore.fontFamilySans}/>
+                    bind:value={$configStore.fontFamilySans}/>
             <Input
                     name="fontFamilySerif"
                     label="Font Family Serif"
                     id="fontFamilySerif"
                     type="text"
-                    bind:value={$typoStore.fontFamilySerif}/>
+                    bind:value={$configStore.fontFamilySerif}/>
             <Input
                     name="fontFamilyMono"
                     label="Font Family Mono"
                     id="fontFamilyMono"
                     type="text"
-                    bind:value={$typoStore.fontFamilyMono}/>
+                    bind:value={$configStore.fontFamilyMono}/>
             <Select
                     name="fontFamilyDefault"
                     label="Font Family Default"
                     id="fontFamilyDefault"
                     type="text"
-                    bind:value={$typoStore.fontFamilyDefault}
+                    bind:value={$configStore.fontFamilyDefault}
                     options={
                     [
                         {label: "Sans", value: "sans"},
@@ -60,7 +60,7 @@
                        autocomplete="off"
                        type="number"
                        step="0.1"
-                       value={$typoStore.fontSizeScale}
+                       value={$configStore.fontSizeScale}
                        on:input={evt => updateFontScale(evt.target.value)}
                 />
             </InputWrapper>
@@ -71,43 +71,43 @@
                     <legend>Custom Font Sizes</legend>
                     <Input type="checkbox" name="useCustomFontsizes" label="Use custom font sizes?"
                            id="useCustomFontsizes"
-                           bind:value={$typoStore.useCustomFontSizes}/>
+                           bind:value={$configStore.useCustomFontSizes}/>
 
                     <Input
                             name="fontSizeLargest"
                             label="Font Size Largest"
                             id="fontSizeLargest"
                             type="number"
-                            disabled={$typoStore.useCustomFontSizes === false}
-                            bind:value={$typoStore.fontSizeLargest}/>
+                            disabled={$configStore.useCustomFontSizes === false}
+                            bind:value={$configStore.fontSizeLargest}/>
                     <Input
                             name="fontSizeLarge"
                             label="Font Size Large"
                             id="fontSizeLarge"
                             type="number"
-                            disabled={$typoStore.useCustomFontSizes === false}
-                            bind:value={$typoStore.fontSizeLarge}/>
+                            disabled={$configStore.useCustomFontSizes === false}
+                            bind:value={$configStore.fontSizeLarge}/>
                     <Input
                             name="fontSizeBase"
                             label="Font Size Base"
                             id="fontSizeBase"
                             type="number"
-                            disabled={$typoStore.useCustomFontSizes === false}
-                            bind:value={$typoStore.fontSizeBase}/>
+                            disabled={$configStore.useCustomFontSizes === false}
+                            bind:value={$configStore.fontSizeBase}/>
                     <Input
                             name="fontSizeSmall"
                             label="Font Size Small"
                             id="fontSizeSmall"
                             type="number"
-                            disabled={$typoStore.useCustomFontSizes === false}
-                            bind:value={$typoStore.fontSizeSmall}/>
+                            disabled={$configStore.useCustomFontSizes === false}
+                            bind:value={$configStore.fontSizeSmall}/>
                     <Input
                             name="fontSizeSmallest"
                             label="Font Size Smallest"
                             id="fontSizeSmallest"
                             type="number"
-                            disabled={$typoStore.useCustomFontSizes === false}
-                            bind:value={$typoStore.fontSizeSmallest}/>
+                            disabled={$configStore.useCustomFontSizes === false}
+                            bind:value={$configStore.fontSizeSmallest}/>
                 </fieldset>
             </details>
         </fieldset>
@@ -118,19 +118,19 @@
                     label="Line Height Large"
                     id="line-height-large"
                     type="number"
-                    bind:value={$typoStore.lineHeightLarge}/>
+                    bind:value={$configStore.lineHeightLarge}/>
             <Input
                     name="line-height-base"
                     label="Line Height Base"
                     id="line-height-base"
                     type="number"
-                    bind:value={$typoStore.lineHeightBase}/>
+                    bind:value={$configStore.lineHeightBase}/>
             <Input
                     name="line-height-small"
                     label="Line Height Small"
                     id="line-height-small"
                     type="number"
-                    bind:value={$typoStore.lineHeightSmall}/>
+                    bind:value={$configStore.lineHeightSmall}/>
         </fieldset>
         <fieldset class="nc-fieldset stack -layout-base">
             <legend>Tracking</legend>
@@ -140,21 +140,21 @@
                     id="tracking-wide"
                     type="number"
                     step="0.01"
-                    bind:value={$typoStore.trackingWide}/>
+                    bind:value={$configStore.trackingWide}/>
             <Input
                     name="tracking-base"
                     label="Tracking Base"
                     id="tracking-base"
                     type="number"
                     step="0.01"
-                    bind:value={$typoStore.trackingStandard}/>
+                    bind:value={$configStore.trackingStandard}/>
             <Input
                     name="tracking-narrow"
                     label="Tracking Narrow"
                     id="tracking-narrow"
                     type="number"
                     step="0.01"
-                    bind:value={$typoStore.trackingTight}/>
+                    bind:value={$configStore.trackingTight}/>
         </fieldset>
         <fieldset class="nc-fieldset stack -layout-base">
             <legend>Measure</legend>
@@ -164,23 +164,23 @@
                     id="measure-large"
                     type="number"
                     step="0.01"
-                    bind:value={$typoStore.measureLarge}/>
+                    bind:value={$configStore.measureLarge}/>
             <Input
                     name="measure-base"
                     label="Measure Base"
                     id="measure-base"
                     type="number"
                     step="0.01"
-                    bind:value={$typoStore.measureBase}/>
+                    bind:value={$configStore.measureBase}/>
             <Input
                     name="measure-small"
                     label="Measure Small"
                     id="measure-small"
                     type="number"
                     step="0.01"
-                    bind:value={$typoStore.measureSmall}/>
+                    bind:value={$configStore.measureSmall}/>
         </fieldset>
 
-        <button type="button" class="nc-button -destructive" on:click={typoStore.reset}>Reset</button>
+        <button type="button" class="nc-button -destructive" on:click={configStore.reset}>Reset</button>
     </form>
 </div>
