@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@nordcode/postcss-config": "workspace:^",
-    "@nordcode/types": "workspace:^"
+    "@nordcode/types": "workspace:^",
+    "vite-plugin-lightningcss": "^0.0.5"
   }
 }
