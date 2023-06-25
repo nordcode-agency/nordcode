@@ -7,18 +7,18 @@
         <fieldset class="nc-fieldset stack -layout-base">
             <legend>Colors</legend>
                <Input
-                    name="colorLCHLightPrimaryHue"
-                    label="Primary Light Hue"
-                    id="colorLCHLightPrimaryHue"
+                    name="colorLCHPrimaryHue"
+                    label="Primary Hue"
+                    id="colorLCHPrimaryHue"
                     type="range"
                     max="360"
                     min="0"
                     step="1"
                     bind:value={$configStore.oklch.primaryHue}/>
                <Input
-                    name="colorLCHLightSecondaryHue"
-                    label="Secondary Light Hue"
-                    id="colorLCHLightSecondaryHue"
+                    name="colorLCHSecondaryHue"
+                    label="Secondary Hue"
+                    id="colorLCHSecondaryHue"
                     type="range"
                     max="360"
                     min="0"
