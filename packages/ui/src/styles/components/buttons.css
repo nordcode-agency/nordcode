@@ -161,7 +161,7 @@
         color: var(--color-text-strong);
         background-color: var(--color-surface-strong);
         border: var(--border-width-thin) solid var(--color-text-strong);
-        height: var(--button-height-base);
+        min-block-size: var(--button-height-base);
         padding-inline-end: var(--spacing-near);
         border-radius: var(--_button-border-radius);
     }
