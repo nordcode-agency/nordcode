@@ -1,6 +1,6 @@
-import type { SizesStore } from "../../sizes/sizesStore";
+import type { ConfigStore } from "../configStore";
 
-export const getShadows = (store: SizesStore) => {
+export const getShadows = (store: ConfigStore) => {
   const shadowColorLight = `oklch(20% ${store.shadowColorChroma} ${store.shadowColorHue})`;
   const shadowColorDark = `oklch(80% ${store.shadowColorChroma} ${store.shadowColorHue})`;
 
