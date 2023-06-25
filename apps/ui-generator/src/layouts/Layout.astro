@@ -1,5 +1,6 @@
 ---
 import ConfigLoader from "../modules/store/components/ConfigLoader.svelte";
+import ConfigFromUrl from "../modules/store/components/ConfigFromUrl.svelte";
 import NotificationCenter from "@nordcode/ui/src/modules/notifications/svelte/NotificationCenter.svelte";
 import NotificationTemplate from "@nordcode/ui/src/modules/notifications/svelte/NotificationTemplate.svelte";
 export interface Props {
@@ -35,6 +36,7 @@ const {title} = Astro.props;
 </main>
 <NotificationTemplate/>
 <NotificationCenter/>
+<ConfigFromUrl client:only="svelte"/>
 </body>
 </html>
 <style is:global>

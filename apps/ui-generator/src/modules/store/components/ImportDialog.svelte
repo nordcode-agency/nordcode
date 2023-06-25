@@ -7,6 +7,7 @@
     const importStyles = () => {
         configStore.import(importedStyles)
     }
+
 </script>
 
 <dialog data-id="import-dialog" data-level="1" style="max-inline-size: 50rem">
