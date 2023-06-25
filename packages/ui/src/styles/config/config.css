@@ -1,56 +1,6 @@
 @layer config {
     :where(html) {
 
-
-        /* Spacing */
-
-        --spacing-tiny: 0.125rem;
-        --spacing-nearest: 0.25rem;
-        --spacing-near: 0.5rem;
-        --spacing-base: 1rem;
-        --spacing-far: 2rem;
-        --spacing-farthest: 4rem;
-
-
-        /* Borders */
-
-        --border-width-thin: 1px;
-        --border-width-medium: 2px;
-        --border-width-thick: 4px;
-
-        --border-radius-small: 2px;
-        --border-radius-medium: 4px;
-        --border-radius-large: 8px;
-        --border-radius-round: 1e5px;
-
-
-        /* SHADOWS */
-        /* Light Theme */
-
-
-        --shadow-inset-light: inset 3px 3px 0px 0 oklch(20% 0.1 265 / 10%);
-
-        --shadow-nearest-light: 0.17px 0.34px 0.41px 1px oklch(20% 0.1 265 / 51.84%), 0.26px 0.52px 0.62px -0.25px oklch(20% 0.1 265 / 43.2%), 0.41px 0.82px 0.98px -1.5px oklch(20% 0.1 265 / 36%), 0.64px 1.28px 1.54px -2.75px oklch(20% 0.1 265 / 30%), 1px 2px 2.4px -4px oklch(20% 0.1 265 / 25%);
-        --shadow-near-light: 0.5px 1px 1.2px 1px oklch(20% 0.1 265 / 51.84%), 0.79px 1.58px 1.9px -0.25px oklch(20% 0.1 265 / 43.2%), 1.23px 2.46px 2.95px -1.5px oklch(20% 0.1 265 / 36%), 1.92px 3.84px 4.61px -2.75px oklch(20% 0.1 265 / 30%), 3px 6px 7.2px -4px oklch(20% 0.1 265 / 25%);
-        --shadow-medium-light: 1.51px 3.02px 3.62px 1px oklch(20% 0.1 265 / 51.84%), 2.36px 4.72px 5.66px -0.25px oklch(20% 0.1 265 / 43.2%), 3.69px 7.38px 8.86px -1.5px oklch(20% 0.1 265 / 36%), 5.76px 11.52px 13.82px -2.75px oklch(20% 0.1 265 / 30%), 9px 18px 21.6px -4px oklch(20% 0.1 265 / 25%);
-        --shadow-far-light: 4.87px 9.74px 11.69px 1px oklch(20% 0.1 265 / 51.84%), 7.6px 15.2px 18.24px -0.25px oklch(20% 0.1 265 / 43.2%), 11.88px 23.76px 28.51px -1.5px oklch(20% 0.1 265 / 36%), 18.56px 37.12px 44.54px -2.75px oklch(20% 0.1 265 / 30%), 29px 58px 69.6px -4px oklch(20% 0.1 265 / 25%);
-
-        --shadow-color-light: oklch(20% 0.1 265);
-
-        /* Dark Theme */
-
-        --shadow-inset-dark: inset 3px 3px 0px 0  oklch(80% 0.1 265 / 10%);
-
-        --shadow-nearest-dark: 0.17px 0.34px 0.41px 1px oklch(80% 0.1 265 / 51.84%), 0.26px 0.52px 0.62px -0.25px oklch(80% 0.1 265 / 43.2%), 0.41px 0.82px 0.98px -1.5px oklch(80% 0.1 265 / 36%), 0.64px 1.28px 1.54px -2.75px oklch(80% 0.1 265 / 30%), 1px 2px 2.4px -4px oklch(80% 0.1 265 / 25%);
-        --shadow-near-dark: 0.5px 1px 1.2px 1px oklch(80% 0.1 265 / 51.84%), 0.79px 1.58px 1.9px -0.25px oklch(80% 0.1 265 / 43.2%), 1.23px 2.46px 2.95px -1.5px oklch(80% 0.1 265 / 36%), 1.92px 3.84px 4.61px -2.75px oklch(80% 0.1 265 / 30%), 3px 6px 7.2px -4px oklch(80% 0.1 265 / 25%);
-        --shadow-medium-dark: 1.51px 3.02px 3.62px 1px oklch(80% 0.1 265 / 51.84%), 2.36px 4.72px 5.66px -0.25px oklch(80% 0.1 265 / 43.2%), 3.69px 7.38px 8.86px -1.5px oklch(80% 0.1 265 / 36%), 5.76px 11.52px 13.82px -2.75px oklch(80% 0.1 265 / 30%), 9px 18px 21.6px -4px oklch(80% 0.1 265 / 25%);
-        --shadow-far-dark: 4.87px 9.74px 11.69px 1px oklch(80% 0.1 265 / 51.84%), 7.6px 15.2px 18.24px -0.25px oklch(80% 0.1 265 / 43.2%), 11.88px 23.76px 28.51px -1.5px oklch(80% 0.1 265 / 36%), 18.56px 37.12px 44.54px -2.75px oklch(80% 0.1 265 / 30%), 29px 58px 69.6px -4px oklch(80% 0.1 265 / 25%);
-
-        --shadow-color-dark: oklch(80% 0.1 265);
-
-
-
-
         /* Typography */
 
         --font-family-mono: DMMono, monospace;
@@ -74,11 +24,58 @@
         --measure-base: 72ch;
         --measure-small: 44ch;
 
-        --font-size-smallest: 0.444rem;
-        --font-size-small: 0.667rem;
+        --font-size-smallest: 0.75rem;
+        --font-size-small: 0.875rem;
         --font-size-base: 1rem;
-        --font-size-large: 1.5rem;
-        --font-size-largest: 2.25rem;
+        --font-size-large: 1.25rem;
+        --font-size-largest: 1.5rem;
+
+
+        /* Spacing */
+
+        --spacing-tiny: 0.125rem;
+        --spacing-nearest: 0.25rem;
+        --spacing-near: 0.5rem;
+        --spacing-base: 1rem;
+        --spacing-far: 2rem;
+        --spacing-farthest: 4rem;
+
+
+        /* Borders */
+
+        --border-width-thin: 1px;
+        --border-width-medium: 2px;
+        --border-width-thick: 4px;
+
+        --border-radius-small: 2px;
+        --border-radius-medium: 4px;
+        --border-radius-large: 8px;
+        --border-radius-round: 1 e5px;
+
+
+        /* SHADOWS */
+        /* Light Theme */
+
+
+        --shadow-inset-light: inset 3px 3px 0px 0 oklch(20% 0.1 265 / 10%);
+
+        --shadow-nearest-light: 0.17px 0.30600000000000005px 0.37px 1px oklch(20% 0.1 265 / 24.88%), 0.26px 0.468px 0.57px -0.25px oklch(20% 0.1 265 / 20.74%), 0.41px 0.738px 0.9px -1.5px oklch(20% 0.1 265 / 17.28%), 0.64px 1.1520000000000001px 1.41px -2.75px oklch(20% 0.1 265 / 14.4%), 1px 1.8px 2.2px -4px oklch(20% 0.1 265 / 12%);
+        --shadow-near-light: 0.5px 0.9px 1.1px 1px oklch(20% 0.1 265 / 24.88%), 0.79px 1.4220000000000002px 1.74px -0.25px oklch(20% 0.1 265 / 20.74%), 1.23px 2.214px 2.71px -1.5px oklch(20% 0.1 265 / 17.28%), 1.92px 3.456px 4.22px -2.75px oklch(20% 0.1 265 / 14.4%), 3px 5.4px 6.6px -4px oklch(20% 0.1 265 / 12%);
+        --shadow-medium-light: 1.51px 2.718px 3.32px 1px oklch(20% 0.1 265 / 24.88%), 2.36px 4.248px 5.19px -0.25px oklch(20% 0.1 265 / 20.74%), 3.69px 6.642px 8.12px -1.5px oklch(20% 0.1 265 / 17.28%), 5.76px 10.368px 12.67px -2.75px oklch(20% 0.1 265 / 14.4%), 9px 16.2px 19.8px -4px oklch(20% 0.1 265 / 12%);
+        --shadow-far-light: 4.87px 8.766px 10.71px 1px oklch(20% 0.1 265 / 24.88%), 7.6px 13.68px 16.72px -0.25px oklch(20% 0.1 265 / 20.74%), 11.88px 21.384px 26.14px -1.5px oklch(20% 0.1 265 / 17.28%), 18.56px 33.408px 40.83px -2.75px oklch(20% 0.1 265 / 14.4%), 29px 52.2px 63.8px -4px oklch(20% 0.1 265 / 12%);
+
+        --shadow-color-light: oklch(20% 0.1 265);
+
+        /* Dark Theme */
+
+        --shadow-inset-dark: inset 3px 3px 0px 0 oklch(80% 0.1 265 / 10%);
+
+        --shadow-nearest-dark: 0.17px 0.30600000000000005px 0.37px 1px oklch(80% 0.1 265 / 24.88%), 0.26px 0.468px 0.57px -0.25px oklch(80% 0.1 265 / 20.74%), 0.41px 0.738px 0.9px -1.5px oklch(80% 0.1 265 / 17.28%), 0.64px 1.1520000000000001px 1.41px -2.75px oklch(80% 0.1 265 / 14.4%), 1px 1.8px 2.2px -4px oklch(80% 0.1 265 / 12%);
+        --shadow-near-dark: 0.5px 0.9px 1.1px 1px oklch(80% 0.1 265 / 24.88%), 0.79px 1.4220000000000002px 1.74px -0.25px oklch(80% 0.1 265 / 20.74%), 1.23px 2.214px 2.71px -1.5px oklch(80% 0.1 265 / 17.28%), 1.92px 3.456px 4.22px -2.75px oklch(80% 0.1 265 / 14.4%), 3px 5.4px 6.6px -4px oklch(80% 0.1 265 / 12%);
+        --shadow-medium-dark: 1.51px 2.718px 3.32px 1px oklch(80% 0.1 265 / 24.88%), 2.36px 4.248px 5.19px -0.25px oklch(80% 0.1 265 / 20.74%), 3.69px 6.642px 8.12px -1.5px oklch(80% 0.1 265 / 17.28%), 5.76px 10.368px 12.67px -2.75px oklch(80% 0.1 265 / 14.4%), 9px 16.2px 19.8px -4px oklch(80% 0.1 265 / 12%);
+        --shadow-far-dark: 4.87px 8.766px 10.71px 1px oklch(80% 0.1 265 / 24.88%), 7.6px 13.68px 16.72px -0.25px oklch(80% 0.1 265 / 20.74%), 11.88px 21.384px 26.14px -1.5px oklch(80% 0.1 265 / 17.28%), 18.56px 33.408px 40.83px -2.75px oklch(80% 0.1 265 / 14.4%), 29px 52.2px 63.8px -4px oklch(80% 0.1 265 / 12%);
+
+        --shadow-color-dark: oklch(80% 0.1 265);
 
 
         /* COLORS */

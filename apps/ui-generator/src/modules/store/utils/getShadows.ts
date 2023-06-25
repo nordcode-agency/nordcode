@@ -63,12 +63,12 @@ export const getShadows = (store: SizesStore) => {
 // ideas from: https://shadows.brumm.af/ and material design and https://www.joshwcomeau.com/shadow-palette/
 const amountOfExtraShadows = 4;
 const scaleFactor = 0.64;
-const startTransparency = 0.25;
+const startTransparency = 0.12;
 const transparencyScale = 1.2;
 const spreadMax = -4;
 const spreadMin = 1;
-const blurFactor = 2.4;
-const distanceFactor = 2;
+const blurFactor = 2.2;
+const distanceFactor = 1.8;
 const round = (num: number) => Math.round(num * 100) / 100;
 const getLCHColorWithTransparency = (color: string, transparency: number) =>
   `${color.slice(0, -1)} / ${round(transparency * 100)}%)`;
