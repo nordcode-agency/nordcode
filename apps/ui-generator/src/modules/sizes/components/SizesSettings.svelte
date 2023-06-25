@@ -15,7 +15,6 @@
         <fieldset class="nc-fieldset stack -layout-base">
             <legend>Spacings</legend>
             <InputWrapper
-                    name="spacingScale"
                     label="Spacing Scale"
                     id="spacingScale"
                     hint="Harmoniously update your spaces based on this scale"
@@ -86,7 +85,6 @@
         <fieldset class="nc-fieldset stack -layout-base">
             <legend>Borders</legend>
             <InputWrapper
-                    name="borderWidthScale"
                     label="Border Width Scale"
                     id="borderWidthScale"
                     hint="Harmoniously update your border widths based on this scale"
@@ -116,12 +114,12 @@
                             hint="This is the base for scale calculations"
                             bind:value={$configStore.borderWidthThin}/>
                     <Input
-                            name="borderWidthNormal"
-                            label="Border Width Normal"
-                            id="borderWidthNormal"
+                            name="borderWidthMedium"
+                            label="Border Width Medium"
+                            id="borderWidthMedium"
                             type="number"
                             step="1"
-                            bind:value={$configStore.borderWidthNormal}/>
+                            bind:value={$configStore.borderWidthMedium}/>
                     <Input
                             name="borderWidthThick"
                             label="Border Width Thick"
@@ -133,7 +131,6 @@
             </details>
 
             <InputWrapper
-                    name="borderRadiusScale"
                     label="Border Radius Scale"
                     id="borderRadiusScale"
                     hint="Harmoniously update your border radii based on this scale"
@@ -163,9 +160,9 @@
                             hint="This is the base for scale calculations"
                             bind:value={$configStore.borderRadiusSmall}/>
                     <Input
-                            name="borderRadiusNormal"
-                            label="Border Radius Normal"
-                            id="borderRadiusNormal"
+                            name="borderRadiusMedium"
+                            label="Border Radius Medium"
+                            id="borderRadiusMedium"
                             type="number"
                             step="1"
                             bind:value={$configStore.borderRadiusMedium}/>
@@ -202,7 +199,6 @@
                         bind:value={$configStore.shadowColorChroma}/>
             </div>
             <InputWrapper
-                    name="shadowDistanceScale"
                     label="Shadow Distance Scale"
                     id="shadowDistanceScale"
                     hint="Harmoniously update your shadow distances based on this scale"
