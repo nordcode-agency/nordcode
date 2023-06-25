@@ -209,7 +209,7 @@ const createNotification = (title, description, notificationId) => {
  * @param {string} title
  * @param {string | undefined} description
  */
-const addNotification = (title, description) => {
+export const addNotification = (title, description) => {
   const notificationId = createNotificationId(title);
   const liveNotification = createNotification(
     title,
@@ -275,8 +275,6 @@ const removeNotification = (notificationId, notification, removeId = true) => {
   if (!notification) {
     return;
   }
-
-  console.log("removing notification", notificationId);
 
   notification.addEventListener(
     "animationend",
