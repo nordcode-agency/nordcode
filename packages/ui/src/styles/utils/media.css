@@ -1,4 +1,3 @@
-@layer utils {
     @custom-media --motionOK      (prefers-reduced-motion: no-preference);
     @custom-media --motionNotOK   (prefers-reduced-motion: reduce);
     @custom-media --opacityOK     (prefers-reduced-transparency: no-preference);
@@ -54,4 +53,3 @@
     @custom-media --xxl-only      (1440px <= width <= 1920px);
     @custom-media --xxl-n-above   (width >= 1920px);
     @custom-media --xxl-n-below   (width <= 1920px);
-}
