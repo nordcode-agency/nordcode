@@ -23,10 +23,12 @@
                     id="imported Styles"
                     bind:value={importedStyles}
             ></Textarea>
-                </div>
+            </div>
         </div>
         <div class="dialog-actions">
-            <button class="nc-button" on:click={importStyles} data-closes-dialog="import-dialog">Import</button>
+            <button class="nc-button" on:click={importStyles} data-closes-dialog="import-dialog"
+            >Import
+            </button>
         </div>
     </div>
 </dialog>
