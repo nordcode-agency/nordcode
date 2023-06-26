@@ -1,49 +1,46 @@
-<script>
-  import Card from "./Card.svelte";
-</script>
-
-<ul class="nc-gallery gallery">
-  <li class="hero">
-    <div>
-      <h1>Hier kommt die Lösung</h1>
-      <h2>Willkommen bei norcode</h2>
+<div class="hero">
+  <div class="nc-stack">
+    <div class="nc-stack text">
+      <h1>Wir erschaffen digitale Erlebnisse.</h1>
+      <h2>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</h2>
     </div>
-  </li>
-  {#each Array.from(Array(5).keys()) as item}
-    <li class="card">
-      <Card>
-        <h1>Welcome to nordcode {item}.</h1>
-      </Card>
-    </li>
-  {/each}
-  </ul>
+    <div class="nc-gallery">
+      <div class="story-btn">
+
+      </div>
+    </div>
+  </div>
+</div>
 
 <style lang="postcss">
   @import "@nordcode/ui/media";
 
-  .gallery {
-    --gallery-gap: var(--spacing-far);
-    --gallery-padding-inline: var(--spacing-far);
-
-    @media (--md-n-above) {
-      --gallery-padding-inline: var(--spacing-farthest);
-    }
+  .story-btn {
+    aspect-ratio: 1/1;
+    inline-size: 3rem;
   }
 
   .hero {
     display: grid;
-    place-items: center;
-    inline-size: calc(100vw - 2 * var(--gallery-padding-inline));
-    max-inline-size: calc(100vw - 2 * var(--gallery-padding-inline));
-    block-size: 40svh;
-    text-align: center;
+    align-content: center;
 
-    & :is(h1, h2) {
-      line-height: var(--line-height-large);
+    & h1 {
+      hyphens: none;
+      background: linear-gradient(
+        to left,
+        var(--color-brand-secondary-strong),
+        var(--color-brand-primary-strong)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    & h2 {
+      color: var(--color-text-subtle);
     }
   }
 
-  .card {
-    display: grid;
+  .text {
+    max-inline-size: 60ch;
   }
 </style>

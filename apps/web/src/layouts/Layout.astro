@@ -1,6 +1,7 @@
 ---
+import "./global.css";
 import Footer from "../components/Footer.svelte";
-import Logo from "../components/Logo.svelte";
+import Header from "../components/Header.svelte";
 import "@nordcode/ui/components";
 
 export interface Props {
@@ -20,22 +21,9 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<header>
-			<Logo />
-		</header>
 		<main class="nc-stack">
 			<slot />
 		</main>
 		<Footer />
 	</body>
 </html>
-<style is:global>
-	@import "@nordcode/ui/bundle";
-	@import "@nordcode/ui/base";
-	@import "@nordcode/ui/fonts";
-	header {
-		display: grid;
-		place-items: center;
-		padding-block: var(--spacing-far);
-	}
-</style>

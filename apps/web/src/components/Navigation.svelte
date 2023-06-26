@@ -8,13 +8,14 @@
 
 <style lang="postcss">
   nav {
-    padding: var(--spacing-base);
     display: flex;
     justify-content: flex-end;
   }
 
   a {
     font-size: var(--font-size-largest);
+    text-decoration: none;
+    color: var(--color-brand-primary-strong);
   }
 
   ul {
