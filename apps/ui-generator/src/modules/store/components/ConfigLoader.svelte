@@ -17,6 +17,7 @@
         allStyles = generateStyleString(store)
     }
 
+
     configStore.subscribe(updateStyles)
 
     const previewShown = writable(false)
@@ -33,7 +34,7 @@
         <button class="nc-button" on:click={togglePreview}>Preview</button>
     </div>
     <ExportDialog allStyles={allStyles}/>
-    <ImportDialog />
+    <ImportDialog/>
     {#if $previewShown}
         <div transition:slide={{axis: "x", ease: quintOut}}>
             <ContextPreview/>

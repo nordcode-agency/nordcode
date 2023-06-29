@@ -7,6 +7,7 @@
     const importStyles = () => {
         configStore.import(importedStyles)
     }
+
 </script>
 
 <dialog data-id="import-dialog" data-level="1" style="max-inline-size: 50rem">
@@ -23,10 +24,12 @@
                     id="imported Styles"
                     bind:value={importedStyles}
             ></Textarea>
-                </div>
+            </div>
         </div>
         <div class="dialog-actions">
-            <button class="nc-button" on:click={importStyles} data-closes-dialog="import-dialog">Import</button>
+            <button class="nc-button" on:click={importStyles} data-closes-dialog="import-dialog"
+            >Import
+            </button>
         </div>
     </div>
 </dialog>

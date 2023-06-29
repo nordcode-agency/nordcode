@@ -1,5 +1,8 @@
 ---
 import ConfigLoader from "../modules/store/components/ConfigLoader.svelte";
+import ConfigFromUrl from "../modules/store/components/ConfigFromUrl.svelte";
+import NotificationCenter from "@nordcode/ui/src/modules/notifications/svelte/NotificationCenter.svelte";
+import NotificationTemplate from "@nordcode/ui/src/modules/notifications/svelte/NotificationTemplate.svelte";
 export interface Props {
     title: string;
 }
@@ -31,15 +34,17 @@ const {title} = Astro.props;
         </ConfigLoader>
     </section>
 </main>
+<NotificationTemplate/>
+<NotificationCenter/>
+<ConfigFromUrl client:only="svelte"/>
 </body>
 </html>
 <style is:global>
+    @import "@nordcode/ui/media";
     @import "@nordcode/ui/bundle";
     @import "@nordcode/ui/fonts";
-    @import "@nordcode/ui/badges";
-    @import "@nordcode/ui/inputs";
-    @import "@nordcode/ui/buttons";
-    @import "@nordcode/ui/dialogs";
+    @import "@nordcode/ui/components";
+    @import "./liveTheme.css";
 
     main {
         display: grid;
@@ -77,151 +82,8 @@ const {title} = Astro.props;
         padding-inline: var(--spacing-base);
         overflow-y: auto;
     }
-
-
-</style>
-
-<style is:global>
-    .live-theme {
-        color-scheme: light;
-
-        --color-brand-primary-strong: var(--color-brand-primary-light-strong);
-        --color-brand-primary-base: var(--color-brand-primary-light-base);
-        --color-brand-primary-subtle: var(--color-brand-primary-light-subtle);
-
-        --color-brand-secondary-strong: var(--color-brand-secondary-light-strong);
-        --color-brand-secondary-base: var(--color-brand-secondary-light-base);
-        --color-brand-secondary-subtle: var(--color-brand-secondary-light-subtle);
-
-        --color-text-strong: var(--color-text-light-strong);
-        --color-text-base: var(--color-text-light-base);
-        --color-text-subtle: var(--color-text-light-subtle);
-
-        --color-surface-strong: var(--color-surface-light-strong);
-        --color-surface-base: var(--color-surface-light-base);
-        --color-surface-subtle: var(--color-surface-light-subtle);
-
-        --color-border-strong: var(--color-border-light-strong);
-        --color-border-base: var(--color-border-light-base);
-        --color-border-subtle: var(--color-border-light-subtle);
-
-        --shadow-color: var(--shadow-color-light);
-        --shadow-inset: var(--shadow-inset-light);
-        --shadow-nearest: var(--shadow-nearest-light);
-        --shadow-near: var(--shadow-near-light);
-        --shadow-medium: var(--shadow-medium-light);
-        --shadow-far: var(--shadow-far-light);
-
-
-        --triangle-down-url: var(--triangle-down-url-light);
-        --triangle-up-url: var(--triangle-up-url-light);
-    }
-
-    @media (--OSdark) {
-        .live-theme {
-            color-scheme: dark;
-
-            --color-brand-primary-strong: var(--color-brand-primary-dark-strong);
-            --color-brand-primary-base: var(--color-brand-primary-dark-base);
-            --color-brand-primary-subtle: var(--color-brand-primary-dark-subtle);
-
-            --color-brand-secondary-strong: var(--color-brand-secondary-dark-strong);
-            --color-brand-secondary-base: var(--color-brand-secondary-dark-base);
-            --color-brand-secondary-subtle: var(--color-brand-secondary-dark-subtle);
-
-            --color-text-strong: var(--color-text-dark-strong);
-            --color-text-base: var(--color-text-dark-base);
-            --color-text-subtle: var(--color-text-dark-subtle);
-
-            --color-surface-strong: var(--color-surface-dark-strong);
-            --color-surface-base: var(--color-surface-dark-base);
-            --color-surface-subtle: var(--color-surface-dark-subtle);
-
-            --color-border-strong: var(--color-border-dark-strong);
-            --color-border-base: var(--color-border-dark-base);
-            --color-border-subtle: var(--color-border-dark-subtle);
-
-            --shadow-color: var(--shadow-color-dark);
-            --shadow-inset: var(--shadow-inset-dark);
-            --shadow-nearest: var(--shadow-nearest-dark);
-            --shadow-near: var(--shadow-near-dark);
-            --shadow-medium: var(--shadow-medium-dark);
-            --shadow-far: var(--shadow-far-dark);
-
-            --triangle-down-url: var(--triangle-down-url-dark);
-            --triangle-up-url: var(--triangle-up-url-dark);
-        }
-    }
-
-    [color-scheme="light"] .live-theme {
-        color-scheme: light;
-
-        --color-brand-primary-strong: var(--color-brand-primary-light-strong);
-        --color-brand-primary-base: var(--color-brand-primary-light-base);
-        --color-brand-primary-subtle: var(--color-brand-primary-light-subtle);
-
-        --color-brand-secondary-strong: var(--color-brand-secondary-light-strong);
-        --color-brand-secondary-base: var(--color-brand-secondary-light-base);
-        --color-brand-secondary-subtle: var(--color-brand-secondary-light-subtle);
-
-        --color-text-strong: var(--color-text-light-strong);
-        --color-text-base: var(--color-text-light-base);
-        --color-text-subtle: var(--color-text-light-subtle);
-
-        --color-surface-strong: var(--color-surface-light-strong);
-        --color-surface-base: var(--color-surface-light-base);
-        --color-surface-subtle: var(--color-surface-light-subtle);
-
-        --color-border-strong: var(--color-border-light-strong);
-        --color-border-base: var(--color-border-light-base);
-        --color-border-subtle: var(--color-border-light-subtle);
-
-        --shadow-color: var(--shadow-color-light);
-        --shadow-inset: var(--shadow-inset-light);
-        --shadow-nearest: var(--shadow-nearest-light);
-        --shadow-near: var(--shadow-near-light);
-        --shadow-medium: var(--shadow-medium-light);
-        --shadow-far: var(--shadow-far-light);
-
-        --triangle-down-url: var(--triangle-down-url-light);
-        --triangle-up-url: var(--triangle-up-url-light);
-    }
-
-    [color-scheme="dark"] .live-theme {
-        color-scheme: dark;
-
-        --color-brand-primary-strong: var(--color-brand-primary-dark-strong);
-        --color-brand-primary-base: var(--color-brand-primary-dark-base);
-        --color-brand-primary-subtle: var(--color-brand-primary-dark-subtle);
-
-        --color-brand-secondary-strong: var(--color-brand-secondary-dark-strong);
-        --color-brand-secondary-base: var(--color-brand-secondary-dark-base);
-        --color-brand-secondary-subtle: var(--color-brand-secondary-dark-subtle);
-
-        --color-text-strong: var(--color-text-dark-strong);
-        --color-text-base: var(--color-text-dark-base);
-        --color-text-subtle: var(--color-text-dark-subtle);
-
-        --color-surface-strong: var(--color-surface-dark-strong);
-        --color-surface-base: var(--color-surface-dark-base);
-        --color-surface-subtle: var(--color-surface-dark-subtle);
-
-        --color-border-strong: var(--color-border-dark-strong);
-        --color-border-base: var(--color-border-dark-base);
-        --color-border-subtle: var(--color-border-dark-subtle);
-
-        --shadow-color: var(--shadow-color-dark);
-        --shadow-inset: var(--shadow-inset-dark);
-        --shadow-nearest: var(--shadow-nearest-dark);
-        --shadow-near: var(--shadow-near-dark);
-        --shadow-medium: var(--shadow-medium-dark);
-        --shadow-far: var(--shadow-far-dark);
-
-        --triangle-down-url: var(--triangle-down-url-dark);
-        --triangle-up-url: var(--triangle-up-url-dark);
-
-    }
 </style>
 
 <script src="@nordcode/ui/src/modules/dialogs/ts/dialogs.ts"></script>
 <script src="@nordcode/ui/src/modules/copyButtons/ts/copyButtons.ts"></script>
+<script src="@nordcode/ui/src/modules/notifications/js/notifications.js"></script>

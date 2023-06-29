@@ -15,9 +15,9 @@
         margin: 5dvh auto;
         padding: 0;
         border-radius: var(--_dialog-radius);
-        animation: open-dialog 0.3s cubic-bezier(0, 0.6, 0.58, 1);
+        animation: open-dialog var(--transition-duration-base) cubic-bezier(0, 0.6, 0.58, 1);
         position: fixed;
-        transition: transform 0.3s cubic-bezier(0, 0.6, 0.58, 1);
+        transition: transform var(--transition-duration-base) cubic-bezier(0, 0.6, 0.58, 1);
     }
 
     .dialog-container {
@@ -80,13 +80,12 @@
     }
 
     dialog::backdrop {
-        background: var(--color-text-strong);
-        opacity: 0.1;
+        background: rgba(0, 0, 0, 0.05);
         backdrop-filter: blur(2px);
     }
 
     dialog.-closing {
-        animation: close-dialog 0.3s cubic-bezier(0.7, 0, 1, 1) forwards;
+        animation: close-dialog var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1) forwards;
     }
 
     dialog.-inactive {

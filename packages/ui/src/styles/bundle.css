@@ -1,9 +1,9 @@
 @import "./config/bundle.css";
+@import "./utils/media.css";
 
 @import "./theme/colors.css";
 
 @import "./utils/reset.css";
-@import "./utils/media.css";
 @import "./utils/easings.css";
 @import "./utils/layouts.css";
 @import "./utils/spacing-utils.css";
