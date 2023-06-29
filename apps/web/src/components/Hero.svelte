@@ -6,8 +6,9 @@
     </div>
     <div class="nc-gallery">
       <div class="story-btn">
-
+        Story
       </div>
+      <button class="nc-button" type="button">Los geht's</button>
     </div>
   </div>
 </div>
