@@ -1,3 +1,7 @@
+<script lang="ts">
+  import Dialog from '@nordcode/ui/src/modules/dialogs/svelte/Dialog.svelte';
+</script>
+
 <div class="hero">
   <div class="nc-stack">
     <div class="nc-stack text">
@@ -5,9 +9,12 @@
       <h2>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</h2>
     </div>
     <div class="nc-gallery">
-      <div class="story-btn">
-        Story
-      </div>
+      <button class="story-btn nc-button">
+        Preview
+      </button>
+      <Dialog>
+        This is preview
+      </Dialog>
       <button class="nc-button" type="button">Los geht's</button>
     </div>
   </div>
@@ -16,15 +23,19 @@
 <style lang="postcss">
   @import "@nordcode/ui/media";
 
+  .nc-gallery {
+    --gallery-padding-inline: 0;
+  }
+
   .story-btn {
-    aspect-ratio: 1/1;
-    inline-size: 3rem;
-    background-color: var(--color-surface-subtle);
+    /* display: grid;
+    place-items: center; */
+    /* aspect-ratio: 1/1; */
+    /* inline-size: 3rem; */
+    /* border-radius: var(--border-radius-round); */
   }
 
   .hero {
-    display: grid;
-    align-content: center;
 
     & h1 {
       hyphens: none;
