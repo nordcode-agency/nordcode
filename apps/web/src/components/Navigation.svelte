@@ -6,15 +6,22 @@
 </nav>
 
 <style lang="postcss">
+  nav {
+    display: flex;
+    justify-content: flex-end;
+  }
   a {
     font-size: var(--font-size-largest);
     text-decoration: none;
     color: var(--color-brand-primary-strong);
+    padding-block: var(--spacing-nearest);
+    padding-inline: var(--spacing-base);
   }
 
   ul {
     display: flex;
-    gap
+    flex-direction: row;
+    gap: var(--spacing-base);
     list-style: none;
   }
 </style>

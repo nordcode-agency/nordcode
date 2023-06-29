@@ -19,6 +19,7 @@
   .story-btn {
     aspect-ratio: 1/1;
     inline-size: 3rem;
+    background-color: var(--color-surface-subtle);
   }
 
   .hero {
