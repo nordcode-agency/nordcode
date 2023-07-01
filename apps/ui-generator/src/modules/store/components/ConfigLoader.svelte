@@ -30,12 +30,12 @@
     <div class="cluster | actions">
 
         <button
-            class="nc-button import-button" data-dialogtarget="import-dialog"
+            class="nc-button import-button" dialogtarget="import-dialog"
         >
             Import
         </button>
         <button
-            class="nc-button export-button" data-dialogtarget="export-dialog"
+            class="nc-button export-button" dialogtarget="export-dialog"
         >
             Export
         </button>
