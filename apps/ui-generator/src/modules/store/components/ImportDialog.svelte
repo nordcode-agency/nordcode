@@ -10,11 +10,12 @@
 
 </script>
 
-<dialog class="nc-dialog" data-id="import-dialog" data-level="1" style="max-inline-size: 50rem">
+<dialog class="nc-dialog" id="import-dialog" data-level="1" style="max-inline-size: 50rem">
     <div class="dialog-container">
         <div class="dialog-header">
             <h2 class="dialog-title">Import Theme</h2>
-            <button data-closes-dialog="import-dialog">X</button>
+            <!-- svelte-ignore a11y-autofocus -->
+            <button autofocus data-closes-dialog>X</button>
         </div>
         <div class="dialog-content">
             <div class="stack">
