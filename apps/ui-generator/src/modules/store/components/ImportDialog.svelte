@@ -10,7 +10,7 @@
 
 </script>
 
-<dialog data-id="import-dialog" data-level="1" style="max-inline-size: 50rem">
+<dialog class="nc-dialog" data-id="import-dialog" data-level="1" style="max-inline-size: 50rem">
     <div class="dialog-container">
         <div class="dialog-header">
             <h2 class="dialog-title">Import Theme</h2>

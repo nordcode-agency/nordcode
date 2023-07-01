@@ -17,7 +17,7 @@
     }
 </script>
 
-<dialog data-id="export-dialog" data-level="1" style="max-inline-size: 50rem">
+<dialog class="nc-dialog" data-id="export-dialog" data-level="1" style="max-inline-size: 50rem">
     <div class="dialog-container">
         <div class="dialog-header">
             <h2 class="dialog-title">Export Theme</h2>
