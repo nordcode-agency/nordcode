@@ -93,7 +93,7 @@ document.querySelectorAll('dialog').forEach((dialog: HTMLDialogElement) => {
   // sugar up <dialog> elements
   initDialog(dialog);
 
-  dialog.addEventListener('removed', dialogRemoved)
+  dialog.addEventListener('removed', dialogRemoved, { once: true });
 });
 
 const htmlEl = document.documentElement;
