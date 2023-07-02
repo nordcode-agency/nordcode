@@ -50,8 +50,6 @@ const animationsComplete = (element: HTMLDialogElement) =>
 
 // click outside the dialog handler
 const lightDismiss = ({ target: dialog }) => {
-  console.log(dialog.nodeName);
-  
   if (dialog.nodeName === 'DIALOG')
     dialog.close('dismiss')
 }
