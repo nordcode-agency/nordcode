@@ -9,12 +9,12 @@
       <h2>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</h2>
     </div>
     <div class="nc-gallery">
-      <button class="story-btn nc-button">
+      <button class="story-btn nc-button" data-dialogtarget="preview">
         Preview
       </button>
-      <Dialog>
-        This is preview
-      </Dialog>
+      <dialog id="preview">
+
+      </dialog>
       <button class="nc-button" type="button">Los geht's</button>
     </div>
   </div>

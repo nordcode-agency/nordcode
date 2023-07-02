@@ -100,8 +100,8 @@ const htmlEl = document.documentElement;
 htmlEl?.addEventListener('click', (e: MouseEvent) => {
   const el = e.target as HTMLElement;
 
-  if (el.hasAttribute('dialogtarget')) {
-    const dialogId = el.getAttribute('dialogtarget');
+  if (el.hasAttribute('data-dialogtarget')) {
+    const dialogId = el.getAttribute('data-dialogtarget');
     if (dialogId) window[dialogId].showModal();
   }
 
