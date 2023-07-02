@@ -96,7 +96,7 @@ document.querySelectorAll('dialog').forEach((dialog: HTMLDialogElement) => {
   dialog.addEventListener('removed', dialogRemoved)
 });
 
-const htmlEl = document.querySelector('html');
+const htmlEl = document.documentElement;
 htmlEl?.addEventListener('click', (e: MouseEvent) => {
   const el = e.target as HTMLElement;
 
