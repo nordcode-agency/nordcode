@@ -29,8 +29,16 @@
 <div style={allStyles} class="stack container">
     <div class="cluster | actions">
 
-        <button class="nc-button import-button" data-opens-dialog="import-dialog">Import</button>
-        <button class="nc-button export-button" data-opens-dialog="export-dialog">Export</button>
+        <button
+            class="nc-button import-button" dialogtarget="import-dialog"
+        >
+            Import
+        </button>
+        <button
+            class="nc-button export-button" dialogtarget="export-dialog"
+        >
+            Export
+        </button>
         <button class="nc-button" on:click={togglePreview}>Preview</button>
     </div>
     <ExportDialog allStyles={allStyles}/>

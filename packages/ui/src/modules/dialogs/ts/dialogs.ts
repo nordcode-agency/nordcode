@@ -1,52 +1,111 @@
-const openButtons = document.querySelectorAll<HTMLButtonElement>(
-  "button[data-opens-dialog]"
-);
-const closeButtons = document.querySelectorAll<HTMLButtonElement>(
-  "button[data-closes-dialog]"
-);
-const openDialogs: HTMLDialogElement[] = [];
+// custom events to be added to <dialog>
+const dialogClosingEvent = new Event('closing')
+const dialogClosedEvent  = new Event('closed')
+const dialogOpeningEvent = new Event('opening')
+const dialogOpenedEvent  = new Event('opened')
+const dialogRemovedEvent = new Event('removed')
 
-openButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const dialog = document.querySelector<HTMLDialogElement>(
-      `[data-id="${button.dataset.opensDialog}"]`
-    );
-    dialog.showModal();
-    openDialogs.forEach((d, idx) => {
-      d.style.setProperty(
-        "--dialog-inative-offset",
-        `${-1 * (openDialogs.length + 1 - idx)}dvh`
-      );
-      d.classList.add("-inactive");
-    });
-    openDialogs.push(dialog);
-  });
+// track opening
+const dialogAttrObserver = new MutationObserver((mutations, observer) => {
+  mutations.forEach(async mutation => {
+    if (mutation.attributeName === 'open') {
+      const dialog = mutation.target as HTMLDialogElement;
+
+      const isOpen = dialog.hasAttribute('open')
+      if (!isOpen) return
+
+      dialog.removeAttribute('inert')
+
+      // set focus
+      const focusTarget = dialog.querySelector('[autofocus]') as HTMLDialogElement;
+      focusTarget
+        ? focusTarget?.focus()
+        : dialog?.querySelector('button')?.focus()
+
+      dialog.dispatchEvent(dialogOpeningEvent)
+      await animationsComplete(dialog)
+      dialog.dispatchEvent(dialogOpenedEvent)
+    }
+  })
+})
+
+// track deletion
+const dialogDeleteObserver = new MutationObserver((mutations, observer) => {
+  mutations.forEach(mutation => {
+    mutation.removedNodes.forEach(removedNode => {
+      if (removedNode.nodeName === 'DIALOG') {
+        removedNode.removeEventListener('click', lightDismiss)
+        removedNode.removeEventListener('close', dialogClose)
+        removedNode.dispatchEvent(dialogRemovedEvent)
+      }
+    })
+  })
+})
+
+// wait for all dialog animations to complete their promises
+const animationsComplete = (element: HTMLDialogElement) =>
+  Promise.allSettled(
+    element.getAnimations().map((animation: Animation) => 
+      animation.finished))
+
+// click outside the dialog handler
+const lightDismiss = ({ target: dialog }) => {
+  if (dialog.nodeName === 'DIALOG')
+    dialog.close('dismiss')
+}
+
+const dialogClose = async ({target:dialog}) => {
+  dialog.setAttribute('inert', '')
+  dialog.dispatchEvent(dialogClosingEvent)
+
+  await animationsComplete(dialog)
+
+  dialog.dispatchEvent(dialogClosedEvent)
+}
+
+// page load dialogs setup
+export async function initDialog(dialog: HTMLDialogElement) {
+  dialog.addEventListener('click', lightDismiss)
+  dialog.addEventListener('close', dialogClose)
+
+  dialogAttrObserver.observe(dialog, { 
+    attributes: true,
+  })
+
+  dialogDeleteObserver.observe(document.body, {
+    attributes: false,
+    subtree: false,
+    childList: true,
+  })
+
+  // remove visibility:hidden style
+  // prevent page load @keyframes playing
+  await animationsComplete(dialog);
+  // dialog.style.removeProperty('visibility');
+}
+
+const dialogRemoved = ({ target: dialog }) => {
+  dialog.removeEventListener('removed', dialogRemoved)
+}
+
+// SETUP
+document.querySelectorAll('dialog').forEach((dialog: HTMLDialogElement) => {
+  // sugar up <dialog> elements
+  initDialog(dialog);
+
+  dialog.addEventListener('removed', dialogRemoved, { once: true });
 });
 
-closeButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    closeCurrentDialog();
-  });
-});
+const htmlEl = document.documentElement;
+htmlEl?.addEventListener('click', (e: MouseEvent) => {
+  const el = e.target as HTMLElement;
 
-const closeCurrentDialog = () => {
-  const currentDialog = openDialogs.pop();
-  if (!currentDialog) {
-    return;
+  if (el.hasAttribute('dialogtarget')) {
+    const dialogId = el.getAttribute('dialogtarget');
+    if (dialogId) window[dialogId].showModal();
   }
 
-  currentDialog.addEventListener(
-    "animationend",
-    () => {
-      currentDialog.classList.remove("-closing");
-      currentDialog.close();
-      if (openDialogs.length === 0) {
-        return;
-      }
-      openDialogs[openDialogs.length - 1].classList.remove("-inactive");
-    },
-    { once: true }
-  );
-
-  currentDialog.classList.add("-closing");
-};
+  if (el.hasAttribute('data-closes-dialog')) {
+    (el as HTMLButtonElement)?.closest('dialog')?.close('close');
+  }
+});
