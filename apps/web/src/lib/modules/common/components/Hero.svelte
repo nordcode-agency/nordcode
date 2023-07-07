@@ -1,6 +1,4 @@
-<script lang="ts">
-  import Dialog from '@nordcode/ui/src/modules/dialogs/svelte/Dialog.svelte';
-</script>
+<script lang="ts"></script>
 
 <div class="hero">
   <div class="nc-stack">
