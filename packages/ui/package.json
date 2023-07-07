@@ -8,6 +8,7 @@
   "type": "module",
   "exports": {
     "./bundle": "./src/styles/bundle.css",
+    "./complete": "./src/styles/complete.css",
     "./compiled/bundle": "./out/bundle.css",
     "./compiled/complete": "./out/complete.css",
     "./base": "./src/styles/utils/base.css",
