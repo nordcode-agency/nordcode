@@ -11,7 +11,7 @@
         Preview
       </button>
       <dialog id="preview">
-
+        hallo
       </dialog>
       <button class="nc-button" type="button">Los geht's</button>
     </div>
@@ -19,8 +19,6 @@
 </div>
 
 <style lang="postcss">
-  @import "@nordcode/ui/media";
-
   .nc-gallery {
     --gallery-padding-inline: 0;
   }
