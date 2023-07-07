@@ -1,10 +1,34 @@
 @layer components {
     dialog {
+        --_dialog-transition-duration: var(--dialog-transition-duration, var(--transition-duration-base));
+
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: var(--layer-important);
+        animation: close-dialog var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1) forwards;
+        transition: opacity var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1);
+        overflow: hidden;
+
+        &[open] {
+            animation: open-dialog var(--_dialog-transition-duration) cubic-bezier(0, 0.6, 0.58, 1);
+        }
+
+        &:not([open]) {
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        &::backdrop {
+            background: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(2px);
+        }
+    }
+
+    .nc-dialog {
         --_dialog-radius: var(--dialog-radius, var(--border-radius-medium));
         --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
         --_dialog-close-size: var(--dialog-close-size, var(--button-height-base));
-
-        --dialog-inative-offset: 0;
 
         border: var(--border-width-thin) solid var(--color-border-base);
         inline-size: calc(100dvw - 2 * var(--spacing-base));
@@ -12,20 +36,18 @@
         max-inline-size: 28rem;
         background: var(--color-surface-strong);
         box-shadow: var(--shadow-medium);
-        margin: 5dvh auto;
+        margin-block: 5dvh;
+        margin-inline: auto;
         padding: 0;
         border-radius: var(--_dialog-radius);
-        animation: open-dialog var(--transition-duration-base) cubic-bezier(0, 0.6, 0.58, 1);
-        position: fixed;
-        transition: transform var(--transition-duration-base) cubic-bezier(0, 0.6, 0.58, 1);
     }
 
     .dialog-container {
         display: grid;
         grid-template:
-      'header header' calc(2 * var(--spacing-near) + var(--_dialog-close-size))
-      'content content' 1fr
-      'footer footer' auto / 1fr 1fr;
+          'header header' calc(2 * var(--spacing-near) + var(--_dialog-close-size))
+          'content content' 1fr
+          'footer footer' auto / 1fr 1fr;
         inline-size: 100%;
         block-size: 100%;
     }
@@ -75,21 +97,6 @@
 
     html:has(dialog[open]) {
         overflow: hidden;
-        max-inline-size: 100%;
-        max-block-size: 100%;
-    }
-
-    dialog::backdrop {
-        background: rgba(0, 0, 0, 0.05);
-        backdrop-filter: blur(2px);
-    }
-
-    dialog.-closing {
-        animation: close-dialog var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1) forwards;
-    }
-
-    dialog.-inactive {
-        transform: translate(0, var(--dialog-inative-offset)) scale(0.98);
     }
 
     @keyframes open-dialog {

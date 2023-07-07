@@ -132,7 +132,7 @@ const defaultStore: ConfigStore = {
   trackingStandard: 0,
   trackingWide: 0.06,
 
-  fontWeightBold: 900,
+  fontWeightBold: 600,
   fontWeightRegular: 400,
   fontWeightLight: 300,
 
