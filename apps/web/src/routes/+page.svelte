@@ -10,11 +10,11 @@
 </svelte:head>
 
 <div class="wrapper">
-		<Header />
-		<Hero />
-		<Navigation />
-	</div>
-	<Work />
+	<Header />
+	<Hero />
+	<Navigation />
+</div>
+<Work />
 
 <style lang="postcss">
 	.wrapper {
