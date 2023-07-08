@@ -1,13 +1,11 @@
 <script lang="ts">
-
-
   import Footer from '$lib/modules/common/components/Footer.svelte';
 
-  import {onMount} from "svelte";
-  import {page} from "$app/stores";
+  import { onMount } from "svelte";
+  import { page } from "$app/stores";
 
   onMount(async () => {
-    await import ("@nordcode/ui/src/modules/dialogs/ts/dialogs.ts")
+    await import("@nordcode/ui/src/modules/dialogs/ts/dialogs")
   })
 </script>
 
