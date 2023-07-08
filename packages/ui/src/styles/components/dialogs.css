@@ -96,7 +96,7 @@
     }
 
     html:has(dialog[open]) {
-        overflow: hidden;
+        overflow-y: scroll;
     }
 
     @keyframes open-dialog {
