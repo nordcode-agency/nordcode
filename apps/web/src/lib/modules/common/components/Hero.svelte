@@ -1,4 +1,7 @@
-<script lang="ts"></script>
+<script lang="ts">
+  import Story from '$lib/modules/common/components/Story.svelte';
+	import StoryItem from './StoryItem.svelte';
+</script>
 
 <div class="hero">
   <div class="nc-stack">
@@ -10,9 +13,17 @@
       <button class="story-btn nc-button" data-dialogtarget="preview">
         Preview
       </button>
-      <dialog id="preview">
-        hallo
-      </dialog>
+      <Story id="preview">
+        <StoryItem caption="My individual caption that tells a short story">
+          <img src="https://images.unsplash.com/photo-1688367785310-c8c013548288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3135&q=80" alt="storyitem 1" srcset="">
+        </StoryItem>
+        <StoryItem caption="Here is a good example on how your web app could look like">
+          <img src="https://images.unsplash.com/photo-1687369500069-a0872397b3ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3125&q=80" alt="storyitem 2" srcset="">
+        </StoryItem>
+        <StoryItem caption="Sustainability in and out">
+          <img src="https://images.unsplash.com/photo-1558297010-eb4f2f472abf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2246&q=80" alt="storyitem 3" srcset="">
+        </StoryItem>
+      </Story>
       <button class="nc-button" type="button">Los geht's</button>
     </div>
   </div>
