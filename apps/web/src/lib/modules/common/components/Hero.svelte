@@ -9,7 +9,7 @@
       <h1>Wir erschaffen digitale Erlebnisse.</h1>
       <h2>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</h2>
     </div>
-    <div class="nc-gallery">
+    <div class="actions">
       <button class="story-btn nc-button" data-dialogtarget="preview">
         Preview
       </button>
@@ -30,8 +30,9 @@
 </div>
 
 <style lang="postcss">
-  .nc-gallery {
-    --gallery-padding-inline: 0;
+  .actions {
+    display: flex;
+    gap: var(--spacing-base);
   }
 
   .story-btn {
