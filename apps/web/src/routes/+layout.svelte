@@ -23,4 +23,8 @@
 <style>
   @import "@nordcode/ui/complete";
   @import "@nordcode/ui/fonts";
+
+  main {
+    min-block-size: 100dvh;
+  }
 </style>
