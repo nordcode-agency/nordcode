@@ -18,6 +18,7 @@
 
   .nc-gallery {
     --gallery-padding-inline: 0;
+    --gallery-scroll-snap-stop: always;
 
     inline-size: 100%;
     block-size: 100%;
