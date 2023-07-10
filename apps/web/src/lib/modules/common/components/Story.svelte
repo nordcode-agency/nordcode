@@ -17,6 +17,8 @@
   }
 
   .nc-gallery {
+    --gallery-padding-inline: 0;
+
     inline-size: 100%;
     block-size: 100%;
   }
