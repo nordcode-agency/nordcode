@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-
+	<title>nordcode – we schaffen ein neues digitales Erlebnis.</title>
 </svelte:head>
 
 <div class="wrapper">
