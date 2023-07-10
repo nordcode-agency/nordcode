@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ArrowRightSolid from '@nordcode/ui/src/assets/icons/ArrowRightSolid.svelte';
   import Story from '$lib/modules/common/components/Story.svelte';
 	import StoryItem from './StoryItem.svelte';
 </script>
@@ -14,8 +15,11 @@
         Preview
       </button>
       <Story id="preview">
-        <StoryItem caption="My individual caption that tells a short story">
+        <StoryItem caption="My individual caption that tells a short story. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.">
           <img src="https://images.unsplash.com/photo-1688367785310-c8c013548288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3135&q=80" alt="storyitem 1" srcset="">
+          <button type="button" class="nc-button" slot="cta">
+            <ArrowRightSolid />
+          </button>
         </StoryItem>
         <StoryItem caption="Here is a good example on how your web app could look like">
           <img src="https://images.unsplash.com/photo-1687369500069-a0872397b3ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3125&q=80" alt="storyitem 2" srcset="">
