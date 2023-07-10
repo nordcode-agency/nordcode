@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ArrowRightSolid from '@nordcode/ui/src/assets/icons/ArrowRightSolid.svelte';
+  import ArrowRightSolid from '@nordcode/ui/ArrowRightSolid';
   import Story from '$lib/modules/common/components/Story.svelte';
 	import StoryItem from './StoryItem.svelte';
 </script>
