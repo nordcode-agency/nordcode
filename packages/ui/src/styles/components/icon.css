@@ -48,6 +48,15 @@
   }
 }
 
+button > .nc-icon {
+  --icon-size: 18px;
+
+  /* @url https://caniuse.com/?search=rlh%20unit */
+  @supports (inline-size: 1rlh) {
+    --icon-size: 1rlh;
+  }
+}
+
 @keyframes spinning {
   from {
     transform: rotate(0deg);
