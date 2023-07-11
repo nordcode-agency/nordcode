@@ -73,6 +73,16 @@
         -webkit-touch-callout: none;
         inset-block-start: 2px;
         inset-inline-start: 2px;
+
+        /*
+         * If there is no text node for the button,
+         * it is assumed that an `aria-label` is that
+         * and the button will be styled as an icon button.
+         */
+        &[aria-label] {
+            border-radius: var(--border-radius-round);
+            aspect-ratio: 1/1;
+        }
     }
 
     :where(
