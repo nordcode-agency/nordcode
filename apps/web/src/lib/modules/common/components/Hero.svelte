@@ -15,9 +15,9 @@
         Preview
       </button>
       <Story id="preview">
-        <StoryItem caption="My individual caption that tells a short story. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.">
+        <StoryItem caption="My individual caption that tells a short story.">
           <img src="https://images.unsplash.com/photo-1688367785310-c8c013548288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3135&q=80" alt="storyitem 1" srcset="">
-          <button type="button" class="nc-button" slot="cta">
+          <button type="button" class="nc-button" slot="cta" aria-label="Mehr Erfahren">
             <ArrowRightSolid />
           </button>
         </StoryItem>
