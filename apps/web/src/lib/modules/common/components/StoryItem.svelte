@@ -1,45 +1,57 @@
 <script lang="ts">
   export let caption: string;
+  export let id: string;
 </script>
 
-<figure>
-  <div class="figure">
-    <slot />
-  </div>
-  {#if caption}
-    <div class="gradient"></div>
-    <figcaption>
-      {caption}
-    </figcaption>
-  {/if}
-  {#if $$slots.cta}
-    <div class="cta">
-      <slot name="cta" />
+<li {id}>
+  <figure>
+    <div class="figure">
+      <slot />
     </div>
-  {/if}
-</figure>
+    <footer>
+      {#if caption}
+        <figcaption>
+          {caption}
+        </figcaption>
+      {/if}
+      {#if $$slots.cta}
+        <slot name="cta" />
+      {/if}
+    </footer>
+  </figure>
+</li>
 
 <style lang="postcss">
   @import "@nordcode/ui/media";
+
+  li {
+    inline-size: 100%;
+    block-size: 100%;
+  }
 
   figure {
     inline-size: 100%;
     block-size: 100%;
     display: grid;
     grid-template:
-      [fig-start actions-start]
+      [fig-start]
       1fr
-      [cap-start cta-start actions-end]
+      [footer-start]
       auto
-      [cap-end fig-end cta-end]
-      / [cap-start fig-start] 1fr [cap-end cta-start actions-start] auto [fig-end cta-end actions-end];
+      [footer-end fig-end]
+      / [footer-start fig-start] 1fr [footer-end fig-end];
   }
 
-  .gradient {
-    grid-area: cap-start / cap-start / cap-end / cta-end;
-    background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--spacing-base);
+    grid-area: footer;
     inline-size: 100%;
-    block-size: 100%;
+    padding-inline: var(--spacing-base);
+    padding-block: var(--spacing-base);
+    background: linear-gradient(transparent, rgba(0,0,0,0.6));
   }
 
   .figure {
@@ -55,27 +67,11 @@
   }
 
   figcaption {
-    grid-area: cap;
-    inline-size: 100%;
-    padding-inline: var(--spacing-base);
-    padding-block: var(--spacing-far);
-    font-size: var(--font-size-large);
     color: var(--color-text-dark-base);
-  }
+    text-shadow: 0px var(--spacing-nearest) var(--spacing-base) var(--color-shadow-light-base);
 
-  .cta {
-    grid-area: cta;
-    display: grid;
-    place-items: center;
-    block-size: 100%;
-    padding-block: var(--spacing-far);
-    padding-inline-end: var(--spacing-base);
-  }
-
-  .actions {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: var(--spacing-base);
-    padding: var(--spacing-base);
+    @media (--md-n-above) {
+      font-size: var(--font-size-large);
+    }
   }
 </style>
