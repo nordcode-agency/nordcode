@@ -9,9 +9,13 @@
     };
   });
 
-  const handleClick = (e: MouseEvent, id: string) => {
-    const el = document.getElementById(id);
-    el?.scrollIntoView({ behavior: 'smooth' });
+  const handleClick = (id: string) => {
+    if (navigation.navigate) {
+      navigation.navigate(`#${id}`, { history: 'replace' });
+    } else {
+      const el = document.getElementById(id);
+      el?.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 </script>
 
@@ -24,7 +28,7 @@
       {#each items as {id, text} (id)}
         <button
           class="nc-button -stealth"
-          on:click={(e) => handleClick(e, id)}
+          on:click={() => handleClick(id)}
           aria-label={text}
         >
           <div class="indicator-item"></div>
