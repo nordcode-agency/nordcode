@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { navigateToId } from "$lib/utils/navigateToId";
+
   export let id: string;
 
   let ulElement: HTMLUListElement;
@@ -8,15 +10,6 @@
       text: (item as HTMLLIElement).innerText,
     };
   });
-
-  const handleClick = (id: string) => {
-    if (navigation.navigate) {
-      navigation.navigate(`#${id}`, { history: 'replace' });
-    } else {
-      const el = document.getElementById(id);
-      el?.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
 </script>
 
 <dialog {id}>
@@ -28,7 +21,7 @@
       {#each items as {id, text} (id)}
         <button
           class="nc-button -stealth"
-          on:click={() => handleClick(id)}
+          on:click={() => navigateToId(id)}
           aria-label={text}
         >
           <div class="indicator-item"></div>
