@@ -51,16 +51,17 @@
       type="button"
       aria-label="Next"
     ></button>
-    <footer>
-      {#if caption}
-        <figcaption>
-          {caption}
-        </figcaption>
-      {/if}
-      {#if $$slots.cta}
+    <div class="gradient"></div>
+    {#if caption}
+      <figcaption>
+        {caption}
+      </figcaption>
+    {/if}
+    {#if $$slots.cta}
+      <div class="cta">
         <slot name="cta" />
-      {/if}
-    </footer>
+      </div>
+    {/if}
   </figure>
 </li>
 
@@ -79,19 +80,18 @@
     grid-template:
       [fig-start previous-start next-start]
       1fr
-      [footer-start previous-end next-end]
+      [caption-start gradient-start previous-end next-end]
       auto
-      [footer-end fig-end]
-      / [footer-start fig-start previous-start] 1fr [previous-end next-start] 1fr [footer-end fig-end next-end];
+      [caption-end cta-start]
+      auto
+      [fig-end cta-end gradient-end]
+      / [caption-start gradient-start cta-start fig-start previous-start] 1fr [previous-end next-start] 1fr [caption-end gradient-end cta-end fig-end next-end];
   }
 
-  footer {
-    display: grid;
-    gap: var(--spacing-base);
-    grid-area: footer;
+  .gradient {
+    grid-area: gradient;
     inline-size: 100%;
-    padding-inline: var(--spacing-base);
-    padding-block: var(--spacing-base);
+    block-size: 100%;
     background: linear-gradient(transparent, rgba(0,0,0,0.6));
   }
 
@@ -124,11 +124,27 @@
   }
 
   figcaption {
+    grid-area: caption;
+    inline-size: 100%;
+    padding-inline: var(--spacing-base);
+    padding-block: var(--spacing-base);
     color: var(--color-text-dark-base);
     text-shadow: 0px var(--spacing-nearest) var(--spacing-base) var(--color-shadow-light-base);
 
     @media (--md-n-above) {
       font-size: var(--font-size-large);
+    }
+  }
+
+  .cta {
+    grid-area: cta;
+    inline-size: 100%;
+    padding-inline: var(--spacing-base);
+    padding-block: var(--spacing-base);
+    padding-block-start: 0;
+
+    & :global(> *) {
+      inline-size: 100%;
     }
   }
 </style>
