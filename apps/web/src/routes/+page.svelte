@@ -1,7 +1,5 @@
 <script>
-  import Header from "$lib/modules/common/components/Header.svelte";
   import Hero from "$lib/modules/common/components/Hero.svelte";
-  import Navigation from "$lib/modules/common/components/Navigation.svelte";
   import Work from "$lib/modules/common/components/Work.svelte";
 </script>
 
@@ -10,9 +8,7 @@
 </svelte:head>
 
 <div class="wrapper">
-	<Header />
 	<Hero />
-	<Navigation />
 </div>
 <Work />
 

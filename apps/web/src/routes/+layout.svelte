@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Header from "$lib/modules/common/components/Header.svelte";
   import Footer from '$lib/modules/common/components/Footer.svelte';
 
   import { onMount } from "svelte";
@@ -15,6 +16,7 @@
   <meta name="description" content={$page.data.description}/>
 </svelte:head>
 
+<Header />
 <main class="nc-stack">
   <slot/>
 </main>
@@ -25,6 +27,7 @@
   @import "@nordcode/ui/fonts";
 
   main {
+    /* padding-block-start: 90px; equals <Navigation> block-size */
     min-block-size: 100dvh;
   }
 </style>

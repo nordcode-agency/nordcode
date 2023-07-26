@@ -28,7 +28,7 @@
           <img src="https://images.unsplash.com/photo-1558297010-eb4f2f472abf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2246&q=80" alt="storyitem 3" srcset="">
         </StoryItem>
       </Story>
-      <button class="nc-button" type="button">Los geht's</button>
+      <button class="my-button" type="button">Los geht's</button>
     </div>
   </div>
 </div>
@@ -39,15 +39,10 @@
     gap: var(--spacing-base);
   }
 
-  .story-btn {
-    /* display: grid;
-    place-items: center; */
-    /* aspect-ratio: 1/1; */
-    /* inline-size: 3rem; */
-    /* border-radius: var(--border-radius-round); */
-  }
-
   .hero {
+    display: grid;
+    place-items: center;
+    block-size: 100dvh;
 
     & h1 {
       hyphens: none;
