@@ -11,13 +11,6 @@
 
 
 ## Todos:
-  - [ ] Implement signup
-  - [ ] Implement login
-  - [ ] Implement logout
-  - [ ] Implement restore
-  - [ ] Implement delete account
-  - [ ] Implement storing the login
-
 - [ ] tags
 - [ ] search
 - [ ] created
@@ -28,4 +21,4 @@
 - [ ] share
 - [ ] add tags
 
-Sharing? isShared
+Icons: https://remixicon.com/

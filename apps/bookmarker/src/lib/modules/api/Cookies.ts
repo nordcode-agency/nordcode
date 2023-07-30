@@ -1,1 +1,1 @@
-export const UserCookieName = 'bkmr_u';
+export const CollectionCookieName = 'bkmr_c';

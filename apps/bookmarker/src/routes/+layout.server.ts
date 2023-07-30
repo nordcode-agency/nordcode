@@ -1,19 +1,16 @@
 import type { LayoutServerLoad } from './$types';
-import { UserCookieName } from '$lib/modules/api/Cookies';
-import { isDev } from '$lib/modules/app/getEnv';
-import { DevUser } from '$lib/modules/app/dev-data/devUser';
+import { CollectionCookieName } from '$lib/modules/api/Cookies';
+import { validate as uuidValidate } from 'uuid';
 
-export const load = (async ({ cookies, platform }) => {
-	const userKey = cookies.get(UserCookieName);
+export const load = (async ({ cookies }) => {
+	const collectionId = cookies.get(CollectionCookieName);
 
-	if (!userKey) {
-		return { user: null };
+	if (!collectionId || !uuidValidate(collectionId)) {
+		return { loggedIn: false, collectionId: null };
 	}
 
-	if (isDev()) {
-		return { user: DevUser };
-	}
-
-	const user = await platform?.env.Users.get(userKey);
-	return { user };
+	return {
+		collectionId,
+		loggedIn: true
+	};
 }) satisfies LayoutServerLoad;

@@ -7,20 +7,19 @@
 
 <div class="wrapper">
   hello
-  {#if data.user}
+  {#if data.loggedIn}
     <p>You're logged in!</p>
   {:else}
     <ul>
       <li>
-        <a href="/login">Login</a>
+        <a href="/new-collection">New collection</a>
       </li>
        <li>
-        <a href="/signup">Signup</a>
+        <a href="/open-collection">Open existing collection</a>
       </li>
     </ul>
   {/if}
 
-  {JSON.stringify(data)}
 
 
 </div>
