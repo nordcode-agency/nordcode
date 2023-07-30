@@ -1,4 +1,4 @@
-@layer spacing-utils {
+@layer utils {
     .mt-base {
         margin-top: var(--spacing-base);
     }

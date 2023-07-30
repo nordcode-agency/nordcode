@@ -1,4 +1,4 @@
-@layer utils {
+@layer reset {
 
     *,
     :after,
@@ -29,7 +29,7 @@
     }
 
     :where(:focus-visible, :focus) {
-        outline: var(--border-base) solid var(--color-brand-primary-strong);
+        outline: var(--border-width-medium) solid var(--color-brand-primary-strong);
         outline-offset: 1ch;
     }
 

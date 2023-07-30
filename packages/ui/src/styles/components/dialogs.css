@@ -75,6 +75,7 @@
         font-size: var(--font-size-large);
         margin: 0;
         padding: 0;
+        line-height: var(--_dialog-close-size);
     }
 
     .dialog-content {

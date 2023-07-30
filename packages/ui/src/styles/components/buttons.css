@@ -28,7 +28,7 @@
         ));
 
         --_button-hover-shadow: var(--button-hover-shadow, calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--shadow-color), calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) / -2) 0 var(--shadow-color));
-        --_button-padding-inline: var(--button-padding-inline, var(--spacing-near));
+        --_button-padding-inline: var(--button-padding-inline, var(--spacing-base));
     }
 
 
@@ -43,38 +43,38 @@
     :where(input[type="file"]:not([class]))::file-selector-button,
     .nc-button
 ) {
-    background-color: var(--_button-background);
-    color: var(--_button-color);
-    border-width: var(--border-width-thin);
-    border-color: var(--_button-border-color);
-    border-style: solid;
-    border-radius: var(--_button-border-radius);
-    padding-inline: var(--_button-padding-inline);
-    min-block-size: var(--button-height-base);
-    padding-block: 0;
-    font-family: var(--font-family-default);
-    letter-spacing: var(--tracking-tight);
-    font-weight: var(--font-weight-regular);
-    font-size: inherit;
-    cursor: pointer;
-    display: inline-flex;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    transition: box-shadow var(--transition-duration-base) var(--ease-2),
-    transform var(--transition-duration-base) var(--ease-2);
-    text-decoration: unset;
-    box-shadow: var(--_button-box-shadow);
-    transform: var(--_button-transform);
-    will-change: transform;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    inset-block-start: 2px;
-    inset-inline-start: 2px;
-}
+        background-color: var(--_button-background);
+        color: var(--_button-color);
+        border-width: var(--border-width-thin);
+        border-color: var(--_button-border-color);
+        border-style: solid;
+        border-radius: var(--_button-border-radius);
+        padding-inline: var(--_button-padding-inline);
+        min-block-size: var(--button-height-base);
+        padding-block: 0;
+        font-family: var(--font-family-default);
+        letter-spacing: var(--tracking-tight);
+        font-weight: var(--font-weight-regular);
+        font-size: inherit;
+        cursor: pointer;
+        display: inline-flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        transition: box-shadow var(--transition-duration-base) var(--ease-2),
+        transform var(--transition-duration-base) var(--ease-2);
+        text-decoration: unset;
+        box-shadow: var(--_button-box-shadow);
+        transform: var(--_button-transform);
+        will-change: transform;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        inset-block-start: calc(var(--_button-offset-distance) * -1);
+        inset-inline-start: calc(var(--_button-offset-distance) * -1);
+    }
 
     :where(
     button:not([class]),
@@ -155,6 +155,40 @@
             box-shadow: none !important;
             transform: none !important;
         }
+
+        &.-small {
+            --_button-padding-inline: var(--spacing-base);
+            min-block-size: var(--button-height-small);
+        }
+
+        &.-round {
+            --_button-border-radius: var(--border-radius-round);
+        }
+
+        &.-icon {
+            --_button-border-radius: var(--border-radius-round);
+            padding: var(--spacing-base);
+            min-block-size: 0;
+
+            &:after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 1;
+                border-radius: 100%;
+                min-width: var(--button-height-base);
+                min-height: var(--button-height-base);
+                left: calc(-0.5 * (var(--button-height-base) - 100%));
+                top: calc(-0.5 * (var(--button-height-base) - 100%));
+                position: absolute;
+                z-index: -1;
+                pointer-events: all;
+            }
+        }
+
+        &.-icon.-small {
+            padding: var(--spacing-near);
+        }
     }
 
     :where(input[type="file"]:not([class])) {
@@ -192,6 +226,7 @@
             color: var(--_button-background);
             aspect-ratio: 1;
             margin-inline-end: calc(var(--_button-padding-inline) + var(--spacing-near));
+            margin-inline-start: var(--spacing-near);
             block-size: 1em;
             inline-size: 1em;
             font-family: var(--font-family-default);
@@ -214,4 +249,5 @@
             }
         }
     }
+
 }
