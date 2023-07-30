@@ -57,10 +57,10 @@ export const getThemeFromOKLCH = (store: ColorsStore) => {
         --color-surface-dark-strong: oklch(8% ${
           store.oklch.dark.neutral.chroma
         } ${store.oklch.dark.neutral.hue});
-        --color-surface-dark-base: oklch(12% ${
+        --color-surface-dark-base: oklch(18% ${
           store.oklch.dark.neutral.chroma
         } ${store.oklch.dark.neutral.hue});
-        --color-surface-dark-subtle: oklch(16% ${
+        --color-surface-dark-subtle: oklch(28% ${
           store.oklch.dark.neutral.chroma
         } ${store.oklch.dark.neutral.hue});
 
