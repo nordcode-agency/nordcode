@@ -1,6 +1,6 @@
-const copyButtons = document.querySelectorAll("button[data-copy-target]");
+const copyEl = document.querySelectorAll("[data-copy-target]");
 
-copyButtons.forEach((button: HTMLButtonElement) =>
+copyEl.forEach((button: HTMLElement) =>
   button.addEventListener("click", async (event) => {
     const copyTarget = button.dataset.copyTarget;
     event.preventDefault();
