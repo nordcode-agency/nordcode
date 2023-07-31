@@ -12,8 +12,14 @@
             0px 3px 8px -2px oklch(var(--shadow-color) / 0.4),
             0px 8px 14px -3px oklch(var(--shadow-color) / 0.3);
 
-        padding-inline: 1rlh;
-        padding-block: 0.5rlh;
+        padding-inline: var(--spacing-base);
+        padding-block: var(--spacing-near);
+
+        @supports (padding-inline: 1rlh) {
+            padding-inline: 1rlh;
+            padding-block: 0.5rlh;
+        };
+
         box-shadow: var(--shadow-elevation-medium);
         background: linear-gradient(
             45deg,
