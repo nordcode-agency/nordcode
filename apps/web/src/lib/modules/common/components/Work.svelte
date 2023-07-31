@@ -1,14 +1,14 @@
+<script>
+	import WorkCard from "./WorkCard.svelte";
+
+</script>
 <section class="nc-ram-grid">
-  <div class="nc-card">a</div>
-  <div class="nc-card">a</div>
-  <div class="nc-card">a</div>
-  <div class="nc-card">a</div>
-  <div class="nc-card">a</div>
-  <div class="nc-card">a</div>
-  <div class="nc-card">a</div>
-  <div class="nc-card">a</div>
-  <div class="nc-card">a</div>
-  <div class="nc-card">a</div>
+  
+  <WorkCard />
+  <WorkCard />
+  <WorkCard />
+  <WorkCard />
+  <WorkCard />
 </section>
 
 <style>

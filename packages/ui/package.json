@@ -20,6 +20,7 @@
     "./dialogs": "./src/styles/components/dialogs.css",
     "./components": "./src/styles/components/bundle.css",
     "./logo": "./src/assets/logos/nordcode-logo.svg",
+    "./ArrowRightSolid": "./src/assets/icons/ArrowRightSolid.svelte",
     "./src/modules/forms/": "./src/modules/forms/",
     "./src/modules/dialogs/": "./src/modules/dialogs/",
     "./src/modules/copyButtons/": "./src/modules/copyButtons/",

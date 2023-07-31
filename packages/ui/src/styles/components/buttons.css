@@ -1,4 +1,34 @@
 @layer components {
+    .my-button {
+        --shadow-color: var(--color-brand-primary-base-lch);
+        --shadow-elevation-medium:
+            0px 0.5px 0.5px oklch(var(--shadow-color) / 0.65),
+            0px 1px 2px -1px oklch(var(--shadow-color) / 0.55),
+            0px 3px 6px -3px oklch(var(--shadow-color) / 0.4),
+            0px 8px 12px -4px oklch(var(--shadow-color) / 0.3);
+        --shadow-elevation-large:
+            0px 0.5px 0.5px oklch(var(--shadow-color) / 0.65),
+            0px 1px 4px -1px oklch(var(--shadow-color) / 0.55),
+            0px 3px 8px -2px oklch(var(--shadow-color) / 0.4),
+            0px 8px 14px -3px oklch(var(--shadow-color) / 0.3);
+
+        padding-inline: 1rlh;
+        padding-block: 0.5rlh;
+        box-shadow: var(--shadow-elevation-medium);
+        background: linear-gradient(
+            45deg,
+            var(--color-brand-primary-base),
+            var(--color-brand-primary-strong)
+        );
+        border-radius: var(--border-radius-medium);
+        color: var(--color-text-dark-strong);
+        transition: var(--transition-duration-base) var(--ease-2);
+
+        &:hover {
+
+        }
+    }
+
     .buttonReset {
         padding: 0;
         border: none;
@@ -33,16 +63,15 @@
 
 
     :where(
-    button:not([class]),
-    button[type]:not([class])
-,
-    input[type="button"]:not([class]),
-    input[type="submit"]:not([class]),
-    input[type="reset"]:not([class])
-    :where(input[type="file"]:not([class]))::-webkit-file-upload-button,
-    :where(input[type="file"]:not([class]))::file-selector-button,
-    .nc-button
-) {
+        button:not([class]),
+        button[type]:not([class]),
+        input[type="button"]:not([class]),
+        input[type="submit"]:not([class]),
+        input[type="reset"]:not([class])
+        :where(input[type="file"]:not([class]))::-webkit-file-upload-button,
+        :where(input[type="file"]:not([class]))::file-selector-button,
+        .nc-button
+    ) {
         background-color: var(--_button-background);
         color: var(--_button-color);
         border-width: var(--border-width-thin);
@@ -74,15 +103,25 @@
         -webkit-touch-callout: none;
         inset-block-start: calc(var(--_button-offset-distance) * -1);
         inset-inline-start: calc(var(--_button-offset-distance) * -1);
+
+        /*
+         * If there is no text node for the button,
+         * it is assumed that an `aria-label` is that
+         * and the button will be styled as an icon button.
+         */
+         &[aria-label] {
+            border-radius: var(--border-radius-round);
+        }
     }
 
     :where(
-    button:not([class]),
-    button[type]:not([class]),
-    input[type="button"]:not([class]),
-    input[type="submit"]:not([class]),
-    input[type="reset"]:not([class]),
-    .nc-button) {
+        button:not([class]),
+        button[type]:not([class]),
+        input[type="button"]:not([class]),
+        input[type="submit"]:not([class]),
+        input[type="reset"]:not([class]),
+        .nc-button
+    ) {
         &:after {
             content: "" !important;
         }

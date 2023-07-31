@@ -44,6 +44,7 @@
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
+  scroll-snap-stop: var(--gallery-scroll-snap-stop, normal);
   scroll-padding-inline: var(--gallery-scroll-padding-inline, var(--gallery-padding-inline, var(--_gallery-gap)));
   list-style: none;
 
