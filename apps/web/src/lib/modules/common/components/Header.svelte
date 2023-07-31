@@ -15,6 +15,8 @@
 <style>
 	@import "@nordcode/ui/media";
   header {
+		isolation: isolate;
+		z-index: 1;
 		position: fixed;
 		top: 0;
 		left: 0;
