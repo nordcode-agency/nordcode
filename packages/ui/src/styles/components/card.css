@@ -32,6 +32,7 @@
     padding-inline: var(--_card-padding-inline);
     padding-block: var(--_card-padding-block);
     color: var(--_card-color);
+    overflow: hidden;
 
     appearance: none;
     border: 1px solid var(--_card-border-color);
