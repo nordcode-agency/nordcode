@@ -42,7 +42,7 @@
   }
 
   .nc-ram-grid {
-    --fd-ram-grid-min-width: 40ch;
+    --fd-ram-grid-min-width: 44ch;
     --fd-ram-grid-gap: var(--spacing-far);
 
     padding: var(--spacing-base);
