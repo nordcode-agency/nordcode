@@ -32,7 +32,7 @@
                     label="Light Primary Subtle"
                     id="colorLightPrimarySubtle"
                     type="color"
-                    bind:value={$configStore.default.light.primary.Subtle}/>
+                    bind:value={$configStore.default.light.primary.subtle}/>
             <hr />
 
         </fieldset>

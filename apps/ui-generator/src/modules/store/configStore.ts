@@ -1,4 +1,6 @@
 import { localStore } from "./utils/localStore";
+import type { PresetName } from "../presets/Presets";
+import { Presets } from "../presets/Presets";
 
 const STORE_KEY = "CONFIG_STORE";
 
@@ -17,7 +19,6 @@ type ThemeDefinition = {
 };
 
 type LCHColorDefinition = {
-  hue: number;
   chroma: number;
 };
 
@@ -64,6 +65,7 @@ export type ConfigStore = {
 
   spacingScale: number;
 
+  borderRadiusNone: number;
   borderWidthThin: number;
   borderWidthMedium: number;
   borderWidthThick: number;
@@ -76,29 +78,41 @@ export type ConfigStore = {
 
   borderRadiusScale: number;
 
+  shadowConfigDistanceScaleFactor: number;
+  shadowConfigBlurScaleFactor: number;
+  shadowConfigStartTransparency: number;
+  shadowConfigTransparencyScale: number;
+  shadowConfigSpreadMax: number;
+  shadowConfigSpreadMin: number;
+  shadowConfigDistanceFactor: number;
+
   shadowDistanceInset: number;
   shadowDistanceNearest: number;
   shadowDistanceNear: number;
   shadowDistanceMedium: number;
   shadowDistanceFar: number;
 
-  shadowColorHue: number;
   shadowColorChroma: number;
 
   shadowDistanceScale: number;
 
   // COLORS
   useLCH: boolean;
-  oklch: {
-    primaryHue: number;
-    secondaryHue: number;
-    light: {
-      neutral: LCHColorDefinition;
-    };
-    dark: {
-      neutral: LCHColorDefinition;
-    };
-  };
+  primaryHue: number;
+  secondaryHue: number;
+
+  lightnessScaleFactor: number;
+
+  lightNeutralChroma: number;
+  lightNeutralTextLightness: number;
+  lightNeutralSurfaceLightness: number;
+  lightNeutralBorderLightness: number;
+
+  darkNeutralChroma: number;
+  darkNeutralTextLightness: number;
+  darkNeutralSurfaceLightness: number;
+  darkNeutralBorderLightness: number;
+
   default: {
     light: ThemeDefinition;
     dark: ThemeDefinition;
@@ -150,6 +164,7 @@ const defaultStore: ConfigStore = {
 
   spacingScale: 2,
 
+  borderRadiusNone: 0,
   borderWidthThin: 1,
   borderWidthMedium: 2,
   borderWidthThick: 4,
@@ -162,13 +177,22 @@ const defaultStore: ConfigStore = {
 
   borderRadiusScale: 2,
 
+  // Shadows
+
+  shadowConfigDistanceScaleFactor: 0.64,
+  shadowConfigBlurScaleFactor: 2.2,
+  shadowConfigStartTransparency: 0.12,
+  shadowConfigTransparencyScale: 1.2,
+  shadowConfigSpreadMax: -4,
+  shadowConfigSpreadMin: 1,
+  shadowConfigDistanceFactor: 1.8,
+
   shadowDistanceInset: 3,
   shadowDistanceNearest: 1,
   shadowDistanceNear: 3,
   shadowDistanceMedium: 9,
   shadowDistanceFar: 29,
 
-  shadowColorHue: 265,
   shadowColorChroma: 0.1,
 
   shadowDistanceScale: 3,
@@ -176,22 +200,21 @@ const defaultStore: ConfigStore = {
   // COLORS
 
   useLCH: true,
-  oklch: {
-    primaryHue: 265,
-    secondaryHue: 215,
-    light: {
-      neutral: {
-        hue: 265,
-        chroma: 0.01,
-      },
-    },
-    dark: {
-      neutral: {
-        hue: 265,
-        chroma: 0.01,
-      },
-    },
-  },
+  primaryHue: 265,
+  secondaryHue: 215,
+
+  lightnessScaleFactor: 3,
+
+  lightNeutralChroma: 0.01,
+  lightNeutralTextLightness: 16,
+  lightNeutralSurfaceLightness: 97,
+  lightNeutralBorderLightness: 20,
+
+  darkNeutralChroma: 0.01,
+  darkNeutralTextLightness: 94,
+  darkNeutralSurfaceLightness: 18,
+  darkNeutralBorderLightness: 80,
+
   default: {
     light: {
       primary: {
@@ -317,6 +340,15 @@ export const updateFontScale = (newScale: number) => {
       fontSizeLargest: round(store.fontSizeBase * Math.pow(newScale, 2)),
       fontSizeSmall: round(store.fontSizeBase / newScale),
       fontSizeSmallest: round(store.fontSizeBase / Math.pow(newScale, 2)),
+    };
+  });
+};
+
+export const setPreset = (preset: PresetName) => {
+  configStore.update((store) => {
+    return {
+      ...store,
+      ...Presets[preset],
     };
   });
 };

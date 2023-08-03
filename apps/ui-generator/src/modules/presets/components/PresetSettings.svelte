@@ -1,0 +1,24 @@
+<script lang="ts">
+    import {configStore, setPreset} from "../../store/configStore";
+</script>
+
+<div>
+    <form class="stack -layout-far -full-width -stretched">
+         <fieldset class="nc-fieldset stack -layout-base">
+            <legend>Presets</legend>
+             <div class="cluster">
+
+                <button class="nc-button" on:click={() => setPreset('modern')}>Modern</button>
+                <button class="nc-button -round" on:click={() => setPreset('playful')}>Playful</button>
+                 <button class="nc-button" on:click={() => setPreset('brutalist')}>Brutalist</button>
+                 <button class="nc-button" on:click={() => setPreset('elegant')}>Elegant</button>
+             </div>
+        </fieldset>
+
+
+
+
+        <button type="button" class="nc-button -destructive" on:click={configStore.reset}>Reset</button>
+
+    </form>
+</div>

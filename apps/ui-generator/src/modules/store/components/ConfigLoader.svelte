@@ -44,11 +44,11 @@
     <ExportDialog allStyles={allStyles}/>
     <ImportDialog/>
     {#if $previewShown}
-        <div transition:slide={{axis: "x", ease: quintOut}}>
+        <div class="preview" transition:slide={{axis: "x", ease: quintOut}}>
             <ContextPreview/>
         </div>
     {:else}
-        <div transition:slide={{axis: "x", ease: quintOut}}>
+        <div class="preview" transition:slide={{axis: "x", ease: quintOut}}>
             <slot></slot>
         </div>
     {/if}
@@ -63,6 +63,10 @@
         position: sticky;
         inset: 0 0 auto auto;
         margin-inline-start: auto;
+    }
+
+    .preview {
+        inline-size: 100%;
     }
 
 </style>

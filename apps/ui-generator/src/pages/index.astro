@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from "../modules/generator/components/Header.astro"
-import TypographyPreview from "../modules/typography/components/TypographyPreview.svelte";
-import TypographySettings from "../modules/typography/components/TypographySettings.svelte";
+import PresetPreview from "../modules/presets/components/PresetPreview.svelte";
+import PresetSettings from "../modules/presets/components/PresetSettings.svelte";
 ---
 
-<Layout title="Typography">
-  <Header slot="header" />
-  <TypographySettings client:load="svelte" slot="aside" />
-  <TypographyPreview client:load="svelte" slot="content" />
+<Layout title="Sizes">
+        <Header slot="header" />
+        <PresetSettings client:load="svelte" slot="aside" />
+        <PresetPreview client:load="svelte" slot="content" />
 </Layout>

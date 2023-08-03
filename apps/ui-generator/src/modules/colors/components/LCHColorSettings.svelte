@@ -14,7 +14,7 @@
                     max="360"
                     min="0"
                     step="1"
-                    bind:value={$configStore.oklch.primaryHue}/>
+                    bind:value={$configStore.primaryHue}/>
                <Input
                     name="colorLCHSecondaryHue"
                     label="Secondary Hue"
@@ -23,40 +23,22 @@
                     max="360"
                     min="0"
                     step="1"
-                    bind:value={$configStore.oklch.secondaryHue}/>
+                    bind:value={$configStore.secondaryHue}/>
 
-            <div class="cluster -nowrap">
-                <Input
-                    name="colorLCHLightNeutralHue"
-                    label="Neutral Light Hue"
-                    id="colorLCHLightNeutralHue"
-                    type="number"
-                    step="1"
-                    bind:value={$configStore.oklch.light.neutral.hue}/>
                 <Input
                     name="colorLCHLightNeutralChroma"
                     label="Neutral Light Chroma"
                     id="colorLCHLightNeutralChroma"
                     type="number"
                     step="0.01"
-                    bind:value={$configStore.oklch.light.neutral.chroma}/>
-            </div>
-            <div class="cluster -nowrap">
-                <Input
-                    name="colorLCHDarkNeutralHue"
-                    label="Neutral Dark Hue"
-                    id="colorLCHDarkNeutralHue"
-                    type="number"
-                    step="1"
-                    bind:value={$configStore.oklch.dark.neutral.hue}/>
+                    bind:value={$configStore.lightNeutralChroma}/>
                 <Input
                     name="colorLCHDarkNeutralChroma"
                     label="Neutral Dark Chroma"
                     id="colorLCHDarkNeutralChroma"
                     type="number"
                     step="0.01"
-                    bind:value={$configStore.oklch.dark.neutral.chroma}/>
-            </div>
+                    bind:value={$configStore.darkNeutralChroma}/>
         </fieldset>
 
                 <button type="button" class="nc-button -destructive" on:click={configStore.reset}>Reset</button>

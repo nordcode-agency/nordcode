@@ -1,26 +1,6 @@
 @layer components {
     :root {
-        --_input-background: var(--input-background, var(--color-surface-strong));
-        --_input-color: var(--input-color, var(--color-text-strong));
-        --_input-border: var(
-                --input-border,
-                var(--border-width-thin) solid var(--color-border-subtle)
-        );
-        --_input-border-radius: var(--input-border-radius, var(--border-radius-medium));
 
-
-        --_input-box-shadow: none;
-        --_input-outline: var(
-                --input-outline,
-                var(--border-width-thick) solid var(--color-brand-primary-strong)
-        );
-        --_input-disabled-filter: var(
-                --input-disabled-filter,
-                contrast(0.72) opacity(0.72)
-        );
-
-        --_input-padding-block: var(--input-padding-block, var(--spacing-nearest));
-        --_input-padding-inline: var(--input-padding-inline, var(--spacing-near));
     }
 
     :where(fieldset:not([class]), .nc-fieldset) {
@@ -54,6 +34,60 @@
         cursor: pointer;
         gap: 0.5em;
         align-items: center;
+    }
+
+    :where(
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="url"],
+    input[type="search"],
+    input[type="date"],
+    input[type="month"],
+    input[type="week"],
+    input[type="text"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="time"],
+    input[type="tel"],
+    input[type="color"],
+    textarea,
+    select,
+    .nc-input,
+    .nc-select,
+    .nc-textarea,
+    .nc-input-checkbox,
+    .nc-input-radio,
+    .nc-input-label,
+    .nc-input-color,
+    .nc-input-field,
+    .nc-input-error,
+    .nc-input-hint,
+    .nc-checkbox-wrapper,
+    .nc-input-switch
+    ) {
+        --_input-background: var(--input-background, var(--color-surface-strong));
+        --_input-color: var(--input-color, var(--color-text-strong));
+        --_input-border: var(
+                --input-border,
+                var(--border-width-thin) solid var(--color-border-base)
+        );
+        --_input-border-radius: var(--input-border-radius, var(--border-radius-medium));
+
+
+        --_input-box-shadow: none;
+        --_input-outline: var(
+                --input-outline,
+                var(--border-width-thick) solid var(--color-brand-primary-strong)
+        );
+        --_input-disabled-filter: var(
+                --input-disabled-filter,
+                contrast(0.72) opacity(0.72)
+        );
+
+        --_input-padding-block: var(--input-padding-block, var(--spacing-nearest));
+        --_input-padding-inline: var(--input-padding-inline, var(--spacing-near));
     }
 
     :where(

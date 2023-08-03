@@ -41,33 +41,6 @@
         background: none;
     }
 
-    :where(html) {
-        --_button-background: var(--button-background, var(--color-text-strong));
-        --_button-color: var(--button-color, var(--color-surface-subtle));
-        --_button-border-color: var(--button-border-color, var(--color-text-strong));
-        --_button-border-radius: var(--button-border-radius, var(--border-radius-medium));
-        --_button-offset-distance: var(--button-offset-distance, -2px);
-
-        --_button-transform: var(--button-transform, translate(
-                var(--_button-offset-distance),
-                var(--_button-offset-distance)
-        ));
-
-        --_button-box-shadow: var(--button-box-shadow, calc(var(--_button-offset-distance) / -2) calc(var(--_button-offset-distance) / -2) 0 0 var(--shadow-color), calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) 0 0 var(--shadow-color), calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -2) 0 var(--shadow-color));
-        --_button-background-hover: var(--button-background-hover, var(--color-brand-primary-subtle));
-        --_button-color-hover: var(--button-color-hover, var(--color-text-strong));
-        --_button-offset-distance-hover: var(--button-offset-distance-hover, -1px);
-        --_button-border-color-hover: var(--button-border-color-hover, var(--color-text-strong));
-        --_button-hover-transform: var(--button-hover-transform, translate(
-                var(--_button-offset-distance-hover),
-                var(--_button-offset-distance-hover)
-        ));
-
-        --_button-hover-shadow: var(--button-hover-shadow, calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--shadow-color), calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) / -2) 0 var(--shadow-color));
-        --_button-padding-inline: var(--button-padding-inline, var(--spacing-base));
-    }
-
-
     :where(
         button:not([class]),
         button[type]:not([class]),
@@ -78,6 +51,31 @@
         :where(input[type="file"]:not([class]))::file-selector-button,
         .nc-button
     ) {
+
+        --_button-background: var(--button-background, var(--color-text-strong));
+        --_button-color: var(--button-color, var(--color-surface-subtle));
+        --_button-border-color: var(--button-border-color, var(--color-text-strong));
+        --_button-border-radius: var(--button-border-radius, var(--border-radius-medium));
+        --_button-offset-distance: var(--button-offset-distance, 0);
+
+        --_button-transform: var(--button-transform, translate(
+                var(--_button-offset-distance),
+                var(--_button-offset-distance)
+        ));
+
+        --_button-box-shadow: var(--button-box-shadow, calc(var(--_button-offset-distance) / -2) calc(var(--_button-offset-distance) / -2) 0 0 var(--shadow-color), calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) 0 0 var(--shadow-color), calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -2) 0 var(--shadow-color));
+        --_button-background-hover: var(--button-background-hover, var(--color-brand-primary-subtle));
+        --_button-color-hover: var(--button-color-hover, var(--color-text-strong));
+        --_button-offset-distance-hover: var(--button-offset-distance-hover, 0);
+        --_button-border-color-hover: var(--button-border-color-hover, var(--color-text-strong));
+        --_button-hover-transform: var(--button-hover-transform, translate(
+                var(--_button-offset-distance-hover),
+                var(--_button-offset-distance-hover)
+        ));
+
+        --_button-hover-shadow: var(--button-hover-shadow, calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--shadow-color), calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) / -2) 0 var(--shadow-color));
+        --_button-padding-inline: var(--button-padding-inline, var(--spacing-base));
+
         background-color: var(--_button-background);
         color: var(--_button-color);
         border-width: var(--border-width-thin);

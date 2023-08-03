@@ -51,6 +51,7 @@ export const generateStyleString = (store: ConfigStore): string => {
         --border-width-medium: ${store.borderWidthMedium}px;
         --border-width-thick: ${store.borderWidthThick}px;
 
+        --border-radius-none: ${store.borderRadiusNone}px;
         --border-radius-small: ${store.borderRadiusSmall}px;
         --border-radius-medium: ${store.borderRadiusMedium}px;
         --border-radius-large: ${store.borderRadiusLarge}px;

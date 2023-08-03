@@ -180,15 +180,6 @@
         <fieldset class="nc-fieldset stack -layout-base">
             <legend>Shadows</legend>
             <div class="cluster -nowrap">
-                <Input
-                        name="colorShadowHue"
-                        label="Color Shadow Hue"
-                        id="colorShadowHue"
-                        type="range"
-                        step="1"
-                        min="0"
-                        max="360"
-                        bind:value={$configStore.shadowColorHue}/>
 
                 <Input
                         name="colorShadowChroma"

@@ -1,6 +1,6 @@
-import type { ColorsStore } from "../../colors/colorStore";
+import type { ConfigStore } from "../configStore";
 
-export const getStandardColorTheme = (store: ColorsStore) => {
+export const getStandardColorTheme = (store: ConfigStore) => {
   return `
         /* COLORS */
 

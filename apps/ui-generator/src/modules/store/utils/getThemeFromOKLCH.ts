@@ -1,84 +1,94 @@
-import type { ColorsStore } from "../../colors/colorStore";
+import type { ConfigStore } from "../configStore";
 
-export const getThemeFromOKLCH = (store: ColorsStore) => {
-  const colorStyle = `
+export const getThemeFromOKLCH = (store: ConfigStore) => {
+  return `
         /* COLORS */
 
         /* Light Theme */
         
-        ${getLightColorTheme("primary", store.oklch.primaryHue)} 
-        ${getLightColorTheme("secondary", store.oklch.secondaryHue)}
+        ${getLightColorTheme("primary", store.primaryHue)} 
+        ${getLightColorTheme("secondary", store.secondaryHue)}
+        
 
-        --color-text-light-strong: oklch(8% ${
-          store.oklch.light.neutral.chroma
-        } ${store.oklch.light.neutral.hue});
-        --color-text-light-base: oklch(16% ${
-          store.oklch.light.neutral.chroma
-        } ${store.oklch.light.neutral.hue});
-        --color-text-light-subtle: oklch(30% ${
-          store.oklch.light.neutral.chroma
-        } ${store.oklch.light.neutral.hue});
+        --color-text-light-strong: oklch(${
+          store.lightNeutralTextLightness / store.lightnessScaleFactor
+        }% ${store.lightNeutralChroma} ${store.primaryHue});
+        --color-text-light-base: oklch(${store.lightNeutralTextLightness}% ${
+    store.lightNeutralChroma
+  } ${store.primaryHue});
+        --color-text-light-subtle: oklch(${
+          store.lightNeutralTextLightness * store.lightnessScaleFactor
+        }% ${store.lightNeutralChroma} ${store.primaryHue});
 
-        --color-surface-light-strong: oklch(99% ${
-          store.oklch.light.neutral.chroma
-        } ${store.oklch.light.neutral.hue});
-        --color-surface-light-base: oklch(97% ${
-          store.oklch.light.neutral.chroma
-        } ${store.oklch.light.neutral.hue});
-        --color-surface-light-subtle: oklch(90% ${
-          store.oklch.light.neutral.chroma
-        } ${store.oklch.light.neutral.hue});
+        --color-surface-light-strong: oklch(${Math.max(
+          100 -
+            (100 - store.lightNeutralSurfaceLightness) /
+              store.lightnessScaleFactor,
+          100
+        )}% ${store.lightNeutralChroma} ${store.primaryHue});
+        --color-surface-light-base: oklch(${
+          store.lightNeutralSurfaceLightness
+        }% ${store.lightNeutralChroma} ${store.primaryHue});
+        --color-surface-light-subtle: oklch(${
+          100 -
+          (100 - store.lightNeutralSurfaceLightness) *
+            store.lightnessScaleFactor
+        }% ${store.lightNeutralChroma} ${store.primaryHue});
 
-        --color-border-light-strong: oklch(4% ${
-          store.oklch.light.neutral.chroma
-        } ${store.oklch.light.neutral.hue});
-        --color-border-light-base: oklch(20% ${
-          store.oklch.light.neutral.chroma
-        } ${store.oklch.light.neutral.hue});
-        --color-border-light-subtle: oklch(40% ${
-          store.oklch.light.neutral.chroma
-        } ${store.oklch.light.neutral.hue});
+        --color-border-light-strong: oklch(${
+          store.lightNeutralBorderLightness / store.lightnessScaleFactor
+        }% ${store.lightNeutralChroma} ${store.primaryHue});
+        --color-border-light-base: oklch(${
+          store.lightNeutralBorderLightness
+        }% ${store.lightNeutralChroma} ${store.primaryHue});
+        --color-border-light-subtle: oklch(${
+          store.lightNeutralBorderLightness * store.lightnessScaleFactor
+        }% ${store.lightNeutralChroma} ${store.primaryHue});
 
         /* Dark Theme */
 
-        ${getDarkColorTheme("primary", store.oklch.primaryHue)}
-        ${getDarkColorTheme("secondary", store.oklch.secondaryHue)}
+        ${getDarkColorTheme("primary", store.primaryHue)}
+        ${getDarkColorTheme("secondary", store.secondaryHue)}
 
-        --color-text-dark-strong: oklch(99% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
-        --color-text-dark-base: oklch(94% ${store.oklch.dark.neutral.chroma} ${
-    store.oklch.dark.neutral.hue
-  });
-        --color-text-dark-subtle: oklch(80% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
+  
+          --color-text-dark-strong: oklch(${
+            100 -
+            (100 - store.darkNeutralTextLightness) / store.lightnessScaleFactor
+          }% ${store.darkNeutralChroma} ${store.primaryHue});
+        --color-text-dark-base: oklch(${store.darkNeutralTextLightness}% ${
+    store.darkNeutralChroma
+  } ${store.primaryHue});
+        --color-text-dark-subtle: oklch(${
+          100 -
+          (100 - store.darkNeutralTextLightness) * store.lightnessScaleFactor
+        }% ${store.darkNeutralChroma} ${store.primaryHue});
 
-        --color-surface-dark-strong: oklch(8% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
-        --color-surface-dark-base: oklch(18% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
-        --color-surface-dark-subtle: oklch(28% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
 
-        --color-border-dark-strong: oklch(99% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
-        --color-border-dark-base: oklch(80% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
-        --color-border-dark-subtle: oklch(54% ${
-          store.oklch.dark.neutral.chroma
-        } ${store.oklch.dark.neutral.hue});
+        --color-surface-dark-strong: oklch(${
+          store.darkNeutralSurfaceLightness / store.lightnessScaleFactor
+        }% ${store.darkNeutralChroma} ${store.primaryHue});
+        --color-surface-dark-base: oklch(${
+          store.darkNeutralSurfaceLightness
+        }% ${store.darkNeutralChroma} ${store.primaryHue});
+        --color-surface-dark-subtle: oklch(${
+          store.darkNeutralSurfaceLightness * store.lightnessScaleFactor
+        }% ${store.darkNeutralChroma} ${store.primaryHue});
+
+        --color-border-dark-strong: oklch(${
+          100 -
+          (100 - store.darkNeutralBorderLightness) / store.lightnessScaleFactor
+        }% ${store.darkNeutralChroma} ${store.primaryHue});
+        --color-border-dark-base: oklch(${store.darkNeutralBorderLightness}% ${
+    store.darkNeutralChroma
+  } ${store.primaryHue});
+        --color-border-dark-subtle: oklch(${
+          100 -
+          (100 - store.darkNeutralBorderLightness) * store.lightnessScaleFactor
+        }% ${store.darkNeutralChroma} ${store.primaryHue});
 
         /*    Status */
         --color-status-error: ${store.default.status.error};
         `;
-
-  return colorStyle;
 };
 
 const getLightColorTheme = (name: "primary" | "secondary", hue: number) => {
