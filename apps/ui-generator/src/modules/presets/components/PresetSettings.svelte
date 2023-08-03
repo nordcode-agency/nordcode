@@ -8,10 +8,10 @@
             <legend>Presets</legend>
              <div class="cluster">
 
-                <button class="nc-button" on:click={() => setPreset('modern')}>Modern</button>
-                <button class="nc-button -round" on:click={() => setPreset('playful')}>Playful</button>
-                 <button class="nc-button" on:click={() => setPreset('brutalist')}>Brutalist</button>
-                 <button class="nc-button" on:click={() => setPreset('elegant')}>Elegant</button>
+                <button class="nc-button" type="button" on:click={() => setPreset('modern')}>Modern</button>
+                <button class="nc-button -round" type="button" on:click={() => setPreset('playful')}>Playful</button>
+                 <button class="nc-button" type="button" on:click={() => setPreset('brutalist')}>Brutalist</button>
+                 <button class="nc-button" type="button" on:click={() => setPreset('elegant')}>Elegant</button>
              </div>
         </fieldset>
 
