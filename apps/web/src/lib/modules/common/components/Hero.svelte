@@ -42,7 +42,7 @@
   .hero {
     display: grid;
     place-items: center;
-    block-size: 100dvh;
+    block-size: 90dvh;
 
     & h1 {
       hyphens: none;
