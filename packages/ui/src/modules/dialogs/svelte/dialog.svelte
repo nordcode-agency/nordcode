@@ -13,7 +13,7 @@
   <form method="dialog" class="dialog-container">
     <div class="dialog-header">
       <h2 class="dialog-title">{heading}</h2>
-      <button data-closes-dialog>X</button>
+      <button data-closes-dialog>×</button>
     </div>
     <div class="dialog-content">
       <slot />

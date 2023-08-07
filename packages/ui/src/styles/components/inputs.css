@@ -1,8 +1,13 @@
 @layer components {
   :where(fieldset:not([class]), .nc-fieldset) {
+    --_fieldset-background-color: var(
+      --fieldset-background-color,
+      var(--color-surface-base)
+    );
     padding: var(--spacing-base);
-    border: var(--border-width-thin) solid var(--color-border-subtle);
+    border: var(--border-width-thin) solid var(--color-border-base);
     border-radius: var(--border-radius-large);
+    background-color: var(--_fieldset-background-color);
   }
 
   :where(legend:not([class]), .nc-legend) {
@@ -14,7 +19,7 @@
     font-size: var(--font-size-base);
     padding-inline: var(--spacing-near);
     padding-block: 0;
-    background-color: var(--color-surface-strong);
+    background-color: var(--_fieldset-background-color);
     border: none;
     border-radius: 0;
   }
@@ -47,6 +52,9 @@
       input[type="time"],
       input[type="tel"],
       input[type="color"],
+      input[type="file"],
+      input[type="checkbox"],
+      input[type="radio"],
       textarea,
       select,
       .nc-input,
@@ -103,6 +111,7 @@
       input[type="time"],
       input[type="tel"],
       input[type="color"],
+      input[type="file"],
       textarea,
       select,
       .nc-input

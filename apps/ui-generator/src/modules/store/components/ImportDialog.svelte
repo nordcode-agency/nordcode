@@ -15,7 +15,7 @@
         <div class="dialog-header">
             <h2 class="dialog-title">Import Theme</h2>
             <!-- svelte-ignore a11y-autofocus -->
-            <button autofocus data-closes-dialog>X</button>
+            <button autofocus data-closes-dialog class="nc-button -round -small -stealth">×</button>
         </div>
         <div class="dialog-content">
             <div class="stack">
