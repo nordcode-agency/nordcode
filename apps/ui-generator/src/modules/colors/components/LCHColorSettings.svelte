@@ -16,6 +16,15 @@
                     step="1"
                     bind:value={$configStore.primaryHue}/>
                <Input
+                    name="colorLCHPrimaryLightness"
+                    label="Primary Lightness"
+                    id="colorLCHPrimaryLightness"
+                    type="range"
+                    max="100"
+                    min="0"
+                    step="1"
+                    bind:value={$configStore.primaryLightness}/>
+               <Input
                     name="colorLCHSecondaryHue"
                     label="Secondary Hue"
                     id="colorLCHSecondaryHue"
@@ -24,6 +33,15 @@
                     min="0"
                     step="1"
                     bind:value={$configStore.secondaryHue}/>
+               <Input
+                    name="colorLCHSecondaryLightness"
+                    label="Secondary Lightness"
+                    id="colorLCHSecondaryLightness"
+                    type="range"
+                    max="100"
+                    min="0"
+                    step="1"
+                    bind:value={$configStore.secondaryLightness}/>
 
                 <Input
                     name="colorLCHLightNeutralChroma"

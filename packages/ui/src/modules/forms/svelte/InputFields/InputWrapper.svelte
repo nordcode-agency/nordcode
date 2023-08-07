@@ -17,5 +17,5 @@
         {/each}
         {/if}
     </label>
-    <div class="cluster -full-width -layout-near"><slot></slot></div>
+    <div class="cluster -full-width -layout-near -nowrap"><slot></slot></div>
 </div>

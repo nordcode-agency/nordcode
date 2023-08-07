@@ -9,6 +9,7 @@ export const getStandardColorTheme = (store: ConfigStore) => {
         --color-brand-primary-light-strong: ${store.default.light.primary.strong};
         --color-brand-primary-light-base: ${store.default.light.primary.base};
         --color-brand-primary-light-subtle: ${store.default.light.primary.subtle};
+        --color-brand-primary-light-hover: ${store.default.light.primary.hover}
 
         --color-brand-secondary-light-strong: ${store.default.light.secondary.strong};
         --color-brand-secondary-light-base: ${store.default.light.secondary.base};

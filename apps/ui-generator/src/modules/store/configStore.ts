@@ -4,24 +4,6 @@ import { Presets } from "../presets/Presets";
 
 const STORE_KEY = "CONFIG_STORE";
 
-type ColorDefinition = {
-  strong: string;
-  subtle: string;
-  base: string;
-};
-
-type ThemeDefinition = {
-  primary: ColorDefinition;
-  secondary: ColorDefinition;
-  text: ColorDefinition;
-  surface: ColorDefinition;
-  border: ColorDefinition;
-};
-
-type LCHColorDefinition = {
-  chroma: number;
-};
-
 export type ConfigStore = {
   // TYPOGRAPHY
   fontFamilyMono: string;
@@ -99,7 +81,9 @@ export type ConfigStore = {
   // COLORS
   useLCH: boolean;
   primaryHue: number;
+  primaryLightness: number;
   secondaryHue: number;
+  secondaryLightness: number;
 
   lightnessScaleFactor: number;
 
@@ -112,14 +96,6 @@ export type ConfigStore = {
   darkNeutralTextLightness: number;
   darkNeutralSurfaceLightness: number;
   darkNeutralBorderLightness: number;
-
-  default: {
-    light: ThemeDefinition;
-    dark: ThemeDefinition;
-    status: {
-      error: string;
-    };
-  };
 };
 
 const defaultStore: ConfigStore = {
@@ -201,7 +177,9 @@ const defaultStore: ConfigStore = {
 
   useLCH: true,
   primaryHue: 265,
+  primaryLightness: 65,
   secondaryHue: 215,
+  secondaryLightness: 65,
 
   lightnessScaleFactor: 3,
 
@@ -214,66 +192,6 @@ const defaultStore: ConfigStore = {
   darkNeutralTextLightness: 94,
   darkNeutralSurfaceLightness: 18,
   darkNeutralBorderLightness: 80,
-
-  default: {
-    light: {
-      primary: {
-        strong: "oklch(88.5% 0.192 195.3)",
-        base: "oklch(80.6% 0.18 195.3)",
-        subtle: "oklch(87.7% 0.088 195.3)",
-      },
-      secondary: {
-        strong: "oklch(46.6% 0.229 312.35)",
-        base: "oklch(53.8% 0.229 312.35)",
-        subtle: "oklch(53.8% 0.229 312.35)",
-      },
-      text: {
-        strong: "oklch(7.4% 0.01 195.3)",
-        base: "oklch(16.4% 0.015 195.3)",
-        subtle: "oklch(30.6% 0.01 195.3)",
-      },
-      surface: {
-        strong: "oklch(99% 0.005 195.3)",
-        base: "oklch(98% 0.009 195.3)",
-        subtle: "oklch(90.1% 0.028 195.3)",
-      },
-      border: {
-        strong: "oklch(16% 0.01 195.3)",
-        base: "oklch(24% 0.015 195.3)",
-        subtle: "oklch(40% 0.01 195.3)",
-      },
-    },
-    dark: {
-      primary: {
-        strong: "oklch(88.5% 0.192 195.3)",
-        base: "oklch(80.6% 0.18 195.3)",
-        subtle: "oklch(87.7% 0.088 195.3)",
-      },
-      secondary: {
-        strong: "oklch(46.6% 0.229 312.35)",
-        base: "oklch(53.8% 0.229 312.35)",
-        subtle: "oklch(53.8% 0.229 312.35)",
-      },
-      text: {
-        strong: "oklch(99% 0.01 195.3)",
-        base: "oklch(97% 0.007 195.3)",
-        subtle: "oklch(80.1% 0.004 195.3)",
-      },
-      surface: {
-        strong: "oklch(7.4% 0.01 195.3)",
-        base: "oklch(12.4% 0.008 195.3)",
-        subtle: "oklch(24.6% 0.005 195.3)",
-      },
-      border: {
-        strong: "oklch(98% 0.005 195.3)",
-        base: "oklch(72% 0.009 195.3)",
-        subtle: "oklch(60.1% 0.015 195.3)",
-      },
-    },
-    status: {
-      error: "oklch(62.67% 0.289 25.41)",
-    },
-  },
 };
 
 const round = (num: number) => Math.round(num * 1000) / 1000;

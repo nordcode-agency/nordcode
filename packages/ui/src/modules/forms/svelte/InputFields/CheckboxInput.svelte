@@ -4,8 +4,8 @@
     export let id: string;
     export let errors: string[] = [];
     export let hint: string = '';
-    export let autocomplete: string;
-    export let type: string = 'text';
+    export let autocomplete: string = "";
+    export let type: string = 'checkbox';
     export let optional: boolean = false;
 
     export let value;
@@ -33,4 +33,3 @@
        on:input={() => value = !value}
 >
 </div>
-

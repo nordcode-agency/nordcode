@@ -2,9 +2,11 @@
 
     import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
     import {configStore} from "../../store/configStore";
+  import CheckboxInput from "@nordcode/ui/src/modules/forms/svelte/InputFields/CheckboxInput.svelte";
 
 
     let name = ''
+    let checkboxValue = false
 
 
 </script>
@@ -28,12 +30,20 @@
                                 id="name"
                                 type="text"
                                 bind:value={name}
-                        />
+                        >
+                        <button class="nc-button live-theme -round -icon -small -stealth" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="nc-icon">
+                                <path fill="currentColor"
+                                      d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm14 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-7 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Z"/>
+                            </svg>
+</button>
+                        </Input>
                     </form>
                     <div class="cluster -layout-near">
                         <button class="nc-button live-theme">Primary</button>
                         <button class="nc-button -secondary live-theme">Secondary</button>
                     </div>
+                <CheckboxInput name="checkbox" label="I agree to use this theme" id="checkbox" bind:value={checkboxValue} />
                 </div>
             </div>
             <p>

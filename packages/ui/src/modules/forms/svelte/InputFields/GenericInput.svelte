@@ -32,4 +32,3 @@
        on:input={handleInput}
        {...$$restProps}
 >
-

@@ -5,10 +5,18 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
         /* COLORS */
 
         /* Light Theme */
-        
-        ${getLightColorTheme("primary", store.primaryHue)} 
-        ${getLightColorTheme("secondary", store.secondaryHue)}
-        
+
+        ${getLightColorTheme(
+          "primary",
+          store.primaryHue,
+          store.primaryLightness
+        )}
+        ${getLightColorTheme(
+          "secondary",
+          store.secondaryHue,
+          store.secondaryLightness
+        )}
+
 
         --color-text-light-strong: oklch(${
           store.lightNeutralTextLightness / store.lightnessScaleFactor
@@ -47,10 +55,18 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
 
         /* Dark Theme */
 
-        ${getDarkColorTheme("primary", store.primaryHue)}
-        ${getDarkColorTheme("secondary", store.secondaryHue)}
+        ${getDarkColorTheme(
+          "primary",
+          store.primaryHue,
+          store.primaryLightness
+        )}
+        ${getDarkColorTheme(
+          "secondary",
+          store.secondaryHue,
+          store.secondaryLightness
+        )}
 
-  
+
           --color-text-dark-strong: oklch(${
             100 -
             (100 - store.darkNeutralTextLightness) / store.lightnessScaleFactor
@@ -87,22 +103,47 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
         }% ${store.darkNeutralChroma} ${store.primaryHue});
 
         /*    Status */
-        --color-status-error: ${store.default.status.error};
+        --color-status-error: oklch(62.67% .289 25.41);
         `;
 };
 
-const getLightColorTheme = (name: "primary" | "secondary", hue: number) => {
+const getLightColorTheme = (
+  name: "primary" | "secondary",
+  hue: number,
+  lightness: number
+) => {
   return `
-        --color-brand-${name}-light-strong: oklch(45% 0.31 ${hue});
-        --color-brand-${name}-light-base: oklch(56% 0.23 ${hue});
-        --color-brand-${name}-light-subtle: oklch(64% 0.10 ${hue});
+        --color-brand-${name}-light-strong: oklch(${
+    +lightness - 10
+  }% 0.14 ${hue});
+        --color-brand-${name}-light-base: oklch(${lightness}% 0.3 ${hue});
+        --color-brand-${name}-light-subtle: oklch(${
+    +lightness + 10
+  }% 0.08 ${hue});
+        --color-brand-${name}-light-hover: oklch(${lightness}% 0.3 ${hue} / 0.08);
+        --color-brand-${name}-light-contrast: oklch(${
+    lightness > 50 ? 1 : 99
+  }% 0.05 ${hue});
     `;
 };
 
-const getDarkColorTheme = (name: "primary" | "secondary", hue: number) => {
+const getDarkColorTheme = (
+  name: "primary" | "secondary",
+  hue: number,
+  lightness: number
+) => {
   return `
-        --color-brand-${name}-dark-strong: oklch(60% 0.3 ${hue});
-        --color-brand-${name}-dark-base: oklch(68% 0.19 ${hue});
-        --color-brand-${name}-dark-subtle: oklch(75% 0.10 ${hue});
+        --color-brand-${name}-dark-strong: oklch(${
+    +lightness - 10
+  }% 0.14 ${hue});
+        --color-brand-${name}-dark-base: oklch(${lightness}% 0.3 ${hue});
+        --color-brand-${name}-dark-subtle: oklch(${
+    +lightness + 10
+  }% 0.08 ${hue});
+        --color-brand-${name}-dark-hover: oklch(${lightness}% 0.3 ${hue} / 0.08);
+        --color-brand-${name}-dark-contrast: oklch(${
+    lightness > 50 ? 1 : 99
+  }% 0.05 ${hue});
+
     `;
 };
