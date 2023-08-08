@@ -269,7 +269,6 @@
     color: var(--_input-color);
     background-color: var(--_input-background);
     border: var(--_input-border);
-    border-radius: var(--_input-border-radius);
     min-block-size: var(--button-height-base);
     padding-inline-end: var(--spacing-near);
     padding-inline-start: 0;
