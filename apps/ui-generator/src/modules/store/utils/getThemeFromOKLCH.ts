@@ -11,47 +11,67 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
           store.primaryHue,
           store.primaryLightness
         )}
+
         ${getLightColorTheme(
           "secondary",
           store.secondaryHue,
           store.secondaryLightness
         )}
 
+        ${getColorTokenAndValue(
+          `text-light-strong`,
+          `${clamp(
+            store.lightNeutralTextLightness / store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
+        )}
+        ${getColorTokenAndValue(
+          `text-light-base`,
+          `${store.lightNeutralTextLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
+        )}
+        ${getColorTokenAndValue(
+          `text-light-subtle`,
+          `${clamp(
+            store.lightNeutralTextLightness * store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
+        )}
 
-        --color-text-light-strong: oklch(${
-          store.lightNeutralTextLightness / store.lightnessScaleFactor
-        }% ${store.lightNeutralChroma} ${store.primaryHue});
-        --color-text-light-base: oklch(${store.lightNeutralTextLightness}% ${
-    store.lightNeutralChroma
-  } ${store.primaryHue});
-        --color-text-light-subtle: oklch(${
-          store.lightNeutralTextLightness * store.lightnessScaleFactor
-        }% ${store.lightNeutralChroma} ${store.primaryHue});
+        ${getColorTokenAndValue(
+          `surface-light-strong`,
+          `${clamp(
+            100 -
+              (100 - store.lightNeutralSurfaceLightness) /
+                store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
+        )}
+        ${getColorTokenAndValue(
+          `surface-light-base`,
+          `${store.lightNeutralSurfaceLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
+        )}
+        ${getColorTokenAndValue(
+          `surface-light-subtle`,
+          `${clamp(
+            100 -
+              (100 - store.lightNeutralSurfaceLightness) *
+                store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
+        )}
 
-        --color-surface-light-strong: oklch(${Math.max(
-          100 -
-            (100 - store.lightNeutralSurfaceLightness) /
-              store.lightnessScaleFactor,
-          100
-        )}% ${store.lightNeutralChroma} ${store.primaryHue});
-        --color-surface-light-base: oklch(${
-          store.lightNeutralSurfaceLightness
-        }% ${store.lightNeutralChroma} ${store.primaryHue});
-        --color-surface-light-subtle: oklch(${
-          100 -
-          (100 - store.lightNeutralSurfaceLightness) *
-            store.lightnessScaleFactor
-        }% ${store.lightNeutralChroma} ${store.primaryHue});
-
-        --color-border-light-strong: oklch(${
-          store.lightNeutralBorderLightness / store.lightnessScaleFactor
-        }% ${store.lightNeutralChroma} ${store.primaryHue});
-        --color-border-light-base: oklch(${
-          store.lightNeutralBorderLightness
-        }% ${store.lightNeutralChroma} ${store.primaryHue});
-        --color-border-light-subtle: oklch(${
-          store.lightNeutralBorderLightness * store.lightnessScaleFactor
-        }% ${store.lightNeutralChroma} ${store.primaryHue});
+        ${getColorTokenAndValue(
+          `border-light-strong`,
+          `${clamp(
+            store.lightNeutralBorderLightness / store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
+        )}
+        ${getColorTokenAndValue(
+          `border-light-base`,
+          `${store.lightNeutralBorderLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
+        )}
+        ${getColorTokenAndValue(
+          `border-light-subtle`,
+          `${clamp(
+            store.lightNeutralBorderLightness * store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
+        )}
 
         /* Dark Theme */
 
@@ -60,47 +80,71 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
           store.primaryHue,
           store.primaryLightness
         )}
+
         ${getDarkColorTheme(
           "secondary",
           store.secondaryHue,
           store.secondaryLightness
         )}
 
-
-          --color-text-dark-strong: oklch(${
+        ${getColorTokenAndValue(
+          `text-dark-strong`,
+          `${clamp(
             100 -
-            (100 - store.darkNeutralTextLightness) / store.lightnessScaleFactor
-          }% ${store.darkNeutralChroma} ${store.primaryHue});
-        --color-text-dark-base: oklch(${store.darkNeutralTextLightness}% ${
-    store.darkNeutralChroma
-  } ${store.primaryHue});
-        --color-text-dark-subtle: oklch(${
-          100 -
-          (100 - store.darkNeutralTextLightness) * store.lightnessScaleFactor
-        }% ${store.darkNeutralChroma} ${store.primaryHue});
+              (100 - store.darkNeutralTextLightness) /
+                store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
+        )}
+        ${getColorTokenAndValue(
+          `text-dark-base`,
+          `${store.darkNeutralTextLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
+        )}
+        ${getColorTokenAndValue(
+          `text-dark-subtle`,
+          `${clamp(
+            100 -
+              (100 - store.darkNeutralTextLightness) *
+                store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
+        )}
 
+        ${getColorTokenAndValue(
+          `surface-dark-strong`,
+          `${clamp(
+            store.darkNeutralSurfaceLightness / store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
+        )}
+        ${getColorTokenAndValue(
+          `surface-dark-base`,
+          `${store.darkNeutralSurfaceLightness} % ${store.darkNeutralChroma} ${store.primaryHue}`
+        )}
+        ${getColorTokenAndValue(
+          `surface-dark-subtle`,
+          `${clamp(
+            store.darkNeutralSurfaceLightness * store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
+        )}
 
-        --color-surface-dark-strong: oklch(${
-          store.darkNeutralSurfaceLightness / store.lightnessScaleFactor
-        }% ${store.darkNeutralChroma} ${store.primaryHue});
-        --color-surface-dark-base: oklch(${
-          store.darkNeutralSurfaceLightness
-        }% ${store.darkNeutralChroma} ${store.primaryHue});
-        --color-surface-dark-subtle: oklch(${
-          store.darkNeutralSurfaceLightness * store.lightnessScaleFactor
-        }% ${store.darkNeutralChroma} ${store.primaryHue});
-
-        --color-border-dark-strong: oklch(${
-          100 -
-          (100 - store.darkNeutralBorderLightness) / store.lightnessScaleFactor
-        }% ${store.darkNeutralChroma} ${store.primaryHue});
-        --color-border-dark-base: oklch(${store.darkNeutralBorderLightness}% ${
-    store.darkNeutralChroma
-  } ${store.primaryHue});
-        --color-border-dark-subtle: oklch(${
-          100 -
-          (100 - store.darkNeutralBorderLightness) * store.lightnessScaleFactor
-        }% ${store.darkNeutralChroma} ${store.primaryHue});
+        ${getColorTokenAndValue(
+          `border-dark-strong`,
+          `${clamp(
+            100 -
+              (100 - store.darkNeutralBorderLightness) /
+                store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
+        )}
+        ${getColorTokenAndValue(
+          `border-dark-base`,
+          `${store.darkNeutralBorderLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
+        )}
+        ${getColorTokenAndValue(
+          `border-dark-subtle`,
+          `${clamp(
+            100 -
+              (100 - store.darkNeutralBorderLightness) *
+                store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
+        )}
 
         /*    Status */
         --color-status-error: oklch(62.67% .289 25.41);
@@ -113,18 +157,27 @@ const getLightColorTheme = (
   lightness: number
 ) => {
   return `
-        --color-brand-${name}-light-strong: oklch(${
-    +lightness - 10
-  }% 0.14 ${hue});
-        --color-brand-${name}-light-base: oklch(${lightness}% 0.3 ${hue});
-        --color-brand-${name}-light-subtle: oklch(${
-    +lightness + 10
-  }% 0.08 ${hue});
-        --color-brand-${name}-light-hover: oklch(${lightness}% 0.3 ${hue} / 0.08);
-        --color-brand-${name}-light-contrast: oklch(${
-    lightness > 50 ? 1 : 99
-  }% 0.05 ${hue});
-    `;
+${getColorTokenAndValue(
+  `brand-${name}-light-strong`,
+  `${+lightness - 10}% 0.14 ${hue}`
+)}
+${getColorTokenAndValue(
+  `brand-${name}-light-base`,
+  `${+lightness}% 0.3 ${hue}`
+)}
+${getColorTokenAndValue(
+  `brand-${name}-light-subtle`,
+  `${+lightness + 10}% 0.08 ${hue}`
+)}
+${getColorTokenAndValue(
+  `brand-${name}-light-hover`,
+  `${+lightness}% 0.3 ${hue} / 0.08`
+)}
+${getColorTokenAndValue(
+  `brand-${name}-light-contrast`,
+  `${+lightness > 50 ? 1 : 99}% 0.05 ${hue}`
+)}
+    `.trim();
 };
 
 const getDarkColorTheme = (
@@ -133,17 +186,36 @@ const getDarkColorTheme = (
   lightness: number
 ) => {
   return `
-        --color-brand-${name}-dark-strong: oklch(${
-    +lightness - 10
-  }% 0.14 ${hue});
-        --color-brand-${name}-dark-base: oklch(${lightness}% 0.3 ${hue});
-        --color-brand-${name}-dark-subtle: oklch(${
-    +lightness + 10
-  }% 0.08 ${hue});
-        --color-brand-${name}-dark-hover: oklch(${lightness}% 0.3 ${hue} / 0.08);
-        --color-brand-${name}-dark-contrast: oklch(${
-    lightness > 50 ? 1 : 99
-  }% 0.05 ${hue});
+  ${getColorTokenAndValue(
+    `brand-${name}-dark-strong`,
+    `${+lightness - 10}% 0.14 ${hue}`
+  )}
+  ${getColorTokenAndValue(
+    `brand-${name}-dark-base`,
+    `${+lightness}% 0.3 ${hue}`
+  )}
+  ${getColorTokenAndValue(
+    `brand-${name}-dark-subtle`,
+    `${+lightness + 10}% 0.08 ${hue}`
+  )}
+  ${getColorTokenAndValue(
+    `brand-${name}-dark-hover`,
+    `${+lightness}% 0.3 ${hue} / 0.08`
+  )}
+  ${getColorTokenAndValue(
+    `brand-${name}-dark-contrast`,
+    `${+lightness > 50 ? 1 : 99}% 0.05 ${hue}`
+  )}
+    `.trim();
+};
 
-    `;
+const getColorTokenAndValue = (name: string, value: string): string => {
+  return `
+--color-${name}-lch: ${value};
+--color-${name}: oklch(var(--color-${name}-lch));
+  `.trim();
+};
+
+const clamp = (value: number): number => {
+  return Math.min(Math.max(value, 0), 100);
 };

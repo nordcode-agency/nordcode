@@ -34,7 +34,7 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
 
     lightNeutralChroma: 0.005,
     lightNeutralTextLightness: 25,
-    lightNeutralSurfaceLightness: 99,
+    lightNeutralSurfaceLightness: 98,
     lightNeutralBorderLightness: 85,
 
     darkNeutralChroma: 0.005,
@@ -75,7 +75,7 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
 
     lightNeutralChroma: 0.06,
     lightNeutralTextLightness: 20,
-    lightNeutralSurfaceLightness: 99,
+    lightNeutralSurfaceLightness: 97,
     lightNeutralBorderLightness: 30,
 
     darkNeutralChroma: 0.06,

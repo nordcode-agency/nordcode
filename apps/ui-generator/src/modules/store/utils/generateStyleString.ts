@@ -59,8 +59,6 @@ export const generateStyleString = (store: ConfigStore): string => {
 
         ${getShadows(store)}
 
-        ${
-          store.useLCH ? getThemeFromOKLCH(store) : getStandardColorTheme(store)
-        }
+        ${getThemeFromOKLCH(store)}
         `.replace(/^ +/gm, "");
 };

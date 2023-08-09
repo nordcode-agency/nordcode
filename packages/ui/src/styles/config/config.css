@@ -116,55 +116,133 @@
 
     /* Light Theme */
 
-    --color-brand-primary-light-strong: oklch(55% 0.14 265);
-    --color-brand-primary-light-base: oklch(65% 0.3 265);
-    --color-brand-primary-light-subtle: oklch(75% 0.08 265);
-    --color-brand-primary-light-hover: oklch(65% 0.3 265 / 0.08);
-    --color-brand-primary-light-contrast: oklch(1% 0.05 265);
+    --color-brand-primary-light-strong-lch: 55% 0.14 265;
+    --color-brand-primary-light-strong: oklch(
+      var(--color-brand-primary-light-strong-lch)
+    );
+    --color-brand-primary-light-base-lch: 65% 0.3 265;
+    --color-brand-primary-light-base: oklch(
+      var(--color-brand-primary-light-base-lch)
+    );
+    --color-brand-primary-light-subtle-lch: 75% 0.08 265;
+    --color-brand-primary-light-subtle: oklch(
+      var(--color-brand-primary-light-subtle-lch)
+    );
+    --color-brand-primary-light-hover-lch: 65% 0.3 265 / 0.08;
+    --color-brand-primary-light-hover: oklch(
+      var(--color-brand-primary-light-hover-lch)
+    );
+    --color-brand-primary-light-contrast-lch: 1% 0.05 265;
+    --color-brand-primary-light-contrast: oklch(
+      var(--color-brand-primary-light-contrast-lch)
+    );
 
-    --color-brand-secondary-light-strong: oklch(55% 0.14 215);
-    --color-brand-secondary-light-base: oklch(65% 0.3 215);
-    --color-brand-secondary-light-subtle: oklch(75% 0.08 215);
-    --color-brand-secondary-light-hover: oklch(65% 0.3 215 / 0.08);
-    --color-brand-secondary-light-contrast: oklch(1% 0.05 215);
+    --color-brand-secondary-light-strong-lch: 55% 0.14 215;
+    --color-brand-secondary-light-strong: oklch(
+      var(--color-brand-secondary-light-strong-lch)
+    );
+    --color-brand-secondary-light-base-lch: 65% 0.3 215;
+    --color-brand-secondary-light-base: oklch(
+      var(--color-brand-secondary-light-base-lch)
+    );
+    --color-brand-secondary-light-subtle-lch: 75% 0.08 215;
+    --color-brand-secondary-light-subtle: oklch(
+      var(--color-brand-secondary-light-subtle-lch)
+    );
+    --color-brand-secondary-light-hover-lch: 65% 0.3 215 / 0.08;
+    --color-brand-secondary-light-hover: oklch(
+      var(--color-brand-secondary-light-hover-lch)
+    );
+    --color-brand-secondary-light-contrast-lch: 1% 0.05 215;
+    --color-brand-secondary-light-contrast: oklch(
+      var(--color-brand-secondary-light-contrast-lch)
+    );
 
-    --color-text-light-strong: oklch(16.666666666666668% 0.005 265);
-    --color-text-light-base: oklch(25% 0.005 265);
-    --color-text-light-subtle: oklch(37.5% 0.005 265);
+    --color-text-light-strong-lch: 17% 0.005 265;
+    --color-text-light-strong: oklch(var(--color-text-light-strong-lch));
+    --color-text-light-base-lch: 25% 0.005 265;
+    --color-text-light-base: oklch(var(--color-text-light-base-lch));
+    --color-text-light-subtle-lch: 38% 0.005 265;
+    --color-text-light-subtle: oklch(var(--color-text-light-subtle-lch));
 
-    --color-surface-light-strong: oklch(100% 0.005 265);
-    --color-surface-light-base: oklch(99% 0.005 265);
-    --color-surface-light-subtle: oklch(98.5% 0.005 265);
+    --color-surface-light-strong-lch: 99% 0.005 265;
+    --color-surface-light-strong: oklch(var(--color-surface-light-strong-lch));
+    --color-surface-light-base-lch: 98% 0.005 265;
+    --color-surface-light-base: oklch(var(--color-surface-light-base-lch));
+    --color-surface-light-subtle-lch: 97% 0.005 265;
+    --color-surface-light-subtle: oklch(var(--color-surface-light-subtle-lch));
 
-    --color-border-light-strong: oklch(56.666666666666664% 0.005 265);
-    --color-border-light-base: oklch(85% 0.005 265);
-    --color-border-light-subtle: oklch(127.5% 0.005 265);
+    --color-border-light-strong-lch: 57% 0.005 265;
+    --color-border-light-strong: oklch(var(--color-border-light-strong-lch));
+    --color-border-light-base-lch: 85% 0.005 265;
+    --color-border-light-base: oklch(var(--color-border-light-base-lch));
+    --color-border-light-subtle-lch: 100% 0.005 265;
+    --color-border-light-subtle: oklch(var(--color-border-light-subtle-lch));
 
     /* Dark Theme */
 
-    --color-brand-primary-dark-strong: oklch(55% 0.14 265);
-    --color-brand-primary-dark-base: oklch(65% 0.3 265);
-    --color-brand-primary-dark-subtle: oklch(75% 0.08 265);
-    --color-brand-primary-dark-hover: oklch(65% 0.3 265 / 0.08);
-    --color-brand-primary-dark-contrast: oklch(1% 0.05 265);
+    --color-brand-primary-dark-strong-lch: 55% 0.14 265;
+    --color-brand-primary-dark-strong: oklch(
+      var(--color-brand-primary-dark-strong-lch)
+    );
+    --color-brand-primary-dark-base-lch: 65% 0.3 265;
+    --color-brand-primary-dark-base: oklch(
+      var(--color-brand-primary-dark-base-lch)
+    );
+    --color-brand-primary-dark-subtle-lch: 75% 0.08 265;
+    --color-brand-primary-dark-subtle: oklch(
+      var(--color-brand-primary-dark-subtle-lch)
+    );
+    --color-brand-primary-dark-hover-lch: 65% 0.3 265 / 0.08;
+    --color-brand-primary-dark-hover: oklch(
+      var(--color-brand-primary-dark-hover-lch)
+    );
+    --color-brand-primary-dark-contrast-lch: 1% 0.05 265;
+    --color-brand-primary-dark-contrast: oklch(
+      var(--color-brand-primary-dark-contrast-lch)
+    );
 
-    --color-brand-secondary-dark-strong: oklch(55% 0.14 215);
-    --color-brand-secondary-dark-base: oklch(65% 0.3 215);
-    --color-brand-secondary-dark-subtle: oklch(75% 0.08 215);
-    --color-brand-secondary-dark-hover: oklch(65% 0.3 215 / 0.08);
-    --color-brand-secondary-dark-contrast: oklch(1% 0.05 215);
+    --color-brand-secondary-dark-strong-lch: 55% 0.14 215;
+    --color-brand-secondary-dark-strong: oklch(
+      var(--color-brand-secondary-dark-strong-lch)
+    );
+    --color-brand-secondary-dark-base-lch: 65% 0.3 215;
+    --color-brand-secondary-dark-base: oklch(
+      var(--color-brand-secondary-dark-base-lch)
+    );
+    --color-brand-secondary-dark-subtle-lch: 75% 0.08 215;
+    --color-brand-secondary-dark-subtle: oklch(
+      var(--color-brand-secondary-dark-subtle-lch)
+    );
+    --color-brand-secondary-dark-hover-lch: 65% 0.3 215 / 0.08;
+    --color-brand-secondary-dark-hover: oklch(
+      var(--color-brand-secondary-dark-hover-lch)
+    );
+    --color-brand-secondary-dark-contrast-lch: 1% 0.05 215;
+    --color-brand-secondary-dark-contrast: oklch(
+      var(--color-brand-secondary-dark-contrast-lch)
+    );
 
-    --color-text-dark-strong: oklch(97.33333333333333% 0.005 265);
-    --color-text-dark-base: oklch(96% 0.005 265);
-    --color-text-dark-subtle: oklch(94% 0.005 265);
+    --color-text-dark-strong-lch: 97% 0.005 265;
+    --color-text-dark-strong: oklch(var(--color-text-dark-strong-lch));
+    --color-text-dark-base-lch: 96% 0.005 265;
+    --color-text-dark-base: oklch(var(--color-text-dark-base-lch));
+    --color-text-dark-subtle-lch: 94% 0.005 265;
+    --color-text-dark-subtle: oklch(var(--color-text-dark-subtle-lch));
 
-    --color-surface-dark-strong: oklch(6.666666666666667% 0.005 265);
-    --color-surface-dark-base: oklch(10% 0.005 265);
-    --color-surface-dark-subtle: oklch(15% 0.005 265);
+    --color-surface-dark-strong-lch: 7% 0.005 265;
+    --color-surface-dark-strong: oklch(var(--color-surface-dark-strong-lch));
+    --color-surface-dark-base-lch: 10 % 0.005 265;
+    --color-surface-dark-base: oklch(var(--color-surface-dark-base-lch));
+    --color-surface-dark-subtle-lch: 15% 0.005 265;
+    --color-surface-dark-subtle: oklch(var(--color-surface-dark-subtle-lch));
 
-    --color-border-dark-strong: oklch(53.333333333333336% 0.005 265);
-    --color-border-dark-base: oklch(30% 0.005 265);
-    --color-border-dark-subtle: oklch(-5% 0.005 265);
+    --color-border-dark-strong-lch: 53% 0.005 265;
+    --color-border-dark-strong: oklch(var(--color-border-dark-strong-lch));
+    --color-border-dark-base-lch: 30% 0.005 265;
+    --color-border-dark-base: oklch(var(--color-border-dark-base-lch));
+    --color-border-dark-subtle-lch: 0% 0.005 265;
+    --color-border-dark-subtle: oklch(var(--color-border-dark-subtle-lch));
 
     /*    Status */
     --color-status-error: oklch(62.67% 0.289 25.41);
