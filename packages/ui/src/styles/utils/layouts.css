@@ -78,6 +78,28 @@
     }
 
 
+.with-sidebar {
+    --min-size: 50%;
+
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--gap, var(--spacing-far));
+}
+
+.with-sidebar [data-aside] {
+    flex-grow: 1;
+    min-width: min-content;
+}
+
+.with-sidebar [data-grow] {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: var(--min-size);
+}
+
+
     .-layout-farthest {
         --gap: var(--spacing-farthest);
     }

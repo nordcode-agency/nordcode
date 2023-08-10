@@ -22,13 +22,14 @@
     background-color: var(--_fieldset-background-color);
     border: none;
     border-radius: 0;
+    max-inline-size: max-content;
   }
 
   :where(label:not([class]), .nc-input-label) {
     font-family: var(--font-family-default);
     letter-spacing: var(--tracking-tight);
     font-weight: var(--font-weight-regular);
-    color: var(--color-text-subtle);
+    color: var(--color-text-strong);
     display: inline-flex;
     font-size: inherit;
     cursor: pointer;
@@ -81,7 +82,7 @@
       var(--border-radius-medium)
     );
 
-    --_input-box-shadow: none;
+    --_input-box-shadow: var(--input-box-shadow, none);
     --_input-outline: var(
       --input-outline,
       var(--border-width-thick) solid var(--color-brand-primary-base)
@@ -169,7 +170,8 @@
       input[type="checkbox"]:not([class]),
       input[type="radio"]:not([class]),
       .nc-input-checkbox,
-      .nc-input-radio
+      .nc-input-radio,
+      .nc-input-switch
     ) {
     inline-size: calc(1em * var(--line-height-base));
     block-size: calc(1em * var(--line-height-base));
@@ -345,6 +347,7 @@
     --_thumb-margin: var(--thumb-margin, calc(var(--_switch-width) / 12));
     --_thumb-color: var(--thumb-color, var(--_input-color));
 
+    appearance: none;
     vertical-align: var(--_thumb-margin);
     inline-size: var(--_switch-width);
     block-size: var(--_switch-height);

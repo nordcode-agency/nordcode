@@ -61,7 +61,7 @@
     :where(details) {
         inline-size: 100%;
         background-color: var(--color-surface-strong);
-        padding: var(--spacing-near);
+        padding: var(--spacing-base);
         border-radius: var(--border-radius-medium);
         border: var(--border-width-thin) solid var(--color-text-strong);
 
@@ -81,13 +81,46 @@
         padding: var(--spacing-base);
         inline-size: 100%;
         background-color: var(--color-surface-strong);
-        color: var(--color-text-subtle);
+        color: var(--color-text-base);
         position: relative;
-        border: var(--border-width-thin) solid var(--color-text-strong);
+        border: var(--border-width-thin) solid var(--color-border-strong);
         margin-block-start: var(--spacing-far);
         border-radius: var(--border-radius-medium);
         margin-inline: 0;
+
+
+    &.-info:before {
+        content: "?";
     }
+
+    &.-warning:before {
+        content: "!";
+    }
+
+    }
+
+    .note.-info:before,
+.note.-warning:before,
+blockquote:before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-text-strong);
+    color: var(--color-surface-strong);
+    inline-size: 1em;
+    block-size: 1em;
+    line-height: 1;
+    font-size: var(--font-size-large);
+    position: absolute;
+    box-shadow: var(--shadow-near);
+    inset-inline-start: 0;
+    inset-block-start: 0;
+}
+
+blockquote:before {
+    content: "»";
+}
 
 
     cite {
@@ -148,12 +181,12 @@
     }
 
     ::marker {
-        color: var(--color-brand-primary-strong);
+        color: var(--color-brand-primary-base);
     }
 
     ::selection,
     mark {
-        background-color: var(--color-brand-primary-strong);
+        background-color: var(--color-brand-primary-base);
         color: var(--color-surface-strong);
     }
 
@@ -169,11 +202,11 @@
         letter-spacing: var(--tracking-tight);
 
         &:visited {
-            color: var(--color-text-subtle);
+            opacity: .72;
         }
 
         &:hover {
-            text-decoration-color: var(--color-brand-primary-strong);
+            text-decoration-color: var(--color-brand-primary-base);
         }
     }
 

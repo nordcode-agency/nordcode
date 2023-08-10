@@ -4,7 +4,7 @@
     :after,
     :before {
         box-sizing: border-box;
-        accent-color: var(--color-brand-primary-strong);
+        accent-color: var(--color-brand-primary-base);
     }
 
     :where(:not(dialog)) {
@@ -29,7 +29,7 @@
     }
 
     :where(:focus-visible, :focus) {
-        outline: var(--border-width-medium) solid var(--color-brand-primary-strong);
+        outline: var(--border-width-medium) solid var(--color-brand-primary-base);
         outline-offset: 1ch;
     }
 

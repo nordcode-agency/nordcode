@@ -29,3 +29,16 @@ let { code: codeComplete } = bundle({
 });
 
 fs.writeFileSync("out/complete.css", codeComplete);
+
+let { code: codeCompleteConfigless } = bundle({
+  // ...
+  targets,
+  drafts: {
+    nesting: true,
+    customMedia: true,
+  },
+  filename: "src/styles/complete_configless.css",
+  // minify: true,
+});
+
+fs.writeFileSync("out/complete_configless.css", codeCompleteConfigless);
