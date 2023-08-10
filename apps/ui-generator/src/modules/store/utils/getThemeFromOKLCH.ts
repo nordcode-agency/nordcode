@@ -117,7 +117,7 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
         )}
         ${getColorTokenAndValue(
           `surface-dark-base`,
-          `${store.darkNeutralSurfaceLightness} % ${store.darkNeutralChroma} ${store.primaryHue}`
+          `${store.darkNeutralSurfaceLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
         ${getColorTokenAndValue(
           `surface-dark-subtle`,

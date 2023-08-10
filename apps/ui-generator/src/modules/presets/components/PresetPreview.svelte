@@ -2,7 +2,7 @@
 
     import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
     import {configStore} from "../../store/configStore";
-  import CheckboxInput from "@nordcode/ui/src/modules/forms/svelte/InputFields/CheckboxInput.svelte";
+    import CheckboxInput from "@nordcode/ui/src/modules/forms/svelte/InputFields/CheckboxInput.svelte";
 
 
     let name = ''
@@ -54,6 +54,9 @@
                 selber wählt idealerweise nur noch das h von lch mit der entsprechenden brand color – rot, blau, grün
                 etc.)
             </p>
+            <footer>
+                This could be your footer
+            </footer>
         </div>
 
 
@@ -69,5 +72,10 @@
         padding: var(--spacing-base);
         inline-size: 100%;
         color: var(--color-text-base);
+    }
+    footer {
+        padding: var(--spacing-base);
+        inline-size: 100%;
+        background: var(--color-surface-subtle);
     }
 </style>

@@ -49,11 +49,11 @@
       input[type="file"]:not([class])::file-selector-button,
       .nc-button
     ) {
-    --_button-background: var(--button-background, var(--color-text-base));
+    --_button-background: var(--button-background, var(--color-text-strong));
     --_button-color: var(--button-color, var(--color-surface-strong));
     --_button-border-color: var(
       --button-border-color,
-      var(--color-border-strong)
+      var(--color-text-strong)
     );
     --_button-border-radius: var(
       --button-border-radius,
@@ -87,7 +87,7 @@
     --_button-offset-distance-hover: var(--button-offset-distance-hover, 0);
     --_button-border-color-hover: var(
       --button-border-color-hover,
-      var(--color-brand-primary-strong)
+      var(--color-brand-primary-base)
     );
     --_button-hover-transform: var(
       --button-hover-transform,

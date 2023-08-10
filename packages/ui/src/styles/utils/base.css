@@ -63,7 +63,7 @@
         background-color: var(--color-surface-strong);
         padding: var(--spacing-base);
         border-radius: var(--border-radius-medium);
-        border: var(--border-width-thin) solid var(--color-text-strong);
+        border: var(--border-width-thin) solid var(--color-border-strong);
 
         & > *:not(summary):first-of-type {
             margin-block-start: var(--spacing-base);
@@ -268,7 +268,7 @@ blockquote:before {
         max-inline-size: var(--measure-base);
         overflow-x: auto;
         color: var(--color-text-strong);
-        border: var(--border-width-medium) solid var(--color-text-strong);
+        border: var(--border-width-medium) solid var(--color-border-strong);
         border-radius: var(--border-radius-medium);
     }
 
@@ -279,13 +279,13 @@ blockquote:before {
         border-collapse: collapse;
         text-align: left;
         background-color: var(--color-surface-strong);
-        border: var(--border-width-thick) solid var(--color-text-strong);
+        border: var(--border-width-medium) solid var(--color-border-strong);
         border-radius: var(--border-radius-medium);
     }
 
     :where(td,th) {
         padding: var(--spacing-near);
-        border: var(--border-width-thin) solid var(--color-text-subtle);
+        border: var(--border-width-thin) solid var(--color-border-base);
     }
 
 }

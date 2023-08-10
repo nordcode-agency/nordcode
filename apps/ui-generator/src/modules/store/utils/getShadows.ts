@@ -1,12 +1,9 @@
 import type { ConfigStore } from "../configStore";
 
 export const getShadows = (store: ConfigStore) => {
-  const shadowColorLight = `oklch(${
-    store.lightNeutralBorderLightness * 0.75
-  }% ${store.shadowColorChroma} ${store.primaryHue})`;
-  const shadowColorDark = `oklch(${store.darkNeutralBorderLightness * 1.25}% ${
-    store.shadowColorChroma
-  } ${store.primaryHue})`;
+  const shadowColorLight = `oklch(${store.lightNeutralBorderLightness}% ${store.shadowColorChroma} ${store.primaryHue})`;
+
+  const shadowColorDark = `oklch(${store.darkNeutralBorderLightness}% ${store.shadowColorChroma} ${store.primaryHue})`;
 
   const shadowConfig = {
     scaleFactor: store.shadowConfigDistanceScaleFactor,
@@ -27,7 +24,7 @@ export const getShadows = (store: ConfigStore) => {
     store.shadowDistanceInset
   }px 0px 0 ${getLCHColorWithTransparency(
     shadowColorLight,
-    store.shadowConfigStartTransparency
+    store.shadowConfigStartTransparency / 3
   )};
             
             --shadow-nearest-light: ${generateShadow(
@@ -59,7 +56,7 @@ export const getShadows = (store: ConfigStore) => {
     store.shadowDistanceInset
   }px 0px 0  ${getLCHColorWithTransparency(
     shadowColorDark,
-    store.shadowConfigStartTransparency
+    store.shadowConfigStartTransparency / 3
   )};
             
             --shadow-nearest-dark: ${generateShadow(
