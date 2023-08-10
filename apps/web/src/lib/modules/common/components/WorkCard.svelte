@@ -11,6 +11,8 @@
 </div>
 
 <style lang="postcss">
+  @import "@nordcode/ui/media";
+
   .nc-card {
     --card-padding-inline: 0px;
     --card-padding-block: 0px;
@@ -18,8 +20,13 @@
     background: linear-gradient(45deg, oklch(var(--color-border-base-lch) / 0.03), oklch(var(--color-surface-base-lch) / 0.8));
     backdrop-filter: blur(var(--spacing-base));
     box-shadow:
-      inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) oklch(var(--color-border-base-lch) / 0.2);
+      inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) oklch(var(--color-border-base-lch) / 0.6);
     aspect-ratio: 4 / 5;
+
+    @media (--OSdark) {
+      box-shadow:
+      inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) var(--color-border-base);
+    }
   }
 
   img {
