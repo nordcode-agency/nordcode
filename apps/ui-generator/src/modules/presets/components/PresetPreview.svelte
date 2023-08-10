@@ -40,7 +40,8 @@
                         </Input>
                     </form>
                     <div class="cluster -layout-near">
-                        <button class="nc-button live-theme">Primary</button>
+                        <button class="nc-button -primary live-theme">Primary</button>
+                        <button class="nc-button live-theme">Basic</button>
                         <button class="nc-button -secondary live-theme">Secondary</button>
                     </div>
                 <CheckboxInput name="checkbox" label="I agree to use this theme" id="checkbox" bind:value={checkboxValue} />

@@ -207,6 +207,16 @@
       transform: none;
     }
 
+    &.-primary {
+      --_button-background: var(--color-brand-primary-base);
+      --_button-color: var(--color-brand-primary-contrast);
+      --_button-border-color: var(--color-brand-primary-base);
+
+      --_button-background-hover: var(--color-brand-primary-contrast);
+      --_button-color-hover: var(--color-brand-primary-base);
+      --_button-border-color-hover: var(--color-brand-primary-base);
+    }
+
     &.-secondary {
       --_button-background: transparent;
       --_button-color: var(--color-text-base);
