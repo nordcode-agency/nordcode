@@ -40,7 +40,8 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
           `${clamp(
             100 -
               (100 - store.lightNeutralSurfaceLightness) /
-                store.lightnessScaleFactor
+                store.lightnessScaleFactor +
+              1
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
         ${getColorTokenAndValue(

@@ -84,10 +84,10 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
     darkNeutralBorderLightness: 70,
   },
   brutalist: {
-    borderWidthScale: 2,
+    borderWidthScale: 2.5,
     borderWidthThin: 1,
-    borderWidthMedium: 2,
-    borderWidthThick: 4,
+    borderWidthMedium: 2.5,
+    borderWidthThick: 6.25,
 
     borderRadiusScale: 1,
     borderRadiusSmall: 0,
@@ -102,27 +102,27 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
     shadowConfigSpreadMin: 0,
     shadowConfigDistanceFactor: 1,
 
-    shadowDistanceInset: 3,
+    shadowDistanceInset: 2,
     shadowDistanceNearest: 1,
-    shadowDistanceNear: 3,
-    shadowDistanceMedium: 9,
-    shadowDistanceFar: 29,
+    shadowDistanceNear: 2,
+    shadowDistanceMedium: 4,
+    shadowDistanceFar: 8,
 
-    shadowColorChroma: 0,
+    shadowColorChroma: 0.008,
 
-    shadowDistanceScale: 3,
+    shadowDistanceScale: 2,
 
     lightnessScaleFactor: 3,
 
-    lightNeutralChroma: 0.008,
-    lightNeutralTextLightness: 16,
-    lightNeutralSurfaceLightness: 97,
-    lightNeutralBorderLightness: 20,
+    lightNeutralChroma: 0.004,
+    lightNeutralTextLightness: 15,
+    lightNeutralSurfaceLightness: 98,
+    lightNeutralBorderLightness: 25,
 
-    darkNeutralChroma: 0.008,
-    darkNeutralTextLightness: 95,
+    darkNeutralChroma: 0.004,
+    darkNeutralTextLightness: 97,
     darkNeutralSurfaceLightness: 15,
-    darkNeutralBorderLightness: 80,
+    darkNeutralBorderLightness: 85,
   },
   elegant: {
     borderWidthScale: 2,
