@@ -41,8 +41,8 @@
                     </form>
                     <div class="cluster -layout-near">
                         <button class="nc-button -primary live-theme">Primary</button>
-                        <button class="nc-button live-theme">Basic</button>
-                        <button class="nc-button -secondary live-theme">Secondary</button>
+                        <button class="nc-button live-theme -neutral">Neutral</button>
+                        <button class="nc-button live-theme -neutral -outline">Neutral outline</button>
                     </div>
                 <CheckboxInput name="checkbox" label="I agree to use this theme" id="checkbox" bind:value={checkboxValue} />
                 </div>
@@ -69,10 +69,10 @@
 
 <style lang="postcss">
     .container {
-        background: var(--color-surface-strong);
+        background: var(--color-surface-default);
         padding: var(--spacing-base);
         inline-size: 100%;
-        color: var(--color-text-base);
+        color: var(--color-text-default);
     }
     footer {
         padding: var(--spacing-base);

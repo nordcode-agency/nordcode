@@ -13,11 +13,9 @@
   max-width: max-content;
   line-height: 1;
 
-  &.-dark {
-    --color: var(--color-surface-strong);
+  &.-emphasis {
+    --color: var(--color-text-on-emphasis);
+    background-color: var(--color-surface-emphasis);
   }
 
-  &.-light {
-    --color: var(--color-text-strong);
-  }
 }

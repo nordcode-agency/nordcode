@@ -29,26 +29,28 @@
     --color-brand-secondary-subtle: var(--color-brand-secondary-light-subtle);
     --color-brand-secondary-hover: var(--color-brand-secondary-light-hover);
 
-    --color-text-strong-lch: var(--color-text-light-strong-lch);
-    --color-text-strong: var(--color-text-light-strong);
-    --color-text-base-lch: var(--color-text-light-base-lch);
-    --color-text-base: var(--color-text-light-base);
+    --color-text-default-lch: var(--color-text-light-default-lch);
+  --color-text-default: var(--color-text-light-default);
+    --color-text-muted-lch: var(--color-text-light-muted-lch);
+  --color-text-muted: var(--color-text-light-muted);
     --color-text-subtle-lch: var(--color-text-light-subtle-lch);
-    --color-text-subtle: var(--color-text-light-subtle);
+  --color-text-subtle: var(--color-text-light-subtle);
+    --color-text-on-emphasis-lch: var(--color-text-light-on-emphasis-lch);
+  --color-text-on-emphasis: var(--color-text-light-on-emphasis);
 
-    --color-surface-strong-lch: var(--color-surface-light-strong-lch);
-    --color-surface-strong: var(--color-surface-light-strong);
-    --color-surface-base-lch: var(--color-surface-light-base-lch);
-    --color-surface-base: var(--color-surface-light-base);
+    --color-surface-default-lch: var(--color-surface-light-default-lch);
+  --color-surface-default: var(--color-surface-light-default);
+    --color-surface-muted-lch: var(--color-surface-light-muted-lch);
+  --color-surface-subtle: var(--color-surface-light-subtle);
     --color-surface-subtle-lch: var(--color-surface-light-subtle-lch);
-    --color-surface-subtle: var(--color-surface-light-subtle);
+  --color-surface-inset: var(--color-surface-light-inset);
+    --color-surface-inset-lch: var(--color-surface-light-inset-lch);
+  --color-surface-emphasis: var(--color-surface-light-emphasis);
 
-    --color-border-strong-lch: var(--color-border-light-strong-lch);
-    --color-border-strong: var(--color-border-light-strong);
-    --color-border-base-lch: var(--color-border-light-base-lch);
-    --color-border-base: var(--color-border-light-base);
-    --color-border-subtle-lch: var(--color-border-light-subtle-lch);
-    --color-border-subtle: var(--color-border-light-subtle);
+    --color-border-default-lch: var(--color-border-light-default-lch);
+  --color-border-default: var(--color-border-light-default);
+    --color-border-muted-lch: var(--color-border-light-muted-lch);
+  --color-border-muted: var(--color-border-light-muted);
 
     --shadow-color: var(--shadow-color-light);
     --shadow-inset: var(--shadow-inset-light);
@@ -95,26 +97,28 @@
         --color-brand-secondary-dark-contrast
       );
 
-      --color-text-strong-lch: var(--color-text-dark-strong-lch);
-      --color-text-strong: var(--color-text-dark-strong);
-      --color-text-base-lch: var(--color-text-dark-base-lch);
-      --color-text-base: var(--color-text-dark-base);
+      --color-text-default-lch: var(--color-text-dark-default-lch);
+      --color-text-default: var(--color-text-dark-default);
+      --color-text-muted-lch: var(--color-text-dark-muted-lch);
+      --color-text-muted: var(--color-text-dark-muted);
       --color-text-subtle-lch: var(--color-text-dark-subtle-lch);
       --color-text-subtle: var(--color-text-dark-subtle);
+      --color-text-on-emphasis-lch: var(--color-text-dark-on-emphasis-lch);
+      --color-text-on-emphasis: var(--color-text-dark-on-emphasis);
 
-      --color-surface-strong-lch: var(--color-surface-dark-strong-lch);
-      --color-surface-strong: var(--color-surface-dark-strong);
-      --color-surface-base-lch: var(--color-surface-dark-base-lch);
-      --color-surface-base: var(--color-surface-dark-base);
-      --color-surface-subtle-lch: var(--color-surface-dark-subtle-lch);
+      --color-surface-default-lch: var(--color-surface-dark-default-lch);
+      --color-surface-default: var(--color-surface-dark-default);
+      --color-surface-muted-lch: var(--color-surface-dark-muted-lch);
       --color-surface-subtle: var(--color-surface-dark-subtle);
+      --color-surface-subtle-lch: var(--color-surface-dark-subtle-lch);
+      --color-surface-inset: var(--color-surface-dark-inset);
+      --color-surface-inset-lch: var(--color-surface-dark-inset-lch);
+      --color-surface-emphasis: var(--color-surface-dark-emphasis);
 
-      --color-border-strong-lch: var(--color-border-dark-strong-lch);
-      --color-border-strong: var(--color-border-dark-strong);
-      --color-border-base-lch: var(--color-border-dark-base-lch);
-      --color-border-base: var(--color-border-dark-base);
-      --color-border-subtle-lch: var(--color-border-dark-subtle-lch);
-      --color-border-subtle: var(--color-border-dark-subtle);
+      --color-border-default-lch: var(--color-border-dark-default-lch);
+      --color-border-default: var(--color-border-dark-default);
+      --color-border-muted-lch: var(--color-border-dark-muted-lch);
+      --color-border-muted: var(--color-border-dark-muted);
 
       --shadow-color: var(--shadow-color-dark);
       --shadow-inset: var(--shadow-inset-dark);
@@ -161,26 +165,28 @@
       --color-brand-secondary-light-contrast
     );
 
-    --color-text-strong-lch: var(--color-text-light-strong-lch);
-    --color-text-strong: var(--color-text-light-strong);
-    --color-text-base-lch: var(--color-text-light-base-lch);
-    --color-text-base: var(--color-text-light-base);
+    --color-text-default-lch: var(--color-text-light-default-lch);
+    --color-text-default: var(--color-text-light-default);
+    --color-text-muted-lch: var(--color-text-light-muted-lch);
+    --color-text-muted: var(--color-text-light-muted);
     --color-text-subtle-lch: var(--color-text-light-subtle-lch);
     --color-text-subtle: var(--color-text-light-subtle);
+    --color-text-on-emphasis-lch: var(--color-text-light-on-emphasis-lch);
+    --color-text-on-emphasis: var(--color-text-light-on-emphasis);
 
-    --color-surface-strong-lch: var(--color-surface-light-strong-lch);
-    --color-surface-strong: var(--color-surface-light-strong);
-    --color-surface-base-lch: var(--color-surface-light-base-lch);
-    --color-surface-base: var(--color-surface-light-base);
-    --color-surface-subtle-lch: var(--color-surface-light-subtle-lch);
+    --color-surface-default-lch: var(--color-surface-light-default-lch);
+    --color-surface-default: var(--color-surface-light-default);
+    --color-surface-muted-lch: var(--color-surface-light-muted-lch);
     --color-surface-subtle: var(--color-surface-light-subtle);
+    --color-surface-subtle-lch: var(--color-surface-light-subtle-lch);
+    --color-surface-inset: var(--color-surface-light-inset);
+    --color-surface-inset-lch: var(--color-surface-light-inset-lch);
+    --color-surface-emphasis: var(--color-surface-light-emphasis);
 
-    --color-border-strong-lch: var(--color-border-light-strong-lch);
-    --color-border-strong: var(--color-border-light-strong);
-    --color-border-base-lch: var(--color-border-light-base-lch);
-    --color-border-base: var(--color-border-light-base);
-    --color-border-subtle-lch: var(--color-border-light-subtle-lch);
-    --color-border-subtle: var(--color-border-light-subtle);
+    --color-border-default-lch: var(--color-border-light-default-lch);
+    --color-border-default: var(--color-border-light-default);
+    --color-border-muted-lch: var(--color-border-light-muted-lch);
+    --color-border-muted: var(--color-border-light-muted);
 
     --shadow-color: var(--shadow-color-light);
     --shadow-inset: var(--shadow-inset-light);
@@ -226,26 +232,28 @@
       --color-brand-secondary-dark-contrast
     );
 
-    --color-text-strong-lch: var(--color-text-dark-strong-lch);
-    --color-text-strong: var(--color-text-dark-strong);
-    --color-text-base-lch: var(--color-text-dark-base-lch);
-    --color-text-base: var(--color-text-dark-base);
+    --color-text-default-lch: var(--color-text-dark-default-lch);
+    --color-text-default: var(--color-text-dark-default);
+    --color-text-muted-lch: var(--color-text-dark-muted-lch);
+    --color-text-muted: var(--color-text-dark-muted);
     --color-text-subtle-lch: var(--color-text-dark-subtle-lch);
     --color-text-subtle: var(--color-text-dark-subtle);
+    --color-text-on-emphasis-lch: var(--color-text-dark-on-emphasis-lch);
+    --color-text-on-emphasis: var(--color-text-dark-on-emphasis);
 
-    --color-surface-strong-lch: var(--color-surface-dark-strong-lch);
-    --color-surface-strong: var(--color-surface-dark-strong);
-    --color-surface-base-lch: var(--color-surface-dark-base-lch);
-    --color-surface-base: var(--color-surface-dark-base);
-    --color-surface-subtle-lch: var(--color-surface-dark-subtle-lch);
+    --color-surface-default-lch: var(--color-surface-dark-default-lch);
+    --color-surface-default: var(--color-surface-dark-default);
+    --color-surface-muted-lch: var(--color-surface-dark-muted-lch);
     --color-surface-subtle: var(--color-surface-dark-subtle);
+    --color-surface-subtle-lch: var(--color-surface-dark-subtle-lch);
+    --color-surface-inset: var(--color-surface-dark-inset);
+    --color-surface-inset-lch: var(--color-surface-dark-inset-lch);
+    --color-surface-emphasis: var(--color-surface-dark-emphasis);
 
-    --color-border-strong-lch: var(--color-border-dark-strong-lch);
-    --color-border-strong: var(--color-border-dark-strong);
-    --color-border-base-lch: var(--color-border-dark-base-lch);
-    --color-border-base: var(--color-border-dark-base);
-    --color-border-subtle-lch: var(--color-border-dark-subtle-lch);
-    --color-border-subtle: var(--color-border-dark-subtle);
+    --color-border-default-lch: var(--color-border-dark-default-lch);
+    --color-border-default: var(--color-border-dark-default);
+    --color-border-muted-lch: var(--color-border-dark-muted-lch);
+    --color-border-muted: var(--color-border-dark-muted);
 
     --shadow-color: var(--shadow-color-dark);
     --shadow-inset: var(--shadow-inset-dark);

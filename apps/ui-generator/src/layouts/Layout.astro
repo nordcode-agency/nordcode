@@ -52,7 +52,7 @@ const {title} = Astro.props;
             "header header" auto
             "config content" 1fr
             / 400px 1fr;
-        background: var(--color-surface-strong);
+        background: var(--color-surface-default);
         inline-size: 100%;
         min-block-size: 100vh;
         max-block-size: 100vh;
@@ -61,23 +61,24 @@ const {title} = Astro.props;
 
     header {
         grid-area: header;
-        background: var(--color-surface-base);
+        background: var(--color-surface-inset);
         padding-block: var(--spacing-near);
         padding-inline: var(--spacing-base);
-        border-bottom: var(--border-width-thin) solid var(--color-border-base);
+        border-bottom: var(--border-width-thin) solid var(--color-border-muted);
     }
 
     aside {
         grid-area: config;
-        background: var(--color-surface-base);
+        background: var(--color-surface-inset);
         padding-block: var(--spacing-base);
         padding-inline: var(--spacing-base);
         overflow-y: auto;
+        border-inline-end: var(--border-width-thin) solid var(--color-border-muted);
     }
 
     section {
         grid-area: content;
-        background: var(--color-surface-base);
+        background: var(--color-surface-default);
         padding-block: var(--spacing-base);
         padding-inline: var(--spacing-base);
         overflow-y: auto;

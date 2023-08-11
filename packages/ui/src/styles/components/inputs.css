@@ -2,10 +2,10 @@
   :where(fieldset:not([class]), .nc-fieldset) {
     --_fieldset-background-color: var(
       --fieldset-background-color,
-      var(--color-surface-base)
+      var(--color-surface-inset)
     );
     padding: var(--spacing-base);
-    border: var(--border-width-thin) solid var(--color-border-base);
+    border: var(--border-width-thin) solid var(--color-border-muted);
     border-radius: var(--border-radius-large);
     background-color: var(--_fieldset-background-color);
   }
@@ -14,7 +14,7 @@
     font-family: var(--font-family-default);
     letter-spacing: var(--tracking-tight);
     font-weight: var(--font-weight-regular);
-    color: var(--color-text-strong);
+    color: var(--color-text-default);
     display: block;
     font-size: var(--font-size-base);
     padding-inline: var(--spacing-near);
@@ -29,7 +29,7 @@
     font-family: var(--font-family-default);
     letter-spacing: var(--tracking-tight);
     font-weight: var(--font-weight-regular);
-    color: var(--color-text-strong);
+    color: var(--color-text-default);
     display: inline-flex;
     font-size: inherit;
     cursor: pointer;
@@ -71,11 +71,11 @@
       .nc-checkbox-wrapper,
       .nc-input-switch
     ) {
-    --_input-background: var(--input-background, var(--color-surface-strong));
-    --_input-color: var(--input-color, var(--color-text-strong));
+    --_input-background: var(--input-background, var(--color-surface-default));
+    --_input-color: var(--input-color, var(--color-text-default));
     --_input-border: var(
       --input-border,
-      var(--border-width-thin) solid var(--color-border-base)
+      var(--border-width-thin) solid var(--color-border-default)
     );
     --_input-border-radius: var(
       --input-border-radius,
@@ -144,6 +144,12 @@
       cursor: not-allowed;
     }
 
+    &:hover {
+      --current-background: var(--color-brand-primary-hover);
+      background-color: var(--color-brand-primary-hover);
+    }
+
+
     &[required] {
       border-inline-start-width: var(--border-width-thick);
     }
@@ -196,9 +202,6 @@
       cursor: not-allowed;
     }
 
-    &:hover {
-      --current-background: var(--color-brand-primary-hover);
-    }
   }
 
   :where(input[type="checkbox"]:not([class]), .nc-input-checkbox) {
@@ -213,7 +216,7 @@
       justify-content: center;
       inline-size: 0.8em;
       block-size: 0.8em;
-      background-color: var(--color-surface-strong);
+      background-color: var(--color-surface-inset);
       transform: scale(0.8) translateY(2em);
       transition: transform var(--ease-out-2) var(--transition-duration-short);
       font-family: var(--font-family-sans);
@@ -277,7 +280,7 @@
   }
 
   :where(.nc-input-hint) {
-    --color-default: var(--color-text-subtle);
+    --color-default: var(--color-text-muted);
     display: block;
 
     &:before {
@@ -303,7 +306,7 @@
       align-items: center;
       justify-content: center;
       background-color: var(--color-default);
-      color: var(--color-surface-strong);
+      color: var(--color-surface-subtle);
       margin-right: 0.5em;
       inline-size: 1em;
       block-size: 1em;

@@ -183,12 +183,12 @@ const defaultStore: ConfigStore = {
 
   lightnessScaleFactor: 3,
 
-  lightNeutralChroma: 0.4,
+  lightNeutralChroma: 0.04,
   lightNeutralTextLightness: 16,
   lightNeutralSurfaceLightness: 97,
   lightNeutralBorderLightness: 20,
 
-  darkNeutralChroma: 0.4,
+  darkNeutralChroma: 0.04,
   darkNeutralTextLightness: 94,
   darkNeutralSurfaceLightness: 18,
   darkNeutralBorderLightness: 80,

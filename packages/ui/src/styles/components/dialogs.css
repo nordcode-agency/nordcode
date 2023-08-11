@@ -30,11 +30,11 @@
         --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
         --_dialog-close-size: var(--dialog-close-size, var(--button-height-base));
 
-        border: var(--border-width-thin) solid var(--color-border-base);
+        border: var(--border-width-thin) solid var(--color-border-default);
         inline-size: calc(100dvw - 2 * var(--spacing-base));
         block-size: 90dvh;
         max-inline-size: 28rem;
-        background: var(--color-surface-strong);
+        background: var(--color-surface-inset);
         box-shadow: var(--shadow-medium);
         margin-block: 5dvh;
         margin-inline: auto;
@@ -54,7 +54,7 @@
 
     .dialog-header {
         grid-area: header;
-        border-block-end: var(--border-width-thin) solid var(--color-border-subtle);
+        border-block-end: var(--border-width-thin) solid var(--color-border-muted);
         background-color: var(--color-surface-subtle);
         padding-inline: var(--_dialog-padding-inline);
         border-radius: var(--_dialog-radius) var(--_dialog-radius) 0 0;
@@ -92,7 +92,8 @@
         display: flex;
         justify-content: flex-end;
         align-items: flex-start;
-        border-block-start: var(--border-width-thin) solid var(--color-border-subtle);
+        border-block-start: var(--border-width-thin) solid var(--color-border-muted);
+        background-color: var(--color-surface-subtle);
 
     }
 

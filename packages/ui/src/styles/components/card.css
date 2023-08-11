@@ -1,8 +1,8 @@
 @layer components {
   .nc-card {
-    --_card-background-color: var(--card-background-color, var(--color-surface-base));
-    --_card-color: var(--card-color, var(--color-text-base));
-    --_card-border-color: var(--card-border-color, var(--color-border-base));
+    --_card-background-color: var(--card-background-color, var(--color-surface-default));
+    --_card-color: var(--card-color, var(--color-text-default));
+    --_card-border-color: var(--card-border-color, var(--color-border-default));
     --_card-shadow: var(--card-shadow, var(--shadow-medium));
     --_card-padding-inline: var(--card-padding-inline, var(--spacing-base));
     --_card-padding-block: var(--card-padding-block, var(--spacing-far));

@@ -1,6 +1,7 @@
 import type { ConfigStore } from "../configStore";
 
 export const getThemeFromOKLCH = (store: ConfigStore) => {
+  console.log(store.lightNeutralTextLightness, store.lightnessScaleFactor);
   return `
         /* COLORS */
 
@@ -17,35 +18,31 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
           store.secondaryHue,
           store.secondaryLightness
         )}
-
         ${getColorTokenAndValue(
-          `text-light-strong`,
-          `${clamp(
-            store.lightNeutralTextLightness / store.lightnessScaleFactor
-          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
-        )}
-        ${getColorTokenAndValue(
-          `text-light-base`,
+          `text-light-default`,
           `${store.lightNeutralTextLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
         ${getColorTokenAndValue(
-          `text-light-subtle`,
+          `text-light-muted`,
           `${clamp(
             store.lightNeutralTextLightness * store.lightnessScaleFactor
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
 
         ${getColorTokenAndValue(
-          `surface-light-strong`,
+          `text-light-subtle`,
           `${clamp(
-            100 -
-              (100 - store.lightNeutralSurfaceLightness) /
-                store.lightnessScaleFactor +
-              1
+            store.lightNeutralTextLightness * store.lightnessScaleFactor * 2
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
+        
         ${getColorTokenAndValue(
-          `surface-light-base`,
+          `text-light-on-emphasis`,
+          `${store.darkNeutralTextLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
+        )}
+
+        ${getColorTokenAndValue(
+          `surface-light-default`,
           `${store.lightNeutralSurfaceLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
         ${getColorTokenAndValue(
@@ -56,21 +53,32 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
                 store.lightnessScaleFactor
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
-
+        
         ${getColorTokenAndValue(
-          `border-light-strong`,
+          `surface-light-inset`,
           `${clamp(
-            store.lightNeutralBorderLightness / store.lightnessScaleFactor
+            100 -
+              (100 - store.lightNeutralSurfaceLightness) *
+                store.lightnessScaleFactor
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
+                
         ${getColorTokenAndValue(
-          `border-light-base`,
+          `surface-light-emphasis`,
+          `${store.darkNeutralSurfaceLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
+        )}
+        
+
+        ${getColorTokenAndValue(
+          `border-light-default`,
           `${store.lightNeutralBorderLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
         ${getColorTokenAndValue(
-          `border-light-subtle`,
+          `border-light-muted`,
           `${clamp(
-            store.lightNeutralBorderLightness * store.lightnessScaleFactor
+            100 -
+              (100 - store.lightNeutralBorderLightness) /
+                store.lightnessScaleFactor
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
 
@@ -87,21 +95,13 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
           store.secondaryHue,
           store.secondaryLightness
         )}
-
+        
         ${getColorTokenAndValue(
-          `text-dark-strong`,
-          `${clamp(
-            100 -
-              (100 - store.darkNeutralTextLightness) /
-                store.lightnessScaleFactor
-          ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
-        )}
-        ${getColorTokenAndValue(
-          `text-dark-base`,
+          `text-dark-default`,
           `${store.darkNeutralTextLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
         ${getColorTokenAndValue(
-          `text-dark-subtle`,
+          `text-dark-muted`,
           `${clamp(
             100 -
               (100 - store.darkNeutralTextLightness) *
@@ -110,13 +110,21 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
         )}
 
         ${getColorTokenAndValue(
-          `surface-dark-strong`,
+          `text-dark-subtle`,
           `${clamp(
-            store.darkNeutralSurfaceLightness / store.lightnessScaleFactor
+            100 -
+              (100 - store.darkNeutralTextLightness) *
+                (store.lightnessScaleFactor * 2)
           ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
+        
         ${getColorTokenAndValue(
-          `surface-dark-base`,
+          `text-dark-on-emphasis`,
+          `${store.lightNeutralTextLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
+        )}
+
+        ${getColorTokenAndValue(
+          `surface-dark-default`,
           `${store.darkNeutralSurfaceLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
         ${getColorTokenAndValue(
@@ -125,27 +133,32 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
             store.darkNeutralSurfaceLightness * store.lightnessScaleFactor
           ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
-
+        
         ${getColorTokenAndValue(
-          `border-dark-strong`,
+          `surface-dark-inset`,
           `${clamp(
-            100 -
-              (100 - store.darkNeutralBorderLightness) /
-                store.lightnessScaleFactor
+            store.darkNeutralSurfaceLightness * store.lightnessScaleFactor
           ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
+                
         ${getColorTokenAndValue(
-          `border-dark-base`,
+          `surface-dark-emphasis`,
+          `${store.lightNeutralSurfaceLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
+        )}
+        
+
+        ${getColorTokenAndValue(
+          `border-dark-default`,
           `${store.darkNeutralBorderLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
         ${getColorTokenAndValue(
-          `border-dark-subtle`,
+          `border-dark-muted`,
           `${clamp(
-            100 -
-              (100 - store.darkNeutralBorderLightness) *
-                store.lightnessScaleFactor
-          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
+            store.darkNeutralBorderLightness / store.lightnessScaleFactor
+          ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
+
+
 
         /*    Status */
         --color-status-error: oklch(62.67% .289 25.41);

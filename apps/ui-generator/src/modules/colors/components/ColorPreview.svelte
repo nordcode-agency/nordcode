@@ -1,16 +1,17 @@
 <script lang="ts">
     export let color;
+    export let description;
 </script>
 
 <div class="preview-row">
-        <span class="label">{color}</span>
-        <div class="cluster -centered">
-            <div class="color-bg live-theme" style={`background-color: var(${color})`}></div>
-            <div class="color-fg live-theme" style={`color: var(${color})`}>
-                Color text
-            </div>
+    <span class="label">{color}</span>
+    <div class="cluster -centered -nowrap">
+        <div class="color-bg live-theme" style={`background-color: var(${color})`}></div>
+        <div class="color-fg live-theme">
+            {description}
         </div>
     </div>
+</div>
 
 <style>
     .preview-row {
@@ -29,8 +30,14 @@
     .color-bg {
         inline-size: 3rem;
         block-size: 3rem;
+        min-inline-size: 3rem;
         display: block;
         border: 1px solid #eee;
+    }
+
+    .color-fg {
+        color: var(--color-text-default);
+        font-size: var(--font-size-small);
     }
 
 </style>

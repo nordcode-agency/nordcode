@@ -112,17 +112,17 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
 
     shadowDistanceScale: 2,
 
-    lightnessScaleFactor: 3,
+    lightnessScaleFactor: 2,
 
     lightNeutralChroma: 0.006,
     lightNeutralTextLightness: 15,
     lightNeutralSurfaceLightness: 98,
-    lightNeutralBorderLightness: 85,
+    lightNeutralBorderLightness: 50,
 
     darkNeutralChroma: 0.006,
-    darkNeutralTextLightness: 90,
-    darkNeutralSurfaceLightness: 8,
-    darkNeutralBorderLightness: 40,
+    darkNeutralTextLightness: 85,
+    darkNeutralSurfaceLightness: 15,
+    darkNeutralBorderLightness: 50,
   },
   elegant: {
     borderWidthScale: 2,

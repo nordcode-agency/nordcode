@@ -1,44 +1,44 @@
 @layer components {
-  .my-button {
-    --shadow-color: var(--color-brand-primary-base-lch);
-    --shadow-elevation-medium: 0px 0.5px 0.5px oklch(var(--shadow-color) / 0.65),
-      0px 1px 2px -1px oklch(var(--shadow-color) / 0.55),
-      0px 3px 6px -3px oklch(var(--shadow-color) / 0.4),
-      0px 8px 12px -4px oklch(var(--shadow-color) / 0.3);
-    --shadow-elevation-large: 0px 0.5px 0.5px oklch(var(--shadow-color) / 0.65),
-      0px 1px 4px -1px oklch(var(--shadow-color) / 0.55),
-      0px 3px 8px -2px oklch(var(--shadow-color) / 0.4),
-      0px 8px 14px -3px oklch(var(--shadow-color) / 0.3);
+    .my-button {
+        --shadow-color: var(--color-brand-primary-base-lch);
+        --shadow-elevation-medium: 0px 0.5px 0.5px oklch(var(--shadow-color) / 0.65),
+        0px 1px 2px -1px oklch(var(--shadow-color) / 0.55),
+        0px 3px 6px -3px oklch(var(--shadow-color) / 0.4),
+        0px 8px 12px -4px oklch(var(--shadow-color) / 0.3);
+        --shadow-elevation-large: 0px 0.5px 0.5px oklch(var(--shadow-color) / 0.65),
+        0px 1px 4px -1px oklch(var(--shadow-color) / 0.55),
+        0px 3px 8px -2px oklch(var(--shadow-color) / 0.4),
+        0px 8px 14px -3px oklch(var(--shadow-color) / 0.3);
 
-    padding-inline: var(--spacing-base);
-    padding-block: var(--spacing-near);
+        padding-inline: var(--spacing-base);
+        padding-block: var(--spacing-near);
 
-    @supports (padding-inline: 1rlh) {
-      padding-inline: 1rlh;
-      padding-block: 0.5rlh;
+        @supports (padding-inline: 1rlh) {
+            padding-inline: 1rlh;
+            padding-block: 0.5rlh;
+        }
+
+        box-shadow: var(--shadow-elevation-medium);
+        background: linear-gradient(
+                45deg,
+                var(--color-brand-primary-base),
+                var(--color-brand-primary-strong)
+        );
+        border-radius: var(--border-radius-medium);
+        color: var(--color-text-dark-strong);
+        transition: var(--transition-duration-base) var(--ease-2);
+
+        &:hover {
+        }
     }
 
-    box-shadow: var(--shadow-elevation-medium);
-    background: linear-gradient(
-      45deg,
-      var(--color-brand-primary-base),
-      var(--color-brand-primary-strong)
-    );
-    border-radius: var(--border-radius-medium);
-    color: var(--color-text-dark-strong);
-    transition: var(--transition-duration-base) var(--ease-2);
-
-    &:hover {
+    .buttonReset {
+        padding: 0;
+        border: none;
+        background: none;
     }
-  }
 
-  .buttonReset {
-    padding: 0;
-    border: none;
-    background: none;
-  }
-
-  :where(
+    :where(
       button:not([class]),
       button[type]:not([class]),
       input[type="button"]:not([class]),
@@ -49,107 +49,105 @@
       input[type="file"]:not([class])::file-selector-button,
       .nc-button
     ) {
-    --_button-background: var(--button-background, var(--color-text-strong));
-    --_button-color: var(--button-color, var(--color-surface-strong));
-    --_button-border-color: var(
-      --button-border-color,
-      var(--color-text-strong)
-    );
-    --_button-border-radius: var(
-      --button-border-radius,
-      var(--border-radius-medium)
-    );
-    --_button-offset-distance: var(--button-offset-distance, 0);
+        --_button-background: var(--button-background, var(--color-surface-emphasis));
+        --_button-color: var(--button-color, var(--color-text-on-emphasis));
+        --_button-border-color: var(
+                --button-border-color,
+                var(--color-surface-emphasis)
+        );
+        --_button-border-radius: var(
+                --button-border-radius,
+                var(--border-radius-medium)
+        );
+        --_button-offset-distance: var(--button-offset-distance, 0);
 
-    --_button-transform: var(
-      --button-transform,
-      translate(var(--_button-offset-distance), var(--_button-offset-distance))
-    );
+        --_button-transform: var(
+                --button-transform,
+                translate(var(--_button-offset-distance), var(--_button-offset-distance))
+        );
 
-    --_button-box-shadow: var(
-      --button-box-shadow,
-      calc(var(--_button-offset-distance) / -2)
-        calc(var(--_button-offset-distance) / -2) 0 0 var(--shadow-color),
-      calc(var(--_button-offset-distance) * -1)
-        calc(var(--_button-offset-distance) * -1) 0 0 var(--shadow-color),
-      calc(var(--_button-offset-distance) * -1)
-        calc(var(--_button-offset-distance) * -1)
-        calc(var(--_button-offset-distance) * -2) 0 var(--shadow-color)
-    );
-    --_button-background-hover: var(
-      --button-background-hover,
-      var(--color-brand-primary-base)
-    );
-    --_button-color-hover: var(
-      --button-color-hover,
-      var(--color-brand-primary-contrast)
-    );
-    --_button-offset-distance-hover: var(--button-offset-distance-hover, 0);
-    --_button-border-color-hover: var(
-      --button-border-color-hover,
-      var(--color-brand-primary-base)
-    );
-    --_button-hover-transform: var(
-      --button-hover-transform,
-      translate(
-        var(--_button-offset-distance-hover),
-        var(--_button-offset-distance-hover)
-      )
-    );
+        --_button-box-shadow: var(
+                --button-box-shadow,
+                calc(var(--_button-offset-distance) / -2) calc(var(--_button-offset-distance) / -2) 0 0 var(--shadow-color),
+                calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) 0 0 var(--shadow-color),
+                calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -2) 0 var(--shadow-color)
+        );
+        --_button-background-hover: var(
+                --button-background-hover,
+                var(--color-brand-primary-base)
+        );
+        --_button-background-hover-light: var(
+                --button-background-hover-light,
+                var(--color-brand-primary-hover)
+        );
+        --_button-color-hover: var(
+                --button-color-hover,
+                var(--color-text-default)
+        );
+        --_button-offset-distance-hover: var(--button-offset-distance-hover, 0);
+        --_button-border-color-hover: var(
+                --button-border-color-hover,
+                var(--color-brand-primary-base)
+        );
+        --_button-hover-transform: var(
+                --button-hover-transform,
+                translate(
+                        var(--_button-offset-distance-hover),
+                        var(--_button-offset-distance-hover)
+                )
+        );
 
-    --_button-hover-shadow: var(
-      --button-hover-shadow,
-      calc(var(--_button-offset-distance-hover) * -1)
-        calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--shadow-color),
-      calc(var(--_button-offset-distance-hover) * -1)
-        calc(var(--_button-offset-distance-hover) * -1)
-        calc(var(--_button-offset-distance-hover) / -2) 0 var(--shadow-color)
-    );
-    --_button-padding-inline: var(--button-padding-inline, var(--spacing-base));
+        --_button-hover-shadow: var(
+                --button-hover-shadow,
+                calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--shadow-color),
+                calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) / -2) 0 var(--shadow-color)
+        );
+        --_button-padding-inline: var(--button-padding-inline, var(--spacing-base));
 
-    background-color: var(--_button-background);
-    color: var(--_button-color);
-    border-width: var(--border-width-thin);
-    border-color: var(--_button-border-color);
-    border-style: solid;
-    border-radius: var(--_button-border-radius);
-    padding-inline: var(--_button-padding-inline);
-    min-block-size: var(--button-height-base);
-    padding-block: 0;
-    font-family: var(--font-family-button);
-    letter-spacing: var(--tracking-tight);
-    font-weight: var(--font-weight-regular);
-    font-size: inherit;
-    cursor: pointer;
-    display: inline-flex;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    transition: box-shadow var(--transition-duration-base) var(--ease-2),
-      transform var(--transition-duration-base) var(--ease-2);
-    text-decoration: unset;
-    box-shadow: var(--_button-box-shadow);
-    transform: var(--_button-transform);
-    will-change: transform;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    inset-block-start: calc(var(--_button-offset-distance) * -1);
-    inset-inline-start: calc(var(--_button-offset-distance) * -1);
+        background-color: var(--_button-background);
+        color: var(--_button-color);
+        border-width: var(--border-width-thin);
+        border-color: var(--_button-border-color);
+        border-style: solid;
+        border-radius: var(--_button-border-radius);
+        padding-inline: var(--_button-padding-inline);
+        min-block-size: var(--button-height-base);
+        padding-block: 0;
+        font-family: var(--font-family-button);
+        letter-spacing: var(--tracking-tight);
+        font-weight: var(--font-weight-regular);
+        font-size: inherit;
+        cursor: pointer;
+        display: inline-flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        transition: box-shadow var(--transition-duration-base) var(--ease-2),
+        transform var(--transition-duration-base) var(--ease-2);
+        text-decoration: unset;
+        box-shadow: var(--_button-box-shadow);
+        transform: var(--_button-transform);
+        will-change: transform;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        inset-block-start: calc(var(--_button-offset-distance) * -1);
+        inset-inline-start: calc(var(--_button-offset-distance) * -1);
 
-    /*
-         * If there is no text node for the button,
-         * it is assumed that an `aria-label` is that
-         * and the button will be styled as an icon button.
-         */
-    &[aria-label] {
-      border-radius: var(--border-radius-round);
+        /*
+             * If there is no text node for the button,
+             * it is assumed that an `aria-label` is that
+             * and the button will be styled as an icon button.
+             */
+
+        &[aria-label] {
+            border-radius: var(--border-radius-round);
+        }
     }
-  }
 
-  :where(
+    :where(
       button:not([class]),
       button[type]:not([class]),
       input[type="button"]:not([class]),
@@ -157,188 +155,217 @@
       input[type="reset"]:not([class]),
       .nc-button
     ) {
-    &:after {
-      content: "" !important;
+        &:after {
+            content: "" !important;
+        }
+
+        &:hover {
+            background: var(--_button-background-hover);
+            color: var(--_button-color-hover);
+            border-color: var(--_button-border-color-hover);
+            box-shadow: var(--_button-hover-shadow);
+            transform: var(--_button-hover-transform);
+        }
+
+        &:hover:after {
+            inline-size: calc(100% + var(--spacing-near)) !important;
+            block-size: calc(100% + var(--spacing-near)) !important;
+            z-index: -1 !important;
+            position: absolute !important;
+            inset-block-start: 0 !important;
+            inset-inline-start: 0 !important;
+            pointer-events: none !important;
+        }
+
+        &:active {
+            box-shadow: none;
+            transform: none;
+        }
+
+        &[disabled] {
+            --_button-background: none !important;
+            --_button-background-hover: none !important;
+            --_button-color: var(--color-text-subtle) !important;
+            --_button-color-hover: var(--_button-color) !important;
+            --_button-border-color: var(--color-text-subtle) !important;
+            --_button-border-color-hover: var(--_button-border-color);
+
+            box-shadow: none !important;
+            transform: none !important;
+            filter: contrast(0.72) opacity(0.72);
+            cursor: not-allowed;
+        }
+
+        &.-active {
+            background-color: var(--_button-background-hover);
+            color: var(--_button-color-hover);
+            border-color: var(--_button-border-color-hover);
+
+            box-shadow: none;
+            transform: none;
+        }
+
+        &.-neutral {
+            --button-background: var(--color-surface-emphasis);
+            --button-color: var(--color-text-on-emphasis);
+            --button-border-color: var(--color-border-default);
+            --button-background-hover: var(--color-surface-default);
+            --button-color-hover: var(--color-text-default);
+            --button-border-color-hover: var(--color-border-default);
+        }
+
+        &.-primary {
+            --button-background: var(--color-brand-primary-base);
+            --button-color: var(--color-brand-primary-contrast);
+            --button-border-color: var(--color-brand-primary-base);
+
+            --button-background-hover: var(--color-brand-primary-contrast);
+            --button-color-hover: var(--color-brand-primary-base);
+            --button-border-color-hover: var(--color-brand-primary-base);
+            --button-background-color-hover-light: var(--color-brand-primary-hover);
+        }
+
+        &.-secondary {
+            --button-background: var(--color-brand-secondary-base);
+            --button-color: var(--color-brand-secondary-contrast);
+            --button-border-color: var(--color-brand-secondary-base);
+
+            --button-background-hover: var(--color-brand-secondary-contrast);
+            --button-color-hover: var(--color-brand-secondary-base);
+            --button-border-color-hover: var(--color-brand-secondary-base);
+            --button-background-color-hover-light: var(--color-brand-secondary-hover);
+        }
+
+
+        &.-outline {
+            background-color: transparent;
+            color: var(--_button-background);
+            border-color: var(--_button-border-color);
+
+            &:hover {
+                background-color: var(--_button-background-hover-light);
+                color: var(--_button-color-hover);
+                border-color: var(--_button-border-color-hover);
+            }
+        }
+
+
+        &.-stealth {
+            background-color: transparent;
+            border-color: transparent;
+            color: var(--_button-background);
+
+            &:hover {
+                background-color: var(--_button-background-hover-light);
+                color: var(--_button-color-hover);
+                border-color: transparent;
+            }
+
+
+
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        &.-small {
+            --_button-padding-inline: var(--spacing-base);
+            min-block-size: var(--button-height-small);
+        }
+
+        &.-round {
+            --_button-border-radius: var(--border-radius-round);
+        }
+
+        &.-icon {
+            --_button-border-radius: var(--border-radius-round);
+            padding: var(--spacing-base);
+            min-block-size: 0;
+
+            &:after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 1;
+                border-radius: 100%;
+                min-width: var(--button-height-base);
+                min-height: var(--button-height-base);
+                left: calc(-0.5 * (var(--button-height-base) - 100%));
+                top: calc(-0.5 * (var(--button-height-base) - 100%));
+                position: absolute;
+                z-index: -1;
+                pointer-events: all;
+            }
+        }
+
+        &.-icon.-small {
+            padding: var(--spacing-near);
+        }
     }
 
-    &:hover {
-      --_button-background: var(--_button-background-hover) !important;
-      --_button-color: var(--_button-color-hover) !important;
-      --_button-border-color: var(--_button-border-color-hover) !important;
-      --_button-box-shadow: var(--_button-hover-shadow) !important;
-      --_button-transform: var(--_button-hover-transform) !important;
+    :where(input[type="file"]:not([class])) {
+        color: var(--_input-color);
+        background-color: var(--_input-background);
+        border: var(--_input-border);
+        min-block-size: var(--button-height-base);
+        padding-inline-end: var(--spacing-near);
+        padding-inline-start: 0;
+        border-radius: var(--_input-border-radius);
     }
 
-    &:hover:after {
-      inline-size: calc(100% + var(--spacing-near)) !important;
-      block-size: calc(100% + var(--spacing-near)) !important;
-      z-index: -1 !important;
-      position: absolute !important;
-      inset-block-start: 0 !important;
-      inset-inline-start: 0 !important;
-      pointer-events: none !important;
+    :where(input[type="file"]:not([class]))::-webkit-file-upload-button,
+    :where(input[type="file"]:not([class]))::file-selector-button {
+        background-color: var(--_button-background);
+        color: var(--_button-color);
+        padding-inline: var(--_button-padding-inline);
+        margin-inline-end: var(--spacing-near);
+        cursor: pointer;
+        box-shadow: none;
+        min-block-size: calc(var(--button-height-base) - var(--border-width-thin));
+        border: none;
+        border-inline-end: var(--border-width-thin) solid var(--color-border-default);
+        transform: none;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        border-start-end-radius: 0;
+        border-end-end-radius: 0;
     }
 
-    &:active {
-      box-shadow: none;
-      transform: none;
+    :where(button[type="reset"]:not([class]), .nc-button.-destructive) {
+        padding-inline-start: 0 !important;
+        --button-background-hover: var(--color-status-error) !important;
+        --button-border-color-hover: var(--color-status-error) !important;
+        --button-color-hover: var(--color-text-default) !important;
+
+        &:before {
+            border: var(--border-width-thin) solid transparent;
+            content: "⨯";
+            background: var(--color-surface-inset);
+            color: var(--color-text-default);
+            aspect-ratio: 1;
+            margin-inline-end: calc(
+                    var(--_button-padding-inline) + var(--spacing-near)
+            );
+            margin-inline-start: var(--spacing-near);
+            block-size: 1em;
+            inline-size: 1em;
+            font-family: var(--font-family-default);
+            font-size: var(--font-size-large);
+            position: relative;
+            vertical-align: middle;
+            line-height: 0.5em;
+        }
+
+        &:hover:before {
+            background: var(--color-surface-emphasis);
+            color: var(--color-status-error);
+        }
+
+        @supports not (aspect-ratio: 1) {
+            padding-inline-start: var(--_button-padding-inline);
+
+            &:before {
+                display: none;
+            }
+        }
     }
-
-    &[disabled] {
-      --button-background: none !important;
-      --button-background-hover: none !important;
-      --button-color: var(--color-text-subtle) !important;
-      --button-color-hover: var(--_button-color) !important;
-      --button-border-color: var(--color-text-subtle) !important;
-      --button-border-color-hover: var(--_button-border-color);
-
-      box-shadow: none !important;
-      transform: none !important;
-      filter: contrast(0.72) opacity(0.72);
-      cursor: not-allowed;
-    }
-
-    &.-active {
-      background-color: var(--_button-background-hover);
-      color: var(--_button-color-hover);
-      border-color: var(--_button-border-color-hover);
-
-      box-shadow: none;
-      transform: none;
-    }
-
-    &.-primary {
-      --_button-background: var(--color-brand-primary-base);
-      --_button-color: var(--color-brand-primary-contrast);
-      --_button-border-color: var(--color-brand-primary-base);
-
-      --_button-background-hover: var(--color-brand-primary-contrast);
-      --_button-color-hover: var(--color-brand-primary-base);
-      --_button-border-color-hover: var(--color-brand-primary-base);
-    }
-
-    &.-secondary {
-      --_button-background: transparent;
-      --_button-color: var(--color-text-base);
-      --_button-border-color: var(--color-border-base);
-
-      --_button-background-hover: var(--color-brand-primary-hover);
-      --_button-color-hover: var(--color-text-strong);
-      --_button-border-color-hover: var(--color-border-strong);
-    }
-
-    &.-stealth {
-      --_button-background: transparent;
-      --_button-color: var(--color-text-strong);
-      --_button-border-color: transparent;
-
-      --_button-background-hover: var(--color-brand-primary-hover);
-      --_button-color-hover: var(--color-brand-primary-base);
-      --_button-border-color-hover: transparent;
-
-      box-shadow: none !important;
-      transform: none !important;
-    }
-
-    &.-small {
-      --_button-padding-inline: var(--spacing-base);
-      min-block-size: var(--button-height-small);
-    }
-
-    &.-round {
-      --_button-border-radius: var(--border-radius-round);
-    }
-
-    &.-icon {
-      --_button-border-radius: var(--border-radius-round);
-      padding: var(--spacing-base);
-      min-block-size: 0;
-
-      &:after {
-        content: "";
-        width: 100%;
-        height: 100%;
-        aspect-ratio: 1;
-        border-radius: 100%;
-        min-width: var(--button-height-base);
-        min-height: var(--button-height-base);
-        left: calc(-0.5 * (var(--button-height-base) - 100%));
-        top: calc(-0.5 * (var(--button-height-base) - 100%));
-        position: absolute;
-        z-index: -1;
-        pointer-events: all;
-      }
-    }
-
-    &.-icon.-small {
-      padding: var(--spacing-near);
-    }
-  }
-
-  :where(input[type="file"]:not([class])) {
-    color: var(--_input-color);
-    background-color: var(--_input-background);
-    border: var(--_input-border);
-    min-block-size: var(--button-height-base);
-    padding-inline-end: var(--spacing-near);
-    padding-inline-start: 0;
-    border-radius: var(--_input-border-radius);
-  }
-
-  :where(input[type="file"]:not([class]))::-webkit-file-upload-button,
-  :where(input[type="file"]:not([class]))::file-selector-button {
-    background-color: var(--_button-background);
-    color: var(--_button-color);
-    padding-inline: var(--_button-padding-inline);
-    margin-inline-end: var(--spacing-near);
-    cursor: pointer;
-    box-shadow: none;
-    min-block-size: calc(var(--button-height-base) - var(--border-width-thin));
-    border: none;
-    border-inline-end: var(--border-width-thin) solid var(--color-text-strong);
-    transform: none;
-    inset-block-start: 0;
-    inset-inline-start: 0;
-    border-start-end-radius: 0;
-    border-end-end-radius: 0;
-  }
-
-  :where(button[type="reset"]:not([class]), .nc-button.-destructive) {
-    padding-inline-start: 0 !important;
-    --button-background-hover: var(--color-status-error) !important;
-    --button-border-color-hover: var(--color-status-error) !important;
-    --button-color-hover: var(--color-text-strong) !important;
-
-    &:before {
-      border: var(--border-width-thin) solid transparent;
-      content: "⨯";
-      background: var(--color-surface-strong);
-      color: var(--color-text-strong);
-      aspect-ratio: 1;
-      margin-inline-end: calc(
-        var(--_button-padding-inline) + var(--spacing-near)
-      );
-      margin-inline-start: var(--spacing-near);
-      block-size: 1em;
-      inline-size: 1em;
-      font-family: var(--font-family-default);
-      font-size: var(--font-size-large);
-      position: relative;
-      vertical-align: middle;
-      line-height: 0.5em;
-    }
-
-    &:hover:before {
-      background: var(--color-text-strong);
-      color: var(--color-status-error);
-    }
-
-    @supports not (aspect-ratio: 1) {
-      padding-inline-start: var(--_button-padding-inline);
-
-      &:before {
-        display: none;
-      }
-    }
-  }
 }

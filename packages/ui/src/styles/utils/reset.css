@@ -56,8 +56,8 @@
 
         font-weight: var(--font-weight-regular);
 
-        color: var(--color-text-base);
-        background-color: var(--color-surface-base);
+        color: var(--color-text-default);
+        background-color: var(--color-surface-default);
 
         font-family: var(--font-family-default);
         line-height: var(--line-height-base);
