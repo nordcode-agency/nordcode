@@ -205,6 +205,31 @@ importers:
         specifier: ^0.32.2
         version: 0.32.4(lightningcss@1.21.1)
 
+  apps/wildtierrettung-rhein-berg:
+    dependencies:
+      '@astrojs/svelte':
+        specifier: ^3.0.0
+        version: 3.0.0(astro@2.7.0)(svelte@4.0.0)(typescript@5.1.6)(vite@4.4.2)
+      '@nordcode/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
+      astro:
+        specifier: ^2.7.0
+        version: 2.7.0
+      svelte:
+        specifier: ^4.0.0
+        version: 4.0.0
+    devDependencies:
+      '@nordcode/postcss-config':
+        specifier: workspace:^
+        version: link:../../packages/postcss-config
+      '@nordcode/types':
+        specifier: workspace:^
+        version: link:../../packages/types
+      vite-plugin-lightningcss:
+        specifier: ^0.0.5
+        version: 0.0.5
+
   packages/eslint-config-custom:
     dependencies:
       eslint-config-next:

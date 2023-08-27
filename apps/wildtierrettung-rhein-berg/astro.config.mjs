@@ -1,0 +1,23 @@
+import {defineConfig} from 'astro/config';
+
+import svelte from "@astrojs/svelte";
+import lightningcss from "vite-plugin-lightningcss";
+
+// https://astro.build/config
+export default defineConfig({
+  integrations: [svelte()],
+  server: {
+    port: 3004
+  },
+  vite: {
+    plugins: [
+      lightningcss({
+        browserslist: ">= 0.25%",
+        drafts: {
+          customMedia: true,
+          nesting: true,
+        },
+      }),
+    ],
+  },
+});
