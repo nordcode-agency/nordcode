@@ -136,3 +136,4 @@ Learn more about the power of Turborepo:
 - <https://resend.com/> *
 - <https://www.samesame.studio/>
 - <https://focuslab.agency/> *
+- <https://www.mozilla.org/en-US/firefox/new/>
