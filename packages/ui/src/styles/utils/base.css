@@ -35,14 +35,14 @@
     }
 
     :where(li > ul, li > ol) {
-        margin-block-start: var(--spacing-near);
-        margin-inline-start: var(--spacing-near);
+        margin-block-start: var(--spacing-base);
+        margin-inline-start: var(--spacing-base);
     }
 
     li:has(ul) + li,
     li:has(ol) + li {
-        margin-block-start: var(--spacing-base);
-        margin-inline-start: var(--spacing-base);
+        margin-block-start: var(--spacing-near);
+        margin-inline-start: 0;
     }
 
     :where(small) {
