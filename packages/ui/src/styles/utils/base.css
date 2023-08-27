@@ -42,7 +42,7 @@
     li:has(ul) + li,
     li:has(ol) + li {
         margin-block-start: var(--spacing-base);
-        margin-inline-start: var(--spacing-near);
+        margin-inline-start: var(--spacing-base);
     }
 
     :where(small) {
