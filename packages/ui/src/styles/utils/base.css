@@ -131,13 +131,12 @@ blockquote:before {
     :where(hr) {
         inline-size: 100%;
         block-size: 0;
-        border-top: var(--border-width-medium) solid var(--color-border-base);
-        background-color: var(--color-text-base);
+        border-top: var(--border-width-medium) solid var(--color-border-default);
     }
 
     :where(h1, h2, h3, h4, h5, h6) {
         line-height: var(--line-height-small);
-        color: var(--color-text-base);
+        color: var(--color-text-default);
         overflow-wrap: break-word;
         max-inline-size: 100%;
         hyphens: auto;
