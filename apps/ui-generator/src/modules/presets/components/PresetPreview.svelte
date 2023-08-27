@@ -29,6 +29,7 @@
                                 label="What's your name?"
                                 id="name"
                                 type="text"
+                                hint="this is your name"
                                 bind:value={name}
                         >
                         <button class="nc-button live-theme -round -icon -small -stealth" type="button">
@@ -55,6 +56,11 @@
                 selber wählt idealerweise nur noch das h von lch mit der entsprechenden brand color – rot, blau, grün
                 etc.)
             </p>
+            <p class="muted">Secondary text, der aber immer noch wichtig genug ist, um gelesen zu werden.</p>
+            <p class="subtle">Text der wirklich nicht so wichtig ist. Maximal Placeholder.</p>
+            <div class="box inset">
+                <p>If you need an inset bg, use this. It's like a lower elevation.</p>
+            </div>
             <footer>
                 This could be your footer
             </footer>
@@ -73,6 +79,16 @@
         padding: var(--spacing-base);
         inline-size: 100%;
         color: var(--color-text-default);
+    }
+    .muted {
+        color: var(--color-text-muted);
+    }
+    .subtle {
+        color: var(--color-text-subtle);
+    }
+
+    .inset {
+        background: var(--color-surface-inset);
     }
     footer {
         padding: var(--spacing-base);

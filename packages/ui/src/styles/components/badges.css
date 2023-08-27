@@ -4,14 +4,19 @@
   font-family: var(--font-family-mono);
   letter-spacing: var(--tracking-tight);
   font-weight: var(--font-weight-regular);
-  color: var(--color);
-  border: var(--border-width-thin) solid var(--color);
+  color: var(--color-text-default);
+  border: var(--border-width-thin) solid var(--color-border-default);
   border-radius: var(--border-radius-small);
-  padding: var(--spacing-nearest);
+  padding: var(--spacing-nearest) var(--spacing-near);
   text-transform: lowercase;
   width: max-content;
   max-width: max-content;
   line-height: 1;
+
+  &.-secondary {
+    color: var(--color-text-muted);
+    border-color: var(--color-border-muted);
+  }
 
   &.-emphasis {
     --color: var(--color-text-on-emphasis);

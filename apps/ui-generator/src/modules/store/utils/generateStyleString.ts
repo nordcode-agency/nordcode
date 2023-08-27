@@ -1,7 +1,6 @@
 import type { ConfigStore } from "../configStore";
 import { getShadows } from "./getShadows";
 import { getThemeFromOKLCH } from "./getThemeFromOKLCH";
-import { getStandardColorTheme } from "./getStandardColorTheme";
 
 export const generateStyleString = (store: ConfigStore): string => {
   return `

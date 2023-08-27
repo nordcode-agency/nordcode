@@ -1,13 +1,13 @@
 .live-theme {
   color-scheme: light;
 
-  --color-brand-primary-strong: var(--color-brand-primary-light-strong);
+  --color-brand-primary-emphasis: var(--color-brand-primary-light-emphasis);
   --color-brand-primary-base: var(--color-brand-primary-light-base);
   --color-brand-primary-subtle: var(--color-brand-primary-light-subtle);
   --color-brand-primary-hover: var(--color-brand-primary-light-hover);
   --color-brand-primary-contrast: var(--color-brand-primary-light-contrast);
 
-  --color-brand-secondary-strong: var(--color-brand-secondary-light-strong);
+  --color-brand-secondary-emphasis: var(--color-brand-secondary-light-emphasis);
   --color-brand-secondary-base: var(--color-brand-secondary-light-base);
   --color-brand-secondary-subtle: var(--color-brand-secondary-light-subtle);
   --color-brand-secondary-hover: var(--color-brand-secondary-light-hover);
@@ -41,13 +41,13 @@
   .live-theme {
     color-scheme: dark;
 
-    --color-brand-primary-strong: var(--color-brand-primary-dark-strong);
+    --color-brand-primary-emphasis: var(--color-brand-primary-dark-emphasis);
     --color-brand-primary-base: var(--color-brand-primary-dark-base);
     --color-brand-primary-subtle: var(--color-brand-primary-dark-subtle);
     --color-brand-primary-hover: var(--color-brand-primary-dark-hover);
     --color-brand-primary-contrast: var(--color-brand-primary-dark-contrast);
 
-    --color-brand-secondary-strong: var(--color-brand-secondary-dark-strong);
+    --color-brand-secondary-emphasis: var(--color-brand-secondary-dark-emphasis);
     --color-brand-secondary-base: var(--color-brand-secondary-dark-base);
     --color-brand-secondary-subtle: var(--color-brand-secondary-dark-subtle);
     --color-brand-secondary-hover: var(--color-brand-secondary-dark-hover);
@@ -84,13 +84,13 @@
 [color-scheme="light"] .live-theme {
   color-scheme: light;
 
-  --color-brand-primary-strong: var(--color-brand-primary-light-strong);
+  --color-brand-primary-emphasis: var(--color-brand-primary-light-emphasis);
   --color-brand-primary-base: var(--color-brand-primary-light-base);
   --color-brand-primary-subtle: var(--color-brand-primary-light-subtle);
   --color-brand-primary-hover: var(--color-brand-primary-light-hover);
   --color-brand-primary-contrast: var(--color-brand-primary-light-contrast);
 
-  --color-brand-secondary-strong: var(--color-brand-secondary-light-strong);
+  --color-brand-secondary-emphasis: var(--color-brand-secondary-light-emphasis);
   --color-brand-secondary-base: var(--color-brand-secondary-light-base);
   --color-brand-secondary-subtle: var(--color-brand-secondary-light-subtle);
   --color-brand-secondary-hover: var(--color-brand-secondary-light-hover);
@@ -124,13 +124,13 @@
 [color-scheme="dark"] .live-theme {
   color-scheme: dark;
 
-  --color-brand-primary-strong: var(--color-brand-primary-dark-strong);
+  --color-brand-primary-emphasis: var(--color-brand-primary-dark-emphasis);
   --color-brand-primary-base: var(--color-brand-primary-dark-base);
   --color-brand-primary-subtle: var(--color-brand-primary-dark-subtle);
   --color-brand-primary-hover: var(--color-brand-primary-dark-hover);
   --color-brand-primary-contrast: var(--color-brand-primary-dark-contrast);
 
-  --color-brand-secondary-strong: var(--color-brand-secondary-dark-strong);
+  --color-brand-secondary-emphasis: var(--color-brand-secondary-dark-emphasis);
   --color-brand-secondary-base: var(--color-brand-secondary-dark-base);
   --color-brand-secondary-subtle: var(--color-brand-secondary-dark-subtle);
   --color-brand-secondary-hover: var(--color-brand-secondary-dark-hover);

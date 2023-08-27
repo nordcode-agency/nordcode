@@ -53,7 +53,7 @@
         display: block;
         font-family: var(--font-family-sans);
         font-weight: var(--font-weight-regular);
-        color: var(--color-surface-inset);
+        color: var(--color-surface-subtle);
         background-color: var(--color-text-default);
         padding: 0 var(--spacing-near);
     }
@@ -80,10 +80,10 @@
     blockquote {
         padding: var(--spacing-base);
         inline-size: 100%;
-        background-color: var(--color-surface-inset);
+        background-color: var(--color-surface-default);
         color: var(--color-text-default);
         position: relative;
-        border: var(--border-width-thin) solid var(--color-border-muted);
+        border: var(--border-width-thin) solid var(--color-border-default);
         margin-block-start: var(--spacing-far);
         border-radius: var(--border-radius-medium);
         margin-inline: 0;
@@ -106,8 +106,8 @@ blockquote:before {
     justify-content: center;
     align-items: center;
     transform: translate(-50%, -50%);
-    background-color: var(--color-text-default);
-    color: var(--color-surface-inset);
+    background-color: var(--color-surface-emphasis);
+    color: var(--color-text-on-emphasis);
     inline-size: 1em;
     block-size: 1em;
     line-height: 1;
@@ -278,7 +278,6 @@ blockquote:before {
         border-spacing: 0;
         border-collapse: collapse;
         text-align: left;
-        background-color: var(--color-surface-inset);
         border: var(--border-width-medium) solid var(--color-border-default);
         border-radius: var(--border-radius-medium);
     }
@@ -286,6 +285,10 @@ blockquote:before {
     :where(td,th) {
         padding: var(--spacing-near);
         border: var(--border-width-thin) solid var(--color-border-muted);
+    }
+
+    :where(th) {
+        background-color: var(--color-surface-subtle);
     }
 
 }

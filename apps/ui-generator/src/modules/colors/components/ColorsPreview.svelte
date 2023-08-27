@@ -22,6 +22,11 @@
             description: "Used for text and icons on top of the primary brand color."
         },
                 {
+            token: '--color-brand-primary-emphasis',
+            description: "Use to highlight the most important item. Also as background."
+        },
+
+                {
             token: '--color-brand-secondary-base',
             description: "Secondary brand color. Used for accents and highlights."
         },
@@ -38,6 +43,11 @@
             token: '--color-brand-secondary-contrast',
             description: "Used for text and icons on top of the secondary brand color."
         },
+                        {
+            token: '--color-brand-secondary-emphasis',
+            description: "Use to highlight the most important item. Also as background."
+        },
+
 
         // text
         {

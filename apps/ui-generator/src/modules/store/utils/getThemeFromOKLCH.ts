@@ -1,7 +1,6 @@
 import type { ConfigStore } from "../configStore";
 
 export const getThemeFromOKLCH = (store: ConfigStore) => {
-  console.log(store.lightNeutralTextLightness, store.lightnessScaleFactor);
   return `
         /* COLORS */
 
@@ -38,7 +37,7 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
         
         ${getColorTokenAndValue(
           `text-light-on-emphasis`,
-          `${store.darkNeutralTextLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
+          `${store.lightNeutralSurfaceLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
 
         ${getColorTokenAndValue(
@@ -49,7 +48,10 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
           `surface-light-subtle`,
           `${clamp(
             100 -
-              (100 - store.lightNeutralSurfaceLightness) *
+              Math.max(
+                100 - store.lightNeutralSurfaceLightness,
+                store.lightnessScaleFactor
+              ) *
                 store.lightnessScaleFactor
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
@@ -58,14 +60,17 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
           `surface-light-inset`,
           `${clamp(
             100 -
-              (100 - store.lightNeutralSurfaceLightness) *
+              Math.max(
+                100 - store.lightNeutralSurfaceLightness,
+                store.lightnessScaleFactor
+              ) *
                 store.lightnessScaleFactor
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
                 
         ${getColorTokenAndValue(
           `surface-light-emphasis`,
-          `${store.darkNeutralSurfaceLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
+          `${store.lightNeutralTextLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
         
 
@@ -120,7 +125,7 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
         
         ${getColorTokenAndValue(
           `text-dark-on-emphasis`,
-          `${store.lightNeutralTextLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
+          `${store.darkNeutralSurfaceLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
 
         ${getColorTokenAndValue(
@@ -137,13 +142,13 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
         ${getColorTokenAndValue(
           `surface-dark-inset`,
           `${clamp(
-            store.darkNeutralSurfaceLightness * store.lightnessScaleFactor
+            store.darkNeutralSurfaceLightness / store.lightnessScaleFactor
           ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
                 
         ${getColorTokenAndValue(
           `surface-dark-emphasis`,
-          `${store.lightNeutralSurfaceLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
+          `${store.darkNeutralTextLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
         
 
@@ -172,7 +177,7 @@ const getLightColorTheme = (
 ) => {
   return `
 ${getColorTokenAndValue(
-  `brand-${name}-light-strong`,
+  `brand-${name}-light-emphasis`,
   `${+lightness - 10}% 0.14 ${hue}`
 )}
 ${getColorTokenAndValue(
@@ -201,7 +206,7 @@ const getDarkColorTheme = (
 ) => {
   return `
   ${getColorTokenAndValue(
-    `brand-${name}-dark-strong`,
+    `brand-${name}-dark-emphasis`,
     `${+lightness - 10}% 0.14 ${hue}`
   )}
   ${getColorTokenAndValue(

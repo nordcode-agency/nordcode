@@ -34,7 +34,7 @@
         inline-size: calc(100dvw - 2 * var(--spacing-base));
         block-size: 90dvh;
         max-inline-size: 28rem;
-        background: var(--color-surface-inset);
+        background: var(--color-surface-default);
         box-shadow: var(--shadow-medium);
         margin-block: 5dvh;
         margin-inline: auto;

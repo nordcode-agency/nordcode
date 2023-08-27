@@ -2,7 +2,7 @@
   :where(fieldset:not([class]), .nc-fieldset) {
     --_fieldset-background-color: var(
       --fieldset-background-color,
-      var(--color-surface-inset)
+      var(--color-surface-subtle)
     );
     padding: var(--spacing-base);
     border: var(--border-width-thin) solid var(--color-border-muted);
@@ -152,6 +152,10 @@
 
     &[required] {
       border-inline-start-width: var(--border-width-thick);
+    }
+
+    &::placeholder {
+      color: var(--color-text-subtle);
     }
   }
 

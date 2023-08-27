@@ -2,7 +2,7 @@
     :root {
         --_notification-max-width: var(--notifications-max-width, 20rem);
         --_notification-gap: var(--notification-gap, var(--spacing-base));
-        --_notification-border-color: var(--notification-border-color, var(--color-border-muted));
+        --_notification-border-color: var(--notification-border-color, var(--color-border-default));
         --_notification-center-background: var(--notification-center-background, oklch(var(--color-surface-subtle) / 0.05));
     }
 
@@ -62,7 +62,7 @@
 
     .nc-notification {
         padding: var(--spacing-near);
-        background: var(--color-surface-inset);
+        background: var(--color-surface-default);
         border: var(--border-width-thin) solid var(--_notification-border-color);
         display: flex;
         flex-direction: column;
