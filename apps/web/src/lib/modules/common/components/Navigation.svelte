@@ -20,7 +20,7 @@
     /* font-size: var(--font-size-largest); */
     font-size: clamp(1.5rem, 6vw, 2.5rem);
     text-decoration: none;
-    color: var(--color-brand-primary-emphasis);
+    color: var(--color-brand-primary-base);
     padding-block: var(--spacing-nearest);
     padding-inline: var(--spacing-base);
   }

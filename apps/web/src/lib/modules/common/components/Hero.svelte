@@ -5,8 +5,8 @@
 </script>
 
 <div class="hero">
-  <div class="nc-stack">
-    <div class="nc-stack text">
+  <div class="stack" style="--stack-gap: var(--spacing-far);">
+    <div class="stack text">
       <h1>Wir erschaffen digitale Erlebnisse.</h1>
       <h2>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</h2>
     </div>
