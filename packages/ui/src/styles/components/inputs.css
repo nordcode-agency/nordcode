@@ -279,7 +279,7 @@
     place-items: start;
 
     & > label {
-      --gap: var(--spacing-tiny);
+      --stack-gap: var(--spacing-tiny);
     }
   }
 
