@@ -2,7 +2,7 @@
   export let highlight: boolean = false;
 </script>
 
-<div class="container" style:grid-column={highlight ? 'span 2' : 'span 1'}>
+<div class="container" style:grid-column={highlight ? 'span 3' : 'span 1'}>
   <div class="nc-card card">
     <figure>
       <img src="https://images.unsplash.com/photo-1690738083729-f5d21709425c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3165&q=80" alt="todo">
@@ -41,6 +41,7 @@
       var(--_card-shadow),
       inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) oklch(var(--color-border-default-lch) / 0.8);
     /* aspect-ratio: 4 / 5; */
+    block-size: 100%;
 
     @media (--OSdark) {
       box-shadow:
@@ -72,6 +73,10 @@
         border-radius: var(--border-radius-large);
         box-shadow: var(--shadow-near);
       }
+    }
+
+    @container (min-inline-size: 1200px) {
+      aspect-ratio: 21 / 9;
     }
   }
 
