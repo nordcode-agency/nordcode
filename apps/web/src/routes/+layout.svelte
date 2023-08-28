@@ -17,7 +17,7 @@
 </svelte:head>
 
 <Header />
-<main class="nc-stack">
+<main class="stack -stretched">
   <slot/>
 </main>
 <Footer/>
