@@ -12,7 +12,7 @@ export const getShadows = (store: ConfigStore) => {
     transparencyScale: store.shadowConfigTransparencyScale,
     spreadMax: store.shadowConfigSpreadMax,
     spreadMin: store.shadowConfigSpreadMin,
-    distanceFactor: store.shadowConfigDistanceFactor,
+    xOffsetFactor: store.shadowConfigXOffsetFactor,
   };
 
   return `
@@ -20,7 +20,9 @@ export const getShadows = (store: ConfigStore) => {
             /* Light Theme */
             
             
-            --shadow-inset-light: inset ${store.shadowDistanceInset}px ${
+            --shadow-inset-light: inset ${
+              store.shadowDistanceInset * store.shadowConfigXOffsetFactor
+            }px ${
     store.shadowDistanceInset
   }px 0px 0 ${getLCHColorWithTransparency(
     shadowColorLight,
@@ -87,13 +89,6 @@ export const getShadows = (store: ConfigStore) => {
 
 // ideas from: https://shadows.brumm.af/ and material design and https://www.joshwcomeau.com/shadow-palette/
 const amountOfExtraShadows = 4;
-// const scaleFactor = 0.64;
-// const startTransparency = 0.12;
-// const transparencyScale = 1.2;
-// const spreadMax = -4;
-// const spreadMin = 1;
-// const blurFactor = 2.2;
-// const distanceFactor = 1.8;
 const round = (num: number) => Math.round(num * 100) / 100;
 const getLCHColorWithTransparency = (color: string, transparency: number) =>
   `${color.slice(0, -1)} / ${round(transparency * 100)}%)`;
@@ -118,7 +113,7 @@ const generateShadow = (
     transparencyScale: number;
     spreadMax: number;
     spreadMin: number;
-    distanceFactor: number;
+    xOffsetFactor: number;
   }
 ) => {
   const {
@@ -128,7 +123,7 @@ const generateShadow = (
     transparencyScale,
     spreadMax,
     spreadMin,
-    distanceFactor,
+    xOffsetFactor,
   } = config;
 
   let shadowString = "";
@@ -143,9 +138,9 @@ const generateShadow = (
     const spread = getSpread(spreadMax, spreadMin, amountOfExtraShadows, i);
     // const spread = 0;
 
-    shadowString = `${d}px ${
-      d * distanceFactor
-    }px ${blur}px ${spread}px ${shadowColor}, ${shadowString}`;
+    shadowString = `${
+      d * xOffsetFactor
+    }px ${d}px ${blur}px ${spread}px ${shadowColor}, ${shadowString}`;
   }
   return shadowString.slice(0, -2);
 };
