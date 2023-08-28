@@ -137,3 +137,5 @@ Learn more about the power of Turborepo:
 - <https://www.samesame.studio/>
 - <https://focuslab.agency/> *
 - <https://www.mozilla.org/en-US/firefox/new/>
+- <https://www.pandadoc.com/> brutalist
+- <https://www.freefaces.gallery/> simple
