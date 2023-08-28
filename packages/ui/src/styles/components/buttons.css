@@ -22,7 +22,7 @@
         background: linear-gradient(
                 45deg,
                 var(--color-brand-primary-base),
-                var(--color-brand-primary-strong)
+                var(--color-brand-secondary-base)
         );
         border-radius: var(--border-radius-medium);
         color: var(--color-text-dark-strong);
