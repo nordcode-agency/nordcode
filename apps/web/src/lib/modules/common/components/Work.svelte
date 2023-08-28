@@ -8,7 +8,7 @@
   </svg>    
   <section class="nc-ram-grid">
     <WorkCard />
-    <WorkCard />
+    <WorkCard highlight />
     <WorkCard />
     <WorkCard />
     <WorkCard />
@@ -42,8 +42,8 @@
   }
 
   .nc-ram-grid {
-    --fd-ram-grid-min-width: 44ch;
-    --fd-ram-grid-gap: var(--spacing-far);
+    --nc-ram-grid-min-width: 44ch;
+    --nc-ram-grid-gap: var(--spacing-far);
 
     padding: var(--spacing-base);
   }
