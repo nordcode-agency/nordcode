@@ -64,16 +64,16 @@
 	a {
 		display: block;
 		inline-size: 100%;
-    font-size: var(--font-size-large);
+    font-size: calc(var(--font-size-base) * 1.5);
     text-decoration: none;
-    color: var(--color-brand-primary-strong);
+    color: var(--color-brand-primary-emphasis);
     padding-inline: var(--spacing-base);
     /* padding-block: var(--spacing-nearest); */
 		text-align: center;
 
 		@media (--md-n-above) {
 			padding-block: var(--spacing-base);
-			font-size: var(--font-size-largest);
+			/* font-size: var(--font-size-largest); */
 		}
   }
 </style>

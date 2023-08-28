@@ -11,15 +11,11 @@
 </svg>
 
 <style>
-  a {
-    display: inline-block;
-  }
-
   svg {
     inline-size: clamp(12.5rem, 30vw, 15rem);
 
     & path {
-      fill: var(--color-text-base)
+      fill: var(--color-text-default);
     }
   }
 </style>
