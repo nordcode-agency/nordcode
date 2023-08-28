@@ -7,7 +7,7 @@
     .stack {
         display: flex;
         flex-direction: column;
-        gap: var(--gap, var(--spacing-base));
+        gap: var(--stack-gap, var(--spacing-base));
         grid-template-columns: minmax(0, 1fr);
         align-items: flex-start;
     }
@@ -21,19 +21,19 @@
     }
 
     .flow > * + * {
-        margin-block-start: var(--gap, var(--spacing-base));
+        margin-block-start: var(--flow-gap, var(--spacing-base));
     }
 
     .flow > *:is(h1,h2,h3,h4,h5,h6) {
-        --gap: var(--spacing-far);
+        --flow-gap: var(--spacing-far);
     }
 
     .flow > *:is(h1,h2,h3,h4,h5,h6) + p {
-        --gap: var(--spacing-near);
+        --flow-gap: var(--spacing-near);
     }
 
     .flow > p + p {
-        --gap: var(--spacing-base);
+        --flow-gap: var(--spacing-base);
     }
 
     .flow > figure {
@@ -65,7 +65,7 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: var(--gap, var(--spacing-base));
+        gap: var(--cluster-gap, var(--spacing-base));
         align-items: flex-start;
 
         &.-centered {
@@ -77,57 +77,63 @@
         }
     }
 
+    .with-sidebar {
+        --with-sidebar-min-size: 50%;
 
-.with-sidebar {
-    --min-size: 50%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--with-sidebar-gap, var(--spacing-far));
+    }
 
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--gap, var(--spacing-far));
-}
+    .with-sidebar [data-aside] {
+        flex-grow: 1;
+        min-width: min-content;
+    }
 
-.with-sidebar [data-aside] {
-    flex-grow: 1;
-    min-width: min-content;
-}
+    .with-sidebar [data-grow] {
+        flex-basis: 0;
+        flex-grow: 999;
+        min-width: var(--with-sidebar-min-size);
+    }
 
-.with-sidebar [data-grow] {
-    flex-basis: 0;
-    flex-grow: 999;
-    min-width: var(--min-size);
-}
-
-
+    /** @deprecated generic --gap naming is not used anymore */
     .-layout-farthest {
         --gap: var(--spacing-farthest);
     }
 
+    /** @deprecated generic --gap naming is not used anymore */
     .-layout-far {
         --gap: var(--spacing-far);
     }
 
+    /** @deprecated generic --gap naming is not used anymore */
     .-layout-base {
         --gap: var(--spacing-base);
     }
 
+    /** @deprecated generic --gap naming is not used anymore */
     .-layout-near {
         --gap: var(--spacing-near);
     }
 
+    /** @deprecated generic --gap naming is not used anymore */
     .-layout-nearest {
         --gap: var(--spacing-nearest);
     }
 
+    /** @deprecated generic --gap naming is not used anymore */
     .-layout-tiny {
         --gap: var(--spacing-tiny);
     }
 
+    /** @deprecated generic --gap naming is not used anymore */
     .-layout-none {
         --gap: 0;
     }
 
+    /** @deprecated generic --gap naming is not used anymore */
     .layout-reset {
         --gap: unset;
     }
