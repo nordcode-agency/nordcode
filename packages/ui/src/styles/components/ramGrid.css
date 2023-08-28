@@ -1,9 +1,9 @@
 .nc-ram-grid {
-  --_nc-ram-grid-gap-row: var(--fd-ram-grid-gap-row, var(--_nc-ram-grid-gap));
-  --_nc-ram-grid-gap-column: var(--fd-ram-grid-gap-column, var(--_nc-ram-grid-gap));
-  --_nc-ram-grid-gap: var(--fd-ram-grid-gap, var(--spacing-near));
-  --_nc-ram-grid-min-width: var(--fd-ram-grid-min-width, 150px);
-  --_nc-ram-grid-repeat-count: var(--fd-ram-grid-repeat-count, auto-fit);
+  --_nc-ram-grid-gap-row: var(--nc-ram-grid-gap-row, var(--_nc-ram-grid-gap));
+  --_nc-ram-grid-gap-column: var(--nc-ram-grid-gap-column, var(--_nc-ram-grid-gap));
+  --_nc-ram-grid-gap: var(--nc-ram-grid-gap, var(--spacing-near));
+  --_nc-ram-grid-min-width: var(--nc-ram-grid-min-width, 150px);
+  --_nc-ram-grid-repeat-count: var(--nc-ram-grid-repeat-count, auto-fit);
 
 
   display: grid;
