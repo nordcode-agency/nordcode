@@ -48,8 +48,8 @@
       hyphens: none;
       background: linear-gradient(
         to left,
-        var(--color-brand-secondary-emphasis),
-        var(--color-brand-primary-emphasis)
+        var(--color-brand-secondary-base),
+        var(--color-brand-primary-base)
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
