@@ -18,6 +18,7 @@ export type ConfigStore = {
   fontSizeBase: number;
   fontSizeLarge: number;
   fontSizeLargest: number;
+  fontSizeDisplay: number;
   fontSizeUnit: string;
 
   lineHeightLarge: number;
@@ -113,6 +114,7 @@ const defaultStore: ConfigStore = {
   fontSizeBase: 1,
   fontSizeLarge: 1.25,
   fontSizeLargest: 1.5,
+  fontSizeDisplay: 2.25,
   fontSizeUnit: "rem",
 
   lineHeightLarge: 2,
@@ -258,6 +260,7 @@ export const updateFontScale = (newScale: number) => {
       fontSizeScale: newScale,
       fontSizeLarge: round(store.fontSizeBase * newScale),
       fontSizeLargest: round(store.fontSizeBase * Math.pow(newScale, 2)),
+      fontSizeDisplay: round(store.fontSizeBase * Math.pow(newScale, 3)),
       fontSizeSmall: round(store.fontSizeBase / newScale),
       fontSizeSmallest: round(store.fontSizeBase / Math.pow(newScale, 2)),
     };

@@ -72,6 +72,13 @@
                     <Input type="checkbox" name="useCustomFontsizes" label="Use custom font sizes?"
                            id="useCustomFontsizes"
                            bind:value={$configStore.useCustomFontSizes}/>
+                    <Input
+                            name="fontSizeDisplay"
+                            label="Font Size Display"
+                            id="fontSizeDisplay"
+                            type="number"
+                            disabled={$configStore.useCustomFontSizes === false}
+                            bind:value={$configStore.fontSizeDisplay}/>
 
                     <Input
                             name="fontSizeLargest"

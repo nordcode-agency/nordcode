@@ -11,6 +11,7 @@
     }
 
     const fontSizes = {
+        '--font-size-display': 'font-size: var(--font-size-display)',
         '--font-size-largest': 'font-size: var(--font-size-largest)',
         '--font-size-large': 'font-size: var(--font-size-large)',
         '--font-size-base': 'font-size: var(--font-size-base)',

@@ -401,6 +401,31 @@
                     </tbody>
                 </table>
 
+                <table>
+        <tbody>
+          <tr>
+            <th>Description</th>
+            <td>Simple browser extension to sync and use testaccounts</td>
+          </tr>
+          <tr>
+            <th>Tech stack</th>
+            <td>Typescript, OpenProps, Webextension</td>
+          </tr>
+          <tr>
+            <th>Link</th>
+            <td>
+              <a href="https://chrome.google.com/webstore/detail/testaccount-manager/addaocpbbalpdpebplfjmleommmgalpd" target="_blank" rel="noopener noreferrer" data-external="">
+                    https://chrome.google.com/webstore/detail/testaccount-manager/addaocpbbalpdpebplfjmleommmgalpd
+                  </a>
+            </td>
+          </tr>
+          <tr>
+            <th>Year</th>
+            <td>2022</td>
+          </tr>
+        </tbody>
+      </table>
+
                 <footer><p><a href="#top">[Top]</a></p></footer>
             </article>
             <article id="text__code">

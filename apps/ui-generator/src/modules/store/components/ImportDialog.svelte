@@ -5,7 +5,8 @@
     let importedStyles = ""
 
     const importStyles = () => {
-        configStore.import(importedStyles)
+        const cleanStyles = importedStyles.split('\n').filter(line => line.trim().length > 0 && !line.trim().startsWith("/")).join('\n')
+        configStore.import(cleanStyles)
     }
 
 </script>
