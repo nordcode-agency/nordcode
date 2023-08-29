@@ -32,7 +32,7 @@
 
     const measures = {
         '--measure-large': 'max-width: var(--measure-large)',
-        '--measrue-base': 'max-width: var(--measure-base)',
+        '--measure-base': 'max-width: var(--measure-base)',
         '--measure-small': 'max-width: var(--measure-small)',
     }
 

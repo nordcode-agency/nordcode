@@ -23,7 +23,7 @@
         },
                 {
             token: '--color-brand-primary-emphasis',
-            description: "Use to highlight the most important item. Also as background."
+            description: "Background: Use to highlight the most important item of a view or an interface."
         },
 
                 {
@@ -45,7 +45,7 @@
         },
                         {
             token: '--color-brand-secondary-emphasis',
-            description: "Use to highlight the most important item. Also as background."
+            description: "Background: Use to highlight the most important item of a view or an interface."
         },
 
 

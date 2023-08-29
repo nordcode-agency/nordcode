@@ -85,7 +85,8 @@ export type ConfigStore = {
   secondaryHue: number;
   secondaryLightness: number;
 
-  lightnessScaleFactor: number;
+  lightLightnessScaleFactor: number;
+  darkLightnessScaleFactor: number;
 
   lightNeutralChroma: number;
   lightNeutralTextLightness: number;
@@ -181,7 +182,8 @@ const defaultStore: ConfigStore = {
   secondaryHue: 215,
   secondaryLightness: 65,
 
-  lightnessScaleFactor: 3,
+  lightLightnessScaleFactor: 3,
+  darkLightnessScaleFactor: 2,
 
   lightNeutralChroma: 0.04,
   lightNeutralTextLightness: 16,

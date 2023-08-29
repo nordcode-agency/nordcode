@@ -30,7 +30,8 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
 
     shadowDistanceScale: 3,
 
-    lightnessScaleFactor: 1.5,
+    lightLightnessScaleFactor: 1.5,
+    darkLightnessScaleFactor: 1,
 
     lightNeutralChroma: 0.01,
     lightNeutralTextLightness: 24,
@@ -71,7 +72,8 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
 
     shadowDistanceScale: 3,
 
-    lightnessScaleFactor: 2,
+    lightLightnessScaleFactor: 1.5,
+    darkLightnessScaleFactor: 1,
 
     lightNeutralChroma: 0.06,
     lightNeutralTextLightness: 20,
@@ -112,7 +114,8 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
 
     shadowDistanceScale: 2,
 
-    lightnessScaleFactor: 2,
+    lightLightnessScaleFactor: 1.5,
+    darkLightnessScaleFactor: 1,
 
     lightNeutralChroma: 0.006,
     lightNeutralTextLightness: 7.5,
@@ -153,7 +156,8 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
 
     shadowDistanceScale: 3,
 
-    lightnessScaleFactor: 4,
+    lightLightnessScaleFactor: 1.5,
+    darkLightnessScaleFactor: 1,
 
     lightNeutralChroma: 0.008,
     lightNeutralTextLightness: 16,
