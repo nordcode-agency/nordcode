@@ -8,8 +8,8 @@
   </svg>    
   <section class="nc-ram-grid">
     <WorkCard />
-    <WorkCard highlight />
     <WorkCard />
+    <WorkCard highlight />
     <WorkCard />
     <WorkCard />
   </section>
