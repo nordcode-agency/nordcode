@@ -275,19 +275,64 @@ blockquote:before {
     :where(table) {
         inline-size: 100%;
         border-spacing: 0;
-        border-collapse: collapse;
+        border-collapse: separate;
+        border-spacing: 0;
         text-align: left;
         border: var(--border-width-medium) solid var(--color-border-default);
         border-radius: var(--border-radius-medium);
     }
 
+    :where(table > thead th:first-child) {
+            border-start-start-radius: var(--border-radius-medium);
+    }
+
+    :where(table > thead th:last-child) {
+            border-start-end-radius: var(--border-radius-medium);
+    }
+
+    :where(table > tfoot th:first-child) {
+            border-end-start-radius: var(--border-radius-medium);
+    }
+
+    :where(table > tfoot th:last-child) {
+            border-end-end-radius: var(--border-radius-medium);
+    }
+
+
+
     :where(td,th) {
         padding: var(--spacing-near);
-        border: var(--border-width-thin) solid var(--color-border-muted);
+        line-height: var(--line-height-small);
+        white-space: nowrap;
+    }
+
+    :where(td) {
+        border-block-end: var(--border-width-thin) solid var(--color-border-muted);
+    }
+
+    :where(tr:last-child > td) {
+        border: none;
+    }
+
+    :where(thead th) {
+        border-block-end: var(--border-width-thin) solid var(--color-border-muted);
+    }
+
+    :where(tfoot th) {
+        border-block-start: var(--border-width-thin) solid var(--color-border-muted);
     }
 
     :where(th) {
         background-color: var(--color-surface-subtle);
+        font-size: var(--font-size-small);
+    }
+
+    :where(tbody tr:hover) {
+        background: var(--color-brand-primary-hover);
+    }
+
+    :where(caption) {
+        color: var(--color-text-default);
     }
 
 }

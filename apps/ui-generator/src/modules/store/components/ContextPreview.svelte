@@ -1,4 +1,4 @@
-<div id="top" role="document">
+<div id="top" role="document" style="padding-inline: var(--spacing-base);">
     <nav>
         <ul>
             <li>
@@ -119,14 +119,11 @@
             </div>
             <h2>Borders</h2>
             <div class="cluster">
-                <div class="box" style="border: var(--border-width-medium) solid var(--color-border-strong)">
-                    <small>color-border-strong</small>
+                <div class="box" style="border: var(--border-width-medium) solid var(--color-border-default)">
+                    <small>color-border-default</small>
                 </div>
-                <div class="box" style="border: var(--border-width-medium) solid var(--color-border-base)">
-                    <small>color-border-base</small>
-                </div>
-                <div class="box" style="border: var(--border-width-medium) solid var(--color-border-subtle)">
-                    <small>color-border-subtle</small>
+                <div class="box" style="border: var(--border-width-medium) solid var(--color-border-muted)">
+                    <small>color-border-muted</small>
                 </div>
             </div>
             <h2>Shadows</h2>
@@ -361,6 +358,49 @@
                     </tr>
                     </tbody>
                 </table>
+                                <table>
+                    <caption>Table Caption</caption>
+                    <thead>
+                    <tr>
+                        <th>Table Heading 1</th>
+                        <th>Table Heading 2</th>
+                        <th>Table Heading 3</th>
+                        <th>Table Heading 4</th>
+                        <th>Table Heading 5</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Table Cell 1</td>
+                        <td>Table Cell 2</td>
+                        <td>Table Cell 3</td>
+                        <td>Table Cell 4</td>
+                        <td>Table Cell 5</td>
+                    </tr>
+                    <tr>
+                        <td>Table Cell 1</td>
+                        <td>Table Cell 2</td>
+                        <td>Table Cell 3</td>
+                        <td>Table Cell 4</td>
+                        <td>Table Cell 5</td>
+                    </tr>
+                    <tr>
+                        <td>Table Cell 1</td>
+                        <td>Table Cell 2</td>
+                        <td>Table Cell 3</td>
+                        <td>Table Cell 4</td>
+                        <td>Table Cell 5</td>
+                    </tr>
+                    <tr>
+                        <td>Table Cell 1</td>
+                        <td>Table Cell 2</td>
+                        <td>Table Cell 3</td>
+                        <td>Table Cell 4</td>
+                        <td>Table Cell 5</td>
+                    </tr>
+                    </tbody>
+                </table>
+
                 <footer><p><a href="#top">[Top]</a></p></footer>
             </article>
             <article id="text__code">
