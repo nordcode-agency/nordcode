@@ -15,6 +15,7 @@
 <style>
 	@import "@nordcode/ui/media";
   header {
+		pointer-events: none;
 		isolation: isolate;
 		z-index: 1;
 		position: fixed;
@@ -27,6 +28,7 @@
 	}
 
 	nav {
+		pointer-events: auto;
 		inline-size: min(100%, 60ch);
 		display: grid;
 		grid:

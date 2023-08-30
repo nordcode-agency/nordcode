@@ -2,13 +2,14 @@
   import ArrowRightSolid from '@nordcode/ui/ArrowRightSolid';
   import Story from '$lib/modules/common/components/Story.svelte';
 	import StoryItem from './StoryItem.svelte';
+	import WorkCard from './WorkCard.svelte';
 </script>
 
-<div class="hero">
-  <div class="stack" style="--stack-gap: var(--spacing-far);">
+<div class="stack hero">
+  <div class="headings section stack" style="--stack-gap: var(--spacing-far);">
     <div class="stack text">
       <h1>Wir erschaffen digitale Erlebnisse.</h1>
-      <h2>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</h2>
+      <!-- <h2>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</h2> -->
     </div>
     <div class="actions">
       <button class="story-btn nc-button" data-dialogtarget="preview">
@@ -31,33 +32,64 @@
       <button class="my-button" type="button">Los geht's</button>
     </div>
   </div>
+  <div class="box row">
+    <WorkCard />
+    <WorkCard />
+    <!-- <p>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</p> -->
+  </div>
 </div>
 
 <style lang="postcss">
+  @import "@nordcode/ui/media";
+
+  .hero {
+    block-size: 100dvh;
+  }
+
+  .headings {
+    flex-grow: 1;
+    margin-block-start: var(--spacing-farthest);
+  }
+
   .actions {
     display: flex;
     gap: var(--spacing-base);
   }
 
-  .hero {
-    display: grid;
-    place-items: center;
-    block-size: 90dvh;
+  h1 {
+    hyphens: none;
+    font-weight: var(--font-weight-regular);
+    /* font-size: var(--font-size-display); @todo adjust theme */
+    font-size: 3rem;
+    line-height: 4rem;
 
-    & h1 {
-      hyphens: none;
-      background: linear-gradient(
-        to left,
-        var(--color-brand-secondary-base),
-        var(--color-brand-primary-base)
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    @media (--md-n-above) {
+      font-size: 4rem;
+      line-height: 5rem;
     }
 
-    & h2 {
-      color: var(--color-text-subtle);
+    background: linear-gradient(
+      to left,
+      var(--color-brand-secondary-base),
+      var(--color-brand-primary-base)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .row {
+    inline-size: 100%;
+    display: flex;
+    gap: var(--spacing-base);
+    justify-content: flex-end;
+
+    @media (--md-n-above) {
+      gap: var(--spacing-far);
+      & > :global(*) {
+        flex: 0 1 260px;
+      }
     }
+
   }
 
   .text {

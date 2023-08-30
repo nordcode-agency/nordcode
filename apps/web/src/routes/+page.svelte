@@ -13,6 +13,7 @@
 <div class="section row">
   <WorkCard />
   <WorkCard />
+  <div class="nc-card">Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</div>
 </div>
 <div class="section row">
   <div class="highlight">
@@ -23,6 +24,7 @@
 <style lang="postcss">
   @import "@nordcode/ui/media";
   .row {
+    /* inline-size: var() */
     display: grid;
     row-gap: var(--spacing-farthest);
     column-gap: var(--spacing-far);

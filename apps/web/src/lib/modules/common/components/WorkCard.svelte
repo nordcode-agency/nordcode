@@ -21,6 +21,7 @@
 
   .container {
     container-type: inline-size;
+    inline-size: 100%;
   }
 
   .card {
@@ -34,19 +35,24 @@
       [img-end header-start]
       1fr
       [header-end full-end]
-      / [img-start header-start full-start] 1fr [img-end header-end full-end];
+      / 1fr;
     background: linear-gradient(45deg, oklch(var(--color-border-default-lch) / 0.03), oklch(var(--color-surface-default-lch) / 0.8));
     backdrop-filter: blur(var(--spacing-base));
     box-shadow:
       var(--_card-shadow),
       inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) oklch(var(--color-border-default-lch) / 0.8);
-    /* aspect-ratio: 4 / 5; */
     block-size: 100%;
 
     @media (--OSdark) {
       box-shadow:
       var(--_card-shadow),
       inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) var(--color-border-default);
+    }
+
+    @container (min-inline-size: 360px) {
+      & h2 {
+        font-size: var(--font-size-large);
+      }
     }
 
     @container (min-inline-size: 480px) {
@@ -63,6 +69,7 @@
       & .header {
         display: grid;
         place-items: end;
+        padding-block: var(--spacing-far);
       }
 
       & .headings {
@@ -80,13 +87,23 @@
     }
   }
 
+  :global([style*="--work-card-variant: row"]) .card {
+    grid-template: auto
+      / [img-start] auto [img-end header-start] 1fr [header-end];
+
+    & figure {
+      aspect-ratio: 1 / 1;
+      block-size: 96px;
+    }
+  }
+
   figure {
     grid-area: img;
   }
 
   img {
     block-size: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
     border-radius: var(--border-radius-small);
   }
@@ -94,6 +111,10 @@
   .header {
     grid-area: header;
     padding: var(--spacing-base);
+  }
+
+  h2 {
+    font-size: var(--font-size-base);
   }
 
   .headings {
