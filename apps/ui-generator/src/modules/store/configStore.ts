@@ -29,9 +29,10 @@ export type ConfigStore = {
   trackingStandard: number;
   trackingWide: number;
 
-  fontWeightBold: number;
-  fontWeightRegular: number;
-  fontWeightLight: number;
+  fontWeightDefault: number;
+  fontWeightActive: number;
+  fontWeightHeading: number;
+  fontWeightStrong: number;
 
   measureLarge: number;
   measureBase: number;
@@ -127,9 +128,10 @@ const defaultStore: ConfigStore = {
   trackingStandard: 0,
   trackingWide: 0.06,
 
-  fontWeightBold: 600,
-  fontWeightRegular: 400,
-  fontWeightLight: 300,
+  fontWeightHeading: 600,
+  fontWeightDefault: 400,
+  fontWeightActive: 600,
+  fontWeightStrong: 600,
 
   measureLarge: 88,
   measureBase: 72,

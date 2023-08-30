@@ -12,9 +12,10 @@ export const generateStyleString = (store: ConfigStore): string => {
         --font-family-serif: ${store.fontFamilySerif};
         --font-family-default: var(--font-family-${store.fontFamilyDefault});
 
-        --font-weight-bold: ${store.fontWeightBold};
-        --font-weight-regular: ${store.fontWeightRegular};
-        --font-weight-light: ${store.fontWeightLight};
+        --font-weight-default: ${store.fontWeightDefault};
+        --font-weight-heading: ${store.fontWeightHeading};
+        --font-weight-active: ${store.fontWeightActive};
+        --font-weight-strong: ${store.fontWeightStrong};
 
         --line-height-large: ${store.lineHeightLarge};
         --line-height-base: ${store.lineHeightBase};

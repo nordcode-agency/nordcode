@@ -31,7 +31,6 @@
                     name="fontFamilyDefault"
                     label="Font Family Default"
                     id="fontFamilyDefault"
-                    type="text"
                     bind:value={$configStore.fontFamilyDefault}
                     options={
                     [
@@ -47,7 +46,6 @@
 
 
             <InputWrapper
-                    name="fontScale"
                     label="Font Scale"
                     id="fontScale"
                     hint="Harmoniously update your font sizes based on this scale"
@@ -139,6 +137,39 @@
                     type="number"
                     bind:value={$configStore.lineHeightSmall}/>
         </fieldset>
+                <fieldset class="nc-fieldset stack -layout-base">
+            <legend>Font Weights</legend>
+            <Input
+                    name="fontWeightDefault"
+                    label="Default"
+                    id="fontWeightDefault"
+                    type="number"
+                    step="1"
+                    bind:value={$configStore.fontWeightDefault}/>
+                                <Input
+                    name="fontWeightHeading"
+                    label="Heading"
+                    id="fontWeightHeading"
+                    type="number"
+                    step="1"
+                    bind:value={$configStore.fontWeightHeading}/>
+            <Input
+                    name="fontWeightActive"
+                    label="Active"
+                    id="fontWeightActive"
+                    type="number"
+                    step="1"
+                    bind:value={$configStore.fontWeightActive}/>
+            <Input
+                    name="fontWeightStrong"
+                    label="Strong"
+                    id="fontWeightStrong"
+                    type="number"
+                    step="1"
+                    bind:value={$configStore.fontWeightStrong}/>
+
+        </fieldset>
+
         <fieldset class="nc-fieldset stack -layout-base">
             <legend>Tracking</legend>
             <Input
