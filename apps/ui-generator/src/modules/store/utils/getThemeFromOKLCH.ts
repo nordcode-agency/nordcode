@@ -24,7 +24,8 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
         ${getColorTokenAndValue(
           `text-light-muted`,
           `${clamp(
-            store.lightNeutralTextLightness * store.lightLightnessScaleFactor
+            store.lightNeutralTextLightness *
+              store.lightTextLightnessScaleFactor
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
 
@@ -32,8 +33,7 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
           `text-light-subtle`,
           `${clamp(
             store.lightNeutralTextLightness *
-              store.lightLightnessScaleFactor *
-              2
+              Math.pow(store.lightTextLightnessScaleFactor, 2)
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
         
@@ -52,9 +52,9 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
             100 -
               Math.max(
                 100 - store.lightNeutralSurfaceLightness,
-                store.lightLightnessScaleFactor
+                store.lightSurfaceLightnessScaleFactor
               ) *
-                store.lightLightnessScaleFactor
+                store.lightSurfaceLightnessScaleFactor
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
         
@@ -64,9 +64,9 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
             100 -
               Math.max(
                 100 - store.lightNeutralSurfaceLightness,
-                store.lightLightnessScaleFactor
+                store.lightSurfaceLightnessScaleFactor
               ) *
-                store.lightLightnessScaleFactor
+                store.lightSurfaceLightnessScaleFactor
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
                 
@@ -85,7 +85,7 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
           `${clamp(
             100 -
               (100 - store.lightNeutralBorderLightness) /
-                store.lightLightnessScaleFactor
+                store.lightTextLightnessScaleFactor
           ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
         )}
 
@@ -112,7 +112,7 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
           `${clamp(
             100 -
               (100 - store.darkNeutralTextLightness) *
-                store.darkLightnessScaleFactor
+                store.darkTextLightnessScaleFactor
           ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
 
@@ -121,7 +121,7 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
           `${clamp(
             100 -
               (100 - store.darkNeutralTextLightness) *
-                (store.darkLightnessScaleFactor * 2)
+                (store.darkTextLightnessScaleFactor * 2)
           ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
         
@@ -137,14 +137,16 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
         ${getColorTokenAndValue(
           `surface-dark-subtle`,
           `${clamp(
-            store.darkNeutralSurfaceLightness * store.darkLightnessScaleFactor
+            store.darkNeutralSurfaceLightness *
+              store.darkSurfaceLightnessScaleFactor
           ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
         
         ${getColorTokenAndValue(
           `surface-dark-inset`,
           `${clamp(
-            store.darkNeutralSurfaceLightness / store.darkLightnessScaleFactor
+            store.darkNeutralSurfaceLightness /
+              store.darkSurfaceLightnessScaleFactor
           ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
                 
@@ -161,7 +163,8 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
         ${getColorTokenAndValue(
           `border-dark-muted`,
           `${clamp(
-            store.darkNeutralBorderLightness / store.darkLightnessScaleFactor
+            store.darkNeutralBorderLightness /
+              store.darkTextLightnessScaleFactor
           ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
 

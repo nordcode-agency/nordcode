@@ -86,8 +86,10 @@ export type ConfigStore = {
   secondaryHue: number;
   secondaryLightness: number;
 
-  lightLightnessScaleFactor: number;
-  darkLightnessScaleFactor: number;
+  lightTextLightnessScaleFactor: number;
+  darkTextLightnessScaleFactor: number;
+  lightSurfaceLightnessScaleFactor: number;
+  darkSurfaceLightnessScaleFactor: number;
 
   lightNeutralChroma: number;
   lightNeutralTextLightness: number;
@@ -118,7 +120,7 @@ const defaultStore: ConfigStore = {
   fontSizeUnit: "rem",
 
   lineHeightLarge: 2,
-  lineHeightBase: 1.728,
+  lineHeightBase: 1.7,
   lineHeightSmall: 1.2,
 
   trackingTight: -0.04,
@@ -184,8 +186,10 @@ const defaultStore: ConfigStore = {
   secondaryHue: 215,
   secondaryLightness: 65,
 
-  lightLightnessScaleFactor: 3,
-  darkLightnessScaleFactor: 2,
+  lightTextLightnessScaleFactor: 3,
+  darkTextLightnessScaleFactor: 2,
+  lightSurfaceLightnessScaleFactor: 3,
+  darkSurfaceLightnessScaleFactor: 2,
 
   lightNeutralChroma: 0.04,
   lightNeutralTextLightness: 16,

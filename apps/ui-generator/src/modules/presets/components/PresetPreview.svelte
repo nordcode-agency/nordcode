@@ -61,6 +61,9 @@
             <div class="box inset">
                 <p>If you need an inset bg, use this. It's like a lower elevation.</p>
             </div>
+            <div class="box subtle-bg">
+                this is a sublte border
+            </div>
             <footer>
                 This could be your footer
             </footer>
@@ -90,9 +93,15 @@
     .inset {
         background: var(--color-surface-inset);
     }
+    .subtle-bg {
+        border: var(--border-width-thin) solid var(--color-border-muted);
+        border-radius: var(--border-radius-medium);
+    }
     footer {
         padding: var(--spacing-base);
         inline-size: 100%;
         background: var(--color-surface-subtle);
+        border: var(--border-width-thin) solid var(--color-border-muted);
+        border-radius: var(--border-radius-medium);
     }
 </style>
