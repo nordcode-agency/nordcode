@@ -45,8 +45,18 @@
     }
 
     .section {
-        padding-block: var(--spacing-far);
-        padding-inline: var(--spacing-far);
+        padding-block: var(--spacing-base);
+        padding-inline: var(--spacing-base);
+
+        @media (--sm-n-above) {
+            padding-block: var(--spacing-far);
+            padding-inline: var(--spacing-far);
+        }
+
+        @media (--md-n-above) {
+            padding-block: var(--spacing-farthest);
+            padding-inline: var(--spacing-farthest);
+        }
     }
 
     .layout-container {
