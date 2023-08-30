@@ -1,5 +1,5 @@
 <script>
-  import Logo from "./Logo.svelte";
+	import Logo from "./Logo.svelte";
 </script>
 
 <header>
@@ -35,7 +35,7 @@
 			/ 1fr 1fr auto;
 		align-items: center;
 		border-radius: var(--border-radius-large);
-		background: oklch(var(--color-surface-subtle-lch) / 0.6);
+		background: oklch(var(--color-surface-subtle-lch) / 0.8);
 		backdrop-filter: blur(16px);
 		overflow: hidden;
 

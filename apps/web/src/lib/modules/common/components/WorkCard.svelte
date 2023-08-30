@@ -35,7 +35,7 @@
       1fr
       [header-end full-end]
       / [img-start header-start full-start] 1fr [img-end header-end full-end];
-    background: linear-gradient(45deg, oklch(var(--color-border-default-lch) / 0.03), oklch(var(--color-surface-base-lch) / 0.8));
+    background: linear-gradient(45deg, oklch(var(--color-border-default-lch) / 0.03), oklch(var(--color-surface-default-lch) / 0.8));
     backdrop-filter: blur(var(--spacing-base));
     box-shadow:
       var(--_card-shadow),
