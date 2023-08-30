@@ -3,7 +3,7 @@
 
   font-family: var(--font-family-mono);
   letter-spacing: var(--tracking-tight);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-default);
   color: var(--color-text-default);
   border: var(--border-width-thin) solid var(--color-border-default);
   border-radius: var(--border-radius-small);

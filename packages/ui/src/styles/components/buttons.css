@@ -115,7 +115,7 @@
         padding-block: 0;
         font-family: var(--font-family-button);
         letter-spacing: var(--tracking-tight);
-        font-weight: var(--font-weight-regular);
+        font-weight: var(--font-weight-default);
         font-size: inherit;
         cursor: pointer;
         display: inline-flex;
@@ -165,6 +165,12 @@
             border-color: var(--_button-border-color-hover);
             box-shadow: var(--_button-hover-shadow);
             transform: var(--_button-hover-transform);
+        }
+
+        &[aria-pressed="true"] {
+            box-shadow: none;
+            transform: none;
+            font-weight: var(--font-weight-active);
         }
 
         &:hover:after {

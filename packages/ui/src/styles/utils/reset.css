@@ -54,7 +54,7 @@
         min-block-size: 100%;
         min-inline-size: 100%;
 
-        font-weight: var(--font-weight-regular);
+        font-weight: var(--font-weight-default);
 
         color: var(--color-text-default);
         background-color: var(--color-surface-default);

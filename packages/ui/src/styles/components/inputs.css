@@ -13,7 +13,7 @@
   :where(legend:not([class]), .nc-legend) {
     font-family: var(--font-family-default);
     letter-spacing: var(--tracking-tight);
-    font-weight: var(--font-weight-regular);
+    font-weight: var(--font-weight-active);
     color: var(--color-text-default);
     display: block;
     font-size: var(--font-size-base);
@@ -28,7 +28,7 @@
   :where(label:not([class]), .nc-input-label) {
     font-family: var(--font-family-default);
     letter-spacing: var(--tracking-tight);
-    font-weight: var(--font-weight-regular);
+    font-weight: var(--font-weight-default);
     color: var(--color-text-default);
     display: inline-flex;
     font-size: inherit;
@@ -224,7 +224,7 @@
       transform: scale(0.8) translateY(2em);
       transition: transform var(--ease-out-2) var(--transition-duration-short);
       font-family: var(--font-family-sans);
-      --font-weight: var(--font-weight-bold);
+      --font-weight: var(--font-weight-active);
       line-height: 1;
       color: var(--_input-background);
       clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
@@ -305,7 +305,7 @@
     &:before {
       font-family: var(--font-family-default);
       letter-spacing: var(--tracking-tight);
-      font-weight: var(--font-weight-regular);
+      font-weight: var(--font-weight-default);
       display: inline-flex;
       align-items: center;
       justify-content: center;

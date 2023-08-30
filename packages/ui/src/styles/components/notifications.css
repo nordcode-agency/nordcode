@@ -81,7 +81,7 @@
 
     .nc-notification-title {
         font-size: var(--font-size-base);
-        font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-heading);
     }
 
     .nc-notification-description {
