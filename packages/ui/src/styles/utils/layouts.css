@@ -46,6 +46,7 @@
 
     .section {
         padding-block: var(--spacing-far);
+        padding-inline: var(--spacing-far);
     }
 
     .layout-container {
