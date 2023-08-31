@@ -141,3 +141,4 @@ Learn more about the power of Turborepo:
 - <https://www.freefaces.gallery/> simple
 - <https://magnet.co/> simple
 - <https://unikorns.agency/> * simple
+- <https://www.getivy.io/> simple
