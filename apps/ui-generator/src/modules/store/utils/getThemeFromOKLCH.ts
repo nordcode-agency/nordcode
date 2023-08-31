@@ -1,6 +1,14 @@
 import type { ConfigStore } from "../configStore";
 
 export const getThemeFromOKLCH = (store: ConfigStore) => {
+  const warningLightness = Math.min(
+    Math.max(+store.primaryLightness + 25, 80),
+    92
+  );
+  const infoLightness = Math.min(Math.max(+store.primaryLightness, 55), 74);
+  const dangerLightness = Math.min(Math.max(+store.primaryLightness, 58), 68);
+  const successLightness = Math.min(Math.max(+store.primaryLightness, 50), 85);
+
   return `
         /* COLORS */
 
@@ -168,10 +176,32 @@ export const getThemeFromOKLCH = (store: ConfigStore) => {
           ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
         )}
 
-
-
         /*    Status */
-        --color-status-error: oklch(62.67% .289 25.41);
+        
+        ${getStatusColorTheme(
+          "info",
+          245,
+          infoLightness,
+          store.primaryLightness
+        )}
+        ${getStatusColorTheme(
+          "warning",
+          97,
+          warningLightness,
+          store.primaryLightness
+        )}
+        ${getStatusColorTheme(
+          "success",
+          142,
+          successLightness,
+          store.primaryLightness
+        )}
+        ${getStatusColorTheme(
+          "danger",
+          32,
+          dangerLightness,
+          store.primaryLightness
+        )}
         `;
 };
 
@@ -230,6 +260,59 @@ const getDarkColorTheme = (
     `brand-${name}-dark-contrast`,
     `${+lightness > 50 ? 1 : 99}% 0.05 ${hue}`
   )}
+    `.trim();
+};
+
+const getStatusColorTheme = (
+  name: "info" | "warning" | "success" | "danger",
+  hue: number,
+  lightness: number,
+  primaryLightness: number
+): string => {
+  const textLightness = Math.min(Math.max(+primaryLightness, 20), 52);
+  const lightSurfaceLightness = Math.min(
+    Math.max(+primaryLightness + 45, 65),
+    99.8
+  );
+  const darkSurfaceLightness = Math.min(
+    Math.max(+primaryLightness + 45, 65),
+    99.8
+  );
+
+  return `
+  ${getColorTokenAndValue(
+    `status-${name}-light-base`,
+    `${lightness}% 0.3 ${hue}`
+  )}
+
+${getColorTokenAndValue(
+  `status-${name}-light-text`,
+  `${textLightness}% 0.3 ${hue}`
+)}
+${getColorTokenAndValue(
+  `status-${name}-light-subtle`,
+  `${lightSurfaceLightness}% 0.12 ${hue}`
+)}
+${getColorTokenAndValue(
+  `status-${name}-light-hover`,
+  `${textLightness}% 0.3 ${hue} / 0.08`
+)}
+
+${getColorTokenAndValue(`status-${name}-dark-base`, `${lightness}% 0.3 ${hue}`)}
+
+${getColorTokenAndValue(
+  `status-${name}-dark-text`,
+  `${textLightness}% 0.3 ${hue}`
+)}
+${getColorTokenAndValue(
+  `status-${name}-dark-subtle`,
+  `${darkSurfaceLightness}% 0.12 ${hue}`
+)}
+${getColorTokenAndValue(
+  `status-${name}-dark-hover`,
+  `${textLightness}% 0.3 ${hue} / 0.08`
+)}
+
     `.trim();
 };
 

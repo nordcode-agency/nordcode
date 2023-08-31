@@ -94,7 +94,83 @@ description: 'Use for text on top of emphasized backgrounds, such as banners, ba
         {
             token: '--color-border-muted',
             description: 'Use for dividers to emphasize the separation between items, columns or sections.'
-        }
+        },
+
+
+        // status
+        {
+            token: '--color-status-info-base',
+            description: "Secondary status color. Used for accents and highlights."
+        },
+        {
+            token: '--color-status-info-text',
+            description: "Secondary status color. Used for accents and highlights."
+        },
+                {
+            token: '--color-status-info-subtle',
+            description: "Subtle version of the info status color. Used for backgrounds and borders."
+        },
+
+        {
+            token: '--color-status-info-hover',
+            description: "Used for slight hover highlights, like on outline buttons or checkbox inputs"
+        },
+
+        {
+            token: '--color-status-warning-base',
+            description: "Secondary status color. Used for accents and highlights."
+        },
+                {
+            token: '--color-status-warning-text',
+            description: "Secondary status color. Used for accents and highlights."
+        },
+                {
+            token: '--color-status-warning-subtle',
+            description: "Subtle version of the warning status color. Used for backgrounds and borders."
+        },
+
+        {
+            token: '--color-status-warning-hover',
+            description: "Used for slight hover highlights, like on outline buttons or checkbox inputs"
+        },
+
+        {
+            token: '--color-status-danger-base',
+            description: "Secondary status color. Used for accents and highlights."
+        },
+                {
+            token: '--color-status-danger-text',
+            description: "Secondary status color. Used for accents and highlights."
+        },
+                {
+            token: '--color-status-danger-subtle',
+            description: "Subtle version of the danger status color. Used for backgrounds and borders."
+        },
+
+        {
+            token: '--color-status-danger-hover',
+            description: "Used for slight hover highlights, like on outline buttons or checkbox inputs"
+        },
+
+        {
+            token: '--color-status-success-base',
+            description: "Secondary status color. Used for accents and highlights."
+        },
+                {
+            token: '--color-status-success-text',
+            description: "Secondary status color. Used for accents and highlights."
+        },
+                {
+            token: '--color-status-success-subtle',
+            description: "Subtle version of the success status color. Used for backgrounds and borders."
+        },
+        {
+            token: '--color-status-success-hover',
+            description: "Used for slight hover highlights, like on outline buttons or checkbox inputs"
+        },
+
+
+
     ]
 
 </script>
@@ -108,15 +184,24 @@ description: 'Use for text on top of emphasized backgrounds, such as banners, ba
             {/each}
         </div>
         <div class="cluster -layout-near">
-            <button class="nc-button">Default / Basic</button>
-            <button class="nc-button -primary">Primary</button>
-            <button class="nc-button -secondary">Secondary</button>
-            <button class="nc-button -outline -basic">Outline Basic</button>
-            <button class="nc-button -outline -primary">Outline Primary</button>
-            <button class="nc-button -outline -secondary">Outline Secondary</button>
-            <button class="nc-button -stealth">Stealth Basic</button>
-            <button class="nc-button -stealth -primary">Stealth Primary</button>
-            <button class="nc-button -stealth -secondary">Stealth Secondary</button>
+            <button class="nc-button live-theme">Default / Basic</button>
+            <button class="nc-button -primary live-theme">Primary</button>
+            <button class="nc-button -secondary live-theme">Secondary</button>
+            <button class="nc-button -outline -basic live-theme">Outline Basic</button>
+            <button class="nc-button -outline -primary live-theme">Outline Primary</button>
+            <button class="nc-button -outline -secondary live-theme">Outline Secondary</button>
+            <button class="nc-button -stealth live-theme">Stealth Basic</button>
+            <button class="nc-button -stealth -primary live-theme">Stealth Primary</button>
+            <button class="nc-button -stealth -secondary live-theme">Stealth Secondary</button>
+        </div>
+        <div class="cluster -layout-near">
+            <div class="badge live-theme">Standard</div>
+            <div class="badge -secondary live-theme">Secondary</div>
+            <div class="badge -emphasis live-theme">Emphasis</div>
+            <div class="badge -info live-theme">Info</div>
+            <div class="badge -warning live-theme">Warning</div>
+            <div class="badge -danger live-theme">Danger</div>
+            <div class="badge -success live-theme">Success</div>
         </div>
     </div>
 

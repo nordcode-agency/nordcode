@@ -1,5 +1,6 @@
 <script>
     import {configStore} from "../configStore";
+
     export let allStyles = '';
 
     const copyStyleExport = async () => {
