@@ -6,7 +6,7 @@
 </script>
 
 <div class="stack hero">
-  <div class="headings section stack" style="--stack-gap: var(--spacing-far);">
+  <div class="headings section">
     <div class="stack text">
       <h1>Wir erschaffen digitale Erlebnisse.</h1>
       <!-- <h2>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</h2> -->
@@ -49,6 +49,9 @@
   .headings {
     flex-grow: 1;
     margin-block-start: var(--spacing-farthest);
+    display: grid;
+    gap: var(--spacing-far);
+    align-content: center;
   }
 
   .actions {
