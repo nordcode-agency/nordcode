@@ -1,6 +1,18 @@
 <script lang="ts">
   import Header from "$lib/modules/common/components/Header.svelte";
   import Footer from '$lib/modules/common/components/Footer.svelte';
+  import { onNavigate } from '$app/navigation';
+
+  onNavigate((navigation) => {
+      if (!document.startViewTransition) return;
+
+      return new Promise((resolve) => {
+          document.startViewTransition(async () => {
+              resolve();
+              await navigation.complete;
+          });
+      });
+  });
 
   import { onMount } from "svelte";
   import { page } from "$app/stores";
@@ -17,7 +29,7 @@
 </svelte:head>
 
 <Header />
-<main class="stack -stretched">
+<main>
   <slot/>
 </main>
 <Footer/>
