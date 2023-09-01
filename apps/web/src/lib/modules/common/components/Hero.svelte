@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="box row">
-    <WorkCard variant="horizontal" />
+    <WorkCard variant="horizontal" transition />
     <WorkCard variant="horizontal" />
     <!-- <p>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</p> -->
   </div>
@@ -43,7 +43,7 @@
   @import "@nordcode/ui/media";
 
   .hero {
-    block-size: 100dvh;
+    min-block-size: 100dvh;
   }
 
   .headings {
@@ -81,18 +81,19 @@
   }
 
   .row {
-    inline-size: 100%;
+    margin-inline-start: auto;
+    inline-size: min(100%, max(40vw, 800px));
     display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-base);
-    justify-content: flex-end;
 
-    @media (--md-n-above) {
-      gap: var(--spacing-far);
-      & > :global(*) {
-        flex: 0 1 260px;
-      }
+    & :global(> *) {
+      flex: 1 1 360px;
     }
 
+    @media (--lg-n-above) {
+      gap: var(--spacing-far);
+    }
   }
 
   .text {
