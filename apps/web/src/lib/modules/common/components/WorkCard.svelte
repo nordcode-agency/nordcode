@@ -1,9 +1,9 @@
 <script lang="ts">
-  export let highlight: boolean = false;
+  export let variant: 'horizontal' | '' = '';
 </script>
 
-<div class="container" style:grid-column={highlight ? 'span 2' : 'span 1'}>
-  <div class="nc-card card">
+<div class="container">
+  <div class="nc-card card" data-variant={variant}>
     <figure>
       <img src="https://images.unsplash.com/photo-1690738083729-f5d21709425c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3165&q=80" alt="todo">
     </figure>
@@ -43,6 +43,11 @@
       inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) oklch(var(--color-border-default-lch) / 0.8);
     block-size: 100%;
 
+    &[data-variant="horizontal"] {
+      grid-template: 1fr 
+        / [img-start full-start] auto [img-end header-start] 1fr [header-end full-end];
+    }
+
     @media (--OSdark) {
       box-shadow:
       var(--_card-shadow),
@@ -59,26 +64,28 @@
       aspect-ratio: auto;
     }
 
-    @container (min-inline-size: 680px) {
-      aspect-ratio: 16 / 9;
-
-      & figure {
-        grid-area: full;
-      }
-
-      & .header {
-        display: grid;
-        place-items: end;
-        padding-block: var(--spacing-far);
-      }
-
-      & .headings {
-        background: oklch(var(--color-surface-subtle-lch) / 0.9);
-        backdrop-filter: blur(var(--spacing-base));
-        padding-block: var(--spacing-base);
-        padding-inline: var(--spacing-far);
-        border-radius: var(--border-radius-large);
-        box-shadow: var(--shadow-near);
+    &:not([data-variant="horizontal"]) {
+      @container (min-inline-size: 680px) {
+        aspect-ratio: 16 / 9;
+  
+        & figure {
+          grid-area: full;
+        }
+  
+        & .header {
+          display: grid;
+          place-items: end;
+          padding-block: var(--spacing-far);
+        }
+  
+        & .headings {
+          background: oklch(var(--color-surface-subtle-lch) / 0.9);
+          backdrop-filter: blur(var(--spacing-base));
+          padding-block: var(--spacing-base);
+          padding-inline: var(--spacing-far);
+          border-radius: var(--border-radius-large);
+          box-shadow: var(--shadow-near);
+        }
       }
     }
 

@@ -33,8 +33,8 @@
     </div>
   </div>
   <div class="box row">
-    <WorkCard />
-    <WorkCard />
+    <WorkCard variant="horizontal" />
+    <WorkCard variant="horizontal" />
     <!-- <p>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</p> -->
   </div>
 </div>
