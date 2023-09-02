@@ -1,16 +1,22 @@
 <script lang="ts">
+  import type { MediaImage } from '$lib/types/index';
+
   export let variant: 'horizontal' | '' = '';
   export let transition: boolean = false;
+  export let heading: string;
+  export let subheading: string;
+  export let cover: MediaImage;
+  export let slug: string;
 </script>
 
-<a href="/work" class="nc-card card" data-variant={variant}>
+<a href={`/work/${slug}`} class="nc-card card" data-variant={variant}>
   <figure data-transition={transition}>
-    <img src="https://images.unsplash.com/photo-1690738083729-f5d21709425c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3165&q=80" alt="todo">
+    <img src={cover.src} alt={cover.alt}>
   </figure>
   <div class="header">
     <div class="headings" data-transition={transition}>
-      <span>Farmers Snack</span>
-      <h2>A digital taste of your snack</h2>
+      <span>{subheading}</span>
+      <h2>{heading}</h2>
     </div>
   </div>
 </a>

@@ -3,6 +3,7 @@
   import Story from '$lib/modules/common/components/Story.svelte';
 	import StoryItem from './StoryItem.svelte';
 	import WorkCard from './WorkCard.svelte';
+  import { projects } from '$lib/content';
 </script>
 
 <div class="stack hero">
@@ -33,8 +34,21 @@
     </div>
   </div>
   <div class="box row">
-    <WorkCard variant="horizontal" transition />
-    <WorkCard variant="horizontal" />
+    <WorkCard
+      variant="horizontal"
+      transition
+      heading={projects[0].heading}
+      subheading={projects[0].subheading}
+      cover={projects[0].cover}
+      slug={projects[0].slug}
+    />
+    <WorkCard
+      variant="horizontal"
+      heading={projects[2].heading}
+      subheading={projects[2].subheading}
+      cover={projects[2].cover}
+      slug={projects[2].slug}
+    />
     <!-- <p>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</p> -->
   </div>
 </div>

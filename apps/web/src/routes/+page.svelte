@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import Hero from "$lib/modules/common/components/Hero.svelte";
-  import Work from "$lib/modules/common/components/Work.svelte";
 	import WorkCard from "$lib/modules/common/components/WorkCard.svelte";
+  import { projects } from '$lib/content/index';
 </script>
 
 <svelte:head>
@@ -11,13 +11,28 @@
 <Hero />
 <!-- <Work /> -->
 <div class="section row">
-  <WorkCard />
-  <WorkCard />
+  <WorkCard
+    heading={projects[1].heading}
+    subheading={projects[1].subheading}
+    cover={projects[1].cover}
+    slug={projects[1].slug}
+  />
+  <WorkCard
+    heading={projects[2].heading}
+    subheading={projects[2].subheading}
+    cover={projects[2].cover}
+    slug={projects[2].slug}
+  />
   <div class="nc-card">Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</div>
 </div>
 <div class="section row">
   <div class="highlight">
-    <WorkCard />
+    <WorkCard
+      heading={projects[2].heading}
+      subheading={projects[2].subheading}
+      cover={projects[2].cover}
+      slug={projects[2].slug}
+    />
   </div>
 </div>
 
