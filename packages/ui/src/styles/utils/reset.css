@@ -43,11 +43,12 @@
         inline-size: 100%;
         -webkit-text-size-adjust: none; /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
 
-        @media (--motionOK) {
+        /** Deactivated to avoid scrolling on navigation */
+        /* @media (--motionOK) {
             & {
                 scroll-behavior: smooth;
             }
-        }
+        } */
     }
 
     :where(body) {
