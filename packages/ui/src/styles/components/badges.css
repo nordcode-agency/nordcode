@@ -1,4 +1,6 @@
 .badge {
+    --color: var(--color-text-default);
+
     font-family: var(--font-family-mono);
     letter-spacing: var(--tracking-tight);
     font-weight: var(--font-weight-default);
@@ -12,7 +14,7 @@
     line-height: 1;
 
     &.-secondary {
-        color: var(--color-text-muted);
+        --color: var(--color-text-muted);
         border-color: var(--color-border-muted);
     }
 

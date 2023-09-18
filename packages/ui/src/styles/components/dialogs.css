@@ -103,7 +103,7 @@
 
     @keyframes open-dialog {
         from {
-            transform: translate(100%, 10dvh) rotate(20deg);
+            transform: translate(0%, 100dvh) rotate(0deg);
         }
         to {
             transform: translate(0dvh, 0%) rotate(0deg);
@@ -115,7 +115,7 @@
             transform: translate(0dvh, 0%) rotate(0deg);
         }
         to {
-            transform: translate(-50%, 100dvh) rotate(-5deg);
+            transform: translate(0%, 100dvh) rotate(10deg);
         }
     }
 
