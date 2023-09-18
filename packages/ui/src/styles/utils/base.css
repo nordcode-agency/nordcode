@@ -89,38 +89,38 @@
         margin-inline: 0;
 
 
-    &.-info:before {
-        content: "?";
-    }
+        &.-info:before {
+            content: "?";
+        }
 
-    &.-warning:before {
-        content: "!";
-    }
+        &.-warning:before {
+            content: "!";
+        }
 
     }
 
     .note.-info:before,
-.note.-warning:before,
-blockquote:before {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translate(-50%, -50%);
-    background-color: var(--color-surface-emphasis);
-    color: var(--color-text-on-emphasis);
-    inline-size: 1em;
-    block-size: 1em;
-    line-height: 1;
-    font-size: var(--font-size-large);
-    position: absolute;
-    box-shadow: var(--shadow-near);
-    inset-inline-start: 0;
-    inset-block-start: 0;
-}
+    .note.-warning:before,
+    blockquote:before {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-50%, -50%);
+        background-color: var(--color-surface-emphasis);
+        color: var(--color-text-on-emphasis);
+        inline-size: 1em;
+        block-size: 1em;
+        line-height: 1;
+        font-size: var(--font-size-large);
+        position: absolute;
+        box-shadow: var(--shadow-near);
+        inset-inline-start: 0;
+        inset-block-start: 0;
+    }
 
-blockquote:before {
-    content: "»";
-}
+    blockquote:before {
+        content: "»";
+    }
 
 
     cite {
@@ -281,19 +281,19 @@ blockquote:before {
     }
 
     :where(table > thead th:first-child) {
-            border-start-start-radius: var(--border-radius-medium);
+        border-start-start-radius: var(--border-radius-medium);
     }
 
     :where(table > thead th:last-child) {
-            border-start-end-radius: var(--border-radius-medium);
+        border-start-end-radius: var(--border-radius-medium);
     }
 
     :where(table > tfoot th:first-child) {
-            border-end-start-radius: var(--border-radius-medium);
+        border-end-start-radius: var(--border-radius-medium);
     }
 
     :where(table > tfoot th:last-child) {
-            border-end-end-radius: var(--border-radius-medium);
+        border-end-end-radius: var(--border-radius-medium);
     }
 
     :where(td,th) {

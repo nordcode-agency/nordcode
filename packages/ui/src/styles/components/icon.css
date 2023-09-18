@@ -36,11 +36,6 @@
     @supports (inline-size: 1lh) {
       --icon-size: 1lh;
     }
-
-    /* @url https://caniuse.com/?search=rlh%20unit */
-    @supports (inline-size: 1rlh) {
-      --icon-size: 1lh;
-    }
   }
 
   &[data-animation="spinning"] {
