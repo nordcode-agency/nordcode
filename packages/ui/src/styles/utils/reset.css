@@ -41,7 +41,9 @@
     :where(html) {
         block-size: 100%;
         inline-size: 100%;
-        -webkit-text-size-adjust: none; /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+        -moz-text-size-adjust: none;
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none;
 
         /** Deactivated to avoid scrolling on navigation */
         /* @media (--motionOK) {
@@ -64,6 +66,25 @@
         line-height: var(--line-height-base);
         font-style: normal;
     }
+
+    /* Remove default margin in favour of better control in authored CSS */
+    body, h1, h2, h3, h4, p,
+    figure, blockquote, dl, dd {
+        margin: 0;
+    }
+
+    /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+    ul[role='list'],
+    ol[role='list'] {
+        list-style: none;
+    }
+
+    /* Balance text wrapping on headings */
+    h1, h2,
+    h3, h4 {
+        text-wrap: balance;
+    }
+
 
     :where(img, svg, video, canvas, audio, iframe, embed, object) {
         display: block;
