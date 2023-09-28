@@ -3,7 +3,6 @@ import { getShadows } from "./getShadows";
 import { getThemeFromOKLCH } from "./getThemeFromOKLCH";
 
 export const generateStyleString = (store: ConfigStore): string => {
-  console.log("updates");
   return `
         /* Typography */
 

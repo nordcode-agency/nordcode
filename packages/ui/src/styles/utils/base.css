@@ -300,6 +300,7 @@
         padding: var(--spacing-near);
         line-height: var(--line-height-small);
         white-space: nowrap;
+        font-variant-numeric: tabular-nums;
     }
 
     :where(td) {
