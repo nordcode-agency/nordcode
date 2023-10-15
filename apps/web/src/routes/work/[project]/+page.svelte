@@ -1,12 +1,20 @@
+<script lang="ts">
+	import type { PageData } from "./$types";
+
+  export let data: PageData;
+
+  const { heading, subheading, cover, slug } = data;
+  
+</script>
 
 <article class="section">
   <div class="stack">
-    <figure>
-      <img src="https://images.unsplash.com/photo-1690738083729-f5d21709425c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3165&q=80" alt="todo">
+    <figure style={`--name: work-figure-${slug}`}>
+      <img src={cover?.src} alt={cover?.alt}>
     </figure>
-    <div class="headings">
-      <span>Farmers Snack</span>
-      <h2>A digital taste of your snack</h2>
+    <div class="headings" style={`--name: work-headings-${slug}`}>
+      <span>{subheading}</span>
+      <h2>{heading}</h2>
     </div>
     <p><strong>Auf dem letzten Hause eines kleinen Dörfchens</strong> befand sich ein <abbr title="Behausung eines langbeinigen Vogels">Storchnest</abbr>. Die Storchmutter saß im Neste bei ihren vier Jungen, welche den Kopf mit dem kleinen <em>schwarzen Schnabel</em>, denn er war noch nicht rot geworden, hervorstreckten. Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater <code>syntax</code>. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er. „Gewiss sieht es recht vornehm aus, dass meine Frau eine Schildwache bei dem Neste hat!“ dachte er. Und er stand unermüdlich auf <a href="#nirgendwo" title="Title für einem Bein">einem Beine</a>.</p>
     <h2>Header Level 2</h2>
@@ -39,14 +47,14 @@
   }
 
   figure {
-    view-transition-name: workimage;
+    view-transition-name: work-figure;
   }
 
-  :global(::view-transition-old(workimage)),
-  :global(::view-transition-new(workimage)) {
-      height: 100%;
-      width: 100%;
-    }
+  :global(::view-transition-old(work-figure)),
+  :global(::view-transition-new(work-figure)) {
+    /** @url https://developer.chrome.com/docs/web-platform/view-transitions/#handling-changes-in-aspect-ratio */
+    height: 100%;
+  }
 
   img {
     aspect-ratio: 21/9;
@@ -56,6 +64,6 @@
   }
 
   .headings {
-    view-transition-name: workheadings;
+    view-transition-name: work-headings;
   }
 </style>
