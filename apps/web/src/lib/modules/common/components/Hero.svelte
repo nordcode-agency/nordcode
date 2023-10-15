@@ -36,7 +36,6 @@
   <div class="box row">
     <WorkCard
       variant="horizontal"
-      transition
       heading={projects[0].heading}
       subheading={projects[0].subheading}
       cover={projects[0].cover}
@@ -44,10 +43,10 @@
     />
     <WorkCard
       variant="horizontal"
-      heading={projects[2].heading}
-      subheading={projects[2].subheading}
-      cover={projects[2].cover}
-      slug={projects[2].slug}
+      heading={projects[1].heading}
+      subheading={projects[1].subheading}
+      cover={projects[1].cover}
+      slug={projects[1].slug}
     />
     <!-- <p>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</p> -->
   </div>
@@ -57,12 +56,12 @@
   @import "@nordcode/ui/media";
 
   .hero {
-    min-block-size: 100dvh;
+    display: flex;
+    flex-direction: column;
   }
 
   .headings {
     flex-grow: 1;
-    margin-block-start: var(--spacing-farthest);
     display: grid;
     gap: var(--spacing-far);
     align-content: center;
