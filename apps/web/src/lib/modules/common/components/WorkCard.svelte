@@ -2,19 +2,20 @@
   import type { MediaImage } from '$lib/types/index';
 
   export let variant: 'horizontal' | '' = '';
-  export let transition: boolean = false;
   export let heading: string;
   export let subheading: string;
   export let cover: MediaImage;
   export let slug: string;
+
+  $: href = `/work/${slug}`;
 </script>
 
-<a href={`/work/${slug}`} class="nc-card card" data-variant={variant}>
-  <figure data-transition={transition}>
+<a {href} class="nc-card card" data-variant={variant}>
+  <figure>
     <img src={cover.src} alt={cover.alt}>
   </figure>
   <div class="header">
-    <div class="headings" data-transition={transition}>
+    <div class="headings">
       <span>{subheading}</span>
       <h2>{heading}</h2>
     </div>
@@ -116,10 +117,6 @@
 
   figure {
     grid-area: img;
-
-    &[data-transition="true"] {
-      view-transition-name: workimage;
-    }
   }
 
   img {
@@ -142,10 +139,6 @@
   .headings {
     & span {
       color: var(--color-text-muted);
-    }
-
-    &[data-transition="true"] {
-      view-transition-name: workheadings;
     }
   }
 </style>
