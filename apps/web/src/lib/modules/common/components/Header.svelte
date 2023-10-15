@@ -17,10 +17,6 @@
   header {
 		pointer-events: none;
 		isolation: isolate;
-		z-index: 1;
-		position: fixed;
-		top: 0;
-		left: 0;
 		display: grid;
 		place-items: center;
 		inline-size: 100%;
