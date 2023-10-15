@@ -2,42 +2,52 @@
   import Hero from "$lib/modules/common/components/Hero.svelte";
 	import WorkCard from "$lib/modules/common/components/WorkCard.svelte";
   import { projects } from '$lib/content/index';
+	import Header from "$lib/modules/common/components/Header.svelte";
 </script>
 
 <svelte:head>
 	<title>nordcode – we schaffen ein neues digitales Erlebnis.</title>
 </svelte:head>
 
-<Hero />
+<div class="fullscreen">
+  <Header />
+  <Hero />
+</div>
 <!-- <Work /> -->
 <div class="section row">
-  <WorkCard
-    heading={projects[1].heading}
-    subheading={projects[1].subheading}
-    cover={projects[1].cover}
-    slug={projects[1].slug}
-  />
   <WorkCard
     heading={projects[2].heading}
     subheading={projects[2].subheading}
     cover={projects[2].cover}
     slug={projects[2].slug}
   />
+  <WorkCard
+    heading={projects[3].heading}
+    subheading={projects[3].subheading}
+    cover={projects[3].cover}
+    slug={projects[3].slug}
+  />
   <div class="nc-card">Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</div>
 </div>
 <div class="section row">
   <div class="highlight">
     <WorkCard
-      heading={projects[2].heading}
-      subheading={projects[2].subheading}
-      cover={projects[2].cover}
-      slug={projects[2].slug}
+      heading={projects[4].heading}
+      subheading={projects[4].subheading}
+      cover={projects[4].cover}
+      slug={projects[4].slug}
     />
   </div>
 </div>
 
 <style lang="postcss">
   @import "@nordcode/ui/media";
+
+  .fullscreen {
+    block-size: 100dvh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
   .row {
     /* inline-size: var() */
     display: grid;
