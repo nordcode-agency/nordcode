@@ -21,6 +21,10 @@
 		place-items: center;
 		inline-size: 100%;
 		padding: var(--spacing-base);
+
+		@media (--sm-n-above) {
+			padding-inline: var(--spacing-far);
+		}
 	}
 
 	nav {
@@ -42,7 +46,6 @@
 			grid:
 				"home home work about" auto
 				/ 1fr 1fr auto auto;
-			padding-inline: var(--spacing-base);
 		}
 	}
 
