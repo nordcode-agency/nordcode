@@ -4,4 +4,4 @@
 </script>
 
 <Header />
-<slot />#
+<slot />
