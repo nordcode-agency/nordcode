@@ -6,7 +6,8 @@
 
     .stack {
         display: flex;
-        flex-direction: column;
+        flex-direction: var(--stack-flex-direction, column);
+        flex-wrap: var(--stack-flex-wrap, no-wrap);
         gap: var(--stack-gap, var(--spacing-base));
         grid-template-columns: minmax(0, 1fr);
         align-items: flex-start;
