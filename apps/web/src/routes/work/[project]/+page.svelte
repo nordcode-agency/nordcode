@@ -13,22 +13,25 @@
 
 <article class="section">
   <div class="stack">
-    <div class="hero full-width nc-ram-grid" style="--nc-ram-grid--nc-ram-grid-min-width: 240px; --nc-ram-grid-gap: var(--spacing-farthest);">
-      <div class="stack">
-        <div class="body headings" style={`--name: work-headings-${slug}`}>
+    <div class="section stack hero" style="--stack-gap: var(--spacing-far); --stack-flex-wrap: wrap;">
+      <div class="stack" style="--stack-flex-direction: var(--spacing-base)">
+        <figure class="thumbnail">
+          <img src={cover?.src} alt={cover?.alt}>
+        </figure>
+        <div class="headings">
           <span class="subheading">{subheading}</span>
           <h2>{heading}</h2>
         </div>
-        <p class="tldr"><strong>
-          tldr; Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater syntax. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er.
-        </strong></p>
       </div>
-      <figure style={`--name: work-figure-${slug}`}>
-        <img src={cover?.src} alt={cover?.alt}>
-      </figure>
     </div>
+    <p class="tldr"><strong>
+      tldr; Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater syntax. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er.
+    </strong></p>
     <div class="body">
       <p><strong>Auf dem letzten Hause eines kleinen Dörfchens</strong> befand sich ein <abbr title="Behausung eines langbeinigen Vogels">Storchnest</abbr>. Die Storchmutter saß im Neste bei ihren vier Jungen, welche den Kopf mit dem kleinen <em>schwarzen Schnabel</em>, denn er war noch nicht rot geworden, hervorstreckten. Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater <code>syntax</code>. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er. „Gewiss sieht es recht vornehm aus, dass meine Frau eine Schildwache bei dem Neste hat!“ dachte er. Und er stand unermüdlich auf <a href="#nirgendwo" title="Title für einem Bein">einem Beine</a>.</p>
+      <figure class="full-width main-image">
+        <img src={cover?.src} alt={cover?.alt}>
+      </figure>
       <h2>Header Level 2</h2>
       <ol>
         <li>Und was dann? fragten die Storchkinder.</li>
@@ -54,9 +57,10 @@
 </article>
 
 <style lang="postcss">
+  @import "@nordcode/ui/media";
 
   .hero {
-    block-size: 70vh;
+    padding-inline: 0;
   }
   article {
     padding-block-start: 0;
@@ -78,12 +82,16 @@
   }
 
   .tldr {
+    max-inline-size: 40ch;
     font-size: var(--font-size-largest);
     color: var(--color-brand-primary-base);
+
+    & strong {
+      font-weight: var(--font-weight-default);
+    }
   }
 
   figure {
-    view-transition-name: work-figure;
     display: initial;
     min-block-size: 0;
   }
@@ -102,12 +110,28 @@
     border-radius: var(--border-radius-large);
   }
 
+  .main-image {
+    aspect-ratio: 16/9;
+  }
+
+  .thumbnail {
+    view-transition-name: work-figure;
+    inline-size: 100%;
+    aspect-ratio: 16/9;
+
+    @media (--md-n-above) {
+      inline-size: 20ch;
+      aspect-ratio: 1/1;
+    }
+  }
+
   .headings {
     view-transition-name: work-headings;
   }
 
   h2 {
     font-size: calc(var(--font-size-display) * 1.5);
+    line-height: 1.3;
   }
 
   .subheading {
