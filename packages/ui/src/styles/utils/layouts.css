@@ -153,4 +153,10 @@
         inline-size: 100%;
     }
 
+    // Center an item
+    .center {
+      display: grid;
+      place-items: center;
+    }
+
 }
