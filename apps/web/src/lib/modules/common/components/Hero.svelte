@@ -6,7 +6,7 @@
   import { projects } from '$lib/content';
 </script>
 
-<div class="stack hero">
+<div class="hero">
   <div class="headings section">
     <div class="stack text">
       <h1>Wir erschaffen digitale Erlebnisse.</h1>
