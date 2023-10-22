@@ -44,7 +44,7 @@
   @import "@nordcode/ui/media";
 
   .fullscreen {
-    block-size: 100dvh;
+    min-block-size: 100dvh;
     display: grid;
     grid-template-rows: auto 1fr;
   }
