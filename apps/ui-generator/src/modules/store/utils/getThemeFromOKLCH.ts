@@ -1,319 +1,181 @@
 import type { ConfigStore } from "../configStore";
+import {
+  getTextLightValues,
+  getSurfaceLightValues,
+  getBorderLightValues,
+  getTextDarkValues,
+  getSurfaceDarkValues,
+  getBorderDarkValues,
+  infoHue,
+  getInfoLightness,
+  warningHue,
+  getWarningLightness,
+  successHue,
+  getSuccessLightness,
+  dangerHue,
+  getDangerLightness,
+  getLightColorValues,
+  getDarkColorValues,
+  getStatusLightColorValues,
+  getStatusDarkColorValues,
+} from "./SharedThemeValues";
 
 export const getThemeFromOKLCH = (store: ConfigStore) => {
-  const warningLightness = Math.min(
-    Math.max(+store.primaryLightness + 25, 80),
-    92
+  const textLightValues = getTextLightValues(
+    +store.lightNeutralTextLightness,
+    +store.lightTextLightnessScaleFactor,
+    +store.lightNeutralChroma,
+    +store.primaryHue
   );
-  const infoLightness = Math.min(Math.max(+store.primaryLightness, 55), 74);
-  const dangerLightness = Math.min(Math.max(+store.primaryLightness, 58), 68);
-  const successLightness = Math.min(Math.max(+store.primaryLightness, 50), 85);
+
+  const surfaceLightValues = getSurfaceLightValues(
+    +store.lightNeutralSurfaceLightness,
+    +store.lightSurfaceLightnessScaleFactor,
+    +store.lightNeutralChroma,
+    +store.primaryHue
+  );
+
+  const borderLightValues = getBorderLightValues(
+    +store.lightNeutralBorderLightness,
+    +store.lightTextLightnessScaleFactor,
+    +store.lightNeutralChroma,
+    +store.primaryHue
+  );
+
+  const textDarkValues = getTextDarkValues(
+    +store.darkNeutralTextLightness,
+    +store.darkTextLightnessScaleFactor,
+    +store.darkNeutralChroma,
+    +store.primaryHue
+  );
+
+  const surfaceDarkValues = getSurfaceDarkValues(
+    +store.darkNeutralSurfaceLightness,
+    +store.darkSurfaceLightnessScaleFactor,
+    +store.darkNeutralChroma,
+    +store.primaryHue
+  );
+
+  const borderDarkValues = getBorderDarkValues(
+    +store.darkNeutralBorderLightness,
+    +store.darkTextLightnessScaleFactor,
+    +store.darkNeutralChroma,
+    +store.primaryHue
+  );
 
   return `
         /* COLORS */
 
         /* Light Theme */
 
-        ${getLightColorTheme(
-          "primary",
-          store.primaryHue,
-          store.primaryLightness
-        )}
+        ${getLightColorTheme("primary", +store.primaryHue, +store.primaryLightness)}
 
-        ${getLightColorTheme(
-          "secondary",
-          store.secondaryHue,
-          store.secondaryLightness
-        )}
-        ${getColorTokenAndValue(
-          `text-light-default`,
-          `${store.lightNeutralTextLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
-        )}
-        ${getColorTokenAndValue(
-          `text-light-muted`,
-          `${clamp(
-            store.lightNeutralTextLightness *
-              store.lightTextLightnessScaleFactor
-          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
-        )}
-
-        ${getColorTokenAndValue(
-          `text-light-subtle`,
-          `${clamp(
-            store.lightNeutralTextLightness *
-              Math.pow(store.lightTextLightnessScaleFactor, 2)
-          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
-        )}
+        ${getLightColorTheme("secondary", +store.secondaryHue, +store.secondaryLightness)}
         
-        ${getColorTokenAndValue(
-          `text-light-on-emphasis`,
-          `${store.lightNeutralSurfaceLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
-        )}
-
-        ${getColorTokenAndValue(
-          `surface-light-default`,
-          `${store.lightNeutralSurfaceLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
-        )}
-        ${getColorTokenAndValue(
-          `surface-light-subtle`,
-          `${clamp(
-            100 -
-              Math.max(
-                100 - store.lightNeutralSurfaceLightness,
-                store.lightSurfaceLightnessScaleFactor
-              ) *
-                store.lightSurfaceLightnessScaleFactor
-          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
-        )}
-        
-        ${getColorTokenAndValue(
-          `surface-light-inset`,
-          `${clamp(
-            100 -
-              Math.max(
-                100 - store.lightNeutralSurfaceLightness,
-                store.lightSurfaceLightnessScaleFactor
-              ) *
-                store.lightSurfaceLightnessScaleFactor
-          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
-        )}
-                
-        ${getColorTokenAndValue(
-          `surface-light-emphasis`,
-          `${store.lightNeutralTextLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
-        )}
-        
-
-        ${getColorTokenAndValue(
-          `border-light-default`,
-          `${store.lightNeutralBorderLightness}% ${store.lightNeutralChroma} ${store.primaryHue}`
-        )}
-        ${getColorTokenAndValue(
-          `border-light-muted`,
-          `${clamp(
-            100 -
-              (100 - store.lightNeutralBorderLightness) /
-                store.lightTextLightnessScaleFactor
-          ).toFixed(0)}% ${store.lightNeutralChroma} ${store.primaryHue}`
-        )}
+        ${mapValuesToToken("text-light", textLightValues)}
+        ${mapValuesToToken("surface-light", surfaceLightValues)}
+        ${mapValuesToToken("border-light", borderLightValues)}
 
         /* Dark Theme */
 
-        ${getDarkColorTheme(
-          "primary",
-          store.primaryHue,
-          store.primaryLightness
-        )}
+        ${getDarkColorTheme("primary", +store.primaryHue, +store.primaryLightness)}
 
-        ${getDarkColorTheme(
-          "secondary",
-          store.secondaryHue,
-          store.secondaryLightness
-        )}
+        ${getDarkColorTheme("secondary", +store.secondaryHue, +store.secondaryLightness)}
         
-        ${getColorTokenAndValue(
-          `text-dark-default`,
-          `${store.darkNeutralTextLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
-        )}
-        ${getColorTokenAndValue(
-          `text-dark-muted`,
-          `${clamp(
-            100 -
-              (100 - store.darkNeutralTextLightness) *
-                store.darkTextLightnessScaleFactor
-          ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
-        )}
-
-        ${getColorTokenAndValue(
-          `text-dark-subtle`,
-          `${clamp(
-            100 -
-              (100 - store.darkNeutralTextLightness) *
-                (store.darkTextLightnessScaleFactor * 2)
-          ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
-        )}
-        
-        ${getColorTokenAndValue(
-          `text-dark-on-emphasis`,
-          `${store.darkNeutralSurfaceLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
-        )}
-
-        ${getColorTokenAndValue(
-          `surface-dark-default`,
-          `${store.darkNeutralSurfaceLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
-        )}
-        ${getColorTokenAndValue(
-          `surface-dark-subtle`,
-          `${clamp(
-            store.darkNeutralSurfaceLightness *
-              store.darkSurfaceLightnessScaleFactor
-          ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
-        )}
-        
-        ${getColorTokenAndValue(
-          `surface-dark-inset`,
-          `${clamp(
-            store.darkNeutralSurfaceLightness /
-              store.darkSurfaceLightnessScaleFactor
-          ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
-        )}
-                
-        ${getColorTokenAndValue(
-          `surface-dark-emphasis`,
-          `${store.darkNeutralTextLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
-        )}
-        
-
-        ${getColorTokenAndValue(
-          `border-dark-default`,
-          `${store.darkNeutralBorderLightness}% ${store.darkNeutralChroma} ${store.primaryHue}`
-        )}
-        ${getColorTokenAndValue(
-          `border-dark-muted`,
-          `${clamp(
-            store.darkNeutralBorderLightness /
-              store.darkTextLightnessScaleFactor
-          ).toFixed(0)}% ${store.darkNeutralChroma} ${store.primaryHue}`
-        )}
+        ${mapValuesToToken("text-dark", textDarkValues)}
+        ${mapValuesToToken("surface-dark", surfaceDarkValues)}
+        ${mapValuesToToken("border-dark", borderDarkValues)}
 
         /*    Status */
         
-        ${getStatusColorTheme(
+        ${getStatusLightColorTheme(
           "info",
-          245,
-          infoLightness,
-          store.primaryLightness
+          infoHue,
+          getInfoLightness(+store.primaryLightness),
+          +store.primaryLightness
         )}
-        ${getStatusColorTheme(
+        ${getStatusDarkColorTheme(
+          "info",
+          infoHue,
+          getInfoLightness(+store.primaryLightness),
+          +store.primaryLightness
+        )}
+        ${getStatusLightColorTheme(
           "warning",
-          97,
-          warningLightness,
-          store.primaryLightness
+          warningHue,
+          getWarningLightness(+store.primaryLightness),
+          +store.primaryLightness
         )}
-        ${getStatusColorTheme(
+        ${getStatusDarkColorTheme(
+          "warning",
+          warningHue,
+          getWarningLightness(+store.primaryLightness),
+          +store.primaryLightness
+        )}
+        ${getStatusLightColorTheme(
           "success",
-          142,
-          successLightness,
-          store.primaryLightness
+          successHue,
+          getSuccessLightness(+store.primaryLightness),
+          +store.primaryLightness
         )}
-        ${getStatusColorTheme(
+        ${getStatusDarkColorTheme(
+          "success",
+          successHue,
+          getSuccessLightness(+store.primaryLightness),
+          +store.primaryLightness
+        )}
+        ${getStatusLightColorTheme(
           "danger",
-          32,
-          dangerLightness,
-          store.primaryLightness
+          dangerHue,
+          getDangerLightness(+store.primaryLightness),
+          +store.primaryLightness
+        )}
+        ${getStatusDarkColorTheme(
+          "danger",
+          dangerHue,
+          getDangerLightness(+store.primaryLightness),
+          +store.primaryLightness
         )}
         `;
 };
 
-const getLightColorTheme = (
-  name: "primary" | "secondary",
-  hue: number,
-  lightness: number
-) => {
-  return `
-${getColorTokenAndValue(
-  `brand-${name}-light-emphasis`,
-  `${+lightness - 10}% 0.14 ${hue}`
-)}
-${getColorTokenAndValue(
-  `brand-${name}-light-base`,
-  `${+lightness}% 0.3 ${hue}`
-)}
-${getColorTokenAndValue(
-  `brand-${name}-light-subtle`,
-  `${+lightness + 10}% 0.08 ${hue}`
-)}
-${getColorTokenAndValue(
-  `brand-${name}-light-hover`,
-  `${+lightness}% 0.3 ${hue} / 0.08`
-)}
-${getColorTokenAndValue(
-  `brand-${name}-light-contrast`,
-  `${+lightness > 50 ? 1 : 99}% 0.05 ${hue}`
-)}
-    `.trim();
+const getLightColorTheme = (name: "primary" | "secondary", hue: number, lightness: number) => {
+  const colorValues = getLightColorValues(lightness, hue);
+  return mapValuesToToken(`brand-${name}-light`, colorValues);
 };
 
-const getDarkColorTheme = (
-  name: "primary" | "secondary",
-  hue: number,
-  lightness: number
-) => {
-  return `
-  ${getColorTokenAndValue(
-    `brand-${name}-dark-emphasis`,
-    `${+lightness - 10}% 0.14 ${hue}`
-  )}
-  ${getColorTokenAndValue(
-    `brand-${name}-dark-base`,
-    `${+lightness}% 0.3 ${hue}`
-  )}
-  ${getColorTokenAndValue(
-    `brand-${name}-dark-subtle`,
-    `${+lightness + 10}% 0.08 ${hue}`
-  )}
-  ${getColorTokenAndValue(
-    `brand-${name}-dark-hover`,
-    `${+lightness}% 0.3 ${hue} / 0.08`
-  )}
-  ${getColorTokenAndValue(
-    `brand-${name}-dark-contrast`,
-    `${+lightness > 50 ? 1 : 99}% 0.05 ${hue}`
-  )}
-    `.trim();
+const getDarkColorTheme = (name: "primary" | "secondary", hue: number, lightness: number) => {
+  const colorValues = getDarkColorValues(lightness, hue);
+  return mapValuesToToken(`brand-${name}-dark`, colorValues);
 };
 
-const getStatusColorTheme = (
+const getStatusLightColorTheme = (
   name: "info" | "warning" | "success" | "danger",
   hue: number,
   lightness: number,
   primaryLightness: number
 ): string => {
-  const textLightness = Math.min(Math.max(+primaryLightness, 20), 52);
-  const lightSurfaceLightness = Math.min(
-    Math.max(+primaryLightness + 45, 65),
-    99.8
-  );
-  const darkSurfaceLightness = Math.min(
-    Math.max(+primaryLightness + 45, 65),
-    99.8
-  );
+  const colorValues = getStatusLightColorValues(lightness, hue, primaryLightness);
+  return mapValuesToToken(`status-${name}-light`, colorValues);
+};
 
-  return `
-  ${getColorTokenAndValue(
-    `status-${name}-light-base`,
-    `${lightness}% 0.3 ${hue}`
-  )}
+const getStatusDarkColorTheme = (
+  name: "info" | "warning" | "success" | "danger",
+  hue: number,
+  lightness: number,
+  primaryLightness: number
+): string => {
+  const colorValues = getStatusDarkColorValues(lightness, hue, primaryLightness);
+  return mapValuesToToken(`status-${name}-dark`, colorValues);
+};
 
-${getColorTokenAndValue(
-  `status-${name}-light-text`,
-  `${textLightness}% 0.3 ${hue}`
-)}
-${getColorTokenAndValue(
-  `status-${name}-light-subtle`,
-  `${lightSurfaceLightness}% 0.12 ${hue}`
-)}
-${getColorTokenAndValue(
-  `status-${name}-light-hover`,
-  `${textLightness}% 0.3 ${hue} / 0.08`
-)}
-
-${getColorTokenAndValue(`status-${name}-dark-base`, `${lightness}% 0.3 ${hue}`)}
-
-${getColorTokenAndValue(
-  `status-${name}-dark-text`,
-  `${textLightness}% 0.3 ${hue}`
-)}
-${getColorTokenAndValue(
-  `status-${name}-dark-subtle`,
-  `${darkSurfaceLightness}% 0.12 ${hue}`
-)}
-${getColorTokenAndValue(
-  `status-${name}-dark-hover`,
-  `${textLightness}% 0.3 ${hue} / 0.08`
-)}
-
-    `.trim();
+const mapValuesToToken = (baseName: string, values: Record<string, string>): string => {
+  return Object.entries(values)
+    .map(([variant, value]) => {
+      return getColorTokenAndValue(`${baseName}-${variant}`, value);
+    })
+    .join("\n")
+    .trim();
 };
 
 const getColorTokenAndValue = (name: string, value: string): string => {
@@ -321,8 +183,4 @@ const getColorTokenAndValue = (name: string, value: string): string => {
 --color-${name}-lch: ${value};
 --color-${name}: oklch(var(--color-${name}-lch));
   `.trim();
-};
-
-const clamp = (value: number): number => {
-  return Math.min(Math.max(value, 0), 100);
 };
