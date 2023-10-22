@@ -1,5 +1,6 @@
 <script>
     import {configStore} from "../configStore";
+    import { getWPTheme } from '../utils/generateWPTheme';
 
     export let allStyles = '';
 
@@ -13,6 +14,11 @@
         const url = new URL(window.location.origin + window.location.pathname)
         url.search = searchParams.toString()
         await navigator.clipboard.writeText(url);
+    }
+
+    const copyWPThemeToClipboard = async () => {
+        const theme = getWPTheme(configStore.exportToJSON());
+        await navigator.clipboard.writeText(JSON.stringify(theme, null, 2))
     }
 </script>
 
@@ -51,6 +57,14 @@
                     data-notification-title="✓ To clipboard"
                     data-notification-description="Copied stateful URL to clipboard"
             >Copy URL
+            </button>
+            <button on:click={copyWPThemeToClipboard}
+            data-closes-dialog="export-dialog"
+                    data-has-notification
+                    data-notification-title="✓ To clipboard"
+                    data-notification-description="Copied WP theme to clipboard"
+            >
+                Copy WP
             </button>
         </footer>
     </div>
