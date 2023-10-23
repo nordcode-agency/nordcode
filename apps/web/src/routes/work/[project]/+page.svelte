@@ -13,7 +13,7 @@
 
 <article class="section">
   <div class="stack">
-    <div class="section stack hero" style="--stack-gap: var(--spacing-far); --stack-flex-wrap: wrap;">
+    <div class="section stack hero">
       <div class="stack" style="--stack-flex-direction: var(--spacing-base)">
         <figure class="thumbnail">
           <img src={cover?.src} alt={cover?.alt}>
@@ -24,34 +24,39 @@
         </div>
       </div>
     </div>
-    <p class="tldr"><strong>
-      tldr; Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater syntax. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er.
-    </strong></p>
-    <div class="body">
-      <p><strong>Auf dem letzten Hause eines kleinen Dörfchens</strong> befand sich ein <abbr title="Behausung eines langbeinigen Vogels">Storchnest</abbr>. Die Storchmutter saß im Neste bei ihren vier Jungen, welche den Kopf mit dem kleinen <em>schwarzen Schnabel</em>, denn er war noch nicht rot geworden, hervorstreckten. Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater <code>syntax</code>. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er. „Gewiss sieht es recht vornehm aus, dass meine Frau eine Schildwache bei dem Neste hat!“ dachte er. Und er stand unermüdlich auf <a href="#nirgendwo" title="Title für einem Bein">einem Beine</a>.</p>
-      <figure class="full-width main-image">
-        <img src={cover?.src} alt={cover?.alt}>
-      </figure>
-      <h2>Header Level 2</h2>
-      <ol>
-        <li>Und was dann? fragten die Storchkinder.</li>
-        <li>Dann werden wir aber doch gepfählt, wie die Knaben behaupteten, und höre nur, jetzt sagen sie es schon wieder!</li>
-      </ol>
-  
-      <p>Unten auf der Straße spielte eine Schar Kinder und als sie die Störche erblickten, sang einer der dreistesten Knaben und allmählich alle <acronym title="zusammen">zus.</acronym> einen Vers aus einem alten Storchliede, so gut sie sich dessen erinnern konnten:</p>
-  
-      <blockquote cite="Hans Andersen">
-        <p>Störchlein, Störchlein, fliege,<br />Damit ich dich nicht kriege, <br />Deine Frau, die liegt im Neste dein Bei deinen lieben Kindelein: Das eine wird gepfählt, Das andere wird abgekehlt, Das dritte wird verbrannt, Das vierte dir entwandt!</p>
-        <p><cite>Hans Andersen</cite></p>
-      </blockquote>
-  
-      <p>Höre nur, was die Jungen singen! sagten die kleinen Storchkinder. Sie sagen, wir sollen gebraten und verbrannt werden!</p>
-  
-      <h3>Header Level 3</h3>
-      <ul>
-        <li>Das eine wird gepfählt</li>
-        <li>Das andere wird abgekehlt!</li>
-      </ul>
+    <div class="main">
+      <div class="stack">
+        <a href="#" class="nc-button -outline">Website öffnen</a>
+        <p class="tldr"><strong>
+          tldr; Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater syntax. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er.
+        </strong></p>
+      </div>
+      <div class="body flow">
+        <p><strong>Auf dem letzten Hause eines kleinen Dörfchens</strong> befand sich ein <abbr title="Behausung eines langbeinigen Vogels">Storchnest</abbr>. Die Storchmutter saß im Neste bei ihren vier Jungen, welche den Kopf mit dem kleinen <em>schwarzen Schnabel</em>, denn er war noch nicht rot geworden, hervorstreckten. Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater <code>syntax</code>. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er. „Gewiss sieht es recht vornehm aus, dass meine Frau eine Schildwache bei dem Neste hat!“ dachte er. Und er stand unermüdlich auf <a href="#nirgendwo" title="Title für einem Bein">einem Beine</a>.</p>
+        <figure class="full-width">
+          <img src={cover?.src} alt={cover?.alt}>
+        </figure>
+        <h2>Header Level 2</h2>
+        <ol>
+          <li>Und was dann? fragten die Storchkinder.</li>
+          <li>Dann werden wir aber doch gepfählt, wie die Knaben behaupteten, und höre nur, jetzt sagen sie es schon wieder!</li>
+        </ol>
+    
+        <p>Unten auf der Straße spielte eine Schar Kinder und als sie die Störche erblickten, sang einer der dreistesten Knaben und allmählich alle <acronym title="zusammen">zus.</acronym> einen Vers aus einem alten Storchliede, so gut sie sich dessen erinnern konnten:</p>
+    
+        <blockquote cite="Hans Andersen">
+          <p>Störchlein, Störchlein, fliege,<br />Damit ich dich nicht kriege, <br />Deine Frau, die liegt im Neste dein Bei deinen lieben Kindelein: Das eine wird gepfählt, Das andere wird abgekehlt, Das dritte wird verbrannt, Das vierte dir entwandt!</p>
+          <p><cite>Hans Andersen</cite></p>
+        </blockquote>
+    
+        <p>Höre nur, was die Jungen singen! sagten die kleinen Storchkinder. Sie sagen, wir sollen gebraten und verbrannt werden!</p>
+    
+        <h3>Header Level 3</h3>
+        <ul>
+          <li>Das eine wird gepfählt</li>
+          <li>Das andere wird abgekehlt!</li>
+        </ul>
+      </div>
     </div>
   </div>
 </article>
@@ -60,20 +65,36 @@
   @import "@nordcode/ui/media";
 
   .hero {
+    --stack-flex-wrap: wrap;
+
     padding-inline: 0;
+
+    @media (--md-n-above) {
+      --stack-gap: var(--spacing-far);
+    }
   }
+
+  .main {
+    display: grid;
+    align-items: start;
+    gap: var(--spacing-far);
+
+    @media (--lg-n-above) {
+      grid-template-columns: 2fr 5fr;
+    }
+  }
+
   article {
     padding-block-start: 0;
+  }
+
+  .body {
+    max-inline-size: min(100%, var(--measure-base));
   }
 
   p, ul, li {
     font-size: var(--font-size-large);
     line-height: var(--line-height-base);
-  }
-
-  .body {
-    inline-size: min(100%, var(--measure-base));
-    margin-inline: auto;
   }
 
   .full-width {
@@ -82,18 +103,27 @@
   }
 
   .tldr {
-    max-inline-size: 40ch;
-    font-size: var(--font-size-largest);
+    flex-grow: 1;
+    flex-basis: 24ch;
+    text-wrap: balance;
+    font-size: var(--font-size-large);
     color: var(--color-brand-primary-base);
-
-    & strong {
-      font-weight: var(--font-weight-default);
-    }
   }
 
   figure {
-    display: initial;
+    --flow-gap: var(--spacing-far);
+
+    margin-block: var(--flow-gap);
     min-block-size: 0;
+
+    & img {
+      /* aspect-ratio: 16/9; */
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      border-radius: var(--border-radius-large);
+      overflow: hidden;
+    }
   }
 
   :global(::view-transition-old(work-figure)),
@@ -102,22 +132,11 @@
     height: 100%;
   }
 
-  img {
-    /* aspect-ratio: 16/9; */
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-    border-radius: var(--border-radius-large);
-  }
-
-  .main-image {
-    aspect-ratio: 16/9;
-  }
-
   .thumbnail {
     view-transition-name: work-figure;
     inline-size: 100%;
     aspect-ratio: 16/9;
+    margin: 0;
 
     @media (--md-n-above) {
       inline-size: 20ch;
