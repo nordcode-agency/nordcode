@@ -94,6 +94,7 @@
   }
 
   .box {
+    --stack-flex-direction: row;
     --stack-flex-wrap: wrap;
 
     justify-content: space-between;
@@ -105,7 +106,6 @@
     }
 
     @media (--md-n-above) {
-      --stack-flex-direction: row;
       --stack-flex-wrap: no-wrap;
     }
 
