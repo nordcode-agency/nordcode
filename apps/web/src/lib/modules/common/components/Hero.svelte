@@ -6,7 +6,7 @@
   import { projects } from '$lib/content';
 </script>
 
-<div class="hero">
+<div class="stack container">
   <div class="headings section">
     <div class="stack text">
       <h1>Wir erschaffen digitale Erlebnisse.</h1>
@@ -33,7 +33,7 @@
       <button class="my-button" type="button">Los geht's</button>
     </div>
   </div>
-  <div class="box row">
+  <div class="box stack">
     <WorkCard
       variant="horizontal"
       heading={projects[0].heading}
@@ -55,9 +55,8 @@
 <style lang="postcss">
   @import "@nordcode/ui/media";
 
-  .hero {
-    display: flex;
-    flex-direction: column;
+  .container {
+    flex-grow: 1;
   }
 
   .headings {
@@ -93,12 +92,13 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .row {
+  .box {
+    --stack-flex-direction: row;
+    --stack-flex-wrap: wrap;
+
+    justify-content: space-between;
     margin-inline-start: auto;
     inline-size: min(100%, max(40vw, 800px));
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-base);
 
     & :global(> *) {
       flex: 1 1 360px;

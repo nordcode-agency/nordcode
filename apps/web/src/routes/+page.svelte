@@ -9,7 +9,7 @@
 	<title>nordcode – we schaffen ein neues digitales Erlebnis.</title>
 </svelte:head>
 
-<div class="fullscreen">
+<div class="stack fullscreen">
   <Header />
   <Hero />
 </div>
@@ -45,8 +45,6 @@
 
   .fullscreen {
     min-block-size: 100dvh;
-    display: grid;
-    grid-template-rows: auto 1fr;
   }
   .row {
     /* inline-size: var() */
