@@ -14,7 +14,7 @@
 <article class="section">
   <div class="stack">
     <div class="section stack hero">
-      <div class="stack" style="--stack-flex-direction: var(--spacing-base)">
+      <div class="stack" style="--stack-flex-direction: row">
         <figure class="thumbnail">
           <img src={cover?.src} alt={cover?.alt}>
         </figure>
@@ -25,12 +25,10 @@
       </div>
     </div>
     <div class="main">
-      <div class="stack">
-        <a href="#" class="nc-button -outline">Website öffnen</a>
-        <p class="tldr"><strong>
-          tldr; Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater syntax. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er.
-        </strong></p>
-      </div>
+      <a href="#" class="nc-button -outline info">Website öffnen</a>
+      <p class="tldr"><strong>
+        tldr; Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater syntax. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er.
+      </strong></p>
       <div class="body flow">
         <p><strong>Auf dem letzten Hause eines kleinen Dörfchens</strong> befand sich ein <abbr title="Behausung eines langbeinigen Vogels">Storchnest</abbr>. Die Storchmutter saß im Neste bei ihren vier Jungen, welche den Kopf mit dem kleinen <em>schwarzen Schnabel</em>, denn er war noch nicht rot geworden, hervorstreckten. Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater <code>syntax</code>. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er. „Gewiss sieht es recht vornehm aus, dass meine Frau eine Schildwache bei dem Neste hat!“ dachte er. Und er stand unermüdlich auf <a href="#nirgendwo" title="Title für einem Bein">einem Beine</a>.</p>
         <figure class="full-width">
@@ -64,6 +62,35 @@
 <style lang="postcss">
   @import "@nordcode/ui/media";
 
+  .thumbnail {
+    view-transition-name: work-figure;
+    inline-size: 100%;
+    aspect-ratio: 16/9;
+    margin: 0;
+
+    @media (--md-n-above) {
+      flex-basis: 20ch;
+      aspect-ratio: 1/1;
+    }
+  }
+
+  .headings {
+    view-transition-name: work-headings;
+    flex-basis: 40ch;
+    flex-grow: 1;
+  }
+
+  h2 {
+    font-size: calc(var(--font-size-display) * 1.5);
+    line-height: 1.3;
+  }
+
+  .subheading {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-large);
+    color: var(--color-text-dark-muted);
+  }
+
   .hero {
     --stack-flex-wrap: wrap;
 
@@ -72,15 +99,27 @@
     @media (--md-n-above) {
       --stack-gap: var(--spacing-far);
     }
+
+    @media (--lg-n-above) {
+      padding-block-end: calc(var(--spacing-farthest) * 2);
+    }
   }
 
   .main {
     display: grid;
+    grid: "info" auto
+          "tldr" auto
+          "main" auto
+          / 1fr;
     align-items: start;
+    justify-items: start;
     gap: var(--spacing-far);
 
     @media (--lg-n-above) {
-      grid-template-columns: 2fr 5fr;
+      grid: "info main" auto
+            "tldr main" auto
+            ".    main" auto
+            / 2fr 5fr;
     }
   }
 
@@ -89,6 +128,7 @@
   }
 
   .body {
+    grid-area: main;
     max-inline-size: min(100%, var(--measure-base));
   }
 
@@ -103,11 +143,16 @@
   }
 
   .tldr {
+    grid-area: tldr;
     flex-grow: 1;
     flex-basis: 24ch;
     text-wrap: balance;
     font-size: var(--font-size-large);
     color: var(--color-brand-primary-base);
+  }
+
+  .info {
+    grid-area: info;
   }
 
   figure {
@@ -130,32 +175,5 @@
   :global(::view-transition-new(work-figure)) {
     /** @url https://developer.chrome.com/docs/web-platform/view-transitions/#handling-changes-in-aspect-ratio */
     height: 100%;
-  }
-
-  .thumbnail {
-    view-transition-name: work-figure;
-    inline-size: 100%;
-    aspect-ratio: 16/9;
-    margin: 0;
-
-    @media (--md-n-above) {
-      inline-size: 20ch;
-      aspect-ratio: 1/1;
-    }
-  }
-
-  .headings {
-    view-transition-name: work-headings;
-  }
-
-  h2 {
-    font-size: calc(var(--font-size-display) * 1.5);
-    line-height: 1.3;
-  }
-
-  .subheading {
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-large);
-    color: var(--color-text-dark-muted);
   }
 </style>
