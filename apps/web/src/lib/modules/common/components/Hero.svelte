@@ -56,6 +56,7 @@
   @import "@nordcode/ui/media";
 
   .container {
+    inline-size: 100%;
     flex-grow: 1;
   }
 
@@ -93,7 +94,6 @@
   }
 
   .box {
-    --stack-flex-direction: row;
     --stack-flex-wrap: wrap;
 
     justify-content: space-between;
@@ -102,6 +102,11 @@
 
     & :global(> *) {
       flex: 1 1 360px;
+    }
+
+    @media (--md-n-above) {
+      --stack-flex-direction: row;
+      --stack-flex-wrap: no-wrap;
     }
 
     @media (--lg-n-above) {
