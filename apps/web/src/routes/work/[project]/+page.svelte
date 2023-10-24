@@ -20,7 +20,7 @@
         </figure>
         <div class="headings">
           <span class="subheading">{subheading}</span>
-          <h2>{heading}</h2>
+          <h1>{heading}</h1>
         </div>
       </div>
     </div>
@@ -78,17 +78,21 @@
     view-transition-name: work-headings;
     flex-basis: 40ch;
     flex-grow: 1;
+    
+    & h1 {
+      font-size: calc(var(--font-size-display) * 1.5);
+      line-height: 1.3;
+      background: linear-gradient(to left, var(--color-brand-secondary-base), var(--color-brand-primary-base));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 
-  h2 {
-    font-size: calc(var(--font-size-display) * 1.5);
-    line-height: 1.3;
-  }
 
   .subheading {
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-large);
-    color: var(--color-text-dark-muted);
+    color: var(--color-text-muted);
   }
 
   .hero {
@@ -107,8 +111,8 @@
 
   .main {
     display: grid;
-    grid: "info" auto
-          "tldr" auto
+    grid: "tldr" auto
+          "info" auto
           "main" auto
           / 1fr;
     align-items: start;
@@ -116,8 +120,8 @@
     gap: var(--spacing-far);
 
     @media (--lg-n-above) {
-      grid: "info main" auto
-            "tldr main" auto
+      grid: "tldr main" auto
+            "info main" auto
             ".    main" auto
             / 2fr 5fr;
     }
@@ -125,6 +129,7 @@
 
   article {
     padding-block-start: 0;
+    color: var(--color-text-muted);
   }
 
   .body {
@@ -148,7 +153,7 @@
     flex-basis: 24ch;
     text-wrap: balance;
     font-size: var(--font-size-large);
-    color: var(--color-brand-primary-base);
+    color: var(--color-text-default);
   }
 
   .info {
