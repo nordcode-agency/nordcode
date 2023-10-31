@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Header from "$lib/modules/common/components/Header.svelte";
   import Footer from '$lib/modules/common/components/Footer.svelte';
   import { onNavigate } from '$app/navigation';
 
@@ -10,14 +9,11 @@
 
       /** @url https://developer.chrome.com/docs/web-platform/view-transitions/#transitioning-elements-dont-need-to-be-the-same-dom-element */
       const figureEl = anchorEl?.querySelector('figure');
-      const h2El = anchorEl?.querySelector('h2');
       if (figureEl) figureEl.style.viewTransitionName = 'work-figure';
-      if (h2El) h2El.style.viewTransitionName = 'work-headings';
 
       return new Promise((resolve) => {
           document.startViewTransition(async () => {
             resolve();
-            // if (anchorEl) anchorEl.removeAttribute('data-transition');
               await navigation.complete;
           });
       });
