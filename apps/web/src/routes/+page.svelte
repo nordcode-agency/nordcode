@@ -15,7 +15,7 @@
 </div>
 <!-- <Work /> -->
 <div class="section">
-  <div>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</div>
+  <p class="intro">Wir haben eine Leidenschaft für schönes Design und eine tolle User Experience. Diese Leidenschaft nutzen wir, um ein Erlebnis für deine Nutzer zu schaffen, dass funktioniert.</p>
 </div>
 <div class="section">
   <WorkCard
@@ -31,5 +31,10 @@
 
   .fullscreen {
     min-block-size: 100dvh;
+  }
+
+  .intro {
+    max-inline-size: 40ch;
+    font-size: var(--font-size-largest);
   }
 </style>
