@@ -5,10 +5,14 @@
     }
 
     .stack {
+        --_stack-gap: var(--stack-gap, var(--spacing-base));
+        --_stack-flex-direction: var(--stack-flex-direction, column);
+        --_stack-flex-wrap: var(--stack-flex-wrap, no-wrap);
+
         display: flex;
-        flex-direction: var(--stack-flex-direction, column);
-        flex-wrap: var(--stack-flex-wrap, no-wrap);
-        gap: var(--stack-gap, var(--spacing-base));
+        flex-direction: var(--_stack-flex-direction);
+        flex-wrap: var(--_stack-flex-wrap);
+        gap: var(--_stack-gap);
         grid-template-columns: minmax(0, 1fr);
         align-items: flex-start;
     }
