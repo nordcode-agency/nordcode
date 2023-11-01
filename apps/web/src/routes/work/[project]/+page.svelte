@@ -196,6 +196,6 @@
   :global(::view-transition-old(work-figure)),
   :global(::view-transition-new(work-figure)) {
     /** @url https://developer.chrome.com/docs/web-platform/view-transitions/#handling-changes-in-aspect-ratio */
-    height: 100%;
+    block-size: 100%;
   }
 </style>
