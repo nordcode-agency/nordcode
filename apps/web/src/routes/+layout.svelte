@@ -39,8 +39,7 @@
 <Footer/>
 
 <style>
-  @import "@nordcode/ui/complete";
-  @import "@nordcode/ui/fonts";
+  @import "../app.css";
 
   main {
     /* padding-block-start: 90px; equals <Navigation> block-size */
