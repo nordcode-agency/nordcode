@@ -93,7 +93,7 @@
 
     @container (min-inline-size: 680px) {
       &:not([data-variant="horizontal"]) {
-        aspect-ratio: 2 / 1;
+        aspect-ratio: 16 / 9;
   
         & figure {
           grid-area: full;
@@ -116,8 +116,10 @@
       }
     }
 
-    @container (min-inline-size: 1200px) {
-      aspect-ratio: 21 / 9;
+    @container (min-inline-size: 768px) {
+      &:not([data-variant="horizontal"]) {
+        aspect-ratio: 21 / 9;
+      }
     }
   }
 
