@@ -10,20 +10,26 @@
   $: href = `/work/${slug}`;
 </script>
 
-<a {href} class="nc-card card" data-variant={variant}>
-  <figure>
-    <img src={cover.src} alt={cover.alt}>
-  </figure>
-  <div class="header">
-    <div class="headings">
-      <span>{subheading}</span>
-      <h2>{heading}</h2>
+<div class="container">
+  <a {href} class="nc-card card" data-variant={variant}>
+    <figure>
+      <img src={cover.src} alt={cover.alt}>
+    </figure>
+    <div class="header">
+      <div class="headings">
+        <span>{subheading}</span>
+        <h2>{heading}</h2>
+      </div>
     </div>
-  </div>
-</a>
+  </a>
+</div>
 
 <style lang="postcss">
   @import "@nordcode/ui/media";
+
+  .container {
+    container-type: inline-size;
+  }
   .card {
     --card-padding-inline: 0px;
     --card-padding-block: 0px;
@@ -87,7 +93,7 @@
 
     @container (min-inline-size: 680px) {
       &:not([data-variant="horizontal"]) {
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 2 / 1;
   
         & figure {
           grid-area: full;
