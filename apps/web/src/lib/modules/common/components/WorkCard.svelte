@@ -85,8 +85,8 @@
       aspect-ratio: auto;
     }
 
-    &:not([data-variant="horizontal"]) {
-      @container (min-inline-size: 680px) {
+    @container (min-inline-size: 680px) {
+      &:not([data-variant="horizontal"]) {
         aspect-ratio: 16 / 9;
   
         & figure {

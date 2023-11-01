@@ -14,30 +14,16 @@
   <Hero />
 </div>
 <!-- <Work /> -->
-<div class="section row">
-  <WorkCard
-    heading={projects[2].heading}
-    subheading={projects[2].subheading}
-    cover={projects[2].cover}
-    slug={projects[2].slug}
-  />
-  <WorkCard
-    heading={projects[3].heading}
-    subheading={projects[3].subheading}
-    cover={projects[3].cover}
-    slug={projects[3].slug}
-  />
-  <div class="nc-card">Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</div>
+<div class="section">
+  <div>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</div>
 </div>
-<div class="section row">
-  <div class="highlight">
-    <WorkCard
-      heading={projects[4].heading}
-      subheading={projects[4].subheading}
-      cover={projects[4].cover}
-      slug={projects[4].slug}
-    />
-  </div>
+<div class="section">
+  <WorkCard
+    heading={projects[4].heading}
+    subheading={projects[4].subheading}
+    cover={projects[4].cover}
+    slug={projects[4].slug}
+  />
 </div>
 
 <style lang="postcss">
