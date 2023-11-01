@@ -19,12 +19,12 @@
           <img src={cover?.src} alt={cover?.alt}>
         </figure>
         <div class="headings">
-          <span class="subheading">{subheading}</span>
-          <h1>{heading}</h1>
+          <span class="subheading slide-up-from">{subheading}</span>
+          <h1 class="slide-up-from">{heading}</h1>
         </div>
       </div>
     </div>
-    <div class="main">
+    <div class="main slide-up-from">
       <a href="#" class="nc-button -outline info">Website öffnen</a>
       <p class="tldr"><strong>
         tldr; Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater syntax. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er.
@@ -87,14 +87,12 @@
     flex-grow: 1;
     
     & h1 {
+      animation: var(--animation-slide-up) 0.2s;
       font-size: calc(var(--font-size-display) * 1.5);
       line-height: 1.3;
       background: linear-gradient(to left, var(--color-brand-secondary-base), var(--color-brand-primary-base));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: slide-up 0.6s ease 0.2s forwards;
-      transform: translateY(var(--spacing-base));
-      opacity: 0;
     }
   }
 
@@ -104,9 +102,7 @@
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-large);
     color: var(--color-text-muted);
-    animation: slide-up 0.6s ease 0s forwards;
-    transform: translateY(var(--spacing-base));
-    opacity: 0;
+    animation: var(--animation-slide-up);
   }
 
   .hero {
@@ -124,6 +120,7 @@
   }
 
   .main {
+    animation: var(--animation-slide-up) 0.4s;
     display: grid;
     grid: "tldr" auto
           "info" auto
@@ -132,9 +129,6 @@
     align-items: start;
     justify-items: start;
     gap: var(--spacing-far);
-    animation: slide-up 0.6s ease 0.4s forwards;
-    transform: translateY(var(--spacing-base));
-    opacity: 0;
 
     @media (--lg-n-above) {
       grid: "tldr main" auto
