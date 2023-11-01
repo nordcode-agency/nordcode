@@ -32,26 +32,4 @@
   .fullscreen {
     min-block-size: 100dvh;
   }
-  .row {
-    /* inline-size: var() */
-    display: grid;
-    row-gap: var(--spacing-farthest);
-    column-gap: var(--spacing-far);
-
-    @media (--md-n-above) {
-      grid-template-columns: repeat(2, 1fr);
-
-      & .highlight {
-        grid-column: span 2;
-      }
-    }
-
-    @media (--lg-n-above) {
-      grid-template-columns: repeat(3, 1fr);
-
-      & .highlight {
-        grid-column: 2 / 4;
-      }
-    }
-  }
 </style>
