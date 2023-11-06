@@ -1,13 +1,10 @@
 @layer components {
+
   :where(fieldset:not([class]), .nc-fieldset) {
-    --_fieldset-background-color: var(
-      --fieldset-background-color,
-      var(--color-surface-subtle)
-    );
-    padding: var(--spacing-base);
-    border: var(--border-width-thin) solid var(--color-border-muted);
-    border-radius: var(--border-radius-large);
-    background-color: var(--_fieldset-background-color);
+    border: none;
+    margin: 0;
+    padding: 0;
+    min-inline-size: 0;
   }
 
   :where(legend:not([class]), .nc-legend) {
@@ -17,18 +14,23 @@
     color: var(--color-text-default);
     display: block;
     font-size: var(--font-size-base);
-    padding-inline: var(--spacing-near);
-    padding-block: 0;
-    background-color: var(--_fieldset-background-color);
+    padding: 0;
     border: none;
     border-radius: 0;
-    max-inline-size: max-content;
+    inline-size: 100%;
+    margin-block-end: var(--spacing-base);
+  }
+
+  /* Prevent margins */
+  :where(.nc-legend + .nc-hint, legend:not([class]) + .nc-hint) {
+    margin-block-start: calc(-1 * var(--spacing-base));
+    margin-block-end: var(--spacing-base);
   }
 
   :where(label:not([class]), .nc-input-label) {
     font-family: var(--font-family-default);
     letter-spacing: var(--tracking-tight);
-    font-weight: var(--font-weight-default);
+    font-weight: var(--font-weight-active);
     color: var(--color-text-default);
     display: inline-flex;
     font-size: inherit;
@@ -284,24 +286,21 @@
   }
 
   :where(.nc-input-hint) {
-    --color-default: var(--color-text-muted);
-    display: block;
-
-    &:before {
-      content: "?";
-    }
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
   }
 
   :where(.nc-input-error) {
-    --color-default: var(--color-status-error);
+    --color-default: var(--color-status-danger-text);
     color: var(--color-default);
+    font-size: var(--font-size-small);
 
     &:before {
       content: "!";
     }
   }
 
-  :where(.nc-input-error, .nc-input-hint) {
+  :where(.nc-input-error) {
     &:before {
       font-family: var(--font-family-default);
       letter-spacing: var(--tracking-tight);

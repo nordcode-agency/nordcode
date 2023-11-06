@@ -338,15 +338,18 @@
 
     :where(button[type="reset"]:not([class]), .nc-button.-destructive) {
         padding-inline-start: 0 !important;
-        --button-background-hover: var(--color-status-error) !important;
-        --button-border-color-hover: var(--color-status-error) !important;
-        --button-color-hover: var(--color-text-default) !important;
+        --button-background: var(--color-status-danger-subtle);
+        --button-background-hover: var(--color-status-danger-hover) !important;
+        --button-border-color: var(--color-status-danger-text);
+        --button-border-color-hover: var(--color-status-danger-text) !important;
+        --button-color: var(--color-status-danger-text) !important;
+        --button-color-hover: var(--color-status-danger-text) !important;
 
         &:before {
             border: var(--border-width-thin) solid transparent;
             content: "⨯";
-            background: var(--color-surface-inset);
-            color: var(--color-text-default);
+            background: var(--color-status-danger-hover);
+            color: var(--color-status-danger-text);
             aspect-ratio: 1;
             margin-inline-end: calc(
                     var(--_button-padding-inline) + var(--spacing-near)
@@ -357,13 +360,12 @@
             font-family: var(--font-family-default);
             font-size: var(--font-size-large);
             position: relative;
-            vertical-align: middle;
             line-height: 0.5em;
         }
 
         &:hover:before {
-            background: var(--color-surface-emphasis);
-            color: var(--color-status-error);
+            background: var(--color-status-danger-base);
+            color: var(--color-text-on-emphasis);
         }
 
         @supports not (aspect-ratio: 1) {
