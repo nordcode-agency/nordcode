@@ -12,6 +12,7 @@
 
 <div>
     <form class="stack -layout-far -full-width -stretched">
+      <div class="box -bordered">
         <fieldset class="nc-fieldset stack -layout-base">
             <legend>Spacings</legend>
             <InputWrapper
@@ -81,7 +82,9 @@
                 </fieldset>
             </details>
         </fieldset>
+        </div>
 
+            <div class="box -bordered">
         <fieldset class="nc-fieldset stack -layout-base">
             <legend>Borders</legend>
             <InputWrapper
@@ -176,7 +179,9 @@
                 </fieldset>
             </details>
         </fieldset>
+            </div>
 
+            <div class="box -bordered">
         <fieldset class="nc-fieldset stack -layout-base">
             <legend>Shadows</legend>
             <div class="cluster -nowrap">
@@ -250,6 +255,7 @@
             </details>
 
         </fieldset>
+            </div>
 
 
         <button type="button" class="nc-button -destructive" on:click={configStore.reset}>Reset</button>

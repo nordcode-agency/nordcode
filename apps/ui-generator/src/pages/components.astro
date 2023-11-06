@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from "../modules/generator/components/Header.astro"
+import ComponentsPreview from "../modules/components/components/ComponentsPreview.svelte";
+---
+
+<Layout title="Components">
+        <Header slot="header" />
+        <div slot="aside" />
+        <ComponentsPreview client:load="svelte" slot="content" />
+</Layout>

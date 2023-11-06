@@ -4,6 +4,7 @@
 
 <div>
     <form class="stack -layout-far -full-width -stretched">
+            <div class="box -bordered">
          <fieldset class="nc-fieldset stack -layout-base">
             <legend>Presets</legend>
              <div class="cluster">
@@ -14,6 +15,7 @@
                  <button class="nc-button" type="button" on:click={() => setPreset('elegant')}>Elegant</button>
              </div>
         </fieldset>
+            </div>
 
 
 

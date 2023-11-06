@@ -193,6 +193,7 @@ description: 'Use for text on top of emphasized backgrounds, such as banners, ba
             <button class="nc-button -stealth live-theme">Stealth Basic</button>
             <button class="nc-button -stealth -primary live-theme">Stealth Primary</button>
             <button class="nc-button -stealth -secondary live-theme">Stealth Secondary</button>
+            <button class="nc-button -destructive">Destructive button</button>
         </div>
         <div class="cluster -layout-near">
             <div class="badge live-theme">Standard</div>

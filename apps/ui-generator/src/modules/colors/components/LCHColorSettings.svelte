@@ -4,6 +4,7 @@
 </script>
 
 <form class="stack -full-width -stretched">
+        <div class="box -bordered">
     <fieldset class="nc-fieldset stack -layout-base">
         <legend>Accents</legend>
         <Input
@@ -44,8 +45,10 @@
                 bind:value={$configStore.secondaryLightness}/>
 
     </fieldset>
+        </div>
     <h2>Neutrals</h2>
-    <fieldset class="stack -full-width -stretched">
+        <div class="box -bordered">
+    <fieldset class="nc-fieldset stack -full-width -stretched">
         <legend>Light Theme</legend>
         <Input
                 name="colorLCHLightNeutralChroma"
@@ -101,7 +104,9 @@
 
 
     </fieldset>
-    <fieldset class="stack -full-width -stretched">
+        </div>
+        <div class="box -bordered">
+    <fieldset  class="nc-fieldset stack -full-width -stretched">
         <legend>Dark Theme</legend>
         <Input
                 name="colorLCHDarkNeutralChroma"
@@ -152,6 +157,7 @@
 
 
     </fieldset>
+        </div>
 
     <button type="button" class="nc-button -destructive" on:click={configStore.reset}>Reset</button>
 
