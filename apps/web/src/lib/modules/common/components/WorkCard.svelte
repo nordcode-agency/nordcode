@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" async>
   import type { MediaImage } from '$lib/types/index';
 
   export let variant: 'horizontal' | '' = '';
@@ -12,9 +12,16 @@
 
 <div class="container">
   <a {href} class="nc-card card" data-variant={variant}>
-    <figure>
-      <img src={cover.src} alt={cover.alt}>
-    </figure>
+    {#await import(`../../../assets/${cover.fileName}.avif`)}
+      <div class="img-placeholder">Lädt…</div>
+    {:then src}
+      <!-- <div class="img-placeholder">Lädt…</div> -->
+      <figure>
+        <img src={src.default} alt="asd">
+      </figure>
+    {:catch error}
+      <div class="img-placeholder">{error}</div>
+    {/await}
     <div class="header">
       <div class="headings">
         <span>{subheading}</span>
@@ -62,7 +69,7 @@
       grid-template: auto 
         / [img-start full-start] auto [img-end header-start] 1fr [header-end full-end];
 
-        & figure {
+        & :is(figure, .img-placeholder) {
           inline-size: clamp(120px, 8vw, 160px);
         }
 
@@ -95,7 +102,7 @@
       &:not([data-variant="horizontal"]) {
         aspect-ratio: 16 / 9;
   
-        & figure {
+        & :is(figure, .img-placeholder) {
           grid-area: full;
         }
   
@@ -116,7 +123,7 @@
       }
     }
 
-    @container (min-inline-size: 768px) {
+    @container (min-inline-size: 1024px) {
       &:not([data-variant="horizontal"]) {
         aspect-ratio: 21 / 9;
       }
@@ -125,6 +132,14 @@
 
   figure {
     grid-area: img;
+  }
+
+  .img-placeholder {
+    grid-area: img;
+    text-align: center;
+    block-size: 100%;
+    inline-size: 100%;
+    aspect-ratio: 3 / 2;
   }
 
   img {
