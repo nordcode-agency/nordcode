@@ -1,17 +1,19 @@
 <script lang="ts">
   import Hero from "$lib/modules/common/components/Hero.svelte";
 	import WorkCard from "$lib/modules/common/components/WorkCard.svelte";
-  import { projects } from '$lib/content/index';
 	import Header from "$lib/modules/common/components/Header.svelte";
+	import type { PageData } from "./$types";
+
+	export let data: PageData;
 </script>
 
 <svelte:head>
-	<title>nordcode – we schaffen ein neues digitales Erlebnis.</title>
+	<title>{data.title}</title>
 </svelte:head>
 
 <div class="stack fullscreen">
   <Header />
-  <Hero />
+  <Hero projects={data.projects} />
 </div>
 <!-- <Work /> -->
 <div class="section intro">
@@ -20,24 +22,24 @@
 <div class="section stack -stretched work">
   <div>
     <WorkCard
-      heading={projects[4].heading}
-      subheading={projects[4].subheading}
-      cover={projects[4].cover}
-      slug={projects[4].slug}
+      heading={data.projects[4].heading}
+      subheading={data.projects[4].subheading}
+      cover={data.projects[4].cover}
+      slug={data.projects[4].slug}
     />
   </div>
   <div class="more-work nc-ram-grid">
     <WorkCard
-      heading={projects[2].heading}
-      subheading={projects[2].subheading}
-      cover={projects[2].cover}
-      slug={projects[2].slug}
+      heading={data.projects[2].heading}
+      subheading={data.projects[2].subheading}
+      cover={data.projects[2].cover}
+      slug={data.projects[2].slug}
     />
     <WorkCard
-      heading={projects[3].heading}
-      subheading={projects[3].subheading}
-      cover={projects[3].cover}
-      slug={projects[3].slug}
+      heading={data.projects[3].heading}
+      subheading={data.projects[3].subheading}
+      cover={data.projects[3].cover}
+      slug={data.projects[3].slug}
     />
   </div>
 </div>
@@ -58,6 +60,10 @@
       max-inline-size: 40ch;
       margin-block: auto;
       font-size: var(--font-size-largest);
+
+      @media (--lg-n-above) {
+        font-size: calc(var(--font-size-largest) * 1.5);
+      }
     }
   }
 
