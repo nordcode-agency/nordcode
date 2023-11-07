@@ -3,11 +3,11 @@
         display: flex;
         flex-direction: column;
         max-inline-size: max-content;
-        padding-inline: 0;
     }
 
     :where(ol, ul) {
-        gap: var(--spacing-base);
+        gap: var(--spacing-near);
+        padding-inline-start: 1em;
     }
 
     :where(li, dd) {
@@ -42,7 +42,6 @@
     li:has(ul) + li,
     li:has(ol) + li {
         margin-block-start: var(--spacing-near);
-        margin-inline-start: 0;
     }
 
     :where(small) {
