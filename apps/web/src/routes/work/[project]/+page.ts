@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
+import type { PageLoad } from './$types';
 
-/** @type {import('./$types').PageLoad} */
-export async function load({ params }) {
+export const load = (async ({ params }) => {
   const { projects } = await import('$lib/content');
   const project = projects.find((prj) => prj.slug === params?.project);
 
@@ -10,4 +10,4 @@ export async function load({ params }) {
   }
 
   return { ...project };
-}
+}) satisfies PageLoad
