@@ -3,7 +3,9 @@
   import Story from '$lib/modules/common/components/Story.svelte';
 	import StoryItem from './StoryItem.svelte';
 	import WorkCard from './WorkCard.svelte';
-  import { projects } from '$lib/content';
+	import type { WorkProject } from '$lib/types';
+
+  export let projects: WorkProject[];
 </script>
 
 <div class="stack container">
@@ -16,7 +18,7 @@
       <button class="story-btn nc-button" data-dialogtarget="preview">
         Preview
       </button>
-      <Story id="preview">
+      <!-- <Story id="preview">
         <StoryItem caption="My individual caption that tells a short story." id="story-1">
           <img src="https://images.unsplash.com/photo-1688367785310-c8c013548288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3135&q=80" alt="storyitem 1" srcset="">
           <button type="button" class="nc-button -stealth" slot="cta">
@@ -30,7 +32,7 @@
           <img src="https://images.unsplash.com/photo-1558297010-eb4f2f472abf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2246&q=80" alt="storyitem 3" srcset="">
         </StoryItem>
       </Story>
-      <button class="my-button" type="button">Los geht's</button>
+      <button class="my-button" type="button">Los geht's</button> -->
     </div>
   </div>
   <div class="box stack">
