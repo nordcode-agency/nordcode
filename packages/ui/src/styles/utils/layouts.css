@@ -78,7 +78,7 @@
 
         box-sizing: content-box;
         margin-inline: auto;
-        max-inline-size: var(--measure);
+        max-inline-size: var(--_center-measure);
         padding-inline: var(--_center-padding);
     }
 
