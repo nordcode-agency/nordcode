@@ -83,19 +83,16 @@
         color: var(--color-text-default);
         position: relative;
         border: var(--border-width-thin) solid var(--color-border-default);
-        margin-block-start: var(--spacing-far);
         border-radius: var(--border-radius-medium);
         margin-inline: 0;
 
-
         &.-info:before {
-            content: "?";
+            content: '?';
         }
 
         &.-warning:before {
-            content: "!";
+            content: '!';
         }
-
     }
 
     .note.-info:before,
@@ -118,9 +115,8 @@
     }
 
     blockquote:before {
-        content: "»";
+        content: '»';
     }
-
 
     cite {
         font-family: var(--font-family-serif);
@@ -200,7 +196,7 @@
         letter-spacing: var(--tracking-tight);
 
         &:visited {
-            opacity: .72;
+            opacity: 0.72;
         }
 
         &:hover {
@@ -218,40 +214,11 @@
         font-weight: var(--font-weight-default);
     }
 
-    :where([aria-disabled="true"], .disabled, :disabled) {
+    :where([aria-disabled='true'], .disabled, :disabled) {
         color: inherit;
         opacity: 1;
         cursor: not-allowed;
         filter: contrast(0.64) opacity(0.64);
-    }
-
-    .text-assistive {
-        -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
-        clip-path: polygon(0 0, 0 0, 0 0, 0 0);
-        box-sizing: border-box;
-        position: absolute;
-        margin: 0;
-        padding: 0;
-
-        &:focus {
-            -webkit-clip-path: none;
-            clip-path: none;
-            z-index: 999;
-            height: var(--button-height-base);
-            line-height: var(--button-height-base);
-            background: var(--color-surface-inset);
-            font-size: var(--font-size-base);
-            text-decoration: none;
-            color: var(--color-text-default);
-            text-align: center;
-            padding-inline: var(--spacing-base);
-            font-weight: var(--font-weight-default);
-        }
-    }
-
-    #content-start:focus {
-        background: var(--color-surface-inset);
-        color: var(--color-text-default);
     }
 
     :where(code) {
@@ -268,7 +235,6 @@
         border: var(--border-width-medium) solid var(--color-border-default);
         border-radius: var(--border-radius-medium);
     }
-
 
     :where(table) {
         inline-size: 100%;
@@ -295,7 +261,7 @@
         border-end-end-radius: var(--border-radius-medium);
     }
 
-    :where(td,th) {
+    :where(td, th) {
         padding: var(--spacing-near);
         line-height: var(--line-height-small);
         white-space: nowrap;
@@ -340,6 +306,4 @@
     :where(tr:last-child > td) {
         border: none;
     }
-
-
 }

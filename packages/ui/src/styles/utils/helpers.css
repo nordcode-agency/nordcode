@@ -1,13 +1,30 @@
 @layer utils {
-  .visually-hidden {
-    clip: rect(0 0 0 0);
-	  clip-path: inset(50%);
-	  block-size: 1px;
-	  inline-size: 1px;
-	  overflow: hidden;
-	  white-space: nowrap;
-  }
+    .text-assistive {
+        -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+        clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+        box-sizing: border-box;
+        position: absolute;
+        margin: 0;
+        padding: 0;
 
+        &:focus {
+            -webkit-clip-path: none;
+            clip-path: none;
+            z-index: 999;
+            height: var(--button-height-base);
+            line-height: var(--button-height-base);
+            background: var(--color-surface-inset);
+            font-size: var(--font-size-base);
+            text-decoration: none;
+            color: var(--color-text-default);
+            text-align: center;
+            padding-inline: var(--spacing-base);
+            font-weight: var(--font-weight-default);
+        }
+    }
 
-
+    #content-start:focus {
+        background: var(--color-surface-inset);
+        color: var(--color-text-default);
+    }
 }

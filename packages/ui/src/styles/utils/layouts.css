@@ -37,7 +37,7 @@
         margin-block-start: var(--flow-gap, var(--spacing-base));
     }
 
-    .nc-flow > *:is(h1, h2, h3, h4, h5, h6) {
+    .nc-flow > *:is(h1, h2, h3, h4, h5, h6, blockquote, .note) {
         --flow-gap: var(--spacing-far);
     }
 
@@ -119,7 +119,7 @@
         }
     }
 
-    .-full-width {
+    .full-width {
         inline-size: 100%;
     }
 
