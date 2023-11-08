@@ -8,7 +8,7 @@
 </script>
 
 <div class="nc-input-field">
-    <label for={id} class="stack">
+    <label for={id} class="nc-stack">
         <span class="nc-input-label">{label} {#if optional}(optional){/if}</span>
         {#if hint}<span class="nc-input-hint">{hint}</span>{/if}
         {#if errors?.length > 0}
@@ -17,5 +17,5 @@
         {/each}
         {/if}
     </label>
-    <div class="cluster -full-width -layout-near -nowrap"><slot></slot></div>
+    <div class="nc-cluster full-width -nowrap"><slot></slot></div>
 </div>

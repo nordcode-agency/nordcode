@@ -13,8 +13,8 @@
 
 
 
-<div class="nc-input-field | cluster | nc-checkbox-wrapper">
-    <label for={id} class="stack">
+<div class="nc-cluster | nc-input-field  | nc-checkbox-wrapper">
+    <label for={id} class="nc-stack">
         <span class="nc-input-label">{label} {#if optional}(optional){/if}</span>
         {#if hint}<span class="nc-input-hint">{hint}</span>{/if}
         {#if errors?.length > 0}
@@ -24,7 +24,7 @@
         {/if}
     </label>
     <input
-            id={id}
+      id={id}
        name={name}
        aria-required={!optional}
        autocomplete={autocomplete}

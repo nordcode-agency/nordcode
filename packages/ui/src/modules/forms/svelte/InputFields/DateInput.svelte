@@ -35,7 +35,7 @@
 
 </script>
 
-<div class="cluster -full-width nc-date-input">
+<div class="nc-cluster full-width nc-date-input">
 <input class="nc-input"
        id={id}
        name={name}

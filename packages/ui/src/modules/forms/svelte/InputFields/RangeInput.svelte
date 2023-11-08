@@ -22,7 +22,7 @@
 
 </script>
 
-<div class="stack -full-width -layout-none">
+<div class="nc-stack full-width | nc-range-input">
 <input class="nc-input"
        id={id}
        name={name}
@@ -37,6 +37,9 @@
 </div>
 
 <style>
+    .nc-range-input {
+      --stack-gap: 0;
+    }
     .value {
         color: var(--color-text-subtle);
         margin-inline-start: auto;
