@@ -1,3 +1,4 @@
+@import "@nordcode/ui/media";
 @import "@nordcode/ui/complete";
 @import "@nordcode/ui/fonts";
 
@@ -15,4 +16,16 @@
 .slide-up-from {
   transform: translateY(var(--spacing-base));
   opacity: 0;
+}
+
+.nc-box {
+  @media (--sm-n-above) {
+    padding-block: var(--spacing-far);
+    padding-inline: var(--spacing-far);
+  }
+
+  @media (--md-n-above) {
+      padding-block: var(--spacing-farthest);
+      padding-inline: var(--spacing-farthest);
+  }
 }
