@@ -1,15 +1,15 @@
 @layer utils {
     /* Layout classes that handle 80% of the layout*/
-    .box {
+    .nc-box {
         padding: var(--spacing-base);
 
-       &.-bordered {
-         border: var(--border-width-thin) solid var(--color-border-default);
-         border-radius: var(--border-radius-medium);
-       }
+        &.-bordered {
+            border: var(--border-width-thin) solid var(--color-border-default);
+            border-radius: var(--border-radius-medium);
+        }
     }
 
-    .stack {
+    .nc-stack {
         --_stack-gap: var(--stack-gap, var(--spacing-base));
         --_stack-flex-direction: var(--stack-flex-direction, column);
         --_stack-flex-wrap: var(--stack-flex-wrap, no-wrap);
@@ -18,43 +18,42 @@
         flex-direction: var(--_stack-flex-direction);
         flex-wrap: var(--_stack-flex-wrap);
         gap: var(--_stack-gap);
-        grid-template-columns: minmax(0, 1fr);
         align-items: flex-start;
 
         &.-near {
-          --stack-gap: var(--spacing-near);
+            --stack-gap: var(--spacing-near);
         }
-    }
 
-    .stack.-stretched {
-        inline-size: 100%;
-
-        & > * {
+        &.-stretched {
             inline-size: 100%;
+
+            & > * {
+                inline-size: 100%;
+            }
         }
     }
 
-    .flow > * + * {
+    .nc-flow > * + * {
         margin-block-start: var(--flow-gap, var(--spacing-base));
     }
 
-    .flow > *:is(h1,h2,h3,h4,h5,h6) {
+    .nc-flow > *:is(h1, h2, h3, h4, h5, h6) {
         --flow-gap: var(--spacing-far);
     }
 
-    .flow > *:is(h1,h2,h3,h4,h5,h6) + p {
+    .nc-flow > *:is(h1, h2, h3, h4, h5, h6) + p {
         --flow-gap: var(--spacing-near);
     }
 
-    .flow > p + p {
+    .nc-flow > p + p {
         --flow-gap: var(--spacing-base);
     }
 
-    .flow > figure {
+    .nc-flow > figure {
         margin-inline: 0;
     }
 
-    .flow .breakAfter {
+    .nc-flow .breakAfter {
         margin-block-end: auto;
     }
 
@@ -73,20 +72,17 @@
         }
     }
 
-    .layout-container {
-        margin-inline: auto;
-        inline-size: 100%;
-        max-inline-size: var(--layout-max-width);
-        padding-inline: var(--layout-padding);
-        display: grid;
-        justify-items: start;
+    .nc-center {
+        --_center-measure: var(--center-measure, 0);
+        --_center-padding: var(--center-padding, 0);
 
-        & > * {
-            min-inline-size: 0;
-        }
+        box-sizing: content-box;
+        margin-inline: auto;
+        max-inline-size: var(--measure);
+        padding-inline: var(--_center-padding);
     }
 
-    .cluster {
+    .nc-cluster {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -102,7 +98,7 @@
         }
     }
 
-    .with-sidebar {
+    .nc-with-sidebar {
         --with-sidebar-min-size: 50%;
 
         width: 100%;
@@ -110,66 +106,25 @@
         flex-wrap: wrap;
         align-items: center;
         gap: var(--with-sidebar-gap, var(--spacing-far));
-    }
 
-    .with-sidebar [data-aside] {
-        flex-grow: 1;
-        min-width: min-content;
-    }
+        & > [data-aside] {
+            flex-grow: 1;
+            min-width: min-content;
+        }
 
-    .with-sidebar [data-grow] {
-        flex-basis: 0;
-        flex-grow: 999;
-        min-width: var(--with-sidebar-min-size);
-    }
-
-    /** @deprecated generic --gap naming is not used anymore */
-    .-layout-farthest {
-        --gap: var(--spacing-farthest);
-    }
-
-    /** @deprecated generic --gap naming is not used anymore */
-    .-layout-far {
-        --gap: var(--spacing-far);
-    }
-
-    /** @deprecated generic --gap naming is not used anymore */
-    .-layout-base {
-        --gap: var(--spacing-base);
-    }
-
-    /** @deprecated generic --gap naming is not used anymore */
-    .-layout-near {
-        --gap: var(--spacing-near);
-    }
-
-    /** @deprecated generic --gap naming is not used anymore */
-    .-layout-nearest {
-        --gap: var(--spacing-nearest);
-    }
-
-    /** @deprecated generic --gap naming is not used anymore */
-    .-layout-tiny {
-        --gap: var(--spacing-tiny);
-    }
-
-    /** @deprecated generic --gap naming is not used anymore */
-    .-layout-none {
-        --gap: 0;
-    }
-
-    /** @deprecated generic --gap naming is not used anymore */
-    .layout-reset {
-        --gap: unset;
+        & > [data-grow] {
+            flex-basis: 0;
+            flex-grow: 999;
+            min-width: var(--with-sidebar-min-size);
+        }
     }
 
     .-full-width {
         inline-size: 100%;
     }
 
-    .center {
-      display: grid;
-      place-items: center;
+    .nc-centered-content {
+        display: grid;
+        place-items: center;
     }
-
 }
