@@ -8,9 +8,9 @@
   export let projects: WorkProject[];
 </script>
 
-<div class="stack container">
-  <div class="headings section">
-    <div class="stack text">
+<div class="nc-stack container">
+  <div class="headings nc-box">
+    <div class="nc-stack text">
       <h1>Wir erschaffen digitale Erlebnisse.</h1>
       <!-- <h2>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</h2> -->
     </div>
@@ -35,7 +35,7 @@
       <button class="my-button" type="button">Los geht's</button> -->
     </div>
   </div>
-  <div class="box stack">
+  <div class="box nc-stack">
     <WorkCard
       variant="horizontal"
       heading={projects[0].heading}

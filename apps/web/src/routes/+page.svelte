@@ -11,15 +11,15 @@
 	<title>{data.title}</title>
 </svelte:head>
 
-<div class="stack fullscreen">
+<div class="nc-stack fullscreen">
   <Header />
   <Hero projects={data.projects} />
 </div>
 <!-- <Work /> -->
-<div class="section intro">
+<div class="nc-box intro">
   <p>Wir haben eine Leidenschaft für schönes Design und eine tolle User Experience. Diese Leidenschaft nutzen wir, um ein Erlebnis für deine Nutzer zu schaffen, dass funktioniert.</p>
 </div>
-<div class="section stack -stretched work">
+<div class="nc-box nc-stack -stretched work">
   <div>
     <WorkCard
       heading={data.projects[4].heading}
