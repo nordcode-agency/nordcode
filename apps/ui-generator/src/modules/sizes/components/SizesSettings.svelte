@@ -10,10 +10,11 @@
     } from "../../store/configStore";
 </script>
 
+{#if configStore}
 <div>
-    <form class="stack -layout-far -full-width -stretched">
-      <div class="box -bordered">
-        <fieldset class="nc-fieldset stack -layout-base">
+    <form class="nc-stack -layout-far full-width -stretched">
+      <div class="nc-box -bordered">
+        <fieldset class="nc-fieldset nc-stack -layout-base">
             <legend>Spacings</legend>
             <InputWrapper
                     label="Spacing Scale"
@@ -34,7 +35,7 @@
             </InputWrapper>
             <details class="-full-width">
                 <summary>Use custom spacings?</summary>
-                <fieldset class="nc-fieldset stack -layout-base">
+                <fieldset class="nc-fieldset nc-stack -layout-base">
                     <legend>Custom Spacings</legend>
                     <Input
                             name="spacingTiny"
@@ -84,8 +85,8 @@
         </fieldset>
         </div>
 
-            <div class="box -bordered">
-        <fieldset class="nc-fieldset stack -layout-base">
+            <div class="nc-box -bordered">
+        <fieldset class="nc-fieldset nc-stack -layout-base">
             <legend>Borders</legend>
             <InputWrapper
                     label="Border Width Scale"
@@ -106,7 +107,7 @@
             </InputWrapper>
             <details class="-full-width">
                 <summary>Use custom border widths?</summary>
-                <fieldset class="nc-fieldset stack -layout-base">
+                <fieldset class="nc-fieldset nc-stack -layout-base">
                     <legend>Custom Border widths</legend>
                     <Input
                             name="borderWidthThin"
@@ -152,7 +153,7 @@
             </InputWrapper>
             <details class="-full-width">
                 <summary>Use custom border radii?</summary>
-                <fieldset class="nc-fieldset stack -layout-base">
+                <fieldset class="nc-fieldset nc-stack -layout-base">
                     <legend>Custom Border radii</legend>
                     <Input
                             name="borderRadiusSmall"
@@ -181,10 +182,10 @@
         </fieldset>
             </div>
 
-            <div class="box -bordered">
-        <fieldset class="nc-fieldset stack -layout-base">
+            <div class="nc-box -bordered">
+        <fieldset class="nc-fieldset nc-stack -layout-base">
             <legend>Shadows</legend>
-            <div class="cluster -nowrap">
+            <div class="nc-cluster -nowrap">
 
                 <Input
                         name="colorShadowChroma"
@@ -211,9 +212,9 @@
                        on:input={evt => updateShadowDistanceScale(evt.target.value)}
                 />
             </InputWrapper>
-            <details class="-full-width">
+            <details class="full-width">
                 <summary>Use custom shadow distances?</summary>
-                <fieldset class="nc-fieldset stack -layout-base">
+                <fieldset class="nc-fieldset nc-stack -layout-base">
                     <legend>Custom Shadow Distances</legend>
                     <Input
                             name="shadowDistanceInset"
@@ -262,3 +263,4 @@
 
     </form>
 </div>
+  {/if}

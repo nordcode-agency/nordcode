@@ -5,7 +5,7 @@
 
 <div class="preview-row">
         <span class="label">{label}</span>
-        <div class="cluster spacings" style={style}>
+        <div class="nc-cluster spacings" style={style}>
             <div></div>
             <div></div>
         </div>

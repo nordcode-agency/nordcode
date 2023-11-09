@@ -5,19 +5,19 @@
     export let allStyles = '';
 
     const copyStyleExport = async () => {
-        const exportString = configStore.exportToString()
+        const exportString = configStore?.exportToString()
         await navigator.clipboard.writeText(exportString);
     }
 
     const copyURLToClipboard = async () => {
-        const searchParams = new URLSearchParams({styles: configStore.exportToString()})
+        const searchParams = new URLSearchParams({styles: configStore?.exportToString()})
         const url = new URL(window.location.origin + window.location.pathname)
         url.search = searchParams.toString()
         await navigator.clipboard.writeText(url);
     }
 
     const copyWPThemeToClipboard = async () => {
-        const theme = getWPTheme(configStore.exportToJSON());
+        const theme = getWPTheme(configStore?.exportToJSON());
         await navigator.clipboard.writeText(JSON.stringify(theme, null, 2))
     }
 </script>
@@ -36,7 +36,7 @@
                 </code>
             </pre>
         </div>
-        <footer class="dialog-actions | cluster">
+        <footer class="dialog-actions | nc-cluster">
             <button data-copy-target={allStyles}
                     data-has-notification
                     data-notification-title="✓ To clipboard"

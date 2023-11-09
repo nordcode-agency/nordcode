@@ -1,10 +1,11 @@
 ---
-import Themepicker from "./Themepicker.astro";
+import Themepicker from './Themepicker.astro';
 ---
-<div class="cluster -centered -layout-base">
+
+<div class="nc-cluster -centered -layout-base">
     <h1>UI Generator</h1>
     <nav class="mr-auto">
-        <ul class="list-reset cluster -layout-near">
+        <ul class="list-reset nc-cluster -layout-near">
             <li>
                 <a href="/">Presets</a>
             </li>
@@ -21,10 +22,9 @@ import Themepicker from "./Themepicker.astro";
             <li>
                 <a href="/components">Components</a>
             </li>
-
         </ul>
     </nav>
-        <button data-toggle-notification-center class="nc-button">Show Notifications</button>
+    <button data-toggle-notification-center class="nc-button">Show Notifications</button>
     <Themepicker />
 </div>
 
@@ -35,7 +35,7 @@ import Themepicker from "./Themepicker.astro";
         color: var(--color-brand-secondary-base);
 
         &:hover {
-        color: var(--color-brand-secondary-strong)
+        color: var(--color-brand-secondary-subtle)
 
          }
     }

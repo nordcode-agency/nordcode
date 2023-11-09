@@ -18,7 +18,7 @@
     }
 
 
-    configStore.subscribe(updateStyles)
+    configStore?.subscribe(updateStyles)
 
     const previewShown = writable(false)
     const togglePreview = () => {
@@ -26,8 +26,8 @@
     }
 </script>
 
-<div style={allStyles} class="stack container">
-    <div class="cluster | actions">
+<div style={allStyles} class="nc-stack container">
+    <div class="nc-cluster | actions">
 
         <button
             class="nc-button import-button" data-dialogtarget="import-dialog"

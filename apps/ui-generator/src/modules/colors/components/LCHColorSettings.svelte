@@ -3,8 +3,9 @@
     import {configStore} from "../../store/configStore";
 </script>
 
-<form class="stack -full-width -stretched">
-        <div class="box -bordered">
+{#if configStore}
+<form class="nc-stack -full-width -stretched">
+        <div class="nc-box -bordered">
     <fieldset class="nc-fieldset stack -layout-base">
         <legend>Accents</legend>
         <Input
@@ -47,7 +48,7 @@
     </fieldset>
         </div>
     <h2>Neutrals</h2>
-        <div class="box -bordered">
+        <div class="nc-box -bordered">
     <fieldset class="nc-fieldset stack -full-width -stretched">
         <legend>Light Theme</legend>
         <Input
@@ -105,7 +106,7 @@
 
     </fieldset>
         </div>
-        <div class="box -bordered">
+        <div class="nc-box -bordered">
     <fieldset  class="nc-fieldset stack -full-width -stretched">
         <legend>Dark Theme</legend>
         <Input
@@ -162,3 +163,4 @@
     <button type="button" class="nc-button -destructive" on:click={configStore.reset}>Reset</button>
 
 </form>
+  {/if}

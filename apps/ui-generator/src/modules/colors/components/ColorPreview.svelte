@@ -5,7 +5,7 @@
 
 <div class="preview-row">
     <span class="label">{color}</span>
-    <div class="cluster -centered -nowrap">
+    <div class="nc-cluster -centered -nowrap">
         <div class="color-bg live-theme" style={`background-color: var(${color})`}></div>
         <div class="color-fg live-theme">
             {description}

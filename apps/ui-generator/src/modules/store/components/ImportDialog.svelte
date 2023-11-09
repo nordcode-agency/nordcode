@@ -6,7 +6,7 @@
 
     const importStyles = () => {
         const cleanStyles = importedStyles.split('\n').filter(line => line.trim().length > 0 && !line.trim().startsWith("/")).join('\n')
-        configStore.import(cleanStyles)
+        configStore?.import(cleanStyles)
     }
 
 </script>
@@ -19,7 +19,7 @@
             <button autofocus data-closes-dialog class="nc-button -round -small -stealth">×</button>
         </div>
         <div class="dialog-content">
-            <div class="stack">
+            <div class="nc-stack">
             <Textarea
                     name="imported Styles"
                     label="Styles to import"

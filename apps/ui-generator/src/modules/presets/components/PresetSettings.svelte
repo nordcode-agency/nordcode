@@ -3,11 +3,11 @@
 </script>
 
 <div>
-    <form class="stack -layout-far -full-width -stretched">
-            <div class="box -bordered">
+    <form class="nc-stack -layout-far -full-width -stretched">
+            <div class="nc-box -bordered">
          <fieldset class="nc-fieldset stack -layout-base">
             <legend>Presets</legend>
-             <div class="cluster">
+             <div class="nc-cluster">
 
                 <button class="nc-button" type="button" on:click={() => setPreset('modern')}>Modern</button>
                 <button class="nc-button -round" type="button" on:click={() => setPreset('playful')}>Playful</button>

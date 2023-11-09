@@ -11,14 +11,14 @@
 
 </script>
 
-{#if Object.values($configStore).length > 0}
-    <div class="stack -layout-far container live-theme">
-        <div class="stack">
+{#if configStore}
+    <div class="nc-stack -layout-far container live-theme">
+        <div class="nc-stack">
             <h2>Component Preview</h2>
 
             <div class="nc-card live-theme">
-                <div class="stack">
-                    <div class="stack -layout-none">
+                <div class="nc-stack">
+                    <div class="nc-stack -layout-none">
                         <span class="badge">Cool Card</span>
                         <h3>Hello Friend</h3>
                     </div>
@@ -40,7 +40,7 @@
 </button>
                         </Input>
                     </form>
-                    <div class="cluster -layout-near">
+                    <div class="nc-cluster -layout-near">
                         <button class="nc-button -primary live-theme">Primary</button>
                         <button class="nc-button live-theme -neutral">Neutral</button>
                         <button class="nc-button live-theme -neutral -outline">Neutral outline</button>
@@ -58,10 +58,10 @@
             </p>
             <p class="muted">Secondary text, der aber immer noch wichtig genug ist, um gelesen zu werden.</p>
             <p class="subtle">Text der wirklich nicht so wichtig ist. Maximal Placeholder.</p>
-            <div class="box inset">
+            <div class="nc-box inset">
                 <p>If you need an inset bg, use this. It's like a lower elevation.</p>
             </div>
-            <div class="box subtle-bg">
+            <div class="nc-box subtle-bg">
                 this is a sublte border
             </div>
             <footer>

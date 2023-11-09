@@ -1,58 +1,58 @@
 ---
-import ConfigLoader from "../modules/store/components/ConfigLoader.svelte";
-import ConfigFromUrl from "../modules/store/components/ConfigFromUrl.svelte";
-import NotificationCenter from "@nordcode/ui/src/modules/notifications/svelte/NotificationCenter.svelte";
-import NotificationTemplate from "@nordcode/ui/src/modules/notifications/svelte/NotificationTemplate.svelte";
+import ConfigLoader from '../modules/store/components/ConfigLoader.svelte';
+import ConfigFromUrl from '../modules/store/components/ConfigFromUrl.svelte';
+import NotificationCenter from '@nordcode/ui/src/modules/notifications/svelte/NotificationCenter.svelte';
+import NotificationTemplate from '@nordcode/ui/src/modules/notifications/svelte/NotificationTemplate.svelte';
 export interface Props {
     title: string;
 }
 
-const {title} = Astro.props;
+const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de" dir="ltr">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width"/>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-    <meta name="generator" content={Astro.generator}/>
-    <title>{title}</title>
-</head>
-<body>
-<main>
-    <header>
-        <slot name="header"/>
-    </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <main>
+            <header>
+                <slot name="header" />
+            </header>
 
-    <aside>
-        <slot name="aside"/>
-    </aside>
-    <section>
-        <ConfigLoader client:load="svelte">
-            <slot name="content"/>
-        </ConfigLoader>
-    </section>
-</main>
-<NotificationTemplate/>
-<NotificationCenter/>
-<ConfigFromUrl client:only="svelte"/>
-</body>
+            <aside>
+                <slot name="aside" />
+            </aside>
+            <section>
+                <ConfigLoader client:load="svelte">
+                    <slot name="content" />
+                </ConfigLoader>
+            </section>
+        </main>
+        <NotificationTemplate />
+        <NotificationCenter />
+        <ConfigFromUrl client:only="svelte" />
+    </body>
 </html>
 <style is:global>
-    @import "@nordcode/ui/media";
-    @import "@nordcode/ui/bundle";
-    @import "@nordcode/ui/fonts";
-    @import "@nordcode/ui/components";
-    @import "@nordcode/ui/base";
-    @import "./liveTheme.css";
+    @import '@nordcode/ui/media';
+    @import '@nordcode/ui/bundle';
+    @import '@nordcode/ui/fonts';
+    @import '@nordcode/ui/components';
+    @import '@nordcode/ui/base';
+    @import './liveTheme.css';
 
     main {
         display: grid;
         grid-template:
-            "header header" auto
-            "config content" 1fr
-            / 400px 1fr;
+            'header header' auto
+            'config content' 1fr
+            / auto 1fr;
         background: var(--color-surface-default);
         inline-size: 100%;
         min-block-size: 100vh;
@@ -72,9 +72,12 @@ const {title} = Astro.props;
         grid-area: config;
         background: var(--color-surface-default);
         padding-block: var(--spacing-base);
-        padding-inline: var(--spacing-base);
         overflow-y: auto;
         border-inline-end: var(--border-width-thin) solid var(--color-border-default);
+
+        &:has(*) {
+            padding-inline: var(--spacing-base);
+        }
     }
 
     section {

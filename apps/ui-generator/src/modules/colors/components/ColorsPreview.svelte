@@ -175,15 +175,15 @@ description: 'Use for text on top of emphasized backgrounds, such as banners, ba
 
 </script>
 
-{#if Object.values($configStore).length > 0}
-    <div class="stack -layout-far">
-        <div class="stack -layout-near">
+{#if configStore}
+    <div class="nc-stack -layout-far">
+        <div class="nc-stack -layout-near">
             <h2>Colors</h2>
             {#each colors as color}
                 <ColorPreview color={color.token} description={color.description}/>
             {/each}
         </div>
-        <div class="cluster -layout-near">
+        <div class="nc-cluster -layout-near">
             <button class="nc-button live-theme">Default / Basic</button>
             <button class="nc-button -primary live-theme">Primary</button>
             <button class="nc-button -secondary live-theme">Secondary</button>
@@ -195,7 +195,7 @@ description: 'Use for text on top of emphasized backgrounds, such as banners, ba
             <button class="nc-button -stealth -secondary live-theme">Stealth Secondary</button>
             <button class="nc-button -destructive">Destructive button</button>
         </div>
-        <div class="cluster -layout-near">
+        <div class="nc-cluster -layout-near">
             <div class="badge live-theme">Standard</div>
             <div class="badge -secondary live-theme">Secondary</div>
             <div class="badge -emphasis live-theme">Emphasis</div>

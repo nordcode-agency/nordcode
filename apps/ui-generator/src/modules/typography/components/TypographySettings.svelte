@@ -8,10 +8,11 @@
   } from "../../store/configStore";
 </script>
 
+{#if configStore}
 <div>
-  <form class="stack -layout-far -full-width -stretched">
-    <div class="box -bordered">
-      <fieldset class="nc-fieldset stack -layout-base">
+  <form class="nc-stack -layout-far -full-width -stretched">
+    <div class="nc-box -bordered">
+      <fieldset class="nc-fieldset nc-stack -layout-base">
         <legend>Font Families</legend>
         <Input
           name="fontFamilySans"
@@ -46,9 +47,9 @@
         />
       </fieldset>
     </div>
-    <div class="box -bordered">
+    <div class="nc-box -bordered">
 
-      <fieldset class="nc-fieldset stack -layout-base">
+      <fieldset class="nc-fieldset nc-stack -layout-base">
         <legend>Font Sizes</legend>
 
         <InputWrapper
@@ -69,9 +70,9 @@
           />
         </InputWrapper>
 
-        <details class="-full-width">
+        <details class="full-width">
           <summary>Use custom font sizes?</summary>
-          <fieldset class="nc-fieldset stack -layout-base">
+          <fieldset class="nc-fieldset nc-stack -layout-base">
             <legend>Custom Font Sizes</legend>
             <Input type="checkbox" name="useCustomFontsizes" label="Use custom font sizes?"
                    id="useCustomFontsizes"
@@ -123,8 +124,8 @@
         </details>
       </fieldset>
     </div>
-    <div class="box -bordered">
-      <fieldset class="nc-fieldset stack -layout-base">
+    <div class="nc-box -bordered">
+      <fieldset class="nc-fieldset nc-stack -layout-base">
         <legend>Line Heights</legend>
         <Input
           name="line-height-large"
@@ -146,8 +147,8 @@
           bind:value={$configStore.lineHeightSmall} />
       </fieldset>
     </div>
-    <div class="box -bordered">
-      <fieldset class="nc-fieldset stack -layout-base">
+    <div class="nc-box -bordered">
+      <fieldset class="nc-fieldset nc-stack -layout-base">
         <legend>Font Weights</legend>
         <Input
           name="fontWeightDefault"
@@ -181,8 +182,8 @@
       </fieldset>
     </div>
 
-    <div class="box -bordered">
-      <fieldset class="nc-fieldset stack -layout-base">
+    <div class="nc-box -bordered">
+      <fieldset class="nc-fieldset nc-stack -layout-base">
         <legend>Tracking</legend>
         <Input
           name="tracking-wide"
@@ -207,8 +208,8 @@
           bind:value={$configStore.trackingTight} />
       </fieldset>
     </div>
-    <div class="box -bordered">
-      <fieldset class="nc-fieldset stack -layout-base">
+    <div class="nc-box -bordered">
+      <fieldset class="nc-fieldset nc-stack -layout-base">
         <legend>Measure</legend>
         <Input
           name="measure-large"
@@ -237,3 +238,4 @@
     <button type="button" class="nc-button -destructive" on:click={configStore.reset}>Reset</button>
   </form>
 </div>
+  {/if}

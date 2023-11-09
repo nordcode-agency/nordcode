@@ -61,7 +61,7 @@
         </ul>
     </nav>
     <div>
-        <section id="colors" class="stack">
+        <section id="colors" class="nc-stack">
             <header><h1>Colors</h1></header>
             <div class="stack -layout-none">
                 <div style="display: grid; align-items: center; gap: var(--spacing-near); grid-template-columns: auto 1fr;">
@@ -118,29 +118,29 @@
 
             </div>
             <h2>Borders</h2>
-            <div class="cluster">
-                <div class="box" style="border: var(--border-width-medium) solid var(--color-border-default)">
+            <div class="nc-cluster">
+                <div class="nc-box" style="border: var(--border-width-medium) solid var(--color-border-default)">
                     <small>color-border-default</small>
                 </div>
-                <div class="box" style="border: var(--border-width-medium) solid var(--color-border-muted)">
+                <div class="nc-box" style="border: var(--border-width-medium) solid var(--color-border-muted)">
                     <small>color-border-muted</small>
                 </div>
             </div>
             <h2>Shadows</h2>
-            <div class="cluster">
-                <div class="box" style="box-shadow: var(--shadow-inset)">
+            <div class="nc-cluster">
+                <div class="nc-box" style="box-shadow: var(--shadow-inset)">
                     <small>Shadow inset</small>
                 </div>
-                <div class="box" style="box-shadow: var(--shadow-nearest)">
+                <div class="nc-box" style="box-shadow: var(--shadow-nearest)">
                     <small>Shadow nearest</small>
                 </div>
-                <div class="box" style="box-shadow: var(--shadow-near)">
+                <div class="nc-box" style="box-shadow: var(--shadow-near)">
                     <small>Shadow near</small>
                 </div>
-                <div class="box" style="box-shadow: var(--shadow-medium)">
+                <div class="nc-box" style="box-shadow: var(--shadow-medium)">
                     <small>Shadow medium</small>
                 </div>
-                                <div class="box" style="box-shadow: var(--shadow-far)">
+                                <div class="nc-box" style="box-shadow: var(--shadow-far)">
                     <small>Shadow far</small>
                 </div>
 
@@ -730,15 +730,15 @@
                     </p>
                 </fieldset>
                 <p><a href="#top">[Top]</a></p>
-                <fieldset id="forms__action" class="nc-fieldset stack">
+                <fieldset id="forms__action" class="nc-fieldset nc-stack">
                     <legend>Action buttons</legend>
-                    <p class="cluster">
+                    <p class="nc-cluster">
                         <input type="submit" value="<input type=submit>">
                         <input type="button" value="<input type=button>">
                         <input type="reset" value="<input type=reset>">
                         <input type="submit" value="<input disabled>" disabled>
                     </p>
-                    <p class="cluster">
+                    <p class="nc-cluster">
                         <button type="submit">&lt;button type=submit&gt;</button>
                         <button type="button">&lt;button type=button&gt;</button>
                         <button type="reset">&lt;button type=reset&gt;</button>
@@ -750,25 +750,25 @@
         </section>
         <section>
             <h2 id="layouts">Layouts</h2>
-            <fieldset class="stack">
+            <fieldset class="nc-stack">
                 <legend>Layout Container</legend>
                 <p class="note">A container that is supposed to wrap all of your content</p>
                 <div class="layout-container" style="border: var(--border-width-medium) solid var(--color-border-base)">
                     <p>This is where your content will go</p>
                 </div>
             </fieldset>
-            <fieldset class="stack">
+            <fieldset class="nc-stack">
                 <legend>Box</legend>
                 <p class="note">A box with padding.</p>
-                <div class="box" style="border: var(--border-width-medium) solid var(--color-border-base)">
+                <div class="nc-box" style="border: var(--border-width-medium) solid var(--color-border-base)">
                     Box
                 </div>
             </fieldset>
-            <fieldset class="stack">
+            <fieldset class="nc-stack">
                 <legend>Stack</legend>
                 <p class="note">A vertical stack of items with spacing between.</p>
                 <div
-                        class="stack"
+                        class="nc-stack"
                         style="border: var(--border-width-medium) solid var(--color-border-base)"
                 >
                     <p>element 1</p>
@@ -776,11 +776,11 @@
                     <p>element 3</p>
                 </div>
             </fieldset>
-            <fieldset class="stack">
+            <fieldset class="nc-stack">
                 <legend>Cluster</legend>
                 <p class="note">A automatically wrapping container</p>
                 <div
-                        class="cluster"
+                        class="nc-cluster"
                         style="border: var(--border-width-medium) solid var(--color-border-base)"
                 >
                     <p>element</p>
@@ -796,7 +796,7 @@
                     <p>element</p>
                 </div>
             </fieldset>
-            <fieldset class="stack">
+            <fieldset class="nc-stack">
                 <legend>Flow</legend>
                 <p class="note">
                     A container for rich text or blog texts. Adds spacing between the

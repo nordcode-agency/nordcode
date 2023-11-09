@@ -1,0 +1,29 @@
+---
+import { Code } from 'astro:components';
+
+interface Props {
+    component: string;
+    title: string;
+    description?: string;
+}
+
+const { component, description, title } = Astro.props;
+---
+
+<div class="nc-stack nc-box -bordered">
+    <div>
+        <h2>{title}</h2>
+        {description ? <p class="nc-hint">{description}</p> : null}
+    </div>
+    <Fragment set:html={component} />
+    <Code code={component} lang="html" theme="dracula" />
+    <button
+        type="button"
+        class="nc-button"
+        data-copy-target={component}
+        data-has-notification
+        data-notification-title="✓ To clipboard"
+        data-notification-description={`Copied ${title}'s code to your clipboard.`}
+        >Copy Code</button
+    >
+</div>
