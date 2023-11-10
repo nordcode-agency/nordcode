@@ -1,4 +1,5 @@
-<div id="top" role="document" style="padding-inline: var(--spacing-base);">
+<div id="top" role="document" class="nc-flow" style="padding-inline: var(--spacing-base);">
+  <h1>Preview</h1>
     <nav>
         <ul>
             <li>

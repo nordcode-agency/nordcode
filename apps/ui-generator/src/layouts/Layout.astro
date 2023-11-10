@@ -19,7 +19,7 @@ const { title } = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
-    <body>
+    <body class="live-theme">
         <main>
             <header>
                 <slot name="header" />
@@ -29,9 +29,8 @@ const { title } = Astro.props;
                 <slot name="aside" />
             </aside>
             <section>
-                <ConfigLoader client:load="svelte">
-                    <slot name="content" />
-                </ConfigLoader>
+                <ConfigLoader client:load="svelte" />
+                <slot name="content" />
             </section>
         </main>
         <NotificationTemplate />
@@ -74,6 +73,7 @@ const { title } = Astro.props;
         padding-block: var(--spacing-base);
         overflow-y: auto;
         border-inline-end: var(--border-width-thin) solid var(--color-border-default);
+        max-inline-size: 25rem;
 
         &:has(*) {
             padding-inline: var(--spacing-base);

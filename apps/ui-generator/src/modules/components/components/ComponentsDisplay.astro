@@ -1,69 +1,25 @@
 ---
 import fieldsetStandard from '../examples/fieldset/fieldsetStandard.html';
+import fieldsetWithH1 from '../examples/fieldset/fieldsetWithH1.html';
 import { Code } from 'astro:components';
 import ComponentPreview from './ComponentPreview.astro';
 ---
 
 <div class="nc-stack -far">
-    <section class="nc-stack -near">
-        <h1 id="form-elements">Form Elements</h1>
+    <h1>Components</h1>
+    <section class="nc-stack -base">
+        <h2 id="form-elements">Form Elements</h2>
 
         <ComponentPreview
             component={fieldsetStandard({})}
             title="Fieldset"
-            description="Eine klassische Fieldset Component"
+            description="A fieldset how it was imagined."
         />
 
-        <div class="nc-card">
-            <h2>FieldSets</h2>
-            <div class="nc-stack">
-                <div class="nc-box -bordered">
-                    <fieldset>
-                        <legend> Standard Example</legend>
-                        <p class="nc-hint">this is a hint for this fieldset</p>
-                        <div class="nc-stack">
-                            <div class="nc-input-field">
-                                <label for="input" class="nc-stack">
-                                    <span class="nc-input-label">Label</span>
-                                    <span class="nc-hint"
-                                        >Hint is an accessible way to provide additional information
-                                        that might help the user</span
-                                    >
-                                </label>
-                                <input id="input" class="nc-input" />
-                            </div>
-                            <div class="nc-input-field">
-                                <label for="input2" class="nc-stack">
-                                    <span class="nc-input-label">Label 2</span>
-                                    <span class="nc-input-error"
-                                        >An error is a good indicator of something that went wrong</span
-                                    >
-                                </label>
-                                <input id="input2" class="nc-input" />
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
-
-                <div class="nc-box -bordered">
-                    <fieldset>
-                        <legend>
-                            <h1>Legend as H1</h1>
-                        </legend>
-                        <p class="nc-hint">this is a hint for this fieldset</p>
-                        <div class="nc-input-field">
-                            <label for="input3" class="nc-stack">
-                                <span class="nc-input-label">Label</span>
-                                <span class="nc-hint"
-                                    >Hint is an accessible way to provide additional information
-                                    that might help the user</span
-                                >
-                            </label>
-                            <input id="input3" class="nc-input" />
-                        </div>
-                    </fieldset>
-                </div>
-            </div>
-        </div>
+        <ComponentPreview
+            component={fieldsetWithH1({})}
+            title="Fieldset with H1"
+            description="You can use a the legend as a Headline if you have one form step per page."
+        />
     </section>
 </div>

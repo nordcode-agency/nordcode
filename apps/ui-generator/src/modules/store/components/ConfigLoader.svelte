@@ -13,8 +13,12 @@
 
     let allStyles = ''
 
+
+    const previewContainer = typeof document !== 'undefined' ? document?.body : undefined
+
     const updateStyles = (store: ConfigStore) => {
         allStyles = generateStyleString(store)
+        previewContainer?.setAttribute('style', allStyles)
     }
 
 
@@ -26,7 +30,7 @@
     }
 </script>
 
-<div style={allStyles} class="nc-stack container">
+<div class="nc-stack container">
     <div class="nc-cluster | actions">
 
         <button
@@ -43,13 +47,9 @@
     </div>
     <ExportDialog allStyles={allStyles}/>
     <ImportDialog/>
-    {#if $previewShown}
-        <div class="preview" transition:slide={{axis: "x", ease: quintOut}}>
+  {#if $previewShown}
+        <div class="preview">
             <ContextPreview/>
-        </div>
-    {:else}
-        <div class="preview" transition:slide={{axis: "x", ease: quintOut}}>
-            <slot></slot>
         </div>
     {/if}
 </div>
