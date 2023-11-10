@@ -13,7 +13,7 @@
 <div class="container">
   <a {href} class="nc-card card" data-variant={variant}>
     <figure>
-      <img src={cover.src} alt={cover.alt}>
+      <img loading="lazy" src={cover.src} alt={cover.alt}>
     </figure>
     <div class="header">
       <div class="headings">
