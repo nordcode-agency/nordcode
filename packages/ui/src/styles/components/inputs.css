@@ -272,11 +272,11 @@
         place-items: start;
 
         & > label {
-            --stack-gap: var(--spacing-tiny);
+            gap: var(--spacing-tiny);
         }
 
         & > div {
-            --cluster-gap: var(--spacing-near);
+            gap: var(--spacing-near);
         }
     }
 
