@@ -2,10 +2,11 @@
     import {configStore, setPreset} from "../../store/configStore";
 </script>
 
+{#if configStore}
 <div>
-    <form class="nc-stack -layout-far -full-width -stretched">
+    <form class="nc-stack -far -full-width -stretched">
             <div class="nc-box -bordered">
-         <fieldset class="nc-fieldset stack -layout-base">
+         <fieldset class="nc-fieldset nc-stack">
             <legend>Presets</legend>
              <div class="nc-cluster">
 
@@ -19,8 +20,8 @@
 
 
 
-
         <button type="button" class="nc-button -destructive" on:click={configStore.reset}>Reset</button>
 
     </form>
 </div>
+{/if}

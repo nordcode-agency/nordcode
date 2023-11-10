@@ -4,9 +4,9 @@
 </script>
 
 {#if configStore}
-<form class="nc-stack -full-width -stretched">
+<form class="nc-stack -far full-width -stretched">
         <div class="nc-box -bordered">
-    <fieldset class="nc-fieldset stack -layout-base">
+    <fieldset class="nc-fieldset nc-stack">
         <legend>Accents</legend>
         <Input
                 name="colorLCHPrimaryHue"
@@ -49,7 +49,7 @@
         </div>
     <h2>Neutrals</h2>
         <div class="nc-box -bordered">
-    <fieldset class="nc-fieldset stack -full-width -stretched">
+    <fieldset class="nc-fieldset nc-stack -full-width -stretched">
         <legend>Light Theme</legend>
         <Input
                 name="colorLCHLightNeutralChroma"
@@ -107,7 +107,7 @@
     </fieldset>
         </div>
         <div class="nc-box -bordered">
-    <fieldset  class="nc-fieldset stack -full-width -stretched">
+    <fieldset  class="nc-fieldset nc-stack -full-width -stretched">
         <legend>Dark Theme</legend>
         <Input
                 name="colorLCHDarkNeutralChroma"

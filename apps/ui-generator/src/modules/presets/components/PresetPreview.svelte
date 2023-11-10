@@ -12,13 +12,13 @@
 </script>
 
 {#if configStore}
-    <div class="nc-stack -layout-far container live-theme">
-        <div class="nc-stack">
+    <div class="nc-stack -far container live-theme">
+        <div class="nc-stack -near">
             <h2>Component Preview</h2>
 
             <div class="nc-card live-theme">
                 <div class="nc-stack">
-                    <div class="nc-stack -layout-none">
+                    <div class="nc-stack -nogap">
                         <span class="badge">Cool Card</span>
                         <h3>Hello Friend</h3>
                     </div>

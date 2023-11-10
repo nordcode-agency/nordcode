@@ -44,34 +44,34 @@
 
 
 {#if configStore}
-<div class="nc-stack -layout-far">
-    <div class="nc-stack -layout-near">
+<div class="nc-stack -far">
+    <div class="nc-stack -near">
         <h2>Font Families</h2>
         {#each Object.entries(fontFamilies) as [key, value]}
             <TextPreviewRow label="{key}" style="{value}" text={text}/>
         {/each}
     </div>
-    <div class="nc-stack -layout-near">
+    <div class="nc-stack -near">
         <h2>Font sizes</h2>
         {#each Object.entries(fontSizes) as [key, value]}
             <TextPreviewRow label="{key}" style="{value}" text={text}/>
         {/each}
     </div>
-    <div class="nc-stack -layout-near">
+    <div class="nc-stack -near">
         <h2>Tracking</h2>
         {#each Object.entries(tracking) as [key, value]}
             <TextPreviewRow label="{key}" style="{value}" text={text}/>
         {/each}
     </div>
 
-    <div class="nc-stack -layout-near">
+    <div class="nc-stack -near">
         <h2>Line Heights</h2>
         {#each Object.entries(lineheights) as [key, value]}
             <TextPreviewRow label="{key}" style="{value}" text={text}/>
         {/each}
     </div>
 
-    <div class="nc-stack -layout-near">
+    <div class="nc-stack -near">
         <h2>Measures</h2>
         {#each Object.entries(measures) as [key, value]}
             <TextPreviewRow label="{key}" style="{value}" text={longText}/>

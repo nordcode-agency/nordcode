@@ -2,10 +2,10 @@
 import Themepicker from './Themepicker.astro';
 ---
 
-<div class="nc-cluster -centered -layout-base">
+<div class="nc-cluster -centered">
     <h1>UI Generator</h1>
     <nav class="mr-auto">
-        <ul class="list-reset nc-cluster -layout-near">
+        <ul class="list-reset nc-cluster -near">
             <li>
                 <a href="/">Presets</a>
             </li>
@@ -28,18 +28,17 @@ import Themepicker from './Themepicker.astro';
     <Themepicker />
 </div>
 
-<style lang="postcss">
+<style>
     nav a {
         text-decoration: underline;
         text-underline-offset: 0.2em;
         color: var(--color-brand-secondary-base);
 
         &:hover {
-        color: var(--color-brand-secondary-subtle)
-
-         }
+            color: var(--color-brand-secondary-subtle);
+        }
     }
     h1 {
         font-size: var(--font-size-base);
     }
-    </style>
+</style>

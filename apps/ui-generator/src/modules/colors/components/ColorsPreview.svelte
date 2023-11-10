@@ -176,14 +176,14 @@ description: 'Use for text on top of emphasized backgrounds, such as banners, ba
 </script>
 
 {#if configStore}
-    <div class="nc-stack -layout-far">
-        <div class="nc-stack -layout-near">
+    <div class="nc-stack -far">
+        <div class="nc-stack -near">
             <h2>Colors</h2>
             {#each colors as color}
                 <ColorPreview color={color.token} description={color.description}/>
             {/each}
         </div>
-        <div class="nc-cluster -layout-near">
+        <div class="nc-cluster -near">
             <button class="nc-button live-theme">Default / Basic</button>
             <button class="nc-button -primary live-theme">Primary</button>
             <button class="nc-button -secondary live-theme">Secondary</button>
@@ -195,7 +195,7 @@ description: 'Use for text on top of emphasized backgrounds, such as banners, ba
             <button class="nc-button -stealth -secondary live-theme">Stealth Secondary</button>
             <button class="nc-button -destructive">Destructive button</button>
         </div>
-        <div class="nc-cluster -layout-near">
+        <div class="nc-cluster -near">
             <div class="badge live-theme">Standard</div>
             <div class="badge -secondary live-theme">Secondary</div>
             <div class="badge -emphasis live-theme">Emphasis</div>

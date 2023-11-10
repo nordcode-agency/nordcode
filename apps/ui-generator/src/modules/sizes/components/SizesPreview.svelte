@@ -38,14 +38,14 @@
 </script>
 
 {#if configStore}
-<div class="nc-stack -layout-far">
-    <div class="nc-stack -layout-near">
+<div class="nc-stack -far">
+    <div class="nc-stack -near">
         <h2>Spacings</h2>
         {#each Object.entries(spacings) as [key, value]}
             <SpacingRow label="{key}" style="{value}" />
         {/each}
     </div>
-    <div class="nc-stack -layout-near">
+    <div class="nc-stack -near">
         <h2>Borders</h2>
         {#each Object.entries(borderWidths) as [key, value]}
             <BlockPreview label="{key}" style="{value}" />
@@ -54,7 +54,7 @@
             <BlockPreview label="{key}" style="{value}" />
         {/each}
     </div>
-    <div class="nc-stack -layout-far">
+    <div class="nc-stack -far">
         <h2>Shadows</h2>
         {#each Object.entries(shadows) as [key, value]}
             <BlockPreview label="{key}" style="{value}" />

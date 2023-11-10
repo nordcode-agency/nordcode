@@ -10,9 +10,9 @@
 
 {#if configStore}
 <div>
-  <form class="nc-stack -layout-far -full-width -stretched">
+  <form class="nc-stack -far full-width -stretched">
     <div class="nc-box -bordered">
-      <fieldset class="nc-fieldset nc-stack -layout-base">
+      <fieldset class="nc-fieldset nc-stack">
         <legend>Font Families</legend>
         <Input
           name="fontFamilySans"
@@ -49,7 +49,7 @@
     </div>
     <div class="nc-box -bordered">
 
-      <fieldset class="nc-fieldset nc-stack -layout-base">
+      <fieldset class="nc-fieldset nc-stack">
         <legend>Font Sizes</legend>
 
         <InputWrapper
@@ -72,7 +72,7 @@
 
         <details class="full-width">
           <summary>Use custom font sizes?</summary>
-          <fieldset class="nc-fieldset nc-stack -layout-base">
+          <fieldset class="nc-fieldset nc-stack">
             <legend>Custom Font Sizes</legend>
             <Input type="checkbox" name="useCustomFontsizes" label="Use custom font sizes?"
                    id="useCustomFontsizes"
@@ -125,7 +125,7 @@
       </fieldset>
     </div>
     <div class="nc-box -bordered">
-      <fieldset class="nc-fieldset nc-stack -layout-base">
+      <fieldset class="nc-fieldset nc-stack">
         <legend>Line Heights</legend>
         <Input
           name="line-height-large"
@@ -148,7 +148,7 @@
       </fieldset>
     </div>
     <div class="nc-box -bordered">
-      <fieldset class="nc-fieldset nc-stack -layout-base">
+      <fieldset class="nc-fieldset nc-stack">
         <legend>Font Weights</legend>
         <Input
           name="fontWeightDefault"
@@ -183,7 +183,7 @@
     </div>
 
     <div class="nc-box -bordered">
-      <fieldset class="nc-fieldset nc-stack -layout-base">
+      <fieldset class="nc-fieldset nc-stack">
         <legend>Tracking</legend>
         <Input
           name="tracking-wide"
@@ -209,7 +209,7 @@
       </fieldset>
     </div>
     <div class="nc-box -bordered">
-      <fieldset class="nc-fieldset nc-stack -layout-base">
+      <fieldset class="nc-fieldset nc-stack">
         <legend>Measure</legend>
         <Input
           name="measure-large"
