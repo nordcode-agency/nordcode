@@ -12,16 +12,9 @@
 
 <div class="container">
   <a {href} class="nc-card card" data-variant={variant}>
-    {#await import(`../../../assets/${cover.fileName}.avif`)}
-      <div class="img-placeholder">Lädt…</div>
-    {:then src}
-      <!-- <div class="img-placeholder">Lädt…</div> -->
-      <figure>
-        <img src={src.default} alt="asd">
-      </figure>
-    {:catch error}
-      <div class="img-placeholder">{error}</div>
-    {/await}
+    <figure>
+      <img src={cover.src} alt={cover.alt}>
+    </figure>
     <div class="header">
       <div class="headings">
         <span>{subheading}</span>

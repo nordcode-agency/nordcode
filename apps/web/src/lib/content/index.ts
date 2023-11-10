@@ -1,11 +1,17 @@
 import type { WorkProject } from "$lib/types";
+import ImgRicola from '$lib/assets/ricola.avif';
+import ImgNewYork from '$lib/assets/new-york.avif'
+import ImgMountains from '$lib/assets/mountains.avif'
+import ImgItaly from '$lib/assets/italy.avif'
+import ImgIce from '$lib/assets/ice.avif'
+import ImgDesert from '$lib/assets/desert.avif'
 
 export const projects: WorkProject[] = [
   {
     heading: 'Telling a new story',
     subheading: 'Ricola',
     cover: {
-      fileName: 'ricola',
+      src: ImgRicola,
       alt: 'Farmers Snack'
     },
     slug: 'ricolax',
@@ -14,7 +20,7 @@ export const projects: WorkProject[] = [
     heading: 'A sky full of stars',
     subheading: 'Hotplay',
     cover: {
-      fileName: 'new-york',
+      src: ImgNewYork,
       alt: 'Farmers Snack'
     },
     slug: 'sky-full-of-stars',
@@ -23,7 +29,7 @@ export const projects: WorkProject[] = [
     heading: 'A digital taste of your snack',
     subheading: 'Farmers Snack',
     cover: {
-      fileName: 'mountains',
+      src: ImgMountains,
       alt: 'Farmers Snack'
     },
     slug: 'farmers-snack',
@@ -32,7 +38,7 @@ export const projects: WorkProject[] = [
     heading: 'Feeling home in Italy',
     subheading: 'Limuncetti',
     cover: {
-      fileName: 'italy',
+      src: ImgItaly,
       alt: 'Limuncetti Rentals'
     },
     slug: 'limuncetti',
@@ -41,7 +47,7 @@ export const projects: WorkProject[] = [
     heading: 'Reshaping transparency',
     subheading: 'Reshape',
     cover: {
-      fileName: 'ice',
+      src: ImgIce,
       alt: 'Reshape New Web App'
     },
     slug: 'reshape',
@@ -50,7 +56,7 @@ export const projects: WorkProject[] = [
     heading: 'Travel the web',
     subheading: 'Traverly',
     cover: {
-      fileName: 'desert',
+      src: ImgDesert,
       alt: 'A new digital travel experience'
     },
     slug: 'traverly',

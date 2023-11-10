@@ -15,15 +15,9 @@
   <div class="nc-stack">
     <div class="nc-box nc-stack hero">
       <div class="nc-stack" style="--stack-flex-direction: row">
-        {#await import(`../../../lib/assets/${cover.fileName}.avif`)}
-          <div class="img-placeholder">Lädt…</div>
-        {:then src}
-          <figure class="thumbnail">
-            <img src={src.default} alt={cover?.alt}>
-          </figure>
-        {:catch error}
-          <div class="img-placeholder">{error}</div>
-        {/await}
+        <figure class="thumbnail">
+          <img src={cover?.src} alt={cover?.alt}>
+        </figure>
         <div class="headings">
           <span class="subheading slide-up-from">{subheading}</span>
           <h1 class="slide-up-from">{heading}</h1>

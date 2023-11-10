@@ -1,5 +1,5 @@
 export type MediaImage = {
-  fileName: string;
+  src: string;
   alt: string;
 }
 
