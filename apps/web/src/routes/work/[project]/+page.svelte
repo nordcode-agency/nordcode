@@ -13,8 +13,8 @@
 
 <article class="nc-box">
   <div class="nc-stack">
-    <div class="nc-box nc-stack hero">
-      <div class="nc-stack" style="--stack-flex-direction: row">
+    <div class="nc-box nc-stack -inherit hero">
+      <div class="nc-cluster">
         <figure class="thumbnail">
           <img src={cover?.src} alt={cover?.alt}>
         </figure>
@@ -106,8 +106,6 @@
   }
 
   .hero {
-    --stack-flex-wrap: wrap;
-
     padding-inline: 0;
 
     @media (--md-n-above) {

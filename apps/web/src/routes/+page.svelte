@@ -19,7 +19,7 @@
 <div class="nc-box intro">
   <p>Wir haben eine Leidenschaft für schönes Design und eine tolle User Experience. Diese Leidenschaft nutzen wir, um ein Erlebnis für deine Nutzer zu schaffen, dass funktioniert.</p>
 </div>
-<div class="nc-box nc-stack -stretched work">
+<div class="nc-box nc-stack -inherit -stretched work">
   <div>
     <WorkCard
       heading={data.projects[4].heading}
@@ -28,7 +28,7 @@
       slug={data.projects[4].slug}
     />
   </div>
-  <div class="more-work nc-ram-grid">
+  <div class="more-work nc-ram-grid -inherit">
     <WorkCard
       heading={data.projects[2].heading}
       subheading={data.projects[2].subheading}
@@ -75,7 +75,7 @@
 
   .more-work {
     --nc-ram-grid-min-width: calc(25 * var(--spacing-base));
-    --nc-ram-grid-gap: var(--_stack-gap);
+    --nc-ram-grid-gap: var(--stack-gap);
 
     inline-size: 100%;
   }
