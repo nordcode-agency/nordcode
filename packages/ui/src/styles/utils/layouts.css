@@ -10,18 +10,13 @@
     }
 
     .nc-stack {
-        --_stack-gap: var(--stack-gap, var(--spacing-base));
-        --_stack-flex-direction: var(--stack-flex-direction, column);
-        --_stack-flex-wrap: var(--stack-flex-wrap, no-wrap);
-
         display: flex;
-        flex-direction: var(--_stack-flex-direction);
-        flex-wrap: var(--_stack-flex-wrap);
-        gap: var(--_stack-gap);
+        flex-direction: column;
+        gap: var(--spacing-base);
         align-items: flex-start;
 
-        &.-near {
-            --stack-gap: var(--spacing-near);
+        &.-inherit {
+            gap: var(--stack-gap, var(--spacing-base));
         }
 
         &.-stretched {
@@ -58,21 +53,22 @@
     }
 
     .nc-center {
-        --_center-measure: var(--center-measure, 0);
-        --_center-padding: var(--center-padding, 0);
-
         box-sizing: content-box;
         margin-inline: auto;
-        max-inline-size: var(--_center-measure);
-        padding-inline: var(--_center-padding);
+        max-inline-size: var(--center-measure, 0);
+        padding-inline: var(--center-measure, 0);
     }
 
     .nc-cluster {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: var(--cluster-gap, var(--spacing-base));
+        gap: var(--spacing-base);
         align-items: flex-start;
+
+        &.-inherit {
+            gap: var(--cluster-gap, var(--spacing-base));
+        }
 
         &.-centered {
             align-items: center;
@@ -90,7 +86,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: var(--with-sidebar-gap, var(--spacing-far));
+        gap: var(--spacing-far);
 
         & > [data-aside] {
             flex-grow: 1;
@@ -101,6 +97,36 @@
             flex-basis: 0;
             flex-grow: 999;
             min-width: var(--with-sidebar-min-size);
+        }
+
+        &.-inherit {
+            gap: var(--with-sidebar-gap, var(--spacing-far));
+        }
+    }
+
+    :where(.nc-stack, .nc-cluster, .nc-with-sidebar) {
+        &.-tiny {
+            gap: var(--spacing-tiny);
+        }
+
+        &.-nearest {
+            gap: var(--spacing-nearest);
+        }
+
+        &.-near {
+            gap: var(--spacing-near);
+        }
+
+        &.-base {
+            gap: var(--spacing-base);
+        }
+
+        &.-far {
+            gap: var(--spacing-far);
+        }
+
+        &.-farthest {
+            gap: var(--spacing-farthest);
         }
     }
 
