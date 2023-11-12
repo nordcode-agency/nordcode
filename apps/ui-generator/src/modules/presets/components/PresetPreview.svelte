@@ -12,7 +12,7 @@
 </script>
 
 {#if configStore}
-    <div class="nc-stack -far container live-theme">
+    <div class="nc-stack -far live-theme">
         <div class="nc-stack -near">
             <h2>Component Preview</h2>
 
@@ -77,12 +77,6 @@
 
 
 <style lang="postcss">
-    .container {
-        background: var(--color-surface-default);
-        padding: var(--spacing-base);
-        inline-size: 100%;
-        color: var(--color-text-default);
-    }
     .muted {
         color: var(--color-text-muted);
     }

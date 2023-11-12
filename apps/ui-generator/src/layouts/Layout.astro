@@ -1,5 +1,4 @@
 ---
-import ConfigLoader from '../modules/store/components/ConfigLoader.svelte';
 import ConfigFromUrl from '../modules/store/components/ConfigFromUrl.svelte';
 import NotificationCenter from '@nordcode/ui/src/modules/notifications/svelte/NotificationCenter.svelte';
 import NotificationTemplate from '@nordcode/ui/src/modules/notifications/svelte/NotificationTemplate.svelte';
@@ -11,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="de" dir="ltr">
+<html lang="en" dir="ltr">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -20,16 +19,15 @@ const { title } = Astro.props;
         <title>{title}</title>
     </head>
     <body class="live-theme">
-        <main>
-            <header>
+        <main class="main">
+            <header class="header">
                 <slot name="header" />
             </header>
 
-            <aside>
+            <aside class="aside content-block">
                 <slot name="aside" />
             </aside>
-            <section>
-                <ConfigLoader client:load="svelte" />
+            <section class="content content-block">
                 <slot name="content" />
             </section>
         </main>
@@ -46,7 +44,7 @@ const { title } = Astro.props;
     @import '@nordcode/ui/base';
     @import './liveTheme.css';
 
-    main {
+    .main {
         display: grid;
         grid-template:
             'header header' auto
@@ -57,9 +55,10 @@ const { title } = Astro.props;
         min-block-size: 100vh;
         max-block-size: 100vh;
         overflow: hidden;
+        position: relative;
     }
 
-    header {
+    .header {
         grid-area: header;
         background: var(--color-surface-default);
         padding-block: var(--spacing-near);
@@ -67,10 +66,9 @@ const { title } = Astro.props;
         border-bottom: var(--border-width-thin) solid var(--color-border-default);
     }
 
-    aside {
+    .aside {
         grid-area: config;
         background: var(--color-surface-default);
-        padding-block: var(--spacing-base);
         overflow-y: auto;
         border-inline-end: var(--border-width-thin) solid var(--color-border-default);
         max-inline-size: 25rem;
@@ -80,12 +78,17 @@ const { title } = Astro.props;
         }
     }
 
-    section {
+    .content {
         grid-area: content;
         background: var(--color-surface-default);
-        padding-block: var(--spacing-base);
         padding-inline: var(--spacing-base);
         overflow-y: auto;
+        overflow-x: hidden;
+        min-inline-size: 0;
+    }
+
+    .content-block {
+        padding-block: var(--spacing-far);
     }
 </style>
 
