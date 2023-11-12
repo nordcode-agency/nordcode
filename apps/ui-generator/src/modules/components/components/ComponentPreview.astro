@@ -2,7 +2,7 @@
 import { Code } from 'astro:components';
 import SectionTitle from './SectionTitle.astro';
 
-interface Example {
+export interface Example {
     title: string;
     description?: string;
     code: string;
@@ -11,18 +11,18 @@ interface Example {
 interface Props {
     component: string;
     title: string;
-    id: string;
+    sectionId: string;
     description?: string;
     notes?: string[];
     examples?: Example[];
 }
 
-const { component, description, title, examples, notes } = Astro.props;
+const { sectionId, component, description, title, examples, notes } = Astro.props;
 ---
 
-<div class="nc-stack nc-box -bordered">
+<section class="nc-stack nc-box -bordered section-to-observe" id={sectionId}>
     <div>
-        <SectionTitle title={title} nested="true" />
+        <SectionTitle title={title} nested="true" sectionId={sectionId} />
         {description ? <p class="nc-hint">{description}</p> : null}
     </div>
     <h4>Rendered</h4>
@@ -81,7 +81,7 @@ const { component, description, title, examples, notes } = Astro.props;
             </>
         ) : null
     }
-</div>
+</section>
 
 <style>
     .preview-box {

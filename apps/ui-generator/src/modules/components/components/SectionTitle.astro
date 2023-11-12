@@ -1,17 +1,15 @@
 ---
-import { slugify } from '../../common/utils/slugify';
 export interface Props {
+    sectionId: string;
     title: string;
     nested?: boolean;
 }
 
-const { title, nested } = Astro.props;
-
-const slugified = slugify(title);
+const { title, nested, sectionId } = Astro.props;
 ---
 
 <div class="nc-cluster -nearest -centered">
-    <a class="anchor-link" href={`#${slugified}`}>
+    <a class="anchor-link" href={`#${sectionId}`}>
         <>
             <svg
                 aria-hidden="true"
@@ -29,5 +27,15 @@ const slugified = slugify(title);
         </>
     </a>
 
-    {nested ? <h2 id={slugified}>{title}</h2> : <h3 id={slugified}>{title}</h3>}
+    {nested ? <h3>{title}</h3> : <h2>{title}</h2>}
 </div>
+
+<style>
+    .anchor-link {
+        color: var(--color-text-muted);
+
+        &:hover {
+            color: var(--color-brand-primary-base);
+        }
+    }
+</style>
