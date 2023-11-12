@@ -33,16 +33,5 @@
        on:input={handleInput}
        {...$$restProps}
 >
-    <small class="value">{value}</small>
+    <small class="nc-hint">{value}</small>
 </div>
-
-<style>
-    .nc-range-input {
-      --stack-gap: 0;
-    }
-    .value {
-        color: var(--color-text-subtle);
-        margin-inline-start: auto;
-    }
-</style>
-

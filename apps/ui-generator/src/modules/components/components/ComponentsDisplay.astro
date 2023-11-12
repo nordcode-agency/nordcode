@@ -1,25 +1,150 @@
 ---
+import buttonIcon from '../examples/button/buttonIcon.html';
+import inputBase from '../examples/input/inputBase.html';
+import inputDate from '../examples/input/inputDate.html';
+import inputRange from '../examples/input/inputRange.html';
+import inputSelect from '../examples/input/inputSelect.html';
+import inputTextarea from '../examples/input/inputTextarea.html';
+import inputCheckbox from '../examples/input/inputCheckbox.html';
+import fieldsetBase from '../examples/fieldset/fieldsetBase.html';
 import fieldsetStandard from '../examples/fieldset/fieldsetStandard.html';
 import fieldsetWithH1 from '../examples/fieldset/fieldsetWithH1.html';
 import { Code } from 'astro:components';
 import ComponentPreview from './ComponentPreview.astro';
+import SectionTitle from './SectionTitle.astro';
+
+const idxToDisplayNumber = (num: number, nestedNum?: number): string => {
+    const firstPart = (num + 1).toString().padStart(2, '0');
+    const secondPart =
+        nestedNum !== undefined ? `.${(nestedNum + 1).toString().padStart(2, '0')}` : '';
+
+    return firstPart + secondPart;
+};
+
+/*
+ * - Im Nav: 02: Buttons -> 02.01: Icon Button + link #02.01:icon-button = slugify(title)
+ * - Im Title:
+ *
+ */
+
+const sections = [
+    {
+        title: 'Buttons',
+        components: [
+            {
+                title: 'Icon Button',
+                description: 'An icon-only button for when you want a more minimal interface.',
+                component: buttonIcon({}),
+                notes: [
+                    "Make sure to set the icon to aria-hidden, so the content isn't read to screen reader users",
+                    'Also add a screen-reader only label',
+                ],
+            },
+        ],
+    },
+    {
+        title: 'Form Elements',
+        components: [
+            {
+                title: 'Fieldset',
+                component: fieldsetBase({}),
+                description:
+                    'Used to group inputs that belong together. Mandatory for radio-inputs. Can have a hint to describe what it is about.',
+                examples: [
+                    {
+                        title: 'Standard Fieldset',
+                        description:
+                            'A more practical example with inputs and a box around it for design purposes.',
+                        code: fieldsetStandard({}),
+                    },
+                    {
+                        title: 'Fieldset for single question pages',
+                        description: 'You can nest an h1 in the legend like this.',
+                        code: fieldsetWithH1({}),
+                    },
+                ],
+            },
+            {
+                title: 'Input Fields',
+                component: inputBase({}),
+                description: 'The classic input with a label and optional hint(s) and error(s).',
+                notes: [
+                    'Ideally, mark labels and inputs as optional and set aria-required="false"',
+                    'You can set min and max-widths globally using --input-field-min-inline-size and --input-field-max-inline-size',
+                ],
+                examples: [
+                    {
+                        title: 'Checkbox Input',
+                        description: 'A standard checkbox input.',
+                        code: inputCheckbox({}),
+                    },
+                    {
+                        title: 'Date Input',
+                        description:
+                            'Date Inputs can have a little button next to them to make it easier to set the date. You do have to hook up the logic, though.',
+                        code: inputDate({}),
+                    },
+                    {
+                        title: 'Range Input',
+                        description:
+                            'It is nice to display the range value below, we think. You need to keep it in sync yourself though.',
+                        code: inputRange({}),
+                    },
+                    {
+                        title: 'Select',
+                        description:
+                            'Selects are useful for when you have more than 5 items, but still a managable amount.',
+                        code: inputSelect({}),
+                    },
+                    {
+                        title: 'Textarea',
+                        description: 'Need more space? Use a textarea.',
+                        code: inputTextarea({}),
+                    },
+                ],
+            },
+        ],
+    },
+];
 ---
 
-<div class="nc-stack -far">
+<div class="nc-stack -far -stretched components-preview">
     <h1>Components</h1>
-    <section class="nc-stack -base">
-        <h2 id="form-elements">Form Elements</h2>
-
-        <ComponentPreview
-            component={fieldsetStandard({})}
-            title="Fieldset"
-            description="A fieldset how it was imagined."
-        />
-
-        <ComponentPreview
-            component={fieldsetWithH1({})}
-            title="Fieldset with H1"
-            description="You can use a the legend as a Headline if you have one form step per page."
-        />
-    </section>
+    <nav>
+        <ul>
+            <li><a href="#buttons">Buttons</a></li>
+            <li><a href="#form-elements">Form Elements</a></li>
+        </ul>
+    </nav>
+    {
+        sections.map((section, idx) => (
+            <section class="nc-stack -base -stretched">
+                <SectionTitle title={`${idxToDisplayNumber(idx)}: ${section.title}`} />
+                {section.components.map((formEl, componentIdx) => (
+                    <ComponentPreview
+                        component={formEl.component}
+                        title={`${idxToDisplayNumber(idx, componentIdx)}: ${formEl.title}`}
+                        description={formEl.description}
+                        examples={formEl.examples}
+                        notes={formEl.notes}
+                    />
+                ))}
+            </section>
+        ))
+    }
 </div>
+
+<style>
+    .components-preview {
+        --input-field-min-inline-size: 40ch;
+        --input-field-max-inline-size: 40ch;
+    }
+
+    .anchor-link {
+        color: var(--color-text-muted);
+
+        &:hover {
+            color: var(--color-brand-primary-base);
+        }
+    }
+</style>

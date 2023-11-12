@@ -35,7 +35,7 @@
 
 </script>
 
-<div class="nc-cluster full-width nc-date-input">
+<div class="nc-cluster full-width nc-input-date">
 <input class="nc-input"
        id={id}
        name={name}
@@ -49,10 +49,3 @@
     Heute
 </button>
 </div>
-
-<style>
-    .nc-date-input {
-        flex-flow: row nowrap;
-    }
-</style>
-

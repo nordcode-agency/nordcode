@@ -31,11 +31,11 @@
     }
 
     &[data-size='inline'] {
-        --icon-size: calc(var(--line-height-base) * 1em);
+        --icon-size: calc(var(--line-height-base) * 0.75em);
 
         /* @url https://caniuse.com/?search=lh%20unit */
         @supports (inline-size: 1lh) {
-            --icon-size: 1lh;
+            --icon-size: 0.75lh;
         }
     }
 

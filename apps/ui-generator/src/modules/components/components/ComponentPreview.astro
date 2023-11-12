@@ -1,21 +1,34 @@
 ---
 import { Code } from 'astro:components';
+import SectionTitle from './SectionTitle.astro';
+
+interface Example {
+    title: string;
+    description?: string;
+    code: string;
+}
 
 interface Props {
     component: string;
     title: string;
+    id: string;
     description?: string;
+    notes?: string[];
+    examples?: Example[];
 }
 
-const { component, description, title } = Astro.props;
+const { component, description, title, examples, notes } = Astro.props;
 ---
 
 <div class="nc-stack nc-box -bordered">
     <div>
-        <h2>{title}</h2>
+        <SectionTitle title={title} nested="true" />
         {description ? <p class="nc-hint">{description}</p> : null}
     </div>
-    <Fragment set:html={component} />
+    <h4>Rendered</h4>
+    <div class="nc-box -bordered preview-box">
+        <Fragment set:html={component} />
+    </div>
     <Code code={component} lang="html" theme="dracula" />
     <button
         type="button"
@@ -26,4 +39,56 @@ const { component, description, title } = Astro.props;
         data-notification-description={`Copied ${title}'s code to your clipboard.`}
         >Copy Code</button
     >
+    {
+        notes ? (
+            <>
+                <h4>Notes</h4>
+                <ul>
+                    {notes.map(note => (
+                        <li>{note}</li>
+                    ))}
+                </ul>
+            </>
+        ) : null
+    }
+    {
+        examples ? (
+            <>
+                <h4>Examples</h4>
+
+                {examples?.map(ex => (
+                    <details>
+                        <summary>{ex.title}</summary>
+                        <div class="nc-stack">
+                            {ex.description ? <p class="nc-hint">{ex.description}</p> : null}
+                            <div class="nc-box -bordered ex-details">
+                                <Fragment set:html={ex.code} />
+                            </div>
+                            <Code code={ex.code} lang="html" theme="dracula" />
+                            <button
+                                type="button"
+                                class="nc-button"
+                                data-copy-target={ex.code}
+                                data-has-notification
+                                data-notification-title="✓ To clipboard"
+                                data-notification-description={`Copied ${ex.title}'s code to your clipboard.`}
+                            >
+                                Copy Code
+                            </button>
+                        </div>
+                    </details>
+                ))}
+            </>
+        ) : null
+    }
 </div>
+
+<style>
+    .preview-box {
+        background-color: var(--color-surface-inset);
+    }
+
+    .ex-details {
+        background-color: var(--color-surface-default);
+    }
+</style>
