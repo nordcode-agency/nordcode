@@ -56,7 +56,7 @@
         box-sizing: content-box;
         margin-inline: auto;
         max-inline-size: var(--center-measure, 0);
-        padding-inline: var(--center-measure, 0);
+        padding-inline: var(--center-padding, 0);
     }
 
     .nc-cluster {

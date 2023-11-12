@@ -1,63 +1,64 @@
 .nc-icon {
-  --icon-size: calc(var(--spacing-base) * 1.5);
-
-  display: block;
-  inline-size: var(--icon-size);
-  block-size: var(--icon-size);
-
-  &[data-flip="true"] {
-    transform: scaleX(-1);
-  }
-
-  &[data-size="xs"] {
-    --icon-size: var(--spacing-near);
-  }
-
-  &[data-size="sm"] {
-    --icon-size: var(--spacing-base);
-  }
-
-  &[data-size="md"] {
     --icon-size: calc(var(--spacing-base) * 1.5);
-  }
 
-  &[data-size="lg"] {
-    --icon-size: calc(var(--spacing-base) * 1.75);
-  }
+    display: block;
+    inline-size: var(--icon-size);
+    block-size: var(--icon-size);
+    fill: currentColor;
 
-  &[data-size="xl"] {
-    --icon-size: calc(var(--spacing-base) * 2);
-  }
-
-  &[data-size="inline"] {
-    --icon-size: calc(var(--line-height-base) * 1em);
-
-    /* @url https://caniuse.com/?search=lh%20unit */
-    @supports (inline-size: 1lh) {
-      --icon-size: 1lh;
+    &[data-flip='true'] {
+        transform: scaleX(-1);
     }
-  }
 
-  &[data-animation="spinning"] {
-    animation: spinning 1s infinite linear;
-  }
+    &[data-size='xs'] {
+        --icon-size: var(--spacing-near);
+    }
+
+    &[data-size='sm'] {
+        --icon-size: var(--spacing-base);
+    }
+
+    &[data-size='md'] {
+        --icon-size: calc(var(--spacing-base) * 1.5);
+    }
+
+    &[data-size='lg'] {
+        --icon-size: calc(var(--spacing-base) * 1.75);
+    }
+
+    &[data-size='xl'] {
+        --icon-size: calc(var(--spacing-base) * 2);
+    }
+
+    &[data-size='inline'] {
+        --icon-size: calc(var(--line-height-base) * 1em);
+
+        /* @url https://caniuse.com/?search=lh%20unit */
+        @supports (inline-size: 1lh) {
+            --icon-size: 1lh;
+        }
+    }
+
+    &[data-animation='spinning'] {
+        animation: spinning 1s infinite linear;
+    }
 }
 
 button > .nc-icon {
-  --icon-size: 18px;
+    --icon-size: calc(var(--line-height-base) * 1rem);
 
-  /* @url https://caniuse.com/?search=rlh%20unit */
-  @supports (inline-size: 1rlh) {
-    --icon-size: 1rlh;
-  }
+    /* @url https://caniuse.com/?search=rlh%20unit */
+    @supports (inline-size: 1rlh) {
+        --icon-size: 1rlh;
+    }
 }
 
 @keyframes spinning {
-  from {
-    transform: rotate(0deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
 
-  to {
-    transform: rotate(360deg);
-  }
+    to {
+        transform: rotate(360deg);
+    }
 }

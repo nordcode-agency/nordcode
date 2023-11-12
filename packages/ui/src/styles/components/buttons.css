@@ -2,13 +2,13 @@
     .my-button {
         --shadow-color: var(--color-brand-primary-base-lch);
         --shadow-elevation-medium: 0px 0.5px 0.5px oklch(var(--shadow-color) / 0.65),
-        0px 1px 2px -1px oklch(var(--shadow-color) / 0.55),
-        0px 3px 6px -3px oklch(var(--shadow-color) / 0.4),
-        0px 8px 12px -4px oklch(var(--shadow-color) / 0.3);
+            0px 1px 2px -1px oklch(var(--shadow-color) / 0.55),
+            0px 3px 6px -3px oklch(var(--shadow-color) / 0.4),
+            0px 8px 12px -4px oklch(var(--shadow-color) / 0.3);
         --shadow-elevation-large: 0px 0.5px 0.5px oklch(var(--shadow-color) / 0.65),
-        0px 1px 4px -1px oklch(var(--shadow-color) / 0.55),
-        0px 3px 8px -2px oklch(var(--shadow-color) / 0.4),
-        0px 8px 14px -3px oklch(var(--shadow-color) / 0.3);
+            0px 1px 4px -1px oklch(var(--shadow-color) / 0.55),
+            0px 3px 8px -2px oklch(var(--shadow-color) / 0.4),
+            0px 8px 14px -3px oklch(var(--shadow-color) / 0.3);
 
         padding-inline: var(--spacing-base);
         padding-block: var(--spacing-near);
@@ -20,9 +20,9 @@
 
         box-shadow: var(--shadow-elevation-medium);
         background: linear-gradient(
-                45deg,
-                var(--color-brand-primary-base),
-                var(--color-brand-secondary-base)
+            45deg,
+            var(--color-brand-primary-base),
+            var(--color-brand-secondary-base)
         );
         border-radius: var(--border-radius-medium);
         color: var(--color-text-dark-strong);
@@ -39,68 +39,59 @@
     }
 
     :where(
-      button:not([class]),
-      button[type]:not([class]),
-      input[type="button"]:not([class]),
-      input[type="submit"]:not([class]),
-      input[type="reset"]:not([class]),
-      input[type="file"]:not([class]),
-      input[type="file"]:not([class])::-webkit-file-upload-button,
-      input[type="file"]:not([class])::file-selector-button,
-      .nc-button
-    ) {
+            button:not([class]),
+            button[type]:not([class]),
+            input[type='button']:not([class]),
+            input[type='submit']:not([class]),
+            input[type='reset']:not([class]),
+            input[type='file']:not([class]),
+            input[type='file']:not([class])::-webkit-file-upload-button,
+            input[type='file']:not([class])::file-selector-button,
+            .nc-button
+        ) {
         --_button-background: var(--button-background, var(--color-surface-emphasis));
         --_button-color: var(--button-color, var(--color-text-on-emphasis));
-        --_button-border-color: var(
-                --button-border-color,
-                var(--color-surface-emphasis)
-        );
-        --_button-border-radius: var(
-                --button-border-radius,
-                var(--border-radius-medium)
-        );
+        --_button-border-color: var(--button-border-color, var(--color-surface-emphasis));
+        --_button-border-radius: var(--button-border-radius, var(--border-radius-medium));
         --_button-offset-distance: var(--button-offset-distance, 0);
 
         --_button-transform: var(
-                --button-transform,
-                translate(var(--_button-offset-distance), var(--_button-offset-distance))
+            --button-transform,
+            translate(var(--_button-offset-distance), var(--_button-offset-distance))
         );
 
         --_button-box-shadow: var(
-                --button-box-shadow,
-                calc(var(--_button-offset-distance) / -2) calc(var(--_button-offset-distance) / -2) 0 0 var(--shadow-color),
-                calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) 0 0 var(--shadow-color),
-                calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -2) 0 var(--shadow-color)
+            --button-box-shadow,
+            calc(var(--_button-offset-distance) / -2) calc(var(--_button-offset-distance) / -2) 0 0
+                var(--shadow-color),
+            calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) 0 0
+                var(--shadow-color),
+            calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1)
+                calc(var(--_button-offset-distance) * -2) 0 var(--shadow-color)
         );
-        --_button-background-hover: var(
-                --button-background-hover,
-                var(--color-brand-primary-base)
-        );
+        --_button-background-hover: var(--button-background-hover, var(--color-brand-primary-base));
         --_button-background-hover-light: var(
-                --button-background-hover-light,
-                var(--color-brand-primary-hover)
+            --button-background-hover-light,
+            var(--color-brand-primary-hover)
         );
-        --_button-color-hover: var(
-                --button-color-hover,
-                var(--color-text-default)
-        );
+        --_button-color-hover: var(--button-color-hover, var(--color-text-default));
         --_button-offset-distance-hover: var(--button-offset-distance-hover, 0);
         --_button-border-color-hover: var(
-                --button-border-color-hover,
-                var(--color-brand-primary-base)
+            --button-border-color-hover,
+            var(--color-brand-primary-base)
         );
         --_button-hover-transform: var(
-                --button-hover-transform,
-                translate(
-                        var(--_button-offset-distance-hover),
-                        var(--_button-offset-distance-hover)
-                )
+            --button-hover-transform,
+            translate(var(--_button-offset-distance-hover), var(--_button-offset-distance-hover))
         );
 
         --_button-hover-shadow: var(
-                --button-hover-shadow,
-                calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--shadow-color),
-                calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) / -2) 0 var(--shadow-color)
+            --button-hover-shadow,
+            calc(var(--_button-offset-distance-hover) * -1)
+                calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--shadow-color),
+            calc(var(--_button-offset-distance-hover) * -1)
+                calc(var(--_button-offset-distance-hover) * -1)
+                calc(var(--_button-offset-distance-hover) / -2) 0 var(--shadow-color)
         );
         --_button-padding-inline: var(--button-padding-inline, var(--spacing-base));
 
@@ -124,8 +115,9 @@
         justify-content: center;
         text-align: center;
         position: relative;
-        transition: box-shadow var(--transition-duration-base) var(--ease-2),
-        transform var(--transition-duration-base) var(--ease-2);
+        transition:
+            box-shadow var(--transition-duration-base) var(--ease-2),
+            transform var(--transition-duration-base) var(--ease-2);
         text-decoration: unset;
         box-shadow: var(--_button-box-shadow);
         transform: var(--_button-transform);
@@ -148,15 +140,15 @@
     }
 
     :where(
-      button:not([class]),
-      button[type]:not([class]),
-      input[type="button"]:not([class]),
-      input[type="submit"]:not([class]),
-      input[type="reset"]:not([class]),
-      .nc-button
-    ) {
+            button:not([class]),
+            button[type]:not([class]),
+            input[type='button']:not([class]),
+            input[type='submit']:not([class]),
+            input[type='reset']:not([class]),
+            .nc-button
+        ) {
         &:after {
-            content: "" !important;
+            content: '' !important;
         }
 
         &:hover {
@@ -167,7 +159,7 @@
             transform: var(--_button-hover-transform);
         }
 
-        &[aria-pressed="true"] {
+        &[aria-pressed='true'] {
             box-shadow: none;
             transform: none;
             font-weight: var(--font-weight-active);
@@ -242,7 +234,6 @@
             --button-background-color-hover-light: var(--color-brand-secondary-hover);
         }
 
-
         &.-outline {
             background-color: transparent;
             color: var(--_button-background);
@@ -255,7 +246,6 @@
             }
         }
 
-
         &.-stealth {
             background-color: transparent;
             border-color: transparent;
@@ -266,8 +256,6 @@
                 color: var(--_button-color-hover);
                 border-color: transparent;
             }
-
-
 
             box-shadow: none !important;
             transform: none !important;
@@ -286,9 +274,10 @@
             --_button-border-radius: var(--border-radius-round);
             padding: var(--spacing-base);
             min-block-size: 0;
+            fill: currentColor;
 
             &:after {
-                content: "";
+                content: '';
                 width: 100%;
                 height: 100%;
                 aspect-ratio: 1;
@@ -308,7 +297,7 @@
         }
     }
 
-    :where(input[type="file"]:not([class])) {
+    :where(input[type='file']:not([class])) {
         color: var(--_input-color);
         background-color: var(--_input-background);
         border: var(--_input-border);
@@ -318,8 +307,8 @@
         border-radius: var(--_input-border-radius);
     }
 
-    :where(input[type="file"]:not([class]))::-webkit-file-upload-button,
-    :where(input[type="file"]:not([class]))::file-selector-button {
+    :where(input[type='file']:not([class]))::-webkit-file-upload-button,
+    :where(input[type='file']:not([class]))::file-selector-button {
         background-color: var(--_button-background);
         color: var(--_button-color);
         padding-inline: var(--_button-padding-inline);
@@ -336,7 +325,7 @@
         border-end-end-radius: 0;
     }
 
-    :where(button[type="reset"]:not([class]), .nc-button.-destructive) {
+    :where(button[type='reset']:not([class]), .nc-button.-destructive) {
         padding-inline-start: 0 !important;
         --button-background: var(--color-status-danger-subtle);
         --button-background-hover: var(--color-status-danger-hover) !important;
@@ -347,13 +336,11 @@
 
         &:before {
             border: var(--border-width-thin) solid transparent;
-            content: "⨯";
+            content: '⨯';
             background: var(--color-status-danger-hover);
             color: var(--color-status-danger-text);
             aspect-ratio: 1;
-            margin-inline-end: calc(
-                    var(--_button-padding-inline) + var(--spacing-near)
-            );
+            margin-inline-end: calc(var(--_button-padding-inline) + var(--spacing-near));
             margin-inline-start: var(--spacing-near);
             block-size: 1em;
             inline-size: 1em;
