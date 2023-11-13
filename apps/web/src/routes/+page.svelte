@@ -43,6 +43,9 @@
     />
   </div>
 </div>
+<div class="nc-box">
+  <h2 class="heading-bg">About us</h2>
+</div>
 
 <style lang="postcss">
   @import "@nordcode/ui/media";
