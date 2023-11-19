@@ -185,14 +185,14 @@ const smarterSections = sections.map((sect, idx) => {
 <div class="nc-with-sidebar components-preview">
     <div data-aside>
         <nav class="component-nav">
-            <ul class="list-reset">
+            <ul class="nc-list-reset">
                 {
                     smarterSections.map(sect => (
                         <li>
                             <a href={`#${sect.sectionId}`} class="comp-link">
                                 {sect.titleWithNumber}
                             </a>
-                            <ul class="list-reset">
+                            <ul class="nc-list-reset">
                                 {sect.components.map(comp => (
                                     <li>
                                         <a href={`#${comp.sectionId}`} class="comp-link">
