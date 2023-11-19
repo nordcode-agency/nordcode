@@ -290,6 +290,10 @@
                 z-index: -1;
                 pointer-events: all;
             }
+
+            & > svg {
+                pointer-events: none;
+            }
         }
 
         &.-icon.-small {
