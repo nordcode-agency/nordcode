@@ -24,55 +24,47 @@
  * @type {SelectorType}
  */
 export const Selector = {
-  notificationTemplate: "#nc-notification",
-  notification: ".nc-notification",
-  notificationTitle: ".nc-notification-title",
-  notificationDescription: ".nc-notification-description",
-  notificationTime: ".nc-notification-time",
+    notificationTemplate: '#nc-notification',
+    notification: '.nc-notification',
+    notificationTitle: '.nc-notification-title',
+    notificationDescription: '.nc-notification-description',
+    notificationTime: '.nc-notification-time',
 
-  notificationButton: "button[data-has-notification]",
-  notificationCenterToggle: "button[data-toggle-notification-center]",
-  notificationCenterDismissAll: "button[data-notifications-dismiss-all]",
+    notificationButton: 'button[data-has-notification]',
+    notificationCenterToggle: 'button[data-toggle-notification-center]',
+    notificationCenterDismissAll: 'button[data-notifications-dismiss-all]',
 
-  notificationCenter: ".nc-notification-center",
-  notificationCenterContainer: ".nc-notification-center-container",
-  notificationOutput: ".nc-notification-output",
+    notificationCenter: '.nc-notification-center',
+    notificationCenterContainer: '.nc-notification-center-container',
+    notificationOutput: '.nc-notification-output',
 };
 
 /** @type {Set<string>} */
 const notifications = new Set();
 /** @type {HTMLTemplateElement | null} */
-const notificationTemplate = document.querySelector(
-  Selector.notificationTemplate
-);
+const notificationTemplate = document.querySelector(Selector.notificationTemplate);
 /** @type {NodeListOf<HTMLButtonElement>} */
-const notificationButtons = document.querySelectorAll(
-  Selector.notificationButton
-);
+const notificationButtons = document.querySelectorAll(Selector.notificationButton);
 /** @type {HTMLElement | null} */
 const notificationCenter = document.querySelector(Selector.notificationCenter);
 /** @type {NodeListOf<HTMLButtonElement>} */
-const notificationCenterToggle = document.querySelectorAll(
-  Selector.notificationCenterToggle
-);
+const notificationCenterToggle = document.querySelectorAll(Selector.notificationCenterToggle);
 /** @type {HTMLOutputElement | null} */
 const notificationOutput = document.querySelector(Selector.notificationOutput);
 /** @type {NodeListOf<HTMLButtonElement>} */
 const notificationCenterDismissAll = document.querySelectorAll(
-  Selector.notificationCenterDismissAll
+    Selector.notificationCenterDismissAll,
 );
 /** @type {HTMLElement | null} */
-const notificationCenterContainer = document.querySelector(
-  Selector.notificationCenterContainer
-);
+const notificationCenterContainer = document.querySelector(Selector.notificationCenterContainer);
 
 /**
  * Create a unique id for a notification
  * @param {string} title
  * @return {`${string}-${number}`}
  */
-const createNotificationId = (title) => {
-  return `${title}-${Date.now()}`;
+const createNotificationId = title => {
+    return `${title}-${Date.now()}`;
 };
 
 /**
@@ -82,69 +74,70 @@ const createNotificationId = (title) => {
  * @param {string | undefined} text
  */
 const setElementTextIfItExists = (notification, selector, text) => {
-  /** @type {HTMLElement | null} */
-  const element = notification.querySelector(selector);
+    /** @type {HTMLElement | null} */
+    const element = notification.querySelector(selector);
 
-  if (!element) {
-    return;
-  }
+    if (!element) {
+        return;
+    }
 
-  element.textContent = text || "";
+    element.textContent = text || '';
 };
 
 /**
  * Remove all notifications
  */
 const dismissAllNotifications = () => {
-  notifications.forEach((notificationId) => {
-    /** @type {HTMLElement | null} */
-    const notification = document.querySelector(
-      `[data-notification-id="${notificationId}"]`
-    );
+    notifications.forEach(notificationId => {
+        /** @type {HTMLElement | null} */
+        const notification = document.querySelector(`[data-notification-id="${notificationId}"]`);
 
-    if (!notification) {
-      return;
-    }
+        if (!notification) {
+            return;
+        }
 
-    removeNotification(notificationId, notification);
-  });
+        removeNotification(notificationId, notification);
+    });
 };
 
 /**
  * Register all buttons
  */
 const setupNotificationButtons = () => {
-  notificationButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const title = button.dataset.notificationTitle;
-      const description = button.dataset.notificationDescription;
+    const htmlEl = document.documentElement;
 
-      if (!title) {
-        console.error("No title defined for notification");
-        return;
-      }
-      addNotification(title, description);
+    htmlEl?.addEventListener('click', e => {
+        const el = e.target;
+        if (el.hasAttribute('data-has-notification')) {
+            const title = el.dataset.notificationTitle;
+            const description = el.dataset.notificationDescription;
+
+            if (!title) {
+                console.error('No title defined for notification');
+                return;
+            }
+            addNotification(title, description);
+        }
     });
-  });
 
-  notificationCenterDismissAll.forEach((button) =>
-    button.addEventListener("click", () => {
-      dismissAllNotifications();
-    })
-  );
+    notificationCenterDismissAll.forEach(button =>
+        button.addEventListener('click', () => {
+            dismissAllNotifications();
+        }),
+    );
 
-  notificationCenterToggle.forEach((button) =>
-    button.addEventListener("click", () => {
-      notificationCenter?.classList.toggle("-open");
-    })
-  );
+    notificationCenterToggle.forEach(button =>
+        button.addEventListener('click', () => {
+            notificationCenter?.classList.toggle('-open');
+        }),
+    );
 };
 
 /**
  * Hide the notification center
  */
 const closeNavigationCenter = () => {
-  notificationCenter?.classList?.remove("-open");
+    notificationCenter?.classList?.remove('-open');
 };
 
 /**
@@ -155,53 +148,42 @@ const closeNavigationCenter = () => {
  * @return {HTMLElement | null} The notification element
  */
 const createNotification = (title, description, notificationId) => {
-  if (!notificationTemplate) {
-    console.error(
-      "Could not find notification template",
-      Selector.notificationTemplate
+    if (!notificationTemplate) {
+        console.error('Could not find notification template', Selector.notificationTemplate);
+        return null;
+    }
+
+    const clonedTemplate = notificationTemplate.content.cloneNode(true);
+    /** @type {HTMLElement | null} */
+    const notificationElement = /** @type {HTMLTemplateElement} */ (clonedTemplate).querySelector(
+        Selector.notification,
     );
-    return null;
-  }
+    if (!notificationElement) {
+        console.error('Could not find notification element');
+        return null;
+    }
 
-  const clonedTemplate = notificationTemplate.content.cloneNode(true);
-  /** @type {HTMLElement | null} */
-  const notificationElement = /** @type {HTMLTemplateElement} */ (
-    clonedTemplate
-  ).querySelector(Selector.notification);
-  if (!notificationElement) {
-    console.error("Could not find notification element");
-    return null;
-  }
+    /** @type {HTMLButtonElement | null} */
+    const notificationClose = notificationElement.querySelector('button');
 
-  /** @type {HTMLButtonElement | null} */
-  const notificationClose = notificationElement.querySelector("button");
+    notificationElement.dataset.notificationId = notificationId;
+    setElementTextIfItExists(notificationElement, Selector.notificationTitle, title);
+    setElementTextIfItExists(notificationElement, Selector.notificationDescription, description);
+    setElementTextIfItExists(
+        notificationElement,
+        Selector.notificationTime,
+        new Date().toLocaleTimeString(),
+    );
 
-  notificationElement.dataset.notificationId = notificationId;
-  setElementTextIfItExists(
-    notificationElement,
-    Selector.notificationTitle,
-    title
-  );
-  setElementTextIfItExists(
-    notificationElement,
-    Selector.notificationDescription,
-    description
-  );
-  setElementTextIfItExists(
-    notificationElement,
-    Selector.notificationTime,
-    new Date().toLocaleTimeString()
-  );
+    notificationClose?.addEventListener(
+        'click',
+        e => {
+            closeCorrespondingNotification(e);
+        },
+        { once: true },
+    );
 
-  notificationClose?.addEventListener(
-    "click",
-    (e) => {
-      closeCorrespondingNotification(e);
-    },
-    { once: true }
-  );
-
-  return notificationElement;
+    return notificationElement;
 };
 
 /**
@@ -210,58 +192,48 @@ const createNotification = (title, description, notificationId) => {
  * @param {string | undefined} description
  */
 export const addNotification = (title, description) => {
-  const notificationId = createNotificationId(title);
-  const liveNotification = createNotification(
-    title,
-    description,
-    notificationId
-  );
+    const notificationId = createNotificationId(title);
+    const liveNotification = createNotification(title, description, notificationId);
 
-  if (!liveNotification || !notificationOutput) {
-    return;
-  }
-
-  notificationOutput.append(liveNotification);
-  notifications.add(notificationId);
-
-  setTimeout(() => {
-    /** @type {HTMLElement | null} */
-    const notification = notificationOutput.querySelector(
-      `[data-notification-id="${notificationId}"]`
-    );
-
-    if (!notification) {
-      return;
+    if (!liveNotification || !notificationOutput) {
+        return;
     }
 
-    removeNotification(notificationId, notification, false);
-    const archiveNotification = createNotification(
-      title,
-      description,
-      notificationId
-    );
-    if (!archiveNotification || !notificationCenterContainer) {
-      return;
-    }
-    notificationCenterContainer.append(archiveNotification);
-  }, 4000);
+    notificationOutput.append(liveNotification);
+    notifications.add(notificationId);
+
+    setTimeout(() => {
+        /** @type {HTMLElement | null} */
+        const notification = notificationOutput.querySelector(
+            `[data-notification-id="${notificationId}"]`,
+        );
+
+        if (!notification) {
+            return;
+        }
+
+        removeNotification(notificationId, notification, false);
+        const archiveNotification = createNotification(title, description, notificationId);
+        if (!archiveNotification || !notificationCenterContainer) {
+            return;
+        }
+        notificationCenterContainer.append(archiveNotification);
+    }, 4000);
 };
 
 /**
  * Close the notification that is associated with the button that was clicked
  * @param {MouseEvent} e
  */
-const closeCorrespondingNotification = (e) => {
-  /** @type {HTMLElement | null} */
-  const notification = /** @type {HTMLButtonElement} */ (e.target).closest(
-    Selector.notification
-  );
+const closeCorrespondingNotification = e => {
+    /** @type {HTMLElement | null} */
+    const notification = /** @type {HTMLButtonElement} */ (e.target).closest(Selector.notification);
 
-  const notificationId = notification?.dataset?.notificationId;
-  if (!notificationId) {
-    return;
-  }
-  removeAllNotificationsWithId(notificationId);
+    const notificationId = notification?.dataset?.notificationId;
+    if (!notificationId) {
+        return;
+    }
+    removeAllNotificationsWithId(notificationId);
 };
 
 /**
@@ -272,39 +244,39 @@ const closeCorrespondingNotification = (e) => {
  * @param {boolean} removeId
  */
 const removeNotification = (notificationId, notification, removeId = true) => {
-  if (!notification) {
-    return;
-  }
+    if (!notification) {
+        return;
+    }
 
-  notification.addEventListener(
-    "animationend",
-    () => {
-      notification.remove();
+    notification.addEventListener(
+        'animationend',
+        () => {
+            notification.remove();
 
-      if (removeId) {
-        notifications.delete(notificationId);
-      }
+            if (removeId) {
+                notifications.delete(notificationId);
+            }
 
-      if (notifications.size === 0) {
-        closeNavigationCenter();
-      }
-    },
-    { once: true }
-  );
+            if (notifications.size === 0) {
+                closeNavigationCenter();
+            }
+        },
+        { once: true },
+    );
 
-  notification.classList.add("-closing");
+    notification.classList.add('-closing');
 };
 
 /**
  * Remove all notifications with the same id. This is used to remove the live notification and the archived notification
  * @param {string} notificationId
  */
-const removeAllNotificationsWithId = (notificationId) => {
-  /** @type {NodeListOf<HTMLElement>} */
-  const relatedNotifications = document.querySelectorAll(
-    `[data-notification-id="${notificationId}"]`
-  );
-  relatedNotifications.forEach((n) => removeNotification(notificationId, n));
+const removeAllNotificationsWithId = notificationId => {
+    /** @type {NodeListOf<HTMLElement>} */
+    const relatedNotifications = document.querySelectorAll(
+        `[data-notification-id="${notificationId}"]`,
+    );
+    relatedNotifications.forEach(n => removeNotification(notificationId, n));
 };
 
 setupNotificationButtons();
