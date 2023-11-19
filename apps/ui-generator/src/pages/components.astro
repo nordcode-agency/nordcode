@@ -2,9 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../modules/generator/components/Header.astro';
 import ComponentsDisplay from '../modules/components/components/ComponentsDisplay.astro';
+import { smarterSections } from '../modules/components/components/sections';
+import ComponentSideNav from '../modules/components/components/ComponentSideNav.astro';
+
+const allComponentSections = smarterSections;
 ---
 
 <Layout title="Components">
     <Header slot="header" />
-    <ComponentsDisplay slot="content" />
+    <ComponentSideNav slot="aside" sections={smarterSections} />
+    <ComponentsDisplay slot="content" sections={smarterSections} />
 </Layout>
