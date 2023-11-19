@@ -27,7 +27,7 @@
         inline-size: 3rem;
         block-size: 3rem;
         display: block;
-        background-color: var(--color-surface-strong);
+        background-color: var(--color-surface-inset);
         border: 2px solid var(--color-text-subtle);
     }
 

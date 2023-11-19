@@ -14,8 +14,19 @@ const clamp = (value: number): number => {
     return Math.min(Math.max(value, 0), 100);
 };
 
-const generateValueString = (value: number, chroma: number, hue: number, opacity = 1): string => {
-    return `${value.toFixed(0)}% ${chroma} ${hue} / ${opacity}`;
+const generateValueString = (
+    value: number,
+    chroma: number,
+    hue: number,
+    opacity?: number,
+): string => {
+    let baseColor = `${value.toFixed(0)}% ${chroma} ${hue}`;
+
+    if (opacity) {
+        baseColor += ` / ${opacity}`;
+    }
+
+    return baseColor;
 };
 
 const generateValuesFromLightnesses = <T>(
