@@ -26,6 +26,10 @@
                 inline-size: 100%;
             }
         }
+
+        &.-contained > * {
+            max-inline-size: 100%;
+        }
     }
 
     .nc-flow > * + * {

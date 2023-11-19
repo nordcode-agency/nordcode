@@ -2,30 +2,20 @@
     :where(html) {
         color-scheme: light;
 
-        --color-brand-primary-emphasis-lch: var(
-                --color-brand-primary-light-emphasis-lch
-        );
+        --color-brand-primary-emphasis-lch: var(--color-brand-primary-light-emphasis-lch);
         --color-brand-primary-emphasis: var(--color-brand-primary-light-emphasis);
         --color-brand-primary-base-lch: var(--color-brand-primary-light-base-lch);
         --color-brand-primary-base: var(--color-brand-primary-light-base);
-        --color-brand-primary-subtle-lch: var(
-                --color-brand-primary-light-subtle-lch
-        );
+        --color-brand-primary-subtle-lch: var(--color-brand-primary-light-subtle-lch);
         --color-brand-primary-subtle: var(--color-brand-primary-light-subtle);
         --color-brand-primary-hover: var(--color-brand-primary-light-hover);
         --color-brand-primary-contrast: var(--color-brand-primary-light-contrast);
 
-        --color-brand-secondary-emphasis-lch: var(
-                --color-brand-secondary-light-emphasis-lch
-        );
+        --color-brand-secondary-emphasis-lch: var(--color-brand-secondary-light-emphasis-lch);
         --color-brand-secondary-emphasis: var(--color-brand-secondary-light-emphasis);
-        --color-brand-secondary-base-lch: var(
-                --color-brand-secondary-light-base-lch
-        );
+        --color-brand-secondary-base-lch: var(--color-brand-secondary-light-base-lch);
         --color-brand-secondary-base: var(--color-brand-secondary-light-base);
-        --color-brand-secondary-subtle-lch: var(
-                --color-brand-secondary-light-subtle-lch
-        );
+        --color-brand-secondary-subtle-lch: var(--color-brand-secondary-light-subtle-lch);
         --color-brand-secondary-subtle: var(--color-brand-secondary-light-subtle);
         --color-brand-secondary-hover: var(--color-brand-secondary-light-hover);
 
@@ -46,6 +36,7 @@
         --color-surface-inset: var(--color-surface-light-inset);
         --color-surface-inset-lch: var(--color-surface-light-inset-lch);
         --color-surface-emphasis: var(--color-surface-light-emphasis);
+        --color-surface-emphasis-lch: var(--color-surface-light-emphasis-lch);
 
         --color-border-default-lch: var(--color-border-light-default-lch);
         --color-border-default: var(--color-border-light-default);
@@ -72,7 +63,7 @@
         --color-status-success-subtle: var(--color-status-success-light-subtle);
         --color-status-success-hover: var(--color-status-success-light-hover);
 
-
+        --shadow-color-lch: var(--shadow-color-light-lch);
         --shadow-color: var(--shadow-color-light);
         --shadow-inset: var(--shadow-inset-light);
         --shadow-nearest: var(--shadow-nearest-light);
@@ -88,35 +79,23 @@
         :where(html) {
             color-scheme: dark;
 
-            --color-brand-primary-emphasis-lch: var(
-                    --color-brand-primary-dark-emphasis-lch
-            );
+            --color-brand-primary-emphasis-lch: var(--color-brand-primary-dark-emphasis-lch);
             --color-brand-primary-emphasis: var(--color-brand-primary-dark-emphasis);
             --color-brand-primary-base-lch: var(--color-brand-primary-dark-base-lch);
             --color-brand-primary-base: var(--color-brand-primary-dark-base);
-            --color-brand-primary-subtle-lch: var(
-                    --color-brand-primary-dark-subtle-lch
-            );
+            --color-brand-primary-subtle-lch: var(--color-brand-primary-dark-subtle-lch);
             --color-brand-primary-subtle: var(--color-brand-primary-dark-subtle);
             --color-brand-primary-hover: var(--color-brand-primary-dark-hover);
             --color-brand-primary-contrast: var(--color-brand-primary-dark-contrast);
 
-            --color-brand-secondary-emphasis-lch: var(
-                    --color-brand-secondary-dark-emphasis-lch
-            );
+            --color-brand-secondary-emphasis-lch: var(--color-brand-secondary-dark-emphasis-lch);
             --color-brand-secondary-emphasis: var(--color-brand-secondary-dark-emphasis);
-            --color-brand-secondary-base-lch: var(
-                    --color-brand-secondary-dark-base-lch
-            );
+            --color-brand-secondary-base-lch: var(--color-brand-secondary-dark-base-lch);
             --color-brand-secondary-base: var(--color-brand-secondary-dark-base);
-            --color-brand-secondary-subtle-lch: var(
-                    --color-brand-secondary-dark-subtle-lch
-            );
+            --color-brand-secondary-subtle-lch: var(--color-brand-secondary-dark-subtle-lch);
             --color-brand-secondary-subtle: var(--color-brand-secondary-dark-subtle);
             --color-brand-secondary-hover: var(--color-brand-secondary-dark-hover);
-            --color-brand-secondary-contrast: var(
-                    --color-brand-secondary-dark-contrast
-            );
+            --color-brand-secondary-contrast: var(--color-brand-secondary-dark-contrast);
 
             --color-text-default-lch: var(--color-text-dark-default-lch);
             --color-text-default: var(--color-text-dark-default);
@@ -135,6 +114,7 @@
             --color-surface-inset: var(--color-surface-dark-inset);
             --color-surface-inset-lch: var(--color-surface-dark-inset-lch);
             --color-surface-emphasis: var(--color-surface-dark-emphasis);
+            --color-surface-emphasis-lch: var(--color-surface-dark-emphasis-lch);
 
             --color-border-default-lch: var(--color-border-dark-default-lch);
             --color-border-default: var(--color-border-dark-default);
@@ -161,7 +141,7 @@
             --color-status-success-subtle: var(--color-status-success-dark-subtle);
             --color-status-success-hover: var(--color-status-success-dark-hover);
 
-
+            --shadow-color-lch: var(--shadow-color-dark-lch);
             --shadow-color: var(--shadow-color-dark);
             --shadow-inset: var(--shadow-inset-dark);
             --shadow-nearest: var(--shadow-nearest-dark);
@@ -174,38 +154,26 @@
         }
     }
 
-    :where([color-scheme="light"]) {
+    :where([color-scheme='light']) {
         color-scheme: light;
 
-        --color-brand-primary-emphasis-lch: var(
-                --color-brand-primary-light-emphasis-lch
-        );
+        --color-brand-primary-emphasis-lch: var(--color-brand-primary-light-emphasis-lch);
         --color-brand-primary-emphasis: var(--color-brand-primary-light-emphasis);
         --color-brand-primary-base-lch: var(--color-brand-primary-light-base-lch);
         --color-brand-primary-base: var(--color-brand-primary-light-base);
-        --color-brand-primary-subtle-lch: var(
-                --color-brand-primary-light-subtle-lch
-        );
+        --color-brand-primary-subtle-lch: var(--color-brand-primary-light-subtle-lch);
         --color-brand-primary-subtle: var(--color-brand-primary-light-subtle);
         --color-brand-primary-hover: var(--color-brand-primary-light-hover);
         --color-brand-primary-contrast: var(--color-brand-primary-light-contrast);
 
-        --color-brand-secondary-emphasis-lch: var(
-                --color-brand-secondary-light-emphasis-lch
-        );
+        --color-brand-secondary-emphasis-lch: var(--color-brand-secondary-light-emphasis-lch);
         --color-brand-secondary-emphasis: var(--color-brand-secondary-light-emphasis);
-        --color-brand-secondary-base-lch: var(
-                --color-brand-secondary-light-base-lch
-        );
+        --color-brand-secondary-base-lch: var(--color-brand-secondary-light-base-lch);
         --color-brand-secondary-base: var(--color-brand-secondary-light-base);
-        --color-brand-secondary-subtle-lch: var(
-                --color-brand-secondary-light-subtle-lch
-        );
+        --color-brand-secondary-subtle-lch: var(--color-brand-secondary-light-subtle-lch);
         --color-brand-secondary-subtle: var(--color-brand-secondary-light-subtle);
         --color-brand-secondary-hover: var(--color-brand-secondary-light-hover);
-        --color-brand-secondary-contrast: var(
-                --color-brand-secondary-light-contrast
-        );
+        --color-brand-secondary-contrast: var(--color-brand-secondary-light-contrast);
 
         --color-text-default-lch: var(--color-text-light-default-lch);
         --color-text-default: var(--color-text-light-default);
@@ -224,6 +192,7 @@
         --color-surface-inset: var(--color-surface-light-inset);
         --color-surface-inset-lch: var(--color-surface-light-inset-lch);
         --color-surface-emphasis: var(--color-surface-light-emphasis);
+        --color-surface-emphasis-lch: var(--color-surface-light-emphasis-lch);
 
         --color-border-default-lch: var(--color-border-light-default-lch);
         --color-border-default: var(--color-border-light-default);
@@ -250,7 +219,7 @@
         --color-status-success-subtle: var(--color-status-success-light-subtle);
         --color-status-success-hover: var(--color-status-success-light-hover);
 
-
+        --shadow-color-lch: var(--shadow-color-light-lch);
         --shadow-color: var(--shadow-color-light);
         --shadow-inset: var(--shadow-inset-light);
         --shadow-nearest: var(--shadow-nearest-light);
@@ -262,38 +231,26 @@
         --triangle-up-url: var(--triangle-up-url-light);
     }
 
-    :where([color-scheme="dark"]) {
+    :where([color-scheme='dark']) {
         color-scheme: dark;
 
-        --color-brand-primary-emphasis-lch: var(
-                --color-brand-primary-dark-emphasis-lch
-        );
+        --color-brand-primary-emphasis-lch: var(--color-brand-primary-dark-emphasis-lch);
         --color-brand-primary-emphasis: var(--color-brand-primary-dark-emphasis);
         --color-brand-primary-base-lch: var(--color-brand-primary-dark-base-lch);
         --color-brand-primary-base: var(--color-brand-primary-dark-base);
-        --color-brand-primary-subtle-lch: var(
-                --color-brand-primary-dark-subtle-lch
-        );
+        --color-brand-primary-subtle-lch: var(--color-brand-primary-dark-subtle-lch);
         --color-brand-primary-subtle: var(--color-brand-primary-dark-subtle);
         --color-brand-primary-hover: var(--color-brand-primary-dark-hover);
         --color-brand-primary-contrast: var(--color-brand-primary-dark-contrast);
 
-        --color-brand-secondary-emphasis-lch: var(
-                --color-brand-secondary-dark-emphasis-lch
-        );
+        --color-brand-secondary-emphasis-lch: var(--color-brand-secondary-dark-emphasis-lch);
         --color-brand-secondary-emphasis: var(--color-brand-secondary-dark-emphasis);
-        --color-brand-secondary-base-lch: var(
-                --color-brand-secondary-dark-base-lch
-        );
+        --color-brand-secondary-base-lch: var(--color-brand-secondary-dark-base-lch);
         --color-brand-secondary-base: var(--color-brand-secondary-dark-base);
-        --color-brand-secondary-subtle-lch: var(
-                --color-brand-secondary-dark-subtle-lch
-        );
+        --color-brand-secondary-subtle-lch: var(--color-brand-secondary-dark-subtle-lch);
         --color-brand-secondary-subtle: var(--color-brand-secondary-dark-subtle);
         --color-brand-secondary-hover: var(--color-brand-secondary-dark-hover);
-        --color-brand-secondary-contrast: var(
-                --color-brand-secondary-dark-contrast
-        );
+        --color-brand-secondary-contrast: var(--color-brand-secondary-dark-contrast);
 
         --color-text-default-lch: var(--color-text-dark-default-lch);
         --color-text-default: var(--color-text-dark-default);
@@ -312,6 +269,7 @@
         --color-surface-inset: var(--color-surface-dark-inset);
         --color-surface-inset-lch: var(--color-surface-dark-inset-lch);
         --color-surface-emphasis: var(--color-surface-dark-emphasis);
+        --color-surface-emphasis-lch: var(--color-surface-dark-emphasis-lch);
 
         --color-border-default-lch: var(--color-border-dark-default-lch);
         --color-border-default: var(--color-border-dark-default);
@@ -338,7 +296,7 @@
         --color-status-success-subtle: var(--color-status-success-dark-subtle);
         --color-status-success-hover: var(--color-status-success-dark-hover);
 
-
+        --shadow-color-lch: var(--shadow-color-dark-lch);
         --shadow-color: var(--shadow-color-dark);
         --shadow-inset: var(--shadow-inset-dark);
         --shadow-nearest: var(--shadow-nearest-dark);

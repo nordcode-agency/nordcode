@@ -1,0 +1,21 @@
+:where(.nc-table) {
+    /* If you need to change the background to maybe -subtle) */
+    --_nc-table-background-lch: var(--nc-table-background-lch, var(--color-surface-default-lch));
+
+    inline-size: 100%;
+    max-inline-size: 100%;
+    overflow-x: auto;
+    background-image: linear-gradient(
+            90deg,
+            oklch(var(--_nc-table-background-lch)) 0%,
+            oklch(var(--_nc-table-background-lch) / 0) 3rem
+        ),
+        linear-gradient(90deg, oklch(var(--shadow-color-lch) / 0.6) 0%, transparent 1rem),
+        linear-gradient(
+            270deg,
+            oklch(var(--_nc-table-background-lch)) 0%,
+            oklch(var(--_nc-table-background-lch) / 0) 3rem
+        ),
+        linear-gradient(270deg, oklch(var(--shadow-color-lch) / 0.6) 0%, transparent 1rem);
+    background-attachment: local, scroll, local, scroll;
+}
