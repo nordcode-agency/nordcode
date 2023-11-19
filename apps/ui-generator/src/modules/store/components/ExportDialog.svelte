@@ -26,8 +26,7 @@
     <div class="dialog-container">
         <div class="dialog-header">
             <h2 class="dialog-title">Export Theme</h2>
-            <!-- svelte-ignore a11y-autofocus -->
-            <button autofocus data-closes-dialog="export-dialog" class="nc-button -round -small -stealth">×</button>
+            <button data-closes-dialog="export-dialog" class="nc-button -round -small -stealth">×</button>
         </div>
         <div class="dialog-content">
             <pre>

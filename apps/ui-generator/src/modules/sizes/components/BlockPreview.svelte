@@ -19,7 +19,7 @@
     }
 
     .label {
-        font-size: 0.75rem;
+        font-size: var(--font-size-small);
         color: var(--color-brand-primary-base);
     }
 
@@ -28,7 +28,7 @@
         block-size: 3rem;
         display: block;
         background-color: var(--color-surface-inset);
-        border: 2px solid var(--color-text-subtle);
+        border: var(--border-width-medium) solid var(--color-text-subtle);
     }
 
 </style>
