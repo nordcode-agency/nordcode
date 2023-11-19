@@ -1,27 +1,27 @@
 @layer utils {
-  .allcaps {
-    text-transform: capitalize;
-  }
+    .allcaps {
+        text-transform: capitalize;
+    }
 
-  .bold {
-    font-weight: var(--font-weight-strong)
-  }
+    .strong {
+        font-weight: var(--font-weight-strong);
+    }
 
-  .font-mono {
-    font-family: var(--font-family-mono);
-  }
+    .font-mono {
+        font-family: var(--font-family-mono);
+    }
 
-  .font-sans {
-    font-family: var(--font-family-sans);
-  }
+    .font-sans {
+        font-family: var(--font-family-sans);
+    }
 
-  .font-serif {
-    font-family: var(--font-family-serif);
-  }
+    .font-serif {
+        font-family: var(--font-family-serif);
+    }
 
-  .nc-hint {
-    color: var(--color-text-muted);
-    font-size: var(--font-size-small);
-    line-height: var(--line-height-base);
-  }
+    .nc-hint {
+        color: var(--color-text-muted);
+        font-size: var(--font-size-small);
+        line-height: var(--line-height-base);
+    }
 }

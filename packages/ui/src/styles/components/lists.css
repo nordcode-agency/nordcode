@@ -1,2 +1,27 @@
 :where(.nc-list) {
 }
+
+:where(.nc-meta-list) {
+    inline-size: 100%;
+
+    & > li {
+        white-space: nowrap;
+    }
+
+    & > li + li:before {
+        content: '';
+        border-left: var(--border-width-medium) solid var(--color-border-muted);
+        margin: 0 var(--spacing-near);
+    }
+}
+
+:where(.nc-list-reset) {
+    list-style: none;
+    max-inline-size: 100%;
+    padding-inline-start: 0;
+
+    & li {
+        margin-inline: 0;
+        max-inline-size: 100%;
+    }
+}

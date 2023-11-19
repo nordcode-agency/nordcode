@@ -10,6 +10,7 @@ import fieldsetBase from '../examples/fieldset/fieldsetBase.html?raw';
 import fieldsetStandard from '../examples/fieldset/fieldsetStandard.html?raw';
 import fieldsetWithH1 from '../examples/fieldset/fieldsetWithH1.html?raw';
 import tableStandard from '../examples/table/tableStandard.html?raw';
+import metaList from '../examples/lists/metalist.html?raw';
 import tableHorizontal from '../examples/table/tableHorizontal.html?raw';
 import { Code } from 'astro:components';
 import ComponentPreview from './ComponentPreview.astro';
@@ -128,6 +129,11 @@ const sections: Array<Section> = [
     {
         title: 'Data Display',
         components: [
+            {
+                title: 'Meta List',
+                component: metaList as string,
+                description: 'Display tags and meta data for posts and alike.',
+            },
             {
                 title: 'Tables',
                 component: tableStandard,
