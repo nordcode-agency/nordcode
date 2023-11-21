@@ -142,6 +142,7 @@ Learn more about the power of Turborepo:
 - <https://magnet.co/> simple
 - <https://unikorns.agency/> * simple
 - <https://www.getivy.io/> simple
+- <https://www.halo-lab.com/> modern unique *
 
 ## Icons
 
