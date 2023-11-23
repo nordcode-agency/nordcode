@@ -42,7 +42,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 805cfd16784a171042a2d06b47886d50
-          projectName: nordcode-ui-generator
+          projectName: nc-ui-generator
           directory: apps/ui-generator/dist
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
