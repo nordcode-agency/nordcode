@@ -9,6 +9,7 @@ export default defineConfig({
   server: {
     port: 3002
   },
+  site: "https://ui-generator.nordcode.agency",
   vite: {
     plugins: [
       lightningcss({
