@@ -125,7 +125,7 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3(astro@3.5.0)(svelte@4.2.2)(typescript@5.2.2)(vite@4.4.11)
       '@nordcode/ui':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/ui
       astro:
         specifier: ^3.5.0
@@ -135,10 +135,10 @@ importers:
         version: 4.2.2
     devDependencies:
       '@nordcode/postcss-config':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/postcss-config
       '@nordcode/types':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/types
       vite-plugin-lightningcss:
         specifier: ^0.0.5
