@@ -3,6 +3,7 @@
 	import WorkCard from "$lib/modules/common/components/WorkCard.svelte";
 	import Header from "$lib/modules/common/components/Header.svelte";
 	import type { PageData } from "./$types";
+	import About from "$lib/modules/common/components/About.svelte";
 
 	export let data: PageData;
 </script>
@@ -43,9 +44,7 @@
     />
   </div>
 </div>
-<div class="nc-box">
-  <h2 class="heading-bg">About us</h2>
-</div>
+<About />
 
 <style lang="postcss">
   @import "@nordcode/ui/media";

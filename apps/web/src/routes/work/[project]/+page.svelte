@@ -25,10 +25,14 @@
       </div>
     </div>
     <div class="main slide-up-from">
-      <a href="#" class="nc-button -outline info">Website öffnen</a>
-      <p class="tldr"><strong>
-        tl;dr: Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater syntax. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er.
-      </strong></p>
+      <div class="side">
+        <p class="tldr"><strong>
+          tl;dr: Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater syntax. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er.
+        </strong></p>
+        <div class="actions">
+          <a href="#" class="nc-button -outline info">Website öffnen</a>
+        </div>
+      </div>
       <div class="body nc-flow">
         <p><strong>Auf dem letzten Hause eines kleinen Dörfchens</strong> befand sich ein <abbr title="Behausung eines langbeinigen Vogels">Storchnest</abbr>. Die Storchmutter saß im Neste bei ihren vier Jungen, welche den Kopf mit dem kleinen <em>schwarzen Schnabel</em>, denn er war noch nicht rot geworden, hervorstreckten. Ein Stückchen davon stand auf der Dachfirste starr und steif der Storchvater <code>syntax</code>. Man hätte meinen können, er wäre aus Holz gedrechselt, so stille stand er. „Gewiss sieht es recht vornehm aus, dass meine Frau eine Schildwache bei dem Neste hat!“ dachte er. Und er stand unermüdlich auf <a href="#nirgendwo" title="Title für einem Bein">einem Beine</a>.</p>
         <figure class="full-width">
@@ -120,8 +124,7 @@
   .main {
     animation: var(--animation-slide-up) 0.4s;
     display: grid;
-    grid: "tldr" auto
-          "info" auto
+    grid: "side" auto
           "main" auto
           / 1fr;
     align-items: start;
@@ -129,8 +132,8 @@
     gap: var(--spacing-far);
 
     @media (--lg-n-above) {
-      grid: "tldr main" auto
-            "info main" auto
+      grid: "side main" auto
+            "side main" auto
             ".    main" auto
             / 2fr 5fr;
     }
@@ -156,17 +159,25 @@
     margin-block: var(--spacing-far);
   }
 
+  .side {
+    grid-area: side;
+
+    @media (--lg-n-above) {
+      position: sticky;
+      top: calc(var(--spacing-adaptive) / 2);
+    }
+  }
+
+  .actions {
+    padding-block: var(--spacing-base);
+  }
+
   .tldr {
-    grid-area: tldr;
     flex-grow: 1;
     flex-basis: 24ch;
     text-wrap: balance;
     font-size: var(--font-size-large);
     color: var(--color-text-default);
-  }
-
-  .info {
-    grid-area: info;
   }
 
   figure {

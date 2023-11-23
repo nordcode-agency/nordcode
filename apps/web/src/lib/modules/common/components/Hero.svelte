@@ -99,6 +99,7 @@
     justify-content: space-between;
     margin-inline-start: auto;
     inline-size: min(100%, max(40vw, 800px));
+    padding: var(--spacing-base);
 
     & :global(> *) {
       flex: 1 1 360px;
