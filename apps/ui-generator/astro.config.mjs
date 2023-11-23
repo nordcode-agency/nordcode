@@ -9,6 +9,10 @@ export default defineConfig({
   server: {
     port: 3002
   },
+  root: '.',
+  srcDir: './src',
+  outDir: './dist',
+  publicDir: './public',
   site: "https://ui-generator.nordcode.agency",
   vite: {
     plugins: [
