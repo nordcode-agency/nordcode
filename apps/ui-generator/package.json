@@ -12,13 +12,13 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^4.0.3",
-    "@nordcode/ui": "workspace:^",
+    "@nordcode/ui": "workspace:*",
     "astro": "^3.5.0",
     "svelte": "^4.2.2"
   },
   "devDependencies": {
-    "@nordcode/postcss-config": "workspace:^",
-    "@nordcode/types": "workspace:^",
+    "@nordcode/postcss-config": "workspace:*",
+    "@nordcode/types": "workspace:*",
     "vite-plugin-lightningcss": "^0.0.5"
   }
 }
