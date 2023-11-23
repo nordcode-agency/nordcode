@@ -3,6 +3,7 @@ on:
     paths:
       - 'apps/ui-generator/**'
       - 'packages/ui/**'
+  workflow_dispatch:
 
 jobs:
   publish:
