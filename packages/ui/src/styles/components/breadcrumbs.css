@@ -2,8 +2,8 @@
     inline-size: max-content;
     max-inline-size: 100%;
     padding: var(--spacing-near);
-    background-color: var(--nc-breadcrumbs-background, transparent);
-    color: var(--nc-breadcrumbs-fg, --color-text-default);
+    background-color: var(--nc-breadcrumbs-surface, transparent);
+    color: var(--nc-breadcrumbs-text, --color-text-default);
 
     & > * {
         color: inherit;
@@ -14,9 +14,10 @@
     }
 
     & > *:not(:last-child):after {
-        padding-inline: var(--spacing-nearest);
+        padding-inline: 0.25em;
         color: var(--nc-breadcrumbs-fg-subtle, --color-text-subtle);
         content: '›';
+        font-size: inherit;
     }
 
     & [aria-current='page'] {
