@@ -12,11 +12,11 @@
 </script>
 
 {#if configStore}
-    <div class="nc-stack -far live-theme">
+    <div class="nc-stack -far">
         <div class="nc-stack -near">
             <h2>Component Preview</h2>
 
-            <div class="nc-card live-theme">
+            <div class="nc-card">
                 <div class="nc-stack">
                     <div class="nc-stack -nogap">
                         <span class="badge">Cool Card</span>
@@ -32,7 +32,7 @@
                                 hint="this is your name"
                                 bind:value={name}
                         >
-                        <button class="nc-button live-theme -round -icon -small -stealth" type="button">
+                        <button class="nc-button -round -icon -small -stealth" type="button">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="nc-icon">
                                 <path fill="currentColor"
                                       d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm14 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-7 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Z"/>
@@ -41,9 +41,9 @@
                         </Input>
                     </form>
                     <div class="nc-cluster -layout-near">
-                        <button class="nc-button -primary live-theme">Primary</button>
-                        <button class="nc-button live-theme -neutral">Neutral</button>
-                        <button class="nc-button live-theme -neutral -outline">Neutral outline</button>
+                        <button class="nc-button -primary">Primary</button>
+                        <button class="nc-button -neutral">Neutral</button>
+                        <button class="nc-button -neutral -outline">Neutral outline</button>
                     </div>
                 <CheckboxInput name="checkbox" label="I agree to use this theme" id="checkbox" bind:value={checkboxValue} />
                 </div>

@@ -1,5 +1,5 @@
 @layer base {
-    :where(ol, ul, dl) {
+    :where(ol, ul) {
         display: flex;
         flex-direction: column;
         max-inline-size: max-content;
@@ -15,22 +15,53 @@
     }
 
     :where(dt) {
-        font-weight: var(--font-weight-default);
+        font-weight: var(--font-weight-active);
         color: var(--color-text-default);
+        padding-block-end: var(--spacing-nearest);
+        flex: 1 0 100%;
+
+        &:not(:first-of-type) {
+            padding-block-start: var(--spacing-base);
+        }
     }
 
     :where(dd) {
-        font-weight: var(--font-weight-active);
+        font-weight: var(--font-weight-default);
         color: var(--color-text-default);
+        flex: 1 0 100%;
+
+        &:not(:last-of-type) {
+            padding-block-end: var(--spacing-base);
+            border-bottom: var(--border-width-thin) solid var(--color-border-muted);
+        }
     }
 
-    :where(dl) {
-        & * + * {
-            margin-block-start: var(--spacing-near);
+    :where(dl, .nc-description-list) {
+        display: flex;
+        inline-size: 100%;
+        min-width: min-content;
+        flex-flow: row wrap;
+        container: description-list / inline-size;
+    }
+
+    @container description-list (min-width: 30rem) {
+        :where(dt, dd) {
+            word-break: break-word;
+            padding-block-start: var(--spacing-near);
         }
 
-        & * + dt {
-            margin-block-start: var(--spacing-base);
+        :where(dt) {
+            flex: 0 1 25%;
+
+            &:not(:last-of-type) {
+                padding-block-end: var(--spacing-base);
+                border-bottom: var(--border-width-thin) solid var(--color-border-muted);
+            }
+        }
+
+        :where(dd) {
+            padding-block-start: var(--spacing-base);
+            flex: 1 1 51%;
         }
     }
 

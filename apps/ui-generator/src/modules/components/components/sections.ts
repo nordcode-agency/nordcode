@@ -10,6 +10,7 @@ import fieldsetStandard from '../examples/fieldset/fieldsetStandard.html?raw';
 import fieldsetWithH1 from '../examples/fieldset/fieldsetWithH1.html?raw';
 import tableStandard from '../examples/table/tableStandard.html?raw';
 import metaList from '../examples/lists/metalist.html?raw';
+import descriptionList from '../examples/lists/descriptionlist.html?raw';
 import tableHorizontal from '../examples/table/tableHorizontal.html?raw';
 import { slugify } from '../../common/utils/slugify';
 
@@ -123,6 +124,12 @@ const sections: Array<Section> = [
                 title: 'Meta List',
                 component: metaList as string,
                 description: 'Display tags and meta data for posts and alike.',
+            },
+            {
+                title: 'Descriptions List',
+                component: descriptionList as string,
+                description:
+                    'Description lists are a way to organize and explain related information. They’re particularly useful when you need to list and define terms such as in a glossary. (from shopify)',
             },
             {
                 title: 'Tables',
