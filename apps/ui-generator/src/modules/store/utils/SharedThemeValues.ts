@@ -57,9 +57,8 @@ export const getTextLightValues = (
     const lightnesses = {
         default: baseLightness,
         muted: clamp(baseLightness * scalingFactor),
-        subtle: clamp(baseLightness * Math.pow(baseLightness, 2)),
+        subtle: clamp(baseLightness * (scalingFactor * 2)),
         'on-emphasis': 100 - baseLightness,
-        // evtl surface lightness
     };
 
     return generateValuesFromLightnesses(lightnesses, chroma, hue);
