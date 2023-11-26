@@ -328,8 +328,12 @@
         place-items: start;
         font-size: inherit;
 
-        & > label {
+        & > .nc-stack {
             grid-area: label;
+        }
+
+        & .nc-input-label {
+            min-block-size: calc(1em * var(--line-height-base));
         }
 
         & > input {
