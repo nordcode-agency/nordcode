@@ -12,6 +12,7 @@ import tableStandard from '../examples/table/tableStandard.html?raw';
 import metaList from '../examples/lists/metalist.html?raw';
 import descriptionList from '../examples/lists/descriptionlist.html?raw';
 import tableHorizontal from '../examples/table/tableHorizontal.html?raw';
+import breadcrumbs from '../examples/navigation/breadcrumbs.html?raw';
 import { slugify } from '../../common/utils/slugify';
 
 const idxToDisplayNumber = (num: number, nestedNum?: number): string => {
@@ -146,6 +147,20 @@ const sections: Array<Section> = [
                             'Sometimes tables make more sense to be horizontal. This is how you do it.',
                         code: tableHorizontal,
                     },
+                ],
+            },
+        ],
+    },
+    {
+        title: 'Navigation',
+        components: [
+            {
+                title: 'Breadcrumbs',
+                component: breadcrumbs as string,
+                description:
+                    'Breadcrumbs display the current page or context within the site, allowing them to navigate different levels of the hierarchy.',
+                notes: [
+                    'Pay attention to detail here to get the styling just right and the list accessible.',
                 ],
             },
         ],
