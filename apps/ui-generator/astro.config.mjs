@@ -1,7 +1,8 @@
 import {defineConfig} from 'astro/config';
 
 import svelte from "@astrojs/svelte";
-import lightningcss from "vite-plugin-lightningcss";
+import { browserslistToTargets } from 'lightningcss';
+import browserslist from 'browserslist';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,16 +14,21 @@ export default defineConfig({
   srcDir: './src',
   outDir: './dist',
   publicDir: './public',
-  site: "https://ui-generator.nordcode.agency",
+  base: "./",
+  site: "https://ui-generator.nordcode.agency/",
   vite: {
-    plugins: [
-      lightningcss({
-        browserslist: ">= 0.25%",
+    css: {
+      transformer: "lightningcss",
+      lightningcss: {
         drafts: {
-          customMedia: true,
-          nesting: true,
+          customMedia: true
         },
-      }),
-    ],
+        targets: browserslistToTargets(browserslist('>= 0.25%'))
+
+      },
+    },
+    build: {
+      cssMinify: 'lightningcss',
+    }
   },
 });

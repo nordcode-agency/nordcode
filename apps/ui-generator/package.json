@@ -1,6 +1,7 @@
 {
   "name": "@nordcode/ui-generator",
-  "version": "0.0.0",
+  "website": "https://ui-generator.nordcode.agency/",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,14 +12,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/svelte": "^4.0.3",
+    "@astrojs/svelte": "^4.0.4",
     "@nordcode/ui": "workspace:*",
-    "astro": "^3.5.0",
-    "svelte": "^4.2.2"
+    "astro": "^3.6.0",
+    "svelte": "^4.2.7"
   },
   "devDependencies": {
     "@nordcode/postcss-config": "workspace:*",
     "@nordcode/types": "workspace:*",
-    "vite-plugin-lightningcss": "^0.0.5"
+    "browserslist": "^4.21.9",
+    "lightningcss": "^1.21.1"
   }
 }
