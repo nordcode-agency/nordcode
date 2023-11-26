@@ -22,7 +22,7 @@
 
 </script>
 
-<div class="nc-stack full-width | nc-range-input">
+<div class="nc-stack -nogap full-width | nc-input-range">
 <input class="nc-input"
        id={id}
        name={name}

@@ -1,13 +1,17 @@
-<script lang="ts">
-    export let color;
-    export let description;
-</script>
+---
+interface Props {
+    color: string;
+    description: string;
+}
+
+const { color, description } = Astro.props;
+---
 
 <div class="preview-row">
     <span class="label">{color}</span>
     <div class="nc-cluster -centered -nowrap">
-        <div class="color-bg live-theme" style={`background-color: var(${color})`}></div>
-        <div class="color-fg live-theme">
+        <div class="color-bg" style={`background-color: var(${color})`}></div>
+        <div class="color-fg">
             {description}
         </div>
     </div>
@@ -39,5 +43,4 @@
         color: var(--color-text-default);
         font-size: var(--font-size-small);
     }
-
 </style>

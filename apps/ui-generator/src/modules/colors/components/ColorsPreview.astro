@@ -1,0 +1,211 @@
+---
+import ColorPreview from './ColorPreview.astro';
+import { Content as ColorsExplanation } from '../../../../docs/colors.md';
+
+const colors = [
+    {
+        token: '--color-brand-primary-base',
+        description: 'Primary brand color. Used for accents and highlights.',
+    },
+    {
+        token: '--color-brand-primary-subtle',
+        description: 'Subtle version of the primary brand color. Used for backgrounds and borders.',
+    },
+
+    {
+        token: '--color-brand-primary-hover',
+        description: 'Used for slight hover highlights, like on outline buttons or checkbox inputs',
+    },
+    {
+        token: '--color-brand-primary-contrast',
+        description: 'Used for text and icons on top of the primary brand color.',
+    },
+    {
+        token: '--color-brand-primary-emphasis',
+        description:
+            'Background: Use to highlight the most important item of a view or an interface.',
+    },
+
+    {
+        token: '--color-brand-secondary-base',
+        description: 'Secondary brand color. Used for accents and highlights.',
+    },
+    {
+        token: '--color-brand-secondary-subtle',
+        description:
+            'Subtle version of the secondary brand color. Used for backgrounds and borders.',
+    },
+
+    {
+        token: '--color-brand-secondary-hover',
+        description: 'Used for slight hover highlights, like on outline buttons or checkbox inputs',
+    },
+    {
+        token: '--color-brand-secondary-contrast',
+        description: 'Used for text and icons on top of the secondary brand color.',
+    },
+    {
+        token: '--color-brand-secondary-emphasis',
+        description:
+            'Background: Use to highlight the most important item of a view or an interface.',
+    },
+
+    // text
+    {
+        token: '--color-text-default',
+        description:
+            'Primary color for text and icons in any given interface. It should be used for body content, titles and labels.',
+    },
+    {
+        token: '--color-text-muted',
+        description:
+            'Use for content that is secondary or that provides additional context but is not critical to understanding the flow of an interface.',
+    },
+    {
+        token: '--color-text-subtle',
+        description: 'Use for placeholder text, icons or decorative foregrounds.',
+    },
+    {
+        token: '--color-text-on-emphasis',
+        description:
+            'Use for text on top of emphasized backgrounds, such as banners, badges, and alerts.',
+    },
+
+    // bg
+    {
+        token: '--color-surface-default',
+        description: 'Primary color for backgrounds in any given interface.',
+    },
+    {
+        token: '--color-surface-subtle',
+        description: 'Provides visual rest and contrast against the default background.',
+    },
+    {
+        token: '--color-surface-inset',
+        description:
+            'Can be used instead of the default background to create a focal point, such as in conversations or activity feeds.',
+    },
+    {
+        token: '--color-surface-emphasis',
+        description:
+            'Use for backgrounds that need to stand out, such as banners, badges, and alerts.',
+    },
+
+    // border
+    {
+        token: '--color-border-default',
+        description:
+            'Primary color for borders in aUse to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout.',
+    },
+    {
+        token: '--color-border-muted',
+        description:
+            'Use for dividers to emphasize the separation between items, columns or sections.',
+    },
+
+    // status
+    {
+        token: '--color-status-info-base',
+        description: 'Secondary status color. Used for accents and highlights.',
+    },
+    {
+        token: '--color-status-info-text',
+        description: 'Secondary status color. Used for accents and highlights.',
+    },
+    {
+        token: '--color-status-info-subtle',
+        description: 'Subtle version of the info status color. Used for backgrounds and borders.',
+    },
+
+    {
+        token: '--color-status-info-hover',
+        description: 'Used for slight hover highlights, like on outline buttons or checkbox inputs',
+    },
+
+    {
+        token: '--color-status-warning-base',
+        description: 'Secondary status color. Used for accents and highlights.',
+    },
+    {
+        token: '--color-status-warning-text',
+        description: 'Secondary status color. Used for accents and highlights.',
+    },
+    {
+        token: '--color-status-warning-subtle',
+        description:
+            'Subtle version of the warning status color. Used for backgrounds and borders.',
+    },
+
+    {
+        token: '--color-status-warning-hover',
+        description: 'Used for slight hover highlights, like on outline buttons or checkbox inputs',
+    },
+
+    {
+        token: '--color-status-danger-base',
+        description: 'Secondary status color. Used for accents and highlights.',
+    },
+    {
+        token: '--color-status-danger-text',
+        description: 'Secondary status color. Used for accents and highlights.',
+    },
+    {
+        token: '--color-status-danger-subtle',
+        description: 'Subtle version of the danger status color. Used for backgrounds and borders.',
+    },
+
+    {
+        token: '--color-status-danger-hover',
+        description: 'Used for slight hover highlights, like on outline buttons or checkbox inputs',
+    },
+
+    {
+        token: '--color-status-success-base',
+        description: 'Secondary status color. Used for accents and highlights.',
+    },
+    {
+        token: '--color-status-success-text',
+        description: 'Secondary status color. Used for accents and highlights.',
+    },
+    {
+        token: '--color-status-success-subtle',
+        description:
+            'Subtle version of the success status color. Used for backgrounds and borders.',
+    },
+    {
+        token: '--color-status-success-hover',
+        description: 'Used for slight hover highlights, like on outline buttons or checkbox inputs',
+    },
+];
+---
+
+<div class="nc-stack -far">
+    <div class="nc-flow">
+        <ColorsExplanation />
+    </div>
+    <div class="nc-stack -near">
+        {colors.map(color => <ColorPreview color={color.token} description={color.description} />)}
+    </div>
+    <div class="nc-flow"></div>
+    <div class="nc-cluster -near">
+        <button class="nc-button">Default / Basic</button>
+        <button class="nc-button -primary live-theme">Primary</button>
+        <button class="nc-button -secondary live-theme">Secondary</button>
+        <button class="nc-button -outline -basic live-theme">Outline Basic</button>
+        <button class="nc-button -outline -primary live-theme">Outline Primary</button>
+        <button class="nc-button -outline -secondary live-theme">Outline Secondary</button>
+        <button class="nc-button -stealth live-theme">Stealth Basic</button>
+        <button class="nc-button -stealth -primary live-theme">Stealth Primary</button>
+        <button class="nc-button -stealth -secondary live-theme">Stealth Secondary</button>
+        <button class="nc-button -destructive">Destructive button</button>
+    </div>
+    <div class="nc-cluster -near">
+        <div class="badge">Standard</div>
+        <div class="badge -secondary live-theme">Secondary</div>
+        <div class="badge -emphasis live-theme">Emphasis</div>
+        <div class="badge -info live-theme">Info</div>
+        <div class="badge -warning live-theme">Warning</div>
+        <div class="badge -danger live-theme">Danger</div>
+        <div class="badge -success live-theme">Success</div>
+    </div>
+</div>

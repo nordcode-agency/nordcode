@@ -1,15 +1,19 @@
-<script lang="ts">
-    export let style: string;
-    export let label: string;
-</script>
+---
+interface Props {
+    style: string;
+    label: string;
+}
+
+const { style, label } = Astro.props;
+---
 
 <div class="preview-row">
-        <span class="label">{label}</span>
-        <div class="nc-cluster spacings" style={style}>
-            <div></div>
-            <div></div>
-        </div>
+    <span class="label">{label}</span>
+    <div class="nc-cluster spacings" style={style}>
+        <div></div>
+        <div></div>
     </div>
+</div>
 
 <style>
     .preview-row {
@@ -32,5 +36,4 @@
         background-color: var(--color-surface-inset);
         border: var(--border-width-medium) solid var(--color-border-muted);
     }
-
 </style>

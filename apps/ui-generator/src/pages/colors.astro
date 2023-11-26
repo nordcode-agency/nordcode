@@ -1,10 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ColorsPreview from '../modules/colors/components/ColorsPreview.svelte';
 import ColorsSettings from '../modules/colors/components/ColorsSettings.svelte';
+import ColorsPreview from '../modules/colors/components/ColorsPreview.astro';
 ---
 
 <Layout title="Sizes">
     <ColorsSettings client:load="svelte" slot="aside" />
-    <ColorsPreview client:load="svelte" slot="content" />
+    <ColorsPreview slot="content" />
 </Layout>

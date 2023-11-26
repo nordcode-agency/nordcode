@@ -58,3 +58,7 @@ To add fonts, import the following:
 ```js
 import "@nordcode/fonts"
 ```
+
+## Further information
+
+- [Colors](../../apps/ui-generator/docs/colors.md)
