@@ -34,10 +34,7 @@ jobs:
         run: pnpm install
 
       - name: Build UI Generator
-        run: |
-          cd apps/ui-generator
-          pnpm build
-
+        run: pnpm --filter "ui-generator" build
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
