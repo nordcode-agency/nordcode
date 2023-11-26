@@ -3,5 +3,5 @@
 </script>
 
 <div class="nc-stack -far -full-width -stretched">
-        <LCHColorSettings />
+    <LCHColorSettings />
 </div>

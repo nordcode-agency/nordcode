@@ -1,6 +1,6 @@
 <script lang="ts">
-    export let style;
-    export let label;
+    export let style: string;
+    export let label: string;
 </script>
 
 <div class="preview-row">
@@ -30,7 +30,7 @@
         block-size: 3rem;
         display: block;
         background-color: var(--color-surface-inset);
-        border: var(--border-width-medium) solid var(--color-text-subtle);
+        border: var(--border-width-medium) solid var(--color-border-muted);
     }
 
 </style>

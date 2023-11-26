@@ -10,11 +10,10 @@ export default defineConfig({
   server: {
     port: 3002
   },
-  root: '.',
+  root: './',
   srcDir: './src',
   outDir: './dist',
   publicDir: './public',
-  base: "./",
   site: "https://ui-generator.nordcode.agency/",
   vite: {
     css: {

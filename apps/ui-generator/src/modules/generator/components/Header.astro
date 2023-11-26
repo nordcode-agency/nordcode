@@ -3,7 +3,7 @@ import Themepicker from './Themepicker.astro';
 import ConfigLoader from '../../store/components/ConfigLoader.svelte';
 ---
 
-<div class="nc-cluster -centered">
+<div class="nc-cluster -centered | header">
     <h1>UI Generator</h1>
     <nav class="mr-auto">
         <ul class="nc-list-reset nc-cluster -near">
@@ -78,6 +78,15 @@ import ConfigLoader from '../../store/components/ConfigLoader.svelte';
 </div>
 
 <style>
+    .header {
+        background: var(--color-surface-default);
+        padding-block: var(--spacing-near);
+        padding-inline: var(--spacing-base);
+        border-bottom: var(--border-width-thin) solid var(--color-border-default);
+        inline-size: 100%;
+        max-inline-size: 100%;
+    }
+
     nav a {
         text-decoration: underline;
         text-underline-offset: 0.2em;

@@ -106,7 +106,7 @@ export type ConfigStore = {
 
 const defaultStore: ConfigStore = {
     // TYPOGRAPHY
-    fontFamilyMono: 'DMMono, monospace',
+    fontFamilyMono: 'monospace',
     fontFamilySans: 'system-ui, sans-serif',
     fontFamilySerif: 'serif',
     fontFamilyDefault: 'sans',

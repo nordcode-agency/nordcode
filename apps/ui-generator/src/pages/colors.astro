@@ -1,12 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from "../modules/generator/components/Header.astro"
-import ColorsPreview from "../modules/colors/components/ColorsPreview.svelte";
-import ColorsSettings from "../modules/colors/components/ColorsSettings.svelte";
+import ColorsPreview from '../modules/colors/components/ColorsPreview.svelte';
+import ColorsSettings from '../modules/colors/components/ColorsSettings.svelte';
 ---
 
 <Layout title="Sizes">
-        <Header slot="header" />
-        <ColorsSettings client:load="svelte" slot="aside" />
-        <ColorsPreview client:load="svelte" slot="content" />
+    <ColorsSettings client:load="svelte" slot="aside" />
+    <ColorsPreview client:load="svelte" slot="content" />
 </Layout>

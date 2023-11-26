@@ -3,6 +3,7 @@ import ConfigFromUrl from '../modules/store/components/ConfigFromUrl.svelte';
 import NotificationCenter from '@nordcode/ui/src/modules/notifications/svelte/NotificationCenter.svelte';
 import NotificationTemplate from '@nordcode/ui/src/modules/notifications/svelte/NotificationTemplate.svelte';
 import { ViewTransitions } from 'astro:transitions';
+import Header from '../modules/generator/components/Header.astro';
 
 export interface Props {
     title: string;
@@ -22,12 +23,11 @@ const { title } = Astro.props;
         <ViewTransitions />
     </head>
     <body class="live-theme">
+        <header>
+            <Header />
+        </header>
         <main class="main">
-            <header class="header">
-                <slot name="header" />
-            </header>
-
-            <aside class="aside content-block" transition:animate="initial">
+            <aside class="aside content-block" transition:animate="none">
                 <slot name="aside" />
             </aside>
             <section class="content content-block" transition:animate="slide">
@@ -40,56 +40,60 @@ const { title } = Astro.props;
         <style is:global>
             @import '@nordcode/ui/media';
             @import '@nordcode/ui/bundle';
-            @import '@nordcode/ui/fonts';
             @import '@nordcode/ui/components';
             @import '@nordcode/ui/base';
             @import './liveTheme.css';
 
+            body {
+                max-block-size: 100%;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+
             .main {
                 display: grid;
                 grid-template:
-                    'header header' auto
                     'config content' 1fr
-                    / auto 1fr;
+                    / minmax(0, 2fr) minmax(0, 5fr);
                 background: var(--color-surface-default);
                 inline-size: 100%;
-                min-block-size: 100vh;
-                max-block-size: 100vh;
                 overflow: hidden;
+                max-block-size: 100%;
                 position: relative;
             }
 
-            .header {
-                grid-area: header;
-                background: var(--color-surface-default);
-                padding-block: var(--spacing-near);
-                padding-inline: var(--spacing-base);
-                border-bottom: var(--border-width-thin) solid var(--color-border-default);
+            header {
+                position: sticky;
+                inset-block-start: 0;
+                z-index: 1;
             }
 
             .aside {
                 grid-area: config;
                 background: var(--color-surface-default);
-                overflow-y: auto;
                 border-inline-end: var(--border-width-thin) solid var(--color-border-default);
-                max-inline-size: 25rem;
-
-                &:has(*) {
-                    padding-inline: var(--spacing-base);
-                }
+                padding-inline: var(--spacing-base);
+                max-block-size: 100%;
+                overflow: auto;
             }
 
             .content {
                 grid-area: content;
                 background: var(--color-surface-default);
                 padding-inline: var(--spacing-base);
-                overflow-y: auto;
-                overflow-x: hidden;
                 min-inline-size: 0;
+                max-block-size: 100%;
+                overflow: auto;
             }
 
             .content-block {
                 padding-block: var(--spacing-far);
+            }
+
+            .nc-notification-center,
+            .nc-notification-output {
+                z-index: 2;
             }
         </style>
 
