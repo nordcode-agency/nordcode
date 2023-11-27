@@ -25,6 +25,10 @@
   --center-padding: var(--spacing-adaptive);
 }
 
+p {
+  font-size: 1.2rem;
+}
+
 .slide-up-from {
   transform: translateY(var(--spacing-base));
   opacity: 0;
@@ -36,18 +40,17 @@
 
 .heading-bg {
   position: relative;
-  aspect-ratio: 1;
-  border-radius: 100%;
-  background-image: conic-gradient(from 90deg, oklch(var(--color-surface-subtle-lch) / 0.7), oklch(var(--color-surface-default-lch) / 0.7));
 
   &::after {
     position: absolute;
+    border-radius: 100%;
     z-index: -1;
     content: '';
     inset: 0;
     left: 0%;
-    top: -75%;
-    block-size: 400%;
+    top: -200%;
+    /* block-size: 400%; */
+    inline-size: 40ch;
     aspect-ratio: 1;
     border-radius: 100%;
     background-image: conic-gradient(from 90deg, oklch(var(--color-surface-subtle-lch) / 0.7), oklch(var(--color-surface-default-lch) / 0.7));
