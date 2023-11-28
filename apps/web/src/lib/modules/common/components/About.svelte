@@ -3,15 +3,16 @@
   import imgPerson2 from '$lib/assets/person2.jpg';
 </script>
 
-<section class="nc-box nc-stack">
-  <!-- <div class="nc-ram-grid" style="--nc-ram-grid-gap: var(--spacing-far); --nc-ram-grid-min-width: 32ch;"> -->
-  <div class="nc-cluster -far">
-    <figure>
-      <img src={imgPerson1} alt="Joshua">
-    </figure>
-    <figure>
-      <img src={imgPerson2} alt="Lukas">
-    </figure>
+<section class="container nc-box nc-stack">
+  <div class="nc-ram-grid" style="--nc-ram-grid-gap: var(--spacing-adaptive); --nc-ram-grid-min-width: 32ch;">
+    <div class="images">
+      <figure>
+        <img src={imgPerson1} alt="Joshua">
+      </figure>
+      <figure>
+        <img src={imgPerson2} alt="Lukas">
+      </figure>
+    </div>
     <div class="content">
       <div class="nc-flow">
         <h2 class="heading-bg">Wer ist nordcode?</h2>
@@ -24,23 +25,43 @@
 <style lang="postcss">
   @import "@nordcode/ui/media";
 
+  .container {
+    min-block-size: 100dvh;
+    display: grid;
+    place-items: center;
+  }
+
   .nc-flow, figure {
     @media (--md-n-above) {
       flex-wrap: nowrap;
     }
   }
 
+  .images {
+    display: flex;
+    gap: var(--spacing-base);
+    justify-content: center;
+  }
+
   figure {
     flex-basis: 32ch;
     display: grid;
     place-items: center;
+    aspect-ratio: 4/5;
     inline-size: min(calc(var(--spacing-farthest) * 4), 100%);
-    aspect-ratio: 1/1;
-    border-radius: 24%;
+    border-radius: calc(var(--border-radius-large) * 1);
     overflow: hidden;
 
-    &:last-of-type {
-      transform: translateY(var(--spacing-farthest));
+    @media (--md-n-above) {
+      border-radius: calc(var(--border-radius-large) * 2);
+    }
+
+    @media (--lg-n-above) {
+      margin-block-end: var(--spacing-farthest);
+
+      &:last-of-type {
+        transform: translateY(var(--spacing-farthest));
+      }
     }
 
     & img {
@@ -52,10 +73,15 @@
 
   .content {
     flex-shrink: 0;
-    margin-inline: auto;
+    inline-size: 100%;
   }
 
   .nc-flow {
-    max-inline-size: 40ch;
+    inline-size: 100%;
+
+    @media (--lg-n-above) {
+      inline-size: min(48ch, 100%);
+    }
+    margin-inline: auto;
   }
 </style>
