@@ -18,7 +18,7 @@
 </div>
 <!-- <Work /> -->
 <div class="nc-box intro">
-  <p>Wir haben eine Leidenschaft für schönes Design und eine tolle User Experience. Diese Leidenschaft nutzen wir, um ein Erlebnis für deine Nutzer zu schaffen, dass funktioniert.</p>
+  <p class="heading-bg">Wir haben eine Leidenschaft für schönes Design und eine tolle User Experience. Diese Leidenschaft nutzen wir, um ein Erlebnis für deine Nutzer zu schaffen, dass funktioniert.</p>
 </div>
 <div class="nc-box nc-stack -inherit -stretched work">
   <div>
