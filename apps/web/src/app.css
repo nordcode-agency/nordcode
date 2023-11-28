@@ -48,7 +48,7 @@ p {
   margin-block-end: var(--spacing-far);
 
   &::after {
-    --conic-size: 28ch;
+    --conic-size: 60ch;
     position: absolute;
     z-index: -1;
     content: '';
