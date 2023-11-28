@@ -25,6 +25,10 @@
   --center-padding: var(--spacing-adaptive);
 }
 
+h2 {
+  font-size: calc(var(--font-size-largest) * 1.5);
+}
+
 p {
   font-size: 1.2rem;
 }
@@ -41,17 +45,18 @@ p {
 
 .heading-bg {
   position: relative;
+  margin-block-end: var(--spacing-far);
 
   &::after {
+    --conic-size: 28ch;
     position: absolute;
-    border-radius: 100%;
     z-index: -1;
     content: '';
     inset: 0;
-    left: 0%;
-    top: -200%;
+    left: calc(var(--conic-size) / 2 * -1);
+    top: calc(var(--conic-size) / 2 * -1 + 1lh);
     /* block-size: 400%; */
-    inline-size: 40ch;
+    inline-size: var(--conic-size);
     aspect-ratio: 1;
     border-radius: 100%;
     background-image: conic-gradient(from 90deg, oklch(var(--color-surface-subtle-lch) / 0.7), oklch(var(--color-surface-default-lch) / 0.7));
