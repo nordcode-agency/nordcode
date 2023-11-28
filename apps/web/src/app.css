@@ -54,7 +54,7 @@ p {
     content: '';
     inset: 0;
     left: calc(var(--conic-size) / 2 * -1);
-    top: calc(var(--conic-size) / 2 * -1 + 1lh);
+    top: calc(var(--conic-size) / 2 * -1 + 1.1lh);
     /* block-size: 400%; */
     inline-size: var(--conic-size);
     aspect-ratio: 1;
