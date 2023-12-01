@@ -1,7 +1,6 @@
 import { localStore } from './utils/localStore';
 import type { PresetName } from '../presets/Presets';
 import { Presets } from '../presets/Presets';
-import { writable } from 'svelte/store';
 
 const STORE_KEY = 'CONFIG_STORE';
 
@@ -85,8 +84,10 @@ export type ConfigStore = {
     useLCH: boolean;
     primaryHue: number;
     primaryLightness: number;
+    primaryChroma: number;
     secondaryHue: number;
     secondaryLightness: number;
+    secondaryChroma: number;
 
     lightTextLightnessScaleFactor: number;
     darkTextLightnessScaleFactor: number;
@@ -186,8 +187,10 @@ const defaultStore: ConfigStore = {
     useLCH: true,
     primaryHue: 265,
     primaryLightness: 65,
+    primaryChroma: 0.3,
     secondaryHue: 215,
     secondaryLightness: 65,
+    secondaryChroma: 0.3,
 
     lightTextLightnessScaleFactor: 3,
     darkTextLightnessScaleFactor: 2,

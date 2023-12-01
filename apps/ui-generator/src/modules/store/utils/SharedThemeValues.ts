@@ -160,7 +160,11 @@ export type ColorValues = {
     contrast: string;
 };
 
-export const getLightColorValues = (baseLightness: number, hue: number): ColorValues => {
+export const getLightColorValues = (
+    baseLightness: number,
+    baseChroma: number,
+    hue: number,
+): ColorValues => {
     const lightnesses = {
         emphasis: baseLightness - 10,
         base: baseLightness,
@@ -169,16 +173,28 @@ export const getLightColorValues = (baseLightness: number, hue: number): ColorVa
         contrast: baseLightness > 50 ? 1 : 99,
     };
 
+    const chromas = {
+        emphasis: baseChroma / 2,
+        base: baseChroma,
+        subtle: baseChroma / 4,
+        hover: baseChroma,
+        contrast: baseChroma / 6,
+    };
+
     return {
-        emphasis: generateValueString(lightnesses.emphasis, 0.14, hue),
-        base: generateValueString(lightnesses.base, 0.3, hue),
-        subtle: generateValueString(lightnesses.subtle, 0.08, hue),
-        hover: generateValueString(lightnesses.hover, 0.3, hue, 0.08),
-        contrast: generateValueString(lightnesses.contrast, 0.05, hue),
+        emphasis: generateValueString(lightnesses.emphasis, chromas.base, hue),
+        base: generateValueString(lightnesses.base, chromas.base, hue),
+        subtle: generateValueString(lightnesses.subtle, chromas.subtle, hue),
+        hover: generateValueString(lightnesses.hover, chromas.hover, hue, 0.08),
+        contrast: generateValueString(lightnesses.contrast, chromas.contrast, hue),
     } as ColorValues;
 };
 
-export const getDarkColorValues = (baseLightness: number, hue: number): ColorValues => {
+export const getDarkColorValues = (
+    baseLightness: number,
+    baseChroma: number,
+    hue: number,
+): ColorValues => {
     const lightnesses = {
         emphasis: baseLightness - 10,
         base: baseLightness,
@@ -187,12 +203,20 @@ export const getDarkColorValues = (baseLightness: number, hue: number): ColorVal
         contrast: baseLightness > 50 ? 1 : 99,
     };
 
+    const chromas = {
+        emphasis: baseChroma / 2,
+        base: baseChroma,
+        subtle: baseChroma / 4,
+        hover: baseChroma,
+        contrast: baseChroma / 6,
+    };
+
     return {
-        emphasis: generateValueString(lightnesses.emphasis, 0.14, hue),
-        base: generateValueString(lightnesses.base, 0.3, hue),
-        subtle: generateValueString(lightnesses.subtle, 0.08, hue),
-        hover: generateValueString(lightnesses.hover, 0.3, hue, 0.08),
-        contrast: generateValueString(lightnesses.contrast, 0.05, hue),
+        emphasis: generateValueString(lightnesses.emphasis, chromas.emphasis, hue),
+        base: generateValueString(lightnesses.base, chromas.base, hue),
+        subtle: generateValueString(lightnesses.subtle, chromas.subtle, hue),
+        hover: generateValueString(lightnesses.hover, chromas.hover, hue, 0.08),
+        contrast: generateValueString(lightnesses.contrast, chromas.contrast, hue),
     } as ColorValues;
 };
 
