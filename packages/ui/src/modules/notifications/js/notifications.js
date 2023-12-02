@@ -41,22 +41,30 @@ export const Selector = {
 
 /** @type {Set<string>} */
 const notifications = new Set();
-/** @type {HTMLTemplateElement | null} */
-const notificationTemplate = document.querySelector(Selector.notificationTemplate);
-/** @type {NodeListOf<HTMLButtonElement>} */
-const notificationButtons = document.querySelectorAll(Selector.notificationButton);
-/** @type {HTMLElement | null} */
-const notificationCenter = document.querySelector(Selector.notificationCenter);
-/** @type {NodeListOf<HTMLButtonElement>} */
-const notificationCenterToggle = document.querySelectorAll(Selector.notificationCenterToggle);
-/** @type {HTMLOutputElement | null} */
-const notificationOutput = document.querySelector(Selector.notificationOutput);
-/** @type {NodeListOf<HTMLButtonElement>} */
-const notificationCenterDismissAll = document.querySelectorAll(
-    Selector.notificationCenterDismissAll,
-);
-/** @type {HTMLElement | null} */
-const notificationCenterContainer = document.querySelector(Selector.notificationCenterContainer);
+
+/** @type {function(): HTMLTemplateElement | null} */
+const getNotificationTemplate = () => document.querySelector(Selector.notificationTemplate);
+
+/** @type {function(): NodeListOf<HTMLButtonElement>} */
+const getNotificationButtons = () => document.querySelectorAll(Selector.notificationButton);
+
+/** @type {function(): HTMLElement | null} */
+const getNotificationCenter = () => document.querySelector(Selector.notificationCenter);
+
+/** @type {function(): NodeListOf<HTMLButtonElement>} */
+const getNotificationCenterToggle = () =>
+    document.querySelectorAll(Selector.notificationCenterToggle);
+
+/** @type {function(): HTMLOutputElement | null} */
+const getNotificationOutput = () => document.querySelector(Selector.notificationOutput);
+
+/** @type {function(): NodeListOf<HTMLButtonElement>} */
+const getNotificationCenterDismissAll = () =>
+    document.querySelectorAll(Selector.notificationCenterDismissAll);
+
+/** @type {function(): HTMLElement | null} */
+const getNotificationCenterContainer = () =>
+    document.querySelector(Selector.notificationCenterContainer);
 
 /**
  * Create a unique id for a notification
@@ -120,15 +128,15 @@ const setupNotificationButtons = () => {
         }
     });
 
-    notificationCenterDismissAll.forEach(button =>
+    getNotificationCenterDismissAll()?.forEach(button =>
         button.addEventListener('click', () => {
             dismissAllNotifications();
         }),
     );
 
-    notificationCenterToggle.forEach(button =>
+    getNotificationCenterToggle()?.forEach(button =>
         button.addEventListener('click', () => {
-            notificationCenter?.classList.toggle('-open');
+            getNotificationCenter()?.classList.toggle('-open');
         }),
     );
 };
@@ -137,7 +145,7 @@ const setupNotificationButtons = () => {
  * Hide the notification center
  */
 const closeNavigationCenter = () => {
-    notificationCenter?.classList?.remove('-open');
+    getNotificationCenter()?.classList?.remove('-open');
 };
 
 /**
@@ -148,6 +156,8 @@ const closeNavigationCenter = () => {
  * @return {HTMLElement | null} The notification element
  */
 const createNotification = (title, description, notificationId) => {
+    const notificationTemplate = getNotificationTemplate();
+
     if (!notificationTemplate) {
         console.error('Could not find notification template', Selector.notificationTemplate);
         return null;
@@ -194,6 +204,7 @@ const createNotification = (title, description, notificationId) => {
 export const addNotification = (title, description) => {
     const notificationId = createNotificationId(title);
     const liveNotification = createNotification(title, description, notificationId);
+    const notificationOutput = getNotificationOutput();
 
     if (!liveNotification || !notificationOutput) {
         return;
@@ -214,6 +225,7 @@ export const addNotification = (title, description) => {
 
         removeNotification(notificationId, notification, false);
         const archiveNotification = createNotification(title, description, notificationId);
+        const notificationCenterContainer = getNotificationCenterContainer();
         if (!archiveNotification || !notificationCenterContainer) {
             return;
         }
