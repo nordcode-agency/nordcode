@@ -45,9 +45,6 @@ const notifications = new Set();
 /** @type {function(): HTMLTemplateElement | null} */
 const getNotificationTemplate = () => document.querySelector(Selector.notificationTemplate);
 
-/** @type {function(): NodeListOf<HTMLButtonElement>} */
-const getNotificationButtons = () => document.querySelectorAll(Selector.notificationButton);
-
 /** @type {function(): HTMLElement | null} */
 const getNotificationCenter = () => document.querySelector(Selector.notificationCenter);
 
