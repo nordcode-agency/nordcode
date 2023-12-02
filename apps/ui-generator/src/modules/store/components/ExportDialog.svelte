@@ -1,6 +1,7 @@
 <script>
     import {configStore} from "../configStore";
     import { getWPTheme } from '../utils/generateWPTheme';
+    import { getFigmaTheme } from '../utils/getFigmaTheme';
 
     export let allStyles = '';
 
@@ -14,6 +15,14 @@
         const url = new URL(window.location.origin + window.location.pathname)
         url.search = searchParams.toString()
         await navigator.clipboard.writeText(url);
+    }
+
+    const copyFigmaColors = async () => {
+        if (!configStore) {
+            return;
+        }
+        const themeColors = getFigmaTheme(configStore?.exportToJSON())
+        await navigator.clipboard.writeText(JSON.stringify(themeColors, null, 2))
     }
 
     const copyWPThemeToClipboard = async () => {
@@ -64,6 +73,14 @@
                     data-notification-description="Copied WP theme to clipboard"
             >
                 Copy WP
+            </button>
+            <button on:click={copyFigmaColors}
+                    data-closes-dialog="export-dialog"
+                    data-has-notification
+                    data-notification-title="✓ To clipboard"
+                    data-notification-description="Copied JSON colors to clipboard"
+            >
+                Copy JSON Colors
             </button>
         </footer>
     </div>
