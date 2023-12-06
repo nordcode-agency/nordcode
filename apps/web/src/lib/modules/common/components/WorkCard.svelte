@@ -127,14 +127,6 @@
     grid-area: img;
   }
 
-  .img-placeholder {
-    grid-area: img;
-    text-align: center;
-    block-size: 100%;
-    inline-size: 100%;
-    aspect-ratio: 3 / 2;
-  }
-
   img {
     block-size: 100%;
     inline-size: 100%;
