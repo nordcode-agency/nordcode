@@ -25,8 +25,6 @@
 </div>
 
 <style lang="postcss">
-  @import "@nordcode/ui/media";
-
   .container {
     container-type: inline-size;
   }

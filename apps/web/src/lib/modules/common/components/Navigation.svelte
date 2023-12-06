@@ -6,8 +6,6 @@
 </nav>
 
 <style lang="postcss">
-  @import "@nordcode/ui/media";
-
   nav {
     display: flex;
     justify-content: flex-end;

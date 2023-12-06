@@ -6,13 +6,15 @@ export default defineConfig({
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
-	css: {
-		transformer: 'lightningcss',
-		lightningcss: {
-			drafts: {
-				nesting: true,
-				customMedia: true
-			}
-		}
-	}
+	// @todo deactivated unless alias and global @custom-media is supported
+	// @see https://discord.com/channels/896960631322849340/1149432511571689522/1149432511571689522
+	// css: {
+	// 	transformer: 'lightningcss',
+	// 	lightningcss: {
+	// 		drafts: {
+	// 			nesting: true,
+	// 			customMedia: true
+	// 		}
+	// 	}
+	// }
 });

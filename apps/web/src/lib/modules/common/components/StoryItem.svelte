@@ -66,8 +66,6 @@
 </li>
 
 <style lang="postcss">
-  @import "@nordcode/ui/media";
-
   li {
     inline-size: 100%;
     block-size: 100%;

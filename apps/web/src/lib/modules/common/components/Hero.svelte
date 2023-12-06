@@ -55,7 +55,6 @@
 </div>
 
 <style lang="postcss">
-  @import "@nordcode/ui/media";
 
   .container {
     inline-size: 100%;

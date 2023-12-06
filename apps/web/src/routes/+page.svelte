@@ -47,8 +47,6 @@
 <About />
 
 <style lang="postcss">
-  @import "@nordcode/ui/media";
-
   .fullscreen {
     min-block-size: 100dvh;
   }

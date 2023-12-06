@@ -23,8 +23,6 @@
 </section>
 
 <style lang="postcss">
-  @import "@nordcode/ui/media";
-
   .container {
     min-block-size: 100dvh;
     display: grid;

@@ -13,7 +13,6 @@
 </header>
 
 <style>
-	@import "@nordcode/ui/media";
   header {
 		pointer-events: none;
 		isolation: isolate;

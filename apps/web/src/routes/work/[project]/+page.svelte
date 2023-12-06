@@ -64,8 +64,6 @@
 </article>
 
 <style lang="postcss">
-  @import "@nordcode/ui/media";
-
   .thumbnail {
     view-transition-name: work-figure;
     inline-size: 100%;
