@@ -16,6 +16,7 @@
     "@nordcode/ui": "workspace:^"
   },
   "devDependencies": {
+    "@csstools/postcss-global-data": "^2.1.0",
     "@nordcode/postcss-config": "workspace:^",
     "@nordcode/types": "workspace:^",
     "@sveltejs/adapter-auto": "^2.1.1",
