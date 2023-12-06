@@ -35,7 +35,7 @@
       <button class="my-button" type="button">Los geht's</button> -->
     </div>
   </div>
-  <div class="box nc-cluster">
+  <div class="nc-box box nc-cluster">
     <WorkCard
       variant="horizontal"
       heading={projects[0].heading}
@@ -98,8 +98,7 @@
   .box {
     justify-content: space-between;
     margin-inline-start: auto;
-    inline-size: min(100%, max(40vw, 800px));
-    padding: var(--spacing-base);
+    inline-size: min(100%, max(40vw, 880px));
 
     & :global(> *) {
       flex: 1 1 360px;
