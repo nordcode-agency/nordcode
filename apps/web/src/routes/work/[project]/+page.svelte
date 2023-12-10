@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>nordcode – {heading}</title>
+	<title>nordcode - {heading}</title>
 </svelte:head>
 
 <article class="nc-box">
