@@ -3,9 +3,9 @@
   import Story from '$lib/modules/common/components/Story.svelte';
 	import StoryItem from './StoryItem.svelte';
 	import WorkCard from './WorkCard.svelte';
-	import type { WorkProject } from '$lib/types';
+	import type { TProjects } from '$lib/content';
 
-  export let projects: WorkProject[];
+  export let projects: TProjects;
 </script>
 
 <div class="nc-stack container">
