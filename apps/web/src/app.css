@@ -68,3 +68,10 @@ section.nc-box {
     background-image: conic-gradient(from 90deg, oklch(var(--color-surface-subtle-lch) / 0.7), oklch(var(--color-surface-default-lch) / 0.7));
   }
 }
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  /** @url https://developer.chrome.com/docs/web-platform/view-transitions/#handling-changes-in-aspect-ratio */
+  block-size: 100%;
+  overflow: hidden;
+}

@@ -15,7 +15,7 @@
   <div class="nc-stack">
     <div class="nc-box nc-stack -inherit hero">
       <div class="nc-cluster">
-        <figure class="thumbnail">
+        <figure class="thumbnail" style={`view-transition-name: ${slug}`}>
           <img src={cover?.src} alt={cover?.alt}>
         </figure>
         <div class="headings">
@@ -90,11 +90,15 @@
     
     & h1 {
       animation: var(--animation-slide-up) 0.2s;
-      font-size: calc(var(--font-size-display) * 1.5);
+      font-size: calc(var(--font-size-display) * 1.1);
       line-height: 1.3;
       background: linear-gradient(to left, var(--color-brand-secondary-base), var(--color-brand-primary-base));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      @media (--md-n-above) {
+        font-size: calc(var(--font-size-display) * 1.5);
+      }
     }
   }
 
@@ -192,11 +196,5 @@
       border-radius: var(--border-radius-large);
       overflow: hidden;
     }
-  }
-
-  :global(::view-transition-old(work-figure)),
-  :global(::view-transition-new(work-figure)) {
-    /** @url https://developer.chrome.com/docs/web-platform/view-transitions/#handling-changes-in-aspect-ratio */
-    block-size: 100%;
   }
 </style>

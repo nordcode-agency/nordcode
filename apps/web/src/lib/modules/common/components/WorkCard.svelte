@@ -1,4 +1,5 @@
 <script lang="ts" async>
+  import { beforeNavigate, afterNavigate } from '$app/navigation';
   import type { MediaImage } from '$lib/types/index';
 
   export let variant: 'horizontal' | '' = '';
@@ -7,13 +8,21 @@
   export let cover: MediaImage;
   export let slug: string;
 
+  let vtName = '';
+  beforeNavigate(() => {
+    vtName = slug;
+  });
+  afterNavigate(() => {
+    vtName = '';
+  })
+
   $: href = `/work/${slug}`;
 </script>
 
 <div class="container">
   <a {href} class="nc-card card" data-variant={variant}>
-    <figure>
-      <img loading="lazy" src={cover.src} alt={cover.alt}>
+    <figure style={`view-transition-name: ${vtName}`}>
+      <img src={cover.src} alt={cover.alt}>
     </figure>
     <div class="header">
       <div class="headings">

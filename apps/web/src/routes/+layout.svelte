@@ -2,21 +2,23 @@
   import Footer from '$lib/modules/common/components/Footer.svelte';
   import { onNavigate } from '$app/navigation';
 
-  onNavigate((navigation) => { 
-      if (!document.startViewTransition) return;
-      const pathname = navigation?.to?.url.pathname;
-      const anchorEl = document.querySelector(`[href="${pathname}"]`);
+  onNavigate((navigation) => {
+    if (!document.startViewTransition) return;
 
-      /** @url https://developer.chrome.com/docs/web-platform/view-transitions/#transitioning-elements-dont-need-to-be-the-same-dom-element */
-      const figureEl = anchorEl?.querySelector('figure');
-      if (figureEl) figureEl.style.viewTransitionName = 'work-figure';
-
-      return new Promise((resolve) => {
-          document.startViewTransition(async () => {
-            resolve();
-              await navigation.complete;
-          });
+    return new Promise((resolve) => {
+      document.startViewTransition(async () => {
+        resolve();
+        await navigation.complete;
+        
+        const slug = navigation.from?.params?.project;
+        if (slug) {
+          const thumbEl = document.querySelector(`[href="/work/${slug}"] figure`) as HTMLElement | null;
+          if (thumbEl) {
+            thumbEl.style.viewTransitionName = slug;
+          }
+        };
       });
+    });
   });
 
   import { onMount } from "svelte";
