@@ -1,7 +1,7 @@
 <script lang="ts">
-  import ArrowRightSolid from '@nordcode/ui/ArrowRightSolid';
-  import Story from '$lib/modules/common/components/Story.svelte';
-	import StoryItem from './StoryItem.svelte';
+  // import ArrowRightSolid from '@nordcode/ui/ArrowRightSolid';
+  // import Story from '$lib/modules/common/components/Story.svelte';
+	// import StoryItem from './StoryItem.svelte';
 	import WorkCard from './WorkCard.svelte';
 	import type { TProjects } from '$lib/content';
 
