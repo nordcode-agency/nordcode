@@ -1,9 +1,3 @@
-<footer>
+<footer class="nc-box">
   Liebe Grüße aus Zeetze & Hamburg
 </footer>
-
-<style lang="postcss">
-  footer {
-    padding: var(--spacing-far);
-  }
-</style>
