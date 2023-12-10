@@ -51,9 +51,10 @@ section.nc-box {
 .heading-bg {
   position: relative;
   margin-block-end: var(--spacing-far);
+  overflow: hidden;
 
   &::after {
-    --conic-size: 60ch;
+    --conic-size: min(60ch, 100vw);
     position: absolute;
     z-index: -1;
     content: '';
