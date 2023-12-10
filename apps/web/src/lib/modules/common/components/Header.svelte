@@ -2,7 +2,7 @@
 	import Logo from "./Logo.svelte";
 </script>
 
-<header>
+<header class="nc-box">
 	<nav>
 		<a href="/" aria-label="Startseite">
 			<Logo />
@@ -19,11 +19,7 @@
 		display: grid;
 		place-items: center;
 		inline-size: 100%;
-		padding: var(--spacing-base);
-
-		@media (--sm-n-above) {
-			padding-inline: var(--spacing-far);
-		}
+		padding-block: var(--spacing-far);
 	}
 
 	nav {
@@ -50,7 +46,6 @@
 
 	a[href="/"] {
 		max-inline-size: 14rem;
-		padding: var(--spacing-base);
 		grid-area: home;
 	}
 

@@ -17,10 +17,10 @@
   <Hero projects={data.projects} />
 </div>
 <!-- <Work /> -->
-<div class="nc-box intro">
+<section class="nc-box intro">
   <p class="heading-bg">Wir haben eine Leidenschaft für schönes Design und eine tolle User Experience. Diese Leidenschaft nutzen wir, um ein Erlebnis für deine Nutzer zu schaffen, dass funktioniert.</p>
-</div>
-<div class="nc-box nc-stack -inherit -stretched work">
+</section>
+<section class="nc-box nc-stack -inherit -stretched work">
   <div>
     <WorkCard
       heading={data.projects[4].heading}
@@ -43,7 +43,7 @@
       slug={data.projects[3].slug}
     />
   </div>
-</div>
+</section>
 <About />
 
 <style lang="postcss">

@@ -39,6 +39,11 @@ p {
 }
 
 .nc-box {
+  padding-block: var(--spacing-adaptive);
+  padding-inline: var(--spacing-adaptive);
+}
+
+section.nc-box {
   padding-block: calc(var(--spacing-adaptive) * 2);
   padding-inline: var(--spacing-adaptive);
 }
