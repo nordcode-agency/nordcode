@@ -6,7 +6,7 @@ import ImgItaly from '$lib/assets/italy.avif'
 import ImgIce from '$lib/assets/ice.avif'
 import ImgDesert from '$lib/assets/desert.avif'
 
-export const projects: WorkProject[] = [
+export const projects = [
   {
     heading: 'Telling a new story',
     subheading: 'Ricola',
@@ -61,4 +61,6 @@ export const projects: WorkProject[] = [
     },
     slug: 'traverly',
   },
-];
+] as const satisfies readonly WorkProject[];
+
+export type TProjects = typeof projects;
