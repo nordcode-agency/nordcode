@@ -68,9 +68,7 @@
   }
 
   .work {
-    @media (--md-n-above) {
-      --stack-gap: var(--spacing-far);
-    }
+    --stack-gap: var(--spacing-adaptive);
   }
 
   .more-work {
