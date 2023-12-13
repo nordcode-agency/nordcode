@@ -20,19 +20,19 @@ import {
     getStatusDarkColorValues,
 } from './SharedThemeValues';
 
-type WPColor = {
+type WpColor = {
     name: string;
     slug: string;
     color: string;
 };
 
-type WPColorTheme = {
+type WpColorTheme = {
     color: {
-        palette: WPColor[];
+        palette: WpColor[];
     };
 };
 
-export const getWPColorTheme = (store: ConfigStore): WPColorTheme => {
+export const getWpColorTheme = (store: ConfigStore): WpColorTheme => {
     const textLightValues = getTextLightValues(
         +store.lightNeutralTextLightness,
         +store.lightTextLightnessScaleFactor,
@@ -102,17 +102,17 @@ export const getWPColorTheme = (store: ConfigStore): WPColorTheme => {
     return {
         color: {
             palette: [
-                ...mapValuesToWPToken('text-light', textLightValues),
-                ...mapValuesToWPToken('surface-light', surfaceLightValues),
-                ...mapValuesToWPToken('border-light', borderLightValues),
-                ...mapValuesToWPToken('text-dark', textDarkValues),
-                ...mapValuesToWPToken('surface-dark', surfaceDarkValues),
-                ...mapValuesToWPToken('border-dark', borderDarkValues),
+                ...mapValuesToWpToken('text-light', textLightValues),
+                ...mapValuesToWpToken('surface-light', surfaceLightValues),
+                ...mapValuesToWpToken('border-light', borderLightValues),
+                ...mapValuesToWpToken('text-dark', textDarkValues),
+                ...mapValuesToWpToken('surface-dark', surfaceDarkValues),
+                ...mapValuesToWpToken('border-dark', borderDarkValues),
 
-                ...mapValuesToWPToken('brand-primary-light', lightPrimaryColorValues),
-                ...mapValuesToWPToken('brand-secondary-light', lightSecondaryColorValues),
-                ...mapValuesToWPToken('brand-primary-dark', darkPrimaryColorValues),
-                ...mapValuesToWPToken('brand-secondary-dark', darkSecondaryColorValues),
+                ...mapValuesToWpToken('brand-primary-light', lightPrimaryColorValues),
+                ...mapValuesToWpToken('brand-secondary-light', lightSecondaryColorValues),
+                ...mapValuesToWpToken('brand-primary-dark', darkPrimaryColorValues),
+                ...mapValuesToWpToken('brand-secondary-dark', darkSecondaryColorValues),
 
                 ...getStatusLightColorTheme(
                     'info',
@@ -167,13 +167,13 @@ export const getWPColorTheme = (store: ConfigStore): WPColorTheme => {
     };
 };
 
-const mapValuesToWPToken = (baseName: string, values: Record<string, string>): WPColor[] => {
+const mapValuesToWpToken = (baseName: string, values: Record<string, string>): WpColor[] => {
     return Object.entries(values).map(([variant, value]) => {
-        return getWPColor(`${baseName}-${variant}`, value);
+        return getWpColor(`${baseName}-${variant}`, value);
     });
 };
 
-const getWPColor = (name: string, value: string): WPColor => {
+const getWpColor = (name: string, value: string): WpColor => {
     return {
         name: name,
         slug: name,
@@ -186,9 +186,9 @@ const getStatusLightColorTheme = (
     hue: number,
     lightness: number,
     primaryLightness: number,
-): WPColor[] => {
+): WpColor[] => {
     const colorValues = getStatusLightColorValues(lightness, hue, primaryLightness);
-    return mapValuesToWPToken(`status-${name}-light`, colorValues);
+    return mapValuesToWpToken(`status-${name}-light`, colorValues);
 };
 
 const getStatusDarkColorTheme = (
@@ -196,7 +196,7 @@ const getStatusDarkColorTheme = (
     hue: number,
     lightness: number,
     primaryLightness: number,
-): WPColor[] => {
+): WpColor[] => {
     const colorValues = getStatusDarkColorValues(lightness, hue, primaryLightness);
-    return mapValuesToWPToken(`status-${name}-dark`, colorValues);
+    return mapValuesToWpToken(`status-${name}-dark`, colorValues);
 };

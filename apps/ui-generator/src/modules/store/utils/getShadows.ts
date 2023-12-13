@@ -1,11 +1,11 @@
 import type { ConfigStore } from '../configStore';
 
 export const getShadows = (store: ConfigStore) => {
-    const shadowColorLightLCH = `${store.lightNeutralBorderLightness}% ${store.shadowColorChroma} ${store.primaryHue}`;
-    const shadowColorLight = `oklch(${shadowColorLightLCH})`;
+    const shadowColorLightLch = `${store.lightNeutralBorderLightness}% ${store.shadowColorChroma} ${store.primaryHue}`;
+    const shadowColorLight = `oklch(${shadowColorLightLch})`;
 
-    const shadowColorDarkLCH = `${store.lightNeutralBorderLightness}% ${store.shadowColorChroma} ${store.primaryHue}`;
-    const shadowColorDark = `oklch(${shadowColorDarkLCH})`;
+    const shadowColorDarkLch = `${store.lightNeutralBorderLightness}% ${store.shadowColorChroma} ${store.primaryHue}`;
+    const shadowColorDark = `oklch(${shadowColorDarkLch})`;
 
     const shadowConfig = {
         scaleFactor: store.shadowConfigDistanceScaleFactor,
@@ -14,7 +14,7 @@ export const getShadows = (store: ConfigStore) => {
         transparencyScale: store.shadowConfigTransparencyScale,
         spreadMax: store.shadowConfigSpreadMax,
         spreadMin: store.shadowConfigSpreadMin,
-        xOffsetFactor: store.shadowConfigXOffsetFactor,
+        xOffsetFactor: store.shadowConfigXoffsetFactor,
     };
 
     return `
@@ -23,8 +23,8 @@ export const getShadows = (store: ConfigStore) => {
             
             
             --shadow-inset-light: inset ${
-                store.shadowDistanceInset * store.shadowConfigXOffsetFactor
-            }px ${store.shadowDistanceInset}px 0px 0 ${getLCHColorWithTransparency(
+                store.shadowDistanceInset * store.shadowConfigXoffsetFactor
+            }px ${store.shadowDistanceInset}px 0px 0 ${getLchColorWithTransparency(
                 shadowColorLight,
                 store.shadowConfigStartTransparency / 3,
             )};
@@ -51,13 +51,13 @@ export const getShadows = (store: ConfigStore) => {
             )};
             
             --shadow-color-light: ${shadowColorLight};
-            --shadow-color-light-lch: ${shadowColorLightLCH};
+            --shadow-color-light-lch: ${shadowColorLightLch};
             
             /* Dark Theme */
             
             --shadow-inset-dark: inset ${store.shadowDistanceInset}px ${
                 store.shadowDistanceInset
-            }px 0px 0  ${getLCHColorWithTransparency(
+            }px 0px 0  ${getLchColorWithTransparency(
                 shadowColorDark,
                 store.shadowConfigStartTransparency / 3,
             )};
@@ -84,14 +84,14 @@ export const getShadows = (store: ConfigStore) => {
             )};
             
             --shadow-color-dark: ${shadowColorDark};
-            --shadow-color-dark-lch: ${shadowColorDarkLCH};
+            --shadow-color-dark-lch: ${shadowColorDarkLch};
         `;
 };
 
 // ideas from: https://shadows.brumm.af/ and material design and https://www.joshwcomeau.com/shadow-palette/
 const amountOfExtraShadows = 4;
 const round = (num: number) => Math.round(num * 100) / 100;
-const getLCHColorWithTransparency = (color: string, transparency: number) =>
+const getLchColorWithTransparency = (color: string, transparency: number) =>
     `${color.slice(0, -1)} / ${round(transparency * 100)}%)`;
 
 const getSpread = (min: number, max: number, totalSteps: number, step: number) => {
@@ -125,11 +125,11 @@ const generateShadow = (
     let shadowString = '';
 
     for (let i = 0; i <= amountOfExtraShadows; i++) {
-        const d = round(distance * Math.pow(scaleFactor, i));
+        const d = round(distance * scaleFactor ** i);
         const blur = round(d * blurFactor);
-        const shadowColor = getLCHColorWithTransparency(
+        const shadowColor = getLchColorWithTransparency(
             color,
-            startTransparency * Math.pow(transparencyScale, i),
+            startTransparency * transparencyScale ** i,
         );
         const spread = getSpread(spreadMax, spreadMin, amountOfExtraShadows, i);
         // const spread = 0;

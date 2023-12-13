@@ -11,7 +11,8 @@
     "changeset": "changeset",
     "changeset-status": "changeset status",
     "version-packages": "changeset version",
-    "publish-packages": "changeset publish"
+    "publish-packages": "changeset publish",
+      "biome:ui-generator": "biome format apps/ui-generator --write && biome lint apps/ui-generator --apply"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",

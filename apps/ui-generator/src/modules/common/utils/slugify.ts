@@ -1,5 +1,5 @@
-export function slugify(text, separator = '-') {
-    text = text.toString().toLowerCase().trim();
+export function slugify(text: string, separator = '-') {
+    let textToSlugify = text.toString().toLowerCase().trim();
 
     const sets = [
         { to: 'a', from: '[ÀÁÂÃÅÆĀĂĄẠẢẤẦẨẪẬẮẰẲẴẶ]' },
@@ -32,11 +32,11 @@ export function slugify(text, separator = '-') {
         { to: '-', from: "[·/_,:;']" },
     ];
 
-    sets.forEach(set => {
-        text = text.replace(new RegExp(set.from, 'gi'), set.to);
-    });
+    for (const set of sets) {
+        textToSlugify = textToSlugify.replace(new RegExp(set.from, 'gi'), set.to);
+    }
 
-    text = text
+    textToSlugify = textToSlugify
         .toString()
         .toLowerCase()
         .replace(/\s+/g, '-') // Replace spaces with -
@@ -47,8 +47,8 @@ export function slugify(text, separator = '-') {
         .replace(/-+$/, ''); // Trim - from end of text
 
     if (typeof separator !== 'undefined' && separator !== '-') {
-        text = text.replace(/-/g, separator);
+        textToSlugify = textToSlugify.replace(/-/g, separator);
     }
 
-    return text;
+    return textToSlugify;
 }

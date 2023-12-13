@@ -68,7 +68,7 @@ export type ConfigStore = {
     shadowConfigTransparencyScale: number;
     shadowConfigSpreadMax: number;
     shadowConfigSpreadMin: number;
-    shadowConfigXOffsetFactor: number;
+    shadowConfigXoffsetFactor: number;
 
     shadowDistanceInset: number;
     shadowDistanceNearest: number;
@@ -81,7 +81,6 @@ export type ConfigStore = {
     shadowDistanceScale: number;
 
     // COLORS
-    useLCH: boolean;
     primaryHue: number;
     primaryLightness: number;
     primaryChroma: number;
@@ -170,7 +169,7 @@ const defaultStore: ConfigStore = {
     shadowConfigTransparencyScale: 1.2,
     shadowConfigSpreadMax: -4,
     shadowConfigSpreadMin: 1,
-    shadowConfigXOffsetFactor: 0,
+    shadowConfigXoffsetFactor: 0,
 
     shadowDistanceInset: 3,
     shadowDistanceNearest: 1,
@@ -184,7 +183,6 @@ const defaultStore: ConfigStore = {
 
     // COLORS
 
-    useLCH: true,
     primaryHue: 265,
     primaryLightness: 65,
     primaryChroma: 0.3,
@@ -211,70 +209,70 @@ const defaultStore: ConfigStore = {
 const round = (num: number) => Math.round(num * 1000) / 1000;
 
 export const updateSpacingScale = (newScale: number) => {
-    configStore?.update(store => {
+    configStore?.update((store) => {
         return {
             ...store,
             spacingScale: newScale,
             spacingNear: round(store.spacingBase / newScale),
-            spacingNearest: round(store.spacingBase / Math.pow(newScale, 2)),
-            spacingTiny: round(store.spacingBase / Math.pow(newScale, 3)),
+            spacingNearest: round(store.spacingBase / newScale ** 2),
+            spacingTiny: round(store.spacingBase / newScale ** 3),
             spacingFar: round(store.spacingBase * newScale),
-            spacingFarthest: round(store.spacingBase * Math.pow(newScale, 2)),
+            spacingFarthest: round(store.spacingBase * newScale ** 2),
         };
     });
 };
 
 export const updateBorderWidthScale = (newScale: number) => {
-    configStore?.update(store => {
+    configStore?.update((store) => {
         return {
             ...store,
             borderWidthScale: newScale,
             borderWidthMedium: round(store.borderWidthThin * newScale),
-            borderWidthThick: round(store.borderWidthThin * Math.pow(newScale, 2)),
+            borderWidthThick: round(store.borderWidthThin * newScale ** 2),
         };
     });
 };
 
 export const updateBorderRadiusScale = (newScale: number) => {
-    configStore?.update(store => {
+    configStore?.update((store) => {
         return {
             ...store,
             borderRadiusScale: newScale,
             borderRadiusMedium: round(store.borderRadiusSmall * newScale),
-            borderRadiusLarge: round(store.borderRadiusSmall * Math.pow(newScale, 2)),
+            borderRadiusLarge: round(store.borderRadiusSmall * newScale ** 2),
         };
     });
 };
 
 export const updateShadowDistanceScale = (newScale: number) => {
-    configStore?.update(store => {
+    configStore?.update((store) => {
         return {
             ...store,
             shadowDistanceScale: newScale,
             shadowDistanceNear: round(store.shadowDistanceNearest * newScale),
-            shadowDistanceMedium: round(store.shadowDistanceNearest * Math.pow(newScale, 2)),
+            shadowDistanceMedium: round(store.shadowDistanceNearest * newScale ** 2),
             shadowDistanceInset: round(store.shadowDistanceNearest * newScale),
-            shadowDistanceFar: round(store.shadowDistanceNearest * Math.pow(newScale, 3)),
+            shadowDistanceFar: round(store.shadowDistanceNearest * newScale ** 3),
         };
     });
 };
 
 export const updateFontScale = (newScale: number) => {
-    configStore?.update(store => {
+    configStore?.update((store) => {
         return {
             ...store,
             fontSizeScale: newScale,
             fontSizeLarge: round(store.fontSizeBase * newScale),
-            fontSizeLargest: round(store.fontSizeBase * Math.pow(newScale, 2)),
-            fontSizeDisplay: round(store.fontSizeBase * Math.pow(newScale, 3)),
+            fontSizeLargest: round(store.fontSizeBase * newScale ** 2),
+            fontSizeDisplay: round(store.fontSizeBase * newScale ** 3),
             fontSizeSmall: round(store.fontSizeBase / newScale),
-            fontSizeSmallest: round(store.fontSizeBase / Math.pow(newScale, 2)),
+            fontSizeSmallest: round(store.fontSizeBase / newScale ** 2),
         };
     });
 };
 
 export const setPreset = (preset: PresetName) => {
-    configStore?.update(store => {
+    configStore?.update((store) => {
         return {
             ...store,
             ...Presets[preset],

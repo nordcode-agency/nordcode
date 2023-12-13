@@ -34,12 +34,13 @@ const generateValuesFromLightnesses = <T>(
     chroma: number,
     hue: number,
 ): T => {
-    return Object.entries(lightnesses).reduce((acc, [k, v]) => {
-        return {
-            ...acc,
-            [k]: generateValueString(v, chroma, hue),
-        };
-    }, {}) as T;
+    return Object.entries(lightnesses).reduce(
+        (acc, [k, v]) => {
+            acc[k] = generateValueString(v, chroma, hue);
+            return acc;
+        },
+        {} as Record<string, string>,
+    ) as T;
 };
 
 type TextValues = {

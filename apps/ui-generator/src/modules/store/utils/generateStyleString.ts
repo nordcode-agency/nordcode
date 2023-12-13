@@ -1,9 +1,9 @@
-import type { ConfigStore } from "../configStore";
-import { getShadows } from "./getShadows";
-import { getThemeFromOKLCH } from "./getThemeFromOKLCH";
+import type { ConfigStore } from '../configStore';
+import { getShadows } from './getShadows';
+import { getThemeFromOklch } from './getThemeFromOklch.ts';
 
 export const generateStyleString = (store: ConfigStore): string => {
-  return `
+    return `
         /* Typography */
 
         --font-family-mono: ${store.fontFamilyMono};
@@ -28,12 +28,8 @@ export const generateStyleString = (store: ConfigStore): string => {
         --measure-base: ${store.measureBase}ch;
         --measure-small: ${store.measureSmall}ch;
 
-        --font-size-smallest: max(${store.fontSizeSmallest}${
-    store.fontSizeUnit
-  }, 12px);
-        --font-size-small: max(${store.fontSizeSmall}${
-    store.fontSizeUnit
-  }, 14px);
+        --font-size-smallest: max(${store.fontSizeSmallest}${store.fontSizeUnit}, 12px);
+        --font-size-small: max(${store.fontSizeSmall}${store.fontSizeUnit}, 14px);
         --font-size-base: ${store.fontSizeBase}${store.fontSizeUnit};
         --font-size-large: ${store.fontSizeLarge}${store.fontSizeUnit};
         --font-size-largest: ${store.fontSizeLargest}${store.fontSizeUnit};
@@ -64,6 +60,6 @@ export const generateStyleString = (store: ConfigStore): string => {
 
         ${getShadows(store)}
 
-        ${getThemeFromOKLCH(store)}
-        `.replace(/^ +/gm, "");
+        ${getThemeFromOklch(store)}
+        `.replace(/^ +/gm, '');
 };

@@ -5,12 +5,12 @@ const Noop = () => {};
 export const localStore = <T>(key: string, initial: T) => {
     // receives the key of the local storage and an initial value
 
-    const toString = (value: T) => JSON.stringify(value, null, 2); // helper function
+    const stringify = (value: T) => JSON.stringify(value, null, 2); // helper function
     const toObj = JSON.parse; // helper function
 
     if (localStorage.getItem(key) === null) {
         // item not present in local storage
-        localStorage.setItem(key, toString(initial)); // initialize local storage with initial value
+        localStorage.setItem(key, stringify(initial)); // initialize local storage with initial value
     }
 
     const saved = toObj(localStorage.getItem(key) ?? ''); // convert to object
@@ -20,23 +20,23 @@ export const localStore = <T>(key: string, initial: T) => {
     return {
         subscribe,
         set: (value: T) => {
-            localStorage.setItem(key, toString(value)); // save also to local storage as a string
+            localStorage.setItem(key, stringify(value)); // save also to local storage as a string
             return set(value);
         },
         // update,
         update: (updateFn: (state: T) => T) => {
             const updated = updateFn(saved);
-            localStorage.setItem(key, toString(updated));
+            localStorage.setItem(key, stringify(updated));
             return update(updateFn);
         },
-        exportToString: () => toString(saved),
-        exportToJSON: () => saved,
+        exportToString: () => stringify(saved),
+        exportToJson: () => saved,
         import: (valueString: string) => {
             const value = toObj(valueString);
             return set(value);
         },
         reset: () => {
-            localStorage.setItem(key, toString(initial));
+            localStorage.setItem(key, stringify(initial));
             return set(initial);
         },
     };

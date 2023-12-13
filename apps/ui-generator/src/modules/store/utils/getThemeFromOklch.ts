@@ -20,7 +20,7 @@ import {
     getStatusDarkColorValues,
 } from './SharedThemeValues';
 
-export const getThemeFromOKLCH = (store: ConfigStore) => {
+export const getThemeFromOklch = (store: ConfigStore) => {
     const textLightValues = getTextLightValues(
         +store.lightNeutralTextLightness,
         +store.lightTextLightnessScaleFactor,

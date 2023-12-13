@@ -1,5 +1,5 @@
 <div id="top" role="document" class="nc-flow" style="padding-inline: var(--spacing-base);">
-  <h1>Preview</h1>
+    <h1>Preview</h1>
     <nav>
         <ul>
             <li>
@@ -120,10 +120,12 @@
             </div>
             <h2>Borders</h2>
             <div class="nc-cluster">
-                <div class="nc-box" style="border: var(--border-width-medium) solid var(--color-border-default)">
+                <div class="nc-box"
+                     style="border: var(--border-width-medium) solid var(--color-border-default)">
                     <small>color-border-default</small>
                 </div>
-                <div class="nc-box" style="border: var(--border-width-medium) solid var(--color-border-muted)">
+                <div class="nc-box"
+                     style="border: var(--border-width-medium) solid var(--color-border-muted)">
                     <small>color-border-muted</small>
                 </div>
             </div>
@@ -141,7 +143,7 @@
                 <div class="nc-box" style="box-shadow: var(--shadow-medium)">
                     <small>Shadow medium</small>
                 </div>
-                                <div class="nc-box" style="box-shadow: var(--shadow-far)">
+                <div class="nc-box" style="box-shadow: var(--shadow-far)">
                     <small>Shadow far</small>
                 </div>
 
@@ -166,10 +168,14 @@
             <article id="text__paragraphs">
                 <header><h2>Paragraphs</h2></header>
                 <div>
-                    <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a
-                        self-contained unit of a discourse in writing dealing with a particular point or idea. A
-                        paragraph consists of one or more sentences. Though not required by the syntax of any language,
-                        paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+                    <p>A paragraph (from the Greek paragraphos, “to write beside” or “written
+                        beside”) is a
+                        self-contained unit of a discourse in writing dealing with a particular
+                        point or idea. A
+                        paragraph consists of one or more sentences. Though not required by the
+                        syntax of any language,
+                        paragraphs are usually an expected part of formal writing, used to organize
+                        longer prose.</p>
                 </div>
                 <footer><p><a href="#top">[Top]</a></p></footer>
             </article>
@@ -177,10 +183,14 @@
                 <header><h2>Blockquotes</h2></header>
                 <div>
                     <blockquote>
-                        <p>A block quotation (also known as a long quotation or extract) is a quotation in a written
-                            document, that is set off from the main text as a paragraph, or block of text.</p>
-                        <p>It is typically distinguished visually using indentation and a different typeface or smaller
-                            size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+                        <p>A block quotation (also known as a long quotation or extract) is a
+                            quotation in a written
+                            document, that is set off from the main text as a paragraph, or block of
+                            text.</p>
+                        <p>It is typically distinguished visually using indentation and a different
+                            typeface or smaller
+                            size quotation. It may or may not include a citation, usually placed at
+                            the bottom.</p>
                         <cite><a href="#!">Said no one, ever.</a></cite>
                     </blockquote>
                 </div>
@@ -269,10 +279,14 @@
                 <header><h1>Blockquotes</h1></header>
                 <div>
                     <blockquote>
-                        <p>A block quotation (also known as a long quotation or extract) is a quotation in a written
-                            document, that is set off from the main text as a paragraph, or block of text.</p>
-                        <p>It is typically distinguished visually using indentation and a different typeface or smaller
-                            size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+                        <p>A block quotation (also known as a long quotation or extract) is a
+                            quotation in a written
+                            document, that is set off from the main text as a paragraph, or block of
+                            text.</p>
+                        <p>It is typically distinguished visually using indentation and a different
+                            typeface or smaller
+                            size quotation. It may or may not include a citation, usually placed at
+                            the bottom.</p>
                         <cite><a href="#!">Said no one, ever.</a></cite>
                     </blockquote>
                 </div>
@@ -282,8 +296,10 @@
                 <header><h1>Details / Summary</h1></header>
                 <details>
                     <summary>Expand for details</summary>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, odio! Odio natus ullam ad quaerat,
-                        eaque necessitatibus, aliquid distinctio similique voluptatibus dicta consequuntur animi.
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, odio! Odio
+                        natus ullam ad quaerat,
+                        eaque necessitatibus, aliquid distinctio similique voluptatibus dicta
+                        consequuntur animi.
                         Quaerat facilis quidem unde eos! Ipsa.</p>
                 </details>
                 <footer><p><a href="#top">[Top]</a></p></footer>
@@ -359,7 +375,7 @@
                     </tr>
                     </tbody>
                 </table>
-                                <table>
+                <table>
                     <caption>Table Caption</caption>
                     <thead>
                     <tr>
@@ -403,29 +419,32 @@
                 </table>
 
                 <table>
-        <tbody>
-          <tr>
-            <th>Description</th>
-            <td>Simple browser extension to sync and use testaccounts</td>
-          </tr>
-          <tr>
-            <th>Tech stack</th>
-            <td>Typescript, OpenProps, Webextension</td>
-          </tr>
-          <tr>
-            <th>Link</th>
-            <td>
-              <a href="https://chrome.google.com/webstore/detail/testaccount-manager/addaocpbbalpdpebplfjmleommmgalpd" target="_blank" rel="noopener noreferrer" data-external="">
-                    https://chrome.google.com/webstore/detail/testaccount-manager/addaocpbbalpdpebplfjmleommmgalpd
-                  </a>
-            </td>
-          </tr>
-          <tr>
-            <th>Year</th>
-            <td>2022</td>
-          </tr>
-        </tbody>
-      </table>
+                    <tbody>
+                    <tr>
+                        <th>Description</th>
+                        <td>Simple browser extension to sync and use testaccounts</td>
+                    </tr>
+                    <tr>
+                        <th>Tech stack</th>
+                        <td>Typescript, OpenProps, Webextension</td>
+                    </tr>
+                    <tr>
+                        <th>Link</th>
+                        <td>
+                            <a href="https://chrome.google.com/webstore/detail/testaccount-manager/addaocpbbalpdpebplfjmleommmgalpd"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               data-external="">
+                                https://chrome.google.com/webstore/detail/testaccount-manager/addaocpbbalpdpebplfjmleommmgalpd
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Year</th>
+                        <td>2022</td>
+                    </tr>
+                    </tbody>
+                </table>
 
                 <footer><p><a href="#top">[Top]</a></p></footer>
             </article>
@@ -434,7 +453,8 @@
                 <div>
                     <p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
                     <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
-                    <p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
+                    <p><strong>Sample output:</strong> <samp>This is sample output from a computer
+                        program.</samp></p>
                     <h2>Pre-formatted text</h2>
                     <pre>P R E F O R M A T T E D T E X T
   ! " # $ % &amp; ' ( ) * + , - . /
@@ -452,10 +472,12 @@
                     <p><a href="#!">This is a text link</a>.</p>
                     <p><strong>Strong is used to indicate strong importance.</strong></p>
                     <p><em>This text has added emphasis.</em></p>
-                    <p>The <b>b element</b> is stylistically different text from normal text, without any special
+                    <p>The <b>b element</b> is stylistically different text from normal text,
+                        without any special
                         importance.</p>
                     <p>The <i>i element</i> is text that is offset from the normal text.</p>
-                    <p>The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual
+                    <p>The <u>u element</u> is text with an unarticulated, though explicitly
+                        rendered, non-textual
                         annotation.</p>
                     <p>
                         <del>This text is deleted</del>
@@ -468,7 +490,8 @@
                     <p>Subscript for things like H<sub>2</sub>O.</p>
                     <p><small>This small text is small for fine print, etc.</small></p>
                     <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
-                    <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline
+                    <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text
+                        is a short inline
                         quotation.</q></p>
                     <p><cite>This is a citation.</cite></p>
                     <p>The <dfn>dfn element</dfn> indicates a definition.</p>
@@ -503,20 +526,23 @@
                 <div>
                     <h3>Plain <code>&lt;img&gt;</code> element</h3>
                     <p><img src="https://placekitten.com/480/480" alt="Photo of a kitten"></p>
-                    <h3><code>&lt;figure&gt;</code> element with <code>&lt;img&gt;</code> element</h3>
-                    <figure><img src="https://placekitten.com/420/420" alt="Photo of a kitten"></figure>
+                    <h3><code>&lt;figure&gt;</code> element with <code>&lt;img&gt;</code> element
+                    </h3>
+                    <figure><img src="https://placekitten.com/420/420" alt="Photo of a kitten">
+                    </figure>
                     <h3><code>&lt;figure&gt;</code> element with <code>&lt;img&gt;</code> and
                         <code>&lt;figcaption&gt;</code> elements</h3>
                     <figure>
                         <img src="https://placekitten.com/420/420" alt="Photo of a kitten">
                         <figcaption>Here is a caption for this image.</figcaption>
                     </figure>
-                    <h3><code>&lt;figure&gt;</code> element with a <code>&lt;picture&gt;</code> element</h3>
+                    <h3><code>&lt;figure&gt;</code> element with a <code>&lt;picture&gt;</code>
+                        element</h3>
                     <figure>
                         <picture>
                             <source srcset="https://placekitten.com/800/800"
                                     media="(min-width: 800px)">
-                            <img src="https://placekitten.com/420/420" alt="Photo of a kitten"/>
+                            <img src="https://placekitten.com/420/420" alt="Photo of a kitten" />
                         </picture>
                     </figure>
                 </div>
@@ -604,7 +630,9 @@
                     </p>
                     <p>
                         <label for="input__password">Password</label>
-                        <input id="input__password" type="password" placeholder="Type your Password">
+                        <input id="input__password"
+                               type="password"
+                               placeholder="Type your Password">
                     </p>
                     <p>
                         <label for="input__webaddress">Web Address</label>
@@ -659,11 +687,17 @@
                 <fieldset id="forms__checkbox">
                     <legend>Checkboxes</legend>
                     <ul>
-                        <li><label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox"
+                        <li><label for="checkbox1"><input id="checkbox1"
+                                                          name="checkbox"
+                                                          type="checkbox"
                                                           checked="checked"> Choice A</label></li>
-                        <li><label for="checkbox2"><input id="checkbox2" name="checkbox" type="checkbox"> Choice
+                        <li><label for="checkbox2"><input id="checkbox2"
+                                                          name="checkbox"
+                                                          type="checkbox"> Choice
                             B</label></li>
-                        <li><label for="checkbox3"><input id="checkbox3" name="checkbox" type="checkbox"> Choice
+                        <li><label for="checkbox3"><input id="checkbox3"
+                                                          name="checkbox"
+                                                          type="checkbox"> Choice
                             C</label></li>
                     </ul>
                 </fieldset>
@@ -671,10 +705,15 @@
                 <fieldset id="forms__radio">
                     <legend>Radio buttons</legend>
                     <ul>
-                        <li><label for="radio1"><input id="radio1" name="radio" type="radio" checked="checked"> Option 1</label>
+                        <li><label for="radio1"><input id="radio1"
+                                                       name="radio"
+                                                       type="radio"
+                                                       checked="checked"> Option 1</label>
                         </li>
-                        <li><label for="radio2"><input id="radio2" name="radio" type="radio"> Option 2</label></li>
-                        <li><label for="radio3"><input id="radio3" name="radio" type="radio"> Option 3</label></li>
+                        <li><label for="radio2"><input id="radio2" name="radio" type="radio"> Option
+                            2</label></li>
+                        <li><label for="radio3"><input id="radio3" name="radio" type="radio"> Option
+                            3</label></li>
                     </ul>
                 </fieldset>
                 <p><a href="#top">[Top]</a></p>
@@ -682,7 +721,10 @@
                     <legend>Textareas</legend>
                     <p>
                         <label for="textarea">Textarea</label>
-                        <textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
+                        <textarea id="textarea"
+                                  rows="8"
+                                  cols="48"
+                                  placeholder="Enter your message here"></textarea>
                     </p>
                 </fieldset>
                 <p><a href="#top">[Top]</a></p>
@@ -724,9 +766,9 @@
                         <label for="idl">Datalist</label>
                         <input type="text" id="idl" list="example-list">
                         <datalist id="example-list">
-                            <option value="Example #1"/>
-                            <option value="Example #2"/>
-                            <option value="Example #3"/>
+                            <option value="Example #1" />
+                            <option value="Example #2" />
+                            <option value="Example #3" />
                         </datalist>
                     </p>
                 </fieldset>
@@ -754,14 +796,16 @@
             <fieldset class="nc-stack">
                 <legend>Layout Container</legend>
                 <p class="note">A container that is supposed to wrap all of your content</p>
-                <div class="layout-container" style="border: var(--border-width-medium) solid var(--color-border-base)">
+                <div class="layout-container"
+                     style="border: var(--border-width-medium) solid var(--color-border-base)">
                     <p>This is where your content will go</p>
                 </div>
             </fieldset>
             <fieldset class="nc-stack">
                 <legend>Box</legend>
                 <p class="note">A box with padding.</p>
-                <div class="nc-box" style="border: var(--border-width-medium) solid var(--color-border-base)">
+                <div class="nc-box"
+                     style="border: var(--border-width-medium) solid var(--color-border-base)">
                     Box
                 </div>
             </fieldset>
@@ -769,8 +813,8 @@
                 <legend>Stack</legend>
                 <p class="note">A vertical stack of items with spacing between.</p>
                 <div
-                        class="nc-stack"
-                        style="border: var(--border-width-medium) solid var(--color-border-base)"
+                    class="nc-stack"
+                    style="border: var(--border-width-medium) solid var(--color-border-base)"
                 >
                     <p>element 1</p>
                     <p>element 2</p>
@@ -781,8 +825,8 @@
                 <legend>Cluster</legend>
                 <p class="note">A automatically wrapping container</p>
                 <div
-                        class="nc-cluster"
-                        style="border: var(--border-width-medium) solid var(--color-border-base)"
+                    class="nc-cluster"
+                    style="border: var(--border-width-medium) solid var(--color-border-base)"
                 >
                     <p>element</p>
                     <p>element</p>
@@ -805,8 +849,8 @@
                     way
                 </p>
                 <div
-                        class="flow"
-                        style="border: var(--border-width-medium) solid var(--color-border-base)"
+                    class="flow"
+                    style="border: var(--border-width-medium) solid var(--color-border-base)"
                 >
                     <h1>h1 element</h1>
                     <p>element</p>
@@ -817,7 +861,7 @@
                     <h3>h3 element</h3>
                     <p>element</p>
                     <figure>
-                        <img src="https://jooinn.com/images1280_/dogs.jpg"/>
+                        <img src="https://jooinn.com/images1280_/dogs.jpg" />
                         <figcaption>Dogs</figcaption>
                     </figure>
                     <p>element</p>

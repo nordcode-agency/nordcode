@@ -197,6 +197,7 @@ const mapValuesToToken = (
         })
         .reduce((acc, values) => {
             return {
+                // biome-ignore lint/performance/noAccumulatingSpread: it's not that many token
                 ...acc,
                 ...values,
             };
@@ -219,7 +220,7 @@ const getCanvasContext = () => {
     return context;
 };
 
-const cssColorToRGBA = (colorString: string): string => {
+const cssColorToRgba = (colorString: string): string => {
     const ctx = getCanvasContext();
 
     if (!ctx) {
@@ -234,7 +235,7 @@ const cssColorToRGBA = (colorString: string): string => {
 };
 
 const getTokenColorInHex = (name: string, value: string): Record<string, string> => {
-    const rgba = cssColorToRGBA(`oklch(${value})`);
+    const rgba = cssColorToRgba(`oklch(${value})`);
     console.log(name, rgba);
 
     return {

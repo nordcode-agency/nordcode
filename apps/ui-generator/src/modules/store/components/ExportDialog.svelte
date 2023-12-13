@@ -1,41 +1,41 @@
 <script>
-    import {configStore} from "../configStore";
-    import { getWPTheme } from '../utils/generateWPTheme';
+    import { configStore } from "../configStore";
+    import { getWpTheme } from '../utils/generateWPTheme';
     import { getFigmaTheme } from '../utils/getFigmaTheme';
 
     export let allStyles = '';
-
     const copyStyleExport = async () => {
-        const exportString = configStore?.exportToString()
+        const exportString = configStore?.exportToString();
         await navigator.clipboard.writeText(exportString);
-    }
+    };
 
     const copyURLToClipboard = async () => {
-        const searchParams = new URLSearchParams({styles: configStore?.exportToString()})
-        const url = new URL(window.location.origin + window.location.pathname)
-        url.search = searchParams.toString()
+        const searchParams = new URLSearchParams({ styles: configStore?.exportToString() });
+        const url = new URL(window.location.origin + window.location.pathname);
+        url.search = searchParams.toString();
         await navigator.clipboard.writeText(url);
-    }
+    };
 
     const copyFigmaColors = async () => {
         if (!configStore) {
             return;
         }
-        const themeColors = getFigmaTheme(configStore?.exportToJSON())
-        await navigator.clipboard.writeText(JSON.stringify(themeColors, null, 2))
-    }
+        const themeColors = getFigmaTheme(configStore?.exportToJson());
+        await navigator.clipboard.writeText(JSON.stringify(themeColors, null, 2));
+    };
 
     const copyWPThemeToClipboard = async () => {
-        const theme = getWPTheme(configStore?.exportToJSON());
-        await navigator.clipboard.writeText(JSON.stringify(theme, null, 2))
-    }
+        const theme = getWpTheme(configStore?.exportToJson());
+        await navigator.clipboard.writeText(JSON.stringify(theme, null, 2));
+    };
 </script>
 
 <dialog class="nc-dialog" id="export-dialog" data-level="1" style="max-inline-size: 50rem">
     <div class="dialog-container">
         <div class="dialog-header">
             <h2 class="dialog-title">Export Theme</h2>
-            <button data-closes-dialog="export-dialog" class="nc-button -round -small -stealth">×</button>
+            <button data-closes-dialog="export-dialog" class="nc-button -round -small -stealth">×
+            </button>
         </div>
         <div class="dialog-content">
             <pre>
@@ -67,7 +67,7 @@
             >Copy URL
             </button>
             <button on:click={copyWPThemeToClipboard}
-            data-closes-dialog="export-dialog"
+                    data-closes-dialog="export-dialog"
                     data-has-notification
                     data-notification-title="✓ To clipboard"
                     data-notification-description="Copied WP theme to clipboard"
