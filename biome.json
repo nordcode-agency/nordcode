@@ -15,8 +15,7 @@
             },
             "style": {
                 "noNegationElse": "warn",
-                "useBlockStatements": "error",
-                "useNamingConvention": "warn"
+                "useBlockStatements": "error"
             },
             "nursery": {
                 "noDefaultExport": "warn"

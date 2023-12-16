@@ -68,7 +68,7 @@ const getNotificationCenterContainer = () =>
  * @param {string} title
  * @return {`${string}-${number}`}
  */
-const createNotificationId = title => {
+const createNotificationId = (title) => {
     return `${title}-${Date.now()}`;
 };
 
@@ -93,7 +93,7 @@ const setElementTextIfItExists = (notification, selector, text) => {
  * Remove all notifications
  */
 const dismissAllNotifications = () => {
-    notifications.forEach(notificationId => {
+    for (const notificationId of notifications) {
         /** @type {HTMLElement | null} */
         const notification = document.querySelector(`[data-notification-id="${notificationId}"]`);
 
@@ -102,7 +102,7 @@ const dismissAllNotifications = () => {
         }
 
         removeNotification(notificationId, notification);
-    });
+    }
 };
 
 /**
@@ -111,7 +111,7 @@ const dismissAllNotifications = () => {
 const setupNotificationButtons = () => {
     const htmlEl = document.documentElement;
 
-    htmlEl?.addEventListener('click', e => {
+    htmlEl?.addEventListener('click', (e) => {
         const el = e.target;
         if (el.hasAttribute('data-has-notification')) {
             const title = el.dataset.notificationTitle;
@@ -125,17 +125,17 @@ const setupNotificationButtons = () => {
         }
     });
 
-    getNotificationCenterDismissAll()?.forEach(button =>
+    for (const button of getNotificationCenterDismissAll()) {
         button.addEventListener('click', () => {
             dismissAllNotifications();
-        }),
-    );
+        });
+    }
 
-    getNotificationCenterToggle()?.forEach(button =>
+    for (const button of getNotificationCenterToggle()) {
         button.addEventListener('click', () => {
             getNotificationCenter()?.classList.toggle('-open');
-        }),
-    );
+        });
+    }
 };
 
 /**
@@ -184,7 +184,7 @@ const createNotification = (title, description, notificationId) => {
 
     notificationClose?.addEventListener(
         'click',
-        e => {
+        (e) => {
             closeCorrespondingNotification(e);
         },
         { once: true },
@@ -234,7 +234,7 @@ export const addNotification = (title, description) => {
  * Close the notification that is associated with the button that was clicked
  * @param {MouseEvent} e
  */
-const closeCorrespondingNotification = e => {
+const closeCorrespondingNotification = (e) => {
     /** @type {HTMLElement | null} */
     const notification = /** @type {HTMLButtonElement} */ (e.target).closest(Selector.notification);
 
@@ -280,12 +280,15 @@ const removeNotification = (notificationId, notification, removeId = true) => {
  * Remove all notifications with the same id. This is used to remove the live notification and the archived notification
  * @param {string} notificationId
  */
-const removeAllNotificationsWithId = notificationId => {
+const removeAllNotificationsWithId = (notificationId) => {
     /** @type {NodeListOf<HTMLElement>} */
     const relatedNotifications = document.querySelectorAll(
         `[data-notification-id="${notificationId}"]`,
     );
-    relatedNotifications.forEach(n => removeNotification(notificationId, n));
+
+    for (const n of relatedNotifications) {
+        removeNotification(notificationId, n);
+    }
 };
 
 setupNotificationButtons();
