@@ -4,11 +4,16 @@ import { Content as ColorsExplanation } from '../../../../docs/colors.md';
 
 const colors = [
     {
+        token: '--color-brand-primary-emphasis',
+        description:
+            'Background: Use to highlight the most important item of a view or an interface.',
+    },
+    {
         token: '--color-brand-primary-base',
         description: 'Primary brand color. Used for accents and highlights.',
     },
     {
-        token: '--color-brand-primary-subtle',
+        token: '--color-brand-primary-surface',
         description: 'Subtle version of the primary brand color. Used for backgrounds and borders.',
     },
 
@@ -21,17 +26,16 @@ const colors = [
         description: 'Used for text and icons on top of the primary brand color.',
     },
     {
-        token: '--color-brand-primary-emphasis',
+        token: '--color-brand-secondary-emphasis',
         description:
             'Background: Use to highlight the most important item of a view or an interface.',
     },
-
     {
         token: '--color-brand-secondary-base',
         description: 'Secondary brand color. Used for accents and highlights.',
     },
     {
-        token: '--color-brand-secondary-subtle',
+        token: '--color-brand-secondary-surface',
         description:
             'Subtle version of the secondary brand color. Used for backgrounds and borders.',
     },
@@ -43,11 +47,6 @@ const colors = [
     {
         token: '--color-brand-secondary-contrast',
         description: 'Used for text and icons on top of the secondary brand color.',
-    },
-    {
-        token: '--color-brand-secondary-emphasis',
-        description:
-            'Background: Use to highlight the most important item of a view or an interface.',
     },
 
     // text
@@ -113,7 +112,7 @@ const colors = [
         description: 'Secondary status color. Used for accents and highlights.',
     },
     {
-        token: '--color-status-info-subtle',
+        token: '--color-status-info-surface',
         description: 'Subtle version of the info status color. Used for backgrounds and borders.',
     },
 
@@ -131,7 +130,7 @@ const colors = [
         description: 'Secondary status color. Used for accents and highlights.',
     },
     {
-        token: '--color-status-warning-subtle',
+        token: '--color-status-warning-surface',
         description:
             'Subtle version of the warning status color. Used for backgrounds and borders.',
     },
@@ -150,7 +149,7 @@ const colors = [
         description: 'Secondary status color. Used for accents and highlights.',
     },
     {
-        token: '--color-status-danger-subtle',
+        token: '--color-status-danger-surface',
         description: 'Subtle version of the danger status color. Used for backgrounds and borders.',
     },
 
@@ -168,7 +167,7 @@ const colors = [
         description: 'Secondary status color. Used for accents and highlights.',
     },
     {
-        token: '--color-status-success-subtle',
+        token: '--color-status-success-surface',
         description:
             'Subtle version of the success status color. Used for backgrounds and borders.',
     },
@@ -187,6 +186,32 @@ const colors = [
         {colors.map(color => <ColorPreview color={color.token} description={color.description} />)}
     </div>
     <div class="nc-flow"></div>
+    <div class="nc-cluster">
+        <div class="box" style="padding: 2em; background: var(--color-brand-primary-surface)">
+            <p style="color: var(--color-brand-primary-base)">Hallo</p>
+        </div>
+        <div class="box" style="padding: 2em; background: var(--color-brand-secondary-surface)">
+            <p style="color: var(--color-brand-secondary-base)">Hallo</p>
+        </div>
+        <div class="box" style="padding: 2em; background: var(--color-brand-primary-base)">
+            <p style="color: var(--color-brand-primary-surface)">Hallo</p>
+        </div>
+        <div class="box" style="padding: 2em; background: var(--color-brand-secondary-base)">
+            <p style="color: var(--color-brand-secondary-surface)">Hallo</p>
+        </div>
+        <div class="box" style="padding: 2em; background: var(--color-brand-primary-emphasis)">
+            <p style="color: var(--color-brand-primary-surface)">Hallo</p>
+        </div>
+        <div class="box" style="padding: 2em; background: var(--color-brand-secondary-emphasis)">
+            <p style="color: var(--color-brand-secondary-surface)">Hallo</p>
+        </div>
+        <div class="box" style="padding: 2em; background: var(--color-brand-primary-base)">
+            <p style="color: var(--color-brand-primary-contrast)">Hallo</p>
+        </div>
+        <div class="box" style="padding: 2em; background: var(--color-brand-secondary-base)">
+            <p style="color: var(--color-brand-secondary-contrast)">Hallo</p>
+        </div>
+    </div>
     <div class="nc-cluster -near">
         <button class="nc-button">Default / Basic</button>
         <button class="nc-button -primary">Primary</button>

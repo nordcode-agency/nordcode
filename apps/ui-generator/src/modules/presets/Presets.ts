@@ -34,15 +34,15 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
         lightNeutralTextLightness: 28,
         lightNeutralSurfaceLightness: 98,
         lightNeutralBorderLightness: 87,
-        lightTextLightnessScaleFactor: 1.5,
-        lightSurfaceLightnessScaleFactor: 2.3,
+        lightTextLightnessScaleFactor: 0.05,
+        lightSurfaceLightnessScaleFactor: 0.1,
 
         darkNeutralChroma: 0.03,
         darkNeutralTextLightness: 88,
         darkNeutralSurfaceLightness: 15,
         darkNeutralBorderLightness: 35,
-        darkTextLightnessScaleFactor: 1.7,
-        darkSurfaceLightnessScaleFactor: 1.8,
+        darkTextLightnessScaleFactor: 0.06,
+        darkSurfaceLightnessScaleFactor: 0.1,
     },
     playful: {
         borderWidthScale: 2,
@@ -73,10 +73,10 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
 
         shadowDistanceScale: 3,
 
-        lightTextLightnessScaleFactor: 1.5,
-        darkTextLightnessScaleFactor: 1,
-        lightSurfaceLightnessScaleFactor: 1.5,
-        darkSurfaceLightnessScaleFactor: 1,
+        lightTextLightnessScaleFactor: 0.05,
+        darkTextLightnessScaleFactor: 0.05,
+        lightSurfaceLightnessScaleFactor: 0.05,
+        darkSurfaceLightnessScaleFactor: 0.05,
 
         lightNeutralChroma: 0.06,
         lightNeutralTextLightness: 20,
@@ -117,10 +117,10 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
 
         shadowDistanceScale: 2,
 
-        lightTextLightnessScaleFactor: 2.7,
-        darkTextLightnessScaleFactor: 3.4,
-        lightSurfaceLightnessScaleFactor: 1.5,
-        darkSurfaceLightnessScaleFactor: 1.7,
+        lightTextLightnessScaleFactor: 0.1,
+        darkTextLightnessScaleFactor: 0.15,
+        lightSurfaceLightnessScaleFactor: 0.04,
+        darkSurfaceLightnessScaleFactor: 0.04,
 
         lightNeutralChroma: 0.006,
         lightNeutralTextLightness: 7.5,
@@ -164,14 +164,14 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
         lightNeutralTextLightness: 15,
         lightNeutralSurfaceLightness: 99.4,
         lightNeutralBorderLightness: 55,
-        lightTextLightnessScaleFactor: 2,
-        lightSurfaceLightnessScaleFactor: 1.8,
+        lightTextLightnessScaleFactor: 0.05,
+        lightSurfaceLightnessScaleFactor: 0.05,
 
         darkNeutralChroma: 0.008,
         darkNeutralTextLightness: 85,
         darkNeutralSurfaceLightness: 8,
         darkNeutralBorderLightness: 35,
-        darkTextLightnessScaleFactor: 1.7,
-        darkSurfaceLightnessScaleFactor: 1.8,
+        darkTextLightnessScaleFactor: 0.05,
+        darkSurfaceLightnessScaleFactor: 0.05,
     },
 } as const;

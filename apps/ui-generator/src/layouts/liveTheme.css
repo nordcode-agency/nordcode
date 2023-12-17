@@ -5,8 +5,8 @@
     --color-brand-primary-emphasis: var(--color-brand-primary-light-emphasis);
     --color-brand-primary-base-lch: var(--color-brand-primary-light-base-lch);
     --color-brand-primary-base: var(--color-brand-primary-light-base);
-    --color-brand-primary-subtle-lch: var(--color-brand-primary-light-subtle-lch);
-    --color-brand-primary-subtle: var(--color-brand-primary-light-subtle);
+    --color-brand-primary-surface-lch: var(--color-brand-primary-light-surface-lch);
+    --color-brand-primary-surface: var(--color-brand-primary-light-surface);
     --color-brand-primary-hover: var(--color-brand-primary-light-hover);
     --color-brand-primary-contrast: var(--color-brand-primary-light-contrast);
 
@@ -14,8 +14,8 @@
     --color-brand-secondary-emphasis: var(--color-brand-secondary-light-emphasis);
     --color-brand-secondary-base-lch: var(--color-brand-secondary-light-base-lch);
     --color-brand-secondary-base: var(--color-brand-secondary-light-base);
-    --color-brand-secondary-subtle-lch: var(--color-brand-secondary-light-subtle-lch);
-    --color-brand-secondary-subtle: var(--color-brand-secondary-light-subtle);
+    --color-brand-secondary-surface-lch: var(--color-brand-secondary-light-surface-lch);
+    --color-brand-secondary-surface: var(--color-brand-secondary-light-surface);
     --color-brand-secondary-hover: var(--color-brand-secondary-light-hover);
     --color-brand-secondary-contrast: var(--color-brand-secondary-light-contrast);
 
@@ -45,22 +45,22 @@
 
     --color-status-info-base: var(--color-status-info-light-base);
     --color-status-info-text: var(--color-status-info-light-text);
-    --color-status-info-subtle: var(--color-status-info-light-subtle);
+    --color-status-info-surface: var(--color-status-info-light-surface);
     --color-status-info-hover: var(--color-status-info-light-hover);
 
     --color-status-warning-base: var(--color-status-warning-light-base);
     --color-status-warning-text: var(--color-status-warning-light-text);
-    --color-status-warning-subtle: var(--color-status-warning-light-subtle);
+    --color-status-warning-surface: var(--color-status-warning-light-surface);
     --color-status-warning-hover: var(--color-status-warning-light-hover);
 
     --color-status-danger-base: var(--color-status-danger-light-base);
     --color-status-danger-text: var(--color-status-danger-light-text);
-    --color-status-danger-subtle: var(--color-status-danger-light-subtle);
+    --color-status-danger-surface: var(--color-status-danger-light-surface);
     --color-status-danger-hover: var(--color-status-danger-light-hover);
 
     --color-status-success-base: var(--color-status-success-light-base);
     --color-status-success-text: var(--color-status-success-light-text);
-    --color-status-success-subtle: var(--color-status-success-light-subtle);
+    --color-status-success-surface: var(--color-status-success-light-surface);
     --color-status-success-hover: var(--color-status-success-light-hover);
 
     --shadow-color-lch: var(--shadow-color-light-lch);
@@ -83,8 +83,8 @@
         --color-brand-primary-emphasis: var(--color-brand-primary-dark-emphasis);
         --color-brand-primary-base-lch: var(--color-brand-primary-dark-base-lch);
         --color-brand-primary-base: var(--color-brand-primary-dark-base);
-        --color-brand-primary-subtle-lch: var(--color-brand-primary-dark-subtle-lch);
-        --color-brand-primary-subtle: var(--color-brand-primary-dark-subtle);
+        --color-brand-primary-surface-lch: var(--color-brand-primary-dark-surface-lch);
+        --color-brand-primary-surface: var(--color-brand-primary-dark-surface);
         --color-brand-primary-hover: var(--color-brand-primary-dark-hover);
         --color-brand-primary-contrast: var(--color-brand-primary-dark-contrast);
 
@@ -92,8 +92,8 @@
         --color-brand-secondary-emphasis: var(--color-brand-secondary-dark-emphasis);
         --color-brand-secondary-base-lch: var(--color-brand-secondary-dark-base-lch);
         --color-brand-secondary-base: var(--color-brand-secondary-dark-base);
-        --color-brand-secondary-subtle-lch: var(--color-brand-secondary-dark-subtle-lch);
-        --color-brand-secondary-subtle: var(--color-brand-secondary-dark-subtle);
+        --color-brand-secondary-surface-lch: var(--color-brand-secondary-dark-surface-lch);
+        --color-brand-secondary-surface: var(--color-brand-secondary-dark-surface);
         --color-brand-secondary-hover: var(--color-brand-secondary-dark-hover);
         --color-brand-secondary-contrast: var(--color-brand-secondary-dark-contrast);
 
@@ -123,22 +123,22 @@
 
         --color-status-info-base: var(--color-status-info-dark-base);
         --color-status-info-text: var(--color-status-info-dark-text);
-        --color-status-info-subtle: var(--color-status-info-dark-subtle);
+        --color-status-info-surface: var(--color-status-info-dark-surface);
         --color-status-info-hover: var(--color-status-info-dark-hover);
 
         --color-status-warning-base: var(--color-status-warning-dark-base);
         --color-status-warning-text: var(--color-status-warning-dark-text);
-        --color-status-warning-subtle: var(--color-status-warning-dark-subtle);
+        --color-status-warning-surface: var(--color-status-warning-dark-surface);
         --color-status-warning-hover: var(--color-status-warning-dark-hover);
 
         --color-status-danger-base: var(--color-status-danger-dark-base);
         --color-status-danger-text: var(--color-status-danger-dark-text);
-        --color-status-danger-subtle: var(--color-status-danger-dark-subtle);
+        --color-status-danger-surface: var(--color-status-danger-dark-surface);
         --color-status-danger-hover: var(--color-status-danger-dark-hover);
 
         --color-status-success-base: var(--color-status-success-dark-base);
         --color-status-success-text: var(--color-status-success-dark-text);
-        --color-status-success-subtle: var(--color-status-success-dark-subtle);
+        --color-status-success-surface: var(--color-status-success-dark-surface);
         --color-status-success-hover: var(--color-status-success-dark-hover);
 
         --shadow-color-lch: var(--shadow-color-dark-lch);
@@ -161,8 +161,8 @@
     --color-brand-primary-emphasis: var(--color-brand-primary-light-emphasis);
     --color-brand-primary-base-lch: var(--color-brand-primary-light-base-lch);
     --color-brand-primary-base: var(--color-brand-primary-light-base);
-    --color-brand-primary-subtle-lch: var(--color-brand-primary-light-subtle-lch);
-    --color-brand-primary-subtle: var(--color-brand-primary-light-subtle);
+    --color-brand-primary-surface-lch: var(--color-brand-primary-light-surface-lch);
+    --color-brand-primary-surface: var(--color-brand-primary-light-surface);
     --color-brand-primary-hover: var(--color-brand-primary-light-hover);
     --color-brand-primary-contrast: var(--color-brand-primary-light-contrast);
 
@@ -170,8 +170,8 @@
     --color-brand-secondary-emphasis: var(--color-brand-secondary-light-emphasis);
     --color-brand-secondary-base-lch: var(--color-brand-secondary-light-base-lch);
     --color-brand-secondary-base: var(--color-brand-secondary-light-base);
-    --color-brand-secondary-subtle-lch: var(--color-brand-secondary-light-subtle-lch);
-    --color-brand-secondary-subtle: var(--color-brand-secondary-light-subtle);
+    --color-brand-secondary-surface-lch: var(--color-brand-secondary-light-surface-lch);
+    --color-brand-secondary-surface: var(--color-brand-secondary-light-surface);
     --color-brand-secondary-hover: var(--color-brand-secondary-light-hover);
     --color-brand-secondary-contrast: var(--color-brand-secondary-light-contrast);
 
@@ -201,22 +201,22 @@
 
     --color-status-info-base: var(--color-status-info-light-base);
     --color-status-info-text: var(--color-status-info-light-text);
-    --color-status-info-subtle: var(--color-status-info-light-subtle);
+    --color-status-info-surface: var(--color-status-info-light-surface);
     --color-status-info-hover: var(--color-status-info-light-hover);
 
     --color-status-warning-base: var(--color-status-warning-light-base);
     --color-status-warning-text: var(--color-status-warning-light-text);
-    --color-status-warning-subtle: var(--color-status-warning-light-subtle);
+    --color-status-warning-surface: var(--color-status-warning-light-surface);
     --color-status-warning-hover: var(--color-status-warning-light-hover);
 
     --color-status-danger-base: var(--color-status-danger-light-base);
     --color-status-danger-text: var(--color-status-danger-light-text);
-    --color-status-danger-subtle: var(--color-status-danger-light-subtle);
+    --color-status-danger-surface: var(--color-status-danger-light-surface);
     --color-status-danger-hover: var(--color-status-danger-light-hover);
 
     --color-status-success-base: var(--color-status-success-light-base);
     --color-status-success-text: var(--color-status-success-light-text);
-    --color-status-success-subtle: var(--color-status-success-light-subtle);
+    --color-status-success-surface: var(--color-status-success-light-surface);
     --color-status-success-hover: var(--color-status-success-light-hover);
 
     --shadow-color-lch: var(--shadow-color-light-lch);
@@ -238,8 +238,8 @@
     --color-brand-primary-emphasis: var(--color-brand-primary-dark-emphasis);
     --color-brand-primary-base-lch: var(--color-brand-primary-dark-base-lch);
     --color-brand-primary-base: var(--color-brand-primary-dark-base);
-    --color-brand-primary-subtle-lch: var(--color-brand-primary-dark-subtle-lch);
-    --color-brand-primary-subtle: var(--color-brand-primary-dark-subtle);
+    --color-brand-primary-surface-lch: var(--color-brand-primary-dark-surface-lch);
+    --color-brand-primary-surface: var(--color-brand-primary-dark-surface);
     --color-brand-primary-hover: var(--color-brand-primary-dark-hover);
     --color-brand-primary-contrast: var(--color-brand-primary-dark-contrast);
 
@@ -247,8 +247,8 @@
     --color-brand-secondary-emphasis: var(--color-brand-secondary-dark-emphasis);
     --color-brand-secondary-base-lch: var(--color-brand-secondary-dark-base-lch);
     --color-brand-secondary-base: var(--color-brand-secondary-dark-base);
-    --color-brand-secondary-subtle-lch: var(--color-brand-secondary-dark-subtle-lch);
-    --color-brand-secondary-subtle: var(--color-brand-secondary-dark-subtle);
+    --color-brand-secondary-surface-lch: var(--color-brand-secondary-dark-surface-lch);
+    --color-brand-secondary-surface: var(--color-brand-secondary-dark-surface);
     --color-brand-secondary-hover: var(--color-brand-secondary-dark-hover);
     --color-brand-secondary-contrast: var(--color-brand-secondary-dark-contrast);
 
@@ -278,22 +278,22 @@
 
     --color-status-info-base: var(--color-status-info-dark-base);
     --color-status-info-text: var(--color-status-info-dark-text);
-    --color-status-info-subtle: var(--color-status-info-dark-subtle);
+    --color-status-info-surface: var(--color-status-info-dark-surface);
     --color-status-info-hover: var(--color-status-info-dark-hover);
 
     --color-status-warning-base: var(--color-status-warning-dark-base);
     --color-status-warning-text: var(--color-status-warning-dark-text);
-    --color-status-warning-subtle: var(--color-status-warning-dark-subtle);
+    --color-status-warning-surface: var(--color-status-warning-dark-surface);
     --color-status-warning-hover: var(--color-status-warning-dark-hover);
 
     --color-status-danger-base: var(--color-status-danger-dark-base);
     --color-status-danger-text: var(--color-status-danger-dark-text);
-    --color-status-danger-subtle: var(--color-status-danger-dark-subtle);
+    --color-status-danger-surface: var(--color-status-danger-dark-surface);
     --color-status-danger-hover: var(--color-status-danger-dark-hover);
 
     --color-status-success-base: var(--color-status-success-dark-base);
     --color-status-success-text: var(--color-status-success-dark-text);
-    --color-status-success-subtle: var(--color-status-success-dark-subtle);
+    --color-status-success-surface: var(--color-status-success-dark-surface);
     --color-status-success-hover: var(--color-status-success-dark-hover);
 
     --shadow-color-lch: var(--shadow-color-dark-lch);

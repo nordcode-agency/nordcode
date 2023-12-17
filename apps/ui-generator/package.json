@@ -14,7 +14,9 @@
   "dependencies": {
     "@astrojs/svelte": "^4.0.4",
     "@nordcode/ui": "workspace:*",
+    "@types/chroma-js": "^2.4.3",
     "astro": "^3.6.0",
+    "chroma-js": "^2.4.2",
     "svelte": "^4.2.7"
   },
   "devDependencies": {

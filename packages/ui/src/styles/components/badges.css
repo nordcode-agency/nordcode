@@ -25,23 +25,21 @@
 
     &.-info {
         --color: var(--color-status-info-text);
-        background-color: var(--color-status-info-subtle);
+        background-color: var(--color-status-info-surface);
     }
 
     &.-warning {
         --color: var(--color-status-warning-text);
-        background-color: var(--color-status-warning-subtle);
+        background-color: var(--color-status-warning-surface);
     }
 
     &.-danger {
         --color: var(--color-status-danger-text);
-        background-color: var(--color-status-danger-subtle);
+        background-color: var(--color-status-danger-surface);
     }
 
     &.-success {
         --color: var(--color-status-success-text);
-        background-color: var(--color-status-success-subtle);
+        background-color: var(--color-status-success-surface);
     }
-
-
 }
