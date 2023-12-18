@@ -15,3 +15,7 @@
 - renamed `color-danger-subtle` to `color-danger-surface` to better reflect its purpose
 
 *Notes: Needs tweaking for some of the values*
+
+## 2023-12-18: Tweak presets
+
+Tweak preset and color generations a little bit.

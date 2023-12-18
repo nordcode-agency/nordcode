@@ -17,7 +17,7 @@ const clamp = (value: number): number => {
 };
 
 const generateValueString = (l: number, c: number, h: number, opacity?: number): string => {
-    let baseColor = `${l.toFixed(2)} ${c} ${h}`;
+    let baseColor = `${l.toFixed(2)} ${c.toFixed(2)} ${h.toFixed(2)}`;
 
     if (opacity) {
         baseColor += ` / ${opacity}`;
@@ -53,7 +53,6 @@ export const getTextLightValues = (
 ): TextValues => {
     const color = chroma.oklch(baseLightness / 100, baseChroma, hue);
     const scale = chroma.scale(['white', color, 'black']).mode('lch');
-    console.log(scalingFactor);
 
     const base = scale(0.5).oklch();
     const muted = scale(0.5 - scalingFactor).oklch();
@@ -203,7 +202,7 @@ export const getLightColorValues = (
     const surface = scale(0.05).oklch();
     const hover = scale(0.5).oklch();
 
-    const [contrastLight, contrastDark] = [scale(0.03), scale(0.97)];
+    const [contrastLight, contrastDark] = [scale(0.01), scale(0.99)];
     const contrast =
         chroma.contrast(scale(0.5), contrastLight) > chroma.contrast(scale(0.5), contrastDark)
             ? contrastLight.oklch()
@@ -231,7 +230,7 @@ export const getDarkColorValues = (
     const surface = scale(0.97).oklch();
     const hover = scale(0.5).oklch();
 
-    const [contrastLight, contrastDark] = [scale(0.03), scale(0.97)];
+    const [contrastLight, contrastDark] = [scale(0.01), scale(0.99)];
     const contrast =
         chroma.contrast(scale(0.5), contrastLight) > chroma.contrast(scale(0.5), contrastDark)
             ? contrastLight.oklch()

@@ -190,20 +190,19 @@ const defaultStore: ConfigStore = {
     secondaryLightness: 65,
     secondaryChroma: 0.3,
 
-    lightTextLightnessScaleFactor: 3,
-    darkTextLightnessScaleFactor: 2,
-    lightSurfaceLightnessScaleFactor: 3,
-    darkSurfaceLightnessScaleFactor: 2,
+    lightNeutralChroma: 0.03,
+    lightNeutralTextLightness: 28,
+    lightNeutralSurfaceLightness: 98,
+    lightNeutralBorderLightness: 87,
+    lightTextLightnessScaleFactor: 0.05,
+    lightSurfaceLightnessScaleFactor: 0.05,
 
-    lightNeutralChroma: 0.04,
-    lightNeutralTextLightness: 16,
-    lightNeutralSurfaceLightness: 97,
-    lightNeutralBorderLightness: 20,
-
-    darkNeutralChroma: 0.04,
-    darkNeutralTextLightness: 94,
-    darkNeutralSurfaceLightness: 18,
-    darkNeutralBorderLightness: 80,
+    darkNeutralChroma: 0.03,
+    darkNeutralTextLightness: 88,
+    darkNeutralSurfaceLightness: 15,
+    darkNeutralBorderLightness: 35,
+    darkTextLightnessScaleFactor: 0.06,
+    darkSurfaceLightnessScaleFactor: 0.1,
 };
 
 const round = (num: number) => Math.round(num * 1000) / 1000;
