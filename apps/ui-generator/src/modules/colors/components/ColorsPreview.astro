@@ -1,6 +1,7 @@
 ---
 import ColorPreview from './ColorPreview.astro';
 import { Content as ColorsExplanation } from '../../../../docs/colors.md';
+import PresetPreview from '../../presets/components/PresetPreview.astro';
 
 const colors = [
     {
@@ -185,7 +186,10 @@ const colors = [
     <div class="nc-stack -near">
         {colors.map(color => <ColorPreview color={color.token} description={color.description} />)}
     </div>
-    <div class="nc-flow"></div>
+    <hr />
+    <PresetPreview />
+    <hr />
+
     <div class="nc-cluster">
         <div class="box" style="padding: 2em; background: var(--color-brand-primary-surface)">
             <p style="color: var(--color-brand-primary-base)">Hallo</p>
@@ -212,6 +216,7 @@ const colors = [
             <p style="color: var(--color-brand-secondary-contrast)">Hallo</p>
         </div>
     </div>
+    <hr />
     <div class="nc-cluster -near">
         <button class="nc-button">Default / Basic</button>
         <button class="nc-button -primary">Primary</button>
@@ -224,6 +229,7 @@ const colors = [
         <button class="nc-button -stealth -secondary">Stealth Secondary</button>
         <button class="nc-button -destructive">Destructive button</button>
     </div>
+    <hr />
     <div class="nc-cluster -near">
         <div class="badge">Standard</div>
         <div class="badge -secondary">Secondary</div>

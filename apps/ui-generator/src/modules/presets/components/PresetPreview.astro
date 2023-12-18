@@ -1,0 +1,101 @@
+<div class="nc-stack -far">
+    <div class="nc-stack -near">
+        <h2>Component Preview</h2>
+
+        <div class="nc-card">
+            <div class="nc-stack">
+                <div class="nc-stack -nogap">
+                    <span class="badge">Cool Card</span>
+                    <h3>Hello Friend</h3>
+                </div>
+                <p>Welcome to your new style.</p>
+                <form>
+                    <!-- COMPONENT-START: nc-input-field -->
+                    <div class="nc-input-field">
+                        <label for="name" class="nc-stack">
+                            <span class="nc-input-label">What's your name?</span>
+                            <span class="nc-hint">This is your name?</span>
+                        </label>
+                        <input
+                            id="name"
+                            class="nc-input"
+                            aria-required="true"
+                            autocomplete=""
+                            type="text"
+                        />
+                    </div>
+                    <!-- COMPONENT-END: nc-input-field -->
+                </form>
+                <div class="nc-cluster -layout-near">
+                    <button class="nc-button -primary">Primary</button>
+                    <button class="nc-button -neutral">Neutral</button>
+                    <button class="nc-button -neutral -outline">Neutral outline</button>
+                    <button class="nc-button -round -icon -small -stealth" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="nc-icon">
+                            <path
+                                fill="currentColor"
+                                d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm14 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-7 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Z"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+                <!-- COMPONENT-START: nc-input-field: Checkbox -->
+                <div class="nc-cluster | nc-input-field | nc-checkbox-wrapper">
+                    <label for="checkbox" class="nc-stack">
+                        <span class="nc-input-label">I agree to use this theme</span>
+                    </label>
+                    <input
+                        id="checkbox"
+                        class="nc-input-checkbox"
+                        aria-required="true"
+                        autocomplete=""
+                        type="checkbox"
+                    />
+                </div>
+                <!-- COMPONENT-END: nc-input-field: Checkbox -->
+            </div>
+        </div>
+        <p>
+            Let's get started! (z.B. das man bei modern im gegensatz zu brutalist z.B border color
+            haben will der nicht so harte kontraste hat, kann man sicher auch, dadurch das wir oklch
+            haben, die l von lch "presetten" und man selber wählt idealerweise nur noch das h von
+            lch mit der entsprechenden brand color – rot, blau, grün etc.)
+        </p>
+        <p class="muted">
+            Secondary text, der aber immer noch wichtig genug ist, um gelesen zu werden.
+        </p>
+        <p class="subtle">Text der wirklich nicht so wichtig ist. Maximal Placeholder.</p>
+        <div class="nc-box inset">
+            <p>If you need an inset bg, use this. It's like a lower elevation.</p>
+        </div>
+        <div class="nc-box subtle-bg">this is a sublte border</div>
+        <footer>This could be your footer</footer>
+    </div>
+</div>
+
+<style lang="postcss">
+    .muted {
+        color: var(--color-text-muted);
+    }
+
+    .subtle {
+        color: var(--color-text-subtle);
+    }
+
+    .inset {
+        background: var(--color-surface-inset);
+    }
+
+    .subtle-bg {
+        border: var(--border-width-thin) solid var(--color-border-muted);
+        border-radius: var(--border-radius-medium);
+    }
+
+    footer {
+        padding: var(--spacing-base);
+        inline-size: 100%;
+        background: var(--color-surface-subtle);
+        border: var(--border-width-thin) solid var(--color-border-muted);
+        border-radius: var(--border-radius-medium);
+    }
+</style>

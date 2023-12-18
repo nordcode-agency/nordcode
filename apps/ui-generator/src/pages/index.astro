@@ -1,10 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import PresetPreview from '../modules/presets/components/PresetPreview.svelte';
 import PresetSettings from '../modules/presets/components/PresetSettings.svelte';
+import PresetPreview from '../modules/presets/components/PresetPreview.astro';
 ---
 
 <Layout title="Presets">
     <PresetSettings client:load="svelte" slot="aside" />
-    <PresetPreview client:load="svelte" slot="content" />
+    <PresetPreview slot="content" />
 </Layout>
