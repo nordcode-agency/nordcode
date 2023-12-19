@@ -10,7 +10,7 @@
         padding-inline-start: 1em;
     }
 
-    :where(li, dd) {
+    :where(li) {
         max-inline-size: var(--measure-small);
     }
 
@@ -39,19 +39,27 @@
     :where(dl:not([class]), .nc-description-list) {
         display: flex;
         inline-size: 100%;
+        max-inline-size: 100%;
         min-width: min-content;
-        flex-flow: row wrap;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        word-break: break-word;
         container: description-list / inline-size;
     }
 
     @container description-list (min-width: 30rem) {
         :where(dt, dd) {
-            word-break: break-word;
-            padding-block-start: var(--spacing-near);
+            padding-block-start: var(--spacing-base);
+
+            &:first-of-type {
+                padding-block-start: 0;
+            }
         }
 
         :where(dt) {
             flex: 0 1 25%;
+            padding-inline-end: var(--spacing-base);
+            padding-block-end: 0;
 
             &:not(:last-of-type) {
                 padding-block-end: var(--spacing-base);
@@ -60,7 +68,6 @@
         }
 
         :where(dd) {
-            padding-block-start: var(--spacing-base);
             flex: 1 1 51%;
         }
     }
@@ -219,7 +226,7 @@
         color: inherit;
         font-family: var(--font-family-link);
         text-decoration: underline;
-        text-underline-offset: var(--spacing-tiny);
+        text-underline-offset: 0.25lh;
         text-decoration-thickness: from-font;
         font-weight: var(--font-weight-default);
         text-decoration-color: currentColor;
