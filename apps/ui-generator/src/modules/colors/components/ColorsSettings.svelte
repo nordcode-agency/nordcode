@@ -75,7 +75,7 @@
                         label="Neutral Light Chroma"
                         id="colorLCHLightNeutralChroma"
                         type="number"
-                        step="0.01"
+                        step="0.001"
                         bind:value={$configStore.lightNeutralChroma} />
 
                     <Input
@@ -131,7 +131,7 @@
                         label="Neutral Dark Chroma"
                         id="colorLCHDarkNeutralChroma"
                         type="number"
-                        step="0.01"
+                        step="0.001"
                         bind:value={$configStore.darkNeutralChroma} />
                     <Input
                         name="darkNeutralTextLightness"
