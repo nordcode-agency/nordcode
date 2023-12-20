@@ -1,8 +1,4 @@
 on:
-    push:
-    #    paths:
-    #      - 'apps/ui-generator/**'
-    #      - 'packages/ui/**'
     workflow_dispatch:
 
 jobs:
