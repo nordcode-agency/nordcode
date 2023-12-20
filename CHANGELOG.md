@@ -19,3 +19,9 @@
 ## 2023-12-18: Tweak presets
 
 Tweak preset and color generations a little bit.
+
+## 2023-12-19: Tweak presets, design improvements
+
+- Tweak preset values for `brutalist`
+- Change default text-underline-offset to `0.25lh`
+- Fix description-list style
