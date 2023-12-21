@@ -1,4 +1,5 @@
 <script lang="ts">
+  import "../app.css"
   import Footer from '$lib/modules/common/components/Footer.svelte';
   import { onNavigate } from '$app/navigation';
 
@@ -41,8 +42,6 @@
 <Footer/>
 
 <style>
-  @import "../app.css";
-
   main {
     /* padding-block-start: 90px; equals <Navigation> block-size */
     min-block-size: 100dvh;
