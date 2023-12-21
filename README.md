@@ -71,25 +71,25 @@ Also see [changesets/intro](https://github.com/changesets/changesets/blob/main/d
 To add a new changeset, run the following command:
 
 ```sh
-pnpm changeset
+pnpm changeset:add
 ```
 
 To create a new version of packages, run the following command:
 
 ```sh
-pnpm version-packages
+pnpm changeset:version
 ```
 
 To publish all changes ([turbo/publishing-packages](https://turbo.build/repo/docs/handbook/publishing-packages/versioning-and-publishing#using-changesets-with-turborepo)) to npm, run the following command:
 
 ```sh
-pnpm publish-packages
+pnpm changeset:publish
 ```
 
 To [check for changesets](https://github.com/changesets/changesets/blob/main/docs/checking-for-changesets.md), run the following command:
 
 ```sh
-pnpm changeset-status
+pnpm changeset:status
 ```
 
 ### Remote Caching

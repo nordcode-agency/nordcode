@@ -8,11 +8,11 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "gen": "turbo gen workspace",
-    "changeset": "changeset",
-    "changeset-status": "changeset status",
-    "version-packages": "changeset version",
-    "publish-packages": "changeset publish",
-      "biome:ui-generator": "biome format apps/ui-generator --write && biome lint apps/ui-generator --apply"
+    "changeset:status": "changeset status",
+    "changeset:add": "changeset",
+    "changeset:version": "changeset version",
+    "changeset:publish": "changeset publish",
+    "biome:ui-generator": "biome format apps/ui-generator --write && biome lint apps/ui-generator --apply"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
