@@ -6,7 +6,7 @@ export const load = (async ({ params }) => {
   const project = projects.find((prj) => prj.slug === params?.project);
 
   if (!project){
-    throw error(404, `Projekt "${params.project}" konnte nicht gefunden werden.`);
+    error(404, `Projekt "${params.project}" konnte nicht gefunden werden.`);
   }
 
   return { ...project };
