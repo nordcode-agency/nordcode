@@ -21,7 +21,7 @@
     --spacing-adaptive: var(--spacing-farthest);
   }
 
-  --center-measure: 80ch;
+  --center-measure: 110ch;
   --center-padding: var(--spacing-adaptive);
 }
 
