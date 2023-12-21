@@ -9,48 +9,32 @@
 </script>
 
 <div class="nc-stack container">
-  <div class="headings nc-box">
-    <div class="nc-stack text">
-      <h1>Wir erschaffen digitale Erlebnisse.</h1>
-      <!-- <h2>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</h2> -->
-    </div>
-    <div class="actions">
-      <button class="story-btn nc-button" data-dialogtarget="preview">
-        Preview
-      </button>
-      <!-- <Story id="preview">
-        <StoryItem caption="My individual caption that tells a short story." id="story-1">
-          <img src="https://images.unsplash.com/photo-1688367785310-c8c013548288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3135&q=80" alt="storyitem 1" srcset="">
-          <button type="button" class="nc-button -stealth" slot="cta">
-            Mehr Erfahren <ArrowRightSolid />
-          </button>
-        </StoryItem>
-        <StoryItem caption="Here is a good example on how your web app could look like" id="story-2">
-          <img src="https://images.unsplash.com/photo-1687369500069-a0872397b3ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3125&q=80" alt="storyitem 2" srcset="">
-        </StoryItem>
-        <StoryItem caption="Sustainability in and out" id="story-3">
-          <img src="https://images.unsplash.com/photo-1558297010-eb4f2f472abf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2246&q=80" alt="storyitem 3" srcset="">
-        </StoryItem>
-      </Story>
-      <button class="my-button" type="button">Los geht's</button> -->
-    </div>
+  <div class="headings">
+    <h1 class="text">Wir erschaffen digitale Erlebnisse.</h1>
   </div>
-  <div class="nc-box box nc-cluster">
-    <WorkCard
-      variant="horizontal"
-      heading={projects[0].heading}
-      subheading={projects[0].subheading}
-      cover={projects[0].cover}
-      slug={projects[0].slug}
-    />
-    <WorkCard
-      variant="horizontal"
-      heading={projects[1].heading}
-      subheading={projects[1].subheading}
-      cover={projects[1].cover}
-      slug={projects[1].slug}
-    />
-    <!-- <p>Mit Hilfe von Design und Technologie entstehen Marken, mit der sich deine Nutzer identifizieren können und Produkte, die einfach sind und sich den Bedürfnissen jeden einzelnen anpassen.</p> -->
+  <div class="footer">
+    <div class="nc-box">
+      <a href="/start" class="cta">
+        <strong>Loslegen</strong>
+        <p>Lass uns schauen, wie wir dich unterstützen können</p>
+      </a>
+    </div>
+    <div class="nc-gallery preview">
+      <WorkCard
+        variant="horizontal"
+        heading={projects[0].heading}
+        subheading={projects[0].subheading}
+        cover={projects[0].cover}
+        slug={projects[0].slug}
+      />
+      <WorkCard
+        variant="horizontal"
+        heading={projects[1].heading}
+        subheading={projects[1].subheading}
+        cover={projects[1].cover}
+        slug={projects[1].slug}
+      />
+    </div>
   </div>
 </div>
 
@@ -62,15 +46,12 @@
   }
 
   .headings {
+    max-inline-size: 68ch;
+    padding-inline: var(--spacing-adaptive);
     flex-grow: 1;
     display: grid;
     gap: var(--spacing-far);
     align-content: center;
-  }
-
-  .actions {
-    display: flex;
-    gap: var(--spacing-base);
   }
 
   h1 {
@@ -94,13 +75,47 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .box {
+  .footer {
+    inline-size: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    margin-inline-start: auto;
-    inline-size: min(100%, max(40vw, 880px));
+    align-items: center;
+
+    @media (--lg-n-above) {
+      flex-direction: row;
+    }
+  }
+
+  .cta {
+    inline-size: min(100%, 40ch);
+    text-decoration: none;
+    color: var(--color-brand-primary-base);
+
+    @media (--lg-n-above) {
+      inline-size: min(100%, 40ch);
+    }
+
+    & strong {
+      font-size: var(--font-size-largest);
+    }
+
+    & p {
+      color: var(--color-text-muted);
+    }
+  }
+
+  .preview {
+    --gallery-gap: var(--spacing-adaptive);
+    --_item-size: 40ch;
+
+    flex-shrink: 0;
+    padding-block: var(--gallery-gap);
+    justify-content: space-between;
+    /* inline-size: min(100%, calc(var(--_item-size) * 2 + var(--gallery-gap) * 3)); */
 
     & :global(> *) {
-      flex: 1 1 360px;
+      inline-size: min(var(--_item-size), calc(100vw - 2 * var(--gallery-gap)));
     }
 
     @media (--md-n-above) {
@@ -110,9 +125,5 @@
     @media (--lg-n-above) {
       gap: var(--spacing-far);
     }
-  }
-
-  .text {
-    max-inline-size: 60ch;
   }
 </style>
