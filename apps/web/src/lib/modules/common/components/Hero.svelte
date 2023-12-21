@@ -13,13 +13,13 @@
     <h1 class="text">Wir erschaffen digitale Erlebnisse.</h1>
   </div>
   <div class="footer">
-    <div class="nc-box">
-      <a href="/start" class="cta">
-        <strong>Loslegen</strong>
-        <p>Lass uns schauen, wie wir dich unterstützen können</p>
-      </a>
-    </div>
     <div class="nc-gallery preview">
+      <div style="flex-grow: 1;">
+        <a href="/start" class="cta nc-card">
+          <strong>Loslegen</strong>
+          <p>Lass uns schauen, wie wir dich unterstützen können</p>
+        </a>
+      </div>
       <WorkCard
         variant="horizontal"
         heading={projects[0].heading}
@@ -77,30 +77,22 @@
 
   .footer {
     inline-size: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-
-    @media (--lg-n-above) {
-      flex-direction: row;
-    }
   }
 
   .cta {
-    inline-size: min(100%, 40ch);
+    padding-block: var(--spacing-base);
+    padding-inline: var(--spacing-far);
+    inline-size: inherit;
+    block-size: 100%;
     text-decoration: none;
     color: var(--color-brand-primary-base);
-
-    @media (--lg-n-above) {
-      inline-size: min(100%, 40ch);
-    }
 
     & strong {
       font-size: var(--font-size-largest);
     }
 
     & p {
+      inline-size: min(100%, 30ch);
       color: var(--color-text-muted);
     }
   }
@@ -109,10 +101,8 @@
     --gallery-gap: var(--spacing-adaptive);
     --_item-size: 40ch;
 
-    flex-shrink: 0;
     padding-block: var(--gallery-gap);
-    justify-content: space-between;
-    /* inline-size: min(100%, calc(var(--_item-size) * 2 + var(--gallery-gap) * 3)); */
+    inline-size: 100%;
 
     & :global(> *) {
       inline-size: min(var(--_item-size), calc(100vw - 2 * var(--gallery-gap)));
