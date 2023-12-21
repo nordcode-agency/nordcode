@@ -20,7 +20,7 @@
 <section class="nc-box intro">
   <p class="heading-bg">Wir haben eine Leidenschaft für schönes Design und eine tolle User Experience. Diese Leidenschaft nutzen wir, um ein Erlebnis für deine Nutzer zu schaffen, dass funktioniert.</p>
 </section>
-<section class="nc-box nc-stack -inherit -stretched work">
+<section id="work" class="nc-box nc-stack -inherit -stretched work">
   <div>
     <WorkCard
       heading={data.projects[4].heading}
