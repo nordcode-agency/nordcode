@@ -3,7 +3,7 @@
   import imgPerson2 from '$lib/assets/person2.jpg';
 </script>
 
-<section class="container nc-box nc-stack">
+<section id="about" class="container nc-box nc-stack">
   <div class="nc-ram-grid" style="--nc-ram-grid-gap: var(--spacing-adaptive); --nc-ram-grid-min-width: 32ch;">
     <div class="images">
       <figure>
