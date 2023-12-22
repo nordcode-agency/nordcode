@@ -25,3 +25,5 @@ Tweak preset and color generations a little bit.
 - Tweak preset values for `brutalist`
 - Change default text-underline-offset to `0.25lh`
 - Fix description-list style
+
+## 2023-12-22: Fix shadow generation
