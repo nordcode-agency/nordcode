@@ -236,7 +236,6 @@ const cssColorToRgba = (colorString: string): string => {
 
 const getTokenColorInHex = (name: string, value: string): Record<string, string> => {
     const rgba = cssColorToRgba(`oklch(${value})`);
-    console.log(name, rgba);
 
     return {
         [`--color-${name}`]: rgba,

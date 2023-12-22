@@ -14,7 +14,7 @@ export const getShadows = (store: ConfigStore) => {
         transparencyScale: store.shadowConfigTransparencyScale,
         spreadMax: store.shadowConfigSpreadMax,
         spreadMin: store.shadowConfigSpreadMin,
-        xOffsetFactor: store.shadowConfigXoffsetFactor,
+        xOffsetFactor: store.shadowConfigXOffsetFactor,
     };
 
     return `
@@ -23,7 +23,7 @@ export const getShadows = (store: ConfigStore) => {
             
             
             --shadow-inset-light: inset ${
-                store.shadowDistanceInset * store.shadowConfigXoffsetFactor
+                store.shadowDistanceInset * store.shadowConfigXOffsetFactor
             }px ${store.shadowDistanceInset}px 0px 0 ${getLchColorWithTransparency(
                 shadowColorLight,
                 store.shadowConfigStartTransparency / 3,

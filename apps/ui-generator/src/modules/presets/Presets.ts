@@ -18,7 +18,7 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
         shadowConfigTransparencyScale: 0.8,
         shadowConfigSpreadMax: -2,
         shadowConfigSpreadMin: 1,
-        shadowConfigXoffsetFactor: 0,
+        shadowConfigXOffsetFactor: 0,
 
         shadowDistanceInset: 3,
         shadowDistanceNearest: 1,
@@ -61,7 +61,7 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
         shadowConfigTransparencyScale: 1.2,
         shadowConfigSpreadMax: -4,
         shadowConfigSpreadMin: 1,
-        shadowConfigXoffsetFactor: 1.8,
+        shadowConfigXOffsetFactor: 1.8,
 
         shadowDistanceInset: 3,
         shadowDistanceNearest: 1,
@@ -105,7 +105,7 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
         shadowConfigTransparencyScale: 1,
         shadowConfigSpreadMax: 0,
         shadowConfigSpreadMin: 0,
-        shadowConfigXoffsetFactor: 1,
+        shadowConfigXOffsetFactor: 1,
 
         shadowDistanceInset: 2,
         shadowDistanceNearest: 1,
@@ -123,13 +123,13 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
         darkSurfaceLightnessScaleFactor: 0.03,
 
         lightNeutralChroma: 0.005,
-        lightNeutralTextLightness: 7.5,
+        lightNeutralTextLightness: 3,
         lightNeutralSurfaceLightness: 99,
         lightNeutralBorderLightness: 40,
 
         darkNeutralChroma: 0.008,
-        darkNeutralTextLightness: 97.5,
-        darkNeutralSurfaceLightness: 12.5,
+        darkNeutralTextLightness: 97,
+        darkNeutralSurfaceLightness: 6,
         darkNeutralBorderLightness: 65,
     },
     elegant: {
@@ -148,7 +148,7 @@ export const Presets: Record<PresetName, Partial<ConfigStore>> = {
         shadowConfigTransparencyScale: 0.8,
         shadowConfigSpreadMax: -2,
         shadowConfigSpreadMin: 1,
-        shadowConfigXoffsetFactor: 0,
+        shadowConfigXOffsetFactor: 0,
 
         shadowDistanceInset: 3,
         shadowDistanceNearest: 1,
