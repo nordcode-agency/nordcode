@@ -27,3 +27,8 @@ Tweak preset and color generations a little bit.
 - Fix description-list style
 
 ## 2023-12-22: Fix shadow generation
+
+## 2023-12-25: Extend color possibilities
+
+- Split Neutral Chroma into 3 for FG, BG and Borders
+- Allow secondary brand color to be used in generating FG and BG neutral colors

@@ -93,12 +93,18 @@ export type ConfigStore = {
     lightSurfaceLightnessScaleFactor: number;
     darkSurfaceLightnessScaleFactor: number;
 
-    lightNeutralChroma: number;
+    useSecondaryColorForFG: boolean;
+    useSecondaryColorForBG: boolean;
+    lightNeutralChromaFG: number;
+    lightNeutralChromaBG: number;
+    lightNeutralChromaBorder: number;
     lightNeutralTextLightness: number;
     lightNeutralSurfaceLightness: number;
     lightNeutralBorderLightness: number;
 
-    darkNeutralChroma: number;
+    darkNeutralChromaFG: number;
+    darkNeutralChromaBG: number;
+    darkNeutralChromaBorder: number;
     darkNeutralTextLightness: number;
     darkNeutralSurfaceLightness: number;
     darkNeutralBorderLightness: number;
@@ -190,14 +196,20 @@ const defaultStore: ConfigStore = {
     secondaryLightness: 65,
     secondaryChroma: 0.3,
 
-    lightNeutralChroma: 0.03,
+    useSecondaryColorForFG: false,
+    useSecondaryColorForBG: false,
+    lightNeutralChromaFG: 0.03,
+    lightNeutralChromaBG: 0.03,
+    lightNeutralChromaBorder: 0.03,
     lightNeutralTextLightness: 28,
     lightNeutralSurfaceLightness: 98,
     lightNeutralBorderLightness: 87,
     lightTextLightnessScaleFactor: 0.05,
     lightSurfaceLightnessScaleFactor: 0.05,
 
-    darkNeutralChroma: 0.03,
+    darkNeutralChromaFG: 0.03,
+    darkNeutralChromaBG: 0.03,
+    darkNeutralChromaBorder: 0.03,
     darkNeutralTextLightness: 88,
     darkNeutralSurfaceLightness: 15,
     darkNeutralBorderLightness: 35,

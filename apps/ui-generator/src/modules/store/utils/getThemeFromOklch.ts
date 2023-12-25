@@ -21,46 +21,49 @@ import {
 } from './SharedThemeValues';
 
 export const getThemeFromOklch = (store: ConfigStore) => {
+    const textHue = store.useSecondaryColorForFG ? +store.secondaryHue : +store.primaryHue;
+    const surfaceHue = store.useSecondaryColorForBG ? +store.secondaryHue : +store.primaryHue;
+
     const textLightValues = getTextLightValues(
         +store.lightNeutralTextLightness,
         +store.lightTextLightnessScaleFactor,
-        +store.lightNeutralChroma,
-        +store.primaryHue,
+        +store.lightNeutralChromaFG,
+        textHue,
     );
 
     const surfaceLightValues = getSurfaceLightValues(
         +store.lightNeutralSurfaceLightness,
         +store.lightSurfaceLightnessScaleFactor,
-        +store.lightNeutralChroma,
-        +store.primaryHue,
+        +store.lightNeutralChromaBG,
+        surfaceHue,
     );
 
     const borderLightValues = getBorderLightValues(
         +store.lightNeutralBorderLightness,
         +store.lightTextLightnessScaleFactor,
-        +store.lightNeutralChroma,
-        +store.primaryHue,
+        +store.lightNeutralChromaBorder,
+        textHue,
     );
 
     const textDarkValues = getTextDarkValues(
         +store.darkNeutralTextLightness,
         +store.darkTextLightnessScaleFactor,
-        +store.darkNeutralChroma,
-        +store.primaryHue,
+        +store.darkNeutralChromaFG,
+        textHue,
     );
 
     const surfaceDarkValues = getSurfaceDarkValues(
         +store.darkNeutralSurfaceLightness,
         +store.darkSurfaceLightnessScaleFactor,
-        +store.darkNeutralChroma,
-        +store.primaryHue,
+        +store.darkNeutralChromaBG,
+        surfaceHue,
     );
 
     const borderDarkValues = getBorderDarkValues(
         +store.darkNeutralBorderLightness,
         +store.darkTextLightnessScaleFactor,
-        +store.darkNeutralChroma,
-        +store.primaryHue,
+        +store.darkNeutralChromaBorder,
+        textHue,
     );
 
     return `

@@ -69,15 +69,34 @@
             <h2>Neutrals</h2>
             <div class="nc-box -bordered">
                 <fieldset class="nc-fieldset nc-stack -full-width -stretched">
+                    <legend>Neutral Hues</legend>
+                    <p class="nc-hint">You can use either the primary hue or the secondary hue for
+                        foreground and background colors. Choose here.</p>
+                    <Input
+                        name="colorUseSecondaryColorForFG"
+                        label="Use secondary color for Foreground"
+                        id="colorUseSecondaryColorForFG"
+                        type="checkbox"
+                        bind:value={$configStore.useSecondaryColorForFG} />
+
+                    <Input
+                        name="colorUseSecondaryColorForBG"
+                        label="Use secondary color for Background"
+                        id="colorUseSecondaryColorForBG"
+                        type="checkbox"
+                        bind:value={$configStore.useSecondaryColorForBG} />
+                </fieldset>
+            </div>
+            <div class="nc-box -bordered">
+                <fieldset class="nc-fieldset nc-stack -full-width -stretched">
                     <legend>Light Theme</legend>
                     <Input
-                        name="colorLCHLightNeutralChroma"
-                        label="Neutral Light Chroma"
-                        id="colorLCHLightNeutralChroma"
+                        name="colorLCHLightNeutralChromaFG"
+                        label="Neutral Light Chroma Foreground"
+                        id="colorLCHLightNeutralChromaFG"
                         type="number"
                         step="0.001"
-                        bind:value={$configStore.lightNeutralChroma} />
-
+                        bind:value={$configStore.lightNeutralChromaFG} />
                     <Input
                         name="lightNeutralTextLightness"
                         label="Base Neutral Text Lightness"
@@ -95,6 +114,14 @@
                         step="0.01"
                         bind:value={$configStore.lightTextLightnessScaleFactor} />
 
+                    <hr />
+                    <Input
+                        name="colorLCHLightNeutralChromaBG"
+                        label="Neutral Light Chroma Background"
+                        id="colorLCHLightNeutralChromaBG"
+                        type="number"
+                        step="0.001"
+                        bind:value={$configStore.lightNeutralChromaBG} />
                     <Input
                         name="lightNeutralSurfaceLightness"
                         label="Base Neutral Surface Lightness"
@@ -111,7 +138,14 @@
                         type="number"
                         step="0.01"
                         bind:value={$configStore.lightSurfaceLightnessScaleFactor} />
-
+                    <hr />
+                    <Input
+                        name="colorLCHLightNeutralChromaBorder"
+                        label="Neutral Light Chroma Border"
+                        id="colorLCHLightNeutralChromaBorder"
+                        type="number"
+                        step="0.001"
+                        bind:value={$configStore.lightNeutralChromaBorder} />
                     <Input
                         name="lightNeutralBorderLightness"
                         label="Base Neutral Border Lightness"
@@ -127,12 +161,12 @@
                 <fieldset class="nc-fieldset nc-stack -full-width -stretched">
                     <legend>Dark Theme</legend>
                     <Input
-                        name="colorLCHDarkNeutralChroma"
-                        label="Neutral Dark Chroma"
-                        id="colorLCHDarkNeutralChroma"
+                        name="colorLCHDarkNeutralChromaFG"
+                        label="Neutral Dark Chroma Foreground"
+                        id="colorLCHDarkNeutralChromaFG"
                         type="number"
                         step="0.001"
-                        bind:value={$configStore.darkNeutralChroma} />
+                        bind:value={$configStore.darkNeutralChromaFG} />
                     <Input
                         name="darkNeutralTextLightness"
                         label="Base Neutral Text Lightness"
@@ -148,6 +182,16 @@
                         type="number"
                         step="0.01"
                         bind:value={$configStore.darkTextLightnessScaleFactor} />
+
+                    <hr />
+
+                    <Input
+                        name="colorLCHDarkNeutralChromaBG"
+                        label="Neutral Dark Chroma Background"
+                        id="colorLCHDarkNeutralChromaBG"
+                        type="number"
+                        step="0.001"
+                        bind:value={$configStore.darkNeutralChromaBG} />
                     <Input
                         name="darkNeutralSurfaceLightness"
                         label="Base Neutral Surface Lightness"
@@ -163,7 +207,15 @@
                         type="number"
                         step="0.01"
                         bind:value={$configStore.darkSurfaceLightnessScaleFactor} />
+                    <hr />
 
+                    <Input
+                        name="colorLCHDarkNeutralChromaBorder"
+                        label="Neutral Dark Chroma Border"
+                        id="colorLCHDarkNeutralChromaBorder"
+                        type="number"
+                        step="0.001"
+                        bind:value={$configStore.darkNeutralChromaBorder} />
                     <Input
                         name="darkNeutralBorderLightness"
                         label="Base Neutral Border Lightness"
