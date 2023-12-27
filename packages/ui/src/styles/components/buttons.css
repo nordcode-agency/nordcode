@@ -74,7 +74,11 @@
             --button-background-hover-light,
             var(--color-brand-primary-hover)
         );
-        --_button-color-hover: var(--button-color-hover, var(--color-text-default));
+        --_button-color-hover: var(--button-color-hover, var(--color-brand-primary-contrast));
+        --_button-color-text-hover: var(
+            --button-color-text-hover,
+            var(--color-brand-primary-emphasis)
+        );
         --_button-offset-distance-hover: var(--button-offset-distance-hover, 0);
         --_button-border-color-hover: var(
             --button-border-color-hover,
@@ -127,16 +131,6 @@
         -webkit-touch-callout: none;
         inset-block-start: calc(var(--_button-offset-distance) * -1);
         inset-inline-start: calc(var(--_button-offset-distance) * -1);
-
-        /*
-             * If there is no text node for the button,
-             * it is assumed that an `aria-label` is that
-             * and the button will be styled as an icon button.
-             */
-
-        &[aria-label] {
-            border-radius: var(--border-radius-round);
-        }
     }
 
     :where(
@@ -209,6 +203,7 @@
             --button-border-color: var(--color-border-default);
             --button-background-hover: var(--color-surface-default);
             --button-color-hover: var(--color-text-default);
+            --button-color-text-hover: var(--color-text-default);
             --button-border-color-hover: var(--color-border-default);
         }
 
@@ -218,7 +213,8 @@
             --button-border-color: var(--color-brand-primary-base);
 
             --button-background-hover: var(--color-brand-primary-contrast);
-            --button-color-hover: var(--color-brand-primary-base);
+            --button-color-hover: var(--color-brand-primary-emphasis);
+            --button-color-text-hover: var(--color-brand-primary-emphasis);
             --button-border-color-hover: var(--color-brand-primary-base);
             --button-background-color-hover-light: var(--color-brand-primary-hover);
         }
@@ -229,7 +225,8 @@
             --button-border-color: var(--color-brand-secondary-base);
 
             --button-background-hover: var(--color-brand-secondary-contrast);
-            --button-color-hover: var(--color-brand-secondary-base);
+            --button-color-hover: var(--color-brand-secondary-emphasis);
+            --button-color-text-hover: var(--color-brand-secondary-emphasis);
             --button-border-color-hover: var(--color-brand-secondary-base);
             --button-background-color-hover-light: var(--color-brand-secondary-hover);
         }
@@ -241,7 +238,7 @@
 
             &:hover {
                 background-color: var(--_button-background-hover-light);
-                color: var(--_button-color-hover);
+                color: var(--_button-color-text-hover);
                 border-color: var(--_button-border-color-hover);
             }
         }
@@ -253,7 +250,7 @@
 
             &:hover {
                 background-color: var(--_button-background-hover-light);
-                color: var(--_button-color-hover);
+                color: var(--_button-color-text-hover);
                 border-color: transparent;
             }
 
@@ -270,6 +267,13 @@
             --_button-border-radius: var(--border-radius-round);
         }
 
+        /*
+             * If there is no text node for the button,
+             * it is assumed that an `aria-label` is that
+             * and the button will be styled as an icon button.
+             */
+
+        &[aria-label],
         &.-icon {
             --_button-border-radius: var(--border-radius-round);
             padding: var(--spacing-base);
