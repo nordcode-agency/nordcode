@@ -1,6 +1,6 @@
-# @nordcode/ui
+# @nordcode/ui-generator
 
-## 1.0.0
+## 2.0.0
 
 ### Major Changes
 
@@ -44,19 +44,12 @@
     -   tweak button colors and fix base button hover
     -   use base chroma and hue in generation of scales when generating colors
 
-### Minor Changes
-
--   d829e99: added --gallery-scroll-snap-stop css prop to gallery
--   6025a83: add first batch of css component styles
--   c42d1f3: add new export /media for css @custom-media
-
 ### Patch Changes
 
--   a59822e: fixed border-radius-round typo (1e5px)
--   bcae962: add icons and assets exports
-
-## 0.0.1
-
-### Patch Changes
-
--   65eca97: first try of changesets
+-   Updated dependencies [d829e99]
+-   Updated dependencies
+-   Updated dependencies [a59822e]
+-   Updated dependencies [bcae962]
+-   Updated dependencies [6025a83]
+-   Updated dependencies [c42d1f3]
+    -   @nordcode/ui@1.0.0

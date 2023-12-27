@@ -1,6 +1,6 @@
 {
   "name": "@nordcode/ui",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"

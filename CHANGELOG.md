@@ -1,4 +1,9 @@
-# Changelog
+---
+'@nordcode/ui-generator': major
+'@nordcode/ui': major
+---
+
+First proper release
 
 ## 2023-12-17: Chroma-js & color renames
 
@@ -32,3 +37,8 @@ Tweak preset and color generations a little bit.
 
 - Split Neutral Chroma into 3 for FG, BG and Borders
 - Allow secondary brand color to be used in generating FG and BG neutral colors
+
+## 2023-12-27: More color tweaks
+
+- tweak button colors and fix base button hover
+- use base chroma and hue in generation of scales when generating colors
