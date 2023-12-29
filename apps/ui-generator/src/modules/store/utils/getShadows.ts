@@ -4,7 +4,7 @@ export const getShadows = (store: ConfigStore) => {
     const shadowColorLightLch = `${store.lightNeutralBorderLightness}% ${store.shadowColorChroma} ${store.primaryHue}`;
     const shadowColorLight = `oklch(${shadowColorLightLch})`;
 
-    const shadowColorDarkLch = `${store.lightNeutralBorderLightness}% ${store.shadowColorChroma} ${store.primaryHue}`;
+    const shadowColorDarkLch = `${store.darkNeutralBorderLightness}% ${store.shadowColorChroma} ${store.primaryHue}`;
     const shadowColorDark = `oklch(${shadowColorDarkLch})`;
 
     const shadowConfig = {
