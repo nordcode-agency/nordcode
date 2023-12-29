@@ -1,5 +1,11 @@
 # @nordcode/ui-generator
 
+## 2.0.1
+
+### Patch Changes
+
+-   Fix Shadows and improve sizes generation
+
 ## 2.0.0
 
 ### Major Changes
