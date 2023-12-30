@@ -31,12 +31,7 @@
     }
 
     &[data-size='inline'] {
-        --icon-size: calc(var(--line-height-base) * 0.75em);
-
-        /* @url https://caniuse.com/?search=lh%20unit */
-        @supports (inline-size: 1lh) {
-            --icon-size: 0.75lh;
-        }
+        --icon-size: 0.75lh;
     }
 
     &[data-animation='spinning'] {
@@ -44,13 +39,8 @@
     }
 }
 
-button > .nc-icon {
-    --icon-size: calc(var(--line-height-base) * 1rem);
-
-    /* @url https://caniuse.com/?search=rlh%20unit */
-    @supports (inline-size: 1rlh) {
-        --icon-size: 1rlh;
-    }
+:where(button, .nc-button) > .nc-icon {
+    --icon-size: 1rlh;
 }
 
 @keyframes spinning {

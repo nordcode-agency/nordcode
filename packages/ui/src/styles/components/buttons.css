@@ -143,6 +143,8 @@
         ) {
         &:after {
             content: '' !important;
+            z-index: -1 !important;
+            position: absolute !important;
         }
 
         &:hover {
@@ -162,8 +164,6 @@
         &:hover:after {
             inline-size: calc(100% + var(--spacing-near)) !important;
             block-size: calc(100% + var(--spacing-near)) !important;
-            z-index: -1 !important;
-            position: absolute !important;
             inset-block-start: 0 !important;
             inset-inline-start: 0 !important;
             pointer-events: none !important;
@@ -276,8 +276,8 @@
         &[aria-label],
         &.-icon {
             --_button-border-radius: var(--border-radius-round);
-            padding: var(--spacing-base);
-            min-block-size: 0;
+            padding: 0;
+            aspect-ratio: 1;
             fill: currentColor;
 
             &:after {
@@ -361,14 +361,6 @@
         &:hover:before {
             background: var(--color-status-danger-base);
             color: var(--color-text-on-emphasis);
-        }
-
-        @supports not (aspect-ratio: 1) {
-            padding-inline-start: var(--_button-padding-inline);
-
-            &:before {
-                display: none;
-            }
         }
     }
 }
