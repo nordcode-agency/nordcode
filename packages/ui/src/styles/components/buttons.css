@@ -212,10 +212,10 @@
             --button-color: var(--color-brand-primary-contrast);
             --button-border-color: var(--color-brand-primary-base);
 
-            --button-background-hover: var(--color-brand-primary-contrast);
+            --button-background-hover: var(--color-brand-primary-surface);
             --button-color-hover: var(--color-brand-primary-emphasis);
             --button-color-text-hover: var(--color-brand-primary-emphasis);
-            --button-border-color-hover: var(--color-brand-primary-base);
+            --button-border-color-hover: var(--color-brand-primary-emphasis);
             --button-background-color-hover-light: var(--color-brand-primary-hover);
         }
 
@@ -224,10 +224,10 @@
             --button-color: var(--color-brand-secondary-contrast);
             --button-border-color: var(--color-brand-secondary-base);
 
-            --button-background-hover: var(--color-brand-secondary-contrast);
+            --button-background-hover: var(--color-brand-secondary-surface);
             --button-color-hover: var(--color-brand-secondary-emphasis);
             --button-color-text-hover: var(--color-brand-secondary-emphasis);
-            --button-border-color-hover: var(--color-brand-secondary-base);
+            --button-border-color-hover: var(--color-brand-secondary-emphasis);
             --button-background-color-hover-light: var(--color-brand-secondary-hover);
         }
 
