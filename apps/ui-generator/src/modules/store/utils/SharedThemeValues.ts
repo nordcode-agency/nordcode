@@ -213,8 +213,8 @@ export const getDarkColorValues = (
     const scale = generateScale(baseLightness / 100, baseChroma, hue);
 
     const base = scale(0.5).oklch();
-    const emphasis = scale(0.35).saturate(2.5).oklch();
-    const surface = scale(0.97).oklch();
+    const emphasis = scale(0.35).saturate(1.5).oklch();
+    const surface = scale(0.92).oklch();
     const hover = scale(0.5).oklch();
 
     const [contrastLight, contrastDark] = [scale(0.01), scale(0.99)];
