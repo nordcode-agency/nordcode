@@ -166,8 +166,8 @@
         --color-brand-primary-dark-emphasis: oklch(var(--color-brand-primary-dark-emphasis-lch));
         --color-brand-primary-dark-base-lch: 65% 0.3 265;
         --color-brand-primary-dark-base: oklch(var(--color-brand-primary-dark-base-lch));
-        --color-brand-primary-dark-subtle-lch: 75% 0.08 265;
-        --color-brand-primary-dark-subtle: oklch(var(--color-brand-primary-dark-subtle-lch));
+        --color-brand-primary-dark-surface-lch: 75% 0.08 265;
+        --color-brand-primary-dark-surface: oklch(var(--color-brand-primary-dark-surface-lch));
         --color-brand-primary-dark-hover-lch: 65% 0.3 265 / 0.08;
         --color-brand-primary-dark-hover: oklch(var(--color-brand-primary-dark-hover-lch));
         --color-brand-primary-dark-contrast-lch: 1% 0.05 265;
@@ -179,8 +179,8 @@
         );
         --color-brand-secondary-dark-base-lch: 65% 0.3 215;
         --color-brand-secondary-dark-base: oklch(var(--color-brand-secondary-dark-base-lch));
-        --color-brand-secondary-dark-subtle-lch: 75% 0.08 215;
-        --color-brand-secondary-dark-subtle: oklch(var(--color-brand-secondary-dark-subtle-lch));
+        --color-brand-secondary-dark-surface-lch: 75% 0.08 215;
+        --color-brand-secondary-dark-surface: oklch(var(--color-brand-secondary-dark-surface-lch));
         --color-brand-secondary-dark-hover-lch: 65% 0.3 215 / 0.08;
         --color-brand-secondary-dark-hover: oklch(var(--color-brand-secondary-dark-hover-lch));
         --color-brand-secondary-dark-contrast-lch: 1% 0.05 215;
