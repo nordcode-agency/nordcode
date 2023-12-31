@@ -1,5 +1,11 @@
 # @nordcode/ui
 
+## 1.1.2
+
+### Patch Changes
+
+-   Feat: use primary contrast color in checkboxes
+
 ## 1.1.1
 
 ### Patch Changes

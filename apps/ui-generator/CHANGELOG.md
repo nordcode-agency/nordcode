@@ -1,5 +1,16 @@
 # @nordcode/ui-generator
 
+## 2.2.0
+
+### Minor Changes
+
+-   Feat: Switch to colorsjs.io to generate colors
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @nordcode/ui@1.1.2
+
 ## 2.1.1
 
 ### Patch Changes
