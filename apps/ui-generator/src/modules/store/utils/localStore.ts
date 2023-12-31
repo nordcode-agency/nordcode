@@ -13,7 +13,7 @@ export const localStore = <T>(key: string, initial: T) => {
         localStorage.setItem(key, stringify(initial)); // initialize local storage with initial value
     }
 
-    const saved = toObj(localStorage.getItem(key) ?? ''); // convert to object
+    let saved = toObj(localStorage.getItem(key) ?? ''); // convert to object
 
     const { subscribe, set, update } = writable(saved); // create the underlying writable store
 
@@ -27,9 +27,12 @@ export const localStore = <T>(key: string, initial: T) => {
         update: (updateFn: (state: T) => T) => {
             const updated = updateFn(saved);
             localStorage.setItem(key, stringify(updated));
+            saved = updated;
             return update(updateFn);
         },
-        exportToString: () => stringify(saved),
+        exportToString: () => {
+            return stringify(saved);
+        },
         exportToJson: () => saved,
         import: (valueString: string) => {
             const value = toObj(valueString);
