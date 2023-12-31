@@ -1,5 +1,11 @@
 # @nordcode/ui
 
+## 1.1.1
+
+### Patch Changes
+
+-   Fix generated dark theme
+
 ## 1.1.0
 
 ### Minor Changes
