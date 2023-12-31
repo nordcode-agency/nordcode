@@ -1,5 +1,13 @@
 # @nordcode/web
 
+## 0.1.1
+
+### Patch Changes
+
+-   Updated dependencies
+-   Updated dependencies [ab524dd]
+    -   @nordcode/ui@1.1.0
+
 ## 0.1.0
 
 ### Minor Changes

@@ -1,5 +1,12 @@
 # @nordcode/ui
 
+## 1.1.0
+
+### Minor Changes
+
+-   Fix dark theme, tweak styles, add easings
+-   ab524dd: Fix Icon Button and remove rlh support checks
+
 ## 1.0.0
 
 ### Major Changes

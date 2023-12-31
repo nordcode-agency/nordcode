@@ -1,5 +1,13 @@
 # @nordcode/invoices
 
+## 0.0.2
+
+### Patch Changes
+
+-   Updated dependencies
+-   Updated dependencies [ab524dd]
+    -   @nordcode/ui@1.1.0
+
 ## 0.0.1
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @nordcode/ui-generator
 
+## 2.1.0
+
+### Minor Changes
+
+-   Fix URL Export, tweak color generation
+
+### Patch Changes
+
+-   Updated dependencies
+-   Updated dependencies [ab524dd]
+    -   @nordcode/ui@1.1.0
+
 ## 2.0.1
 
 ### Patch Changes
