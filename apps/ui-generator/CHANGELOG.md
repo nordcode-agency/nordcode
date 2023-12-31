@@ -1,5 +1,11 @@
 # @nordcode/ui-generator
 
+## 2.2.2
+
+### Patch Changes
+
+-   Feat: More color tweaking
+
 ## 2.2.1
 
 ### Patch Changes
