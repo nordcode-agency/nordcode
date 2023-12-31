@@ -213,7 +213,7 @@
             justify-content: center;
             inline-size: 0.8em;
             block-size: 0.8em;
-            background-color: var(--color-surface-inset);
+            background-color: var(--color-brand-primary-contrast);
             transform: scale(0.8) translateY(2em);
             transition: transform var(--ease-out-2) var(--transition-duration-short);
             font-family: var(--font-family-sans);
