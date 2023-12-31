@@ -30,7 +30,6 @@
 
         --color-surface-default-lch: var(--color-surface-light-default-lch);
         --color-surface-default: var(--color-surface-light-default);
-        --color-surface-muted-lch: var(--color-surface-light-muted-lch);
         --color-surface-subtle: var(--color-surface-light-subtle);
         --color-surface-subtle-lch: var(--color-surface-light-subtle-lch);
         --color-surface-inset: var(--color-surface-light-inset);
@@ -108,7 +107,6 @@
 
             --color-surface-default-lch: var(--color-surface-dark-default-lch);
             --color-surface-default: var(--color-surface-dark-default);
-            --color-surface-muted-lch: var(--color-surface-dark-muted-lch);
             --color-surface-subtle: var(--color-surface-dark-subtle);
             --color-surface-subtle-lch: var(--color-surface-dark-subtle-lch);
             --color-surface-inset: var(--color-surface-dark-inset);
@@ -186,7 +184,6 @@
 
         --color-surface-default-lch: var(--color-surface-light-default-lch);
         --color-surface-default: var(--color-surface-light-default);
-        --color-surface-muted-lch: var(--color-surface-light-muted-lch);
         --color-surface-subtle: var(--color-surface-light-subtle);
         --color-surface-subtle-lch: var(--color-surface-light-subtle-lch);
         --color-surface-inset: var(--color-surface-light-inset);
@@ -238,8 +235,8 @@
         --color-brand-primary-emphasis: var(--color-brand-primary-dark-emphasis);
         --color-brand-primary-base-lch: var(--color-brand-primary-dark-base-lch);
         --color-brand-primary-base: var(--color-brand-primary-dark-base);
-        --color-brand-primary-surface-lch: var(--color-brand-primary-dark-subtle-lch);
-        --color-brand-primary-surface: var(--color-brand-primary-dark-subtle);
+        --color-brand-primary-surface-lch: var(--color-brand-primary-dark-surface-lch);
+        --color-brand-primary-surface: var(--color-brand-primary-dark-surface);
         --color-brand-primary-hover: var(--color-brand-primary-dark-hover);
         --color-brand-primary-contrast: var(--color-brand-primary-dark-contrast);
 
@@ -247,8 +244,8 @@
         --color-brand-secondary-emphasis: var(--color-brand-secondary-dark-emphasis);
         --color-brand-secondary-base-lch: var(--color-brand-secondary-dark-base-lch);
         --color-brand-secondary-base: var(--color-brand-secondary-dark-base);
-        --color-brand-secondary-surface-lch: var(--color-brand-secondary-dark-subtle-lch);
-        --color-brand-secondary-surface: var(--color-brand-secondary-dark-subtle);
+        --color-brand-secondary-surface-lch: var(--color-brand-secondary-dark-surface-lch);
+        --color-brand-secondary-surface: var(--color-brand-secondary-dark-surface);
         --color-brand-secondary-hover: var(--color-brand-secondary-dark-hover);
         --color-brand-secondary-contrast: var(--color-brand-secondary-dark-contrast);
 
@@ -263,7 +260,6 @@
 
         --color-surface-default-lch: var(--color-surface-dark-default-lch);
         --color-surface-default: var(--color-surface-dark-default);
-        --color-surface-muted-lch: var(--color-surface-dark-muted-lch);
         --color-surface-subtle: var(--color-surface-dark-subtle);
         --color-surface-subtle-lch: var(--color-surface-dark-subtle-lch);
         --color-surface-inset: var(--color-surface-dark-inset);
