@@ -36,8 +36,8 @@ const generateScales = (
     c: number,
     h: number,
 ): [ReturnType<typeof Color.prototype.range>, ReturnType<typeof Color.prototype.range>] => {
-    const white = new Color('oklch', [0.98, c * 0.2, h]);
-    const black = new Color('oklch', [0.02, c * 0.2, h]);
+    const white = new Color('oklch', [0.99, c * 0.1, h]);
+    const black = new Color('oklch', [0.01, c * 0.1, h]);
     const color = new Color('oklch', [l, c, h]);
 
     return [color.range(white, { space: 'oklch' }), color.range(black, { space: 'oklch' })];
@@ -191,7 +191,7 @@ export const getLightColorValues = (
 
     const base = whiteScale(0).oklch;
     const emphasis = blackScale(0.15).set('c', (c) => c * 1.25).oklch;
-    const surface = whiteScale(0.95).oklch;
+    const surface = whiteScale(0.96).oklch;
     const hover = whiteScale(0).oklch;
 
     const [contrastLight, contrastDark] = [whiteScale(1), blackScale(1)];
