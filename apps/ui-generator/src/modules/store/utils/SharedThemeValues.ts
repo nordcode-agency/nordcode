@@ -1,4 +1,4 @@
-import chroma from 'chroma-js';
+import Color from 'colorjs.io';
 
 export const getWarningLightness = (lightness: number) =>
     Math.min(Math.max(lightness + 25, 80), 92);
@@ -31,12 +31,16 @@ type TextValues = {
     subtle: string;
     'on-emphasis': string;
 };
-const generateScale = (l: number, c: number, h: number): chroma.Scale<chroma.Color> => {
-    const white = chroma.oklch(100, c, h);
-    const color = chroma.oklch(l, c, h);
-    const black = chroma.oklch(0, c, h);
+const generateScales = (
+    l: number,
+    c: number,
+    h: number,
+): [ReturnType<typeof Color.prototype.range>, ReturnType<typeof Color.prototype.range>] => {
+    const white = new Color('oklch', [0.98, c * 0.2, h]);
+    const black = new Color('oklch', [0.02, c * 0.2, h]);
+    const color = new Color('oklch', [l, c, h]);
 
-    return chroma.scale([white, color, black]).mode('lch');
+    return [color.range(white, { space: 'oklch' }), color.range(black, { space: 'oklch' })];
 };
 
 export const getTextLightValues = (
@@ -45,12 +49,13 @@ export const getTextLightValues = (
     baseChroma: number,
     hue: number,
 ): TextValues => {
-    const scale = generateScale(baseLightness / 100, baseChroma, hue);
+    const [whiteScale, blackScale] = generateScales(baseLightness / 100, baseChroma, hue);
 
-    const base = scale(0.5).oklch();
-    const muted = scale(0.5 - scalingFactor).oklch();
-    const subtle = scale(0.5 - scalingFactor * 2).oklch();
-    const onEmphasis = chroma.oklch((100 - baseLightness) / 100, baseChroma, hue).oklch();
+    const base = whiteScale(0).oklch;
+    // multiply * 2 to keep recent scales working
+    const muted = whiteScale(scalingFactor * 2).oklch;
+    const subtle = whiteScale(scalingFactor * 4).oklch;
+    const onEmphasis = whiteScale(1).oklch;
 
     return {
         default: generateValueString(base[0], base[1], base[2]),
@@ -66,13 +71,12 @@ export const getTextDarkValues = (
     baseChroma: number,
     hue: number,
 ): TextValues => {
-    const color = chroma.oklch(baseLightness / 100, baseChroma, hue);
-    const scale = chroma.scale(['white', color, 'black']).mode('lch');
+    const [whiteScale, blackScale] = generateScales(baseLightness / 100, baseChroma, hue);
 
-    const base = scale(0.5).oklch();
-    const muted = scale(0.5 + scalingFactor).oklch();
-    const subtle = scale(0.5 + scalingFactor * 2).oklch();
-    const onEmphasis = chroma.oklch((100 - baseLightness) / 100, baseChroma, hue).oklch();
+    const base = blackScale(0).oklch;
+    const muted = blackScale(scalingFactor * 2).oklch;
+    const subtle = blackScale(scalingFactor * 4).oklch;
+    const onEmphasis = blackScale(1).oklch;
 
     return {
         default: generateValueString(base[0], base[1], base[2]),
@@ -95,12 +99,12 @@ export const getSurfaceLightValues = (
     baseChroma: number,
     hue: number,
 ): SurfaceValues => {
-    const scale = generateScale(baseLightness / 100, baseChroma, hue);
+    const [whiteScale, blackScale] = generateScales(baseLightness / 100, baseChroma, hue);
 
-    const base = scale(0.5).oklch();
-    const subtle = scale(0.5 + scalingFactor).oklch();
-    const inset = scale(0.5 + scalingFactor * 2).oklch();
-    const emphasis = chroma.oklch((100 - baseLightness) / 100, baseChroma, hue).oklch();
+    const base = whiteScale(0).oklch;
+    const subtle = blackScale(scalingFactor * 2).oklch;
+    const inset = blackScale(scalingFactor * 4).oklch;
+    const emphasis = blackScale(1).oklch;
 
     return {
         default: generateValueString(base[0], base[1], base[2]),
@@ -116,12 +120,12 @@ export const getSurfaceDarkValues = (
     baseChroma: number,
     hue: number,
 ): SurfaceValues => {
-    const scale = generateScale(baseLightness / 100, baseChroma, hue);
+    const [whiteScale, blackScale] = generateScales(baseLightness / 100, baseChroma, hue);
 
-    const base = scale(0.5).oklch();
-    const subtle = scale(0.5 - scalingFactor).oklch();
-    const inset = scale(0.5 - scalingFactor).oklch();
-    const emphasis = chroma.oklch((100 - baseLightness) / 100, baseChroma, hue).oklch();
+    const base = blackScale(0).oklch;
+    const subtle = whiteScale(scalingFactor * 2).oklch;
+    const inset = whiteScale(scalingFactor * 4).oklch;
+    const emphasis = whiteScale(1).oklch;
 
     return {
         default: generateValueString(base[0], base[1], base[2]),
@@ -142,10 +146,10 @@ export const getBorderLightValues = (
     baseChroma: number,
     hue: number,
 ): BorderValues => {
-    const scale = generateScale(baseLightness / 100, baseChroma, hue);
+    const [whiteScale, blackScale] = generateScales(baseLightness / 100, baseChroma, hue);
 
-    const base = scale(0.5).oklch();
-    const muted = scale(0.5 - scalingFactor).oklch();
+    const base = blackScale(0).oklch;
+    const muted = whiteScale(scalingFactor * 2).oklch;
 
     return {
         default: generateValueString(base[0], base[1], base[2]),
@@ -159,10 +163,10 @@ export const getBorderDarkValues = (
     baseChroma: number,
     hue: number,
 ): BorderValues => {
-    const scale = generateScale(baseLightness / 100, baseChroma, hue);
+    const [whiteScale, blackScale] = generateScales(baseLightness / 100, baseChroma, hue);
 
-    const base = scale(0.5).oklch();
-    const muted = scale(0.5 + scalingFactor).oklch();
+    const base = whiteScale(0).oklch;
+    const muted = blackScale(scalingFactor * 2).oklch;
 
     return {
         default: generateValueString(base[0], base[1], base[2]),
@@ -183,18 +187,19 @@ export const getLightColorValues = (
     baseChroma: number,
     hue: number,
 ): ColorValues => {
-    const scale = generateScale(baseLightness / 100, baseChroma, hue);
+    const [whiteScale, blackScale] = generateScales(baseLightness / 100, baseChroma, hue);
 
-    const base = scale(0.5).oklch();
-    const emphasis = scale(0.65).saturate(1).oklch();
-    const surface = scale(0.05).oklch();
-    const hover = scale(0.5).oklch();
+    const base = whiteScale(0).oklch;
+    const emphasis = blackScale(0.15).set('c', (c) => c * 1.25).oklch;
+    const surface = whiteScale(0.95).oklch;
+    const hover = whiteScale(0).oklch;
 
-    const [contrastLight, contrastDark] = [scale(0.01), scale(0.99)];
+    const [contrastLight, contrastDark] = [whiteScale(1), blackScale(1)];
+
     const contrast =
-        chroma.contrast(scale(0.5), contrastLight) > chroma.contrast(scale(0.5), contrastDark)
-            ? contrastLight.oklch()
-            : contrastDark.oklch();
+        contrastLight.contrast(whiteScale(0), 'APCA') > contrastDark.contrast(whiteScale(0), 'APCA')
+            ? contrastLight.oklch
+            : contrastDark.oklch;
 
     return {
         emphasis: generateValueString(emphasis[0], emphasis[1], emphasis[2]),
@@ -210,18 +215,19 @@ export const getDarkColorValues = (
     baseChroma: number,
     hue: number,
 ): ColorValues => {
-    const scale = generateScale(baseLightness / 100, baseChroma, hue);
+    const [whiteScale, blackScale] = generateScales(baseLightness / 100, baseChroma, hue);
 
-    const base = scale(0.5).oklch();
-    const emphasis = scale(0.35).saturate(1.5).oklch();
-    const surface = scale(0.92).oklch();
-    const hover = scale(0.5).oklch();
+    const base = blackScale(0).oklch;
+    const emphasis = whiteScale(0.15).set('c', (c) => c * 1.25).oklch;
+    const surface = blackScale(0.8).oklch;
+    const hover = blackScale(0).oklch;
 
-    const [contrastLight, contrastDark] = [scale(0.01), scale(0.99)];
+    const [contrastLight, contrastDark] = [whiteScale(1), blackScale(1)];
+
     const contrast =
-        chroma.contrast(scale(0.5), contrastLight) > chroma.contrast(scale(0.5), contrastDark)
-            ? contrastLight.oklch()
-            : contrastDark.oklch();
+        contrastLight.contrast(whiteScale(0), 'APCA') > contrastDark.contrast(whiteScale(0), 'APCA')
+            ? contrastLight.oklch
+            : contrastDark.oklch;
 
     return {
         emphasis: generateValueString(emphasis[0], emphasis[1], emphasis[2]),
@@ -243,12 +249,12 @@ export const getStatusLightColorValues = (
     hue: number,
     primaryLightness: number,
 ): StatusColorValues => {
-    const scale = generateScale(baseLightness / 100, 0.3, hue);
+    const [whiteScale, blackScale] = generateScales(baseLightness / 100, 0.3, hue);
 
-    const base = scale(0.5).oklch();
-    const text = scale(0.7).oklch();
-    const surface = scale(0.2).oklch();
-    const hover = scale(0.5).oklch();
+    const base = whiteScale(0).oklch;
+    const text = blackScale(0.4).oklch;
+    const surface = whiteScale(0.95).oklch;
+    const hover = whiteScale(0).oklch;
 
     return {
         text: generateValueString(text[0], text[1], text[2]),
@@ -263,12 +269,12 @@ export const getStatusDarkColorValues = (
     hue: number,
     primaryLightness: number,
 ): StatusColorValues => {
-    const scale = generateScale(baseLightness / 100, 0.3, hue);
+    const [whiteScale, blackScale] = generateScales(baseLightness / 100, 0.3, hue);
 
-    const base = scale(0.5).oklch();
-    const text = scale(0.7).oklch();
-    const surface = scale(0.2).oklch();
-    const hover = scale(0.5).oklch();
+    const base = whiteScale(0).oklch;
+    const text = whiteScale(0.4).oklch;
+    const surface = blackScale(0.8).oklch;
+    const hover = whiteScale(0).oklch;
 
     return {
         text: generateValueString(text[0], text[1], text[2]),
