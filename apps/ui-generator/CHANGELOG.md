@@ -1,5 +1,11 @@
 # @nordcode/ui-generator
 
+## 2.2.1
+
+### Patch Changes
+
+-   feat: tweak color generation
+
 ## 2.2.0
 
 ### Minor Changes
