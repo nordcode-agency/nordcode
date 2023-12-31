@@ -36,8 +36,8 @@ const generateScales = (
     c: number,
     h: number,
 ): [ReturnType<typeof Color.prototype.range>, ReturnType<typeof Color.prototype.range>] => {
-    const white = new Color('oklch', [0.99, c * 0.1, h]);
-    const black = new Color('oklch', [0.01, c * 0.1, h]);
+    const white = new Color('oklch', [0.99, c * 0.15, h]);
+    const black = new Color('oklch', [0.01, c * 0.15, h]);
     const color = new Color('oklch', [l, c, h]);
 
     return [color.range(white, { space: 'oklch' }), color.range(black, { space: 'oklch' })];
