@@ -1,5 +1,16 @@
 # @nordcode/ui-generator
 
+## 2.3.0
+
+### Minor Changes
+
+-   Tweaks to styles and the start of a layout page
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @nordcode/ui@1.2.0
+
 ## 2.2.2
 
 ### Patch Changes

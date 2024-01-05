@@ -1,5 +1,11 @@
 # @nordcode/ui
 
+## 1.2.0
+
+### Minor Changes
+
+-   Lots of small tweaks and new layouts
+
 ## 1.1.2
 
 ### Patch Changes
