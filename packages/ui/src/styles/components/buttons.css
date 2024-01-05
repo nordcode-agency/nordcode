@@ -301,7 +301,7 @@
         }
 
         &.-icon.-small {
-            padding: var(--spacing-near);
+            padding: 0;
         }
     }
 
