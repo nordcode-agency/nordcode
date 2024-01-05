@@ -20,9 +20,9 @@ export const generateStyleString = (store: ConfigStore): string => {
         --line-height-base: ${store.lineHeightBase};
         --line-height-small: ${store.lineHeightSmall};
 
-        --tracking-base: ${store.trackingStandard}em;
-        --tracking-tight: ${store.trackingTight}em;
-        --tracking-wide: ${store.trackingWide}em;
+        --tracking-base: ${store.trackingStandard}ch;
+        --tracking-tight: ${store.trackingTight}ch;
+        --tracking-wide: ${store.trackingWide}ch;
 
         --measure-large: ${store.measureLarge}ch;
         --measure-base: ${store.measureBase}ch;
