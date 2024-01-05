@@ -287,6 +287,7 @@
         border: var(--border-width-medium) solid var(--color-border-default);
         border-radius: var(--border-radius-medium);
         background: var(--color-surface-inset);
+        -webkit-overflow-scrolling: touch;
 
         & code {
             tab-size: 4;
@@ -371,5 +372,10 @@
 
     :target {
         scroll-margin-block-start: 2ex;
+    }
+
+    :where(del) {
+        color: var(--color-text-muted);
+        text-decoration-color: var(--color-brand-primary-base);
     }
 }
