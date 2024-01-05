@@ -1,0 +1,21 @@
+---
+interface Props {
+    name: string;
+    description: string;
+}
+
+const { name, description } = Astro.props;
+---
+
+<style>
+    .variation {
+        border: var(--border-width-thin) solid var(--color-border-muted);
+        padding: var(--spacing-base);
+    }
+</style>
+
+<div class="variation nc-flow">
+    <code>{name}</code>
+    <p>{description}</p>
+    <slot />
+</div>

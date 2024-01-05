@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LayoutPreview from '../modules/layouts/LayoutPreview.astro';
+import LayoutSideNav from '../modules/layouts/LayoutSideNav.astro';
+---
+
+<Layout title="Layouts">
+    <LayoutSideNav slot="aside" />
+    <LayoutPreview slot="content" />
+</Layout>

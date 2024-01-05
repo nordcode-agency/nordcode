@@ -1,0 +1,190 @@
+---
+import SectionTitle from '../components/components/SectionTitle.astro';
+import ModifierList from './components/ModifierList.astro';
+import Variation from './components/Variation.astro';
+
+const spacingModifiers = [
+    {
+        name: '-tiny',
+        description: 'Sets gap to --spacing-tiny',
+    },
+    {
+        name: '-nearest',
+        description: 'Sets gap to --spacing-nearest',
+    },
+    {
+        name: '-near',
+        description: 'Sets gap to --spacing-near',
+    },
+    {
+        name: '-base',
+        description: 'Sets gap to --spacing-base',
+    },
+    {
+        name: '-far',
+        description: 'Sets gap to --spacing-far',
+    },
+    {
+        name: '-farthest',
+        description: 'Sets gap to --spacing-farthest',
+    },
+    {
+        name: '-nogap',
+        description: 'Sets gap to 0',
+    },
+];
+---
+
+<style>
+    .preview-box {
+        inline-size: 100%;
+        background: var(--color-surface-inset);
+    }
+
+    .preview {
+        background: var(--color-surface-default);
+        color: var(--color-text-default);
+    }
+
+    .article {
+    }
+
+    .nc-stack.preview > div {
+        inline-size: 12rem;
+        aspect-ratio: 2 / 1;
+        background: var(--color-brand-primary-base);
+    }
+
+    .nc-flow.preview {
+        & h4 {
+            font-size: var(--font-size-large);
+            font-weight: var(--font-weight-active);
+        }
+    }
+
+    .nc-center.preview {
+        --center-measure: 20rem;
+        --center-padding: 1rem;
+
+        & > div {
+            inline-size: 12rem;
+            aspect-ratio: 2 / 1;
+            background: var(--color-brand-primary-base);
+        }
+    }
+
+</style>
+
+<div class="nc-stack -far -stretched">
+    <h1>Layouts</h1>
+
+    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-box">
+        <SectionTitle title=".nc-box" nested={false} sectionId="nc-box" />
+
+        <p class="nc-hint">
+            It's a div with padding and a possible version that is using a border.
+        </p>
+        <div class="nc-flow">
+            <h3>Use cases</h3>
+            <p>
+                Any content can be fit into a box, so the possibilities are endless. This is really
+                a very rudimentary component. All components and layouts are nested in a box for
+                example.
+            </p>
+            <h3>Display</h3>
+            <div class="nc-box -bordered preview-box">
+                <div class="nc-box preview">This is it</div>
+            </div>
+            <h3>Variations</h3>
+            <div class="nc-cluster">
+                <Variation name="-bordered" description="Wraps the box in a border">
+                    <div class="nc-box -bordered preview">Content</div>
+                </Variation>
+            </div>
+        </div>
+    </section>
+    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-stack">
+        <SectionTitle title=".nc-stack" nested={false} sectionId="nc-stack" />
+        <p class="nc-hint">It's a column of content with gaps in between.</p>
+        <div class="nc-flow">
+            <h3>Use cases</h3>
+            <p>Many things are layouted in a column. This helps you do that more easily.</p>
+            <h3>Display</h3>
+            <div class="nc-box -bordered preview-box">
+                <div class="nc-stack preview">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <h3>Variations</h3>
+            <div class="nc-cluster">
+                <Variation
+                    name="-inherit"
+                    description="Inherits the gap spacing from its parent."
+                />
+                <Variation
+                    name="-stretched"
+                    description="Makes it and all it's direct children 100% of the width."
+                />
+                <Variation
+                    name="-contained"
+                    description="Contains the maximum width to 100% of its parent."
+                />
+            </div>
+            <h3>Modifiers</h3>
+            <ModifierList modifiers={spacingModifiers} />
+        </div>
+    </section>
+    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-flow">
+        <SectionTitle title=".nc-flow" nested={false} sectionId="nc-flow" />
+        <p class="nc-hint">Bring your prose content into a nicely styled form.</p>
+        <div class="nc-flow">
+            <h3>Use cases</h3>
+            <p>
+                Anything from short texts to longs blog posts can be wrapped. Stacks the content and
+                sensibly adds spacing between blocks.
+            </p>
+            <h3>Display</h3>
+            <div class="nc-box -bordered preview-box">
+                <div class="nc-flow preview">
+                    <h4>Hallo</h4>
+                    <p>
+                        Voluptas est voluptatem minima a et ab itaque fuga. A qui ea aperiam
+                        voluptatem reiciendis error. Consectetur nulla ab delectus doloribus
+                        voluptatibus unde suscipit blanditiis quo sit sunt. Nemo minima inventore ut
+                        possimus incidunt molestiae reprehenderit consequatur magni quas. Sint
+                        pariatur animi culpa dolores labore ut sapiente. Corporis et magni
+                        distinctio. Placeat eius dolores delectus soluta.
+                    </p>
+                    <p>
+                        Voluptas est voluptatem minima a et ab itaque fuga. A qui ea aperiam
+                        voluptatem reiciendis error. Consectetur nulla ab delectus doloribus
+                        voluptatibus unde suscipit blanditiis quo sit sunt. Nemo minima inventore ut
+                        possimus incidunt molestiae reprehenderit consequatur magni quas. Sint
+                        pariatur animi culpa dolores labore ut sapiente. Corporis et magni
+                        distinctio. Placeat eius dolores delectus soluta.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-center"
+        <SectionTitle title=".nc-center"={false} sectionId="nc-center"
+        <p class="nc-hint">Center content and add a possible padding and max-size.</p>
+        <div class="nc-flow">
+            <h3>Use cases</h3>
+            <p>
+                Wrap it around your sections content or your whole website.
+            </p>
+            <h3>Display</h3>
+            <div class="nc-box -bordered preview-box">
+                <div class="nc-center preview">
+                    <h4>Hallo</h4>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

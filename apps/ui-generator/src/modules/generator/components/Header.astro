@@ -23,6 +23,9 @@ import ConfigLoader from '../../store/components/ConfigLoader.svelte';
             <li>
                 <a href="/components">Components</a>
             </li>
+            <li>
+                <a href="/layouts">Layouts</a>
+            </li>
         </ul>
     </nav>
     <div class="nc-cluster">
@@ -38,10 +41,11 @@ import ConfigLoader from '../../store/components/ConfigLoader.svelte';
                 focusable="false"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                ><path
-                    d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20ZM13 12V16H11V12H8L12 8L16 12H13Z"
-                ></path></svg
             >
+                <path
+                    d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20ZM13 12V16H11V12H8L12 8L16 12H13Z"
+                ></path>
+            </svg>
         </button>
         <button
             class="nc-button -icon -small export-button"
@@ -56,10 +60,11 @@ import ConfigLoader from '../../store/components/ConfigLoader.svelte';
                 style="transform: rotate(45deg);"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                ><path
-                    d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20ZM13 12V16H11V12H8L12 8L16 12H13Z"
-                ></path></svg
             >
+                <path
+                    d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20ZM13 12V16H11V12H8L12 8L16 12H13Z"
+                ></path>
+            </svg>
         </button>
         <button data-toggle-notification-center class="nc-button -icon -small">
             <span class="text-assistive">Toggle Notifications</span>
@@ -69,10 +74,11 @@ import ConfigLoader from '../../store/components/ConfigLoader.svelte';
                 viewBox="0 0 24 24"
                 aria-hidden="true"
                 focusable="false"
-                ><path
-                    d="M22 20H2V18H3V11.0314C3 6.04348 7.02944 2 12 2C16.9706 2 21 6.04348 21 11.0314V18H22V20ZM5 18H19V11.0314C19 7.14806 15.866 4 12 4C8.13401 4 5 7.14806 5 11.0314V18ZM9.5 21H14.5C14.5 22.3807 13.3807 23.5 12 23.5C10.6193 23.5 9.5 22.3807 9.5 21Z"
-                ></path></svg
             >
+                <path
+                    d="M22 20H2V18H3V11.0314C3 6.04348 7.02944 2 12 2C16.9706 2 21 6.04348 21 11.0314V18H22V20ZM5 18H19V11.0314C19 7.14806 15.866 4 12 4C8.13401 4 5 7.14806 5 11.0314V18ZM9.5 21H14.5C14.5 22.3807 13.3807 23.5 12 23.5C10.6193 23.5 9.5 22.3807 9.5 21Z"
+                ></path>
+            </svg>
         </button>
     </div>
 </div>
@@ -96,6 +102,7 @@ import ConfigLoader from '../../store/components/ConfigLoader.svelte';
             color: var(--color-brand-secondary-subtle);
         }
     }
+
     h1 {
         font-size: var(--font-size-base);
     }
