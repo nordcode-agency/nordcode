@@ -73,6 +73,17 @@ const spacingModifiers = [
         }
     }
 
+    .nc-reel.preview {
+        & > div {
+            inline-size: 12rem;
+            aspect-ratio: 2 / 1;
+            background: var(--color-brand-primary-base);
+
+            &:nth-child(2n) {
+                inline-size: 6rem;
+            }
+        }
+    }
 </style>
 
 <div class="nc-stack -far -stretched">
@@ -169,14 +180,12 @@ const spacingModifiers = [
             </div>
         </div>
     </section>
-    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-center"
-        <SectionTitle title=".nc-center"={false} sectionId="nc-center"
+    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-center">
+        <SectionTitle title=".nc-center" nested={false} sectionId="nc-center" />
         <p class="nc-hint">Center content and add a possible padding and max-size.</p>
         <div class="nc-flow">
             <h3>Use cases</h3>
-            <p>
-                Wrap it around your sections content or your whole website.
-            </p>
+            <p>Wrap it around your sections content or your whole website.</p>
             <h3>Display</h3>
             <div class="nc-box -bordered preview-box">
                 <div class="nc-center preview">
@@ -185,6 +194,78 @@ const spacingModifiers = [
                     <div></div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-reel">
+        <SectionTitle title=".nc-reel" nested={false} sectionId="nc-reel" />
+        <p class="nc-hint">
+            An accessible alternative to the carousel. Allows scrolling and tabbing and all the
+            other goodness.
+        </p>
+        <div class="nc-flow">
+            <h3>Use cases</h3>
+            <p>
+                it is ideal for browsing categories of things: movies, products, news stories,
+                photographs.
+            </p>
+            <h3>Display</h3>
+            <div class="nc-box -bordered preview-box">
+                <div class="nc-reel preview">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <h3>Modifiers</h3>
+            <ModifierList
+                modifiers={[
+                    ...spacingModifiers,
+                    {
+                        name: '-nobar',
+                        description: 'Hides the scrollbar',
+                    },
+                ]}
+            />
+            <h3>Variables</h3>
+            <ModifierList
+                modifiers={[
+                    {
+                        name: '--reel-height',
+                        description: 'Set a fixed height on the reel. Default is "auto".',
+                    },
+                    {
+                        name: '--reel-item-width',
+                        description: 'Set a fixed width on the reel items. Default is "auto".',
+                    },
+                    {
+                        name: '--reel-scrollbar-padding',
+                        description:
+                            'Padding between the scrollbar and the content. Default is "var(--spacing-base)".',
+                    },
+                    {
+                        name: '--reel-scrollbar-height',
+                        description: 'Height of the scrollbar. Default is "var(--spacing-base)".',
+                    },
+                    {
+                        name: '--reel-scrollbar-bg',
+                        description:
+                            'Background of the scrollbar. Default is "var(--color-surface-emphasis)".',
+                    },
+                    {
+                        name: '--reel-scrollbar-fg',
+                        description:
+                            'Foreground of the scrollbar. Default is "var(--color-text-on-emphasis)".',
+                    },
+                ]}
+            />
         </div>
     </section>
 </div>
