@@ -201,75 +201,7 @@
         }
     }
 
-    /*
-        The Reel is a robust and efficient antidote to carousel/slider components.
-        As already discussed and demonstrated,
-        it is ideal for browsing categories of things:
-        movies; products; news stories; photographs.
-
-        itemWidth 	string 	"auto" 	The width of each item (child element) in the Reel
-        height 	string 	"auto" 	The height of the Reel itself
-     */
-    .nc-reel {
-        display: flex;
-        block-size: var(--reel-height, auto);
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding-block-end: var(--reel-scrollbar-padding, var(--spacing-base));
-        gap: var(--spacing-base);
-        animation: reel-shadow linear;
-        animation-timeline: scroll(self inline);
-
-        &:not(.-nobar) {
-            scrollbar-color: var(--reel-scrollbar-fg, var(--color-text-on-emphasis))
-                var(--reel-scrollbar-bg, var(--color-surface-emphasis));
-
-            &::-webkit-scrollbar {
-                block-size: var(--reel-scrollbar-height, var(--spacing-base));
-            }
-
-            &::-webkit-scrollbar-track {
-                background-color: var(--reel-scrollbar-bg, var(--color-surface-emphasis));
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background-color: var(--reel-scrollbar-bg, var(--color-surface-emphasis));
-                background-image: linear-gradient(
-                    var(--reel-scrollbar-bg, var(--color-surface-emphasis)) 0,
-                    var(--reel-scrollbar-bg, var(--color-surface-emphasis))
-                        calc(var(--reel-scrollbar-height, var(--spacing-base)) * 0.25),
-                    var(--reel-scrollbar-fg, var(--color-text-on-emphasis))
-                        calc(var(--reel-scrollbar-height, var(--spacing-base)) * 0.25),
-                    var(--reel-scrollbar-fg, var(--color-text-on-emphasis))
-                        calc(var(--reel-scrollbar-height, var(--spacing-base)) * 0.75),
-                    var(--reel-scrollbar-bg, var(--color-surface-emphasis))
-                        calc(var(--reel-scrollbar-height, var(--spacing-base)) * 0.75)
-                );
-            }
-        }
-
-        & > * {
-            flex: 0 0 var(--reel-item-width, auto);
-        }
-
-        & > img {
-            block-size: 100%;
-            flex-basis: var(--reel-item-width, auto);
-            width: var(--reel-item-width, auto);
-        }
-    }
-
-    @keyframes reel-shadow {
-        from {
-            box-shadow: inset -0.5rem 0 1rem -0.8rem rgb(0 0 0 / 100%);
-        }
-
-        to {
-            box-shadow: inset 0.5rem 0 1rem -0.8rem rgb(0 0 0 / 100%);
-        }
-    }
-
-    :where(.nc-stack, .nc-cluster, .nc-with-sidebar, .nc-grid, .nc-reel) {
+    :where(.nc-stack, .nc-cluster, .nc-with-sidebar, .nc-grid, .nc-gallery) {
         &.-tiny {
             gap: var(--spacing-tiny);
         }

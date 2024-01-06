@@ -73,7 +73,7 @@ const spacingModifiers = [
         }
     }
 
-    .nc-reel.preview {
+    .nc-gallery.preview {
         & > div {
             inline-size: 12rem;
             aspect-ratio: 2 / 1;
@@ -197,8 +197,8 @@ const spacingModifiers = [
         </div>
     </section>
 
-    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-reel">
-        <SectionTitle title=".nc-reel" nested={false} sectionId="nc-reel" />
+    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-gallery">
+        <SectionTitle title=".nc-gallery" nested={false} sectionId="nc-gallery" />
         <p class="nc-hint">
             An accessible alternative to the carousel. Allows scrolling and tabbing and all the
             other goodness.
@@ -211,7 +211,7 @@ const spacingModifiers = [
             </p>
             <h3>Display</h3>
             <div class="nc-box -bordered preview-box">
-                <div class="nc-reel preview">
+                <div class="nc-gallery preview">
                     <div></div>
                     <div></div>
                     <div></div>
@@ -229,8 +229,8 @@ const spacingModifiers = [
                 modifiers={[
                     ...spacingModifiers,
                     {
-                        name: '-nobar',
-                        description: 'Hides the scrollbar',
+                        name: '-custom-scrollbar',
+                        description: 'Enables the custom scrollbar',
                     },
                 ]}
             />
@@ -238,31 +238,36 @@ const spacingModifiers = [
             <ModifierList
                 modifiers={[
                     {
-                        name: '--reel-height',
-                        description: 'Set a fixed height on the reel. Default is "auto".',
+                        name: '--gallery-size',
+                        description: 'Set a fixed height on the gallery. Default is "auto".',
                     },
                     {
-                        name: '--reel-item-width',
-                        description: 'Set a fixed width on the reel items. Default is "auto".',
+                        name: '--gallery-item-size',
+                        description: 'Set a fixed width on the gallery items. Default is "auto".',
                     },
                     {
-                        name: '--reel-scrollbar-padding',
+                        name: '--gallery-scrollbar-padding',
                         description:
                             'Padding between the scrollbar and the content. Default is "var(--spacing-base)".',
                     },
                     {
-                        name: '--reel-scrollbar-height',
+                        name: '--gallery-scrollbar-height',
                         description: 'Height of the scrollbar. Default is "var(--spacing-base)".',
                     },
                     {
-                        name: '--reel-scrollbar-bg',
+                        name: '--gallery-scrollbar-bg',
                         description:
                             'Background of the scrollbar. Default is "var(--color-surface-emphasis)".',
                     },
                     {
-                        name: '--reel-scrollbar-fg',
+                        name: '--gallery-scrollbar-fg',
                         description:
                             'Foreground of the scrollbar. Default is "var(--color-text-on-emphasis)".',
+                    },
+                    {
+                        name: '--gallery-scroll-padding-inline',
+                        description:
+                            'Sets the scroll padding inline for the items. Default is "var(--spacing-base)"',
                     },
                 ]}
             />
