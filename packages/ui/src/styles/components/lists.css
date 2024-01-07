@@ -14,11 +14,9 @@
 
 :where(.nc-list-reset) {
     list-style: none;
-    max-inline-size: 100%;
-    padding-inline-start: 0;
+    padding: 0;
 
     & li {
-        margin-inline: 0;
-        max-inline-size: 100%;
+        margin: 0;
     }
 }
