@@ -128,7 +128,7 @@
         display: block;
     }
 
-    :where(p, li, summary) {
+    :where(p, summary) {
         max-inline-size: var(--measure-base);
         font-size: inherit;
         line-height: var(--line-height-base);

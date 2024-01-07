@@ -10,9 +10,4 @@
         width: 1px;
         white-space: nowrap;
     }
-
-    #content-start:focus {
-        background: var(--color-surface-inset);
-        color: var(--color-text-default);
-    }
 }
