@@ -1,5 +1,12 @@
 # @nordcode/ui-generator
 
+## 2.3.1
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @nordcode/ui@2.0.0
+
 ## 2.3.0
 
 ### Minor Changes
