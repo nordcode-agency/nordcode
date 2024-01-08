@@ -42,48 +42,38 @@
         -moz-text-size-adjust: none;
         -webkit-text-size-adjust: none;
         text-size-adjust: none;
+        text-rendering: optimizeSpeed;
     }
 
     :where(body) {
-        min-block-size: 100%;
-        min-inline-size: 100%;
-
+        min-block-size: 100vh;
         font-weight: var(--font-weight-default);
-
         color: var(--color-text-default);
         background-color: var(--color-surface-default);
-
         font-family: var(--font-family-default);
         line-height: var(--line-height-base);
         font-style: normal;
     }
 
     /* Remove default margin in favour of better control in authored CSS */
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    figure,
-    blockquote,
-    dl,
-    dd {
+    :where(body, h1, h2, h3, h4, p, figure, blockquote, dl, dd) {
         margin: 0;
     }
 
     /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-    ul[role='list'],
-    ol[role='list'] {
+    :where(ul[role='list'], ol[role='list']) {
         list-style: none;
     }
 
     /* Balance text wrapping on headings */
-    h1,
-    h2,
-    h3,
-    h4 {
+    :where(h1, h2, h3, h4) {
         text-wrap: balance;
+    }
+
+    /* A elements that don't have a class get default styles */
+    :where(a:not([class])) {
+        text-decoration-skip-ink: auto;
+        color: currentColor;
     }
 
     :where(img, svg, video, canvas, audio, iframe, embed, object) {

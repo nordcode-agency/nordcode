@@ -198,11 +198,10 @@
         filter: contrast(0.64) opacity(0.64);
     }
 
-    :where(code, kbd) {
+    :where(code, kbd, var) {
         font-family: var(--font-family-mono);
         letter-spacing: 0;
         font-weight: var(--font-weight-default);
-        background: var(--color-surface-inset);
         padding-inline: 0.25ch;
         padding-block: 0.125lh;
         max-inline-size: fit-content;
@@ -216,6 +215,10 @@
         word-wrap: normal;
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
+    }
+
+    :where(code) {
+        background: var(--color-surface-inset);
     }
 
     :where(pre) {
