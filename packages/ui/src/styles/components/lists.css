@@ -8,13 +8,14 @@
     & > li + li:before {
         content: '';
         border-left: var(--border-width-medium) solid var(--color-border-muted);
-        margin: 0 var(--spacing-near);
+        margin: 0 1ch;
     }
 }
 
 :where(.nc-list-reset) {
     list-style: none;
     padding: 0;
+    margin: 0;
 
     & li {
         margin: 0;

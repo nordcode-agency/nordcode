@@ -1,7 +1,6 @@
 :where(.nc-breadcrumbs) {
     inline-size: max-content;
     max-inline-size: 100%;
-    padding: var(--spacing-near);
     background-color: var(--nc-breadcrumbs-surface, transparent);
     color: var(--nc-breadcrumbs-text, --color-text-default);
 
@@ -14,7 +13,7 @@
     }
 
     & > *:not(:last-child):after {
-        padding-inline: 0.25em;
+        padding-inline: 1ch;
         color: var(--nc-breadcrumbs-fg-subtle, --color-text-subtle);
         content: '›';
         font-size: inherit;

@@ -12,7 +12,7 @@
         color: var(--color-text-default);
 
         &:not(:last-of-type) {
-            padding-block-end: var(--spacing-base);
+            padding-block-end: 0.5lh;
             border-bottom: var(--border-width-thin) solid var(--color-border-muted);
         }
     }
@@ -25,7 +25,7 @@
         align-items: flex-start;
         word-break: break-word;
         container: description-list / inline-size;
-        row-gap: var(--spacing-base);
+        row-gap: 0.5lh;
     }
 
     :where(dd, dt) {
@@ -36,17 +36,19 @@
     @container description-list (min-width: 30rem) {
         :where(dt) {
             grid-column: 1 / 1;
-            padding-inline-end: var(--spacing-base);
+            padding-inline-end: 2ch;
             padding-block-end: 0;
+            min-block-size: 100%;
 
             &:not(:last-of-type) {
-                padding-block-end: var(--spacing-base);
+                padding-block-end: 0.5lh;
                 border-bottom: var(--border-width-thin) solid var(--color-border-muted);
             }
         }
 
         :where(dd) {
             grid-column: 2 / 2;
+            min-block-size: 100%;
         }
     }
 
@@ -60,13 +62,13 @@
         font-weight: var(--font-weight-default);
         color: var(--color-surface-subtle);
         background-color: var(--color-text-default);
-        padding: 0 var(--spacing-near);
+        padding: 0 1ch;
     }
 
     :where(details) {
         inline-size: 100%;
         background-color: var(--color-surface-inset);
-        padding: var(--spacing-base);
+        padding: 0.5lh 2ch;
         border-radius: var(--border-radius-medium);
         border: var(--border-width-thin) solid var(--color-border-default);
 
@@ -83,7 +85,7 @@
 
     .note,
     blockquote {
-        padding: var(--spacing-base);
+        padding: 0.5lh 2ch;
         inline-size: 100%;
         background-color: var(--color-surface-default);
         color: var(--color-text-default);
@@ -91,37 +93,6 @@
         border: var(--border-width-thin) solid var(--color-border-default);
         border-radius: var(--border-radius-medium);
         margin-inline: 0;
-
-        &.-info:before {
-            content: '?';
-        }
-
-        &.-warning:before {
-            content: '!';
-        }
-    }
-
-    .note.-info:before,
-    .note.-warning:before,
-    blockquote:before {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform: translate(-50%, -50%);
-        background-color: var(--color-surface-emphasis);
-        color: var(--color-text-on-emphasis);
-        inline-size: 1em;
-        block-size: 1em;
-        line-height: 1;
-        font-size: var(--font-size-large);
-        position: absolute;
-        box-shadow: var(--shadow-near);
-        inset-inline-start: 0;
-        inset-block-start: 0;
-    }
-
-    blockquote:before {
-        content: '»';
     }
 
     cite {
@@ -232,8 +203,8 @@
         letter-spacing: 0;
         font-weight: var(--font-weight-default);
         background: var(--color-surface-inset);
-        padding-inline: var(--spacing-nearest);
-        padding-block: var(--spacing-tiny);
+        padding-inline: 0.25ch;
+        padding-block: 0.125lh;
         max-inline-size: fit-content;
         border-radius: var(--border-radius-small);
         line-height: inherit;
@@ -248,7 +219,7 @@
     }
 
     :where(pre) {
-        padding: var(--spacing-base);
+        padding: 0.5lh 2ch;
         inline-size: 100%;
         overflow-x: auto;
         color: var(--color-text-default);
@@ -291,7 +262,7 @@
     }
 
     :where(td, th) {
-        padding: var(--spacing-near);
+        padding: 0.25lh 1ch;
         line-height: var(--line-height-small);
         white-space: nowrap;
         font-variant-numeric: tabular-nums;
@@ -350,14 +321,14 @@
     }
 
     :where(ul, ol) {
-        padding-inline-start: 3ch;
+        padding-inline-start: 2ch;
     }
 
     :where(li + li) {
-        margin-top: var(--spacing-near);
+        margin-top: 0.5lh;
     }
 
     :where(li > :is(ul, ol)) {
-        margin-top: var(--spacing-near);
+        margin-top: 0.5lh;
     }
 }

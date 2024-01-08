@@ -1,5 +1,5 @@
 .nc-icon {
-    --icon-size: calc(var(--spacing-base) * 1.5);
+    --icon-size: 2ex;
 
     display: block;
     inline-size: var(--icon-size);
@@ -11,23 +11,23 @@
     }
 
     &[data-size='xs'] {
-        --icon-size: var(--spacing-near);
+        --icon-size: 1ex;
     }
 
     &[data-size='sm'] {
-        --icon-size: var(--spacing-base);
+        --icon-size: 1.5ex;
     }
 
     &[data-size='md'] {
-        --icon-size: calc(var(--spacing-base) * 1.5);
+        --icon-size: 2ex;
     }
 
     &[data-size='lg'] {
-        --icon-size: calc(var(--spacing-base) * 1.75);
+        --icon-size: 3ex;
     }
 
     &[data-size='xl'] {
-        --icon-size: calc(var(--spacing-base) * 2);
+        --icon-size: 4ex;
     }
 
     &[data-size='inline'] {
@@ -40,7 +40,7 @@
 }
 
 :where(button, .nc-button) > .nc-icon {
-    --icon-size: 1rlh;
+    --icon-size: 2ex;
 }
 
 @keyframes spinning {
