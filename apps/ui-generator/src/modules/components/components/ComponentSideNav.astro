@@ -15,12 +15,8 @@ const { sections } = Astro.props;
         position: sticky;
         top: 0;
 
-        & ul {
-            gap: var(--spacing-nearest);
-        }
-
         & li > ul {
-            margin-block-start: var(--spacing-nearest);
+            padding-inline-start: 1ch;
         }
 
         & a {
