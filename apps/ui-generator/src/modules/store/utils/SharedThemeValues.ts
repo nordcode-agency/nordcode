@@ -219,7 +219,7 @@ export const getDarkColorValues = (
 
     const base = blackScale(0).oklch;
     const emphasis = whiteScale(0.15).set('c', (c) => c * 1.25).oklch;
-    const surface = blackScale(0.6).oklch;
+    const surface = blackScale(0.65).oklch;
     const hover = blackScale(0).oklch;
 
     const [contrastLight, contrastDark] = [whiteScale(1), blackScale(1)];
