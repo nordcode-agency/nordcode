@@ -19,7 +19,7 @@
         ['--color-surface-default', '--color-text-default'],
     ];
 
-    const updateContrasts = (store: ConfigStore) => {
+    const updateContrasts = () => {
         const themeEl = document.querySelector('.live-theme')
         if (!themeEl) {
             return;
@@ -62,49 +62,29 @@
         border: var(--color-status-success-text);
     }
 
+    p {
+        block-size: 100%;
 
-
+    }
 </style>
 
-<div class="nc-cluster">
-    {#each contrasts as [bg, fg, wcag, apca]}
-        <div class="nc-box" style="background: var({bg})">
-            <p style="color: var({fg}); font-size: var(--font-size-small)" class="nc-stack -tiny">
-                <span>Text: {fg}</span>
-                <span>Surface: {bg}</span>
-                <span class="contrast" data-ok="{wcag > 4.5}" data-good="{wcag > 7}" data-fail="{wcag < 4.5}">WCAG: {wcag}</span>
-                <span class="contrast" data-ok="{Math.abs(apca) > 60}" data-good="{Math.abs(apca) > 75}" data-fail="{Math.abs(apca) < 60}">APCA: {apca}</span>
-            </p>
-        </div>
-    {/each}
-<!--    <div class="box" style="padding: 2em; background: var(&#45;&#45;color-brand-primary-surface)">-->
-<!--        <p style="color: var(&#45;&#45;color-brand-primary-base)">Hallo</p>-->
-<!--    </div>-->
-<!--    <div class="box" style="padding: 2em; background: var(&#45;&#45;color-brand-secondary-surface)">-->
-<!--        <p style="color: var(&#45;&#45;color-brand-secondary-base)">Hallo</p>-->
-<!--    </div>-->
-<!--    <div class="box" style="padding: 2em; background: var(&#45;&#45;color-brand-primary-base)">-->
-<!--        <p style="color: var(&#45;&#45;color-brand-primary-surface)">Hallo</p>-->
-<!--    </div>-->
-<!--    <div class="box" style="padding: 2em; background: var(&#45;&#45;color-brand-secondary-base)">-->
-<!--        <p style="color: var(&#45;&#45;color-brand-secondary-surface)">Hallo</p>-->
-<!--    </div>-->
-<!--    <div class="box" style="padding: 2em; background: var(&#45;&#45;color-brand-primary-emphasis)">-->
-<!--        <p style="color: var(&#45;&#45;color-brand-primary-surface)">Hallo</p>-->
-<!--    </div>-->
-<!--    <div class="box" style="padding: 2em; background: var(&#45;&#45;color-brand-secondary-emphasis)">-->
-<!--        <p style="color: var(&#45;&#45;color-brand-secondary-surface)">Hallo</p>-->
-<!--    </div>-->
-<!--    <div class="box" style="padding: 2em; background: var(&#45;&#45;color-brand-primary-base)">-->
-<!--        <p style="color: var(&#45;&#45;color-brand-primary-contrast)">Hallo</p>-->
-<!--    </div>-->
-<!--    <div class="box" style="padding: 2em; background: var(&#45;&#45;color-brand-secondary-base)">-->
-<!--        <p style="color: var(&#45;&#45;color-brand-secondary-contrast)">Hallo</p>-->
-<!--    </div>-->
-<!--    <div class="box" style="padding: 2em; background: var(&#45;&#45;color-surface-default)">-->
-<!--        <p style="color: var(&#45;&#45;color-brand-primary-base)">Hallo</p>-->
-<!--    </div>-->
-<!--    <div class="box" style="padding: 2em; background: var(&#45;&#45;color-surface-default)">-->
-<!--        <p style="color: var(&#45;&#45;color-brand-secondary-base)">Hallo</p>-->
-<!--    </div>-->
-</div>
+<section class="nc-region nc-stack -stretched">
+    <div class="nc-stack">
+        <p class="nc-hint">
+            Updates don't yet work for color theme swaps. Please update manually after switching.
+        </p>
+        <button class="nc-button" on:click={updateContrasts}>Update</button>
+    </div>
+    <div class="nc-grid">
+        {#each contrasts as [bg, fg, wcag, apca]}
+            <div class="nc-box" style="background: var({bg})">
+                <p style="color: var({fg}); font-size: var(--font-size-small)" class="nc-stack -tiny">
+                    <span>Text: {fg}</span>
+                    <span>Surface: {bg}</span>
+                    <span class="contrast mt-auto" data-ok="{wcag > 4.5}" data-good="{wcag > 7}" data-fail="{wcag < 4.5}">WCAG: {wcag}</span>
+                    <span class="contrast" data-ok="{Math.abs(apca) > 60}" data-good="{Math.abs(apca) > 75}" data-fail="{Math.abs(apca) < 60}">APCA: {apca}</span>
+                </p>
+            </div>
+        {/each}
+    </div>
+</section>
