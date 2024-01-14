@@ -37,7 +37,7 @@ export const getMappedColors = <T>(
         );
 };
 
-export const getColorTheme = (store: ConfigStore): Record<string, string> => {
+export const getColorTheme = (store: ConfigStore) => {
     const textHue = store.useSecondaryColorForFG ? +store.secondaryHue : +store.primaryHue;
     const surfaceHue = store.useSecondaryColorForBG ? +store.secondaryHue : +store.primaryHue;
     const borderHue = store.useSecondaryColorForBorders ? +store.secondaryHue : +store.primaryHue;

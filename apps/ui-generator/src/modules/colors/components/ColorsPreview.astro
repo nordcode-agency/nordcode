@@ -2,6 +2,7 @@
 import ColorPreview from './ColorPreview.astro';
 import { Content as ColorsExplanation } from '../../../../docs/colors.md';
 import PresetPreview from '../../presets/components/PresetPreview.astro';
+import ContrastsChecks from './ContrastChecks.svelte';
 
 const colors = [
     {
@@ -190,32 +191,7 @@ const colors = [
     <PresetPreview />
     <hr />
 
-    <div class="nc-cluster">
-        <div class="box" style="padding: 2em; background: var(--color-brand-primary-surface)">
-            <p style="color: var(--color-brand-primary-base)">Hallo</p>
-        </div>
-        <div class="box" style="padding: 2em; background: var(--color-brand-secondary-surface)">
-            <p style="color: var(--color-brand-secondary-base)">Hallo</p>
-        </div>
-        <div class="box" style="padding: 2em; background: var(--color-brand-primary-base)">
-            <p style="color: var(--color-brand-primary-surface)">Hallo</p>
-        </div>
-        <div class="box" style="padding: 2em; background: var(--color-brand-secondary-base)">
-            <p style="color: var(--color-brand-secondary-surface)">Hallo</p>
-        </div>
-        <div class="box" style="padding: 2em; background: var(--color-brand-primary-emphasis)">
-            <p style="color: var(--color-brand-primary-surface)">Hallo</p>
-        </div>
-        <div class="box" style="padding: 2em; background: var(--color-brand-secondary-emphasis)">
-            <p style="color: var(--color-brand-secondary-surface)">Hallo</p>
-        </div>
-        <div class="box" style="padding: 2em; background: var(--color-brand-primary-base)">
-            <p style="color: var(--color-brand-primary-contrast)">Hallo</p>
-        </div>
-        <div class="box" style="padding: 2em; background: var(--color-brand-secondary-base)">
-            <p style="color: var(--color-brand-secondary-contrast)">Hallo</p>
-        </div>
-    </div>
+    <ContrastsChecks client:load="svelte" />
     <hr />
     <div class="nc-cluster -near">
         <button class="nc-button">Default / Basic</button>
