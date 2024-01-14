@@ -28,14 +28,24 @@
                         step="0.01"
                         bind:value={$configStore.primaryChroma} />
                     <Input
-                        name="colorLCHPrimaryLightness"
-                        label="Primary Lightness"
-                        id="colorLCHPrimaryLightness"
+                        name="colorLCHPrimaryLightnessLight"
+                        label="Primary Lightness Light"
+                        id="colorLCHPrimaryLightnessLight"
                         type="range"
                         max="100"
                         min="0"
                         step="1"
                         bind:value={$configStore.primaryLightness} />
+
+                    <Input
+                        name="colorLCHPrimaryLightnessDark"
+                        label="Primary Lightness Dark"
+                        id="colorLCHPrimaryLightnessDark"
+                        type="range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        bind:value={$configStore.primaryLightnessDark} />
                     <Input
                         name="colorLCHSecondaryHue"
                         label="Secondary Hue"
@@ -55,14 +65,24 @@
                         step="0.01"
                         bind:value={$configStore.secondaryChroma} />
                     <Input
-                        name="colorLCHSecondaryLightness"
-                        label="Secondary Lightness"
-                        id="colorLCHSecondaryLightness"
+                        name="colorLCHSecondaryLightnessLight"
+                        label="Secondary Lightness Light"
+                        id="colorLCHSecondaryLightnessLight"
                         type="range"
                         max="100"
                         min="0"
                         step="1"
                         bind:value={$configStore.secondaryLightness} />
+
+                    <Input
+                        name="colorLCHSecondaryLightnessDark"
+                        label="Secondary Lightness Dark"
+                        id="colorLCHSecondaryLightnessDark"
+                        type="range"
+                        max="100"
+                        min="0"
+                        step="1"
+                        bind:value={$configStore.secondaryLightnessDark} />
 
                 </fieldset>
             </div>
@@ -85,6 +105,13 @@
                         id="colorUseSecondaryColorForBG"
                         type="checkbox"
                         bind:value={$configStore.useSecondaryColorForBG} />
+
+                    <Input
+                        name="colorUseSecondaryColorForBorders"
+                        label="Use secondary color for Borders"
+                        id="colorUseSecondaryColorForBorders"
+                        type="checkbox"
+                        bind:value={$configStore.useSecondaryColorForBorders} />
                 </fieldset>
             </div>
             <div class="nc-box -bordered">

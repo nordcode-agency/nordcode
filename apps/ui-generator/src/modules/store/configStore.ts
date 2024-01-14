@@ -83,9 +83,11 @@ export type ConfigStore = {
     // COLORS
     primaryHue: number;
     primaryLightness: number;
+    primaryLightnessDark: number;
     primaryChroma: number;
     secondaryHue: number;
     secondaryLightness: number;
+    secondaryLightnessDark: number;
     secondaryChroma: number;
 
     lightTextLightnessScaleFactor: number;
@@ -95,6 +97,8 @@ export type ConfigStore = {
 
     useSecondaryColorForFG: boolean;
     useSecondaryColorForBG: boolean;
+    useSecondaryColorForBorders: boolean;
+
     lightNeutralChromaFG: number;
     lightNeutralChromaBG: number;
     lightNeutralChromaBorder: number;
@@ -191,13 +195,16 @@ const defaultStore: ConfigStore = {
 
     primaryHue: 265,
     primaryLightness: 65,
+    primaryLightnessDark: 65,
     primaryChroma: 0.3,
     secondaryHue: 215,
     secondaryLightness: 65,
+    secondaryLightnessDark: 65,
     secondaryChroma: 0.3,
 
     useSecondaryColorForFG: false,
     useSecondaryColorForBG: false,
+    useSecondaryColorForBorders: false,
     lightNeutralChromaFG: 0.03,
     lightNeutralChromaBG: 0.03,
     lightNeutralChromaBorder: 0.03,
