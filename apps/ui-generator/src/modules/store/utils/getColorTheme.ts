@@ -1,11 +1,15 @@
 import type { ConfigStore } from '../configStore';
 import {
-    getTextLightValues,
-    getSurfaceLightValues,
-    getBorderLightValues,
-    getTextDarkValues,
-    getSurfaceDarkValues,
     getBorderDarkValues,
+    getBorderLightValues,
+    getSurfaceDarkValues,
+    getSurfaceLightValues,
+    getTextDarkValues,
+    getTextLightValues,
+    getLightColorValues,
+    getStatusDarkColorValues,
+    getStatusLightColorValues,
+    getDarkColorValues,
     infoHue,
     getInfoLightness,
     warningHue,
@@ -14,152 +18,154 @@ import {
     getSuccessLightness,
     dangerHue,
     getDangerLightness,
-    getLightColorValues,
-    getDarkColorValues,
-    getStatusLightColorValues,
-    getStatusDarkColorValues,
 } from './SharedThemeValues';
+import type { AdapterMapFn } from './ThemeAdapters';
 
-export const getThemeFromOklch = (store: ConfigStore) => {
+export const getMappedColors = <T>(
+    store: ConfigStore,
+    adapterFn: AdapterMapFn<T>,
+): Record<string, T> => {
+    const theme = getColorTheme(store);
+    return Object.entries(theme)
+        .map(adapterFn)
+        .reduce(
+            (acc, [name, value]) => {
+                acc[name] = value;
+                return acc;
+            },
+            {} as Record<string, T>,
+        );
+};
+
+export const getColorTheme = (store: ConfigStore): Record<string, string> => {
     const textHue = store.useSecondaryColorForFG ? +store.secondaryHue : +store.primaryHue;
     const surfaceHue = store.useSecondaryColorForBG ? +store.secondaryHue : +store.primaryHue;
+    const borderHue = store.useSecondaryColorForBorders ? +store.secondaryHue : +store.primaryHue;
 
     const textLightValues = getTextLightValues(
         +store.lightNeutralTextLightness,
         +store.lightTextLightnessScaleFactor,
         +store.lightNeutralChromaFG,
-        textHue,
+        +textHue,
     );
 
     const surfaceLightValues = getSurfaceLightValues(
         +store.lightNeutralSurfaceLightness,
         +store.lightSurfaceLightnessScaleFactor,
         +store.lightNeutralChromaBG,
-        surfaceHue,
+        +surfaceHue,
     );
 
     const borderLightValues = getBorderLightValues(
         +store.lightNeutralBorderLightness,
         +store.lightTextLightnessScaleFactor,
         +store.lightNeutralChromaBorder,
-        textHue,
+        +borderHue,
     );
 
     const textDarkValues = getTextDarkValues(
         +store.darkNeutralTextLightness,
         +store.darkTextLightnessScaleFactor,
         +store.darkNeutralChromaFG,
-        textHue,
+        +textHue,
     );
 
     const surfaceDarkValues = getSurfaceDarkValues(
         +store.darkNeutralSurfaceLightness,
         +store.darkSurfaceLightnessScaleFactor,
         +store.darkNeutralChromaBG,
-        surfaceHue,
+        +surfaceHue,
     );
 
     const borderDarkValues = getBorderDarkValues(
         +store.darkNeutralBorderLightness,
         +store.darkTextLightnessScaleFactor,
         +store.darkNeutralChromaBorder,
-        textHue,
+        +borderHue,
     );
 
-    return `
-        /* COLORS */
-
-        /* Light Theme */
-
-        ${getLightColorTheme(
+    return {
+        ...getLightColorTheme(
             'primary',
             +store.primaryHue,
             +store.primaryChroma,
             +store.primaryLightness,
-        )}
-
-        ${getLightColorTheme(
+        ),
+        ...getLightColorTheme(
             'secondary',
             +store.secondaryHue,
             +store.secondaryChroma,
             +store.secondaryLightness,
-        )}
-        
-        ${mapValuesToToken('text-light', textLightValues)}
-        ${mapValuesToToken('surface-light', surfaceLightValues)}
-        ${mapValuesToToken('border-light', borderLightValues)}
+        ),
+        ...mapValuesToToken('text-light', textLightValues),
+        ...mapValuesToToken('surface-light', surfaceLightValues),
+        ...mapValuesToToken('border-light', borderLightValues),
 
-        /* Dark Theme */
-
-        ${getDarkColorTheme(
+        ...getDarkColorTheme(
             'primary',
             +store.primaryHue,
             +store.primaryChroma,
-            +store.primaryLightness,
-        )}
-
-        ${getDarkColorTheme(
+            +store.primaryLightnessDark,
+        ),
+        ...getDarkColorTheme(
             'secondary',
             +store.secondaryHue,
             +store.secondaryChroma,
-            +store.secondaryLightness,
-        )}
-        
-        ${mapValuesToToken('text-dark', textDarkValues)}
-        ${mapValuesToToken('surface-dark', surfaceDarkValues)}
-        ${mapValuesToToken('border-dark', borderDarkValues)}
+            +store.secondaryLightnessDark,
+        ),
+        ...mapValuesToToken('text-dark', textDarkValues),
+        ...mapValuesToToken('surface-dark', surfaceDarkValues),
+        ...mapValuesToToken('border-dark', borderDarkValues),
 
-        /*    Status */
-        
-        ${getStatusLightColorTheme(
+        ...getStatusLightColorTheme(
             'info',
             infoHue,
             getInfoLightness(+store.primaryLightness),
             +store.primaryLightness,
-        )}
-        ${getStatusDarkColorTheme(
+        ),
+        ...getStatusDarkColorTheme(
             'info',
             infoHue,
             getInfoLightness(+store.primaryLightness),
             +store.primaryLightness,
-        )}
-        ${getStatusLightColorTheme(
+        ),
+        ...getStatusLightColorTheme(
             'warning',
             warningHue,
             getWarningLightness(+store.primaryLightness),
             +store.primaryLightness,
-        )}
-        ${getStatusDarkColorTheme(
+        ),
+        ...getStatusDarkColorTheme(
             'warning',
             warningHue,
             getWarningLightness(+store.primaryLightness),
             +store.primaryLightness,
-        )}
-        ${getStatusLightColorTheme(
+        ),
+        ...getStatusLightColorTheme(
             'success',
             successHue,
             getSuccessLightness(+store.primaryLightness),
             +store.primaryLightness,
-        )}
-        ${getStatusDarkColorTheme(
+        ),
+        ...getStatusDarkColorTheme(
             'success',
             successHue,
             getSuccessLightness(+store.primaryLightness),
             +store.primaryLightness,
-        )}
-        ${getStatusLightColorTheme(
+        ),
+        ...getStatusLightColorTheme(
             'danger',
             dangerHue,
             getDangerLightness(+store.primaryLightness),
             +store.primaryLightness,
-        )}
-        ${getStatusDarkColorTheme(
+        ),
+        ...getStatusDarkColorTheme(
             'danger',
             dangerHue,
             getDangerLightness(+store.primaryLightness),
             +store.primaryLightness,
-        )}
-        `;
+        ),
+    };
 };
 
 const getLightColorTheme = (
@@ -187,7 +193,7 @@ const getStatusLightColorTheme = (
     hue: number,
     lightness: number,
     primaryLightness: number,
-): string => {
+): Record<string, string> => {
     const colorValues = getStatusLightColorValues(lightness, hue, primaryLightness);
     return mapValuesToToken(`status-${name}-light`, colorValues);
 };
@@ -197,23 +203,21 @@ const getStatusDarkColorTheme = (
     hue: number,
     lightness: number,
     primaryLightness: number,
-): string => {
+): Record<string, string> => {
     const colorValues = getStatusDarkColorValues(lightness, hue, primaryLightness);
     return mapValuesToToken(`status-${name}-dark`, colorValues);
 };
 
-const mapValuesToToken = (baseName: string, values: Record<string, string>): string => {
-    return Object.entries(values)
-        .map(([variant, value]) => {
-            return getColorTokenAndValue(`${baseName}-${variant}`, value);
-        })
-        .join('\n')
-        .trim();
-};
-
-const getColorTokenAndValue = (name: string, value: string): string => {
-    return `
---color-${name}-lch: ${value};
---color-${name}: oklch(var(--color-${name}-lch));
-  `.trim();
+const mapValuesToToken = (
+    baseName: string,
+    values: Record<string, string>,
+): Record<string, string> => {
+    return Object.entries(values).reduce(
+        (acc, [variant, value]) => {
+            const colorName = `--color-${baseName}-${variant}`;
+            acc[colorName] = value;
+            return acc;
+        },
+        {} as Record<string, string>,
+    );
 };

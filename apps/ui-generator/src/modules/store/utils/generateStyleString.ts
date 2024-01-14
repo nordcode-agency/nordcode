@@ -1,6 +1,6 @@
 import type { ConfigStore } from '../configStore';
 import { getShadows } from './getShadows';
-import { getThemeFromOklch } from './getThemeFromOklch.ts';
+import { getStringTheme } from './getStringTheme';
 
 export const generateStyleString = (store: ConfigStore): string => {
     return `
@@ -60,6 +60,6 @@ export const generateStyleString = (store: ConfigStore): string => {
 
         ${getShadows(store)}
 
-        ${getThemeFromOklch(store)}
+        ${getStringTheme(store)}
         `.replace(/^ +/gm, '');
 };
