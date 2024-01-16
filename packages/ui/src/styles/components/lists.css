@@ -1,14 +1,31 @@
 :where(.nc-meta-list) {
     inline-size: 100%;
+    container: metalist / inline-size;
 
     & > li {
-        white-space: nowrap;
-    }
+        overflow-wrap: break-word;
+        max-inline-size: 100%;
+        hyphens: auto;
+        inline-size: 100%;
 
-    & > li + li:before {
-        content: '';
-        border-left: var(--border-width-medium) solid var(--color-border-muted);
-        margin: 0 1ch;
+        & > span {
+            overflow-wrap: break-word;
+            max-inline-size: 100%;
+            hyphens: auto;
+        }
+    }
+}
+
+@container metalist (min-width: 20rem) {
+    li {
+        inline-size: auto;
+
+        &:not(:last-child):after {
+            content: '';
+            border-right: var(--border-width-medium) solid var(--color-border-muted);
+            margin: 0 1ch;
+            transform: calc(var(--border-width-medium) / 2);
+        }
     }
 }
 
