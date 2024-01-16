@@ -68,7 +68,7 @@
     :where(details) {
         inline-size: 100%;
         background-color: var(--color-surface-inset);
-        padding: 0.5lh 2ch;
+        padding: 0.75lh 2ch;
         border-radius: var(--border-radius-medium);
         border: var(--border-width-thin) solid var(--color-border-default);
 
@@ -80,6 +80,7 @@
             cursor: pointer;
             color: var(--color-text-default);
             inline-size: 100%;
+            font-weight: var(--font-weight-strong);
         }
     }
 
@@ -87,12 +88,23 @@
     blockquote {
         padding: 0.5lh 2ch;
         inline-size: 100%;
-        background-color: var(--color-surface-default);
         color: var(--color-text-default);
         position: relative;
-        border: var(--border-width-thin) solid var(--color-border-default);
         border-radius: var(--border-radius-medium);
         margin-inline: 0;
+        font-family: var(--font-family-serif);
+
+        & cite {
+            display: block;
+            margin-block-start: var(--spacing-near);
+            max-inline-size: max-content;
+        }
+
+        & cite:before {
+            content: '—';
+            margin-inline-end: 0.5ch;
+            color: var(--color-text-subtle);
+        }
     }
 
     cite {
@@ -179,6 +191,10 @@
         &:hover {
             text-decoration-color: var(--color-brand-primary-base);
         }
+    }
+
+    :where(em, i) {
+        font-family: var(--font-family-serif);
     }
 
     :where(strong, b) {

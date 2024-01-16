@@ -4,6 +4,9 @@
     :before {
         box-sizing: border-box;
         accent-color: var(--color-brand-primary-base);
+        font-kerning: normal;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
     }
 
     :where(:not(dialog)) {
