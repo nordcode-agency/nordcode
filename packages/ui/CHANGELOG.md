@@ -1,5 +1,21 @@
 # @nordcode/ui
 
+## 2.1.0
+
+### Minor Changes
+
+-   ## Tweaks to base styles
+
+    -   Add missing style: `var`
+    -   Add text-rendering: optimizeSpeed;
+    -   Fix Metalist styles
+    -   Increase details default padding
+    -   Simplify and improve blockquote styles
+    -   Make em and i serif for improved italics
+    -   Add font-smoothing to base
+    -   Use `ex` in nc-flow for improved vertical rhythm
+    -   Update line-height calculations after switching to `ex`-based line-heights in the generator
+
 ## 2.0.0
 
 ### Major Changes

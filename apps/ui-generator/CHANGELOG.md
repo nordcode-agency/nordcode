@@ -1,5 +1,22 @@
 # @nordcode/ui-generator
 
+## 2.4.0
+
+### Minor Changes
+
+-   ## Add contrast check, simplify generation, tweak generations
+
+    -   Simplify color generation by running it all through the same mapping function and adding adapters
+    -   Increase brand surface lightness in dark themes
+    -   Add possibility to change dark lightness individually
+    -   Add contrast checks to color preview
+    -   Generate lineheights using `ex`
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @nordcode/ui@2.1.0
+
 ## 2.3.1
 
 ### Patch Changes
