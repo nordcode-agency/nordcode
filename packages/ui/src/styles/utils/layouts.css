@@ -33,19 +33,20 @@
     }
 
     .nc-flow > * + * {
-        margin-block-start: var(--flow-gap, var(--spacing-base));
+        margin-block-start: var(--flow-gap, 0.6lh);
     }
 
-    .nc-flow > *:is(h1, h2, h3, h4, h5, h6, blockquote, .note) {
-        --flow-gap: var(--spacing-far);
+    .nc-flow > *:is(h1, h2, h3, h4, h5, h6) {
+        max-inline-size: var(--flow-headline-meassure, 32ch);
+        --flow-gap: 1.3lh;
     }
 
     .nc-flow > *:is(h1, h2, h3, h4, h5, h6) + p {
-        --flow-gap: var(--spacing-near);
+        --flow-gap: 0.5lh;
     }
 
     .nc-flow > p + p {
-        --flow-gap: var(--spacing-base);
+        --flow-gap: 0.8lh;
     }
 
     .nc-flow > figure {
