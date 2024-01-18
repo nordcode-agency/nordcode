@@ -16,9 +16,9 @@ export const generateStyleString = (store: ConfigStore): string => {
         --font-weight-active: ${store.fontWeightActive};
         --font-weight-strong: ${store.fontWeightStrong};
 
-        --line-height-large: ${store.lineHeightLarge};
-        --line-height-base: ${store.lineHeightBase};
-        --line-height-small: ${store.lineHeightSmall};
+        --line-height-large: ${store.lineHeightLarge}ex;
+        --line-height-base: ${store.lineHeightBase}ex;
+        --line-height-small: ${store.lineHeightSmall}ex;
 
         --tracking-base: ${store.trackingStandard}ch;
         --tracking-tight: ${store.trackingTight}ch;

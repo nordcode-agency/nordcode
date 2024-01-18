@@ -131,9 +131,9 @@ const defaultStore: ConfigStore = {
     fontSizeDisplay: 2.25,
     fontSizeUnit: 'rem',
 
-    lineHeightLarge: 2,
-    lineHeightBase: 1.7,
-    lineHeightSmall: 1.2,
+    lineHeightLarge: 3.4,
+    lineHeightBase: 3,
+    lineHeightSmall: 2.4,
 
     trackingTight: -0.04,
     trackingStandard: 0,
