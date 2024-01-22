@@ -19,6 +19,30 @@
         font-family: var(--font-family-serif);
     }
 
+    .font-size-display {
+        font-size: var(--font-size-display);
+    }
+
+    .font-size-largest {
+        font-size: var(--font-size-largest);
+    }
+
+    .font-size-large {
+        font-size: var(--font-size-large);
+    }
+
+    .font-size-base {
+        font-size: var(--font-size-base);
+    }
+
+    .font-size-small {
+        font-size: var(--font-size-small);
+    }
+
+    .font-size-smallest {
+        font-size: var(--font-size-smallest);
+    }
+
     .nc-hint {
         color: var(--color-text-muted);
         font-size: var(--font-size-small);
