@@ -247,16 +247,42 @@
             <div class="nc-box -bordered">
                 <fieldset class="nc-fieldset nc-stack">
                     <legend>Shadows</legend>
-                    <div class="nc-cluster -nowrap">
 
-                        <Input
-                            name="colorShadowChroma"
-                            label="Shadow Chroma"
-                            id="colorShadowChroma"
-                            type="number"
-                            step="0.01"
-                            bind:value={$configStore.shadowColorChroma} />
-                    </div>
+                    <Input
+                        name="lightColorShadowLightness"
+                        label="Light Shadow Lightness"
+                        id="lightColorShadowLightness"
+                        type="number"
+                        step="1"
+                        max="100"
+                        bind:value={$configStore.lightShadowColorLightness} />
+                    <Input
+                        name="lightColorShadowChroma"
+                        label="Light Shadow Chroma"
+                        id="lightColorShadowChroma"
+                        type="number"
+                        step="0.01"
+                        bind:value={$configStore.lightShadowColorChroma} />
+
+                    <hr />
+
+                    <Input
+                        name="darkColorShadowLightness"
+                        label="Dark Shadow Lightness"
+                        id="darkColorShadowLightness"
+                        type="number"
+                        step="1"
+                        max="100"
+                        bind:value={$configStore.darkShadowColorLightness} />
+
+                    <Input
+                        name="darkColorShadowChroma"
+                        label="Dark Shadow Chroma"
+                        id="darkColorShadowChroma"
+                        type="number"
+                        step="0.01"
+                        bind:value={$configStore.darkShadowColorChroma} />
+
                     <InputWrapper
                         label="Shadow Distance Nearest (Base)"
                         id="shadowDistanceNearestMain"

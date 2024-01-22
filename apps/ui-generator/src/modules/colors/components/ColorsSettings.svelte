@@ -46,6 +46,7 @@
                         min="0"
                         step="1"
                         bind:value={$configStore.primaryLightnessDark} />
+                    <hr />
                     <Input
                         name="colorLCHSecondaryHue"
                         label="Secondary Hue"

@@ -1,10 +1,10 @@
 import type { ConfigStore } from '../configStore';
 
 export const getShadows = (store: ConfigStore) => {
-    const shadowColorLightLch = `${store.lightNeutralBorderLightness}% ${store.shadowColorChroma} ${store.primaryHue}`;
+    const shadowColorLightLch = `${store.lightShadowColorLightness}% ${store.lightShadowColorChroma} ${store.primaryHue}`;
     const shadowColorLight = `oklch(${shadowColorLightLch})`;
 
-    const shadowColorDarkLch = `${store.darkNeutralBorderLightness}% ${store.shadowColorChroma} ${store.primaryHue}`;
+    const shadowColorDarkLch = `${store.darkShadowColorLightness}% ${store.darkShadowColorChroma} ${store.primaryHue}`;
     const shadowColorDark = `oklch(${shadowColorDarkLch})`;
 
     const shadowConfig = {

@@ -99,6 +99,11 @@ const { title } = Astro.props;
             .section-to-observe {
                 scroll-margin-top: var(--spacing-far);
             }
+
+            details > fieldset {
+                padding-inline: var(--p-x-details);
+                padding-block-end: var(--p-y-details);
+            }
         </style>
 
         <script src="@nordcode/ui/src/modules/dialogs/ts/dialogs.ts"></script>

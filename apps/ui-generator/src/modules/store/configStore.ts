@@ -76,7 +76,10 @@ export type ConfigStore = {
     shadowDistanceMedium: number;
     shadowDistanceFar: number;
 
-    shadowColorChroma: number;
+    lightShadowColorLightness: number;
+    darkShadowColorLightness: number;
+    lightShadowColorChroma: number;
+    darkShadowColorChroma: number;
 
     shadowDistanceScale: number;
 
@@ -187,7 +190,10 @@ const defaultStore: ConfigStore = {
     shadowDistanceMedium: 9,
     shadowDistanceFar: 29,
 
-    shadowColorChroma: 0.1,
+    lightShadowColorLightness: 37,
+    darkShadowColorLightness: 87,
+    lightShadowColorChroma: 0.1,
+    darkShadowColorChroma: 0.1,
 
     shadowDistanceScale: 3,
 
