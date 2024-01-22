@@ -6,12 +6,10 @@
         configStore,
         updateBorderRadiusScale,
         updateBorderWidthScale,
-        updateShadowDistanceScale,
         updateSpacingScale,
         updateSpacingBase,
         updateBorderWidths,
         updateBorderRadius,
-        updateShadowDistance,
     } from "../../store/configStore";
 </script>
 
@@ -283,83 +281,87 @@
                         step="0.01"
                         bind:value={$configStore.darkShadowColorChroma} />
 
-                    <InputWrapper
-                        label="Shadow Distance Nearest (Base)"
-                        id="shadowDistanceNearestMain"
-                        hint="Set the base value for border radius calculations"
-                    >
+                    <hr />
 
-                        <input class="nc-input"
-                               id="shadowDistanceNearestMain"
-                               name="shadowDistanceNearestMain"
-                               aria-required="true"
-                               autocomplete="off"
-                               type="number"
-                               step="0.1"
-                               value={$configStore.shadowDistanceNearest}
-                               on:input={evt =>updateShadowDistance(evt.target.value)}
-                        />
-                    </InputWrapper>
+                    <Input
+                        name="shadowConfigDistanceBase"
+                        label="Shadow Distance Base"
+                        id="shadowConfigDistanceBase"
+                        type="range"
+                        step="0.1"
+                        min="0.1"
+                        max="3"
+                        bind:value={$configStore.shadowConfigDistanceBase} />
 
-                    <InputWrapper
-                        label="Shadow Distance Scale"
-                        id="shadowDistanceScale"
-                        hint="Harmoniously update your shadow distances based on this scale"
-                    >
+                    <Input
+                        name="shadowConfigDistanceScaleFactor"
+                        label="Shadow Distance Scale Factor"
+                        id="shadowConfigDistanceScaleFactor"
+                        type="range"
+                        step="0.1"
+                        min="1"
+                        max="10"
+                        bind:value={$configStore.shadowConfigDistanceScaleFactor} />
 
-                        <input class="nc-input"
-                               id="shadowDistanceScale"
-                               name="shadowDistanceScale"
-                               aria-required="true"
-                               autocomplete="off"
-                               type="number"
-                               step="0.1"
-                               value={$configStore.shadowDistanceScale}
-                               on:input={evt => updateShadowDistanceScale(evt.target.value)}
-                        />
-                    </InputWrapper>
-                    <details class="full-width">
-                        <summary>Use custom shadow distances?</summary>
-                        <fieldset class="nc-fieldset nc-stack">
-                            <legend>Custom Shadow Distances</legend>
-                            <Input
-                                name="shadowDistanceInset"
-                                label="Shadow Distance Inset"
-                                id="shadowDistanceInset"
-                                type="number"
-                                step="1"
-                                bind:value={$configStore.shadowDistanceInset} />
-                            <Input
-                                name="shadowDistanceNearest"
-                                label="Shadow Distance Nearest"
-                                id="shadowDistanceNearest"
-                                type="number"
-                                step="1"
-                                hint="This is the base for scale calculations"
-                                bind:value={$configStore.shadowDistanceNearest} />
-                            <Input
-                                name="shadowDistanceNear"
-                                label="Shadow Distance Near"
-                                id="shadowDistanceNear"
-                                type="number"
-                                step="1"
-                                bind:value={$configStore.shadowDistanceNear} />
-                            <Input
-                                name="shadowDistanceMedium"
-                                label="Shadow Distance Medium"
-                                id="shadowDistanceMedium"
-                                type="number"
-                                step="1"
-                                bind:value={$configStore.shadowDistanceMedium} />
-                            <Input
-                                name="shadowDistanceFar"
-                                label="Shadow Distance Far"
-                                id="shadowDistanceFar"
-                                type="number"
-                                step="1"
-                                bind:value={$configStore.shadowDistanceFar} />
-                        </fieldset>
-                    </details>
+                    <Input
+                        name="shadowConfigBlurScaleFactor"
+                        label="Shadow Blur Scale Factor"
+                        id="shadowConfigBlurScaleFactor"
+                        type="range"
+                        step="0.1"
+                        min="0"
+                        max="10"
+                        bind:value={$configStore.shadowConfigBlurScaleFactor} />
+
+                    <Input
+                        name="shadowConfigStartTransparency"
+                        label="Shadow Start Transparency"
+                        id="shadowConfigStartTransparency"
+                        type="range"
+                        step="0.01"
+                        min="0"
+                        max="1"
+                        bind:value={$configStore.shadowConfigStartTransparency} />
+
+                    <Input
+                        name="shadowConfigTransparencyScale"
+                        label="Shadow Transparency Scale"
+                        id="shadowConfigTransparencyScale"
+                        type="range"
+                        step="0.01"
+                        min="0.3"
+                        max="1"
+                        bind:value={$configStore.shadowConfigTransparencyScale} />
+
+                    <Input
+                        name="shadowConfigSpreadMin"
+                        label="Shadow Spread Min"
+                        id="shadowConfigSpreadMin"
+                        type="range"
+                        step="0.1"
+                        min="0"
+                        max="4"
+                        bind:value={$configStore.shadowConfigSpreadMin} />
+
+                    <Input
+                        name="shadowConfigSpreadMax"
+                        label="Shadow Spread Max"
+                        id="shadowConfigSpreadMax"
+                        type="range"
+                        step="0.1"
+                        min="-4"
+                        max="4"
+                        bind:value={$configStore.shadowConfigSpreadMax} />
+
+                    <Input
+                        name="shadowConfigXOffsetFactor"
+                        label="Shadow X Offset Factor"
+                        id="shadowConfigXOffsetFactor"
+                        type="range"
+                        step="0.1"
+                        min="-4"
+                        max="4"
+                        bind:value={$configStore.shadowConfigXOffsetFactor} />
 
                 </fieldset>
             </div>

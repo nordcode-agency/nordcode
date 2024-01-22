@@ -62,6 +62,7 @@ export type ConfigStore = {
 
     borderRadiusScale: number;
 
+    shadowConfigDistanceBase: number;
     shadowConfigDistanceScaleFactor: number;
     shadowConfigBlurScaleFactor: number;
     shadowConfigStartTransparency: number;
@@ -70,18 +71,10 @@ export type ConfigStore = {
     shadowConfigSpreadMin: number;
     shadowConfigXOffsetFactor: number;
 
-    shadowDistanceInset: number;
-    shadowDistanceNearest: number;
-    shadowDistanceNear: number;
-    shadowDistanceMedium: number;
-    shadowDistanceFar: number;
-
     lightShadowColorLightness: number;
     darkShadowColorLightness: number;
     lightShadowColorChroma: number;
     darkShadowColorChroma: number;
-
-    shadowDistanceScale: number;
 
     // COLORS
     primaryHue: number;
@@ -176,26 +169,19 @@ const defaultStore: ConfigStore = {
 
     // Shadows
 
-    shadowConfigDistanceScaleFactor: 0.64,
+    shadowConfigDistanceBase: 0.5,
+    shadowConfigDistanceScaleFactor: 1.5,
     shadowConfigBlurScaleFactor: 2.2,
-    shadowConfigStartTransparency: 0.12,
-    shadowConfigTransparencyScale: 1.2,
-    shadowConfigSpreadMax: -4,
+    shadowConfigStartTransparency: 0.5,
+    shadowConfigTransparencyScale: 0.86,
+    shadowConfigSpreadMax: -2,
     shadowConfigSpreadMin: 1,
-    shadowConfigXOffsetFactor: 0,
-
-    shadowDistanceInset: 3,
-    shadowDistanceNearest: 1,
-    shadowDistanceNear: 3,
-    shadowDistanceMedium: 9,
-    shadowDistanceFar: 29,
+    shadowConfigXOffsetFactor: 0.5,
 
     lightShadowColorLightness: 37,
     darkShadowColorLightness: 87,
     lightShadowColorChroma: 0.1,
     darkShadowColorChroma: 0.1,
-
-    shadowDistanceScale: 3,
 
     // COLORS
 
@@ -300,32 +286,6 @@ export const updateBorderRadius = (baseSize: number) => {
             borderRadiusSmall: baseSize,
             borderRadiusMedium: round(baseSize * store.borderRadiusScale),
             borderRadiusLarge: round(baseSize * store.borderRadiusScale ** 2),
-        };
-    });
-};
-
-export const updateShadowDistanceScale = (newScale: number) => {
-    configStore?.update((store) => {
-        return {
-            ...store,
-            shadowDistanceScale: newScale,
-            shadowDistanceNear: round(store.shadowDistanceNearest * newScale),
-            shadowDistanceMedium: round(store.shadowDistanceNearest * newScale ** 2),
-            shadowDistanceInset: round(store.shadowDistanceNearest * newScale),
-            shadowDistanceFar: round(store.shadowDistanceNearest * newScale ** 3),
-        };
-    });
-};
-
-export const updateShadowDistance = (baseSize: number) => {
-    configStore?.update((store) => {
-        return {
-            ...store,
-            shadowDistanceNearest: baseSize,
-            shadowDistanceNear: round(baseSize * store.shadowDistanceScale),
-            shadowDistanceMedium: round(baseSize * store.shadowDistanceScale ** 2),
-            shadowDistanceInset: round(baseSize * store.shadowDistanceScale),
-            shadowDistanceFar: round(baseSize * store.shadowDistanceScale ** 3),
         };
     });
 };
