@@ -131,17 +131,7 @@
     :where(h1, h2, h3, h4, h5, h6) {
         line-height: var(--line-height-small);
         color: inherit;
-        overflow-wrap: break-word;
         max-inline-size: 100%;
-        hyphens: auto;
-        font-weight: var(--font-weight-heading);
-        letter-spacing: var(--tracking-tight);
-
-        & > span {
-            overflow-wrap: break-word;
-            max-inline-size: 100%;
-            hyphens: auto;
-        }
     }
 
     :where(h1) {
