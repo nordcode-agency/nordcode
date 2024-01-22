@@ -1,5 +1,17 @@
 # @nordcode/ui
 
+## 2.2.0
+
+### Minor Changes
+
+-   ## Small tweaks and additions
+
+    -   add all font sizes as utility classes
+    -   add sr-only as screen-reader class too
+    -   make details more clickable by adding the padding to the summary instead
+    -   add badges variants for primary & secondary
+    -   make breadcrumbs and buttons more consistent
+
 ## 2.1.0
 
 ### Minor Changes
