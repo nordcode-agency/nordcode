@@ -1,7 +1,4 @@
 @layer base {
-    :where(ol, ul) {
-    }
-
     :where(dt) {
         font-weight: var(--font-weight-active);
         color: var(--color-text-default);
@@ -66,14 +63,20 @@
     }
 
     :where(details) {
+        --p-x-details: 2ch;
+        --p-y-details: 0.75lh;
+
         inline-size: 100%;
         background-color: var(--color-surface-inset);
-        padding: 0.75lh 2ch;
         border-radius: var(--border-radius-medium);
         border: var(--border-width-thin) solid var(--color-border-default);
 
-        & > *:not(summary):first-of-type {
-            margin-block-start: var(--spacing-base);
+        & > * {
+            padding-inline: var(--p-x-details);
+        }
+
+        & > *:last-child {
+            padding-block-end: var(--p-y-details);
         }
 
         & > summary {
@@ -81,6 +84,12 @@
             color: var(--color-text-default);
             inline-size: 100%;
             font-weight: var(--font-weight-strong);
+            padding-inline: var(--p-x-details);
+            padding-block: var(--p-y-details);
+        }
+
+        &[open] > summary {
+            padding-block-end: calc(var(--p-y-details) * 2);
         }
     }
 
@@ -121,10 +130,12 @@
 
     :where(h1, h2, h3, h4, h5, h6) {
         line-height: var(--line-height-small);
-        color: var(--color-text-default);
+        color: inherit;
         overflow-wrap: break-word;
         max-inline-size: 100%;
         hyphens: auto;
+        font-weight: var(--font-weight-heading);
+        letter-spacing: var(--tracking-tight);
 
         & > span {
             overflow-wrap: break-word;
@@ -134,33 +145,27 @@
     }
 
     :where(h1) {
-        font-size: var(--font-size-largest);
-        font-weight: var(--font-weight-heading);
+        font-size: var(--font-size-display);
     }
 
     :where(h2) {
-        font-size: var(--font-size-large);
-        font-weight: var(--font-weight-heading);
+        font-size: var(--font-size-largest);
     }
 
     :where(h3) {
-        font-size: var(--font-size-base);
-        font-weight: var(--font-weight-heading);
+        font-size: var(--font-size-large);
     }
 
     :where(h4) {
         font-size: var(--font-size-base);
-        font-weight: var(--font-weight-default);
     }
 
     :where(h5) {
-        font-size: var(--font-size-base);
-        font-weight: var(--font-weight-default);
+        font-size: var(--font-size-small);
     }
 
     :where(h6) {
-        font-size: var(--font-size-small);
-        font-weight: var(--font-weight-heading);
+        font-size: var(--font-size-smallest);
     }
 
     ::marker {
@@ -173,7 +178,7 @@
         color: var(--color-surface-default);
     }
 
-    :where(a, .link) {
+    :where(a, .nc-link) {
         color: inherit;
         font-family: var(--font-family-link);
         text-decoration: underline;
