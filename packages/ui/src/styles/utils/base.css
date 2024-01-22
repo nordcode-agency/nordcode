@@ -87,10 +87,6 @@
             padding-inline: var(--p-x-details);
             padding-block: var(--p-y-details);
         }
-
-        &[open] > summary {
-            padding-block-end: calc(var(--p-y-details) * 2);
-        }
     }
 
     .note,
