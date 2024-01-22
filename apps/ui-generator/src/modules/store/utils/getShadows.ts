@@ -14,7 +14,6 @@ export const getShadows = (store: ConfigStore) => {
         startTransparency: +store.shadowConfigStartTransparency,
         transparencyScale: +store.shadowConfigTransparencyScale,
         spreadMax: +store.shadowConfigSpreadMax,
-        spreadMin: +store.shadowConfigSpreadMin,
         xOffsetFactor: +store.shadowConfigXOffsetFactor,
     };
 
@@ -103,8 +102,17 @@ const getLchColorWithTransparency = (color: string, transparency: number) =>
 
 const getSpread = (min: number, max: number, totalSteps: number, step: number) => {
     const spread = min + ((max - min) / totalSteps) * step;
+    console.log(min, max, step, spread);
     return round(spread);
 };
+
+const scaleSpread = (target: number, totalSteps: number, currentStep: number): number => {
+    return (currentStep / totalSteps) * target;
+};
+// def scale(i, x):
+//     y = ((i - 1) / (3 - 1)) * x
+//     return y
+
 // use color for creating the correct one
 const generateShadow = (
     color: string,
@@ -116,7 +124,6 @@ const generateShadow = (
         startTransparency: number;
         transparencyScale: number;
         spreadMax: number;
-        spreadMin: number;
         xOffsetFactor: number;
     },
 ) => {
@@ -127,7 +134,6 @@ const generateShadow = (
         startTransparency,
         transparencyScale,
         spreadMax,
-        spreadMin,
         xOffsetFactor,
     } = config;
 
@@ -140,7 +146,13 @@ const generateShadow = (
             color,
             startTransparency * transparencyScale ** i,
         );
-        const spread = getSpread(+spreadMax, +spreadMin, amountOfShadows, i);
+
+        // spread -> von 0 bis maxSpread
+        // last shadow = maxSpread
+
+        // const spread = getSpread(+spreadMax, +spreadMin, amountOfShadows, i);
+        const spread = scaleSpread(+spreadMax, amountOfShadows, i);
+        console.log(i, spread);
 
         const newShadow = `${d * xOffsetFactor}px ${d}px ${blur}px ${spread}px ${shadowColor}`;
 

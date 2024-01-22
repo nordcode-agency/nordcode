@@ -334,23 +334,13 @@
                         bind:value={$configStore.shadowConfigTransparencyScale} />
 
                     <Input
-                        name="shadowConfigSpreadMin"
-                        label="Shadow Spread Min"
-                        id="shadowConfigSpreadMin"
-                        type="range"
-                        step="0.1"
-                        min="0"
-                        max="4"
-                        bind:value={$configStore.shadowConfigSpreadMin} />
-
-                    <Input
                         name="shadowConfigSpreadMax"
                         label="Shadow Spread Max"
                         id="shadowConfigSpreadMax"
                         type="range"
                         step="0.1"
-                        min="-4"
-                        max="4"
+                        min="-6"
+                        max="0"
                         bind:value={$configStore.shadowConfigSpreadMax} />
 
                     <Input

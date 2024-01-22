@@ -68,7 +68,6 @@ export type ConfigStore = {
     shadowConfigStartTransparency: number;
     shadowConfigTransparencyScale: number;
     shadowConfigSpreadMax: number;
-    shadowConfigSpreadMin: number;
     shadowConfigXOffsetFactor: number;
 
     lightShadowColorLightness: number;
@@ -175,7 +174,6 @@ const defaultStore: ConfigStore = {
     shadowConfigStartTransparency: 0.5,
     shadowConfigTransparencyScale: 0.86,
     shadowConfigSpreadMax: -2,
-    shadowConfigSpreadMin: 1,
     shadowConfigXOffsetFactor: 0.5,
 
     lightShadowColorLightness: 37,
