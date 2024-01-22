@@ -68,9 +68,7 @@
 
         background-color: var(--_button-background);
         color: var(--_button-color);
-        border-width: var(--border-width-thin);
-        border-color: var(--_button-border-color);
-        border-style: solid;
+        border: var(--border-width-thin) solid var(--_button-border-color);
         border-radius: var(--_button-border-radius);
         padding-inline: var(--_button-padding-inline);
         min-block-size: var(--button-height-base);
@@ -97,7 +95,7 @@
         -webkit-touch-callout: none;
         inset-block-start: calc(var(--_button-offset-distance) * -1);
         inset-inline-start: calc(var(--_button-offset-distance) * -1);
-        line-height: 1;
+        line-height: var(--line-height-base);
     }
 
     :where(

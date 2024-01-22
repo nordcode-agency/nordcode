@@ -14,7 +14,7 @@
 
     & > *:not(:last-child):after {
         padding-inline: 1ch;
-        color: var(--nc-breadcrumbs-fg-subtle, --color-text-subtle);
+        color: inherit;
         content: '›';
         font-size: inherit;
     }
@@ -25,6 +25,7 @@
 
     & a {
         text-decoration: none;
+        color: inherit;
 
         &:hover {
             text-decoration: underline;
