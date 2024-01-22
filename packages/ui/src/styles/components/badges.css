@@ -11,9 +11,16 @@
     inline-size: max-content;
     line-height: 1;
 
+    &.-primary {
+        --color: var(--color-brand-primary-base);
+    }
+
     &.-secondary {
+        --color: var(--color-brand-secondary-base);
+    }
+
+    &.-muted {
         --color: var(--color-text-muted);
-        border-color: var(--color-border-muted);
     }
 
     &.-emphasis {
