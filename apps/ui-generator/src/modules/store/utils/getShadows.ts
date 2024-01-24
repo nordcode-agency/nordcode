@@ -147,12 +147,7 @@ const generateShadow = (
             startTransparency * transparencyScale ** i,
         );
 
-        // spread -> von 0 bis maxSpread
-        // last shadow = maxSpread
-
-        // const spread = getSpread(+spreadMax, +spreadMin, amountOfShadows, i);
-        const spread = scaleSpread(+spreadMax, amountOfShadows, i);
-        console.log(i, spread);
+        const spread = round(scaleSpread(+spreadMax, amountOfShadows, i));
 
         const newShadow = `${d * xOffsetFactor}px ${d}px ${blur}px ${spread}px ${shadowColor}`;
 
