@@ -17,7 +17,7 @@ const clamp = (value: number): number => {
 };
 
 const generateValueString = (l: number, c: number, h: number, opacity?: number): string => {
-    let baseColor = `${l.toFixed(2)} ${c.toFixed(2)} ${h.toFixed(2)}`;
+    let baseColor = `${l.toFixed(3)} ${c.toFixed(3)} ${h.toFixed(3)}`;
 
     if (opacity) {
         baseColor += ` / ${opacity}`;
@@ -105,6 +105,8 @@ export const getSurfaceLightValues = (
     const subtle = blackScale(scalingFactor * 2).oklch;
     const inset = blackScale(scalingFactor * 4).oklch;
     const emphasis = blackScale(1).oklch;
+
+    console.log(subtle);
 
     return {
         default: generateValueString(base[0], base[1], base[2]),

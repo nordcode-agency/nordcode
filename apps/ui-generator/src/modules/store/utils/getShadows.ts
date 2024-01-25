@@ -140,7 +140,7 @@ const generateShadow = (
     let shadowString = '';
 
     for (let i = 0; i <= amountOfShadows; i++) {
-        const d = baseDistance * scaleFactor ** i;
+        const d = round(baseDistance * scaleFactor ** i);
         const blur = round(d * blurFactor);
         const shadowColor = getLchColorWithTransparency(
             color,
@@ -149,7 +149,9 @@ const generateShadow = (
 
         const spread = round(scaleSpread(+spreadMax, amountOfShadows, i));
 
-        const newShadow = `${d * xOffsetFactor}px ${d}px ${blur}px ${spread}px ${shadowColor}`;
+        const newShadow = `${round(
+            d * xOffsetFactor,
+        )}px ${d}px ${blur}px ${spread}px ${shadowColor}`;
 
         const isFlat = blurFactor === 0 && startTransparency === 1 && transparencyScale === 1;
         // it's a flat theme, so we dont need extra shadows
