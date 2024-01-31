@@ -139,7 +139,7 @@
                         id="lightTextScaleFactor"
                         hint="Changes the lightness difference between neutral color tokens. Affects text and border colors."
                         type="number"
-                        step="0.01"
+                        step="0.001"
                         bind:value={$configStore.lightTextLightnessScaleFactor} />
 
                     <hr />
@@ -164,7 +164,7 @@
                         label="Light Surface Lightness Scale Factor"
                         id="lightSurfaceScaleFactor"
                         type="number"
-                        step="0.01"
+                        step="0.001"
                         bind:value={$configStore.lightSurfaceLightnessScaleFactor} />
                     <hr />
                     <Input
