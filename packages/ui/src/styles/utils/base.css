@@ -128,6 +128,7 @@
         line-height: var(--line-height-small);
         color: inherit;
         max-inline-size: 100%;
+        font-weight: var(--font-weight-heading);
     }
 
     :where(h1) {
