@@ -25,22 +25,77 @@ const generateValueString = (l: number, c: number, h: number, opacity?: number):
     return baseColor;
 };
 
-type TextValues = {
-    default: string;
-    muted: string;
-    subtle: string;
-    'on-emphasis': string;
+const getClosestToValue = (options: number[], value: number): number => {
+    return options.reduce(
+        (prev, curr) => {
+            return Math.abs(curr - value) < Math.abs(prev - value) ? curr : prev;
+        },
+        options[0],
+    );
 };
+
+/**
+ * Calculate the hue rotation based on the distance between the current lightness
+ * and the target lightness and the distance between the current hue and the closest hue option.
+ */
+const getHueRotation = (
+    currentLightness: number,
+    targetLightness: number,
+    distance: number,
+): number => {
+    const maxHueRotation = 20;
+    const hueRotation =
+        Math.abs(currentLightness - targetLightness) * (distance / 100) * maxHueRotation;
+    return hueRotation;
+};
+/*
+   On hue rotation:
+   The trick is to just **make the movement of the hue match up with the movement of the saturation and brightness**.
+    If you want a darker variation, move the hue towards red (0°), green
+    (120°), or blue (240°), whichever is closest — and vice versa (with
+    cyan, magenta, and yellow) for lighter variations. (Of course, this
+    assumes you’re also lowering brightness and increasing saturation)
+    (https://www.learnui.design/blog/color-in-ui-design-a-practical-framework.html)
+
+    Der Farbspace in oklch ist etwas anders, die hues sind anders verteilt, darum sind die Werte angepasst.
+    Die Regel bleibt aber die gleiche.
+ */
 const generateScales = (
     l: number,
     c: number,
     h: number,
 ): [ReturnType<typeof Color.prototype.range>, ReturnType<typeof Color.prototype.range>] => {
-    const white = new Color('oklch', [0.99, c * 0.15, h]);
-    const black = new Color('oklch', [0.01, c * 0.15, h]);
+    // darkOptionHues: red, green, blue, red
+    const darkOptions = [29, 142, 264, 389];
+    // lightOptionHues: magenta, yellow, cyan, magenta
+    const lightOptions = [-32, 110, 195, 328];
+
+    const darkScaleTargetL = 0.03;
+    const lightScaleTargetL = 0.97;
+
+    const closestDark = getClosestToValue(darkOptions, h) % 360;
+    const closestLight = (getClosestToValue(lightOptions, h) + 360) % 360;
+
+    const lightDistance = Math.abs(closestLight - h);
+    const darkDistance = Math.abs(closestDark - h);
+
+    const lightHueRotation = getHueRotation(l, lightScaleTargetL, lightDistance);
+    const darkHueRotation = getHueRotation(l, darkScaleTargetL, darkDistance);
+    const lightHue = h > closestLight ? h - lightHueRotation : h + lightHueRotation;
+    const darkHue = h > closestDark ? h - darkHueRotation : h + darkHueRotation;
+
+    const white = new Color('oklch', [lightScaleTargetL, c * 0.2, lightHue]);
+    const black = new Color('oklch', [darkScaleTargetL, c * 0.2, darkHue]);
     const color = new Color('oklch', [l, c, h]);
 
     return [color.range(white, { space: 'oklch' }), color.range(black, { space: 'oklch' })];
+};
+
+type TextValues = {
+    default: string;
+    muted: string;
+    subtle: string;
+    'on-emphasis': string;
 };
 
 export const getTextLightValues = (
@@ -105,8 +160,6 @@ export const getSurfaceLightValues = (
     const subtle = blackScale(scalingFactor * 2).oklch;
     const inset = blackScale(scalingFactor * 4).oklch;
     const emphasis = blackScale(1).oklch;
-
-    console.log(subtle);
 
     return {
         default: generateValueString(base[0], base[1], base[2]),
@@ -199,7 +252,8 @@ export const getLightColorValues = (
     const [contrastLight, contrastDark] = [whiteScale(1), blackScale(1)];
 
     const contrast =
-        contrastLight.contrast(whiteScale(0), 'APCA') > contrastDark.contrast(whiteScale(0), 'APCA')
+        Math.abs(contrastLight.contrast(whiteScale(0), 'APCA')) >
+        Math.abs(contrastDark.contrast(whiteScale(0), 'APCA'))
             ? contrastLight.oklch
             : contrastDark.oklch;
 
@@ -227,7 +281,8 @@ export const getDarkColorValues = (
     const [contrastLight, contrastDark] = [whiteScale(1), blackScale(1)];
 
     const contrast =
-        contrastLight.contrast(whiteScale(0), 'APCA') > contrastDark.contrast(whiteScale(0), 'APCA')
+        Math.abs(contrastLight.contrast(whiteScale(0), 'APCA')) >
+        Math.abs(contrastDark.contrast(whiteScale(0), 'APCA'))
             ? contrastLight.oklch
             : contrastDark.oklch;
 
