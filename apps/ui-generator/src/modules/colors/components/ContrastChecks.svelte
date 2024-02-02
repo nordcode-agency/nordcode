@@ -81,8 +81,8 @@
                 <p style="color: var({fg}); font-size: var(--font-size-small)" class="nc-stack -tiny">
                     <span>Text: {fg}</span>
                     <span>Surface: {bg}</span>
-                    <span class="contrast mt-auto" data-ok="{wcag > 4.5}" data-good="{wcag > 7}" data-fail="{wcag < 4.5}">WCAG: {wcag}</span>
-                    <span class="contrast" data-ok="{Math.abs(apca) > 60}" data-good="{Math.abs(apca) > 75}" data-fail="{Math.abs(apca) < 60}">APCA: {apca}</span>
+                    <span class="contrast mt-auto" data-ok="{wcag >= 4.5}" data-good="{wcag >= 7}" data-fail="{wcag < 4.5}">WCAG: {wcag}</span>
+                    <span class="contrast" data-ok="{Math.abs(apca) >= 60}" data-good="{Math.abs(apca) >= 75}" data-fail="{Math.abs(apca) < 60}">APCA: {apca}</span>
                 </p>
             </div>
         {/each}
