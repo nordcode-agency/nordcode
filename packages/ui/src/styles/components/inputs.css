@@ -277,6 +277,22 @@
         & > .nc-hint {
             margin-inline-start: auto;
         }
+
+        &::-webkit-slider-thumb,
+        &::-moz-range-thumb {
+            appearance: none;
+            inline-size: 1lh;
+            block-size: 1lh;
+            border-radius: var(--_input-border-radius);
+            border: var(--_input-border);
+            background-color: var(--color-text-default);
+            box-shadow: var(--shadow-near);
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--color-brand-primary-base);
+            }
+        }
     }
 
     /*EXTRAS START HERE */
