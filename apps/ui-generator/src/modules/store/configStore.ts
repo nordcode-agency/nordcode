@@ -168,8 +168,8 @@ const defaultStore: ConfigStore = {
 
     // Shadows
 
-    shadowConfigDistanceBase: 0.5,
-    shadowConfigDistanceScaleFactor: 1.5,
+    shadowConfigDistanceBase: 0.8,
+    shadowConfigDistanceScaleFactor: 1.3,
     shadowConfigBlurScaleFactor: 2,
     shadowConfigStartTransparency: 0.3,
     shadowConfigTransparencyScale: 0.85,
@@ -188,7 +188,7 @@ const defaultStore: ConfigStore = {
     primaryLightnessDark: 80,
     primaryChroma: 0.3,
     secondaryHue: 215,
-    secondaryLightness: 65,
+    secondaryLightness: 51,
     secondaryLightnessDark: 76,
     secondaryChroma: 0.3,
 

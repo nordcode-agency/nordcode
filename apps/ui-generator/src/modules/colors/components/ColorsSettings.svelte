@@ -131,7 +131,7 @@
                         id="lightNeutralTextLightness"
                         hint="Lightness of the default text color"
                         type="number"
-                        step="1"
+                        step="0.1"
                         bind:value={$configStore.lightNeutralTextLightness} />
                     <Input
                         name="lightTextScaleFactor"
@@ -156,7 +156,7 @@
                         id="lightNeutralSurfaceLightness"
                         hint="Lightness of the default surface color"
                         type="number"
-                        step="1"
+                        step="0.1"
                         bind:value={$configStore.lightNeutralSurfaceLightness} />
 
                     <Input
@@ -180,7 +180,7 @@
                         id="lightNeutralBorderLightness"
                         hint="Lightness of the default border color"
                         type="number"
-                        step="1"
+                        step="0.1"
                         bind:value={$configStore.lightNeutralBorderLightness} />
 
                 </fieldset>
@@ -200,7 +200,7 @@
                         label="Base Neutral Text Lightness"
                         id="darkNeutralTextLightness"
                         type="number"
-                        step="1"
+                        step="0.1"
                         bind:value={$configStore.darkNeutralTextLightness} />
 
                     <Input
@@ -225,7 +225,7 @@
                         label="Base Neutral Surface Lightness"
                         id="darkNeutralSurfaceLightness"
                         type="number"
-                        step="1"
+                        step="0.1"
                         bind:value={$configStore.darkNeutralSurfaceLightness} />
 
                     <Input
@@ -249,7 +249,7 @@
                         label="Base Neutral Border Lightness"
                         id="darkNeutralBorderLightness"
                         type="number"
-                        step="1"
+                        step="0.1"
                         bind:value={$configStore.darkNeutralBorderLightness} />
 
                 </fieldset>
