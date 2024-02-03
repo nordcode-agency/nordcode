@@ -20,22 +20,7 @@
         --_button-color: var(--button-color, var(--color-text-on-emphasis));
         --_button-border-color: var(--button-border-color, var(--color-surface-emphasis));
         --_button-border-radius: var(--button-border-radius, var(--border-radius-medium));
-        --_button-offset-distance: var(--button-offset-distance, 0);
 
-        --_button-transform: var(
-            --button-transform,
-            translate(var(--_button-offset-distance), var(--_button-offset-distance))
-        );
-
-        --_button-box-shadow: var(
-            --button-box-shadow,
-            calc(var(--_button-offset-distance) / -2) calc(var(--_button-offset-distance) / -2) 0 0
-                var(--shadow-color),
-            calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) 0 0
-                var(--shadow-color),
-            calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1)
-                calc(var(--_button-offset-distance) * -2) 0 var(--shadow-color)
-        );
         --_button-background-hover: var(--button-background-hover, var(--color-brand-primary-base));
         --_button-background-hover-light: var(
             --button-background-hover-light,
@@ -46,24 +31,14 @@
             --button-color-text-hover,
             var(--color-brand-primary-emphasis)
         );
-        --_button-offset-distance-hover: var(--button-offset-distance-hover, 0);
         --_button-border-color-hover: var(
             --button-border-color-hover,
             var(--color-brand-primary-base)
         );
-        --_button-hover-transform: var(
-            --button-hover-transform,
-            translate(var(--_button-offset-distance-hover), var(--_button-offset-distance-hover))
-        );
 
-        --_button-hover-shadow: var(
-            --button-hover-shadow,
-            calc(var(--_button-offset-distance-hover) * -1)
-                calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--shadow-color),
-            calc(var(--_button-offset-distance-hover) * -1)
-                calc(var(--_button-offset-distance-hover) * -1)
-                calc(var(--_button-offset-distance-hover) / -2) 0 var(--shadow-color)
-        );
+        --_button-box-shadow: var(--button-box-shadow, var(--shadow-near));
+        --_button-hover-shadow: var(--button-hover-shadow, var(--shadow-nearest));
+
         --_button-padding-inline: var(--button-padding-inline, 1ch);
 
         background-color: var(--_button-background);
@@ -88,13 +63,11 @@
         transition-property: box-shadow, transform;
         text-decoration: unset;
         box-shadow: var(--_button-box-shadow);
-        transform: var(--_button-transform);
         will-change: transform;
         user-select: none;
         -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none;
-        inset-block-start: calc(var(--_button-offset-distance) * -1);
-        inset-inline-start: calc(var(--_button-offset-distance) * -1);
+
         line-height: var(--line-height-base);
     }
 
@@ -111,7 +84,6 @@
             color: var(--_button-color-hover);
             border-color: var(--_button-border-color-hover);
             box-shadow: var(--_button-hover-shadow);
-            transform: var(--_button-hover-transform);
         }
 
         &[aria-pressed='true'] {
@@ -218,6 +190,47 @@
             --_button-border-radius: var(--border-radius-round);
         }
 
+        &.-offset {
+            --_button-offset-distance: var(
+                --button-offset-distance,
+                calc(var(--spacing-tiny) * -1)
+            );
+            --_button-offset-distance-hover: var(
+                --button-offset-distance-hover,
+                calc(var(--spacing-tiny) * -0.5)
+            );
+
+            --_button-transform: translate(
+                var(--_button-offset-distance),
+                var(--_button-offset-distance)
+            );
+            --_button-hover-transform: translate(
+                var(--_button-offset-distance-hover),
+                var(--_button-offset-distance-hover)
+            );
+
+            --button-box-shadow: calc(var(--_button-offset-distance) / -2)
+                    calc(var(--_button-offset-distance) / -2) 0 0 var(--shadow-color),
+                calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1)
+                    0 0 var(--shadow-color),
+                calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1)
+                    calc(var(--_button-offset-distance) * -2) 0 var(--shadow-color);
+
+            --button-hover-shadow: calc(var(--_button-offset-distance-hover) * -1)
+                    calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--shadow-color),
+                calc(var(--_button-offset-distance-hover) * -1)
+                    calc(var(--_button-offset-distance-hover) * -1)
+                    calc(var(--_button-offset-distance-hover) / -2) 0 var(--shadow-color);
+
+            inset-block-start: calc(var(--_button-offset-distance) * -1);
+            inset-inline-start: calc(var(--_button-offset-distance) * -1);
+            transform: var(--_button-transform);
+
+            &:hover {
+                transform: var(--_button-hover-transform);
+            }
+        }
+
         /*
          * for inline icons
          */
@@ -293,7 +306,7 @@
     }
 
     :where(button[type='reset']:not([class]), .nc-button.-destructive) {
-        --button-background: var(--color-status-danger-subtle);
+        --button-background: var(--color-status-danger-surface);
         --button-background-hover: var(--color-status-danger-hover) !important;
         --button-border-color: var(--color-status-danger-text);
         --button-border-color-hover: var(--color-status-danger-text) !important;
