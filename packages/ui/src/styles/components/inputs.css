@@ -87,7 +87,7 @@
         );
         --_input-border-radius: var(--input-border-radius, var(--border-radius-medium));
 
-        --_input-box-shadow: var(--input-box-shadow, none);
+        --_input-box-shadow: var(--input-box-shadow, var(--shadow-inset));
         --_input-outline: var(
             --input-outline,
             var(--border-width-thick) solid var(--color-brand-primary-base)
