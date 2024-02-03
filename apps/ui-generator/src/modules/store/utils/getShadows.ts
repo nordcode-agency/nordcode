@@ -30,11 +30,11 @@ export const getShadows = (store: ConfigStore) => {
             /* Light Theme */
             
             
-            --shadow-inset-light: inset ${
-                store.shadowConfigDistanceBase * store.shadowConfigXOffsetFactor
-            }px ${store.shadowConfigDistanceBase}px 0px 0 ${getLchColorWithTransparency(
+            --shadow-inset-light: ${generateShadow(
                 shadowColorLight,
-                store.shadowConfigStartTransparency / 3,
+                AmountOfShadows.nearest,
+                shadowConfig,
+                true,
             )};
             
             --shadow-nearest-light: ${generateShadow(
@@ -65,11 +65,11 @@ export const getShadows = (store: ConfigStore) => {
             
             /* Dark Theme */
             
-            --shadow-inset-dark: inset ${
-                store.shadowConfigDistanceBase * store.shadowConfigXOffsetFactor
-            }px ${store.shadowConfigDistanceBase}px 0px 0  ${getLchColorWithTransparency(
+            --shadow-inset-dark: inset ${generateShadow(
                 shadowColorDark,
-                store.shadowConfigStartTransparency / 3,
+                AmountOfShadows.nearest,
+                shadowConfig,
+                true,
             )};
             
             --shadow-nearest-dark: ${generateShadow(
@@ -102,7 +102,6 @@ const getLchColorWithTransparency = (color: string, transparency: number) =>
 
 const getSpread = (min: number, max: number, totalSteps: number, step: number) => {
     const spread = min + ((max - min) / totalSteps) * step;
-    console.log(min, max, step, spread);
     return round(spread);
 };
 
@@ -126,6 +125,7 @@ const generateShadow = (
         spreadMax: number;
         xOffsetFactor: number;
     },
+    inset?: boolean,
 ) => {
     const {
         baseDistance,
@@ -149,11 +149,11 @@ const generateShadow = (
 
         const spread = round(scaleSpread(+spreadMax, amountOfShadows, i));
 
-        const newShadow = `${round(
+        const newShadow = `${inset ? 'inset ' : ''}${round(
             d * xOffsetFactor,
         )}px ${d}px ${blur}px ${spread}px ${shadowColor}`;
 
-        const isFlat = blurFactor === 0 && startTransparency === 1 && transparencyScale === 1;
+        const isFlat = blurFactor === 0;
         // it's a flat theme, so we dont need extra shadows
         if (isFlat) {
             shadowString = newShadow;
