@@ -161,8 +161,11 @@ export const getSurfaceLightValues = (
     const inset = blackScale(scalingFactor * 4).oklch;
     const emphasis = blackScale(1).oklch;
 
+    // a lightness of 100 should always be white, but the browser fallbacks are a little off
+    const defaultChroma = baseLightness === 100 ? 0 : baseChroma;
+
     return {
-        default: generateValueString(base[0], base[1], base[2]),
+        default: generateValueString(base[0], defaultChroma, base[2]),
         subtle: generateValueString(subtle[0], subtle[1], subtle[2]),
         inset: generateValueString(inset[0], inset[1], inset[2]),
         emphasis: generateValueString(emphasis[0], emphasis[1], emphasis[2]),
