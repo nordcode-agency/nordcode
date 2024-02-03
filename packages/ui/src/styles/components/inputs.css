@@ -397,6 +397,7 @@
             block-size: calc(100% - 2 * var(--_thumb-margin));
             background: var(--_thumb-color);
             border-radius: var(--_input-border-radius);
+            box-shadow: var(--shadow-near);
             transition: margin;
             transition-duration: inherit;
         }
