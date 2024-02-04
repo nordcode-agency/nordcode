@@ -1,5 +1,12 @@
 # @nordcode/bookmarker
 
+## 0.0.10
+
+### Patch Changes
+
+-   Updated dependencies
+    -   @nordcode/ui@2.3.0
+
 ## 0.0.9
 
 ### Patch Changes

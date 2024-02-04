@@ -1,5 +1,19 @@
 # @nordcode/ui
 
+## 2.3.0
+
+### Minor Changes
+
+-   ## Add default shadows to UI elements & tweaks
+
+    -   apply heading font weight to headings
+    -   tweak button design
+        -   add slight shadow to default buttons
+        -   make offset button a variant
+    -   add inset shadow to inputs by default
+    -   style input range thumb
+    -   add shadow to switch thumb
+
 ## 2.2.0
 
 ### Minor Changes
