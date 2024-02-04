@@ -191,14 +191,8 @@
         }
 
         &.-offset {
-            --_button-offset-distance: var(
-                --button-offset-distance,
-                calc(var(--spacing-tiny) * -1)
-            );
-            --_button-offset-distance-hover: var(
-                --button-offset-distance-hover,
-                calc(var(--spacing-tiny) * -0.5)
-            );
+            --_button-offset-distance: var(--button-offset-distance, -0.1lh);
+            --_button-offset-distance-hover: var(--button-offset-distance-hover, -0.05lh);
 
             --_button-transform: translate(
                 var(--_button-offset-distance),
