@@ -2,6 +2,7 @@
 	import FeatureCard from './FeatureCard.svelte';
 	import type { TProjects } from '$lib/content';
 	import ActionCard from './ActionCard.svelte';
+	import ProjectCard from './ProjectCard.svelte';
 
 	export let projects: TProjects;
 </script>
@@ -12,7 +13,7 @@
 	</div>
 	<div class="footer nc-box">
 		<div style="inline-size: min(240px, 100%)">
-			<FeatureCard
+			<ProjectCard
 				heading={projects[1].heading}
 				cover={projects[1].cover}
 				slug={projects[1].slug}
@@ -20,7 +21,7 @@
 			/>
 		</div>
 		<div style="inline-size: min(240px, 100%)">
-			<FeatureCard
+			<ProjectCard
 				heading={projects[5].heading}
 				cover={projects[5].cover}
 				slug={projects[5].slug}
