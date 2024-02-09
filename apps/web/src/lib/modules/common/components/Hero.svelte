@@ -78,6 +78,7 @@
 		justify-content: end;
 		align-items: stretch;
 		gap: var(--spacing-far);
+        padding-block: var(--spacing-far);
 	}
 
     .featured-project {
