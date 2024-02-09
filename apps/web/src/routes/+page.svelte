@@ -1,6 +1,6 @@
 <script lang="ts">
   import Hero from "$lib/modules/common/components/Hero.svelte";
-	import WorkCard from "$lib/modules/common/components/WorkCard.svelte";
+	import FeatureCard from "$lib/modules/common/components/FeatureCard.svelte";
 	import Header from "$lib/modules/common/components/Header.svelte";
 	import type { PageData } from "./$types";
 	import About from "$lib/modules/common/components/About.svelte";
@@ -22,7 +22,7 @@
 </section>
 <section id="work" class="nc-box nc-stack -inherit -stretched work">
   <div>
-    <WorkCard
+    <FeatureCard
       heading={data.projects[4].heading}
       subheading={data.projects[4].subheading}
       cover={data.projects[4].cover}
@@ -31,14 +31,14 @@
     />
   </div>
   <div class="more-work nc-ram-grid -inherit">
-    <WorkCard
+    <FeatureCard
       heading={data.projects[2].heading}
       subheading={data.projects[2].subheading}
       cover={data.projects[2].cover}
       slug={data.projects[2].slug}
       name={data.projects[2].name}
     />
-    <WorkCard
+    <FeatureCard
       heading={data.projects[3].heading}
       subheading={data.projects[3].subheading}
       cover={data.projects[3].cover}

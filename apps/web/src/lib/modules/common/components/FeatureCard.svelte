@@ -5,7 +5,7 @@
   export let variant: 'horizontal' | '' = '';
   export let heading: string;
   export let subheading: string | undefined = undefined;
-  export let cover: MediaImage | undefined = undefined;
+  export let cover: MediaImage;
   export let slug: string;
   export let name: string;
 
@@ -23,11 +23,9 @@
 
 <div class="container">
   <a href={slug} class="nc-card card" data-variant={variant}>
-    {#if cover}
-      <figure style={`view-transition-name: ${vtName}`}>
-        <img src={cover.src} alt={cover.alt}>
-      </figure>
-    {/if}
+    <figure style={`view-transition-name: ${vtName}`}>
+    <img src={cover.src} alt={cover.alt}>
+    </figure>
     <div class="header">
       <div class="headings">
         {#if subheading}
@@ -42,6 +40,8 @@
 <style lang="postcss">
   .container {
     container-type: inline-size;
+    inline-size: 100%;
+    block-size: 100%;
   }
   .card {
     --card-padding-inline: 0px;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import WorkCard from './WorkCard.svelte';
+	import FeatureCard from './FeatureCard.svelte';
 	import type { TProjects } from '$lib/content';
 
 	export let projects: TProjects;
@@ -10,20 +10,20 @@
 		<h1 class="text">Wir erschaffen digitale Erlebnisse.</h1>
 	</div>
 	<div class="footer nc-box">
-        <div style="width: 240px">
-            <WorkCard
+        <div style="inline-size: min(240px, 100%)">
+            <FeatureCard
                 heading={projects[5].heading}
                 cover={projects[5].cover}
                 slug={projects[5].slug}
                 name={projects[5].name}
             />
         </div>
-        <div style="width: 240px">
-            <WorkCard
+        <div style="inline-size: min(240px, 100%)">
+            <!-- <FeatureCard
                 heading="Lass uns schauen, wie wir dich unterstützen können"
                 slug="/start"
                 name="start"
-            />
+            /> -->
         </div>
 		<!-- <TeaserCard heading="A digital taste of your snack">
 			<button class="nc-button -outline -small">Projekt ansehen</button>
@@ -77,6 +77,7 @@
 
 	.footer {
         margin-inline-start: auto;
+        inline-size: 100%;
 		display: flex;
 		justify-content: end;
 		align-items: stretch;
