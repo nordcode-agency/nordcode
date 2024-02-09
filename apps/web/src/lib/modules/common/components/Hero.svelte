@@ -1,6 +1,7 @@
 <script lang="ts">
 	import FeatureCard from './FeatureCard.svelte';
 	import type { TProjects } from '$lib/content';
+	import ActionCard from './ActionCard.svelte';
 
 	export let projects: TProjects;
 </script>
@@ -10,28 +11,34 @@
 		<h1 class="text">Wir erschaffen digitale Erlebnisse.</h1>
 	</div>
 	<div class="footer nc-box">
-        <div style="inline-size: min(240px, 100%)">
-            <FeatureCard
-                heading={projects[5].heading}
-                cover={projects[5].cover}
-                slug={projects[5].slug}
-                name={projects[5].name}
-            />
-        </div>
-        <div style="inline-size: min(240px, 100%)">
-            <!-- <FeatureCard
-                heading="Lass uns schauen, wie wir dich unterstützen können"
-                slug="/start"
-                name="start"
-            /> -->
-        </div>
+		<div style="inline-size: min(240px, 100%)">
+			<FeatureCard
+				heading={projects[1].heading}
+				cover={projects[1].cover}
+				slug={projects[1].slug}
+				name={projects[1].name}
+			/>
+		</div>
+		<div style="inline-size: min(240px, 100%)">
+			<FeatureCard
+				heading={projects[5].heading}
+				cover={projects[5].cover}
+				slug={projects[5].slug}
+				name={projects[5].name}
+			/>
+		</div>
+		<div style="inline-size: min(240px, 100%)">
+			<ActionCard heading="Lass uns schauen, wie wir dich unterstützen können">
+                <button slot="action" class="nc-button -primary">Loslegen</button>
+            </ActionCard>
+		</div>
 		<!-- <TeaserCard heading="A digital taste of your snack">
 			<button class="nc-button -outline -small">Projekt ansehen</button>
 		</TeaserCard>
 		<TeaserCard heading="Feeling home in Italy">
 			<button class="nc-button -outline -small">Projekt ansehen</button>
 		</TeaserCard> -->
-        <!-- <div style="width: 240px">
+		<!-- <div style="width: 240px">
             <TeaserCard heading="Lass uns schauen, wie wir dich unterstützen können">
                 <button class="nc-button -primary -small">Loslegen</button>
             </TeaserCard>
@@ -76,8 +83,8 @@
 	}
 
 	.footer {
-        margin-inline-start: auto;
-        inline-size: 100%;
+		margin-inline-start: auto;
+		inline-size: 100%;
 		display: flex;
 		justify-content: end;
 		align-items: stretch;
