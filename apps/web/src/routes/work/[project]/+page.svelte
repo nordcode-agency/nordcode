@@ -67,7 +67,7 @@
   .thumbnail {
     view-transition-name: work-figure;
     inline-size: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 3/2;
     margin: 0;
 
     @media (--md-n-above) {
