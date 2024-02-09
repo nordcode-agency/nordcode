@@ -1,5 +1,4 @@
 <script lang="ts">
-	import FeatureCard from './FeatureCard.svelte';
 	import type { TProjects } from '$lib/content';
 	import ActionCard from './ActionCard.svelte';
 	import ProjectCard from './ProjectCard.svelte';
@@ -12,7 +11,7 @@
 		<h1 class="text">Wir erschaffen digitale Erlebnisse.</h1>
 	</div>
 	<div class="footer nc-box">
-		<div style="inline-size: min(240px, 100%)">
+		<div class="featured-project">
 			<ProjectCard
 				heading={projects[1].heading}
 				cover={projects[1].cover}
@@ -20,7 +19,7 @@
 				name={projects[1].name}
 			/>
 		</div>
-		<div style="inline-size: min(240px, 100%)">
+		<div class="featured-project">
 			<ProjectCard
 				heading={projects[5].heading}
 				cover={projects[5].cover}
@@ -33,17 +32,6 @@
                 <button slot="action" class="nc-button -primary">Loslegen</button>
             </ActionCard>
 		</div>
-		<!-- <TeaserCard heading="A digital taste of your snack">
-			<button class="nc-button -outline -small">Projekt ansehen</button>
-		</TeaserCard>
-		<TeaserCard heading="Feeling home in Italy">
-			<button class="nc-button -outline -small">Projekt ansehen</button>
-		</TeaserCard> -->
-		<!-- <div style="width: 240px">
-            <TeaserCard heading="Lass uns schauen, wie wir dich unterstützen können">
-                <button class="nc-button -primary -small">Loslegen</button>
-            </TeaserCard>
-        </div> -->
 	</div>
 </div>
 
@@ -91,4 +79,16 @@
 		align-items: stretch;
 		gap: var(--spacing-far);
 	}
+
+    .featured-project {
+        inline-size: min(240px, 100%);
+
+        &:first-child {
+            display: none;
+
+            @media (--md-n-above) {
+                display: initial;
+            }
+        }
+    }
 </style>
