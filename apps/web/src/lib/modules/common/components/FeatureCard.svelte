@@ -1,28 +1,17 @@
 <script lang="ts" async>
-	import { beforeNavigate, afterNavigate } from '$app/navigation';
 	import type { MediaImage } from '$lib/types/index';
 
 	export let heading: string;
 	export let subheading: string | undefined = undefined;
 	export let cover: MediaImage;
 	export let slug: string;
-	export let name: string;
-
-	let vtName = '';
-	beforeNavigate((navigation) => {
-		const projectName = navigation?.to?.params?.project;
-		if (projectName === name) {
-			vtName = name;
-		}
-	});
-	afterNavigate(() => {
-		vtName = '';
-	});
+    /** Used to perform view transitions */
+	export let id: string | undefined = undefined;
 </script>
 
 <div class="container">
 	<a href={slug} class="nc-card card">
-		<figure style={`view-transition-name: ${vtName}`}>
+		<figure style={`view-transition-name: ${id}`}>
 			<img src={cover.src} alt={cover.alt} />
 		</figure>
 		<div class="header">
