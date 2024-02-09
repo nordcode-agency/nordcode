@@ -3,7 +3,7 @@
 
   export let data: PageData;
 
-  const { heading, subheading, cover, slug } = data;
+  const { heading, subheading, cover, name } = data;
   
 </script>
 
@@ -15,7 +15,7 @@
   <div class="nc-stack">
     <div class="nc-box nc-stack -inherit hero">
       <div class="nc-cluster">
-        <figure class="thumbnail" style={`view-transition-name: ${slug}`}>
+        <figure class="thumbnail" style={`view-transition-name: ${name}`}>
           <img src={cover?.src} alt={cover?.alt}>
         </figure>
         <div class="headings">

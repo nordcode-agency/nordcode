@@ -8,4 +8,5 @@ export type WorkProject = {
   subheading: string;
   cover: MediaImage;
   slug: string;
+  name: string;
 }

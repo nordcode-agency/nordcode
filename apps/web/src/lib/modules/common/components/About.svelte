@@ -24,6 +24,7 @@
 
 <style lang="postcss">
   .container {
+    inline-size: 100%;
     min-block-size: 100dvh;
     display: grid;
     place-items: center;

@@ -14,7 +14,8 @@ export const projects = [
       src: ImgRicola,
       alt: 'Farmers Snack'
     },
-    slug: 'ricolax',
+    slug: '/work/ricolax',
+    name: 'ricolax',
   },
   {
     heading: 'A sky full of stars',
@@ -23,7 +24,8 @@ export const projects = [
       src: ImgNewYork,
       alt: 'Farmers Snack'
     },
-    slug: 'sky-full-of-stars',
+    slug: '/work/sky-full-of-stars',
+    name: 'sky-full-of-stars',
   },
   {
     heading: 'A digital taste of your snack',
@@ -32,7 +34,8 @@ export const projects = [
       src: ImgMountains,
       alt: 'Farmers Snack'
     },
-    slug: 'farmers-snack',
+    slug: '/work/farmers-snack',
+    name: 'farmers-snack',
   },
   {
     heading: 'Feeling home in Italy',
@@ -41,7 +44,8 @@ export const projects = [
       src: ImgItaly,
       alt: 'Limuncetti Rentals'
     },
-    slug: 'limuncetti',
+    name: 'limuncetti',
+    slug: '/work/limuncetti',
   },
   {
     heading: 'Reshaping transparency',
@@ -50,7 +54,8 @@ export const projects = [
       src: ImgIce,
       alt: 'Reshape New Web App'
     },
-    slug: 'reshape',
+    name: 'reshape',
+    slug: '/work/reshape',
   },
   {
     heading: 'Travel the web',
@@ -59,7 +64,8 @@ export const projects = [
       src: ImgDesert,
       alt: 'A new digital travel experience'
     },
-    slug: 'traverly',
+    name: 'traverly',
+    slug: '/work/traverly',
   },
 ] as const satisfies readonly WorkProject[];
 

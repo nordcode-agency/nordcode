@@ -27,6 +27,7 @@
       subheading={data.projects[4].subheading}
       cover={data.projects[4].cover}
       slug={data.projects[4].slug}
+      name={data.projects[4].name}
     />
   </div>
   <div class="more-work nc-ram-grid -inherit">
@@ -35,12 +36,14 @@
       subheading={data.projects[2].subheading}
       cover={data.projects[2].cover}
       slug={data.projects[2].slug}
+      name={data.projects[2].name}
     />
     <WorkCard
       heading={data.projects[3].heading}
       subheading={data.projects[3].subheading}
       cover={data.projects[3].cover}
       slug={data.projects[3].slug}
+      name={data.projects[3].name}
     />
   </div>
 </section>

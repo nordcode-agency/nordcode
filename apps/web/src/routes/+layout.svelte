@@ -11,11 +11,11 @@
         resolve();
         await navigation.complete;
         
-        const slug = navigation.from?.params?.project;
-        if (slug) {
-          const thumbEl = document.querySelector(`[href="/work/${slug}"] figure`) as HTMLElement | null;
+        const projectName = navigation.from?.params?.project;
+        if (projectName) {
+          const thumbEl = document.querySelector(`[href="/work/${projectName}"] figure`) as HTMLElement | null;
           if (thumbEl) {
-            thumbEl.style.viewTransitionName = slug;
+            thumbEl.style.viewTransitionName = projectName;
           }
         };
       });

@@ -4,29 +4,35 @@
 
   export let variant: 'horizontal' | '' = '';
   export let heading: string;
-  export let subheading: string;
-  export let cover: MediaImage;
+  export let subheading: string | undefined = undefined;
+  export let cover: MediaImage | undefined = undefined;
   export let slug: string;
+  export let name: string;
 
   let vtName = '';
-  beforeNavigate(() => {
-    vtName = slug;
+  beforeNavigate((navigation) => {
+    const projectName = navigation?.to?.params?.project;
+    if (projectName === name) {
+        vtName = name;
+    }
   });
   afterNavigate(() => {
     vtName = '';
   })
-
-  $: href = `/work/${slug}`;
 </script>
 
 <div class="container">
-  <a {href} class="nc-card card" data-variant={variant}>
-    <figure style={`view-transition-name: ${vtName}`}>
-      <img src={cover.src} alt={cover.alt}>
-    </figure>
+  <a href={slug} class="nc-card card" data-variant={variant}>
+    {#if cover}
+      <figure style={`view-transition-name: ${vtName}`}>
+        <img src={cover.src} alt={cover.alt}>
+      </figure>
+    {/if}
     <div class="header">
       <div class="headings">
-        <span>{subheading}</span>
+        {#if subheading}
+          <span>{subheading}</span>
+        {/if}
         <h2>{heading}</h2>
       </div>
     </div>
