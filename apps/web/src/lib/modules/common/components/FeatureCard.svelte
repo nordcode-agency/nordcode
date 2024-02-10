@@ -5,7 +5,7 @@
 	export let subheading: string | undefined = undefined;
 	export let cover: MediaImage;
 	export let slug: string;
-    /** Used to perform view transitions */
+	/** Used to perform view transitions */
 	export let id: string | undefined = undefined;
 </script>
 
@@ -49,25 +49,7 @@
 			oklch(var(--color-surface-default-lch) / 0.8)
 		);
 		backdrop-filter: blur(var(--spacing-base));
-		box-shadow: var(--_card-shadow),
-			inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1)
-				oklch(var(--color-border-default-lch) / 0.8);
 		block-size: 100%;
-		text-decoration: none;
-		transition: border-color 300ms ease, box-shadow 300ms;
-
-		&:is([href], button):hover {
-			border-color: var(--color-brand-primary-base);
-			box-shadow: var(--_card-shadow),
-				inset 0px calc(var(--spacing-near) * -1) var(--spacing-base)
-					calc(var(--spacing-near) * -1) oklch(var(--color-brand-primary-base-lch) / 0.1);
-		}
-
-		@media (--OSdark) {
-			box-shadow: var(--_card-shadow),
-				inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1)
-					var(--color-border-default);
-		}
 
 		@container (min-inline-size: 360px) {
 			& h2 {
