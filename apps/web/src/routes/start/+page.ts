@@ -8,27 +8,27 @@ export const load = (async () => {
       {
         heading: 'Website',
         desc: 'Für dein Geschäft, Blog, selbständige Arbeit oder Ähnliches haben wir kostengünstige Lösungen.',
-        queryKey: 'website',
+        slug: '/start/website',
       },
       {
         heading: 'Automation',
         desc: 'Ein manueller Prozess, zum Beispiel bei der Erfassung, Übertragung oder Verarbeitung von Daten können wir automatisieren um Zeit- und Kostenersparnisse zu erzielen.',
-        queryKey: 'automation',
+        slug: '/start/automation',
       },
       {
         heading: '3D',
         desc: 'Visualisierungen von 3D Modellen, zum Beispiel bei Konfiguratoren oder Storytelling.',
-        queryKey: '3d',
+        slug: '/start/3d',
       },
       {
         heading: 'Unterstützung',
         desc: 'Ein bestehendes oder neues Projekt benötigt Unterstützung vor allem im Frontend-Bereich',
-        queryKey: 'support',
+        slug: '/start/support',
       },
       {
         heading: 'Design System',
         desc: 'Du benötigst ein einfaches und skalierbares Design System im Web für ein konsistente User Interface deiner App/s.',
-        queryKey: 'support',
+        slug: '/start/support',
       },
     ],
 	};
