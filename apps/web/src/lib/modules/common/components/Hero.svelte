@@ -8,7 +8,7 @@
 
 <div class="nc-stack container">
 	<div class="headings">
-		<h1 class="text">Wir erschaffen digitale Erlebnisse.</h1>
+		<h1 class="text gradient-text">Wir erschaffen digitale Erlebnisse.</h1>
 	</div>
 	<div class="footer nc-box">
 		<div class="featured-project">
@@ -61,14 +61,6 @@
 			font-size: 4rem;
 			line-height: 5rem;
 		}
-
-		background: linear-gradient(
-			to left,
-			var(--color-brand-secondary-base),
-			var(--color-brand-primary-base)
-		);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
 	}
 
 	.footer {
