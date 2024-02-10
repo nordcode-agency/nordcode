@@ -20,7 +20,7 @@
         </figure>
         <div class="headings">
           <span class="subheading slide-up-from">{subheading}</span>
-          <h1 class="slide-up-from">{heading}</h1>
+          <h1 class="gradient-text slide-up-from">{heading}</h1>
         </div>
       </div>
     </div>
@@ -92,9 +92,6 @@
       animation: var(--animation-slide-up) 0.2s;
       font-size: calc(var(--font-size-display) * 1.1);
       line-height: 1.3;
-      background: linear-gradient(to left, var(--color-brand-secondary-base), var(--color-brand-primary-base));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
 
       @media (--md-n-above) {
         font-size: calc(var(--font-size-display) * 1.5);

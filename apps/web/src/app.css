@@ -38,6 +38,10 @@ p {
 	opacity: 0;
 }
 
+.nc-button {
+	font-weight: bold;
+}
+
 .nc-box {
 	padding-block: var(--spacing-adaptive);
 	padding-inline: var(--spacing-adaptive);
@@ -87,6 +91,13 @@ section.nc-box {
 			oklch(var(--color-surface-default-lch) / 0.7)
 		);
 	} */
+}
+
+.gradient-text {
+    background: linear-gradient(to left, var(--color-brand-secondary-base), var(--color-brand-primary-base));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 ::view-transition-old(*),

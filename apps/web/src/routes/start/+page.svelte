@@ -21,7 +21,7 @@
       {#each questions as question}
         <a href={question.slug} class="nc-card card">
             <div class="nc-stack">
-                <h3>{question.heading}</h3>
+                <h3 class="gradient-text">{question.heading}</h3>
                 <p>{question.desc}</p>
             </div>
         </a>
@@ -38,9 +38,5 @@
   .grid {
     --nc-ram-grid-gap: var(--spacing-base);
     --nc-ram-grid-min-width: 40ch;
-  }
-
-  .button {
-    align-self: end;
   }
 </style>
