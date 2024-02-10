@@ -29,7 +29,7 @@
 		</div>
 		<div style="inline-size: min(240px, 100%)">
 			<ActionCard heading="Lass uns schauen, wie wir dich unterstützen können">
-                <button slot="action" class="nc-button -primary">Loslegen</button>
+                <a href="/start" slot="action" class="nc-button -primary">Loslegen</a>
             </ActionCard>
 		</div>
 	</div>
