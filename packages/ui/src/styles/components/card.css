@@ -41,12 +41,22 @@
     border-radius: var(--_card-border-radius);
     box-shadow: var(--_card-shadow);
 
+    transition: border-color 300ms ease, box-shadow 300ms;
+
     @media (--sm-n-above) {
       --_card-padding-inline: var(--card-padding-inline, var(--spacing-far));
     }
 
     @media (--lg-n-above) {
       --_card-padding-inline: var(--card-padding-inline, var(--spacing-farthest));
+    }
+
+    &:is([href], button) {
+        text-decoration: none;
+
+        &:hover {
+            border-color: var(--color-brand-primary-base);
+        }
     }
   }
 }
