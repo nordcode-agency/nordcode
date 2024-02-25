@@ -36,6 +36,10 @@
         margin-block-start: var(--flow-gap, 0.6lh);
     }
 
+    .nc-flow > * {
+        max-inline-size: var(--flow-base-meassure, 72ch);
+    }
+
     .nc-flow > *:is(h1, h2, h3, h4, h5, h6) {
         max-inline-size: var(--flow-headline-meassure, 32ch);
         --flow-gap: 1.3lh;
@@ -104,7 +108,7 @@
         inline-size: 100%;
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
+        align-items: flex-start;
         gap: var(--spacing-far);
 
         & > [data-aside] {
@@ -119,12 +123,12 @@
             min-width: var(--with-sidebar-min-size, 50%);
         }
 
-        &.-inherit {
-            gap: var(--with-sidebar-gap, var(--spacing-far));
-        }
-
         &[data-direction='rtl'] {
             flex-direction: row-reverse;
+        }
+
+        &.-centered {
+            align-items: center;
         }
     }
 
@@ -203,6 +207,10 @@
     }
 
     :where(.nc-stack, .nc-cluster, .nc-with-sidebar, .nc-grid, .nc-gallery) {
+        &.-inherit {
+            gap: inherit;
+        }
+
         &.-tiny {
             gap: var(--spacing-tiny);
         }
