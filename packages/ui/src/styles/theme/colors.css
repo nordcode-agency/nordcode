@@ -18,6 +18,7 @@
         --color-brand-secondary-surface-lch: var(--color-brand-secondary-light-surface-lch);
         --color-brand-secondary-surface: var(--color-brand-secondary-light-surface);
         --color-brand-secondary-hover: var(--color-brand-secondary-light-hover);
+        --color-brand-secondary-contrast: var(--color-brand-secondary-light-contrast);
 
         --color-text-default-lch: var(--color-text-light-default-lch);
         --color-text-default: var(--color-text-light-default);
