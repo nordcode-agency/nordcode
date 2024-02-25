@@ -4,7 +4,22 @@
 
 	export let data: PageData;
 
-	const { questions } = data;
+	const { options } = data;
+
+	const getFormattedStr = (str: string, displayNumbers: number[]) => {
+		let formattedStr = str;
+		displayNumbers.forEach((num) => {
+			formattedStr = formattedStr.replace(
+				`%n`,
+				num.toLocaleString('de-DE', {
+					style: 'currency',
+					currency: 'EUR',
+					maximumFractionDigits: 0
+				})
+			);
+		});
+		return formattedStr;
+	};
 </script>
 
 <svelte:head>
@@ -15,14 +30,15 @@
 	<Header />
 	<section class="nc-stack -farthest nc-center">
 		<div class="nc-stack">
-			<h1>Wähle die Option, die am besten für dich passt.</h1>
+			<h1>Was ist dein Budget?</h1>
 		</div>
 		<div class="nc-ram-grid -base grid">
-			{#each questions as question}
-				<a href={question.slug} class="nc-card card">
+			{#each options as option}
+				<a href={option.slug} class="nc-card card">
 					<div class="nc-stack">
-						<h3 class="gradient-text">{question.heading}</h3>
-						<p>{question.desc}</p>
+						<h3 class="gradient-text">
+							{getFormattedStr(option.label, option.displayNumbers)}
+						</h3>
 					</div>
 				</a>
 			{/each}
