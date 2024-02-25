@@ -25,7 +25,7 @@
                         type="range"
                         max="1"
                         min="0"
-                        step="0.01"
+                        step="0.001"
                         bind:value={$configStore.primaryChroma} />
                     <Input
                         name="colorLCHPrimaryLightnessLight"
@@ -34,7 +34,7 @@
                         type="range"
                         max="100"
                         min="0"
-                        step="1"
+                        step="0.1"
                         bind:value={$configStore.primaryLightness} />
 
                     <Input
@@ -44,7 +44,7 @@
                         type="range"
                         max="100"
                         min="0"
-                        step="1"
+                        step="0.1"
                         bind:value={$configStore.primaryLightnessDark} />
                     <hr />
                     <Input
@@ -63,7 +63,7 @@
                         type="range"
                         max="1"
                         min="0"
-                        step="0.01"
+                        step="0.001"
                         bind:value={$configStore.secondaryChroma} />
                     <Input
                         name="colorLCHSecondaryLightnessLight"
@@ -72,7 +72,7 @@
                         type="range"
                         max="100"
                         min="0"
-                        step="1"
+                        step="0.1"
                         bind:value={$configStore.secondaryLightness} />
 
                     <Input
@@ -82,7 +82,7 @@
                         type="range"
                         max="100"
                         min="0"
-                        step="1"
+                        step="0.1"
                         bind:value={$configStore.secondaryLightnessDark} />
 
                 </fieldset>
