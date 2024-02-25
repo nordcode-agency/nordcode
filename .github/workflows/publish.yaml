@@ -1,4 +1,8 @@
 on:
+    push:
+        paths:
+            - 'apps/ui-generator/**'
+            - 'packages/ui/**'
     workflow_dispatch:
 
 jobs:
@@ -25,26 +29,26 @@ jobs:
                     node-version: ${{ matrix.node-version }}
                     cache: 'pnpm'
 
-            # Run a build step here if your project requires
-            -   name: Install
-                run: pnpm install
+                    # Run a build step here if your project requires
+                    -   name: Install
+                        run: pnpm install
 
-            -   name: Build UI Generator
-                run: pnpm --filter "ui-generator" build
+                    -   name: Build UI Generator
+                        run: pnpm --filter "ui-generator" build
 
-            -   name: Publish to Cloudflare Pages
-                uses: cloudflare/pages-action@v1
-                with:
-                    apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                    accountId: 805cfd16784a171042a2d06b47886d50
-                    projectName: nc-ui-generator
-                    directory: dist
-                    # Optional: Enable this if you want to have GitHub Deployments triggered
-                    gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-                    # Optional: Switch what branch you are publishing to.
-                    # By default this will be the branch which triggered this workflow
-                    branch: main
-                    # Optional: Change the working directory
-                    workingDirectory: apps/ui-generator
-                    # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
-                    wranglerVersion: '3'
+                    -   name: Publish to Cloudflare Pages
+                        uses: cloudflare/pages-action@v1
+                        with:
+                            apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                            accountId: 805cfd16784a171042a2d06b47886d50
+                            projectName: design-ui
+                            directory: dist
+                            # Optional: Enable this if you want to have GitHub Deployments triggered
+                            gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+                            # Optional: Switch what branch you are publishing to.
+                            # By default this will be the branch which triggered this workflow
+                            branch: main
+                            # Optional: Change the working directory
+                            workingDirectory: apps/ui-generator
+                            # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
+                            wranglerVersion: '3'
