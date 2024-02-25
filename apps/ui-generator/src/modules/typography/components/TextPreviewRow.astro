@@ -1,13 +1,17 @@
-<script lang="ts">
-    export let style;
-    export let text;
-    export let label;
-</script>
+---
+interface Props {
+    style: string;
+    text: string;
+    label: string;
+}
+
+const { style, text, label } = Astro.props;
+---
 
 <div class="text-preview-row">
-        <span class="label">{label}</span>
-        <p style={style}>{text}</p>
-    </div>
+    <span class="label">{label}</span>
+    <p style={style}>{text}</p>
+</div>
 
 <style>
     .text-preview-row {
@@ -22,5 +26,4 @@
         font-size: 0.75rem;
         color: var(--color-brand-primary-base);
     }
-
 </style>

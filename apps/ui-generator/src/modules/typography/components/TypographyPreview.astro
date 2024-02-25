@@ -1,0 +1,89 @@
+---
+import TextPreviewRow from './TextPreviewRow.astro';
+
+const fontFamilies = {
+    '--font-family-sans': 'font-family: var(--font-family-sans)',
+    '--font-family-serif': 'font-family: var(--font-family-serif)',
+    '--font-family-mono': 'font-family: var(--font-family-mono)',
+    '--font-familiy-default': 'font-family: var(--font-family-default)',
+};
+
+const fontSizes = {
+    '--font-size-display': 'font-size: var(--font-size-display)',
+    '--font-size-largest': 'font-size: var(--font-size-largest)',
+    '--font-size-large': 'font-size: var(--font-size-large)',
+    '--font-size-base': 'font-size: var(--font-size-base)',
+    '--font-size-small': 'font-size: var(--font-size-small)',
+    '--font-size-smallest': 'font-size: var(--font-size-smallest)',
+};
+
+const tracking = {
+    '--tracking-wide': 'letter-spacing: var(--tracking-wide)',
+    '--tracking-base': 'letter-spacing: var(--tracking-base)',
+    '--tracking-tight': 'letter-spacing: var(--tracking-tight)',
+};
+
+const lineheights = {
+    '--line-height-large':
+        'line-height: var(--line-height-large); background-color: var(--color-surface-subtle); max-inline-size: 20ch;',
+    '--line-height-base':
+        'line-height: var(--line-height-base); background-color: var(--color-surface-subtle); ; max-inline-size: 20ch;',
+    '--line-height-small':
+        'line-height: var(--line-height-small); background-color: var(--color-surface-subtle); ; max-inline-size: 20ch;',
+};
+
+const measures = {
+    '--measure-large': 'max-width: var(--measure-large)',
+    '--measure-base': 'max-width: var(--measure-base)',
+    '--measure-small': 'max-width: var(--measure-small)',
+};
+
+const text = 'Dies ist eine Text, der zum Beispiel als Headline funktioniert.';
+const longText =
+    'Dies ist ein langer Text für dich Lukas. Ich hoffe, du kannst ihn lesen und er tut deinen Augen nicht weh.';
+---
+
+<div class="nc-stack -far">
+    <div class="nc-stack -near">
+        <h2>Font Families</h2>
+        {
+            Object.entries(fontFamilies).map(([key, value]) => (
+                <TextPreviewRow label={key} style={value} text={text} />
+            ))
+        }
+    </div>
+    <div class="nc-stack -near">
+        <h2>Font sizes</h2>
+        {
+            Object.entries(fontSizes).map(([key, value]) => (
+                <TextPreviewRow label={key} style={value} text={text} />
+            ))
+        }
+    </div>
+    <div class="nc-stack -near">
+        <h2>Tracking</h2>
+        {
+            Object.entries(tracking).map(([key, value]) => (
+                <TextPreviewRow label={key} style={value} text={text} />
+            ))
+        }
+    </div>
+
+    <div class="nc-stack -near">
+        <h2>Line Heights</h2>
+        {
+            Object.entries(lineheights).map(([key, value]) => (
+                <TextPreviewRow label={key} style={value} text={text} />
+            ))
+        }
+    </div>
+
+    <div class="nc-stack -near">
+        <h2>Measures</h2>
+        {
+            Object.entries(measures).map(([key, value]) => (
+                <TextPreviewRow label={key} style={value} text={longText} />
+            ))
+        }
+    </div>
+</div>

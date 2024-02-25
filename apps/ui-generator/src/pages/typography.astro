@@ -1,10 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import TypographyPreview from '../modules/typography/components/TypographyPreview.svelte';
+import TypographyPreview from '../modules/typography/components/TypographyPreview.astro';
 import TypographySettings from '../modules/typography/components/TypographySettings.svelte';
 ---
 
 <Layout title="Typography">
     <TypographySettings client:load="svelte" slot="aside" />
-    <TypographyPreview client:load="svelte" slot="content" />
+    <TypographyPreview slot="content" />
 </Layout>
