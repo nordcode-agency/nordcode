@@ -1,0 +1,90 @@
+@layer theme {
+  :where(html) {
+    --lightningcss-light: initial;
+    --lightningcss-dark: ;
+    color-scheme: light dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :where(html) {
+      --lightningcss-light: ;
+      --lightningcss-dark: initial;
+    }
+  }
+
+  :where(html[color-scheme="light"]) {
+    --lightningcss-light: initial;
+    --lightningcss-dark: ;
+    color-scheme: light;
+  }
+
+  :where(html[color-scheme="dark"]) {
+    --lightningcss-light: ;
+    --lightningcss-dark: initial;
+    color-scheme: dark;
+  }
+
+  :where(html) {
+    --color-brand-primary-emphasis-lch: var(--lightningcss-light, var(--color-brand-primary-light-emphasis-lch)) var(--lightningcss-dark, var(--color-brand-primary-dark-emphasis-lch));
+    --color-brand-primary-emphasis: var(--lightningcss-light, var(--color-brand-primary-light-emphasis)) var(--lightningcss-dark, var(--color-brand-primary-dark-emphasis));
+    --color-brand-primary-base-lch: var(--lightningcss-light, var(--color-brand-primary-light-base-lch)) var(--lightningcss-dark, var(--color-brand-primary-dark-base-lch));
+    --color-brand-primary-base: var(--lightningcss-light, var(--color-brand-primary-light-base)) var(--lightningcss-dark, var(--color-brand-primary-dark-base));
+    --color-brand-primary-surface-lch: var(--lightningcss-light, var(--color-brand-primary-light-surface-lch)) var(--lightningcss-dark, var(--color-brand-primary-dark-surface-lch));
+    --color-brand-primary-surface: var(--lightningcss-light, var(--color-brand-primary-light-surface)) var(--lightningcss-dark, var(--color-brand-primary-dark-surface));
+    --color-brand-primary-hover: var(--lightningcss-light, var(--color-brand-primary-light-hover)) var(--lightningcss-dark, var(--color-brand-primary-dark-hover));
+    --color-brand-primary-contrast: var(--lightningcss-light, var(--color-brand-primary-light-contrast)) var(--lightningcss-dark, var(--color-brand-primary-dark-contrast));
+    --color-brand-secondary-emphasis-lch: var(--lightningcss-light, var(--color-brand-secondary-light-emphasis-lch)) var(--lightningcss-dark, var(--color-brand-secondary-dark-emphasis-lch));
+    --color-brand-secondary-emphasis: var(--lightningcss-light, var(--color-brand-secondary-light-emphasis)) var(--lightningcss-dark, var(--color-brand-secondary-dark-emphasis));
+    --color-brand-secondary-base-lch: var(--lightningcss-light, var(--color-brand-secondary-light-base-lch)) var(--lightningcss-dark, var(--color-brand-secondary-dark-base-lch));
+    --color-brand-secondary-base: var(--lightningcss-light, var(--color-brand-secondary-light-base)) var(--lightningcss-dark, var(--color-brand-secondary-dark-base));
+    --color-brand-secondary-surface-lch: var(--lightningcss-light, var(--color-brand-secondary-light-surface-lch)) var(--lightningcss-dark, var(--color-brand-secondary-dark-surface-lch));
+    --color-brand-secondary-surface: var(--lightningcss-light, var(--color-brand-secondary-light-surface)) var(--lightningcss-dark, var(--color-brand-secondary-dark-surface));
+    --color-brand-secondary-hover: var(--lightningcss-light, var(--color-brand-secondary-light-hover)) var(--lightningcss-dark, var(--color-brand-secondary-dark-hover));
+    --color-brand-secondary-contrast: var(--lightningcss-light, var(--color-brand-secondary-light-contrast)) var(--lightningcss-dark, var(--color-brand-secondary-dark-contrast));
+    --color-text-default-lch: var(--lightningcss-light, var(--color-text-light-default-lch)) var(--lightningcss-dark, var(--color-text-dark-default-lch));
+    --color-text-default: var(--lightningcss-light, var(--color-text-light-default)) var(--lightningcss-dark, var(--color-text-dark-default));
+    --color-text-muted-lch: var(--lightningcss-light, var(--color-text-light-muted-lch)) var(--lightningcss-dark, var(--color-text-dark-muted-lch));
+    --color-text-muted: var(--lightningcss-light, var(--color-text-light-muted)) var(--lightningcss-dark, var(--color-text-dark-muted));
+    --color-text-subtle-lch: var(--lightningcss-light, var(--color-text-light-subtle-lch)) var(--lightningcss-dark, var(--color-text-dark-subtle-lch));
+    --color-text-subtle: var(--lightningcss-light, var(--color-text-light-subtle)) var(--lightningcss-dark, var(--color-text-dark-subtle));
+    --color-text-on-emphasis-lch: var(--lightningcss-light, var(--color-text-light-on-emphasis-lch)) var(--lightningcss-dark, var(--color-text-dark-on-emphasis-lch));
+    --color-text-on-emphasis: var(--lightningcss-light, var(--color-text-light-on-emphasis)) var(--lightningcss-dark, var(--color-text-dark-on-emphasis));
+    --color-surface-default-lch: var(--lightningcss-light, var(--color-surface-light-default-lch)) var(--lightningcss-dark, var(--color-surface-dark-default-lch));
+    --color-surface-default: var(--lightningcss-light, var(--color-surface-light-default)) var(--lightningcss-dark, var(--color-surface-dark-default));
+    --color-surface-subtle: var(--lightningcss-light, var(--color-surface-light-subtle)) var(--lightningcss-dark, var(--color-surface-dark-subtle));
+    --color-surface-subtle-lch: var(--lightningcss-light, var(--color-surface-light-subtle-lch)) var(--lightningcss-dark, var(--color-surface-dark-subtle-lch));
+    --color-surface-inset: var(--lightningcss-light, var(--color-surface-light-inset)) var(--lightningcss-dark, var(--color-surface-dark-inset));
+    --color-surface-inset-lch: var(--lightningcss-light, var(--color-surface-light-inset-lch)) var(--lightningcss-dark, var(--color-surface-dark-inset-lch));
+    --color-surface-emphasis: var(--lightningcss-light, var(--color-surface-light-emphasis)) var(--lightningcss-dark, var(--color-surface-dark-emphasis));
+    --color-surface-emphasis-lch: var(--lightningcss-light, var(--color-surface-light-emphasis-lch)) var(--lightningcss-dark, var(--color-surface-dark-emphasis-lch));
+    --color-border-default-lch: var(--lightningcss-light, var(--color-border-light-default-lch)) var(--lightningcss-dark, var(--color-border-dark-default-lch));
+    --color-border-default: var(--lightningcss-light, var(--color-border-light-default)) var(--lightningcss-dark, var(--color-border-dark-default));
+    --color-border-muted-lch: var(--lightningcss-light, var(--color-border-light-muted-lch)) var(--lightningcss-dark, var(--color-border-dark-muted-lch));
+    --color-border-muted: var(--lightningcss-light, var(--color-border-light-muted)) var(--lightningcss-dark, var(--color-border-dark-muted));
+    --color-status-info-base: var(--lightningcss-light, var(--color-status-info-light-base)) var(--lightningcss-dark, var(--color-status-info-dark-base));
+    --color-status-info-text: var(--lightningcss-light, var(--color-status-info-light-text)) var(--lightningcss-dark, var(--color-status-info-dark-text));
+    --color-status-info-surface: var(--lightningcss-light, var(--color-status-info-light-surface)) var(--lightningcss-dark, var(--color-status-info-dark-surface));
+    --color-status-info-hover: var(--lightningcss-light, var(--color-status-info-light-hover)) var(--lightningcss-dark, var(--color-status-info-dark-hover));
+    --color-status-warning-base: var(--lightningcss-light, var(--color-status-warning-light-base)) var(--lightningcss-dark, var(--color-status-warning-dark-base));
+    --color-status-warning-text: var(--lightningcss-light, var(--color-status-warning-light-text)) var(--lightningcss-dark, var(--color-status-warning-dark-text));
+    --color-status-warning-surface: var(--lightningcss-light, var(--color-status-warning-light-surface)) var(--lightningcss-dark, var(--color-status-warning-dark-surface));
+    --color-status-warning-hover: var(--lightningcss-light, var(--color-status-warning-light-hover)) var(--lightningcss-dark, var(--color-status-warning-dark-hover));
+    --color-status-danger-base: var(--lightningcss-light, var(--color-status-danger-light-base)) var(--lightningcss-dark, var(--color-status-danger-dark-base));
+    --color-status-danger-text: var(--lightningcss-light, var(--color-status-danger-light-text)) var(--lightningcss-dark, var(--color-status-danger-dark-text));
+    --color-status-danger-surface: var(--lightningcss-light, var(--color-status-danger-light-surface)) var(--lightningcss-dark, var(--color-status-danger-dark-surface));
+    --color-status-danger-hover: var(--lightningcss-light, var(--color-status-danger-light-hover)) var(--lightningcss-dark, var(--color-status-danger-dark-hover));
+    --color-status-success-base: var(--lightningcss-light, var(--color-status-success-light-base)) var(--lightningcss-dark, var(--color-status-success-dark-base));
+    --color-status-success-text: var(--lightningcss-light, var(--color-status-success-light-text)) var(--lightningcss-dark, var(--color-status-success-dark-text));
+    --color-status-success-surface: var(--lightningcss-light, var(--color-status-success-light-surface)) var(--lightningcss-dark, var(--color-status-success-dark-surface));
+    --color-status-success-hover: var(--lightningcss-light, var(--color-status-success-light-hover)) var(--lightningcss-dark, var(--color-status-success-dark-hover));
+    --shadow-color-lch: var(--lightningcss-light, var(--shadow-color-light-lch)) var(--lightningcss-dark, var(--shadow-color-dark-lch));
+    --shadow-color: var(--lightningcss-light, var(--shadow-color-light)) var(--lightningcss-dark, var(--shadow-color-dark));
+    --shadow-inset: var(--lightningcss-light, var(--shadow-inset-light)) var(--lightningcss-dark, var(--shadow-inset-dark));
+    --shadow-nearest: var(--lightningcss-light, var(--shadow-nearest-light)) var(--lightningcss-dark, var(--shadow-nearest-dark));
+    --shadow-near: var(--lightningcss-light, var(--shadow-near-light)) var(--lightningcss-dark, var(--shadow-near-dark));
+    --shadow-medium: var(--lightningcss-light, var(--shadow-medium-light)) var(--lightningcss-dark, var(--shadow-medium-dark));
+    --shadow-far: var(--lightningcss-light, var(--shadow-far-light)) var(--lightningcss-dark, var(--shadow-far-dark));
+    --triangle-down-url: var(--lightningcss-light, var(--triangle-down-url-light)) var(--lightningcss-dark, var(--triangle-down-url-dark));
+    --triangle-up-url: var(--lightningcss-light, var(--triangle-up-url-light)) var(--lightningcss-dark, var(--triangle-up-url-dark));
+  }
+}
