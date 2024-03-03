@@ -4,6 +4,7 @@
 	import type { PageData } from './$types';
 	import About from '$lib/modules/common/components/About.svelte';
 	import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
+	import Cta from '$lib/modules/common/components/Cta.svelte';
 
 	export let data: PageData;
 </script>
@@ -51,6 +52,7 @@
 	</div>
 </section>
 <About />
+<Cta />
 
 <style lang="postcss">
 	.fullscreen {
