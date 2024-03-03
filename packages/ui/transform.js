@@ -2,7 +2,7 @@ import { browserslistToTargets, bundle } from 'lightningcss';
 import browserslist from 'browserslist';
 import fs from 'fs';
 
-const targets = browserslistToTargets(browserslist('>= 0.25%'));
+const targets = browserslistToTargets(browserslist('defaults'));
 
 const { code: colors } = bundle({
     // ...

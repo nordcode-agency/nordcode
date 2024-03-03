@@ -3,7 +3,7 @@
 @import './config/bundle.css';
 @import './utils/media.css';
 
-@import './theme/colors_raw.css';
+@import './theme/colors_processed.css';
 
 @import './utils/reset.css';
 @import './utils/easings.css';

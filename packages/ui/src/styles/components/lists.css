@@ -13,6 +13,10 @@
             max-inline-size: 100%;
             hyphens: auto;
         }
+
+        &:not(:last-child) {
+            margin-block-end: 1ch;
+        }
     }
 }
 
