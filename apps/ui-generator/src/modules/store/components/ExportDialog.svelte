@@ -1,6 +1,6 @@
 <script>
     import { configStore } from "../configStore";
-    import { getWpTheme } from '../utils/generateWPTheme';
+    import { getWpTheme } from '../utils/generateWpTheme';
     import { getFigmaTheme } from '../utils/getFigmaTheme';
 
     export let allStyles = '';
