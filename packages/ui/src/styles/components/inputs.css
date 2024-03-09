@@ -167,10 +167,6 @@
         background-size: 1.5ch 1.25ch;
     }
 
-    :where(select:not([class])::-ms-expand, .nc-select::-ms-expand) {
-        display: none;
-    }
-
     :where(textarea:not([class]), .nc-textarea) {
         min-height: calc(var(--button-height-base) * 2);
         max-inline-size: 100%;
