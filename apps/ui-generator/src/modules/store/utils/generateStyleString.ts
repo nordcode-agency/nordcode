@@ -34,7 +34,9 @@ export const generateStyleString = (store: ConfigStore): string => {
         --font-size-large: ${store.fontSizeLarge}${store.fontSizeUnit};
         --font-size-largest: ${store.fontSizeLargest}${store.fontSizeUnit};
         --font-size-display: ${store.fontSizeDisplay}${store.fontSizeUnit};
-
+        
+        /* Transparency */
+        --transparency-weaker:  ${store.transparencyWeaker};
 
         /* Spacing */
 

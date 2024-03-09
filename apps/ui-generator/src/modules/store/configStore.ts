@@ -107,6 +107,8 @@ export type ConfigStore = {
     darkNeutralTextLightness: number;
     darkNeutralSurfaceLightness: number;
     darkNeutralBorderLightness: number;
+
+    transparencyWeaker: number;
 };
 
 const defaultStore: ConfigStore = {
@@ -212,6 +214,8 @@ const defaultStore: ConfigStore = {
     darkNeutralBorderLightness: 30,
     darkTextLightnessScaleFactor: 0.06,
     darkSurfaceLightnessScaleFactor: 0.03,
+
+    transparencyWeaker: 0.8,
 };
 
 const round = (num: number) => Math.round(num * 1000) / 1000;

@@ -31,6 +31,9 @@
         --font-size-largest: 1.5rem;
         --font-size-display: 2.25rem;
 
+        /* Transparency */
+        --transparency-weaker: 0.8;
+
         /* Spacing */
 
         --spacing-tiny: 0.125rem;
@@ -147,13 +150,13 @@
         --color-text-light-subtle: oklch(var(--color-text-light-subtle-lch));
         --color-text-light-on-emphasis-lch: 0.97 0.006 273.694;
         --color-text-light-on-emphasis: oklch(var(--color-text-light-on-emphasis-lch));
-        --color-surface-light-default-lch: 1 0 265;
+        --color-surface-light-default-lch: 0.99 0.03 265;
         --color-surface-light-default: oklch(var(--color-surface-light-default-lch));
-        --color-surface-light-subtle-lch: 0.981 0.03 264.996;
+        --color-surface-light-subtle-lch: 0.971 0.03 264.996;
         --color-surface-light-subtle: oklch(var(--color-surface-light-subtle-lch));
-        --color-surface-light-inset-lch: 0.961 0.029 264.992;
+        --color-surface-light-inset-lch: 0.952 0.029 264.992;
         --color-surface-light-inset: oklch(var(--color-surface-light-inset-lch));
-        --color-surface-light-emphasis-lch: 0.03 0.006 264.806;
+        --color-surface-light-emphasis-lch: 0.03 0.006 264.808;
         --color-surface-light-emphasis: oklch(var(--color-surface-light-emphasis-lch));
         --color-border-light-default-lch: 0.87 0.03 265;
         --color-border-light-default: oklch(var(--color-border-light-default-lch));
