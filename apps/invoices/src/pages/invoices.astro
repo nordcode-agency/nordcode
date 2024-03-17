@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import InvoiceList from "../modules/invoice/components/InvoiceList.svelte"
+import InvoiceList from '../modules/invoice/components/InvoiceList.svelte';
 ---
 
 <Layout title="Alle Rechnungen">
-    <div class="stack">
+    <div class="nc-stack">
         <h1>Alle Rechnungen</h1>
-        <InvoiceList client:load="svelte"/>
+        <InvoiceList client:load="svelte" />
+        <a href="/new">Neue Rechnung</a>
     </div>
 </Layout>
