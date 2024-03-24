@@ -66,9 +66,6 @@
 
     $: lightContrast = getContrast(lightSurface, lightText);
     $: darkContrast = getContrast(darkSurface, darkText);
-
-    $: console.log(lightSurface);
-
 </script>
 
 <style>

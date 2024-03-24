@@ -55,7 +55,7 @@ const { title } = Astro.props;
                 display: grid;
                 grid-template:
                     'config content' 1fr
-                    / minmax(0, 2fr) minmax(0, 5fr);
+                    / auto minmax(0, 5fr);
                 background: var(--color-surface-default);
                 inline-size: 100%;
                 overflow: hidden;
@@ -73,9 +73,13 @@ const { title } = Astro.props;
                 grid-area: config;
                 background: var(--color-surface-default);
                 border-inline-end: var(--border-width-thin) solid var(--color-border-default);
-                padding-inline: var(--spacing-base);
                 max-block-size: 100%;
                 overflow: auto;
+
+                &:has(div, nav) {
+                    inline-size: 24rem;
+                    padding-inline: var(--spacing-base);
+                }
             }
 
             .content {

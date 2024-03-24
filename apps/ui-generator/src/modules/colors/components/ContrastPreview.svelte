@@ -6,8 +6,14 @@
 </script>
 
 <style>
+    .preview {
+        border-radius: var(--border-radius-medium);
+        inline-size: 100%;
+    }
+
     .big-text {
         font-size: var(--font-size-large);
+        font-weight: var(--font-weight-heading);
     }
 
     .badge {
@@ -24,8 +30,6 @@
         display: block;
     }
 
-
-
     [data-ok=true] {
         background: var(--color-status-warning-base);
     }
@@ -35,12 +39,12 @@
     }
 
     [data-fail=true] {
-        background: var(--color-status-error-base);
+        background: var(--color-status-danger-base);
     }
 </style>
 
 
-<div class="nc-stack -near nc-box" style="color: var({textColor}); background: var({surfaceColor})">
+<div class="nc-stack -near nc-box preview" style="color: var({textColor}); background: var({surfaceColor})">
     <svg
         class="nc-icon"
         focusable="false"

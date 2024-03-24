@@ -3,6 +3,9 @@ import ColorPreview from './ColorPreview.astro';
 import { Content as ColorsExplanation } from '../../../../docs/colors.md';
 import PresetPreview from '../../presets/components/PresetPreview.astro';
 import ContrastChecker from './ContrastChecker.svelte';
+import PrimaryColors from './PrimaryColors.svelte';
+import SecondaryColors from './SecondaryColors.svelte';
+import TextColors from './TextColors.svelte';
 
 const colors = [
     {
@@ -194,6 +197,12 @@ const colors = [
     <div class="nc-flow">
         <ColorsExplanation />
     </div>
+
+    <PrimaryColors client:only="svelte" />
+    <SecondaryColors client:only="svelte" />
+    <TextColors client:only="svelte" />
+    <ContrastChecker client:only="svelte" />
+
     <div class="nc-stack -near">
         <div class="preview-row">
             <p class="nc-input-label">Token Name</p>
@@ -204,10 +213,10 @@ const colors = [
         {colors.map(color => <ColorPreview color={color.token} description={color.description} />)}
     </div>
     <hr />
+    <hr />
     <PresetPreview />
     <hr />
 
-    <ContrastChecker client:only="svelte" />
     <hr />
     <div class="nc-cluster -near">
         <button class="nc-button">Default / Basic</button>
