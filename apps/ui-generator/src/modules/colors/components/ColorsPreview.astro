@@ -2,7 +2,7 @@
 import ColorPreview from './ColorPreview.astro';
 import { Content as ColorsExplanation } from '../../../../docs/colors.md';
 import PresetPreview from '../../presets/components/PresetPreview.astro';
-import ContrastsChecks from './ContrastChecks.svelte';
+import ContrastChecker from './ContrastChecker.svelte';
 
 const colors = [
     {
@@ -180,18 +180,34 @@ const colors = [
 ];
 ---
 
+<style is:global>
+    .preview-row {
+        display: grid;
+        grid-template-columns: 20ch 3rem 3rem 1fr;
+        inline-size: 100%;
+        align-items: center;
+        gap: var(--spacing-base);
+    }
+</style>
+
 <div class="nc-stack -far">
     <div class="nc-flow">
         <ColorsExplanation />
     </div>
     <div class="nc-stack -near">
+        <div class="preview-row">
+            <p class="nc-input-label">Token Name</p>
+            <p class="nc-input-label">Light</p>
+            <p class="nc-input-label">Dark</p>
+            <p class="nc-input-label">Description</p>
+        </div>
         {colors.map(color => <ColorPreview color={color.token} description={color.description} />)}
     </div>
     <hr />
     <PresetPreview />
     <hr />
 
-    <ContrastsChecks client:load="svelte" />
+    <ContrastChecker client:only="svelte" />
     <hr />
     <div class="nc-cluster -near">
         <button class="nc-button">Default / Basic</button>

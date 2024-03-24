@@ -52,7 +52,7 @@ const getHueRotation = (
    On hue rotation:
    The trick is to just **make the movement of the hue match up with the movement of the saturation and brightness**.
     If you want a darker variation, move the hue towards red (0°), green
-    (120°), or blue (240°), whichever is closest — and vice versa (with
+    (120°), or blue (240°), whichever is closest and vice versa (with
     cyan, magenta, and yellow) for lighter variations. (Of course, this
     assumes you’re also lowering brightness and increasing saturation)
     (https://www.learnui.design/blog/color-in-ui-design-a-practical-framework.html)

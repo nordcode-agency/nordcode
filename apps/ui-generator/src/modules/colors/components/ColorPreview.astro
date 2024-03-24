@@ -5,27 +5,20 @@ interface Props {
 }
 
 const { color, description } = Astro.props;
+const colorLight = color.split('-').slice(0, -1).join('-') + '-light-' + color.split('-').slice(-1);
+const colorDark = color.split('-').slice(0, -1).join('-') + '-dark-' + color.split('-').slice(-1);
 ---
 
 <div class="preview-row">
     <span class="label">{color}</span>
-    <div class="nc-cluster -centered -nowrap">
-        <div class="color-bg" style={`background-color: var(${color})`}></div>
-        <div class="color-fg">
-            {description}
-        </div>
+    <div class="color-bg" style={`background-color: var(${colorLight})`}></div>
+    <div class="color-bg" style={`background-color: var(${colorDark})`}></div>
+    <div class="color-fg">
+        {description}
     </div>
 </div>
 
 <style>
-    .preview-row {
-        display: grid;
-        grid-template-columns: 20ch 1fr;
-        gap: var(--spacing-near);
-        inline-size: 100%;
-        align-items: center;
-    }
-
     .label {
         font-size: 0.75rem;
         color: var(--color-brand-primary-base);

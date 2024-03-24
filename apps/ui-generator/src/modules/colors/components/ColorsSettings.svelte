@@ -1,6 +1,7 @@
 <script lang="ts">
     import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
     import { configStore } from "../../store/configStore";
+    import SettingsInput from '../../common/components/SettingsInput.svelte';
 </script>
 
 <div class="nc-stack -far -full-width -stretched">
@@ -9,6 +10,15 @@
             <div class="nc-box -bordered">
                 <fieldset class="nc-fieldset nc-stack">
                     <legend>Accents</legend>
+                    <SettingsInput
+                        label="Primary Accent"
+                        bind:value={$configStore.primaryHue}
+                        max="360"
+                        min="0"
+                        step="1"
+                    >
+
+                    </SettingsInput>
                     <Input
                         name="colorLCHPrimaryHue"
                         label="Primary Hue"
