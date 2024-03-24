@@ -49,6 +49,8 @@
     --color-text-subtle: var(--lightningcss-light, var(--color-text-light-subtle)) var(--lightningcss-dark, var(--color-text-dark-subtle));
     --color-text-on-emphasis-lch: var(--lightningcss-light, var(--color-text-light-on-emphasis-lch)) var(--lightningcss-dark, var(--color-text-dark-on-emphasis-lch));
     --color-text-on-emphasis: var(--lightningcss-light, var(--color-text-light-on-emphasis)) var(--lightningcss-dark, var(--color-text-dark-on-emphasis));
+    --color-text-hover-lch: var(--lightningcss-light, var(--color-text-light-hover-lch)) var(--lightningcss-dark, var(--color-text-dark-hover-lch));
+    --color-text-hover: var(--lightningcss-light, var(--color-text-light-hover)) var(--lightningcss-dark, var(--color-text-dark-hover));
     --color-surface-default-lch: var(--lightningcss-light, var(--color-surface-light-default-lch)) var(--lightningcss-dark, var(--color-surface-dark-default-lch));
     --color-surface-default: var(--lightningcss-light, var(--color-surface-light-default)) var(--lightningcss-dark, var(--color-surface-dark-default));
     --color-surface-subtle: var(--lightningcss-light, var(--color-surface-light-subtle)) var(--lightningcss-dark, var(--color-surface-dark-subtle));

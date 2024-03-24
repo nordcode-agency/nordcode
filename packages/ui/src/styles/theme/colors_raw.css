@@ -125,6 +125,13 @@
             var(--color-text-dark-on-emphasis)
         );
 
+        --color-text-hover-lch: light-dark(
+            var(--color-text-light-hover-lch),
+            var(--color-text-dark-hover-lch)
+        );
+
+        --color-text-hover: light-dark(var(--color-text-light-hover), var(--color-text-dark-hover));
+
         --color-surface-default-lch: light-dark(
             var(--color-surface-light-default-lch),
             var(--color-surface-dark-default-lch)

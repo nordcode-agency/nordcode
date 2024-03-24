@@ -2,33 +2,29 @@
 
     import SettingsInput from '../../common/components/SettingsInput.svelte';
     import { configStore } from '../../store/configStore.ts';
-    import ColorPreviewEntry from './ColorPreviewEntry.svelte';
+    import SurfaceColorPreviewEntry from './SurfaceColorPreviewEntry.svelte';
 
     const baseColors = [
         {
             name: "Default",
-            description: 'Primary color for text and icons in any given interface. It should be used for body content, titles and labels.',
+            description: 'Primary color for backgrounds in any given interface.',
         },
-        {
-            name: "Muted",
-            description: 'Use for content that is secondary or that provides additional context but is not critical to understanding the flow of an interface.',
-        },
+
         {
             name: "Subtle",
             description:
-                'Use for placeholder text, icons or decorative foregrounds.',
+                'Provides visual rest and contrast against the default background.',
         },
         {
-            name: "Hover",
-            description:
-                'Used for text and icons on top of the primary brand color.',
+            name: "Inset",
+            description: 'Can be used instead of the default background to create a focal point, such as in conversations or activity feeds.',
         },
 
     ];
 
     const emphasisColor = {
-        name: "On-Emphasis",
-        description: 'Use for text on top of emphasized backgrounds, such as banners, badges, and alerts.',
+        name: "Emphasis",
+        description: 'Use for backgrounds that need to stand out, such as banners, badges, and alerts.',
     };
 </script>
 
@@ -48,7 +44,7 @@
 </style>
 
 <section class="nc-region nc-stack -contained">
-    <h2>Text Colors</h2>
+    <h2>Surface Colors</h2>
     <div class="nc-grid">
         <div class="nc-stack">
             <form>
@@ -56,7 +52,7 @@
                     <fieldset class="nc-fieldset nc-stack">
                         <SettingsInput
                             label="Chroma Light"
-                            bind:value={$configStore.lightNeutralChromaFG}
+                            bind:value={$configStore.lightNeutralChromaBG}
                             max="1"
                             min="0"
                             step="0.001"
@@ -64,7 +60,7 @@
                         </SettingsInput>
                         <SettingsInput
                             label="Lightness Light"
-                            bind:value={$configStore.lightNeutralTextLightness}
+                            bind:value={$configStore.lightNeutralSurfaceLightness}
                             max="100"
                             min="0"
                             step="0.1"
@@ -72,7 +68,7 @@
                         </SettingsInput>
                         <SettingsInput
                             label="Scale Factor Light"
-                            bind:value={$configStore.lightTextLightnessScaleFactor}
+                            bind:value={$configStore.lightSurfaceLightnessScaleFactor}
                             max="100"
                             min="0"
                             step="0.001"
@@ -86,7 +82,7 @@
                     <fieldset class="nc-fieldset nc-stack">
                         <SettingsInput
                             label="Chroma Dark"
-                            bind:value={$configStore.darkNeutralChromaFG}
+                            bind:value={$configStore.darkNeutralChromaBG}
                             max="1"
                             min="0"
                             step="0.001"
@@ -94,7 +90,7 @@
                         </SettingsInput>
                         <SettingsInput
                             label="Lightness Dark"
-                            bind:value={$configStore.darkNeutralTextLightness}
+                            bind:value={$configStore.darkNeutralSurfaceLightness}
                             max="100"
                             min="0"
                             step="0.1"
@@ -102,7 +98,7 @@
                         </SettingsInput>
                         <SettingsInput
                             label="Scale Factor Dark"
-                            bind:value={$configStore.darkTextLightnessScaleFactor}
+                            bind:value={$configStore.darkSurfaceLightnessScaleFactor}
                             max="100"
                             min="0"
                             step="0.001"
@@ -114,16 +110,16 @@
         </div>
         <div class="nc-stack -nogap -stretched -contained">
             {#each baseColors as color}
-                <ColorPreviewEntry color={color}
-                                   surfaceColor="--color-surface-default"
-                                   baseToken="--color-text"
-                ></ColorPreviewEntry>
+                <SurfaceColorPreviewEntry color={color}
+                                          textColor="--color-text-default"
+                                          baseToken="--color-surface"
+                ></SurfaceColorPreviewEntry>
             {/each}
-            <ColorPreviewEntry color={emphasisColor}
-                               surfaceColor="--color-surface-emphasis"
-                               baseToken="--color-text"
-                               protectedString="on-emphasis"
-            ></ColorPreviewEntry>
+            <SurfaceColorPreviewEntry color={emphasisColor}
+                                      textColor="--color-text-on-emphasis"
+                                      baseToken="--color-surface"
+                                      protectedString="on-emphasis"
+            ></SurfaceColorPreviewEntry>
         </div>
     </div>
 </section>

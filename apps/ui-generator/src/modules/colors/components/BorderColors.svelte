@@ -2,34 +2,21 @@
 
     import SettingsInput from '../../common/components/SettingsInput.svelte';
     import { configStore } from '../../store/configStore.ts';
-    import ColorPreviewEntry from './ColorPreviewEntry.svelte';
+    import BorderColorPreviewEntry from './BorderColorPreviewEntry.svelte';
 
     const baseColors = [
         {
             name: "Default",
-            description: 'Primary color for text and icons in any given interface. It should be used for body content, titles and labels.',
+            description: 'Primary color for borders to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout.',
         },
+
         {
             name: "Muted",
-            description: 'Use for content that is secondary or that provides additional context but is not critical to understanding the flow of an interface.',
-        },
-        {
-            name: "Subtle",
             description:
-                'Use for placeholder text, icons or decorative foregrounds.',
+                'Use for dividers to emphasize the separation between items, columns or sections.',
         },
-        {
-            name: "Hover",
-            description:
-                'Used for text and icons on top of the primary brand color.',
-        },
-
     ];
 
-    const emphasisColor = {
-        name: "On-Emphasis",
-        description: 'Use for text on top of emphasized backgrounds, such as banners, badges, and alerts.',
-    };
 </script>
 
 <style>
@@ -48,7 +35,7 @@
 </style>
 
 <section class="nc-region nc-stack -contained">
-    <h2>Text Colors</h2>
+    <h2>Border Colors</h2>
     <div class="nc-grid">
         <div class="nc-stack">
             <form>
@@ -56,7 +43,7 @@
                     <fieldset class="nc-fieldset nc-stack">
                         <SettingsInput
                             label="Chroma Light"
-                            bind:value={$configStore.lightNeutralChromaFG}
+                            bind:value={$configStore.lightNeutralChromaBorder}
                             max="1"
                             min="0"
                             step="0.001"
@@ -64,18 +51,10 @@
                         </SettingsInput>
                         <SettingsInput
                             label="Lightness Light"
-                            bind:value={$configStore.lightNeutralTextLightness}
+                            bind:value={$configStore.lightNeutralBorderLightness}
                             max="100"
                             min="0"
                             step="0.1"
-                        >
-                        </SettingsInput>
-                        <SettingsInput
-                            label="Scale Factor Light"
-                            bind:value={$configStore.lightTextLightnessScaleFactor}
-                            max="100"
-                            min="0"
-                            step="0.001"
                         >
                         </SettingsInput>
                     </fieldset>
@@ -86,7 +65,7 @@
                     <fieldset class="nc-fieldset nc-stack">
                         <SettingsInput
                             label="Chroma Dark"
-                            bind:value={$configStore.darkNeutralChromaFG}
+                            bind:value={$configStore.darkNeutralChromaBorder}
                             max="1"
                             min="0"
                             step="0.001"
@@ -94,18 +73,10 @@
                         </SettingsInput>
                         <SettingsInput
                             label="Lightness Dark"
-                            bind:value={$configStore.darkNeutralTextLightness}
+                            bind:value={$configStore.darkNeutralBorderLightness}
                             max="100"
                             min="0"
                             step="0.1"
-                        >
-                        </SettingsInput>
-                        <SettingsInput
-                            label="Scale Factor Dark"
-                            bind:value={$configStore.darkTextLightnessScaleFactor}
-                            max="100"
-                            min="0"
-                            step="0.001"
                         >
                         </SettingsInput>
                     </fieldset>
@@ -114,16 +85,11 @@
         </div>
         <div class="nc-stack -nogap -stretched -contained">
             {#each baseColors as color}
-                <ColorPreviewEntry color={color}
-                                   surfaceColor="--color-surface-default"
-                                   baseToken="--color-text"
-                ></ColorPreviewEntry>
+                <BorderColorPreviewEntry color={color}
+                                         surfaceColor="--color-surface-default"
+                                         baseToken="--color-border"
+                ></BorderColorPreviewEntry>
             {/each}
-            <ColorPreviewEntry color={emphasisColor}
-                               surfaceColor="--color-surface-emphasis"
-                               baseToken="--color-text"
-                               protectedString="on-emphasis"
-            ></ColorPreviewEntry>
         </div>
     </div>
 </section>

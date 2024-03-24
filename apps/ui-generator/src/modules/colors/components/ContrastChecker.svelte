@@ -75,30 +75,36 @@
     }
 </style>
 
-<section class="nc-region nc-grid contrastTool -far">
-    <form class="nc-stack">
-        <ColorSelect label="Surface Color"
-                     bind:value={surfaceColor}
-                     options={surfaceOptions}></ColorSelect>
-        <ColorSelect label="Foreground Color"
-                     bind:value={textColor}
-                     options={textOptions}></ColorSelect>
-    </form>
-    <div class="nc-stack lightpreview">
-        <ContrastPreview textColor={lightText}
-                         surfaceColor={lightSurface}
-                         wcagContrast={lightContrast[0]}
-                         apcaContrast={lightContrast[1]}>
-        </ContrastPreview>
+<section class="nc-region nc-stack -stretched -contained">
+    <h2>Contrast Checker</h2>
+    <p class="nc-hint">
+        Select a surface color and a foreground color to see the contrast ratio between them.
+    </p>
+    <div class="nc-grid contrastTool -far">
+        <form class="nc-stack">
+            <ColorSelect label="Surface Color"
+                         bind:value={surfaceColor}
+                         options={surfaceOptions}></ColorSelect>
+            <ColorSelect label="Foreground Color"
+                         bind:value={textColor}
+                         options={textOptions}></ColorSelect>
+        </form>
+        <div class="nc-stack lightpreview">
+            <ContrastPreview textColor={lightText}
+                             surfaceColor={lightSurface}
+                             wcagContrast={lightContrast[0]}
+                             apcaContrast={lightContrast[1]}>
+            </ContrastPreview>
 
-    </div>
-    <div class="nc-stack darkreview">
-        <ContrastPreview textColor={darkText}
-                         surfaceColor={darkSurface}
-                         wcagContrast={darkContrast[0]}
-                         apcaContrast={darkContrast[1]}>
-        </ContrastPreview>
+        </div>
+        <div class="nc-stack darkreview">
+            <ContrastPreview textColor={darkText}
+                             surfaceColor={darkSurface}
+                             wcagContrast={darkContrast[0]}
+                             apcaContrast={darkContrast[1]}>
+            </ContrastPreview>
 
+        </div>
     </div>
 
 </section>

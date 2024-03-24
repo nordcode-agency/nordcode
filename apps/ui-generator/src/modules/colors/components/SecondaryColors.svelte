@@ -47,7 +47,7 @@
 </style>
 
 <section class="nc-region nc-stack -contained">
-    <h2>Secondary</h2>
+    <h2>Secondary Colors</h2>
     <div class="nc-grid">
         <form>
             <fieldset class="nc-fieldset nc-stack">
