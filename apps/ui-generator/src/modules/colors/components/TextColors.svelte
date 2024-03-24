@@ -73,7 +73,7 @@
                         <SettingsInput
                             label="Scale Factor Light"
                             bind:value={$configStore.lightTextLightnessScaleFactor}
-                            max="100"
+                            max="0.2"
                             min="0"
                             step="0.001"
                         >
@@ -103,7 +103,7 @@
                         <SettingsInput
                             label="Scale Factor Dark"
                             bind:value={$configStore.darkTextLightnessScaleFactor}
-                            max="100"
+                            max="0.2"
                             min="0"
                             step="0.001"
                         >
