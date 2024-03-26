@@ -1,0 +1,110 @@
+html {
+    font-size: 14px !important;
+}
+
+.printWrap {
+    inline-size: 100%;
+    padding-inline: 0.5in;
+    padding-block: 0.5in;
+    max-inline-size: 210mm;
+    block-size: 100%;
+    min-block-size: 297mm;
+    margin: 0 auto;
+    background: var(--color-surface-default);
+
+    & h1 {
+        font-size: var(--font-size-largest);
+    }
+
+    & h2 {
+        font-size: var(--font-size-large);
+    }
+
+    & h3 {
+        font-size: var(--font-size-base);
+    }
+
+    & h4 {
+        font-size: var(--font-size-small);
+    }
+
+    & p {
+        font-size: var(--font-size-small);
+        line-height: var(--line-height-base);
+    }
+
+    & .-big {
+        font-size: var(--font-size-base);
+    }
+}
+
+.num {
+    font-variant-numeric: tabular-nums;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    inline-size: 100%;
+}
+
+.printOverview {
+    border: var(--border-width-medium) solid var(--color-border-default);
+    padding: var(--spacing-near);
+    justify-self: flex-end;
+    align-self: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--spacing-base);
+    row-gap: var(--spacing-tiny);
+
+    & span {
+        display: block;
+    }
+}
+
+.printBg {
+    width: 100%;
+    background: var(--color-surface-inset);
+    padding-block: var(--spacing-far);
+    margin: 0 auto;
+}
+
+.printBankDetails {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-end;
+    width: fit-content;
+    text-align: right;
+}
+
+.tl-right {
+    text-align: right;
+}
+
+@media print {
+    :root {
+        --color-text: #222;
+        --color-text-strong: #222;
+        --color-background: white;
+    }
+
+    .printBg {
+        background: none;
+        padding: 0;
+    }
+
+    .printWrap {
+        background: var(--color-background) !important;
+        color: var(--color-text) !important;
+
+        & *:not(:is(h1, h2, h3, h4, strong)) {
+            color: var(--color-text) !important;
+            border-color: var(--color-text) !important;
+        }
+
+        & *:is(h1, h2, h3, h4, strong) {
+            color: var(--color-text-strong) !important;
+        }
+    }
+}
