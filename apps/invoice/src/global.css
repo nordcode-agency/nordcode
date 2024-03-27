@@ -1,6 +1,5 @@
 @import '@nordcode/ui/media';
 @import '@nordcode/ui/complete';
-@import '@nordcode/ui/fonts';
 @import '@nordcode/ui/base';
 
 :where(:root) {
@@ -30,12 +29,6 @@
     @media (prefers-reduced-motion: no-preference) {
         scroll-behavior: smooth;
     }
-}
-
-header {
-    display: grid;
-    place-items: center;
-    padding-block: var(--spacing-far);
 }
 
 footer {

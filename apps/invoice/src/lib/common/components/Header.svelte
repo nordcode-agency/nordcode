@@ -5,3 +5,11 @@
 <header class="nc-center page-center-layout">
     <Logo />
 </header>
+
+<style>
+    header {
+        display: grid;
+        place-items: center;
+        padding-block: var(--spacing-far);
+    }
+</style>

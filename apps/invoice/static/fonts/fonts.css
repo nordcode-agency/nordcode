@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'DMMono';
+    src:
+        url('./DMMono-Regular.woff2') format('woff2'),
+        url('./DMMono-Regular.woff') format('woff');
+    font-display: optional;
+    font-weight: 400;
+}

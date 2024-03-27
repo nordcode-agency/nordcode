@@ -4,7 +4,7 @@
         formatMoney,
     } from "$lib/common/utils/formatters";
     import type { Invoice } from '../models/Invoice.model';
-    import "./invoiceDisplay.css";
+    import "../styles/invoiceDisplay.css";
 
     let targetDate: Date;
 

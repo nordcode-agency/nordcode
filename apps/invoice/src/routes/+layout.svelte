@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "../app.css";
+    import "../global.css";
 
     import { page } from "$app/stores";
 </script>

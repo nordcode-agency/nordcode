@@ -16,19 +16,6 @@ export const saveInvoices = async (invoices: Invoice[]) => {
     await fs.writeFile(InvoicePath, JSON.stringify(invoices));
 };
 
-export const saveInvoice = async (invoice: Invoice) => {
-    const invoices = await loadInvoices();
-    invoices.push(invoice);
-    await saveInvoices(invoices);
-};
-
-export const updateInvoice = async (invoice: Invoice) => {
-    const invoices = await loadInvoices();
-    const index = invoices.findIndex(i => i.invoiceNumber === invoice.invoiceNumber);
-    invoices[index] = invoice;
-    await saveInvoices(invoices);
-};
-
 export const deleteInvoice = async (invoiceNumber: string) => {
     const invoices = await loadInvoices();
     const updatedInvoices = invoices.filter(i => i.invoiceNumber !== invoiceNumber);
@@ -38,4 +25,15 @@ export const deleteInvoice = async (invoiceNumber: string) => {
 export const getInvoiceByNumber = async (invoiceNumber: string) => {
     const invoices = await loadInvoices();
     return invoices.find(i => i.invoiceNumber === invoiceNumber);
+};
+
+export const updateOrCreateInvoice = async (invoice: Invoice) => {
+    const invoices = await loadInvoices();
+    const index = invoices.findIndex(i => i.invoiceNumber === invoice.invoiceNumber);
+    if (index === -1) {
+        invoices.push(invoice);
+    } else {
+        invoices[index] = invoice;
+    }
+    await saveInvoices(invoices);
 };

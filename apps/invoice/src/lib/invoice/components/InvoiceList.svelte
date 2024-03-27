@@ -4,6 +4,7 @@
         formatDateString,
         formatMoney,
     } from "$lib/common/utils/formatters";
+    import { Navigation } from '$lib/common/config/Navigation';
 
     export let invoices: InvoiceListItem[] = [];
 
@@ -18,6 +19,7 @@
             <th>Total</th>
             <th>Date</th>
             <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -27,8 +29,10 @@
                 <td>{invoice.customerName}</td>
                 <td>{formatMoney(invoice.total)}</td>
                 <td>{formatDateString(invoice.date)}</td>
-                <td><a href={`/view/${invoice.invoiceNumber}`} class="cluster">
+                <td><a href={`${Navigation.view.url}/${invoice.invoiceNumber}`} class="cluster">
                     View </a></td>
+                <td><a href={`${Navigation.edit.url}/${invoice.invoiceNumber}`} class="cluster">
+                    Edit </a></td>
 
             </tr>
         {/each}

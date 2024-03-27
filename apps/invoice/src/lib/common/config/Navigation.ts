@@ -3,13 +3,17 @@ export const Navigation = {
         url: '/',
         name: 'übersicht',
     },
-    invoices: {
-        url: '/invoices',
+    list: {
+        url: '/invoices/list',
         name: 'Rechnungen',
     },
     new: {
-        url: '/new',
+        url: '/invoices',
         name: 'Neue Rechnung',
+    },
+    edit: {
+        url: '/invoices',
+        name: 'Rechnung bearbeiten',
     },
     view: {
         url: '/view',

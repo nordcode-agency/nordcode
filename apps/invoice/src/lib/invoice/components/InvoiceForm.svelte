@@ -10,7 +10,7 @@
     const createInvoice = async (event: SubmitEvent) => {
         event.preventDefault();
 
-        const res = await fetch('/new', {
+        const res = await fetch('/invoices', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

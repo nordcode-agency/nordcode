@@ -50,6 +50,20 @@ export const currentInvoice = writable<{
     errors: {},
 });
 
+export const setInvoice = (invoice: Invoice) => {
+    currentInvoice.set({
+        invoice,
+        errors: {},
+    });
+};
+
+export const resetInvoice = () => {
+    currentInvoice.set({
+        invoice: initialInvoiceState,
+        errors: {},
+    });
+};
+
 export const addJobDescription = () => {
     currentInvoice.update(currentState => {
         return {
