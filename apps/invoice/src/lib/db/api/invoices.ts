@@ -7,7 +7,9 @@ export async function loadInvoices(): Promise<Invoice[]> {
         const invoices = await fs.readFile(InvoicePath, 'utf-8');
         return JSON.parse(invoices);
     } catch (e) {
-        console.log(e);
+        console.error(
+            `Could not read invoices file at ${InvoicePath}. Did you forget to create it?`,
+        );
         return [];
     }
 }

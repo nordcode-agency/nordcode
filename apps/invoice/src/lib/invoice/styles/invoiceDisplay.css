@@ -32,6 +32,10 @@
     & .-big {
         font-size: var(--font-size-base);
     }
+
+    .description {
+        white-space: pre-line;
+    }
 }
 
 .num {
@@ -81,7 +85,7 @@
 @media print {
     :root {
         --color-text: #222;
-        --color-text-strong: #222;
+        --color-text-strong: #000;
         --color-background: white;
     }
 

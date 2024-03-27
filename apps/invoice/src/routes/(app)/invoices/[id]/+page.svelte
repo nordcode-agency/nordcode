@@ -17,5 +17,5 @@
 
 <div class="nc-stack -far -contained">
     <h1>Rechnung Nr. {data.invoice.invoiceNumber} bearbeiten</h1>
-    <InvoiceForm></InvoiceForm>
+    <InvoiceForm availableIssuers={data.issuers}></InvoiceForm>
 </div>

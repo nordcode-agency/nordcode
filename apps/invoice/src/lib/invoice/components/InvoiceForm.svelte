@@ -6,6 +6,10 @@
     } from "../invoiceStore";
     import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
     import Textarea from "@nordcode/ui/src/modules/forms/svelte/InputFields/Textarea.svelte";
+    import type { Issuer } from '$lib/invoice/models/Invoice.model';
+    import IssuerSelect from '$lib/invoice/components/IssuerSelect.svelte';
+
+    export let availableIssuers: Issuer[] = [];
 
     const createInvoice = async (event: SubmitEvent) => {
         event.preventDefault();
@@ -74,6 +78,13 @@
         <fieldset class="nc-fieldset nc-stack">
             <legend class="nc-legend">Empfänger</legend>
             <Input errors={$currentInvoice.errors.recipient}
+                   name="recipientId"
+                   label="ID"
+                   id="recipientId"
+                   type="text"
+                   bind:value={$currentInvoice.invoice.recipient.id}>
+            </Input>
+            <Input errors={$currentInvoice.errors.recipient}
                    name="recipientName"
                    label="Name"
                    id="recipientName"
@@ -92,7 +103,7 @@
     </div>
 
     <div class="nc-box -bordered">
-        <fieldset class="nc-fieldset nc-stack">
+        <fieldset class="nc-fieldset nc-stack -stretched -contained">
             <legend class="nc-legend">Leistungen</legend>
             <Input errors={$currentInvoice.errors.jobDuration}
                    name="jobDuration"
@@ -103,24 +114,27 @@
             />
 
             {#each $currentInvoice.invoice.jobDescriptions as job, index (job.id)}
-                <div class="nc-stack">
-                    <Input
-                        name="{`job-${job.id}-title`}"
-                        label="Titel"
-                        id="{`job-${job.id}-title`}"
-                        type="checkbox"
-                        optional="true"
-                        bind:value={job.title} />
-                    <Textarea
-                        name={`job-${job.id}-description`}
-                        label={`Leistung ${index + 1}`}
-                        id={`job-${job.id}-description`}
-                        bind:value={job.description}
-                    >
-                    <button class="nc-button -small -destructive"
-                            type="button"
-                            on:click={() => removeJobDescription(job.id)}>Leistung "{index + 1}" löschen</button>
-                </Textarea>
+                <div class="nc-box job-entry">
+                    <fieldset class="nc-fieldset nc-stack">
+                        <legend class="nc-legend">Leistung {index + 1}</legend>
+                        <Input
+                            name="{`job-${job.id}-title`}"
+                            label="Titel"
+                            id="{`job-${job.id}-title`}"
+                            optional="true"
+                            bind:value={job.title} />
+                        <Textarea
+                            name={`job-${job.id}-description`}
+                            label={"Beschreibung"}
+                            id={`job-${job.id}-description`}
+                            bind:value={job.description}
+                        ></Textarea>
+                        <button class="nc-button -small -destructive"
+                                type="button"
+                                on:click={() => removeJobDescription(job.id)}>Leistung "{index + 1}"
+                            löschen
+                        </button>
+                    </fieldset>
                 </div>
             {/each}
             <button class="nc-button" type="button" on:click={addJobDescription}>
@@ -157,6 +171,16 @@
     <div class="nc-box -bordered">
         <fieldset class="nc-fieldset nc-stack">
             <legend class="nc-legend">Aussteller</legend>
+
+            <IssuerSelect availableIssuers={availableIssuers} />
+
+            <Input errors={$currentInvoice.errors.issuer}
+                   name="issuerId"
+                   label="ID"
+                   id="issuerId"
+                   type="text"
+                   bind:value={$currentInvoice.invoice.issuer.id}>
+            </Input>
 
             <Input errors={$currentInvoice.errors.issuer}
                    name="issuerName"
@@ -225,5 +249,13 @@
 <style>
     form {
         --input-field-max-inline-size: 40ch;
+    }
+
+    .job-entry {
+        border-block-start: var(--border-width-medium) dashed var(--color-border-muted);
+    }
+
+    .nc-button {
+        max-inline-size: fit-content;
     }
 </style>

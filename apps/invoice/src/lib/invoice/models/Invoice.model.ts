@@ -1,4 +1,5 @@
 export type ContactDetails = {
+    id: string;
     name: string;
     address: string[];
 };

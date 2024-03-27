@@ -5,6 +5,8 @@
         resetInvoice,
     } from '$lib/invoice/invoiceStore';
 
+    export let data;
+
     onMount(() => {
         resetInvoice();
     });
@@ -16,5 +18,5 @@
 
 <div class="nc-stack -far -contained">
     <h1>Neue Rechnung anlegen</h1>
-    <InvoiceForm></InvoiceForm>
+    <InvoiceForm availableIssuers={data.issuers}></InvoiceForm>
 </div>

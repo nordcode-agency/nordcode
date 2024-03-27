@@ -10,6 +10,8 @@
 
     export let currentInvoice: Invoice;
 
+    console.log(currentInvoice);
+
     $: {
         if (currentInvoice) {
             const date = new Date(currentInvoice.date);
@@ -24,16 +26,18 @@
         <div class="printSection | grid-2">
             <div class="nc-stack -far">
                 <h1>Rechnung</h1>
-                <div class="nc-stack -nogap">
+                <div class="nc-stack -nearest">
                     <h4>An</h4>
-                    <p>
-                        {currentInvoice.recipient.name}
-                    </p>
-                    {#each currentInvoice.recipient.address as row}
+                    <div class="nc-stack -nogap">
                         <p>
-                            {row}
+                            {currentInvoice.recipient.name}
                         </p>
-                    {/each}
+                        {#each currentInvoice.recipient.address as row}
+                            <p>
+                                {row}
+                            </p>
+                        {/each}
+                    </div>
                 </div>
 
             </div>
@@ -47,7 +51,7 @@
 
         </div>
         <div class="printSection | nc-stack -far">
-            <div class="nc-stack -near">
+            <div class="nc-stack">
                 <div class="nc-stack -nogap">
                     <h2>Leistungen</h2>
                     <small class="num">{currentInvoice.jobDuration}</small>
@@ -55,7 +59,10 @@
 
                 <div class="nc-stack">
                     {#each currentInvoice.jobDescriptions as job}
-                        <p class="-big">{job.description}</p>
+                        <div class="nc-stack -nearest">
+                            {#if job.title}<h3>{job.title}</h3>{/if}
+                            <p class="-big description">{job.description}</p>
+                        </div>
                     {/each}
                 </div>
 
@@ -68,7 +75,7 @@
                 </strong>
             </div>
 
-            <div class="printSection | nc-stack -near">
+            <div class="printSection | nc-stack -nearest">
                 <h3>Anmerkungen</h3>
                 {#if currentInvoice.jobDateEqualsInvoiceDate}
                     <p>Sofern nicht anders angegeben, entspricht das Leistungsdatum dem
@@ -89,7 +96,7 @@
         </div>
 
         <div class="printSection printContact grid-2 mt-auto">
-            <div class="nc-stack -near | printContactDetails">
+            <div class="nc-stack -nearest | printContactDetails">
                 <h4>Kontakt</h4>
                 <div class="stack -nogap">
                     <p>{currentInvoice.issuer.name}</p>
@@ -103,7 +110,7 @@
                 </div>
             </div>
             <div class="printBankDetails">
-                <div class="nc-stack -near">
+                <div class="nc-stack -nearest">
                     <h4>Bitte überweisen an</h4>
                     <div class="nc-stack -nogap mt-auto">
                         <p>{currentInvoice.bankingDetails.bankName}</p>

@@ -3,19 +3,21 @@ import type { Invoice } from './models/Invoice.model';
 
 const generateJobId = (): string => `job-${Math.random() * new Date().getTime()}`;
 
-export const initialInvoiceState = {
+export const initialInvoiceState: Invoice = {
     title: 'New Invoice',
     invoiceNumber: '0',
     invoiceTotal: 416.67,
     date: new Date(),
     daysToPay: 10,
     recipient: {
+        id: 'customer-1',
         name: 'Unser erster Kunde',
         address: ['Eine Straße', '00000 Cool'],
     },
     jobDescriptions: [
         {
             id: generateJobId(),
+            title: '',
             description:
                 'Online-Marketing, Verwaltung der sozialen Medien, Erstellen von Blogbeiträgen',
         },
@@ -29,6 +31,7 @@ export const initialInvoiceState = {
     goodbyePhrase: 'Mit großer Freude,',
     name: 'Joshua Stübner',
     issuer: {
+        id: 'joshua',
         name: 'Joshua Stübner',
         address: ['Dorfstr. 34', '19273 Zeetze'],
         phone: '0152 52481201',
@@ -93,6 +96,18 @@ export const removeJobDescription = (jobIdToDelete: string) => {
             invoice: {
                 ...currentState.invoice,
                 jobDescriptions: updatedJobs,
+            },
+        };
+    });
+};
+
+export const setIssuer = (issuer: Invoice['issuer']) => {
+    currentInvoice.update(currentState => {
+        return {
+            errors: currentState.errors,
+            invoice: {
+                ...currentState.invoice,
+                issuer,
             },
         };
     });
