@@ -112,3 +112,27 @@ export const setIssuer = (issuer: Invoice['issuer']) => {
         };
     });
 };
+
+export const setRecipient = (recipient: Invoice['recipient']) => {
+    currentInvoice.update(currentState => {
+        return {
+            errors: currentState.errors,
+            invoice: {
+                ...currentState.invoice,
+                recipient,
+            },
+        };
+    });
+};
+
+export const setBankDetails = (bankingDetails: Invoice['bankingDetails']) => {
+    currentInvoice.update(currentState => {
+        return {
+            errors: currentState.errors,
+            invoice: {
+                ...currentState.invoice,
+                bankingDetails,
+            },
+        };
+    });
+};

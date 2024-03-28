@@ -4,6 +4,8 @@ export type ContactDetails = {
     address: string[];
 };
 
+export type Recipient = ContactDetails;
+
 export type Issuer = ContactDetails & {
     phone: string;
     email: string;
@@ -29,7 +31,7 @@ export type Invoice = {
     invoiceTotal: number;
     date: Date;
     daysToPay: number;
-    recipient: ContactDetails;
+    recipient: Recipient;
     jobDescriptions: JobDescriptions;
     jobDuration: string;
     jobDateEqualsInvoiceDate: boolean;

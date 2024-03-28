@@ -18,5 +18,6 @@
 
 <div class="nc-stack -far -contained">
     <h1>Neue Rechnung anlegen</h1>
-    <InvoiceForm availableIssuers={data.issuers}></InvoiceForm>
+    <InvoiceForm availableIssuers={data.issuers}
+                 availablebBankingDetails={data.bankDetails}></InvoiceForm>
 </div>
