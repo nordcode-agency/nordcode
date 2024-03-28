@@ -13,6 +13,7 @@
     } from '$lib/invoice/models/Invoice.model';
     import IssuerSelect from '$lib/invoice/components/IssuerSelect.svelte';
     import BankDetailsSelect from '$lib/invoice/components/BankDetailsSelect.svelte';
+    import RecipientSelect from '$lib/invoice/components/RecipientSelect.svelte';
 
     export let availableIssuers: Issuer[] = [];
     export let availableRecipients: Recipient[] = [];
@@ -84,6 +85,7 @@
     <div class="nc-box -bordered">
         <fieldset class="nc-fieldset nc-stack">
             <legend class="nc-legend">Empfänger</legend>
+            <RecipientSelect availableRecipients={availableRecipients} />
             <Input errors={$currentInvoice.errors.recipient}
                    name="recipientId"
                    label="ID"

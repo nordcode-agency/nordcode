@@ -1,0 +1,53 @@
+<script lang="ts">
+    import {
+        currentInvoice,
+        setRecipient,
+    } from "../invoiceStore";
+    import Select from "@nordcode/ui/src/modules/forms/svelte/InputFields/Select.svelte";
+    import type { Recipient } from '$lib/invoice/models/Invoice.model';
+    import { invalidate } from '$app/navigation';
+
+    export let availableRecipients: Recipient[] = [];
+
+    let selectedRecipientId: string;
+
+    const createRecipient = async () => {
+        const res = await fetch('/recipients', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify($currentInvoice.invoice.recipient),
+        });
+        if (res.status === 201) {
+            await invalidate("recipients:get");
+            selectedRecipientId = $currentInvoice.invoice.recipient.id;
+        }
+    };
+
+    $: {
+        const selectedRecipient = availableRecipients.find(issuer => issuer.id === selectedRecipientId);
+        if (selectedRecipient) {
+            setRecipient({ ...selectedRecipient });
+        }
+    }
+</script>
+
+<div class="nc-cluster full-width recipients">
+    <Select
+        label="Empfänger:in wählen"
+        id="selectRecipient"
+        name="selectRecipient"
+        options="{availableRecipients.map(recipient => ({ value: recipient.id, label: `${recipient.id} - ${recipient.name}` }))}"
+        bind:value={selectedRecipientId}
+    ></Select>
+    <button class="nc-button" type="button" on:click={createRecipient}>
+        Aktuellen Empfänger:in speichern
+    </button>
+</div>
+
+<style>
+    .recipients {
+        align-items: flex-end;
+    }
+</style>

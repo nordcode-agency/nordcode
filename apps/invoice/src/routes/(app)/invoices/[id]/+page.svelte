@@ -19,5 +19,6 @@
     <h1>Rechnung Nr. {data.invoice.invoiceNumber} bearbeiten</h1>
     <InvoiceForm availableIssuers={data.issuers}
                  availablebBankingDetails={data.bankDetails}
+                 availableRecipients={data.recipients}
     ></InvoiceForm>
 </div>
