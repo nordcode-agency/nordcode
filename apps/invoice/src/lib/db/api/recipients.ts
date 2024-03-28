@@ -34,3 +34,11 @@ export const updateOrCreateRecipient = async (issuer: Recipient) => {
     }
     await saveRecipients(recipients);
 };
+
+export const createRecipientFileIfNotExists = async () => {
+    try {
+        await fs.access(RecipientsPath);
+    } catch (e) {
+        await fs.writeFile(RecipientsPath, '[]');
+    }
+};

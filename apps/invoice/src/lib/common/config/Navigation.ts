@@ -19,4 +19,8 @@ export const Navigation = {
         url: '/view',
         name: 'Rechnungsdetails',
     },
+    admin: {
+        url: '/management',
+        name: 'Verwaltung',
+    },
 } as const;

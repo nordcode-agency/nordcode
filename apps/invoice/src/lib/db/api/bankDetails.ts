@@ -18,9 +18,9 @@ export const saveBankdetails = async (bankDetails: BankingDetails[]) => {
     await fs.writeFile(BankingDetailsPath, JSON.stringify(bankDetails));
 };
 
-export const deleteBankdetail = async (id: string) => {
+export const deleteBankdetail = async (iban: string) => {
     const bankDetails = await loadBankdetails();
-    const updatedBankdetails = bankDetails.filter(i => i.iban !== id);
+    const updatedBankdetails = bankDetails.filter(i => i.iban !== iban);
     await saveBankdetails(updatedBankdetails);
 };
 
@@ -33,4 +33,12 @@ export const updateOrCreateBankdetail = async (issuer: BankingDetails) => {
         bankDetails[index] = issuer;
     }
     await saveBankdetails(bankDetails);
+};
+
+export const createBankDetailsFileIfNotExists = async () => {
+    try {
+        await fs.access(BankingDetailsPath);
+    } catch (e) {
+        await fs.writeFile(BankingDetailsPath, '[]');
+    }
 };

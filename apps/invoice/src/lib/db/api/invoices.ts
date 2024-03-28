@@ -39,3 +39,11 @@ export const updateOrCreateInvoice = async (invoice: Invoice) => {
     }
     await saveInvoices(invoices);
 };
+
+export const createInvoiceFileIfNotExists = async () => {
+    try {
+        await fs.access(InvoicePath);
+    } catch (e) {
+        await fs.writeFile(InvoicePath, '[]');
+    }
+};
