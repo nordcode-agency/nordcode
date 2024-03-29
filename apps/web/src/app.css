@@ -25,6 +25,11 @@
 	--center-padding: var(--spacing-adaptive);
 }
 
+html {
+    scroll-timeline: --atmosphereTimeline y;
+    scroll-timeline: --squareTimeline vertical;
+}
+
 h2 {
 	font-size: calc(var(--font-size-largest) * 1.5);
 }
