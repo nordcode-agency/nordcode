@@ -35,14 +35,14 @@
 
 <div class="nc-cluster full-width issuers">
     <Select
-        label="Aussteller wählen"
+        label="Aussteller:in wählen"
         id="selectIssuer"
         name="selectIssuer"
         options="{availableIssuers.map(issuer => ({ value: issuer.id, label: `${issuer.id} - ${issuer.name}` }))}"
         bind:value={selectedIssuerId}
     ></Select>
     <button class="nc-button" type="button" on:click={createIssuer}>
-        Aktuellen Aussteller speichern
+        Aktuellen Aussteller:in speichern
     </button>
 </div>
 

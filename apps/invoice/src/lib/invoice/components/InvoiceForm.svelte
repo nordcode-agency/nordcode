@@ -6,10 +6,18 @@
     } from "../invoiceStore";
     import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
     import Textarea from "@nordcode/ui/src/modules/forms/svelte/InputFields/Textarea.svelte";
-    import type { Issuer } from '$lib/invoice/models/Invoice.model';
+    import type {
+        Issuer,
+        BankingDetails,
+        Recipient,
+    } from '$lib/invoice/models/Invoice.model';
     import IssuerSelect from '$lib/invoice/components/IssuerSelect.svelte';
+    import BankDetailsSelect from '$lib/invoice/components/BankDetailsSelect.svelte';
+    import RecipientSelect from '$lib/invoice/components/RecipientSelect.svelte';
 
     export let availableIssuers: Issuer[] = [];
+    export let availableRecipients: Recipient[] = [];
+    export let availablebBankingDetails: BankingDetails[] = [];
 
     const createInvoice = async (event: SubmitEvent) => {
         event.preventDefault();
@@ -77,6 +85,7 @@
     <div class="nc-box -bordered">
         <fieldset class="nc-fieldset nc-stack">
             <legend class="nc-legend">Empfänger</legend>
+            <RecipientSelect availableRecipients={availableRecipients} />
             <Input errors={$currentInvoice.errors.recipient}
                    name="recipientId"
                    label="ID"
@@ -215,6 +224,8 @@
     <div class="nc-box -bordered">
         <fieldset class="nc-fieldset nc-stack">
             <legend class="nc-legend">Bankverbindung</legend>
+
+            <BankDetailsSelect availableBankingDetails={availablebBankingDetails} />
 
             <Input errors={$currentInvoice.errors.bankingDetails}
                    name="bankName"

@@ -11,5 +11,6 @@
     <ul>
         <li><a href={Navigation.new.url}>{Navigation.new.name}</a></li>
         <li><a href={Navigation.list.url}>{Navigation.list.name}</a></li>
+        <li><a href={Navigation.admin.url}>{Navigation.admin.name}</a></li>
     </ul>
 </div>

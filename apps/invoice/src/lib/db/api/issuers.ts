@@ -12,6 +12,14 @@ export async function loadIssuers(): Promise<Issuer[]> {
     }
 }
 
+export const createIssuerFileIfNotExists = async () => {
+    try {
+        await fs.access(IssuerPath);
+    } catch (e) {
+        await fs.writeFile(IssuerPath, '[]');
+    }
+};
+
 export const saveIssuers = async (issuers: Issuer[]) => {
     await fs.writeFile(IssuerPath, JSON.stringify(issuers));
 };
