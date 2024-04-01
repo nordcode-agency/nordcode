@@ -1,6 +1,7 @@
 <script lang="ts">
   import "../app.css"
   import Footer from '$lib/modules/common/components/Footer.svelte';
+  import Stars from '$lib/modules/common/components/Stars.svelte';
   import { onNavigate } from '$app/navigation';
 
   onNavigate((navigation) => {
@@ -10,7 +11,7 @@
       document.startViewTransition(async () => {
         resolve();
         await navigation.complete;
-        
+
         const projectName = navigation.from?.params?.project;
         if (projectName) {
           const thumbEl = document.querySelector(`[href="/work/${projectName}"] figure`) as HTMLElement | null;
@@ -38,6 +39,7 @@
 
 <main>
   <slot/>
+    <Stars />
 </main>
 <Footer/>
 
@@ -45,5 +47,7 @@
   main {
     /* padding-block-start: 90px; equals <Navigation> block-size */
     min-block-size: 100dvh;
+      block-size: 100%;
+      position: relative;
   }
 </style>
