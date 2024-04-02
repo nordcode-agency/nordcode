@@ -1,15 +1,10 @@
 <script lang="ts">
-
     import { onMount } from 'svelte';
-
 
     let container: HTMLDivElement | null
     let canvas: HTMLCanvasElement | null
     let ctx: CanvasRenderingContext2D | null;
     let raf: number;
-
-
-
 
     // @todo: listen to color scheme change?
     // document.documentElement.addEventListener('color-scheme-changed', (e) => {
@@ -171,6 +166,5 @@
 	.container {
         position: absolute;
         inset: 0;
-        z-index: -1;
 	}
 </style>

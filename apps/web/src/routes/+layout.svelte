@@ -1,7 +1,6 @@
 <script lang="ts">
   import "../app.css"
   import Footer from '$lib/modules/common/components/Footer.svelte';
-  import Stars from '$lib/modules/common/components/Stars.svelte';
   import { onNavigate } from '$app/navigation';
 
   onNavigate((navigation) => {
@@ -39,7 +38,6 @@
 
 <main>
   <slot/>
-    <Stars />
 </main>
 <Footer/>
 
