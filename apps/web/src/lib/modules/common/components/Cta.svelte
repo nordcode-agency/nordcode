@@ -68,8 +68,8 @@
 
     .oval {
         z-index: 1;
-        inline-size: 300vw;
-        block-size: 300vw;
+        inline-size: 260vw;
+        block-size: 260vw;
         margin-inline: auto;
         border-radius: 100%;
         flex-shrink: 0;
