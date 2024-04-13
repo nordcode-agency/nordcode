@@ -5,6 +5,7 @@
 	import About from '$lib/modules/common/components/About.svelte';
 	import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
 	import Cta from '$lib/modules/common/components/Cta.svelte';
+	import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
 
 	export let data: PageData;
 </script>
@@ -17,7 +18,9 @@
 	<Header />
 	<Hero projects={data.projects} />
 </div>
-<!-- <Work /> -->
+<section class="nc-box">
+    <ThreeScene />
+</section>
 <section class="nc-box intro">
 	<p class="heading-bg">
 		Wir haben eine Leidenschaft für schönes Design und eine tolle User Experience. Diese
