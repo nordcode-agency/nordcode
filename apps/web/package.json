@@ -13,7 +13,8 @@
     "format": "prettier --plugin-search-dir . --write ."
   },
   "dependencies": {
-    "@nordcode/ui": "workspace:^"
+    "@nordcode/ui": "workspace:^",
+    "three": "^0.163.0"
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^2.1.0",
