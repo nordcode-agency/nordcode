@@ -9,14 +9,14 @@
             <div class="oval"></div>
         </div>
         <div class="nc-box box">
-            <button type="button" class="nc-button -outline">Loslegen</button>
+            <a href="/start" type="button" class="nc-button -outline">Loslegen</a>
         </div>
         <Stars />
     </div>
 </section>
 
 <style lang="postcss">
-    section {
+    section.nc-box {
         --shadow-blur: 7vh;
         --shadow-vertical-offset: -8px;
         --shadow-max-multiplier: 4;
