@@ -30,7 +30,7 @@
 
 <section class="nc-region nc-stack -contained">
     <h2 id="surface">Surface Colors</h2>
-    <div class="nc-grid color-grid">
+    <div class="nc-grid preview-grid">
         <div class="nc-stack">
             <form>
                 <fieldset class="nc-fieldset nc-stack">

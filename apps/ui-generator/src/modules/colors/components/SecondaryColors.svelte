@@ -32,7 +32,7 @@
 
 <section class="nc-region nc-stack -contained">
     <h2 id="secondary">Secondary Colors</h2>
-    <div class="nc-grid color-grid">
+    <div class="nc-grid preview-grid">
         <form>
             <fieldset class="nc-fieldset nc-stack">
                 <SettingsInput
