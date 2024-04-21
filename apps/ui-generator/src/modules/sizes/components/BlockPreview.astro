@@ -7,28 +7,19 @@ interface Props {
 const { style, label } = Astro.props;
 ---
 
-<div class="preview-row">
+<div class="block nc-box" style={style}>
     <span class="label">{label}</span>
-    <div class="block" style={style}></div>
 </div>
 
 <style>
-    .preview-row {
-        display: grid;
-        grid-template-columns: 20ch 1fr;
-        gap: var(--spacing-near);
-        inline-size: 100%;
-        align-items: center;
-    }
-
     .label {
         font-size: var(--font-size-small);
         color: var(--color-brand-primary-base);
     }
 
     .block {
-        inline-size: 3rem;
-        block-size: 3rem;
+        inline-size: 100%;
+        block-size: 8rem;
         display: block;
         background-color: var(--color-surface-inset);
         border: var(--border-width-medium) solid var(--color-border-muted);

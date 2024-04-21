@@ -1,0 +1,37 @@
+---
+interface Props {
+    entries: {
+        title: string;
+        url: string;
+    }[];
+}
+
+const { entries } = Astro.props;
+---
+
+<style>
+    nav {
+        position: sticky;
+        inset-block-start: calc(var(--spacing-far) * -1);
+        inset-inline: calc(var(--spacing-base) * -1);
+        margin-inline: calc(var(--spacing-base) * -1);
+        inline-size: calc(100% + var(--spacing-base) * 2);
+        padding-block: var(--spacing-near);
+        background: var(--color-surface-inset);
+        box-shadow: var(--shadow-near);
+        padding-inline: var(--spacing-base);
+        z-index: 2;
+    }
+</style>
+
+<nav>
+    <ul class="nc-list-reset nc-cluster">
+        {
+            entries.map(entry => (
+                <li>
+                    <a href={entry.url}>{entry.title}</a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>

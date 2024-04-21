@@ -26,7 +26,7 @@
 </script>
 
 <section class="nc-region nc-stack -contained">
-    <h2>Status Colors</h2>
+    <h2 id="status">Status Colors</h2>
     <div class="nc-grid color-grid">
         <div>
             <p>The status colors are in a set hue, based on the lightness of the primary color.</p>

@@ -19,68 +19,49 @@
 
 </script>
 
-<style>
-    .nc-grid {
-        grid-template-columns: 1fr 3fr;
-        gap: var(--spacing-far);
-    }
-
-    .fieldset-container {
-        background: var(--color-surface-inset);
-        padding: var(--spacing-base);
-        border-radius: var(--border-radius-medium);
-        box-shadow: var(--shadow-medium);
-    }
-
-</style>
-
 <section class="nc-region nc-stack -contained">
-    <h2>Border Colors</h2>
-    <div class="nc-grid">
+    <h2 id="borders">Border Colors</h2>
+    <div class="nc-grid color-grid">
         <div class="nc-stack">
             <form>
-                <div class="fieldset-container">
-                    <fieldset class="nc-fieldset nc-stack">
-                        <SettingsInput
-                            label="Chroma Light"
-                            bind:value={$configStore.lightNeutralChromaBorder}
-                            max="1"
-                            min="0"
-                            step="0.001"
-                        >
-                        </SettingsInput>
-                        <SettingsInput
-                            label="Lightness Light"
-                            bind:value={$configStore.lightNeutralBorderLightness}
-                            max="100"
-                            min="0"
-                            step="0.1"
-                        >
-                        </SettingsInput>
-                    </fieldset>
-                </div>
+                <fieldset class="nc-fieldset nc-stack">
+                    <SettingsInput
+                        label="Chroma Light"
+                        bind:value={$configStore.lightNeutralChromaBorder}
+                        max="1"
+                        min="0"
+                        step="0.001"
+                    >
+                    </SettingsInput>
+                    <SettingsInput
+                        label="Lightness Light"
+                        bind:value={$configStore.lightNeutralBorderLightness}
+                        max="100"
+                        min="0"
+                        step="0.1"
+                    >
+                    </SettingsInput>
+                </fieldset>
             </form>
             <form>
-                <div class="fieldset-container">
-                    <fieldset class="nc-fieldset nc-stack">
-                        <SettingsInput
-                            label="Chroma Dark"
-                            bind:value={$configStore.darkNeutralChromaBorder}
-                            max="1"
-                            min="0"
-                            step="0.001"
-                        >
-                        </SettingsInput>
-                        <SettingsInput
-                            label="Lightness Dark"
-                            bind:value={$configStore.darkNeutralBorderLightness}
-                            max="100"
-                            min="0"
-                            step="0.1"
-                        >
-                        </SettingsInput>
-                    </fieldset>
-                </div>
+                <fieldset class="nc-fieldset nc-stack">
+                    <SettingsInput
+                        label="Chroma Dark"
+                        bind:value={$configStore.darkNeutralChromaBorder}
+                        max="1"
+                        min="0"
+                        step="0.001"
+                    >
+                    </SettingsInput>
+                    <SettingsInput
+                        label="Lightness Dark"
+                        bind:value={$configStore.darkNeutralBorderLightness}
+                        max="100"
+                        min="0"
+                        step="0.1"
+                    >
+                    </SettingsInput>
+                </fieldset>
             </form>
         </div>
         <div class="nc-stack -nogap -stretched -contained">

@@ -76,7 +76,7 @@
 </style>
 
 <section class="nc-region nc-stack -stretched -contained">
-    <h2>Contrast Checker</h2>
+    <h2 id="contrast-checker">Contrast Checker</h2>
     <p class="nc-hint">
         Select a surface color and a foreground color to see the contrast ratio between them.
     </p>

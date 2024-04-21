@@ -31,7 +31,7 @@
 </script>
 
 <section class="nc-region nc-stack -contained">
-    <h2>Secondary Colors</h2>
+    <h2 id="secondary">Secondary Colors</h2>
     <div class="nc-grid color-grid">
         <form>
             <fieldset class="nc-fieldset nc-stack">

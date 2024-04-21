@@ -1,5 +1,4 @@
 ---
-import ColorPreview from './ColorPreview.astro';
 import { Content as ColorsExplanation } from '../../../../docs/colors.md';
 import PresetPreview from '../../presets/components/PresetPreview.astro';
 import ContrastChecker from './ContrastChecker.svelte';
@@ -9,9 +8,42 @@ import TextColors from './TextColors.svelte';
 import SurfaceColors from './SurfaceColors.svelte';
 import BorderColors from './BorderColors.svelte';
 import StatusColors from './StatusColors.svelte';
+import SecondaryNav from '../../common/components/SecondaryNav.astro';
+
+const entries = [
+    {
+        title: 'Primary',
+        url: '#primary',
+    },
+    {
+        title: 'Secondary',
+        url: '#secondary',
+    },
+    {
+        title: 'Text',
+        url: '#text',
+    },
+    {
+        title: 'Surface',
+        url: '#surface',
+    },
+    {
+        title: 'Borders',
+        url: '#borders',
+    },
+    {
+        title: 'Status',
+        url: '#status',
+    },
+    {
+        title: 'Contrast Checker',
+        url: '#contrast-checker',
+    },
+];
 ---
 
 <div class="nc-stack -far">
+    <SecondaryNav entries={entries} />
     <div class="nc-flow">
         <ColorsExplanation />
     </div>

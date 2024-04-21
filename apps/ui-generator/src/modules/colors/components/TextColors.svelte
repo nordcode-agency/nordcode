@@ -33,64 +33,64 @@
 </script>
 
 <section class="nc-region nc-stack -contained">
-    <h2>Text Colors</h2>
+    <h2 id="text">Text Colors</h2>
     <div class="nc-grid color-grid">
         <div class="nc-stack">
             <form>
-                    <fieldset class="nc-fieldset nc-stack">
-                        <SettingsInput
-                            label="Chroma Light"
-                            bind:value={$configStore.lightNeutralChromaFG}
-                            max="1"
-                            min="0"
-                            step="0.001"
-                        >
-                        </SettingsInput>
-                        <SettingsInput
-                            label="Lightness Light"
-                            bind:value={$configStore.lightNeutralTextLightness}
-                            max="100"
-                            min="0"
-                            step="0.1"
-                        >
-                        </SettingsInput>
-                        <SettingsInput
-                            label="Scale Factor Light"
-                            bind:value={$configStore.lightTextLightnessScaleFactor}
-                            max="0.2"
-                            min="0"
-                            step="0.001"
-                        >
-                        </SettingsInput>
-                    </fieldset>
+                <fieldset class="nc-fieldset nc-stack">
+                    <SettingsInput
+                        label="Chroma Light"
+                        bind:value={$configStore.lightNeutralChromaFG}
+                        max="1"
+                        min="0"
+                        step="0.001"
+                    >
+                    </SettingsInput>
+                    <SettingsInput
+                        label="Lightness Light"
+                        bind:value={$configStore.lightNeutralTextLightness}
+                        max="100"
+                        min="0"
+                        step="0.1"
+                    >
+                    </SettingsInput>
+                    <SettingsInput
+                        label="Scale Factor Light"
+                        bind:value={$configStore.lightTextLightnessScaleFactor}
+                        max="0.2"
+                        min="0"
+                        step="0.001"
+                    >
+                    </SettingsInput>
+                </fieldset>
             </form>
             <form>
-                    <fieldset class="nc-fieldset nc-stack">
-                        <SettingsInput
-                            label="Chroma Dark"
-                            bind:value={$configStore.darkNeutralChromaFG}
-                            max="1"
-                            min="0"
-                            step="0.001"
-                        >
-                        </SettingsInput>
-                        <SettingsInput
-                            label="Lightness Dark"
-                            bind:value={$configStore.darkNeutralTextLightness}
-                            max="100"
-                            min="0"
-                            step="0.1"
-                        >
-                        </SettingsInput>
-                        <SettingsInput
-                            label="Scale Factor Dark"
-                            bind:value={$configStore.darkTextLightnessScaleFactor}
-                            max="0.2"
-                            min="0"
-                            step="0.001"
-                        >
-                        </SettingsInput>
-                    </fieldset>
+                <fieldset class="nc-fieldset nc-stack">
+                    <SettingsInput
+                        label="Chroma Dark"
+                        bind:value={$configStore.darkNeutralChromaFG}
+                        max="1"
+                        min="0"
+                        step="0.001"
+                    >
+                    </SettingsInput>
+                    <SettingsInput
+                        label="Lightness Dark"
+                        bind:value={$configStore.darkNeutralTextLightness}
+                        max="100"
+                        min="0"
+                        step="0.1"
+                    >
+                    </SettingsInput>
+                    <SettingsInput
+                        label="Scale Factor Dark"
+                        bind:value={$configStore.darkTextLightnessScaleFactor}
+                        max="0.2"
+                        min="0"
+                        step="0.001"
+                    >
+                    </SettingsInput>
+                </fieldset>
             </form>
         </div>
         <div class="nc-stack -nogap -stretched -contained">
