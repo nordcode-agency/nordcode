@@ -28,27 +28,11 @@
     };
 </script>
 
-<style>
-    .nc-grid {
-        grid-template-columns: 1fr 3fr;
-        gap: var(--spacing-far);
-    }
-
-    .fieldset-container {
-        background: var(--color-surface-inset);
-        padding: var(--spacing-base);
-        border-radius: var(--border-radius-medium);
-        box-shadow: var(--shadow-medium);
-    }
-
-</style>
-
 <section class="nc-region nc-stack -contained">
     <h2>Surface Colors</h2>
-    <div class="nc-grid">
+    <div class="nc-grid color-grid">
         <div class="nc-stack">
             <form>
-                <div class="fieldset-container">
                     <fieldset class="nc-fieldset nc-stack">
                         <SettingsInput
                             label="Chroma Light"
@@ -76,10 +60,8 @@
                         >
                         </SettingsInput>
                     </fieldset>
-                </div>
             </form>
             <form>
-                <div class="fieldset-container">
                     <fieldset class="nc-fieldset nc-stack">
                         <SettingsInput
                             label="Chroma Dark"
@@ -106,7 +88,6 @@
                         >
                         </SettingsInput>
                     </fieldset>
-                </div>
             </form>
         </div>
         <div class="nc-stack -nogap -stretched -contained">

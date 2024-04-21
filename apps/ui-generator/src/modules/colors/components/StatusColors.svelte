@@ -25,25 +25,9 @@
     ];
 </script>
 
-<style>
-    .nc-grid {
-        grid-template-columns: 1fr 3fr;
-        gap: var(--spacing-far);
-    }
-
-    fieldset {
-        background: var(--color-surface-inset);
-        padding: var(--spacing-base);
-        border-radius: var(--border-radius-medium);
-        box-shadow: var(--shadow-medium);
-        position: sticky;
-        inset-block-start: 0;
-    }
-</style>
-
 <section class="nc-region nc-stack -contained">
     <h2>Status Colors</h2>
-    <div class="nc-grid">
+    <div class="nc-grid color-grid">
         <div>
             <p>The status colors are in a set hue, based on the lightness of the primary color.</p>
         </div>

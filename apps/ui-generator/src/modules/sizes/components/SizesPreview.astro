@@ -33,7 +33,14 @@ const shadows = {
 };
 ---
 
-<div class="nc-stack -far">
+<style>
+    .preview-grid {
+        grid-template-columns: 1fr 1fr;
+        inline-size: 100%;
+    }
+</style>
+
+<div class="nc-stack -far -stretched -contained">
     <div class="nc-stack -near">
         <h2>Spacings</h2>
         {
@@ -44,20 +51,26 @@ const shadows = {
     </div>
     <div class="nc-stack -near">
         <h2>Borders</h2>
+        <div class="nc-grid preview-grid" >
         {
             Object.entries(borderWidths).map(([key, value]) => (
                 <BlockPreview label={key} style={value} />
             ))
         }
+        </div>
         <hr />
+        <div class="nc-grid preview-grid">
         {
             Object.entries(borderRadii).map(([key, value]) => (
                 <BlockPreview label={key} style={value} />
             ))
         }
+        </div>
     </div>
     <div class="nc-stack -far">
         <h2>Shadows</h2>
-        {Object.entries(shadows).map(([key, value]) => <BlockPreview label={key} style={value} />)}
+        <div class="nc-grid preview-grid">
+            {Object.entries(shadows).map(([key, value]) => <BlockPreview label={key} style={value} />)}
+        </div>
     </div>
 </div>
