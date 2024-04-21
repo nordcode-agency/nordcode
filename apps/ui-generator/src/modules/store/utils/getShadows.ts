@@ -65,7 +65,7 @@ export const getShadows = (store: ConfigStore) => {
             
             /* Dark Theme */
             
-            --shadow-inset-dark: inset ${generateShadow(
+            --shadow-inset-dark: ${generateShadow(
                 shadowColorDark,
                 AmountOfShadows.nearest,
                 shadowConfig,
