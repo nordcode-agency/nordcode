@@ -73,6 +73,7 @@
                 const canvas = renderer.domElement;
                 camera.aspect = canvas.clientWidth / canvas.clientHeight;
                 camera.updateProjectionMatrix();
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             }
             // const elapsedTime = clock.getElapsedTime();
             // camera.position.x = Math.sin(elapsedTime * 0.1 * Math.PI * 2) * 3;
