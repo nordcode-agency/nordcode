@@ -1,7 +1,8 @@
 <script lang="ts">
-	import gsap from "gsap";
+	// import gsap from "gsap";
 	import { onMount } from "svelte";
     import * as THREE from "three";
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
     function resizeRendererToDisplaySize(renderer: THREE.Renderer) {
         const canvas = renderer.domElement;
@@ -11,6 +12,7 @@
         if (needResize) {
             renderer.setSize(width, height, false);
         }
+
         return needResize;
     }
 
@@ -24,13 +26,15 @@
 
     // Inspiration: https://meshbg-1xcve0hlq-chasedavis.vercel.app/0.615577921549203
     function main() {
+        const canvasEl= document.querySelector('#c') as HTMLCanvasElement;
         const scene = new THREE.Scene();
 
+        /** AXIS HELPER */
         const axisHelper = new THREE.AxesHelper(5);
         scene.add(axisHelper);
 
+        /** GROUP */
         const group = new THREE.Group();
-
         const cube1 = cube();
         const cube2 = cube();
         cube2.position.x = 2;
@@ -41,22 +45,40 @@
         scene.add(group);
 
         const sizes = {
-            width: 800,
-            height: 600,
+            width: canvasEl.clientWidth,
+            height: canvasEl.clientHeight,
         };
 
-        const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
+        /** CAMERA */
+        const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
         camera.position.z = 3;
         scene.add(camera);
 
-        const canvasEl= document.querySelector('#c');
+        /** RENDERER */
         const renderer = new THREE.WebGLRenderer({ canvas: canvasEl });
+        // renderer.setSize(sizes.width, sizes.height);
 
-        gsap.to(group.position, { duration: 1, x: 2 });
-        gsap.to(group.position, { delay: 1, duration: 1, x: 0 });
+        /** CONTROLS */
+        const controls = new OrbitControls(camera, canvasEl);
+        controls.enableDamping = true;
 
-        // Animations
+        /** CLOCK */
+        // gsap.to(group.position, { duration: 1, x: 2 });
+        // gsap.to(group.position, { delay: 1, duration: 1, x: 0 });
+        const clock = new THREE.Clock();
+
+        /** ANIMATION */
         const tick = () => {
+            if (resizeRendererToDisplaySize(renderer)) {
+                const canvas = renderer.domElement;
+                camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                camera.updateProjectionMatrix();
+            }
+            // const elapsedTime = clock.getElapsedTime();
+            // camera.position.x = Math.sin(elapsedTime * 0.1 * Math.PI * 2) * 3;
+            // camera.position.z = Math.cos(elapsedTime * 0.1 * Math.PI * 2) * 3;
+            camera.lookAt(group.position);
+            controls.update();
             renderer.render(scene, camera);
             window.requestAnimationFrame(tick);
         }
@@ -76,5 +98,6 @@
         display: block;
         inline-size: 100%;
         block-size: 80vh;
+        outline: none;
     }
 </style>
