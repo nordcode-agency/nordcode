@@ -169,6 +169,9 @@ importers:
       gsap:
         specifier: ^3.12.5
         version: 3.12.5
+      lil-gui:
+        specifier: ^0.19.2
+        version: 0.19.2
       three:
         specifier: ^0.163.0
         version: 0.163.0
@@ -5272,6 +5275,10 @@ packages:
       lightningcss-linux-x64-gnu: 1.24.0
       lightningcss-linux-x64-musl: 1.24.0
       lightningcss-win32-x64-msvc: 1.24.0
+
+  /lil-gui@0.19.2:
+    resolution: {integrity: sha512-nU8j4ND702ouGfQZoaTN4dfXxacvGOAVK0DtmZBVcUYUAeYQXLQAjAN50igMHiba3T5jZyKEjXZU+Ntm1Qs6ZQ==}
+    dev: false
 
   /lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
