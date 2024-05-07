@@ -70,7 +70,7 @@
 			cube1.material.wireframe = params.wireframe;
 		});
 		gui.addColor(params, 'color').onChange(() => {
-			cube1.material.color.set(params.color);
+			group.children[0].material.color.set(params.color);
 		});
 		gui.add(params, 'subdivision')
 			.min(1)
