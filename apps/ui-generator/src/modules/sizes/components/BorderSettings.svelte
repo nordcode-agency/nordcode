@@ -1,105 +1,76 @@
 <script lang="ts">
-    import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
-    import InputWrapper
-        from "@nordcode/ui/src/modules/forms/svelte/InputFields/InputWrapper.svelte";
-    import {
-        configStore,
-        updateBorderRadiusScale,
-        updateBorderWidthScale,
-        updateBorderWidths,
-        updateBorderRadius,
-    } from "../../store/configStore";
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
+import Input from '@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte';
+import InputWrapper from '@nordcode/ui/src/modules/forms/svelte/InputFields/InputWrapper.svelte';
+import {
+    configStore,
+    updateBorderRadiusScale,
+    updateBorderWidthScale,
+    updateBorderWidths,
+    updateBorderRadius,
+} from '../../store/configStore';
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import BorderPreviewEntry from './BorderPreviewEntry.svelte';
 
-    const widths = [
-        {
-            name: "Thin",
-        },
-        {
-            name: "Medium",
-        },
-        {
-            name: "Thick",
-        },
-    ];
+const widths = [
+    {
+        name: 'Thin',
+        description: 'Thin border width. Usually the default for most elements.',
+    },
+    {
+        name: 'Medium',
+        description: 'Medium border width',
+    },
+    {
+        name: 'Thick',
+        description: 'Thick border width',
+    },
+];
 
-    const radius = [
-        {
-            name: "Small",
-        },
-        {
-            name: "Medium",
-        },
-        {
-            name: "Large",
-        },
-        {
-            name: "Round",
-        },
-    ];
-
+const radius = [
+    {
+        name: 'Small',
+        description: 'Small border radius for most smaller elements, like inputs or buttons.',
+    },
+    {
+        name: 'Medium',
+        description: 'Medium border radius for most layout elements, like cards or dialogs.',
+    },
+    {
+        name: 'Large',
+        description:
+            'Largest border radius for large elements or special cases. Can be used for full screen layout containers.',
+    },
+    {
+        name: 'Round',
+        description: "Utility border radius. It's constant and round.",
+    },
+];
 </script>
-
-<style>
-    .borders-preview {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 8rem;
-        gap: var(--spacing-base);
-        position: sticky;
-        inset-block-start: var(--spacing-far);
-        block-size: max-content;
-
-    }
-    .border-preview {
-        block-size: 8rem;
-        display: grid;
-        place-content: center;
-        border-color: var(--color-border-default);
-    }
-</style>
 
 <section class="nc-region nc-stack -contained">
     <h2 id="borders">Borders</h2>
     <div class="nc-grid preview-grid">
-        <div class="nc-stack">
             <form>
                 <fieldset class="nc-fieldset nc-stack">
-                    <InputWrapper
+                    <SettingsInput
                         label="Border Width Thin (Base)"
-                        id="borderWidthThinMain"
-                        hint="Set the base value for border width calculations"
+                        bind:value={$configStore.borderWidthThin}
+                        step="0.1"
+                        min="0"
+                        max="4"
+                        on:input={evt => {updateBorderWidths(evt.detail.value)}}
                     >
-
-                        <input class="nc-input"
-                               id="borderWidthThinMain"
-                               name="borderWidthThinMain"
-                               aria-required="true"
-                               autocomplete="off"
-                               type="number"
-                               step="0.1"
-                               value={$configStore.borderWidthThin}
-                               on:input={evt => updateBorderWidths(evt.target.value)}
-                        />
-                    </InputWrapper>
-
-                    <InputWrapper
+                    </SettingsInput>
+                    <SettingsInput
                         label="Border Width Scale"
-                        id="borderWidthScale"
-                        hint="Harmoniously update your border widths based on this scale"
+                        bind:value={$configStore.borderWidthScale}
+                        step="0.1"
+                        min="0"
+                        max="4"
+                        on:input={evt => {updateBorderWidthScale(evt.detail.value)}}
                     >
+                    </SettingsInput>
 
-                        <input class="nc-input"
-                               id="borderWidthScale"
-                               name="borderWidthScale"
-                               aria-required="true"
-                               autocomplete="off"
-                               type="number"
-                               step="0.1"
-                               value={$configStore.borderWidthScale}
-                               on:input={evt => updateBorderWidthScale(evt.target.value)}
-                        />
-                    </InputWrapper>
                     <details class="full-width">
                         <summary>Use custom border widths?</summary>
                         <fieldset class="nc-fieldset nc-stack">
@@ -131,41 +102,25 @@
 
                     <hr />
 
-                    <InputWrapper
+                      <SettingsInput
                         label="Border Radius Small (Base)"
-                        id="borderRadiusSmallMain"
-                        hint="Set the base value for border radius calculations"
+                        bind:value={$configStore.borderRadiusSmall}
+                        step="0.1"
+                        min="0"
+                        max="8"
+                        on:input={evt => {updateBorderRadius(evt.detail.value)}}
                     >
-
-                        <input class="nc-input"
-                               id="borderRadiusSmallMain"
-                               name="borderRadiusSmallMain"
-                               aria-required="true"
-                               autocomplete="off"
-                               type="number"
-                               step="0.1"
-                               value={$configStore.borderRadiusSmall}
-                               on:input={evt => updateBorderRadius(evt.target.value)}
-                        />
-                    </InputWrapper>
-
-                    <InputWrapper
+                    </SettingsInput>
+                    <SettingsInput
                         label="Border Radius Scale"
-                        id="borderRadiusScale"
-                        hint="Harmoniously update your border radii based on this scale"
+                        bind:value={$configStore.borderRadiusScale}
+                        step="0.1"
+                        min="0"
+                        max="4"
+                        on:input={evt => {updateBorderRadiusScale(evt.detail.value)}}
                     >
+                    </SettingsInput>
 
-                        <input class="nc-input"
-                               id="borderRadiusScale"
-                               name="borderRadiusScale"
-                               aria-required="true"
-                               autocomplete="off"
-                               type="number"
-                               step="0.1"
-                               value={$configStore.borderRadiusScale}
-                               on:input={evt => updateBorderRadiusScale(evt.target.value)}
-                        />
-                    </InputWrapper>
                     <details class="full-width">
                         <summary>Use custom border radii?</summary>
                         <fieldset class="nc-fieldset nc-stack">
@@ -197,14 +152,12 @@
 
                 </fieldset>
             </form>
-        </div>
-        <div class="borders-preview">
+        <div class="nc-stack -stretched -contained">
             {#each widths as width}
-                {#each radius as rad}
-                <div class="nc-box border-preview" style="border-radius: var(--border-radius-{rad.name.toLowerCase()}); border-width: var(--border-width-{width.name.toLowerCase()});">
-                    {width.name} / {rad.name}
-                </div>
-                {/each}
+                <BorderPreviewEntry entry={width} token={`--border-width-${width.name.toLowerCase()}`} style={`border-width: var(--border-width-${width.name.toLowerCase()});`} />
+            {/each}
+            {#each radius as rad}
+                <BorderPreviewEntry entry={rad} token={`--border-radius-${rad.name.toLowerCase()}`} style={`border-radius: var(--border-radius-${rad.name.toLowerCase()});`} />
             {/each}
         </div>
     </div>

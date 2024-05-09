@@ -1,55 +1,37 @@
 <script lang="ts">
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
-    import { configStore } from '../../store/configStore.ts';
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import { configStore } from '../../store/configStore.ts';
+import ShadowPreviewEntry from './ShadowPreviewEntry.svelte';
 
-    const shadows = [
-        {
-            name: "Inset",
-            description: 'Shadows that indicate that an element is embedded or pushed into the background. Used for inputs or pushed down buttons.',
-        },
-        {
-            name: "Nearest",
-            description: 'Level 1 shadow. Items that are closed to the surface.',
-        },
-        {
-            name: "Near",
-            description:
-                'Level 2 shadow. Items that are slightly elevated from the surface.',
-        },
-        {
-            name: "Medium",
-            description:
-                'Level 3 shadow. Items that are elevated from the surface. Commonly cards.',
-        },
-        {
-            name: "Far",
-            description:
-                'Level 4 shadow. Items that are floating above the surface. Used for modals or dialogs.',
-        },
-
-    ];
+const shadows = [
+    {
+        name: 'Inset',
+        description:
+            'Shadows that indicate that an element is embedded or pushed into the background. Used for inputs or pushed down buttons.',
+    },
+    {
+        name: 'Nearest',
+        description: 'Level 1 shadow. Items that are closed to the surface.',
+    },
+    {
+        name: 'Near',
+        description: 'Level 2 shadow. Items that are slightly elevated from the surface.',
+    },
+    {
+        name: 'Medium',
+        description: 'Level 3 shadow. Items that are elevated from the surface. Commonly cards.',
+    },
+    {
+        name: 'Far',
+        description:
+            'Level 4 shadow. Items that are floating above the surface. Used for modals or dialogs.',
+    },
+];
 </script>
 
 <style>
-    .shadows-preview {
-        position: sticky;
-        inset-block-start: var(--spacing-base);
-        block-size: max-content;
-    }
 
-    .shadows-preview-container {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: var(--spacing-base);
-        border-radius: var(--border-radius-medium);
 
-        block-size: 8rem;
-
-    }
-
-    .shadow-preview {
-        border-radius: var(--border-radius-medium);
-    }
 
 </style>
 
@@ -126,9 +108,9 @@
                     <SettingsInput
                         label="Start Transparency"
                         bind:value={$configStore.shadowConfigStartTransparency}
-                        step="0.1"
-                        min="1"
-                        max="10"
+                        step="0.01"
+                        min="0"
+                        max="1"
                     >
                     </SettingsInput>
                     <SettingsInput
@@ -158,28 +140,11 @@
                 </fieldset>
             </form>
         </div>
-        <div class="nc-stack shadows-preview -stretched -contained">
-            <div class="shadows-preview-container -light nc-box"
-                 style="background: var(--color-surface-light-default); color: var(--color-text-light-default);"
-            >
+            <div class="nc-stack -nogap -stretched -contained">
                 {#each shadows as shadow}
-                    <div class="nc-box shadow-preview"
-                         style={`box-shadow: var(--shadow-${shadow.name.toLowerCase()}-light);`}>
-                        {shadow.name}
-                    </div>
+                   <ShadowPreviewEntry entry={shadow} />
                 {/each}
             </div>
-            <div class="shadows-preview-container -dark nc-box"
-                 style="background: var(--color-surface-dark-default); color: var(--color-text-dark-default);"
-            >
-                {#each shadows as shadow}
-                    <div class="nc-box shadow-preview"
-                         style={`box-shadow: var(--shadow-${shadow.name.toLowerCase()}-dark);`}>
-                        {shadow.name}
-                    </div>
-                {/each}
-            </div>
-        </div>
     </div>
 </section>
 

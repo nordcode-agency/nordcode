@@ -1,19 +1,23 @@
 <script lang="ts">
-    export let label: string;
-    export let max: string;
-    export let min: string;
-    export let step: string;
+import { createEventDispatcher } from 'svelte';
 
-    export let value;
+const dispatch = createEventDispatcher();
+export let label: string;
+export let max: string;
+export let min: string;
+export let step: string;
 
-    const name = label.split(" ").join("").toLowerCase();
+export let value;
 
-    const handleInput = (event: InputEvent) => {
-        // in here, you can switch on type and implement
-        // whatever behaviour you need
-        const target = event.target as HTMLInputElement;
-        value = +target.value;
-    };
+const name = label.split(' ').join('').toLowerCase();
+
+const handleInput = (event: InputEvent) => {
+    // in here, you can switch on type and implement
+    // whatever behaviour you need
+    const target = event.target as HTMLInputElement;
+    value = +target.value;
+    dispatch('input', { value });
+};
 </script>
 
 <div class="nc-input-field" style="inline-size: 100%;">

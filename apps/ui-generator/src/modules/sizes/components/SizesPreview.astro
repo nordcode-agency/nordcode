@@ -1,8 +1,8 @@
 ---
 import BlockPreview from './BlockPreview.astro';
-import SpacingPreview from './SpacingPreview.astro';
 import ShadowsSettings from './ShadowsSettings.svelte';
 import BorderSettings from './BorderSettings.svelte';
+import SpacingSettings from './SpacingSettings.svelte';
 
 const spacings = {
     '--spacing-tiny': 'gap: var(--spacing-tiny)',
@@ -12,38 +12,10 @@ const spacings = {
     '--spacing-far': 'gap: var(--spacing-far)',
     '--spacing-farthest': 'gap: var(--spacing-farthest)',
 };
-
-const borderWidths = {
-    '--border-width-thin': 'border-width: var(--border-width-thin)',
-    '--border-width-medium': 'border-width: var(--border-width-medium)',
-    '--border-width-thick': 'border-width: var(--border-width-thick)',
-};
-
-const borderRadii = {
-    '--border-radius-small': 'border-radius: var(--border-radius-small)',
-    '--border-radius-medium': 'border-radius: var(--border-radius-medium)',
-    '--border-radius-large': 'border-radius: var(--border-radius-large)',
-    '--border-radius-round': 'border-radius: var(--border-radius-round)',
-};
-
-const shadows = {
-    '--shadow-inset': 'box-shadow: var(--shadow-inset)',
-    '--shadow-nearest': 'box-shadow: var(--shadow-nearest)',
-    '--shadow-near': 'box-shadow: var(--shadow-near)',
-    '--shadow-medium': 'box-shadow: var(--shadow-medium)',
-    '--shadow-far': 'box-shadow: var(--shadow-far)',
-};
 ---
 
 <div class="nc-stack -far -stretched -contained">
-    <div class="nc-stack -near">
-        <h2>Spacings</h2>
-        {
-            Object.entries(spacings).map(([key, value]) => (
-                <SpacingPreview label={key} style={value} />
-            ))
-        }
-    </div>
+    <SpacingSettings client:only="svelte" />
     <BorderSettings client:only="svelte" />
     <ShadowsSettings client:only="svelte" />
 </div>
