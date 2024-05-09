@@ -1,27 +1,27 @@
 <script lang="ts">
-    import { writable } from "svelte/store";
-    import ContextPreview from "./ContextPreview.svelte";
-    import ExportDialog from "./ExportDialog.svelte";
-    import type { ConfigStore } from "../configStore";
-    import { configStore } from "../configStore";
-    import ImportDialog from "./ImportDialog.svelte";
-    import { generateStyleString } from "../utils/generateStyleString";
+import { writable } from 'svelte/store';
+import ContextPreview from './ContextPreview.svelte';
+import ExportDialog from './ExportDialog.svelte';
+import type { ConfigStore } from '../configStore';
+import { configStore } from '../configStore';
+import ImportDialog from './ImportDialog.svelte';
+import { generateStyleString } from '../utils/generateStyleString';
 
-    let allStyles = '';
+let allStyles = '';
 
-    const previewContainer = typeof document !== 'undefined' ? document?.body : undefined;
+const previewContainer = typeof document !== 'undefined' ? document?.body : undefined;
 
-    const updateStyles = (store: ConfigStore) => {
-        allStyles = generateStyleString(store);
-        previewContainer?.setAttribute('style', allStyles);
-    };
+const updateStyles = (store: ConfigStore) => {
+    allStyles = generateStyleString(store);
+    previewContainer?.setAttribute('style', allStyles);
+};
 
-    configStore?.subscribe(updateStyles);
+configStore?.subscribe(updateStyles);
 
-    const previewShown = writable(false);
-    const togglePreview = () => {
-        previewShown.update(prev => !prev);
-    };
+const previewShown = writable(false);
+const togglePreview = () => {
+    previewShown.update((prev) => !prev);
+};
 </script>
 
 <div class="nc-cluster">

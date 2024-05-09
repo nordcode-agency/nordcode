@@ -1,71 +1,67 @@
 <script lang="ts">
-    import Color from 'colorjs.io';
-    import ColorSelect from '../../common/components/ColorSelect.svelte';
-    import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
-    import ContrastPreview from '../../colors/components/ContrastPreview.svelte';
+import Color from 'colorjs.io';
+import ColorSelect from '../../common/components/ColorSelect.svelte';
+import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
+import ContrastPreview from '../../colors/components/ContrastPreview.svelte';
 
-    const surfaceOptions = {
-        Primary: [
-            '--color-brand-primary-surface',
-        ],
-        Secondary: [
-            '--color-brand-secondary-surface',
-        ],
-        Neutrals: [
-            "--color-surface-default",
-            "--color-surface-subtle",
-            "--color-surface-inset",
-            "--color-surface-emphasis",
-        ],
-    };
+const surfaceOptions = {
+    Primary: ['--color-brand-primary-surface'],
+    Secondary: ['--color-brand-secondary-surface'],
+    Neutrals: [
+        '--color-surface-default',
+        '--color-surface-subtle',
+        '--color-surface-inset',
+        '--color-surface-emphasis',
+    ],
+};
 
-    const textOptions = {
-        Primary: [
-            "--color-brand-primary-base",
-            "--color-brand-primary-emphasis",
-            "--color-brand-primary-contrast",
-        ],
-        Secondary: [
-            "--color-brand-secondary-base",
-            "--color-brand-secondary-emphasis",
-            "--color-brand-secondary-contrast",
-        ],
-        Neutrals: [
-            "--color-text-default",
-            "--color-text-subtle",
-            "--color-text-muted",
-            "--color-text-on-emphasis",
-        ],
-    };
+const textOptions = {
+    Primary: [
+        '--color-brand-primary-base',
+        '--color-brand-primary-emphasis',
+        '--color-brand-primary-contrast',
+    ],
+    Secondary: [
+        '--color-brand-secondary-base',
+        '--color-brand-secondary-emphasis',
+        '--color-brand-secondary-contrast',
+    ],
+    Neutrals: [
+        '--color-text-default',
+        '--color-text-subtle',
+        '--color-text-muted',
+        '--color-text-on-emphasis',
+    ],
+};
 
-    const getContrast = (surfaceColor: string, textColor: string) => {
-        if (!document) {
-            return [0, 0];
-        }
-        const themeEl = document.querySelector('.live-theme');
-        if (!themeEl) {
-            return [0, 0];
-        }
-        const style = getComputedStyle(themeEl);
+const getContrast = (surfaceColor: string, textColor: string) => {
+    if (!document) {
+        return [0, 0];
+    }
+    const themeEl = document.querySelector('.live-theme');
+    if (!themeEl) {
+        return [0, 0];
+    }
+    const style = getComputedStyle(themeEl);
 
-        const colorBg = new Color(style.getPropertyValue(surfaceColor));
-        const colorFg = new Color(style.getPropertyValue(textColor));
-        const wcag = +colorFg.contrast(colorBg, 'WCAG21').toFixed(2);
-        const apca = +colorBg.contrast(colorFg, 'APCA').toFixed(2);
-        return [wcag, apca];
-    };
+    const colorBg = new Color(style.getPropertyValue(surfaceColor));
+    const colorFg = new Color(style.getPropertyValue(textColor));
+    const wcag = +colorFg.contrast(colorBg, 'WCAG21').toFixed(2);
+    const apca = +colorBg.contrast(colorFg, 'APCA').toFixed(2);
+    return [wcag, apca];
+};
 
-    let surfaceColor: string = surfaceOptions.Neutrals[0];
-    let textColor: string = textOptions.Neutrals[0];
+const surfaceColor: string = surfaceOptions.Neutrals[0];
+const textColor: string = textOptions.Neutrals[0];
 
-    $: lightSurface = toSpecificVersion(surfaceColor, 'light');
-    $: darkSurface = toSpecificVersion(surfaceColor, 'dark');
+$: lightSurface = toSpecificVersion(surfaceColor, 'light');
+$: darkSurface = toSpecificVersion(surfaceColor, 'dark');
 
-    $: lightText = toSpecificVersion(textColor, 'light');
-    $: darkText = toSpecificVersion(textColor, 'dark');
+$: lightText = toSpecificVersion(textColor, 'light');
+$: darkText = toSpecificVersion(textColor, 'dark');
 
-    $: lightContrast = getContrast(lightSurface, lightText);
-    $: darkContrast = getContrast(darkSurface, darkText);
+$: lightContrast = getContrast(lightSurface, lightText);
+$: darkContrast = getContrast(darkSurface, darkText);
 </script>
 
 <style>

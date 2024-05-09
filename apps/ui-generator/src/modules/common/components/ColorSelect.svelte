@@ -1,18 +1,18 @@
 <script lang="ts">
-    export let options: Record<string, string[]>;
-    export let label: string;
+export let options: Record<string, string[]>;
+export let label: string;
 
-    export let value: string;
+export let value: string;
 
-    const name = label.split(" ").join("").toLowerCase();
+const name = label.split(' ').join('').toLowerCase();
 
-    const handleInput = (event: InputEvent) => {
-        // in here, you can switch on type and implement
-        // whatever behaviour you need
-        const target = event.target as HTMLInputElement;
+const handleInput = (event: InputEvent) => {
+    // in here, you can switch on type and implement
+    // whatever behaviour you need
+    const target = event.target as HTMLInputElement;
 
-        value = target.value;
-    };
+    value = target.value;
+};
 </script>
 
 <div class="nc-input-field" style="inline-size: 100%;">

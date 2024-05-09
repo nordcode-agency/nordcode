@@ -1,49 +1,49 @@
 <script lang="ts">
-    import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
-    import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
-    import {
-        getThemeMutationObserver,
-        type ThemeMutationObserverListener,
-    } from '../../common/utils/ThemeMutationObserver.ts';
-    import { onMount } from 'svelte';
+import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
+import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
+import {
+    getThemeMutationObserver,
+    type ThemeMutationObserverListener,
+} from '../../common/utils/ThemeMutationObserver.ts';
+import { onMount } from 'svelte';
 
-    export let color: {
-        name: string;
-        description: string;
-    };
+export let color: {
+    name: string;
+    description: string;
+};
 
-    export let surfaceColor: string;
-    export let baseToken: string
-    export let protectedString = '';
+export let surfaceColor: string;
+export let baseToken: string;
+export const protectedString = '';
 
-    const token = `${baseToken}-${color.name.toLowerCase()}`
+const token = `${baseToken}-${color.name.toLowerCase()}`;
 
-    const isSurface = token === surfaceColor;
+const isSurface = token === surfaceColor;
 
-    let resolvedColor = '';
+let resolvedColor = '';
 
+$: lightSurface = toSpecificVersion(surfaceColor, 'light', protectedString);
+$: darkSurface = toSpecificVersion(surfaceColor, 'dark', protectedString);
 
-    $: lightSurface = toSpecificVersion(surfaceColor, 'light', protectedString);
-    $: darkSurface = toSpecificVersion(surfaceColor, 'dark', protectedString);
+$: lightText = toSpecificVersion(token, 'light', protectedString);
+$: darkText = toSpecificVersion(token, 'dark', protectedString);
 
-    $: lightText = toSpecificVersion(token, 'light', protectedString);
-    $: darkText = toSpecificVersion(token, 'dark', protectedString);
-
-    const updateResolvedColor: ThemeMutationObserverListener = (style) => {
-        if (!style) {
-            return;
-        }
-        resolvedColor = `${style.getPropertyValue(lightText).trim()} / ${style.getPropertyValue(darkText).trim()}`;
+const updateResolvedColor: ThemeMutationObserverListener = (style) => {
+    if (!style) {
+        return;
     }
+    resolvedColor = `${style.getPropertyValue(lightText).trim()} / ${style
+        .getPropertyValue(darkText)
+        .trim()}`;
+};
 
-    onMount(() => {
-        getThemeMutationObserver().subscribe((style) => {
-            updateResolvedColor(style)
-        });
+onMount(() => {
+    getThemeMutationObserver().subscribe((style) => {
+        updateResolvedColor(style);
+    });
 
-        updateResolvedColor(getThemeMutationObserver().getStyle())
-    })
-
+    updateResolvedColor(getThemeMutationObserver().getStyle());
+});
 </script>
 
 <style>
@@ -74,10 +74,6 @@
     .preview-text {
         font-size: var(--font-size-display);
     }
-
-
-
-
 
     .lightpreview .current {
         color: var(--color-text-light-default);

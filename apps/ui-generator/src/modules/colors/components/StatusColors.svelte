@@ -1,28 +1,27 @@
 <script lang="ts">
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import { configStore } from '../../store/configStore.ts';
+import ColorPreviewEntry from './ColorPreviewEntry.svelte';
 
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
-    import { configStore } from '../../store/configStore.ts';
-    import ColorPreviewEntry from './ColorPreviewEntry.svelte';
-
-    const baseColors = [
-        {
-            name: "Surface",
-            description: 'Subtle version of the primary brand color. Used for backgrounds and borders.',
-        },
-        {
-            name: "Text",
-            description: 'Primary brand color. Used for accents and highlights.',
-        },
-        {
-            name: "Base",
-            description:
-                'Background: Use to highlight the most important item of a view or an interface.',
-        },
-        {
-            name: "Hover",
-            description: 'Used for text and icons on top of the primary brand color.',
-        },
-    ];
+const baseColors = [
+    {
+        name: 'Surface',
+        description: 'Subtle version of the primary brand color. Used for backgrounds and borders.',
+    },
+    {
+        name: 'Text',
+        description: 'Primary brand color. Used for accents and highlights.',
+    },
+    {
+        name: 'Base',
+        description:
+            'Background: Use to highlight the most important item of a view or an interface.',
+    },
+    {
+        name: 'Hover',
+        description: 'Used for text and icons on top of the primary brand color.',
+    },
+];
 </script>
 
 <section class="nc-region nc-stack -contained">

@@ -1,8 +1,8 @@
 <script lang="ts">
-    export let textColor: string;
-    export let surfaceColor: string;
-    export let wcagContrast: number;
-    export let apcaContrast: number;
+export let textColor: string;
+export let surfaceColor: string;
+export let wcagContrast: number;
+export let apcaContrast: number;
 </script>
 
 <style>

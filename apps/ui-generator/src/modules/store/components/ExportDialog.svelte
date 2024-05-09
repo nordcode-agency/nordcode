@@ -1,33 +1,33 @@
 <script>
-    import { configStore } from "../configStore";
-    import { getWpTheme } from '../utils/generateWpTheme';
-    import { getFigmaTheme } from '../utils/getFigmaTheme';
+import { configStore } from '../configStore';
+import { getWpTheme } from '../utils/generateWpTheme';
+import { getFigmaTheme } from '../utils/getFigmaTheme';
 
-    export let allStyles = '';
-    const copyStyleExport = async () => {
-        const exportString = configStore?.exportToString();
-        await navigator.clipboard.writeText(exportString);
-    };
+export const allStyles = '';
+const copyStyleExport = async () => {
+    const exportString = configStore?.exportToString();
+    await navigator.clipboard.writeText(exportString);
+};
 
-    const copyURLToClipboard = async () => {
-        const searchParams = new URLSearchParams({ styles: configStore?.exportToString() });
-        const url = new URL(window.location.origin + window.location.pathname);
-        url.search = searchParams.toString();
-        await navigator.clipboard.writeText(url);
-    };
+const copyURLToClipboard = async () => {
+    const searchParams = new URLSearchParams({ styles: configStore?.exportToString() });
+    const url = new URL(window.location.origin + window.location.pathname);
+    url.search = searchParams.toString();
+    await navigator.clipboard.writeText(url);
+};
 
-    const copyFigmaColors = async () => {
-        if (!configStore) {
-            return;
-        }
-        const themeColors = getFigmaTheme(configStore?.exportToJson());
-        await navigator.clipboard.writeText(JSON.stringify(themeColors, null, 2));
-    };
+const copyFigmaColors = async () => {
+    if (!configStore) {
+        return;
+    }
+    const themeColors = getFigmaTheme(configStore?.exportToJson());
+    await navigator.clipboard.writeText(JSON.stringify(themeColors, null, 2));
+};
 
-    const copyWPThemeToClipboard = async () => {
-        const theme = getWpTheme(configStore?.exportToJson());
-        await navigator.clipboard.writeText(JSON.stringify(theme, null, 2));
-    };
+const copyWPThemeToClipboard = async () => {
+    const theme = getWpTheme(configStore?.exportToJson());
+    await navigator.clipboard.writeText(JSON.stringify(theme, null, 2));
+};
 </script>
 
 <dialog class="nc-dialog" id="export-dialog" data-level="1" style="max-inline-size: 50rem">

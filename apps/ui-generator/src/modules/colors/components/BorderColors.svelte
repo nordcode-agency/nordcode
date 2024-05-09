@@ -1,22 +1,21 @@
 <script lang="ts">
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import { configStore } from '../../store/configStore.ts';
+import BorderColorPreviewEntry from './BorderColorPreviewEntry.svelte';
 
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
-    import { configStore } from '../../store/configStore.ts';
-    import BorderColorPreviewEntry from './BorderColorPreviewEntry.svelte';
+const baseColors = [
+    {
+        name: 'Default',
+        description:
+            'Primary color for borders to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout.',
+    },
 
-    const baseColors = [
-        {
-            name: "Default",
-            description: 'Primary color for borders to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout.',
-        },
-
-        {
-            name: "Muted",
-            description:
-                'Use for dividers to emphasize the separation between items, columns or sections.',
-        },
-    ];
-
+    {
+        name: 'Muted',
+        description:
+            'Use for dividers to emphasize the separation between items, columns or sections.',
+    },
+];
 </script>
 
 <section class="nc-region nc-stack -contained">

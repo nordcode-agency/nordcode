@@ -7,7 +7,7 @@ export let max: string;
 export let min: string;
 export let step: string;
 
-export let value;
+export let value: number | string | boolean;
 
 const name = label.split(' ').join('').toLowerCase();
 

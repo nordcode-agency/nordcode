@@ -250,7 +250,7 @@ export const getLightColorValues = (
     const [whiteScale, blackScale] = generateScales(baseLightness / 100, baseChroma, hue);
 
     const base = whiteScale(0).oklch;
-    const emphasis = blackScale(0.15).set('c', c => c * 1.25).oklch;
+    const emphasis = blackScale(0.15).set('c', (c) => c * 1.25).oklch;
     const surface = whiteScale(0.96).oklch;
     const hover = whiteScale(0).oklch;
 
@@ -279,7 +279,7 @@ export const getDarkColorValues = (
     const [whiteScale, blackScale] = generateScales(baseLightness / 100, baseChroma, hue);
 
     const base = blackScale(0).oklch;
-    const emphasis = whiteScale(0.15).set('c', c => c * 1.25).oklch;
+    const emphasis = whiteScale(0.15).set('c', (c) => c * 1.25).oklch;
     const surface = blackScale(0.65).oklch;
     const hover = blackScale(0).oklch;
 

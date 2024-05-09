@@ -1,31 +1,29 @@
 <script lang="ts">
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import { configStore } from '../../store/configStore.ts';
+import SurfaceColorPreviewEntry from './SurfaceColorPreviewEntry.svelte';
 
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
-    import { configStore } from '../../store/configStore.ts';
-    import SurfaceColorPreviewEntry from './SurfaceColorPreviewEntry.svelte';
+const baseColors = [
+    {
+        name: 'Default',
+        description: 'Primary color for backgrounds in any given interface.',
+    },
 
-    const baseColors = [
-        {
-            name: "Default",
-            description: 'Primary color for backgrounds in any given interface.',
-        },
+    {
+        name: 'Subtle',
+        description: 'Provides visual rest and contrast against the default background.',
+    },
+    {
+        name: 'Inset',
+        description:
+            'Can be used instead of the default background to create a focal point, such as in conversations or activity feeds.',
+    },
+];
 
-        {
-            name: "Subtle",
-            description:
-                'Provides visual rest and contrast against the default background.',
-        },
-        {
-            name: "Inset",
-            description: 'Can be used instead of the default background to create a focal point, such as in conversations or activity feeds.',
-        },
-
-    ];
-
-    const emphasisColor = {
-        name: "Emphasis",
-        description: 'Use for backgrounds that need to stand out, such as banners, badges, and alerts.',
-    };
+const emphasisColor = {
+    name: 'Emphasis',
+    description: 'Use for backgrounds that need to stand out, such as banners, badges, and alerts.',
+};
 </script>
 
 <section class="nc-region nc-stack -contained">

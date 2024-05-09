@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {configStore, setPreset} from "../../store/configStore";
+import { configStore, setPreset } from '../../store/configStore';
 </script>
 
 {#if configStore}

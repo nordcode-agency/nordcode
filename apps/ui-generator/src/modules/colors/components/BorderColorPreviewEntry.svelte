@@ -1,40 +1,38 @@
 <script lang="ts">
-    import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
+import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
 
-    export let color: {
-        name: string;
-        description: string;
-    };
+export let color: {
+    name: string;
+    description: string;
+};
 
-    export let surfaceColor: string;
-    export let baseToken: string
+export let surfaceColor: string;
+export let baseToken: string;
 
-    const token = `${baseToken}-${color.name.toLowerCase()}`
+const token = `${baseToken}-${color.name.toLowerCase()}`;
 
-    const isSurface = token === surfaceColor;
+const isSurface = token === surfaceColor;
 
-    const getResolvedColor = (color: string) => {
-
-         if (!document) {
-            return ""
-        }
-        const themeEl = document.querySelector('.live-theme');
-        if (!themeEl) {
-            return ""
-        }
-        const style = getComputedStyle(themeEl);
-
-        return style.getPropertyValue(color).trim();
+const getResolvedColor = (color: string) => {
+    if (!document) {
+        return '';
     }
+    const themeEl = document.querySelector('.live-theme');
+    if (!themeEl) {
+        return '';
+    }
+    const style = getComputedStyle(themeEl);
 
-    $: lightSurface = toSpecificVersion(surfaceColor, 'light');
-    $: darkSurface = toSpecificVersion(surfaceColor, 'dark');
+    return style.getPropertyValue(color).trim();
+};
 
-    $: lightBorder = toSpecificVersion(token, 'light');
-    $: darkBorder = toSpecificVersion(token, 'dark');
+$: lightSurface = toSpecificVersion(surfaceColor, 'light');
+$: darkSurface = toSpecificVersion(surfaceColor, 'dark');
 
-    $: resolvedColor = getResolvedColor(token);
+$: lightBorder = toSpecificVersion(token, 'light');
+$: darkBorder = toSpecificVersion(token, 'dark');
 
+$: resolvedColor = getResolvedColor(token);
 </script>
 
 <style>

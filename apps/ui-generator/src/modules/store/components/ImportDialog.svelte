@@ -1,14 +1,16 @@
 <script>
-    import Textarea from "@nordcode/ui/src/modules/forms/svelte/InputFields/Textarea.svelte"
-    import {configStore} from "../configStore";
+import Textarea from '@nordcode/ui/src/modules/forms/svelte/InputFields/Textarea.svelte';
+import { configStore } from '../configStore';
 
-    let importedStyles = ""
+const importedStyles = '';
 
-    const importStyles = () => {
-        const cleanStyles = importedStyles.split('\n').filter(line => line.trim().length > 0 && !line.trim().startsWith("/")).join('\n')
-        configStore?.import(cleanStyles)
-    }
-
+const importStyles = () => {
+    const cleanStyles = importedStyles
+        .split('\n')
+        .filter((line) => line.trim().length > 0 && !line.trim().startsWith('/'))
+        .join('\n');
+    configStore?.import(cleanStyles);
+};
 </script>
 
 <dialog class="nc-dialog" id="import-dialog" data-level="1" style="max-inline-size: 50rem">

@@ -1,21 +1,20 @@
 <script lang="ts">
-    import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
-    import {
+import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
+import {
     getThemeMutationObserver,
     type ThemeMutationObserverListener,
 } from '../../common/utils/ThemeMutationObserver.ts';
 import { onMount } from 'svelte';
 
-    export let entry: {
-        name: string;
-        description: string;
-    };
+export let entry: {
+    name: string;
+    description: string;
+};
 
-    const token = `--shadow-${entry.name.toLowerCase()}`
-    let resolvedValue = '';
+const token = `--shadow-${entry.name.toLowerCase()}`;
+let resolvedValue = '';
 
-
-    const getResolvedValue = (token: string) => {
+const getResolvedValue = (token: string) => {
     if (!document) {
         return '';
     }
@@ -28,8 +27,8 @@ import { onMount } from 'svelte';
     return style.getPropertyValue(token).trim();
 };
 
-    $: lightShadow = `${token}-light`
-    $: darkShadow =`${token}-dark`
+$: lightShadow = `${token}-light`;
+$: darkShadow = `${token}-dark`;
 
 const updateResolvedValue: ThemeMutationObserverListener = (style) => {
     if (!style) {
@@ -45,7 +44,6 @@ onMount(() => {
 
     updateResolvedValue(getThemeMutationObserver().getStyle());
 });
-
 </script>
 
 <style>

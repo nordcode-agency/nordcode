@@ -31,7 +31,6 @@ class ThemeMutationObserver {
 
         this.observer = new MutationObserver(callback);
 
-        // Start observing the target node for configured mutations
         this.observer.observe(targetNode, config);
     };
 

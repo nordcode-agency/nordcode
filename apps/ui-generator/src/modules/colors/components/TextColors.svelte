@@ -1,35 +1,34 @@
 <script lang="ts">
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import { configStore } from '../../store/configStore.ts';
+import ColorPreviewEntry from './ColorPreviewEntry.svelte';
 
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
-    import { configStore } from '../../store/configStore.ts';
-    import ColorPreviewEntry from './ColorPreviewEntry.svelte';
+const baseColors = [
+    {
+        name: 'Default',
+        description:
+            'Primary color for text and icons in any given interface. It should be used for body content, titles and labels.',
+    },
+    {
+        name: 'Muted',
+        description:
+            'Use for content that is secondary or that provides additional context but is not critical to understanding the flow of an interface.',
+    },
+    {
+        name: 'Subtle',
+        description: 'Use for placeholder text, icons or decorative foregrounds.',
+    },
+    {
+        name: 'Hover',
+        description: 'Used for text and icons on top of the primary brand color.',
+    },
+];
 
-    const baseColors = [
-        {
-            name: "Default",
-            description: 'Primary color for text and icons in any given interface. It should be used for body content, titles and labels.',
-        },
-        {
-            name: "Muted",
-            description: 'Use for content that is secondary or that provides additional context but is not critical to understanding the flow of an interface.',
-        },
-        {
-            name: "Subtle",
-            description:
-                'Use for placeholder text, icons or decorative foregrounds.',
-        },
-        {
-            name: "Hover",
-            description:
-                'Used for text and icons on top of the primary brand color.',
-        },
-
-    ];
-
-    const emphasisColor = {
-        name: "On-Emphasis",
-        description: 'Use for text on top of emphasized backgrounds, such as banners, badges, and alerts.',
-    };
+const emphasisColor = {
+    name: 'On-Emphasis',
+    description:
+        'Use for text on top of emphasized backgrounds, such as banners, badges, and alerts.',
+};
 </script>
 
 <section class="nc-region nc-stack -contained">

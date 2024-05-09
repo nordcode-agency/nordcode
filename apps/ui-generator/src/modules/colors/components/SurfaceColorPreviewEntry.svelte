@@ -1,39 +1,37 @@
 <script lang="ts">
-    import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
+import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
 
-    export let color: {
-        name: string;
-        description: string;
-    };
+export let color: {
+    name: string;
+    description: string;
+};
 
-    export let textColor: string;
-    export let baseToken: string
-    export let protectedString = ""
+export let textColor: string;
+export let baseToken: string;
+export const protectedString = '';
 
-    const token = `${baseToken}-${color.name.toLowerCase()}`
+const token = `${baseToken}-${color.name.toLowerCase()}`;
 
-    const getResolvedColor = (color: string) => {
-
-         if (!document) {
-            return ""
-        }
-        const themeEl = document.querySelector('.live-theme');
-        if (!themeEl) {
-            return ""
-        }
-        const style = getComputedStyle(themeEl);
-
-        return style.getPropertyValue(color).trim();
+const getResolvedColor = (color: string) => {
+    if (!document) {
+        return '';
     }
+    const themeEl = document.querySelector('.live-theme');
+    if (!themeEl) {
+        return '';
+    }
+    const style = getComputedStyle(themeEl);
 
-    $: lightSurface = toSpecificVersion(token, 'light');
-    $: darkSurface = toSpecificVersion(token, 'dark');
+    return style.getPropertyValue(color).trim();
+};
 
-    $: lightText = toSpecificVersion(textColor, 'light', protectedString);
-    $: darkText = toSpecificVersion(textColor, 'dark', protectedString);
+$: lightSurface = toSpecificVersion(token, 'light');
+$: darkSurface = toSpecificVersion(token, 'dark');
 
-    $: resolvedColor = getResolvedColor(token);
+$: lightText = toSpecificVersion(textColor, 'light', protectedString);
+$: darkText = toSpecificVersion(textColor, 'dark', protectedString);
 
+$: resolvedColor = getResolvedColor(token);
 </script>
 
 <style>

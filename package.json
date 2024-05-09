@@ -1,32 +1,32 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "web": "pnpm --filter \"@nordcode/web\" dev",
-    "ui-generator": "pnpm --filter \"@nordcode/ui-generator\" dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "gen": "turbo gen workspace",
-    "changeset:status": "changeset status",
-    "changeset:add": "changeset",
-    "changeset:version": "changeset version",
-    "changeset:publish": "changeset publish",
-    "biome:ui-generator": "biome format apps/ui-generator --write && biome lint apps/ui-generator --apply"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.7.0",
-    "@changesets/cli": "^2.27.1",
-    "eslint": "^9.1.0",
-    "eslint-config-custom": "workspace:*",
-    "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0",
-    "turbo": "^1.13.2"
-  },
-  "packageManager": "pnpm@8.10.2",
-  "name": "nordcode",
-  "engines": {
-    "node": ">=18",
-    "pnpm": ">=8"
-  }
+    "private": true,
+    "scripts": {
+        "build": "turbo run build",
+        "dev": "turbo run dev",
+        "web": "pnpm --filter \"@nordcode/web\" dev",
+        "ui-generator": "pnpm --filter \"@nordcode/ui-generator\" dev",
+        "lint": "turbo run lint",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "gen": "turbo gen workspace",
+        "changeset:status": "changeset status",
+        "changeset:add": "changeset",
+        "changeset:version": "changeset version",
+        "changeset:publish": "changeset publish",
+        "biome:ui-generator": "biome format apps/ui-generator --write && biome lint apps/ui-generator --apply"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "1.7.3",
+        "@changesets/cli": "^2.27.1",
+        "eslint": "^9.1.0",
+        "eslint-config-custom": "workspace:*",
+        "prettier": "^3.2.5",
+        "prettier-plugin-astro": "^0.13.0",
+        "turbo": "^1.13.2"
+    },
+    "packageManager": "pnpm@8.10.2",
+    "name": "nordcode",
+    "engines": {
+        "node": ">=18",
+        "pnpm": ">=8"
+    }
 }
