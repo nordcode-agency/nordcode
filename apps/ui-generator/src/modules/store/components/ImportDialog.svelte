@@ -2,7 +2,8 @@
 import Textarea from '@nordcode/ui/src/modules/forms/svelte/InputFields/Textarea.svelte';
 import { configStore } from '../configStore';
 
-const importedStyles = '';
+// biome-ignore lint/style/useConst: <explanation>
+let importedStyles = '';
 
 const importStyles = () => {
     const cleanStyles = importedStyles

@@ -14,7 +14,7 @@ export let color: {
 
 export let surfaceColor: string;
 export let baseToken: string;
-export const protectedString = '';
+export let protectedString = '';
 
 const token = `${baseToken}-${color.name.toLowerCase()}`;
 

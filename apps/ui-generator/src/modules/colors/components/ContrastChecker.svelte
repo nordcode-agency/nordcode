@@ -3,6 +3,11 @@ import Color from 'colorjs.io';
 import ColorSelect from '../../common/components/ColorSelect.svelte';
 import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
 import ContrastPreview from '../../colors/components/ContrastPreview.svelte';
+import {
+    getThemeMutationObserver,
+    type ThemeMutationObserverListener,
+} from '../../common/utils/ThemeMutationObserver.ts';
+import { onMount } from 'svelte';
 
 const surfaceOptions = {
     Primary: ['--color-brand-primary-surface'],
@@ -34,15 +39,17 @@ const textOptions = {
     ],
 };
 
-const getContrast = (surfaceColor: string, textColor: string) => {
-    if (!document) {
+let lightContrast: [number, number] = [0, 0];
+let darkContrast: [number, number] = [0, 0];
+
+const getContrast = (
+    style: CSSStyleDeclaration | null,
+    surfaceColor: string,
+    textColor: string,
+): [number, number] => {
+    if (!style) {
         return [0, 0];
     }
-    const themeEl = document.querySelector('.live-theme');
-    if (!themeEl) {
-        return [0, 0];
-    }
-    const style = getComputedStyle(themeEl);
 
     const colorBg = new Color(style.getPropertyValue(surfaceColor));
     const colorFg = new Color(style.getPropertyValue(textColor));
@@ -51,8 +58,8 @@ const getContrast = (surfaceColor: string, textColor: string) => {
     return [wcag, apca];
 };
 
-const surfaceColor: string = surfaceOptions.Neutrals[0];
-const textColor: string = textOptions.Neutrals[0];
+let surfaceColor: string = surfaceOptions.Neutrals[0];
+let textColor: string = textOptions.Neutrals[0];
 
 $: lightSurface = toSpecificVersion(surfaceColor, 'light');
 $: darkSurface = toSpecificVersion(surfaceColor, 'dark');
@@ -60,8 +67,31 @@ $: darkSurface = toSpecificVersion(surfaceColor, 'dark');
 $: lightText = toSpecificVersion(textColor, 'light');
 $: darkText = toSpecificVersion(textColor, 'dark');
 
-$: lightContrast = getContrast(lightSurface, lightText);
-$: darkContrast = getContrast(darkSurface, darkText);
+const updateContrast: ThemeMutationObserverListener = (style) => {
+    if (!style) {
+        return;
+    }
+
+    lightContrast = getContrast(style, lightSurface, lightText);
+    darkContrast = getContrast(style, darkSurface, darkText);
+};
+
+$: {
+    const style = getThemeMutationObserver().getStyle();
+
+    if (style) {
+        lightContrast = getContrast(style, lightSurface, lightText);
+        darkContrast = getContrast(style, darkSurface, darkText);
+    }
+}
+
+onMount(() => {
+    getThemeMutationObserver().subscribe((style) => {
+        updateContrast(style);
+    });
+
+    updateContrast(getThemeMutationObserver().getStyle());
+});
 </script>
 
 <style>

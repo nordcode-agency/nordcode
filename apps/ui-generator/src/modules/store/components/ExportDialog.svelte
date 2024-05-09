@@ -3,7 +3,7 @@ import { configStore } from '../configStore';
 import { getWpTheme } from '../utils/generateWpTheme';
 import { getFigmaTheme } from '../utils/getFigmaTheme';
 
-export const allStyles = '';
+export let allStyles = '';
 const copyStyleExport = async () => {
     const exportString = configStore?.exportToString();
     await navigator.clipboard.writeText(exportString);
