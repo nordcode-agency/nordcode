@@ -40,16 +40,16 @@
     }
 
     :where(html) {
-        block-size: 100%;
         inline-size: 100%;
         -moz-text-size-adjust: none;
         -webkit-text-size-adjust: none;
         text-size-adjust: none;
         text-rendering: optimizeSpeed;
+        min-block-size: 100vh;
+        block-size: 100%;
     }
 
     :where(body) {
-        min-block-size: 100vh;
         font-weight: var(--font-weight-default);
         color: var(--color-text-default);
         background-color: var(--color-surface-default);
