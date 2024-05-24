@@ -4,6 +4,7 @@ import inputDate from '../examples/input/inputDate.html?raw';
 import inputRange from '../examples/input/inputRange.html?raw';
 import inputSelect from '../examples/input/inputSelect.html?raw';
 import inputTextarea from '../examples/input/inputTextarea.html?raw';
+import inputSegmentedControl from '../examples/input/inputSegmentedControl.html?raw';
 import inputCheckbox from '../examples/input/inputCheckbox.html?raw';
 import fieldsetBase from '../examples/fieldset/fieldsetBase.html?raw';
 import fieldsetStandard from '../examples/fieldset/fieldsetStandard.html?raw';
@@ -113,6 +114,11 @@ const sections: Array<Section> = [
                         title: 'Textarea',
                         description: 'Need more space? Use a textarea.',
                         code: inputTextarea as string,
+                    },
+                    {
+                        title: 'Segmented control',
+                        description: 'A more stylish radio control',
+                        code: inputSegmentedControl as string,
                     },
                 ],
             } as Component,
