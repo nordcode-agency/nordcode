@@ -1,4 +1,4 @@
-@layer utils {
+@layer config {
     :where(html) {
         --ease-1: cubic-bezier(0.25, 0, 0.5, 1);
         --ease-2: cubic-bezier(0.25, 0, 0.4, 1);
@@ -367,12 +367,51 @@
         --transition-duration-short: 100ms;
         --transition-duration-base: 200ms;
         --transition-duration-long: 300ms;
+        --transition-duration-entry: 0s;
+        --transition-duration-exit: 0s;
+
+        --transition-target-scale: 0.9;
 
         @media (--motionNotOK) {
             --transition-duration-instant: 0ms;
             --transition-duration-short: 0ms;
             --transition-duration-base: 0ms;
             --transition-duration-long: 0ms;
+            --transition-duration-entry: 0s;
+            --transition-duration-exit: 0s;
+        }
+    }
+
+    :where(*) {
+        @media (prefers-reduced-motion: no-preference) {
+            transition:
+                opacity var(--transition-duration-entry) ease-in,
+                scale var(--transition-duration-entry) ease-in,
+                display var(--transition-duration-entry) ease-in;
+            /* key to transitioning out */
+            transition-behavior: allow-discrete;
+        }
+
+        /* stage enter */
+        /* key to transitioning in */
+        @starting-style {
+            opacity: 0;
+            scale: var(--transition-target-scale);
+        }
+
+        /* stage exit */
+        /* use your own technique here */
+
+        &[hidden],
+        dialog:not(:modal):not(.custom-animation),
+        &[popover]:not(:popover-open) {
+            opacity: 0;
+            scale: var(--transition-target-scale);
+
+            display: none !important;
+
+            transition-duration: var(--transition-duration-exit);
+            transition-timing-function: var(--ease-out-5);
         }
     }
 }
