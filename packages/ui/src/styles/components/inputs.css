@@ -75,7 +75,6 @@
             .nc-input-color,
             .nc-input-field,
             .nc-input-error,
-            .nc-input-hint,
             .nc-checkbox-wrapper,
             .nc-input-switch
         ) {
@@ -301,7 +300,8 @@
         max-inline-size: var(--input-field-max-inline-size);
         place-items: start;
 
-        & > label {
+        & > label,
+        & > .nc-stack {
             gap: 0.15lh;
             line-height: var(--line-height-small);
         }
@@ -407,14 +407,119 @@
                 var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin)
             );
         }
+    }
 
-        &:focus {
-            outline: none;
+    :where(.nc-segmented-control-group) {
+        container: segmented-control / inline-size;
+    }
+
+    :where(.nc-segmented-control) {
+        --_segmented-control-border-radius: var(
+            --segmented-control-border-radius,
+            var(--_input-border-radius)
+        );
+        --_segmented-control-checked-text-color: var(
+            --segmented-control-checked-text-color,
+            var(--color-brand-primary-contrast)
+        );
+        --_segmented-control-checked-surface-color: var(
+            --segmented-control-checked-surface-color,
+            var(--color-brand-primary-base)
+        );
+        display: grid;
+        grid-auto-rows: 1fr;
+        grid-auto-flow: row;
+        padding: 0;
+        margin: 0;
+        border: none;
+        box-shadow: var(--_input-box-shadow);
+        border-radius: var(--_segmented-control-border-radius);
+        background: var(--_input-background);
+        block-size: auto;
+
+        & input {
+            display: none;
         }
 
-        &:focus:before {
-            outline: var(--_input-outline);
-            outline-offset: 0;
+        & label {
+            display: flex;
+            padding-inline: var(--_input-padding-inline);
+            padding-block: var(--_input-padding-block);
+            min-block-size: var(--segmented-control-min-height, var(--button-height-base));
+            color: var(--_input-color);
+            border: var(--_input-border);
+
+            & > span {
+                color: inherit;
+            }
+
+            &:hover {
+                --current-background: var(--color-brand-primary-hover);
+                background-color: var(--color-brand-primary-hover);
+            }
+
+            &:first-child {
+                border-radius: var(--_segmented-control-border-radius)
+                    var(--_segmented-control-border-radius) 0 0;
+            }
+
+            &:last-child {
+                border-radius: 0 0 var(--_segmented-control-border-radius)
+                    var(--_segmented-control-border-radius);
+            }
+
+            &:not(:last-child) {
+                border-block-end: var(--border-width-thin) solid var(--color-border-muted);
+            }
+
+            &:not(:first-child) {
+                border-block-start: none;
+            }
+
+            &:has(input:checked) {
+                background: var(--_segmented-control-checked-surface-color);
+                color: var(--_segmented-control-checked-text-color);
+                box-shadow: var(--shadow-near);
+            }
+
+            &:focus-within {
+                outline: var(--_input-outline);
+                outline-offset: 0;
+            }
+
+            &:has(input:disabled) {
+                filter: var(--_input-disabled-filter);
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    @container segmented-control (min-width: 32rem) {
+        fieldset {
+            grid-auto-columns: 1fr;
+            grid-auto-flow: column;
+
+            & > label {
+                &:first-child {
+                    border-radius: var(--_segmented-control-border-radius) 0 0
+                        var(--_segmented-control-border-radius);
+                }
+
+                &:last-child {
+                    border-radius: 0 var(--_segmented-control-border-radius)
+                        var(--_segmented-control-border-radius) 0;
+                }
+
+                &:not(:last-child) {
+                    border-block-end: var(--_input-border);
+                    border-inline-end: var(--border-width-thin) solid var(--color-border-muted);
+                }
+
+                &:not(:first-child) {
+                    border-block-start: var(--_input-border);
+                    border-inline-start: none;
+                }
+            }
         }
     }
 }

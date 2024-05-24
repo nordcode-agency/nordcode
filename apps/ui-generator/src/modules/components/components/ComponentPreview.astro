@@ -59,7 +59,7 @@ const { sectionId, component, description, title, examples, notes } = Astro.prop
                 {examples?.map(ex => (
                     <details>
                         <summary>{ex.title}</summary>
-                        <div class="nc-stack -contained">
+                        <div class="nc-stack -contained -stretched">
                             {ex.description ? <p class="nc-hint">{ex.description}</p> : null}
                             <div class="nc-box -bordered ex-details">
                                 <Fragment set:html={ex.code} />
