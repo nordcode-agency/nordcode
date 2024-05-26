@@ -2,9 +2,13 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import GUI from 'lil-gui';
 import gsap from 'gsap';
+import matcapUrl from '$lib/assets/matcap.png?url';
 import imageUrl from '$lib/assets/color.jpg';
 import envMapUrl from '$lib/assets/2k.hdr?url';
+import dmMonoJsonUrl from '$lib/assets/DM-Mono_Regular.json?url';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 
 function resizeRendererToDisplaySize(renderer: THREE.Renderer) {
     const canvas = renderer.domElement;
@@ -34,6 +38,28 @@ export function main() {
     /** TEXTURE */
     const loadingManager = new THREE.LoadingManager();
     const textureLoader = new THREE.TextureLoader(loadingManager);
+    const matcapTexture = textureLoader.load(matcapUrl);
+    const fontLoader = new FontLoader(loadingManager);
+    fontLoader.load(dmMonoJsonUrl, (font) => {
+        const textGeometry = new TextGeometry("nordcode", {
+            font,
+            size: 0.5,
+            depth: 0.2,
+            curveSegments: 12,
+            bevelEnabled: true,
+            bevelThickness: 0,
+            bevelSize: 0.02,
+            bevelOffset: 0,
+            bevelSegments: 10,
+        });
+        textGeometry.center();
+        const textMaterial = new THREE.MeshMatcapMaterial({ color: 0xDEDEDE });
+        textMaterial.matcap = matcapTexture;
+        const text = new THREE.Mesh(textGeometry, textMaterial);
+        scene.add(text);
+        text.position.y = 1;
+        text.colorSpace = THREE.SRGBColorSpace;
+    });
     const doorTextureColor = textureLoader.load(imageUrl);
     doorTextureColor.colorSpace = THREE.SRGBColorSpace;
 
