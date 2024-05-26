@@ -267,32 +267,33 @@
     }
 
     :where(table) {
+        --_nc-table-border-radius: var(--nc-table-border-radius, var(--border-radius-medium));
         inline-size: 100%;
         border-collapse: separate;
         border-spacing: 0;
         text-align: left;
         border: var(--border-width-medium) solid var(--color-border-default);
-        border-radius: var(--border-radius-medium);
+        border-radius: var(--_nc-table-border-radius);
     }
 
     :where(table > thead th:first-child) {
-        border-start-start-radius: var(--border-radius-medium);
+        border-start-start-radius: var(--_nc-table-border-radius);
     }
 
     :where(table > thead th:last-child) {
-        border-start-end-radius: var(--border-radius-medium);
+        border-start-end-radius: var(--_nc-table-border-radius);
     }
 
     :where(table > tfoot th:first-child) {
-        border-end-start-radius: var(--border-radius-medium);
+        border-end-start-radius: var(--_nc-table-border-radius);
     }
 
     :where(table > tfoot th:last-child) {
-        border-end-end-radius: var(--border-radius-medium);
+        border-end-end-radius: var(--_nc-table-border-radius);
     }
 
     :where(td, th) {
-        padding: 0.25lh 1ch;
+        padding: 0.4lh 1ch;
         line-height: var(--line-height-small);
         white-space: nowrap;
         font-variant-numeric: tabular-nums;
@@ -311,8 +312,8 @@
     }
 
     :where(th) {
-        font-size: var(--font-size-small);
         font-weight: var(--font-weight-active);
+        color: var(--color-text-muted);
         background-color: oklch(var(--color-surface-emphasis-lch) / 0.04);
     }
 
