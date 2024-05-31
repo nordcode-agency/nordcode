@@ -1,34 +1,36 @@
 <script lang="ts">
-import SettingsInput from '../../common/components/SettingsInput.svelte';
-import { configStore } from '../../store/configStore.ts';
-import ColorPreviewEntry from './ColorPreviewEntry.svelte';
+    import SettingsInput from '../../common/components/SettingsInput.svelte';
+    import { configStore } from '../../store/configStore.ts';
+    import ColorPreviewEntry from './ColorPreviewEntry.svelte';
 
-const baseColors = [
-    {
-        name: 'Surface',
-        description: 'Subtle version of the primary brand color. Used for backgrounds and borders.',
-    },
-    {
-        name: 'Base',
-        description: 'Primary brand color. Used for accents and highlights.',
-    },
-    {
-        name: 'Emphasis',
-        description:
-            'Background: Use to highlight the most important item of a view or an interface.',
-    },
-    {
-        name: 'Contrast',
-        description: 'Used for text and icons on top of the primary brand color.',
-    },
-    {
-        name: 'Hover',
-        description: 'Used for slight hover highlights, like on outline buttons or checkbox inputs',
-    },
-];
+    const baseColors = [
+        {
+            name: 'Surface',
+            description:
+                'Subtle version of the primary brand color. Used for backgrounds and borders.',
+        },
+        {
+            name: 'Base',
+            description: 'Primary brand color. Used for accents and highlights.',
+        },
+        {
+            name: 'Emphasis',
+            description:
+                'Background: Use to highlight the most important item of a view or an interface.',
+        },
+        {
+            name: 'Contrast',
+            description: 'Used for text and icons on top of the primary brand color.',
+        },
+        {
+            name: 'Hover',
+            description:
+                'Used for slight hover highlights, like on outline buttons or checkbox inputs',
+        },
+    ];
 </script>
 
-<section class="nc-region nc-stack -contained">
+<section class="nc-region nc-stack -contained -stretched">
     <h2 id="primary">Primary Colors</h2>
     <div class="nc-grid preview-grid">
         <form>
@@ -39,24 +41,21 @@ const baseColors = [
                     max="360"
                     min="0"
                     step="1"
-                >
-                </SettingsInput>
+                ></SettingsInput>
                 <SettingsInput
                     label="Chroma"
                     bind:value={$configStore.primaryChroma}
                     max="1"
                     min="0"
                     step="0.001"
-                >
-                </SettingsInput>
+                ></SettingsInput>
                 <SettingsInput
                     label="Lightness Light"
                     bind:value={$configStore.primaryLightness}
                     max="100"
                     min="0"
                     step="0.1"
-                >
-                </SettingsInput>
+                ></SettingsInput>
 
                 <SettingsInput
                     label="Lightness Dark"
@@ -64,18 +63,17 @@ const baseColors = [
                     max="100"
                     min="0"
                     step="0.1"
-                >
-                </SettingsInput>
+                ></SettingsInput>
             </fieldset>
         </form>
         <div class="nc-stack -nogap -stretched -contained">
             {#each baseColors as color}
-                <ColorPreviewEntry color={color}
-                                   surfaceColor="--color-brand-primary-surface"
-                                   baseToken="--color-brand-primary"
+                <ColorPreviewEntry
+                    {color}
+                    surfaceColor="--color-brand-primary-surface"
+                    baseToken="--color-brand-primary"
                 ></ColorPreviewEntry>
             {/each}
         </div>
     </div>
 </section>
-

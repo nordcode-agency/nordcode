@@ -1,45 +1,41 @@
 <script lang="ts">
-import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
-import {
-    getThemeMutationObserver,
-    type ThemeMutationObserverListener,
-} from '../../common/utils/ThemeMutationObserver.ts';
-import { onMount } from 'svelte';
+    import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
+    import {
+        getThemeMutationObserver,
+        type ThemeMutationObserverListener,
+    } from '../../common/utils/ThemeMutationObserver.ts';
+    import { onMount } from 'svelte';
 
-export let entry: {
-    name: string;
-    description: string;
-};
+    export let entry: {
+        name: string;
+        description: string;
+    };
 
-export let token: string;
-export let style: string;
-let resolvedValue = '';
+    export let token: string;
+    export let style: string;
+    let resolvedValue = '';
 
-const updateResolvedValue: ThemeMutationObserverListener = (style) => {
-    if (!style) {
-        return;
-    }
-    resolvedValue = `${style.getPropertyValue(token).trim()}`;
-};
+    const updateResolvedValue: ThemeMutationObserverListener = style => {
+        if (!style) {
+            return;
+        }
+        resolvedValue = `${style.getPropertyValue(token).trim()}`;
+    };
 
-onMount(() => {
-    getThemeMutationObserver().subscribe((style) => {
-        updateResolvedValue(style);
+    onMount(() => {
+        getThemeMutationObserver().subscribe(style => {
+            updateResolvedValue(style);
+        });
+
+        updateResolvedValue(getThemeMutationObserver().getStyle());
     });
-
-    updateResolvedValue(getThemeMutationObserver().getStyle());
-});
 </script>
+
 <div class="nc-grid">
-    <TokenDescriptor
-        name={entry.name}
-        token={token}
-        description={entry.description}
-        resolvedValue={resolvedValue}
-    />
+    <TokenDescriptor name={entry.name} {token} description={entry.description} {resolvedValue} />
 
     <div class="nc-box -bordered nc-cluster preview-box">
-        <div class="preview" style="{style}"></div>
+        <div class="preview" {style}></div>
     </div>
 </div>
 
@@ -55,8 +51,9 @@ onMount(() => {
 
     .preview {
         border: var(--border-width-thin) solid var(--color-border-default);
-        inline-size: 3rem;
-        block-size: 3rem;
+        inline-size: 6rem;
+        block-size: 6rem;
         background: var(--color-surface-default);
+        box-shadow: var(--shadow-near);
     }
 </style>
