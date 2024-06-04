@@ -206,6 +206,19 @@
         }
     }
 
+    /* PILE
+     * Pile items on top of each other Prefer this over position absolute.
+     */
+    .nc-pile {
+        display: grid;
+        place-items: center;
+        grid: [pile] 1fr / [pile] 1fr;
+
+        & > * {
+            grid-area: pile;
+        }
+    }
+
     :where(.nc-stack, .nc-cluster, .nc-with-sidebar, .nc-grid, .nc-gallery) {
         &.-inherit {
             gap: inherit;

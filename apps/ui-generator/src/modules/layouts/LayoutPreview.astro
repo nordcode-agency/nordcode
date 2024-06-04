@@ -272,5 +272,22 @@ const spacingModifiers = [
                 ]}
             />
         </div>
+        <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-pile">
+        <SectionTitle title=".nc-pile" nested={false} sectionId="nc-pile" />
+        <p class="nc-hint">Pile items on top of each other. Prefer this over position absolute.</p>
+        <div class="nc-flow">
+            <h3>Use cases</h3>
+            <p>Center items on top of each other or align items in their container easily.</p>
+            <h3>Display</h3>
+            <div class="nc-box -bordered preview-box">
+                <div class="nc-pile preview">
+                    <div style="background: #aaa; inline-size: 100%; block-size: 7rem;"></div>
+                    <div style="background: #ccc; border-radius: var(--border-radius-round); inline-size: 4rem; block-size: 4rem"></div>
+                    <div style="background: #eee; border-radius: var(--border-radius-round); inline-size: 3rem; block-size: 3rem"></div>
+                    <div style="background: rgba(0,0,0, 0.2); padding: 0.2rem; border-radius: var(--border-radius-medium); text-shadow: 0px 2px 10px rgba(0,0,0,.8);; color: white;">Top Layer</div>
+                </div>
+            </div>
+        </div>
+    </section>
     </section>
 </div>
