@@ -1,219 +1,148 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import GUI from 'lil-gui';
-import gsap from 'gsap';
-import matcapUrl from '$lib/assets/matcap.png?url';
-import imageUrl from '$lib/assets/color.jpg';
-import envMapUrl from '$lib/assets/2k.hdr?url';
-import dmMonoJsonUrl from '$lib/assets/DM-Mono_Regular.json?url';
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
-
-function resizeRendererToDisplaySize(renderer: THREE.Renderer) {
-    const canvas = renderer.domElement;
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-    const needResize = canvas.width !== width || canvas.height !== height;
-    if (needResize) {
-        renderer.setSize(width, height, false);
-    }
-
-    return needResize;
-}
 
 // Inspiration: https://meshbg-1xcve0hlq-chasedavis.vercel.app/0.615577921549203
 export function main() {
-    const gui = new GUI();
-    const canvasEl = document.querySelector('#c') as HTMLCanvasElement;
-    const scene = new THREE.Scene();
+	/**
+	 * Base
+	 */
+	// Debug
+	const gui = new GUI();
 
-    const params = {
-		color: 0x00ff00,
-		subdivision: 2,
-		wireframe: false,
-        lightIntensity: 3,
+	// Canvas
+	const canvas = document.getElementById('c');
+
+	// Scene
+	const scene = new THREE.Scene();
+	scene.background = new THREE.Color(0x030920);
+
+	/**
+	 * Meshes
+	 */
+
+	// Material
+	const planeMaterial = new THREE.MeshBasicMaterial();
+	planeMaterial.roughness = 0.4;
+	const planeGeometry = new THREE.PlaneGeometry(5, 5);
+
+	const plane = new THREE.Mesh(planeGeometry, new THREE.MeshBasicMaterial());
+	plane.material.color = new THREE.Color(0x00d5ff); // 0x0000ff
+	plane.material.side = THREE.DoubleSide;
+	plane.position.z = -5;
+	scene.add(plane);
+	gui.addColor(plane.material, 'color');
+
+	const plane2 = new THREE.Mesh(planeGeometry, new THREE.MeshBasicMaterial());
+	plane2.material.color = new THREE.Color(0x1001ff); // 0x00d5ff
+	plane2.material.side = THREE.DoubleSide;
+	plane2.position.z = -5;
+	scene.add(plane2);
+	gui.addColor(plane2.material, 'color');
+
+	/**
+	 * Cylinder Geometries
+	 */
+	const cyl = {
+		radius: 0.1,
+		radialSegments: 32,
+		height: 2
 	};
 
-    /** TEXTURE */
-    const loadingManager = new THREE.LoadingManager();
-    const textureLoader = new THREE.TextureLoader(loadingManager);
-    const matcapTexture = textureLoader.load(matcapUrl);
-    const fontLoader = new FontLoader(loadingManager);
-    fontLoader.load(dmMonoJsonUrl, (font) => {
-        const textGeometry = new TextGeometry("nordcode", {
-            font,
-            size: 0.5,
-            depth: 0.2,
-            curveSegments: 12,
-            bevelEnabled: true,
-            bevelThickness: 0,
-            bevelSize: 0.02,
-            bevelOffset: 0,
-            bevelSegments: 10,
-        });
-        textGeometry.center();
-        const textMaterial = new THREE.MeshMatcapMaterial({ color: 0xDEDEDE });
-        textMaterial.matcap = matcapTexture;
-        const text = new THREE.Mesh(textGeometry, textMaterial);
-        scene.add(text);
-        text.position.y = 1;
-        text.colorSpace = THREE.SRGBColorSpace;
-    });
-    const doorTextureColor = textureLoader.load(imageUrl);
-    doorTextureColor.colorSpace = THREE.SRGBColorSpace;
+	const geometry = new THREE.CylinderGeometry(
+		cyl.radius,
+		cyl.radius,
+		cyl.height,
+		cyl.radialSegments
+	);
+	const physicalMaterial = new THREE.MeshPhysicalMaterial({ color: 0xffffff });
 
-	function createCube() {
-		const geometry = new THREE.BoxGeometry(
-			1,
-			1,
-			1,
-			params.subdivision,
-			params.subdivision,
-			params.subdivision
-		);
-		const material = new THREE.MeshBasicMaterial({
-			color: params.color,
-            wireframe: params.wireframe,
-            map: doorTextureColor,
-		});
-		const mesh = new THREE.Mesh(geometry, material);
-
-		return mesh;
+	const cylinderGroup = new THREE.Group();
+	scene.add(cylinderGroup);
+	const cylinderItems = Array.from(Array(10).keys());
+	const cylinderLength = cylinderItems.length;
+	const cylinderXStart = -(cylinderLength / 2) * cyl.radius * 2;
+	for (const idx of cylinderItems) {
+		const cylinder = new THREE.Mesh(geometry, physicalMaterial);
+		cylinder.position.set(...[cylinderXStart + idx * cyl.radius * 2, 0, 2]);
+		cylinder.material.specular = new THREE.Color(0x1188ff);
+		cylinder.material.metalness = 0.3;
+		cylinder.material.roughness = 0.5;
+		cylinder.material.transmission = 1;
+		cylinder.material.ior = 1.5;
+		cylinder.material.thickness = 0.5;
+		cylinderGroup.add(cylinder);
 	}
 
-    /** AXIS HELPER */
-    const axisHelper = new THREE.AxesHelper(5);
-    scene.add(axisHelper);
+	/**
+	 * Sizes
+	 */
+	const sizes = {
+		width: window.innerWidth,
+		height: window.innerHeight
+	};
 
-    /** GROUP */
-    const group = new THREE.Group();
-    const cube = createCube();
-    cube.material.color.setHex(params.color);
-    const plane = new THREE.Mesh(
-        new THREE.PlaneGeometry(1, 1),
-        new THREE.MeshNormalMaterial()
-    );
-    plane.position.x = 2;
-    plane.material.side = THREE.DoubleSide;
+	window.addEventListener('resize', () => {
+		// Update sizes
+		sizes.width = window.innerWidth;
+		sizes.height = window.innerHeight;
 
-    /** TORUS */
-    const torus = new THREE.Mesh(
-        new THREE.TorusGeometry(0.3, 0.2, 16, 32),
-        // new THREE.MeshLambertMaterial({ color: 0xff6347 })
-        // new THREE.MeshPhongMaterial({ color: 0xFFFFFF })
-        // new THREE.MeshStandardMaterial({ color: 0xFFFFFF })
-        new THREE.MeshPhysicalMaterial({ color: 0xFFFFFF })
-    );
-    torus.position.x = -2;
-    // torus.material.transparent = true;
-    // torus.material.opacity = 0.5;
-    // torus.material.shininess = 100
-    // torus.material.map = doorTextureColor;
-    torus.material.specular = new THREE.Color(0x1188ff);
-    torus.material.metalness = 0.7;
-    torus.material.roughness = 0.2;
-    torus.material.transmission = 1;
-    torus.material.ior = 1.5;
-    torus.material.thickness = 0.5;
-    group.add(cube, plane, torus);
-    scene.add(group);
+		// Update camera
+		camera.aspect = sizes.width / sizes.height;
+		camera.updateProjectionMatrix();
 
-    /** LIGHTNING */
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-    const pointLight = new THREE.PointLight(0xffffff, params.lightIntensity);
-    scene.add(ambientLight, pointLight);
+		// Update renderer
+		renderer.setSize(sizes.width, sizes.height);
+		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+	});
 
-    /** RGBE Loader */
-    const rgbeLoader = new RGBELoader();
-    rgbeLoader.load(envMapUrl, (environmentMap) => {
-        environmentMap.mapping = THREE.EquirectangularReflectionMapping;
-        scene.background = environmentMap;
-        scene.environment = environmentMap;
-    });
+	/**
+	 * Camera
+	 */
+	// Base camera
+	const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+	camera.position.x = 0;
+	camera.position.y = 0;
+	camera.position.z = 4;
+	scene.add(camera);
 
-    /** GUI */
-    const objects = gui.addFolder('Objects');
-    objects.add(group.position, 'x').min(-3).max(3).step(0.01);
-    objects.add(group.position, 'y').min(-3).max(3).step(0.01);
-    objects.add(group.position, 'z').min(-3).max(3).step(0.01);
-    const lightFolder = gui.addFolder('Light')
-    lightFolder.add(pointLight.position, 'x').min(-3).max(3).step(0.01);
-    lightFolder.add(pointLight.position, 'y').min(-3).max(3).step(0.01);
-    lightFolder.add(pointLight.position, 'z').min(-3).max(3).step(0.01);
-    lightFolder.add(params, 'lightIntensity').min(0).max(10).step(0.01).onChange(() => {
-        pointLight.intensity = params.lightIntensity;
-    });
-    const guiTorus = gui.addFolder('Torus');
-    guiTorus.add(torus.material, 'metalness').min(0).max(1).step(0.0001);
-    guiTorus.add(torus.material, 'roughness').min(0).max(1).step(0.0001);
-    guiTorus.add(torus.material, 'transmission').min(0).max(1).step(0.0001);
-    guiTorus.add(torus.material, 'ior').min(1).max(2).step(0.0001);
-    guiTorus.add(torus.material, 'thickness').min(0).max(1).step(0.0001);
+	// Controls
+	const controls = new OrbitControls(camera, canvas);
+	controls.enableDamping = true;
 
-    // guiTorus.add(torus.material, 'shininess').min(0).max(200).step(1);
-    gui.add(params, 'wireframe').onChange(() => {
-        cube.material.wireframe = params.wireframe;
-    });
-    gui.addColor(params, 'color').onChange(() => {
-        group.children[0].material.color.set(params.color);
-    });
-    gui.add(params, 'subdivision')
-        .min(1)
-        .max(20)
-        .step(1)
-        .onFinishChange(() => {
-            group.remove(...group.children);
-            const mesh = cube();
-            group.add(mesh);
-        });
+	/**
+	 * Renderer
+	 */
+	const renderer = new THREE.WebGLRenderer({
+		canvas: canvas,
+		// antialias: true
+	});
+	renderer.setSize(sizes.width, sizes.height);
+	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    params.spin = () => {
-        gsap.to(group.rotation, { duration: 1, y: group.rotation.y + Math.PI * 2 });
-    };
-    gui.add(params, 'spin');
+	/**
+	 * Animate
+	 */
+	const clock = new THREE.Clock();
 
-    const sizes = {
-        width: canvasEl.clientWidth,
-        height: canvasEl.clientHeight
-    };
+	const tick = () => {
+		const elapsedTime = clock.getElapsedTime();
 
-    /** CAMERA */
-    const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
-    camera.position.z = 3;
-    scene.add(camera);
+		// Update objects
+		plane.rotation.x = 0.1 * elapsedTime;
+		plane.rotation.y = 0.15 * elapsedTime;
+		plane2.rotation.x = Math.PI + 0.1 * elapsedTime;
+		plane2.rotation.y = Math.PI + 0.15 * elapsedTime;
 
-    /** RENDERER */
-    const renderer = new THREE.WebGLRenderer({ canvas: canvasEl });
-    // renderer.setSize(sizes.width, sizes.height);
+		// Update controls
+		controls.update();
 
-    /** CONTROLS */
-    const controls = new OrbitControls(camera, canvasEl);
-    controls.enableDamping = true;
+		// Render
+		renderer.render(scene, camera);
 
-    /** CLOCK */
-    // gsap.to(group.position, { duration: 1, x: 2 });
-    // gsap.to(group.position, { delay: 1, duration: 1, x: 0 });
-    const clock = new THREE.Clock();
+		// Call tick again on the next frame
+		window.requestAnimationFrame(tick);
+	};
 
-    /** ANIMATION */
-    const tick = () => {
-        if (resizeRendererToDisplaySize(renderer)) {
-            const canvas = renderer.domElement;
-            camera.aspect = canvas.clientWidth / canvas.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        }
-        const elapsedTime = clock.getElapsedTime();
-        torus.rotation.y = elapsedTime;
-        torus.rotation.x = elapsedTime * -1;
-        // camera.position.x = Math.sin(elapsedTime * 0.1 * Math.PI * 2) * 3;
-        // camera.position.z = Math.cos(elapsedTime * 0.1 * Math.PI * 2) * 3;
-        camera.lookAt(group.position);
-        controls.update();
-        renderer.render(scene, camera);
-        window.requestAnimationFrame(tick);
-    };
-
-    tick();
+	tick();
 }
