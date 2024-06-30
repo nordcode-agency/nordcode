@@ -16,11 +16,9 @@
 
 <div class="nc-stack fullscreen">
 	<Header />
+    <ThreeScene />
 	<Hero projects={data.projects} />
 </div>
-<section class="nc-box">
-    <ThreeScene />
-</section>
 <section class="nc-box intro">
 	<p class="heading-bg">
 		Wir haben eine Leidenschaft für schönes Design und eine tolle User Experience. Diese
@@ -59,6 +57,7 @@
 
 <style lang="postcss">
 	.fullscreen {
+        position: relative;
 		min-block-size: 100dvh;
 	}
 

@@ -8,13 +8,17 @@
 	});
 </script>
 
-<canvas id="c" />
+<canvas id="canvas" />
 
 <style lang="postcss">
-	#c {
+	#canvas {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
 		display: block;
-		inline-size: 100%;
-		block-size: 80vh;
+		inline-size: 60%;
+		block-size: 100%;
 		outline: none;
 	}
 </style>

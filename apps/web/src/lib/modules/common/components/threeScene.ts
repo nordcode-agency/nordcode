@@ -4,145 +4,183 @@ import GUI from 'lil-gui';
 
 // Inspiration: https://meshbg-1xcve0hlq-chasedavis.vercel.app/0.615577921549203
 export function main() {
-	/**
-	 * Base
-	 */
-	// Debug
-	const gui = new GUI();
+	const baseColor = 0xffffff;
 
-	// Canvas
-	const canvas = document.getElementById('c');
+/**
+ * Base
+ */
+// Debug
+const gui = new GUI();
 
-	// Scene
-	const scene = new THREE.Scene();
-	scene.background = new THREE.Color(0x030920);
+// Canvas
+const canvas = document.getElementById('canvas') as HTMLCanvasElement;
 
-	/**
-	 * Meshes
-	 */
+// Scene
+const scene = new THREE.Scene();
+// scene.background = new THREE.Color(baseColor);
 
-	// Material
-	const planeMaterial = new THREE.MeshBasicMaterial();
-	planeMaterial.roughness = 0.4;
-	const planeGeometry = new THREE.PlaneGeometry(5, 5);
+/**
+ * Meshes
+ */
 
-	const plane = new THREE.Mesh(planeGeometry, new THREE.MeshBasicMaterial());
-	plane.material.color = new THREE.Color(0x00d5ff); // 0x0000ff
-	plane.material.side = THREE.DoubleSide;
-	plane.position.z = -5;
-	scene.add(plane);
-	gui.addColor(plane.material, 'color');
+// Material
+const planeMaterial = new THREE.MeshBasicMaterial();
+planeMaterial.roughness = 0.4;
+const planeGeometry = new THREE.PlaneGeometry(5, 5);
 
-	const plane2 = new THREE.Mesh(planeGeometry, new THREE.MeshBasicMaterial());
-	plane2.material.color = new THREE.Color(0x1001ff); // 0x00d5ff
-	plane2.material.side = THREE.DoubleSide;
-	plane2.position.z = -5;
-	scene.add(plane2);
-	gui.addColor(plane2.material, 'color');
+const plane = new THREE.Mesh(planeGeometry, new THREE.MeshBasicMaterial());
+plane.material.color = new THREE.Color(0x0000ff);
+plane.material.side = THREE.DoubleSide;
+plane.position.z = -5;
+scene.add(plane);
+gui.addColor(plane.material, 'color');
 
-	/**
-	 * Cylinder Geometries
-	 */
-	const cyl = {
-		radius: 0.1,
-		radialSegments: 32,
-		height: 2
-	};
+const plane2 = new THREE.Mesh(planeGeometry, new THREE.MeshBasicMaterial());
+plane2.material.color = new THREE.Color(0x00d5ff);
+plane2.material.side = THREE.DoubleSide;
+plane2.position.z = -5;
+scene.add(plane2);
+gui.addColor(plane2.material, 'color');
 
-	const geometry = new THREE.CylinderGeometry(
-		cyl.radius,
-		cyl.radius,
-		cyl.height,
-		cyl.radialSegments
-	);
-	const physicalMaterial = new THREE.MeshPhysicalMaterial({ color: 0xffffff });
+/**
+ * Cylinder Geometries
+ */
+const cyl = {
+  radius: 0.1,
+  radialSegments: 32,
+  height: 3,
+  distance: 1.8,
+  roughness: 0.7,
+  transmission: 2,
+  ior: 1.4,
+  thickness: 0.5,
+  rotation: {
+	z: -0.4,
+  },
+};
+const guiCylinders = gui.addFolder('Cylinders');
 
-	const cylinderGroup = new THREE.Group();
-	scene.add(cylinderGroup);
-	const cylinderItems = Array.from(Array(10).keys());
-	const cylinderLength = cylinderItems.length;
-	const cylinderXStart = -(cylinderLength / 2) * cyl.radius * 2;
-	for (const idx of cylinderItems) {
-		const cylinder = new THREE.Mesh(geometry, physicalMaterial);
-		cylinder.position.set(...[cylinderXStart + idx * cyl.radius * 2, 0, 2]);
-		cylinder.material.specular = new THREE.Color(0x1188ff);
-		cylinder.material.metalness = 0.3;
-		cylinder.material.roughness = 0.5;
-		cylinder.material.transmission = 1;
-		cylinder.material.ior = 1.5;
-		cylinder.material.thickness = 0.5;
-		cylinderGroup.add(cylinder);
-	}
+const geometry = new THREE.CylinderGeometry(
+  cyl.radius,
+  cyl.radius,
+  cyl.height,
+  cyl.radialSegments
+);
 
-	/**
-	 * Sizes
-	 */
-	const sizes = {
-		width: window.innerWidth,
-		height: window.innerHeight
-	};
+const physicalMaterial = new THREE.MeshPhysicalMaterial({ color: baseColor });
 
-	window.addEventListener('resize', () => {
-		// Update sizes
-		sizes.width = window.innerWidth;
-		sizes.height = window.innerHeight;
+const cylinderGroup = new THREE.Group();
+scene.add(cylinderGroup);
+const cylinderItems = Array.from(Array(10).keys());
+const cylinderLength = cylinderItems.length;
+const cylinderXStart = -(cylinderLength / 2) * cyl.radius * 2;
+for (const idx of cylinderItems) {
+  const cylinder = new THREE.Mesh(geometry, physicalMaterial);
+  cylinder.position.set(
+    ...[cylinderXStart + idx * cyl.radius * cyl.distance, 0, 2]
+  );
+  cylinder.material.specular = new THREE.Color(baseColor);
+  cylinder.material.roughness = cyl.roughness;
+  cylinder.material.transmission = cyl.transmission;
+  cylinder.material.ior = cyl.ior;
+  cylinder.material.thickness = cyl.thickness;
+  cylinder.rotation.z = cyl.rotation.z;
+  cylinderGroup.add(cylinder);
+}
 
-		// Update camera
-		camera.aspect = sizes.width / sizes.height;
-		camera.updateProjectionMatrix();
+guiCylinders
+  .add(cylinderGroup.children[0].material, 'roughness')
+  .min(0)
+  .max(5)
+  .step(0.01);
+guiCylinders
+  .add(cylinderGroup.children[0].material, 'transmission')
+  .min(0)
+  .max(5)
+  .step(0.01);
+guiCylinders
+  .add(cylinderGroup.children[0].material, 'ior')
+  .min(0)
+  .max(5)
+  .step(0.01);
+guiCylinders
+  .add(cylinderGroup.children[0].material, 'thickness')
+  .min(0)
+  .max(5)
+  .step(0.01);
 
-		// Update renderer
-		renderer.setSize(sizes.width, sizes.height);
-		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-	});
+function resizeRendererToDisplaySize(renderer) {
+  const canvas = renderer.domElement;
+  const pixelRatio = window.devicePixelRatio;
+  const width = Math.floor(canvas.clientWidth * pixelRatio);
+  const height = Math.floor(canvas.clientHeight * pixelRatio);
+  const needResize = canvas.width !== width || canvas.height !== height;
+  if (needResize) {
+    renderer.setSize(width, height, false);
+  }
+  return needResize;
+}
 
-	/**
-	 * Camera
-	 */
-	// Base camera
-	const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
-	camera.position.x = 0;
-	camera.position.y = 0;
-	camera.position.z = 4;
-	scene.add(camera);
+/**
+ * Camera
+ */
+// Base camera
+const camera = new THREE.PerspectiveCamera(
+  75,
+  canvas.clientWidth / canvas.clientHeight,
+  0.1,
+  100
+);
+camera.position.x = 0;
+camera.position.y = 0;
+camera.position.z = 3;
+camera.updateProjectionMatrix();
+scene.add(camera);
 
-	// Controls
-	const controls = new OrbitControls(camera, canvas);
-	controls.enableDamping = true;
+// Controls
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
 
-	/**
-	 * Renderer
-	 */
-	const renderer = new THREE.WebGLRenderer({
-		canvas: canvas,
-		// antialias: true
-	});
-	renderer.setSize(sizes.width, sizes.height);
-	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+/**
+ * Renderer
+ */
+const renderer = new THREE.WebGLRenderer({
+  canvas: canvas,
+  antialias: true,
+  alpha: true,
+  premultipliedAlpha: false,
+});
 
-	/**
-	 * Animate
-	 */
-	const clock = new THREE.Clock();
+/**
+ * Animate
+ */
+const clock = new THREE.Clock();
 
-	const tick = () => {
-		const elapsedTime = clock.getElapsedTime();
+const tick = () => {
+  const elapsedTime = clock.getElapsedTime();
 
-		// Update objects
-		plane.rotation.x = 0.1 * elapsedTime;
-		plane.rotation.y = 0.15 * elapsedTime;
-		plane2.rotation.x = Math.PI + 0.1 * elapsedTime;
-		plane2.rotation.y = Math.PI + 0.15 * elapsedTime;
+  if (resizeRendererToDisplaySize(renderer)) {
+    const canvas = renderer.domElement;
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+  }
 
-		// Update controls
-		controls.update();
+  // Update objects
+  plane.rotation.x = 0.1 * elapsedTime;
+  plane.rotation.y = 0.15 * elapsedTime;
+  plane.position.z = -5 + Math.sin(0.15 * elapsedTime);
+  plane2.rotation.x = Math.PI + -0.1 * elapsedTime;
+  plane2.rotation.y = Math.PI + 0.25 * elapsedTime;
 
-		// Render
-		renderer.render(scene, camera);
+  // Update controls
+  controls.update();
 
-		// Call tick again on the next frame
-		window.requestAnimationFrame(tick);
-	};
+  // Render
+  renderer.render(scene, camera);
 
-	tick();
+  // Call tick again on the next frame
+  window.requestAnimationFrame(tick);
+};
+
+tick();
 }
