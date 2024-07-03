@@ -75,6 +75,15 @@ section.nc-box {
 	padding-inline: var(--spacing-adaptive);
 }
 
+.nc-center {
+    /* Ensures that always max space is occupied */
+    inline-size: min(var(--center-measure), 100%);
+}
+
+.nc-input-field {
+    gap: 0.25lh;
+}
+
 .heading-bg {
 	position: relative;
 	margin-block-end: var(--spacing-far);

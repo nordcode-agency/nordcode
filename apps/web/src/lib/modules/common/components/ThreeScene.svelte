@@ -20,5 +20,6 @@
 		inline-size: 60%;
 		block-size: 100%;
 		outline: none;
+        background-color: var(--surface-color-default);
 	}
 </style>

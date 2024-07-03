@@ -21,6 +21,11 @@ export const load = (async () => {
         slug: '/start/3d',
       },
       {
+        heading: 'Künstliche Intelligenz (KI)',
+        desc: 'Durch den Einsatz von KI-Modellen (AI) können wir Prozesse optimieren oder neue Funktionen in deine Anwendung integrieren.',
+        slug: '/start/ai',
+      },
+      {
         heading: 'Unterstützung',
         desc: 'Ein bestehendes oder neues Projekt benötigt Unterstützung vor allem im Frontend-Bereich',
         slug: '/start/support',
