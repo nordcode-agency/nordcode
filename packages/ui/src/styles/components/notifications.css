@@ -24,7 +24,7 @@
 
     .nc-notification-center {
         block-size: 100%;
-        backdrop-filter: blur(2px);
+        backdrop-filter: blur(3px);
         background-color: var(--_notification-center-background);
         transform: translate(100%, 0);
         transition: transform var(--transition-duration-base) ease-in-out;
