@@ -10,8 +10,6 @@
 
     export let currentInvoice: Invoice;
 
-    console.log(currentInvoice);
-
     $: {
         if (currentInvoice) {
             const date = new Date(currentInvoice.date);
@@ -61,7 +59,7 @@
                     {#each currentInvoice.jobDescriptions as job}
                         <div class="nc-stack -nearest">
                             {#if job.title}<h3>{job.title}</h3>{/if}
-                            <p class="-big description">{job.description}</p>
+                            <p class="description">{job.description}</p>
                         </div>
                     {/each}
                 </div>
