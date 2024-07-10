@@ -62,7 +62,7 @@
 	}
 
 	.intro {
-		block-size: 50dvh;
+		min-block-size: 50dvh;
 		display: flex;
 		align-items: center;
 
@@ -71,7 +71,7 @@
 			margin-block: auto;
 			font-size: var(--font-size-largest);
 
-			@media (--lg-n-above) {
+			@media (--sm-n-above) {
 				font-size: calc(var(--font-size-largest) * 1.5);
 			}
 		}

@@ -45,7 +45,7 @@
 		max-inline-size: 68ch;
 		padding-inline: var(--spacing-adaptive);
 		flex-grow: 1;
-		display: grid;
+		display: flex;
 		gap: var(--spacing-far);
 		align-content: center;
 	}

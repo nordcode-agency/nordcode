@@ -98,7 +98,6 @@
 	}
 
 	img {
-		block-size: 100%;
 		inline-size: 100%;
 		aspect-ratio: 3 / 2;
 		object-fit: cover;
