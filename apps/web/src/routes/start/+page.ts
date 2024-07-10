@@ -31,9 +31,9 @@ export const load = (async () => {
         slug: '/start/support',
       },
       {
-        heading: 'Design System',
-        desc: 'Du benötigst ein einfaches und skalierbares Design System im Web für ein konsistente User Interface deiner App/s.',
-        slug: '/start/support',
+        heading: 'Sonstiges',
+        desc: '',
+        slug: '/start/other',
       },
     ],
 	};
