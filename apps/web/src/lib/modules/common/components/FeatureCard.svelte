@@ -29,7 +29,6 @@
 	.container {
 		container-type: inline-size;
 		inline-size: 100%;
-		block-size: 100%;
 	}
 	.card {
 		--card-padding-inline: 0px;
@@ -55,10 +54,6 @@
 			& h2 {
 				font-size: var(--font-size-large);
 			}
-		}
-
-		@container (min-inline-size: 480px) {
-			aspect-ratio: auto;
 		}
 
 		@container (min-inline-size: 680px) {

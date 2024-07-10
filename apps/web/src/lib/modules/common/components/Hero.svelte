@@ -47,7 +47,7 @@
 		flex-grow: 1;
 		display: flex;
 		gap: var(--spacing-far);
-		align-content: center;
+		align-items: center;
 	}
 
 	h1 {
