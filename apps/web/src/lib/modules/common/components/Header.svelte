@@ -7,8 +7,8 @@
 		<a href="/" aria-label="Startseite">
 			<Logo />
 		</a>
-		<a href="/#work">Work</a>
-		<a href="/#about">About</a>
+		<a class="gradient-text" href="/#work">Work</a>
+		<a class="gradient-text" href="/#about">About</a>
 	</nav>
 </header>
 
