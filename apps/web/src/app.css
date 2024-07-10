@@ -30,6 +30,10 @@ html {
     scroll-timeline: --squareTimeline vertical;
 }
 
+body {
+    line-height: initial;
+}
+
 h2 {
 	font-size: calc(var(--font-size-largest) * 1.5);
 }
@@ -41,6 +45,10 @@ p {
 .slide-up-from {
 	transform: translateY(var(--spacing-base));
 	opacity: 0;
+}
+
+.nc-input {
+    padding-block: var(--_input-padding-block);
 }
 
 .nc-button {
