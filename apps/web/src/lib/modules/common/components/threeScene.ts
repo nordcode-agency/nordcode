@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import GUI from 'lil-gui';
 
 // Inspiration: https://meshbg-1xcve0hlq-chasedavis.vercel.app/0.615577921549203
 export function main() {
@@ -9,8 +8,6 @@ export function main() {
 /**
  * Base
  */
-// Debug
-const gui = new GUI();
 
 // Canvas
 const canvas = document.getElementById('canvas') as HTMLCanvasElement;
@@ -33,14 +30,12 @@ plane.material.color = new THREE.Color(0x0000ff);
 plane.material.side = THREE.DoubleSide;
 plane.position.z = -5;
 scene.add(plane);
-gui.addColor(plane.material, 'color');
 
 const plane2 = new THREE.Mesh(planeGeometry, new THREE.MeshBasicMaterial());
 plane2.material.color = new THREE.Color(0x00d5ff);
 plane2.material.side = THREE.DoubleSide;
 plane2.position.z = -5;
 scene.add(plane2);
-gui.addColor(plane2.material, 'color');
 
 /**
  * Cylinder Geometries
@@ -58,7 +53,6 @@ const cyl = {
 	z: -0.4,
   },
 };
-const guiCylinders = gui.addFolder('Cylinders');
 
 const geometry = new THREE.CylinderGeometry(
   cyl.radius,
@@ -87,27 +81,6 @@ for (const idx of cylinderItems) {
   cylinder.rotation.z = cyl.rotation.z;
   cylinderGroup.add(cylinder);
 }
-
-guiCylinders
-  .add(cylinderGroup.children[0].material, 'roughness')
-  .min(0)
-  .max(5)
-  .step(0.01);
-guiCylinders
-  .add(cylinderGroup.children[0].material, 'transmission')
-  .min(0)
-  .max(5)
-  .step(0.01);
-guiCylinders
-  .add(cylinderGroup.children[0].material, 'ior')
-  .min(0)
-  .max(5)
-  .step(0.01);
-guiCylinders
-  .add(cylinderGroup.children[0].material, 'thickness')
-  .min(0)
-  .max(5)
-  .step(0.01);
 
 function resizeRendererToDisplaySize(renderer) {
   const canvas = renderer.domElement;
