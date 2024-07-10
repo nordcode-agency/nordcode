@@ -22,7 +22,7 @@
 				<a href={question.slug} class="nc-card card">
 					<div class="nc-stack">
 						<h3 class="gradient-text">{question.heading}</h3>
-						<p>{question.desc}</p>
+						<!-- <p>{question.desc}</p> -->
 					</div>
 				</a>
 			{/each}
@@ -32,6 +32,7 @@
 
 <style lang="postcss">
 	h1 {
+        view-transition-name: title;
 		font-size: var(--font-size-display);
 	}
 

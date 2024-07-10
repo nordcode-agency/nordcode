@@ -48,6 +48,7 @@
 
 <style lang="postcss">
 	h1 {
+        view-transition-name: title;
 		font-size: var(--font-size-display);
 	}
 
