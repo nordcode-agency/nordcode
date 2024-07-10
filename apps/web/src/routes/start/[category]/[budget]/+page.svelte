@@ -15,119 +15,130 @@
 		<div class="nc-stack">
 			<h1>Erzähl uns mehr!</h1>
 		</div>
-		<div class="actions-card">
-			<a href="mailto:hallo@nordcode.agency" class="nc-card">
-				<div>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="icon icon-tabler icon-tabler-mail"
-						width="44"
-						height="44"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="#ffffff"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					>
-						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-						<path
-							d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"
-						/>
-						<path d="M3 7l9 6l9 -6" />
-					</svg>
+		<div class="nc-ram-grid main">
+			<form class="nc-stack -far">
+				<!-- COMPONENT-START: nc-input-field -->
+				<div class="nc-input-field">
+					<label for="email" class="nc-stack">
+						<span class="nc-input-label">E-Mail</span>
+						<!-- <span class="nc-input-error">ERR</span> -->
+					</label>
+					<input
+						id="email"
+						class="nc-input"
+						aria-required="true"
+						autocomplete="email"
+						type="email"
+						required
+					/>
 				</div>
-				<span>Email</span>
-			</a>
-			<a href="https://wa.me/490000" class="nc-card">
-				<div>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="icon icon-tabler icon-tabler-brand-whatsapp"
-						width="44"
-						height="44"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="#ffffff"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					>
-						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-						<path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-						<path
-							d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
-						/>
-					</svg>
+				<!-- COMPONENT-END: nc-input-field -->
+				<!-- COMPONENT-START: nc-input-field: Textarea -->
+				<div class="nc-input-field">
+					<label for="message" class="nc-stack">
+						<span class="nc-input-label">Nachricht</span>
+					</label>
+					<textarea
+						id="message"
+						class="nc-input nc-textarea"
+						aria-required="true"
+						required
+					/>
 				</div>
-				<span>Whatsapp</span>
-			</a>
-			<a href="https://signal.me/#p/+490000" class="nc-card">
-				<div>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="icon icon-tabler icon-tabler-message-circle-2"
-						width="44"
-						height="44"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="#ffffff"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
+				<!-- COMPONENT-END: nc-input-field: Textarea -->
+				<button type="submit" class="nc-button">Abschicken</button>
+			</form>
+			<div class="nc-stack -far actions-card">
+				<div class="nc-stack contact-item">
+					<span class="nc-input-label">E-Mail</span>
+					<a class="gradient-text contact-links" href="mailto:hallo@nordcode.agency"
+						>hallo@nordcode.agency</a
 					>
-						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-						<path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1" />
-					</svg>
 				</div>
-				<span>Signal</span>
-			</a>
-			<a href="tel:+490000" class="nc-card">
-				<div>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="icon icon-tabler icon-tabler-phone"
-						width="44"
-						height="44"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="#ffffff"
-						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					>
-						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-						<path
-							d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
-						/>
-					</svg>
+				<div class="nc-stack contact-item">
+					<span class="nc-input-label">Schreib uns auf</span>
+					<a class="gradient-text contact-links" href="https://wa.me/490000">Whatsapp</a>
 				</div>
-				<span>Telefon</span>
-			</a>
+				<!-- <a class="gradient-text contact-links" href="https://signal.me/#p/+490000"> Signal </a> -->
+				<div class="nc-stack contact-item">
+					<span class="nc-input-label">Telefon</span>
+					<a class="gradient-text contact-links" href="tel:+490000">+49 40 228 680 000</a>
+				</div>
+			</div>
 		</div>
+        <div class="nc-flow footer">
+            <h2>Noch nicht sicher?</h2>
+            <p>Folge uns auf <a href="#">Instagram</a> oder abonniere unseren <a href="#">Newsletter</a>.</p>
+        </div>
 	</section>
 </div>
 
 <style lang="postcss">
-    h1 {
+	h1 {
+        view-transition-name: title;
 		font-size: var(--font-size-display);
 	}
 
-	.actions-card {
-		inline-size: 100%;
+	form {
+		flex: 0 1 40ch;
+
+		& :is(input, textarea) {
+			--input-padding-block: 1lh;
+
+			font-size: var(--font-size-large);
+		}
+	}
+
+	textarea {
+        min-block-size: 4rlh;
+		min-block-size: 4lh;
+        max-block-size: 80svh;
+
+		@supports (field-sizing: content) {
+			field-sizing: content;
+		}
+	}
+
+	.main {
 		display: flex;
+		flex-wrap: wrap;
+		inline-size: 100%;
 		justify-content: space-between;
-		gap: var(--spacing-far);
+		gap: var(--spacing-farthest);
 	}
 
-	a {
-		display: grid;
-		place-items: center;
-		text-align: center;
-		gap: var(--spacing-base);
+	.nc-center {
+		box-sizing: border-box;
 	}
 
-	svg {
-		stroke: var(--color-text-default);
+	.actions-card {
+		flex: 0 1 28ch;
 	}
+
+	.contact-item {
+		gap: 0.25lh;
+	}
+
+	.contact-links {
+		font-size: 1.5rem;
+		text-decoration: none;
+		color: var(--color-text-default);
+	}
+
+    .footer {
+        margin-block-start: var(--spacing-far);
+
+        h2 {
+            font-size: var(--font-size-largest)
+        }
+    
+        p {
+            color: var(--color-text-subtle);
+        }
+
+        a {
+            color: var(--color-brand-primary-base);
+        }
+    }
+
 </style>
