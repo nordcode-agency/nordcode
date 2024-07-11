@@ -16,24 +16,24 @@
             input[type='file']:not([class])::file-selector-button,
             .nc-button
         ) {
-        --_button-background: var(--button-background, var(--color-surface-emphasis));
-        --_button-color: var(--button-color, var(--color-text-on-emphasis));
-        --_button-border-color: var(--button-border-color, var(--color-surface-emphasis));
+        --_button-background: var(--button-background, var(--surface-hover));
+        --_button-color: var(--button-color, var(--text-hover));
+        --_button-border-color: var(--button-border-color, var(--surface-hover));
         --_button-border-radius: var(--button-border-radius, var(--border-radius-medium));
 
-        --_button-background-hover: var(--button-background-hover, var(--color-brand-primary-base));
+        --_button-background-hover: var(--button-background-hover, var(--surface));
         --_button-background-hover-light: var(
             --button-background-hover-light,
-            var(--color-brand-primary-hover)
+             color-mix(
+                in oklch,
+                currentColor calc(var(--transparency-weaker) * 10%),
+                transparent
+            )
         );
-        --_button-color-hover: var(--button-color-hover, var(--color-brand-primary-contrast));
-        --_button-color-text-hover: var(
-            --button-color-text-hover,
-            var(--color-brand-primary-emphasis)
-        );
+        --_button-color-hover: var(--button-color-hover, var(--text));
         --_button-border-color-hover: var(
             --button-border-color-hover,
-            var(--color-brand-primary-base)
+            var(--border)
         );
 
         --_button-box-shadow: var(--button-box-shadow, var(--shadow-near));
@@ -120,60 +120,26 @@
             transform: none;
         }
 
-        &.-neutral {
-            --button-background: var(--color-surface-emphasis);
-            --button-color: var(--color-text-on-emphasis);
-            --button-border-color: var(--color-border-default);
-            --button-background-hover: var(--color-surface-default);
-            --button-color-hover: var(--color-text-default);
-            --button-color-text-hover: var(--color-text-default);
-            --button-border-color-hover: var(--color-border-default);
-        }
-
-        &.-primary {
-            --button-background: var(--color-brand-primary-base);
-            --button-color: var(--color-brand-primary-contrast);
-            --button-border-color: var(--color-brand-primary-base);
-
-            --button-background-hover: var(--color-brand-primary-surface);
-            --button-color-hover: var(--color-brand-primary-emphasis);
-            --button-color-text-hover: var(--color-brand-primary-emphasis);
-            --button-border-color-hover: var(--color-brand-primary-emphasis);
-            --button-background-color-hover-light: var(--color-brand-primary-hover);
-        }
-
-        &.-secondary {
-            --button-background: var(--color-brand-secondary-base);
-            --button-color: var(--color-brand-secondary-contrast);
-            --button-border-color: var(--color-brand-secondary-base);
-
-            --button-background-hover: var(--color-brand-secondary-surface);
-            --button-color-hover: var(--color-brand-secondary-emphasis);
-            --button-color-text-hover: var(--color-brand-secondary-emphasis);
-            --button-border-color-hover: var(--color-brand-secondary-emphasis);
-            --button-background-color-hover-light: var(--color-brand-secondary-hover);
-        }
-
         &.-outline {
             background-color: transparent;
-            color: var(--_button-background);
-            border-color: var(--_button-border-color);
+            color: var(--text);
+            border-color: var(--border);
 
             &:hover {
                 background-color: var(--_button-background-hover-light);
-                color: var(--_button-color-text-hover);
-                border-color: var(--_button-border-color-hover);
+                color: var(--text);
+                border-color: var(--border-hover);
             }
         }
 
         &.-stealth {
             background-color: transparent;
             border-color: transparent;
-            color: var(--_button-background);
+            color: var(--text);
 
             &:hover {
                 background-color: var(--_button-background-hover-light);
-                color: var(--_button-color-text-hover);
+                color: var(--text);
                 border-color: transparent;
             }
 

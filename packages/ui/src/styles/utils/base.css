@@ -178,8 +178,7 @@
         color: var(--color-brand-primary-base);
     }
 
-    ::selection,
-    mark {
+    ::selection {
         background-color: var(--color-brand-primary-base);
         color: var(--color-surface-default);
     }
@@ -225,27 +224,42 @@
         filter: contrast(0.64) opacity(0.64);
     }
 
+    :where(del, ins, mark, code, kbd, var) {
+        padding-inline: 0.5ch;
+        border-radius: var(--border-radius-small);
+        line-height: inherit;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+
     :where(code, kbd, var) {
         font-family: var(--font-family-mono);
         letter-spacing: 0;
         font-weight: var(--font-weight-default);
-        padding-inline: 0.25ch;
         padding-block: 0.125lh;
         max-inline-size: fit-content;
-        border-radius: var(--border-radius-small);
-        line-height: inherit;
         hyphens: none;
         tab-size: 4;
         text-align: left;
         word-spacing: normal;
         word-break: normal;
         word-wrap: normal;
-        box-decoration-break: clone;
-        -webkit-box-decoration-break: clone;
     }
 
     :where(code) {
         background: var(--color-surface-inset);
+    }
+
+    :where(var) {
+        background: var(--color-brand-primary-surface);
+        color: var(--color-brand-primary-emphasis);
+    }
+
+    :where(kbd) {
+        background: var(--color-surface-inset);
+        border: var(--border-width-thin) solid var(--color-border-default);
+        box-shadow: var(--shadow-nearest);
+        font-weight: var(--font-weight-active);
     }
 
     :where(pre) {
@@ -346,9 +360,23 @@
         scroll-margin-block-start: 2ex;
     }
 
+
+
     :where(del) {
-        color: var(--color-text-muted);
-        text-decoration-color: var(--color-brand-primary-base);
+        color: var(--color-status-danger-text);
+        text-decoration-color: var(--color-status-danger-text);
+        background: var(--color-status-danger-surface);
+    }
+
+    :where(ins) {
+        color: var(--color-status-success-text);
+        text-decoration-color: var(--color-status-success-text);
+        background: var(--color-status-success-surface);
+    }
+
+    :where(mark) {
+        color: var(--color-brand-primary-emphasis);
+        background: var(--color-brand-primary-surface);
     }
 
     :where(ul, ol) {

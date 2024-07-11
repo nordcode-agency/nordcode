@@ -1,50 +1,12 @@
 .badge {
-    --color: var(--color-text-default);
-
     font-family: var(--font-family-mono);
     letter-spacing: var(--tracking-tight);
     font-weight: var(--font-weight-default);
-    color: var(--color);
-    border: var(--border-width-thin) solid var(--color);
+    color: var(--text, var(--color-text-default));
+    border: var(--border-width-thin) solid var(--text, var(--color-text-default));
     border-radius: var(--border-radius-small);
+    background: var(--surface, transparent);
     padding: 0.5lh 1ch;
     inline-size: max-content;
     line-height: 1;
-
-    &.-primary {
-        --color: var(--color-brand-primary-base);
-    }
-
-    &.-secondary {
-        --color: var(--color-brand-secondary-base);
-    }
-
-    &.-muted {
-        --color: var(--color-text-muted);
-    }
-
-    &.-emphasis {
-        --color: var(--color-text-on-emphasis);
-        background-color: var(--color-surface-emphasis);
-    }
-
-    &.-info {
-        --color: var(--color-status-info-text);
-        background-color: var(--color-status-info-surface);
-    }
-
-    &.-warning {
-        --color: var(--color-status-warning-text);
-        background-color: var(--color-status-warning-surface);
-    }
-
-    &.-danger {
-        --color: var(--color-status-danger-text);
-        background-color: var(--color-status-danger-surface);
-    }
-
-    &.-success {
-        --color: var(--color-status-success-text);
-        background-color: var(--color-status-success-surface);
-    }
 }

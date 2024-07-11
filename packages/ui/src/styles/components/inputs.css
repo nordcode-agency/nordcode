@@ -10,7 +10,7 @@
         font-family: var(--font-family-default);
         letter-spacing: var(--tracking-tight);
         font-weight: var(--font-weight-active);
-        color: var(--color-text-default);
+        color: var(--text, var(--color-text-default));
         display: block;
         font-size: var(--font-size-base);
         padding: 0;
@@ -95,6 +95,13 @@
 
         --_input-padding-block: var(--input-padding-block, 0.125lh);
         --_input-padding-inline: var(--input-padding-inline, 1ch);
+        --_input-hover-background: var(--input-hover-background,
+            color-mix(
+                in oklch,
+                var(--color-brand-primary-base) calc(var(--transparency-weaker) * 10%),
+                transparent
+            )
+        );
     }
 
     :where(
@@ -146,8 +153,8 @@
         }
 
         &:hover {
-            --current-background: var(--color-brand-primary-hover);
-            background-color: var(--color-brand-primary-hover);
+            --current-background: var(--_input-hover-background);
+            background-color: var(--_input-hover-background);
         }
 
         &[required] {
@@ -280,12 +287,14 @@
             block-size: 1lh;
             border-radius: var(--_input-border-radius);
             border: var(--_input-border);
+            border-color: var(--color-text-default);
             background-color: var(--color-text-default);
             box-shadow: var(--shadow-near);
             cursor: pointer;
 
             &:hover {
                 background-color: var(--color-brand-primary-base);
+                border-color: var(--color-brand-primary-base);
             }
         }
     }
@@ -360,7 +369,7 @@
         }
 
         &:hover:not(:has(input:checked)) > input {
-            background: var(--color-brand-primary-hover);
+            background: var(--_input-hover-background);
         }
     }
 
@@ -457,18 +466,18 @@
             }
 
             &:hover {
-                --current-background: var(--color-brand-primary-hover);
-                background-color: var(--color-brand-primary-hover);
+                --current-background: var(--_input-hover-background);
+                background-color: var(--_input-hover-background);
             }
 
             &:first-child {
                 border-radius: var(--_segmented-control-border-radius)
-                    var(--_segmented-control-border-radius) 0 0;
+                var(--_segmented-control-border-radius) 0 0;
             }
 
             &:last-child {
                 border-radius: 0 0 var(--_segmented-control-border-radius)
-                    var(--_segmented-control-border-radius);
+                var(--_segmented-control-border-radius);
             }
 
             &:not(:last-child) {
@@ -497,32 +506,32 @@
         }
     }
 
-    @container segmented-control (min-width: 32rem) {
-        fieldset {
-            grid-auto-columns: 1fr;
-            grid-auto-flow: column;
+@container segmented-control (min-width: 32rem) {
+    fieldset {
+        grid-auto-columns: 1fr;
+        grid-auto-flow: column;
 
-            & > label {
-                &:first-child {
-                    border-radius: var(--_segmented-control-border-radius) 0 0
-                        var(--_segmented-control-border-radius);
-                }
+        & > label {
+            &:first-child {
+                border-radius: var(--_segmented-control-border-radius) 0 0
+                var(--_segmented-control-border-radius);
+            }
 
-                &:last-child {
-                    border-radius: 0 var(--_segmented-control-border-radius)
-                        var(--_segmented-control-border-radius) 0;
-                }
+            &:last-child {
+                border-radius: 0 var(--_segmented-control-border-radius)
+                var(--_segmented-control-border-radius) 0;
+            }
 
-                &:not(:last-child) {
-                    border-block-end: var(--_input-border);
-                    border-inline-end: var(--border-width-thin) solid var(--color-border-muted);
-                }
+            &:not(:last-child) {
+                border-block-end: var(--_input-border);
+                border-inline-end: var(--border-width-thin) solid var(--color-border-muted);
+            }
 
-                &:not(:first-child) {
-                    border-block-start: var(--_input-border);
-                    border-inline-start: none;
-                }
+            &:not(:first-child) {
+                border-block-start: var(--_input-border);
+                border-inline-start: none;
             }
         }
     }
+}
 }

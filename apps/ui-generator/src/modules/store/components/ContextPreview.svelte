@@ -500,6 +500,7 @@
                         indicates a highlight.
                     </p>
                     <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
+                    <p>The <kbd>kbd</kbd>, such as <var>Ctrl</var>.</p>
                     <p>The time element:
                         <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time>
                     </p>

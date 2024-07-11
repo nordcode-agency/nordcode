@@ -127,4 +127,8 @@
         line-height: var(--line-height-base);
         margin: 0;
     }
+
+    :where(p) {
+        text-wrap: pretty;
+    }
 }
