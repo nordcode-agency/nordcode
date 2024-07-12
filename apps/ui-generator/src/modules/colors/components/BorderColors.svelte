@@ -18,7 +18,7 @@ const baseColors = [
 ];
 </script>
 
-<section class="nc-region nc-stack -contained">
+<section class="nc-region nc-stack -contained -stretched">
     <h2 id="borders">Border Colors</h2>
     <div class="nc-grid preview-grid">
         <div class="nc-stack">

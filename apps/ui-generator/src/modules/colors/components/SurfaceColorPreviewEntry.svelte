@@ -57,15 +57,17 @@ $: resolvedColor = getResolvedColor(token);
     }
 
     .preview-box {
-        inline-size: 3rem;
-        block-size: 3rem;
+        inline-size: 6rem;
+        block-size: 6rem;
         border-radius: var(--border-radius-medium);
         box-shadow: var(--shadow-near);
     }
 
     .preview-text {
-        font-size: var(--font-size-display);
+        font-size: 3.5rem;
+        line-height: 1;
     }
+
 
     .token {
         font-size: var(--font-size-small);
