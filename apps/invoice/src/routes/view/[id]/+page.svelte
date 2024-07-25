@@ -1,9 +1,9 @@
 <script lang="ts">
-    import InvoiceDisplay from '$lib/invoice/components/InvoiceDisplay.svelte';
-    import { Navigation } from '$lib/common/config/Navigation';
+import InvoiceDisplay from '$lib/invoice/components/InvoiceDisplay.svelte';
+import { Navigation } from '$lib/common/config/Navigation';
 
-    export const layout = {};
-    export let data;
+export const layout = {};
+export let data;
 </script>
 
 <svelte:head>

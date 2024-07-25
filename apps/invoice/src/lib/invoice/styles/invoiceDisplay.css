@@ -51,13 +51,11 @@
 }
 
 .printOverview {
-    border: var(--border-width-medium) solid var(--color-border-default);
-    padding: var(--spacing-near);
     justify-self: flex-end;
     align-self: flex-start;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: var(--spacing-base);
+    column-gap: var(--spacing-far);
     row-gap: var(--spacing-tiny);
 
     & span {
@@ -72,6 +70,10 @@
     margin: 0 auto;
 }
 
+.printContactDetails {
+    gap: calc(var(--spacing-base) + var(--spacing-nearest));
+}
+
 .printBankDetails {
     display: flex;
     flex-direction: column;
@@ -84,11 +86,33 @@
     text-align: right;
 }
 
+.qr-code-display {
+
+    & img {
+        inline-size: 7rem;
+        block-size: 7rem;
+    }
+
+    & .nc-hint {
+        font-size: var(--font-size-smallest);
+        text-align: center;
+    }
+
+}
+
 @media print {
     :root {
         --color-text: #222;
         --color-text-strong: #000;
         --color-background: white;
+    }
+
+    * {
+        accent-color: #222;
+    }
+
+    ::marker {
+        color: #222;
     }
 
     .no-print {
