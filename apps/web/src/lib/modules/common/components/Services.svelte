@@ -46,7 +46,7 @@
     ]
 
 </script>
-<section id="services" class="nc-box nc-stack -farthest">
+<section id="services" class="nc-box section">
     <h2>Was wir gut können</h2>
     <div class="container">
         {#each services as { title, description, cta }}
@@ -63,37 +63,68 @@
 
 <style lang="postcss">
 
-    .container {
-        position: relative;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-adaptive);
-        row-gap: calc(var(--spacing-adaptive) * 1.5);
-        counter-reset: steps;
-        inline-size: 80%;
+    .section {
+        display: flex;
+        column-gap: var(--spacing-adaptive);
+        row-gap: max(calc(var(--spacing-adaptive) * 1.5), var(--spacing-far));
+        flex-wrap: wrap;
+        justify-content: space-between;
+        inline-size: 100%;
+    }
 
+    h2 {
+        max-inline-size: 8ch;
+    }
+
+    .container {
+        flex: 1 1 calc(42ch * 2 + var(--spacing-far));
+        max-inline-size: calc(52ch * 2 + var(--spacing-far));
+        align-self: end;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-far);
+        row-gap: var(--spacing-farthest);
+        counter-reset: steps;
+
+        @media (--sm-n-above) {
+            row-gap: calc(var(--spacing-adaptive) * 1.5);
+        }
+
+        @media (--md-n-above) {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     .item {
-        --offset: 10rem;
+        --size: 6rem;
 
         position: relative;
-        max-inline-size: 42ch;
+        
         justify-content: space-between;
         counter-increment: steps;
 
         &::before {
             content: "0" counter(steps);
+            display: none;
             position: absolute;
-            font-size: var(--offset);
+            font-size: var(--size);
+            block-size: var(--size);
             font-weight: bold;
-            transform: translate(-20%, -42%);
             color: var(--color-surface-inset);
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            inset: 0;
             z-index: -1;
+        }
+
+        @media (--sm-n-above) {
+            --size: 10rem;
+
+            padding-block-start: calc(var(--size) * 0.36);
+            padding-inline-start: calc(var(--size) * 0.42);
+
+            &::before {
+                display: block;
+                transform: translateY(-20%);
+            }
         }
     }
 </style>
