@@ -66,6 +66,7 @@
     & img {
       object-fit: cover;
       inline-size: 100%;
+      block-size: 100%;
     }
   }
 
