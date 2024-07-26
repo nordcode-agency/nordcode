@@ -36,6 +36,8 @@ body {
 
 h2 {
 	font-size: calc(var(--font-size-largest) * 1.5);
+    font-size: 5rem;
+    line-height: 1.8ex;
 }
 
 p {
