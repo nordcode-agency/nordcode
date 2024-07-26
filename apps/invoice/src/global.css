@@ -40,6 +40,13 @@ body {
     background: var(--color-surface-subtle);
 }
 
+textarea {
+    field-sizing: content;
+    min-block-size: 4lh;
+    max-block-size: 80svh;
+    block-size: auto;
+}
+
 .page-center-layout {
     --center-measure: var(--layout-max-width);
     --center-padding: var(--layout-padding);
