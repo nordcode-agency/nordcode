@@ -6,6 +6,7 @@
 	import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
 	import Cta from '$lib/modules/common/components/Cta.svelte';
 	import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
+	import Services from '$lib/modules/common/components/Services.svelte';
 
 	export let data: PageData;
 </script>
@@ -52,6 +53,7 @@
 		/>
 	</div>
 </section>
+<Services />
 <About />
 <Cta />
 
