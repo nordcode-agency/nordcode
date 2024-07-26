@@ -13,6 +13,7 @@
 <style lang="postcss">
 	#canvas {
         position: absolute;
+        z-index: -1;
         content: "";
         top: 0;
         right: 0;
