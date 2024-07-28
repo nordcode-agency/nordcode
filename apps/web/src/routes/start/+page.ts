@@ -11,29 +11,19 @@ export const load = (async () => {
         slug: '/start/website',
       },
       {
-        heading: 'Automation',
+        heading: 'E-Commerce',
         desc: 'Ein manueller Prozess, zum Beispiel bei der Erfassung, Übertragung oder Verarbeitung von Daten können wir automatisieren um Zeit- und Kostenersparnisse zu erzielen.',
         slug: '/start/automation',
       },
       {
-        heading: '3D',
+        heading: 'Apps',
         desc: 'Visualisierungen von 3D Modellen, zum Beispiel bei Konfiguratoren oder Storytelling.',
         slug: '/start/3d',
       },
       {
-        heading: 'Künstliche Intelligenz (KI)',
+        heading: 'Individuell',
         desc: 'Durch den Einsatz von KI-Modellen (AI) können wir Prozesse optimieren oder neue Funktionen in deine Anwendung integrieren.',
         slug: '/start/ai',
-      },
-      {
-        heading: 'Unterstützung',
-        desc: 'Ein bestehendes oder neues Projekt benötigt Unterstützung vor allem im Frontend-Bereich',
-        slug: '/start/support',
-      },
-      {
-        heading: 'Sonstiges',
-        desc: '',
-        slug: '/start/other',
       },
     ],
 	};
