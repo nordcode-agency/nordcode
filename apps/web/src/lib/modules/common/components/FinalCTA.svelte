@@ -1,31 +1,79 @@
 <script>
 import SecondaryCtaButton from '$lib/modules/common/components/SecondaryCtaButton.svelte';
+	import LogoClipPath from './LogoClipPath.svelte';
 </script>
 
-<section class="nc-center nc-pile">
-	<div class="colors nc-pile">
-		<div />
-		<div />
-	</div>
-	<div class="shaders">
-		<div />
-		<div />
-		<div />
-		<div />
-		<div />
-	</div>
-	<div class="nc-box finalCTA">
-		<SecondaryCtaButton href="/start">Jetzt loslegen</SecondaryCtaButton>
-	</div>
+<section class="nc-box">
+    <div class="nc-card container">
+        <div class="nc-pile pile">
+            <div class="bg nc-pile">
+                {#each Array.from({ length: 2 }) as _item, idx}
+                <div class="bg-logo" data-idx={idx}>
+                    <LogoClipPath />
+                </div>
+                {/each}
+            </div>
+            <!-- <div class="colors nc-pile">
+                <div />
+                <div />
+            </div>
+            <div class="shaders">
+                <div />
+                <div />
+                <div />
+                <div />
+                <div />
+            </div> -->
+            <div class="finalCTA">
+                <SecondaryCtaButton href="/start">Jetzt loslegen</SecondaryCtaButton>
+            </div>
+        </div>
+    </div>
 </section>
 
 <style>
+
+    .container {
+        block-size: 60vh;
+        padding: 0;
+    }
+
+    .pile {
+        inline-size: 100%;
+        block-size: 100%;
+        overflow: hidden;
+    }
 	section {
 		perspective: 200px;
-		max-block-size: 100dvh;
 		inline-size: unset;
-		overflow: hidden;
 	}
+
+    .bg {
+        inline-size: 100%;
+        block-size: 100%;
+        min-block-size: 0;
+        min-inline-size: 0;
+        /* opacity: 0.2; */
+        /* filter: saturate(6.5); */
+    }
+
+    .bg-logo {
+        /* inline-size: 35vmin;
+        block-size: 35vmin; */
+        inline-size: 140vw;
+        block-size: 140vw;
+        background: linear-gradient(to bottom, oklch(var(--color-brand-primary-base-lch) / 1), transparent);
+		clip-path: url(#logo-clip);
+        mix-blend-mode: multiply;
+
+        &:nth-of-type(1) {
+            transform: rotate(45deg);
+        }
+
+        &:nth-of-type(2) {
+            transform: rotate(216deg);
+        }
+    }
 
 	.colors {
 		display: grid;
@@ -79,7 +127,10 @@ import SecondaryCtaButton from '$lib/modules/common/components/SecondaryCtaButto
 
 	.finalCTA {
 		font-size: calc(var(--font-size-largest) * 1.5);
-        mix-blend-mode: difference;
+        color: var(--color-text-default);
+        background-color: var(--color-surface-default);
+        border-radius: var(--border-radius-large);
+        mix-blend-mode: normal;
 	}
 
 	@keyframes spin {
