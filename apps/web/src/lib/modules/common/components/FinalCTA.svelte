@@ -44,13 +44,16 @@ import SecondaryCtaButton from '$lib/modules/common/components/SecondaryCtaButto
 			backface-visibility: hidden;
 			border-radius: 5%;
 
+
 			&:nth-child(1) {
 				background: #00d5ff;
+                box-shadow: 0 0 30px 10px oklch(var(--color-brand-secondary-base-lch) / 0.4);
 				animation-delay: -3s;
 			}
 
 			&:nth-child(2) {
 				background: #0000ff;
+                                box-shadow: 0 0 30px 10px oklch(var(--color-brand-primary-base-lch) / 0.4);
 			}
 		}
 	}
@@ -69,13 +72,14 @@ import SecondaryCtaButton from '$lib/modules/common/components/SecondaryCtaButto
 			aspect-ratio: 1 / 6;
 			background: oklch(var(--color-surface-default-lch) / 0.5);
 			backdrop-filter: blur(100px);
-			box-shadow: 0 0 30px 10px oklch(var(--color-surface-default-lch) / 0.4);
+			box-shadow: 0 0 20px 5px oklch(var(--color-surface-default-lch) / 0.4);
 			border-radius: 5%;
 		}
 	}
 
 	.finalCTA {
 		font-size: calc(var(--font-size-largest) * 1.5);
+        mix-blend-mode: difference;
 	}
 
 	@keyframes spin {
