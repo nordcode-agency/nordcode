@@ -29,7 +29,7 @@
         },
         {
             title: "Apps",
-            description: "Wir optimieren Webseiten für Suchmaschinen, damit sie besser gefunden werden und mehr Besucher anziehen.",
+            description: "Wir optimieren Webseiten für Suchmaschinen, damit sie besser gefunden werden und mehr Besucher anziehen. Oder Design Systeme.",
             cta: {
                 href: "/start/app",
                 label: "App erstellen"
