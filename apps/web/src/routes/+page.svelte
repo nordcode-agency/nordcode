@@ -1,15 +1,15 @@
 <script lang="ts">
-import Hero from '$lib/modules/common/components/Hero.svelte';
-import Header from '$lib/modules/common/components/Header.svelte';
-import type { PageData } from './$types';
-import About from '$lib/modules/common/components/About.svelte';
-import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
-import Cta from '$lib/modules/common/components/Cta.svelte';
-import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
-import Services from '$lib/modules/common/components/Services.svelte';
-import LogoClipPath from '$lib/modules/common/components/LogoClipPath.svelte';
+	import Hero from '$lib/modules/common/components/Hero.svelte';
+	import Header from '$lib/modules/common/components/Header.svelte';
+	import type { PageData } from './$types';
+	import About from '$lib/modules/common/components/About.svelte';
+	import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
+	import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
+	import Services from '$lib/modules/common/components/Services.svelte';
+	import LogoClipPath from '$lib/modules/common/components/LogoClipPath.svelte';
+	import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
 
-export let data: PageData;
+	export let data: PageData;
 </script>
 
 <svelte:head>
@@ -18,16 +18,17 @@ export let data: PageData;
 
 <div class="nc-stack fullscreen">
 	<Header />
-    <ThreeScene />
+	<ThreeScene />
 	<Hero projects={data.projects} />
 </div>
 <section class="nc-box intro">
 	<p class="heading-bg">
-		Wir haben eine Leidenschaft für <span class="gradient-text">schönes Design</span> und eine <span class="gradient-text">tolle User Experience</span>. Diese
-		Leidenschaft nutzen wir, um ein Erlebnis für deine Nutzer zu schaffen, dass funktioniert.
-    <span aria-hidden="true" role="presentation" class="intro-icon">
-        <LogoClipPath />
-    </span>
+		Wir haben eine Leidenschaft für <span class="gradient-text">schönes Design</span> und eine
+		<span class="gradient-text">tolle User Experience</span>. Diese Leidenschaft nutzen wir, um
+		ein Erlebnis für deine Nutzer zu schaffen, dass funktioniert.
+		<span aria-hidden="true" role="presentation" class="intro-icon">
+			<LogoClipPath />
+		</span>
 	</p>
 </section>
 <section id="work" class="nc-box nc-stack -inherit -stretched work">
@@ -59,46 +60,45 @@ export let data: PageData;
 </section>
 <Services />
 <About />
-<Cta />
+<FinalCTA />
 
 <style lang="postcss">
 	.fullscreen {
-        position: relative;
+		position: relative;
 		min-block-size: 100dvh;
 	}
 
-    .intro-icon {
-        display: block;
-        inline-size: 100vw;
-        block-size: 100vw;
-        aspect-ratio: 1;
-        position: absolute;
-        inset-inline-start: 0;
-        inset-block-start: 50%;
-        transform: translate(-15%, -60%);
-        background: linear-gradient(to bottom, var(--color-surface-inset), transparent);
-        z-index: -1;
-        color: var(--color-surface-inset);
-        clip-path: url(#logo-clip);
+	.intro-icon {
+		display: block;
+		inline-size: 100vw;
+		block-size: 100vw;
+		aspect-ratio: 1;
+		position: absolute;
+		inset-inline-start: 0;
+		inset-block-start: 50%;
+		transform: translate(-15%, -60%);
+		background: linear-gradient(to bottom, var(--color-surface-inset), transparent);
+		z-index: -1;
+		color: var(--color-surface-inset);
+		clip-path: url(#logo-clip);
 
-        @media (--sm-n-above) {
-            inline-size: 80vw;
-            block-size: 80vw;
-        }
+		@media (--sm-n-above) {
+			inline-size: 80vw;
+			block-size: 80vw;
+		}
 
-        @media (--md-n-above) {
-            inline-size: 60vw;
-            block-size: 60vw;
-        }
+		@media (--md-n-above) {
+			inline-size: 60vw;
+			block-size: 60vw;
+		}
 
-        @media (--lg-n-above) {
-            inset-block-start: 0;
-            transform: translate(-50%, -15.5%);
-            inline-size: 10em;
-            block-size: 10em;
-        }
-
-    }
+		@media (--lg-n-above) {
+			inset-block-start: 0;
+			transform: translate(-50%, -15.5%);
+			inline-size: 10em;
+			block-size: 10em;
+		}
+	}
 
 	.intro {
 		min-block-size: 50dvh;
@@ -106,26 +106,25 @@ export let data: PageData;
 		align-items: center;
 
 		& p {
-            --scaler: 1;
+			--scaler: 1;
 			max-inline-size: 40ch;
 			margin-block: auto;
-            margin: 0 auto;
+			margin: 0 auto;
 			font-size: calc(var(--font-size-largest) * var(--scaler));
-            padding-block: calc(var(--spacing-farthest) * var(--scaler));
-            color: var(--color-text-default);
+			padding-block: calc(var(--spacing-farthest) * var(--scaler));
+			color: var(--color-text-default);
 
+			@media (--sm-n-above) {
+				--scaler: 1.2;
+			}
 
-            @media (--sm-n-above) {
-                --scaler: 1.2;
-            }
+			@media (--md-n-above) {
+				--scaler: 1.5;
+			}
 
-            @media (--md-n-above) {
-                --scaler: 1.5;
-            }
-
-            @media (--lg-n-above) {
-                --scaler: 1.8;
-            }
+			@media (--lg-n-above) {
+				--scaler: 1.8;
+			}
 		}
 	}
 
@@ -139,5 +138,4 @@ export let data: PageData;
 
 		inline-size: 100%;
 	}
-
 </style>
