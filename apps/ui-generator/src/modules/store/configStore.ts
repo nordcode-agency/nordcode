@@ -76,6 +76,12 @@ export type ConfigStore = {
     darkShadowColorChroma: number;
 
     // COLORS
+
+    // Basics
+    lightnessMax: number;
+    lightnessMin: number;
+    neutralChromaScale: number;
+
     primaryHue: number;
     primaryLightness: number;
     primaryLightnessDark: number;
@@ -89,6 +95,8 @@ export type ConfigStore = {
     darkTextLightnessScaleFactor: number;
     lightSurfaceLightnessScaleFactor: number;
     darkSurfaceLightnessScaleFactor: number;
+    lightBorderLightnessScaleFactor: number;
+    darkBorderLightnessScaleFactor: number;
 
     useSecondaryColorForFG: boolean;
     useSecondaryColorForBG: boolean;
@@ -185,14 +193,20 @@ const defaultStore: ConfigStore = {
 
     // COLORS
 
+    //basics
+    lightnessMax: 0.98,
+    lightnessMin: 0.02,
+    neutralChromaScale: 0.3,
+    transparencyWeaker: 0.8,
+
     primaryHue: 265,
     primaryLightness: 56,
     primaryLightnessDark: 80,
-    primaryChroma: 0.3,
+    primaryChroma: 0.4,
     secondaryHue: 215,
     secondaryLightness: 51,
     secondaryLightnessDark: 76,
-    secondaryChroma: 0.3,
+    secondaryChroma: 0.4,
 
     useSecondaryColorForFG: false,
     useSecondaryColorForBG: false,
@@ -203,8 +217,9 @@ const defaultStore: ConfigStore = {
     lightNeutralTextLightness: 28,
     lightNeutralSurfaceLightness: 99,
     lightNeutralBorderLightness: 87,
-    lightTextLightnessScaleFactor: 0.05,
-    lightSurfaceLightnessScaleFactor: 0.01,
+    lightTextLightnessScaleFactor: 0.1,
+    lightSurfaceLightnessScaleFactor: 0.02,
+    lightBorderLightnessScaleFactor: 0.1,
 
     darkNeutralChromaFG: 0.05,
     darkNeutralChromaBG: 0.05,
@@ -212,10 +227,9 @@ const defaultStore: ConfigStore = {
     darkNeutralTextLightness: 88,
     darkNeutralSurfaceLightness: 15,
     darkNeutralBorderLightness: 30,
-    darkTextLightnessScaleFactor: 0.06,
-    darkSurfaceLightnessScaleFactor: 0.03,
-
-    transparencyWeaker: 0.8,
+    darkTextLightnessScaleFactor: 0.12,
+    darkSurfaceLightnessScaleFactor: 0.06,
+    darkBorderLightnessScaleFactor: 0.12,
 };
 
 const round = (num: number) => Math.round(num * 1000) / 1000;

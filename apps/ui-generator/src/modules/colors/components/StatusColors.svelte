@@ -1,28 +1,30 @@
 <script lang="ts">
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
-    import { configStore } from '../../store/configStore.ts';
-    import ColorPreviewEntry from './ColorPreviewEntry.svelte';
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import { configStore } from '../../store/configStore.ts';
+import ColorPreviewEntry from './ColorPreviewEntry.svelte';
 
-    const baseColors = [
-        {
-            name: 'Surface',
-            description:
-                'Subtle version of the primary brand color. Used for backgrounds and borders.',
-        },
-        {
-            name: 'Text',
-            description: 'Primary brand color. Used for accents and highlights.',
-        },
-        {
-            name: 'Base',
-            description:
-                'Background: Use to highlight the most important item of a view or an interface.',
-        },
-        {
-            name: 'Hover',
-            description: 'Used for text and icons on top of the primary brand color.',
-        },
-    ];
+const baseColors = [
+    {
+        name: 'Surface',
+        description: 'Subtle version of the primary brand color. Used for backgrounds and borders.',
+    },
+    {
+        name: 'Base',
+        description: 'Primary status colors. Used for indicators and general status indications.',
+    },
+    {
+        name: 'Emphasis',
+        description: 'Stronger emphasis and higher contrast. Can be used for text or icons.',
+    },
+    {
+        name: 'Contrast',
+        description: 'Used for text and icons on top of the status color.',
+    },
+    {
+        name: 'Hover',
+        description: 'Used for slight hover highlights, like on outline buttons or checkbox inputs',
+    },
+];
 </script>
 
 <section class="nc-region nc-stack -contained -stretched">

@@ -14,7 +14,6 @@
 
     export let surfaceColor: string;
     export let baseToken: string;
-    export let protectedString = '';
 
     const token = `${baseToken}-${color.name.toLowerCase()}`;
 
@@ -22,11 +21,11 @@
 
     let resolvedColor = '';
 
-    $: lightSurface = toSpecificVersion(surfaceColor, 'light', protectedString);
-    $: darkSurface = toSpecificVersion(surfaceColor, 'dark', protectedString);
+    $: lightSurface = toSpecificVersion(surfaceColor, 'light');
+    $: darkSurface = toSpecificVersion(surfaceColor, 'dark');
 
-    $: lightText = toSpecificVersion(token, 'light', protectedString);
-    $: darkText = toSpecificVersion(token, 'dark', protectedString);
+    $: lightText = toSpecificVersion(token, 'light');
+    $: darkText = toSpecificVersion(token, 'dark');
 
     const updateResolvedColor: ThemeMutationObserverListener = style => {
         if (!style) {
@@ -100,12 +99,12 @@
     }
 
     .lightpreview .current {
-        color: var(--color-text-light-default);
+        color: var(--color-text-base-light);
         cursor: unset;
     }
 
     .darkpreview .current {
-        color: var(--color-text-dark-default);
+        color: var(--color-text-base-dark);
         cursor: unset;
     }
 </style>

@@ -244,6 +244,7 @@
         word-spacing: normal;
         word-break: normal;
         word-wrap: normal;
+        font-style: normal;
     }
 
     :where(code) {
