@@ -2,7 +2,7 @@
 import SettingsInput from '../../common/components/SettingsInput.svelte';
 import { configStore } from '../../store/configStore.ts';
 </script>
-<section class="nc-region nc-stack -contained -stretched">
+<section class="nc-region nc-stack -contained -stretched content-block">
     <h2 id="general">General Color Settings</h2>
     <div class="nc-grid preview-grid">
         <div class="nc-stack">

@@ -24,7 +24,7 @@ const emphasisColor = {
 };
 </script>
 
-<section class="nc-region nc-stack -contained -stretched">
+<section class="nc-region nc-stack -contained -stretched content-block">
     <h2 id="surface">Surface Colors</h2>
     <div class="nc-grid preview-grid">
         <div class="nc-stack">

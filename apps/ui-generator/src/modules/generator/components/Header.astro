@@ -4,8 +4,12 @@ import ConfigLoader from '../../store/components/ConfigLoader.svelte';
 import ResetButton from '../../common/components/ResetButton.svelte';
 ---
 
-<div class="nc-cluster -centered | header">
-    <h1>UI Generator</h1>
+<div class="nc-cluster -far -centered | header">
+    <h1 class="nc-cluster -near -centered"><span>
+<svg class="nc-icon" aria-hidden="true" viewBox="0 0 800 800" fill="none" data-size="inline" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M500 0C500 112.561 462.806 216.434 400.037 300H800V500V500.164C638.944 505.438 510 637.661 510 800H300C300 687.439 337.194 583.566 399.963 500H0V300V299.836C3.31997 299.945 6.65359 300 10 300C175.685 300 310 165.685 310 0H500Z" fill="black"/>
+</svg>
+    </span>UI Generator</h1>
     <nav class="mr-auto">
         <ul class="nc-list-reset nc-cluster -near">
             <li>
@@ -31,7 +35,6 @@ import ResetButton from '../../common/components/ResetButton.svelte';
     </nav>
     <div class="nc-cluster">
         <ConfigLoader client:only="svelte" />
-
         <Themepicker />
         <button class="nc-button -icon -small import-button" data-dialogtarget="import-dialog">
             <span class="text-assistive">Import theme</span>
@@ -96,12 +99,11 @@ import ResetButton from '../../common/components/ResetButton.svelte';
     }
 
     nav a {
-        text-decoration: underline;
+        text-decoration: none;
         text-underline-offset: 0.2em;
-        color: var(--color-brand-secondary-base);
 
         &:hover {
-            color: var(--color-brand-secondary-subtle);
+            text-decoration: underline;
         }
     }
 

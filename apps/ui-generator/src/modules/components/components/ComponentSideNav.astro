@@ -9,11 +9,11 @@ const { sections } = Astro.props;
 
 <style>
     .component-nav {
-        padding-inline: var(--spacing-base);
         min-width: 12rem;
         inline-size: 100%;
         position: sticky;
         top: 0;
+        margin-inline: var(--spacing-base);
 
         & li > ul {
             padding-inline-start: 1ch;
@@ -48,7 +48,7 @@ const { sections } = Astro.props;
     }
 </style>
 
-<nav class="component-nav">
+<nav class="component-nav nc-region content-block">
     <ul class="nc-list-reset">
         {
             sections.map(sect => (

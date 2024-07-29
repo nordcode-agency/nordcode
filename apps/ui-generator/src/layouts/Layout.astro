@@ -27,10 +27,10 @@ const { title } = Astro.props;
             <Header />
         </header>
         <main class="main">
-            <aside class="aside content-block" transition:animate="none">
+            <aside class="aside" transition:animate="none">
                 <slot name="aside" />
             </aside>
-            <section class="content content-block" transition:animate="slide">
+            <section class="content" transition:animate="slide">
                 <slot name="content" />
             </section>
         </main>
@@ -73,6 +73,10 @@ const { title } = Astro.props;
                 z-index: 1;
             }
 
+            .content-block {
+                padding-inline: var(--spacing-base);
+            }
+
             .aside {
                 grid-area: config;
                 background: var(--color-surface-base);
@@ -82,21 +86,19 @@ const { title } = Astro.props;
 
                 &:has(div, nav) {
                     inline-size: 24rem;
-                    padding-inline: var(--spacing-base);
                 }
             }
 
             .content {
                 grid-area: content;
                 background: var(--color-surface-base);
-                padding-inline: var(--spacing-base);
                 min-inline-size: 0;
                 max-block-size: 100%;
                 overflow: auto;
             }
 
-            .content-block {
-                padding-block: var(--spacing-far);
+            .section-headline {
+                margin-block-end: 0.5lh;
             }
 
             .nc-notification-center,
@@ -115,7 +117,7 @@ const { title } = Astro.props;
 
             .preview-grid {
                 grid-template-columns: 1fr 3fr;
-                gap: var(--spacing-far);
+                gap: var(--spacing-farthest);
 
                 & fieldset {
                     background: var(--color-surface-subtle);
@@ -123,7 +125,7 @@ const { title } = Astro.props;
                     border-radius: var(--border-radius-medium);
                     box-shadow: var(--shadow-medium);
                     position: sticky;
-                    inset-block-start: var(--spacing-far);
+                    inset-block-start: var(--spacing-farthest);
                 }
             }
 
