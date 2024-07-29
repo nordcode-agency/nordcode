@@ -1,12 +1,12 @@
 @layer base {
     :where(dt) {
         font-weight: var(--font-weight-active);
-        color: var(--color-text-default);
+        color: var(--color-text-base);
     }
 
     :where(dd) {
         font-weight: var(--font-weight-default);
-        color: var(--color-text-default);
+        color: var(--color-text-base);
 
         &:not(:last-of-type) {
             padding-block-end: 0.5lh;
@@ -58,7 +58,7 @@
         font-family: var(--font-family-sans);
         font-weight: var(--font-weight-default);
         color: var(--color-surface-subtle);
-        background-color: var(--color-text-default);
+        background-color: var(--color-text-base);
         padding: 0 1ch;
     }
 
@@ -67,9 +67,9 @@
         --p-y-details: 0.75lh;
 
         inline-size: 100%;
-        background-color: var(--color-surface-inset);
+        background-color: var(--color-surface-subtle);
         border-radius: var(--border-radius-medium);
-        border: var(--border-width-thin) solid var(--color-border-default);
+        border: var(--border-width-thin) solid var(--color-border-base);
 
         & > * {
             padding-inline: var(--p-x-details);
@@ -81,7 +81,7 @@
 
         & > summary {
             cursor: pointer;
-            color: var(--color-text-default);
+            color: var(--color-text-base);
             inline-size: 100%;
             font-weight: var(--font-weight-strong);
             padding-inline: var(--p-x-details);
@@ -94,7 +94,7 @@
         padding: 0;
         padding-inline-start: 2ch;
         inline-size: 100%;
-        color: var(--color-text-default);
+        color: var(--color-text-base);
         position: relative;
         margin-inline: 0;
         font-family: var(--font-family-serif);
@@ -140,7 +140,7 @@
     :where(hr) {
         inline-size: 100%;
         block-size: 0;
-        border-top: var(--border-width-medium) solid var(--color-border-default);
+        border-top: var(--border-width-medium) solid var(--color-border-base);
     }
 
     :where(h1, h2, h3, h4, h5, h6) {
@@ -180,7 +180,7 @@
 
     ::selection {
         background-color: var(--color-brand-primary-base);
-        color: var(--color-surface-default);
+        color: var(--color-surface-base);
     }
 
     :where(a, .nc-link) {
@@ -248,7 +248,7 @@
     }
 
     :where(code) {
-        background: var(--color-surface-inset);
+        background: var(--color-surface-subtle);
     }
 
     :where(var) {
@@ -257,8 +257,8 @@
     }
 
     :where(kbd) {
-        background: var(--color-surface-inset);
-        border: var(--border-width-thin) solid var(--color-border-default);
+        background: var(--color-surface-subtle);
+        border: var(--border-width-thin) solid var(--color-border-base);
         box-shadow: var(--shadow-nearest);
         font-weight: var(--font-weight-active);
     }
@@ -267,10 +267,10 @@
         padding: 0.5lh 2ch;
         inline-size: 100%;
         overflow-x: auto;
-        color: var(--color-text-default);
-        border: var(--border-width-medium) solid var(--color-border-default);
+        color: var(--color-text-base);
+        border: var(--border-width-medium) solid var(--color-border-base);
         border-radius: var(--border-radius-medium);
-        background: var(--color-surface-inset);
+        background: var(--color-surface-subtle);
         -webkit-overflow-scrolling: touch;
 
         & code {
@@ -287,7 +287,7 @@
         border-collapse: separate;
         border-spacing: 0;
         text-align: left;
-        border: var(--border-width-medium) solid var(--color-border-default);
+        border: var(--border-width-medium) solid var(--color-border-base);
         border-radius: var(--_nc-table-border-radius);
     }
 
@@ -337,7 +337,7 @@
     }
 
     :where(caption) {
-        color: var(--color-text-default);
+        color: var(--color-text-base);
     }
 
     :where(tr:has(td) th) {

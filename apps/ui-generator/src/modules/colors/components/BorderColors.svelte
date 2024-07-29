@@ -93,7 +93,7 @@ const emphasisColor = {
         <div class="nc-stack -nogap -stretched -contained">
             {#each baseColors as color}
                 <BorderColorPreviewEntry color={color}
-                                         surfaceColor="--color-surface-default"
+                                         surfaceColor="--color-surface-base"
                                          baseToken="--color-border"
                 ></BorderColorPreviewEntry>
             {/each}

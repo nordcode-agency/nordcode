@@ -8,7 +8,7 @@
         --text-hover: var(--color-text-on-emphasis);
         --color-hover: var(--color-text-on-emphasis);
         --surface-hover: var(--color-surface-emphasis);
-        --border-hover: var(--color-border-default);
+        --border-hover: var(--color-border-base);
     }
 
     .-primary {
@@ -54,7 +54,7 @@
 
         --text-hover: var(--color-text-base);
         --color-hover: var(--color-text-base);
-        --surface-hover: var(--color-surface-inset);
+        --surface-hover: var(--color-surface-subtle);
         --border-hover: var(--color-border-base);
     }
 
@@ -66,7 +66,7 @@
 
         --text-hover: var(--color-text-base);
         --color-hover: var(--color-text-base);
-        --surface-hover: var(--color-surface-inset);
+        --surface-hover: var(--color-surface-subtle);
         --border-hover: var(--color-border-base);
     }
 

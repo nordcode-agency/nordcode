@@ -10,7 +10,7 @@
         font-family: var(--font-family-default);
         letter-spacing: var(--tracking-tight);
         font-weight: var(--font-weight-active);
-        color: var(--text, var(--color-text-default));
+        color: var(--text, var(--color-text-base));
         display: block;
         font-size: var(--font-size-base);
         padding: 0;
@@ -37,7 +37,7 @@
         font-family: var(--font-family-default);
         letter-spacing: var(--tracking-tight);
         font-weight: var(--font-weight-active);
-        color: var(--color-text-default);
+        color: var(--color-text-base);
         display: inline-flex;
         font-size: inherit;
         cursor: pointer;
@@ -78,11 +78,11 @@
             .nc-checkbox-wrapper,
             .nc-input-switch
         ) {
-        --_input-background: var(--input-background, var(--color-surface-default));
-        --_input-color: var(--input-color, var(--color-text-default));
+        --_input-background: var(--input-background, var(--color-surface-base));
+        --_input-color: var(--input-color, var(--color-text-base));
         --_input-border: var(
             --input-border,
-            var(--border-width-thin) solid var(--color-border-default)
+            var(--border-width-thin) solid var(--color-border-base)
         );
         --_input-border-radius: var(--input-border-radius, var(--border-radius-medium));
 
@@ -287,8 +287,8 @@
             block-size: 1lh;
             border-radius: var(--_input-border-radius);
             border: var(--_input-border);
-            border-color: var(--color-text-default);
-            background-color: var(--color-text-default);
+            border-color: var(--color-text-base);
+            background-color: var(--color-text-base);
             box-shadow: var(--shadow-near);
             cursor: pointer;
 
@@ -321,8 +321,8 @@
     }
 
     :where(.nc-input-error) {
-        --color-default: var(--color-status-danger-text);
-        color: var(--color-default);
+        --color-base: var(--color-status-danger-emphasis);
+        color: var(--color-base);
         font-size: var(--font-size-small);
 
         &:before {
@@ -338,7 +338,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--color-default);
+            background-color: var(--color-base);
             color: var(--color-surface-subtle);
             margin-right: 1ch;
             inline-size: 1em;

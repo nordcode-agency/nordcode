@@ -57,8 +57,7 @@ export const generateDarkTextColorValues = (
         [lTokenName]: `${colorDef.l / 100}`,
         [cTokenName]: `${colorDef.c}`,
         [hTokenName]: `${colorDef.h}`,
-        [neutralColorTokenName]: `calc(var(${cTokenName}) * var(--neutral-chroma-scale))`,
-        [contrastColorTokenName]: `oklch(var(--lightness-min) var(${neutralColorTokenName}) var(${hTokenName}))`,
+        [contrastColorTokenName]: `oklch(var(--lightness-min) var(${cTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-base-${themeSuffix}`]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-muted-${themeSuffix}`]: `
             color-mix(in oklch,

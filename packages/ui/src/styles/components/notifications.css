@@ -2,7 +2,7 @@
     :root {
         --_notification-max-width: var(--notifications-max-width, 20rem);
         --_notification-gap: var(--notification-gap, var(--spacing-base));
-        --_notification-border-color: var(--notification-border-color, var(--color-border-default));
+        --_notification-border-color: var(--notification-border-color, var(--color-border-base));
         --_notification-center-background: var(
             --notification-center-background,
             oklch(var(--color-surface-subtle) / 0.05)
@@ -65,7 +65,7 @@
 
     .nc-notification {
         padding: 0.5lh 2ch;
-        background: var(--color-surface-default);
+        background: var(--color-surface-base);
         border: var(--border-width-thin) solid var(--_notification-border-color);
         display: flex;
         flex-direction: column;
@@ -73,7 +73,7 @@
         border-radius: var(--border-radius-small);
         box-shadow: var(--shadow-far);
         animation: pop-in var(--transition-duration-base) cubic-bezier(0, 0.6, 0.58, 1);
-        color: var(--color-text-default);
+        color: var(--color-text-base);
         pointer-events: all;
     }
 

@@ -2,8 +2,8 @@
     font-family: var(--font-family-mono);
     letter-spacing: var(--tracking-tight);
     font-weight: var(--font-weight-default);
-    color: var(--text, var(--color-text-default));
-    border: var(--border-width-thin) solid var(--text, var(--color-text-default));
+    color: var(--text, var(--color-text-base));
+    border: var(--border-width-thin) solid var(--text, var(--color-text-base));
     border-radius: var(--border-radius-small);
     background: var(--surface, transparent);
     padding: 0.5lh 1ch;

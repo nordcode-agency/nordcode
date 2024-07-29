@@ -88,9 +88,9 @@
 
         --color-text-hover: light-dark(var(--color-text-hover-light), var(--color-text-hover-dark));
 
-        --color-surface-default: light-dark(
-            var(--color-surface-base-default),
-            var(--color-surface-base-default)
+        --color-surface-base: light-dark(
+            var(--color-surface-base-light),
+            var(--color-surface-base-dark)
         );
 
         --color-surface-muted: light-dark(

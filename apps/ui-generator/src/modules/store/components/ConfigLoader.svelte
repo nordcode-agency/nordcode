@@ -55,7 +55,7 @@ const togglePreview = () => {
         top: 3.5rem;
         left: 0;
         right: 0;
-        background: var(--color-surface-default);
+        background: var(--color-surface-base);
         z-index: 1;
         overflow-y: scroll;
         block-size: calc(100vh - 3.5rem);

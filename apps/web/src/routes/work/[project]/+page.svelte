@@ -1,10 +1,9 @@
 <script lang="ts">
-	import type { PageData } from "./$types";
+import type { PageData } from './$types';
 
-  export let data: PageData;
+export let data: PageData;
 
-  const { heading, subheading, cover, name } = data;
-  
+const { heading, subheading, cover, name } = data;
 </script>
 
 <svelte:head>
@@ -176,7 +175,7 @@
     flex-basis: 24ch;
     text-wrap: balance;
     font-size: var(--font-size-large);
-    color: var(--color-text-default);
+    color: var(--color-text-base);
   }
 
   figure {

@@ -1,12 +1,12 @@
 <script lang="ts" async>
-	import type { MediaImage } from '$lib/types/index';
+import type { MediaImage } from '$lib/types/index';
 
-	export let heading: string;
-	export let subheading: string | undefined = undefined;
-	export let cover: MediaImage;
-	export let slug: string;
-	/** Used to perform view transitions */
-	export let id: string | undefined = undefined;
+export let heading: string;
+export let subheading: string | undefined = undefined;
+export let cover: MediaImage;
+export let slug: string;
+/** Used to perform view transitions */
+export let id: string | undefined = undefined;
 </script>
 
 <div class="container">
@@ -44,8 +44,8 @@
 			/ 1fr;
 		background: linear-gradient(
 			45deg,
-			oklch(var(--color-border-default-lch) / 0.03),
-			oklch(var(--color-surface-default-lch) / 0.8)
+			oklch(var(--color-border-base-lch) / 0.03),
+			oklch(var(--color-surface-base-lch) / 0.8)
 		);
 		backdrop-filter: blur(var(--spacing-base));
 		block-size: 100%;

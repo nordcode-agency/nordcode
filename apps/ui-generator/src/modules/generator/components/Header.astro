@@ -1,6 +1,7 @@
 ---
 import Themepicker from './Themepicker.astro';
 import ConfigLoader from '../../store/components/ConfigLoader.svelte';
+import ResetButton from '../../common/components/ResetButton.svelte';
 ---
 
 <div class="nc-cluster -centered | header">
@@ -66,6 +67,7 @@ import ConfigLoader from '../../store/components/ConfigLoader.svelte';
                 ></path>
             </svg>
         </button>
+        <ResetButton client:only="svelte"  />
         <button data-toggle-notification-center class="nc-button -icon -small">
             <span class="text-assistive">Toggle Notifications</span>
             <svg
@@ -85,10 +87,10 @@ import ConfigLoader from '../../store/components/ConfigLoader.svelte';
 
 <style>
     .header {
-        background: var(--color-surface-default);
+        background: var(--color-surface-base);
         padding-block: var(--spacing-near);
         padding-inline: var(--spacing-base);
-        border-bottom: var(--border-width-thin) solid var(--color-border-default);
+        border-bottom: var(--border-width-thin) solid var(--color-border-base);
         inline-size: 100%;
         max-inline-size: 100%;
     }

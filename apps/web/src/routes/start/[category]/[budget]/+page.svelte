@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Header from '$lib/modules/common/components/Header.svelte';
-	import type { PageData } from '../$types';
+import Header from '$lib/modules/common/components/Header.svelte';
+import type { PageData } from '../$types';
 
-	export let data: PageData;
+export let data: PageData;
 </script>
 
 <svelte:head>
@@ -122,7 +122,7 @@
 	.contact-links {
 		font-size: 1.5rem;
 		text-decoration: none;
-		color: var(--color-text-default);
+		color: var(--color-text-base);
 	}
 
     .footer {

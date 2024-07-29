@@ -60,7 +60,7 @@ const { title } = Astro.props;
                 grid-template:
                     'config content' 1fr
                     / auto minmax(0, 5fr);
-                background: var(--color-surface-default);
+                background: var(--color-surface-base);
                 inline-size: 100%;
                 overflow: hidden;
                 max-block-size: 100%;
@@ -75,8 +75,8 @@ const { title } = Astro.props;
 
             .aside {
                 grid-area: config;
-                background: var(--color-surface-default);
-                border-inline-end: var(--border-width-thin) solid var(--color-border-default);
+                background: var(--color-surface-base);
+                border-inline-end: var(--border-width-thin) solid var(--color-surface-base);
                 max-block-size: 100%;
                 overflow: auto;
 
@@ -88,7 +88,7 @@ const { title } = Astro.props;
 
             .content {
                 grid-area: content;
-                background: var(--color-surface-default);
+                background: var(--color-surface-base);
                 padding-inline: var(--spacing-base);
                 min-inline-size: 0;
                 max-block-size: 100%;
@@ -118,7 +118,7 @@ const { title } = Astro.props;
                 gap: var(--spacing-far);
 
                 & fieldset {
-                    background: var(--color-surface-inset);
+                    background: var(--color-surface-subtle);
                     padding: var(--spacing-base);
                     border-radius: var(--border-radius-medium);
                     box-shadow: var(--shadow-medium);

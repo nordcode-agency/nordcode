@@ -15,7 +15,7 @@
     inline-size: clamp(12.5rem, 30vw, 15rem);
 
     & path {
-      fill: var(--color-text-default);
+      fill: var(--color-text-base);
     }
   }
 </style>

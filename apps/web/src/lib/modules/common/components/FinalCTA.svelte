@@ -70,9 +70,9 @@ import SecondaryCtaButton from '$lib/modules/common/components/SecondaryCtaButto
 		& div {
 			display: block;
 			aspect-ratio: 1 / 6;
-			background: oklch(var(--color-surface-default-lch) / 0.5);
+			background: oklch(var(--color-surface-base-lch) / 0.5);
 			backdrop-filter: blur(100px);
-			box-shadow: 0 0 20px 5px oklch(var(--color-surface-default-lch) / 0.4);
+			box-shadow: 0 0 20px 5px oklch(var(--color-surface-base-lch) / 0.4);
 			border-radius: 5%;
 		}
 	}

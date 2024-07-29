@@ -45,15 +45,13 @@ export const generateDarkSurfaceColorValues = (
     const cTokenName = `--c-${tokenName}-${themeSuffix}`;
     const hTokenName = `--h-${tokenName}-${themeSuffix}`;
 
-    const neutralColorTokenName = `--color-${tokenName}-neutral-chroma-${themeSuffix}`;
     const contrastColorTokenName = `--color-${tokenName}-contrast-${themeSuffix}`;
 
     return {
         [lTokenName]: `${colorDef.l / 100}`,
         [cTokenName]: `${colorDef.c}`,
         [hTokenName]: `${colorDef.h}`,
-        [neutralColorTokenName]: `calc(var(${cTokenName}) * var(--neutral-chroma-scale))`,
-        [contrastColorTokenName]: `oklch(var(--lightness-max) var(${neutralColorTokenName}) var(${hTokenName}))`,
+        [contrastColorTokenName]: `oklch(var(--lightness-max) var(${cTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-base-${themeSuffix}`]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-muted-${themeSuffix}`]: `
             color-mix(in oklch,

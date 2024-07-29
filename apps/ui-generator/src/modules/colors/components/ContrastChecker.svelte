@@ -13,9 +13,9 @@ const surfaceOptions = {
     Primary: ['--color-brand-primary-surface'],
     Secondary: ['--color-brand-secondary-surface'],
     Neutrals: [
-        '--color-surface-default',
+        '--color-surface-base',
+        '--color-surface-muted',
         '--color-surface-subtle',
-        '--color-surface-inset',
         '--color-surface-emphasis',
     ],
 };
@@ -32,7 +32,7 @@ const textOptions = {
         '--color-brand-secondary-contrast',
     ],
     Neutrals: [
-        '--color-text-default',
+        '--color-text-base',
         '--color-text-subtle',
         '--color-text-muted',
         '--color-text-on-emphasis',

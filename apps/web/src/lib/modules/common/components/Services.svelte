@@ -1,50 +1,53 @@
 <script lang="ts">
-	import SecondaryCtaButton from "./SecondaryCtaButton.svelte";
+import SecondaryCtaButton from './SecondaryCtaButton.svelte';
 
-    type TService = {
-        title: string;
-        description: string;
+type TService = {
+    title: string;
+    description: string;
+    cta: {
+        href: string;
+        label: string;
+    };
+};
+
+const services: TService[] = [
+    {
+        title: 'Websites',
+        description:
+            'Wir entwickeln Webseiten und Webanwendungen, die auf modernen Technologien basieren und auf allen Geräten gut aussehen.',
         cta: {
-            href: string;
-            label: string;
-        }
-    }
-
-    const services: TService[] = [
-        {
-            title: "Websites",
-            description: "Wir entwickeln Webseiten und Webanwendungen, die auf modernen Technologien basieren und auf allen Geräten gut aussehen.",
-            cta: {
-                href: "/start/website",
-                label: "Website erstellen"
-            }
+            href: '/start/website',
+            label: 'Website erstellen',
         },
-        {
-            title: "E-Commerce",
-            description: "Wir erstellen Online-Shops, die einfach zu bedienen sind und die Kunden begeistern.",
-            cta: {
-                href: "/start/shop",
-                label: "Shop eröffnen"
-            }
+    },
+    {
+        title: 'E-Commerce',
+        description:
+            'Wir erstellen Online-Shops, die einfach zu bedienen sind und die Kunden begeistern.',
+        cta: {
+            href: '/start/shop',
+            label: 'Shop eröffnen',
         },
-        {
-            title: "Apps",
-            description: "Wir optimieren Webseiten für Suchmaschinen, damit sie besser gefunden werden und mehr Besucher anziehen. Oder Design Systeme.",
-            cta: {
-                href: "/start/app",
-                label: "App erstellen"
-            }
+    },
+    {
+        title: 'Apps',
+        description:
+            'Wir optimieren Webseiten für Suchmaschinen, damit sie besser gefunden werden und mehr Besucher anziehen. Oder Design Systeme.',
+        cta: {
+            href: '/start/app',
+            label: 'App erstellen',
         },
-        {
-            title: "Individuell",
-            description: "Wir erstellen Inhalte, die Ihre Zielgruppe ansprechen und überzeugen, sei es Text, Bild oder Video.",
-            cta: {
-                href: "/start/custom",
-                label: "Anfragen"
-            }
-        }
-    ]
-
+    },
+    {
+        title: 'Individuell',
+        description:
+            'Wir erstellen Inhalte, die Ihre Zielgruppe ansprechen und überzeugen, sei es Text, Bild oder Video.',
+        cta: {
+            href: '/start/custom',
+            label: 'Anfragen',
+        },
+    },
+];
 </script>
 <section id="services" class="nc-box section">
     <h2>Was wir gut können</h2>
@@ -110,7 +113,7 @@
             font-size: var(--size);
             block-size: var(--size);
             font-weight: bold;
-            color: var(--color-surface-inset);
+            color: var(--color-surface-subtle);
             inset: 0;
             z-index: -1;
         }
