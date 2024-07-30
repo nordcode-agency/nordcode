@@ -11,12 +11,14 @@ const { sections } = Astro.props;
     .component-nav {
         min-width: 12rem;
         inline-size: 100%;
-        position: sticky;
-        top: 0;
         margin-inline: var(--spacing-base);
 
         & li > ul {
             padding-inline-start: 1ch;
+        }
+
+        & li > ul > li:first-child {
+            margin-block-start: var(--spacing-near);
         }
 
         & a {
@@ -49,14 +51,14 @@ const { sections } = Astro.props;
 </style>
 
 <nav class="component-nav nc-region content-block">
-    <ul class="nc-list-reset">
+    <ul class="nc-list-reset nc-stack">
         {
             sections.map(sect => (
                 <li>
                     <a href={`#${sect.sectionId}`} class="comp-link">
                         {sect.titleWithNumber}
                     </a>
-                    <ul class="nc-list-reset">
+                    <ul class="nc-list-reset nc-stack -near">
                         {sect.components.map(comp => (
                             <li>
                                 <a href={`#${comp.sectionId}`} class="comp-link">

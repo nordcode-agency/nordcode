@@ -1,6 +1,7 @@
 ---
-import { Code } from 'astro:components';
 import SectionTitle from './SectionTitle.astro';
+import SourceCodeDisplay
+    from './SourceCodeDisplay.astro';
 
 export interface Example {
     title: string;
@@ -20,7 +21,7 @@ interface Props {
 const { sectionId, component, description, title, examples, notes } = Astro.props;
 ---
 
-<section class="nc-stack -contained nc-box -bordered section-to-observe" id={sectionId}>
+<section class="nc-stack -contained section-to-observe component-preview" id={sectionId}>
     <div>
         <SectionTitle title={title} nested="true" sectionId={sectionId} />
         {description ? <p class="nc-hint">{description}</p> : null}
@@ -29,23 +30,16 @@ const { sectionId, component, description, title, examples, notes } = Astro.prop
     <div class="nc-box -bordered preview-box">
         <Fragment set:html={component} />
     </div>
-    <Code code={component} lang="html" theme="dracula" />
-    <button
-        type="button"
-        class="nc-button"
-        data-copy-target={component}
-        data-has-notification
-        data-notification-title="✓ To clipboard"
-        data-notification-description={`Copied ${title}'s code to your clipboard.`}
-        >Copy Code</button
-    >
+    <SourceCodeDisplay code={component} title={title} />
     {
         notes ? (
             <>
                 <h4>Notes</h4>
                 <ul>
                     {notes.map(note => (
-                        <li>{note}</li>
+                        <li>
+                            <Fragment set:html={note}/>
+                        </li>
                     ))}
                 </ul>
             </>
@@ -59,22 +53,12 @@ const { sectionId, component, description, title, examples, notes } = Astro.prop
                 {examples?.map(ex => (
                     <details>
                         <summary>{ex.title}</summary>
-                        <div class="nc-stack -contained -stretched">
+                        <div class="nc-stack -contained">
                             {ex.description ? <p class="nc-hint">{ex.description}</p> : null}
-                            <div class="nc-box -bordered ex-details">
+                            <div class="nc-box -bordered preview-box">
                                 <Fragment set:html={ex.code} />
                             </div>
-                            <Code code={ex.code} lang="html" theme="dracula" />
-                            <button
-                                type="button"
-                                class="nc-button"
-                                data-copy-target={ex.code}
-                                data-has-notification
-                                data-notification-title="✓ To clipboard"
-                                data-notification-description={`Copied ${ex.title}'s code to your clipboard.`}
-                            >
-                                Copy Code
-                            </button>
+                            <SourceCodeDisplay code={ex.code} title={ex.title} />
                         </div>
                     </details>
                 ))}
@@ -85,11 +69,15 @@ const { sectionId, component, description, title, examples, notes } = Astro.prop
 
 <style>
     .preview-box {
-        background-color: var(--color-surface-subtle);
-        inline-size: 100%;
+        background-color: var(--color-surface-base);
+        resize: inline;
+        max-inline-size: 100%;
+        overflow: hidden;
+        min-inline-size: 32ch;
     }
 
-    .ex-details {
-        background-color: var(--color-surface-base);
+    .component-preview {
+        padding-block: var(--spacing-base);
+        --input-field-min-inline-size: 32ch;
     }
 </style>

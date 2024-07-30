@@ -1,0 +1,35 @@
+---
+import { Code } from 'astro:components';
+interface Props {
+    code: string;
+    title: string;
+    lang?: string;
+}
+
+const { code, title, lang } = Astro.props;
+---
+
+<details class="source-code">
+    <summary>Show source code</summary>
+    <div class="code-preview nc-stack">
+    <Code code={code} lang="html" theme="dracula" />
+    <button
+        type="button"
+        class="nc-button"
+        data-copy-target={code}
+        data-has-notification
+        data-notification-title="✓ To clipboard"
+        data-notification-description={`Copied ${title}'s code to your clipboard.`}
+    >
+        Copy Code
+    </button>
+    </div>
+</details>
+
+<style>
+    .source-code {
+        background: none;
+        border: none;
+        --p-x-details: 0;
+    }
+</style>
