@@ -1,19 +1,19 @@
 <script>
-import SecondaryCtaButton from '$lib/modules/common/components/SecondaryCtaButton.svelte';
+	import SecondaryCtaButton from '$lib/modules/common/components/SecondaryCtaButton.svelte';
 	import LogoClipPath from './LogoClipPath.svelte';
 </script>
 
-<section class="nc-box">
-    <div class="nc-card container">
-        <div class="nc-pile pile">
-            <div class="bg nc-pile">
-                {#each Array.from({ length: 2 }) as _item, idx}
-                <div class="bg-logo" data-idx={idx}>
-                    <LogoClipPath />
-                </div>
-                {/each}
-            </div>
-            <!-- <div class="colors nc-pile">
+<section class="nc-box nc-pile">
+	<div class="container">
+		<div class="nc-pile pile">
+			<div class="bg nc-pile">
+				{#each Array.from({ length: 2 }) as _item, idx}
+					<div class="bg-logo" data-idx={idx}>
+						<LogoClipPath />
+					</div>
+				{/each}
+			</div>
+			<!-- <div class="colors nc-pile">
                 <div />
                 <div />
             </div>
@@ -24,56 +24,64 @@ import SecondaryCtaButton from '$lib/modules/common/components/SecondaryCtaButto
                 <div />
                 <div />
             </div> -->
-            <div class="finalCTA">
-                <SecondaryCtaButton href="/start">Jetzt loslegen</SecondaryCtaButton>
-            </div>
-        </div>
-    </div>
+			<div class="finalCTA">
+				<a class="nc-button -stealth" href="/start">Jetzt loslegen</a>
+			</div>
+		</div>
+	</div>
 </section>
 
 <style>
-
-    .container {
-        block-size: 60vh;
-        padding: 0;
-    }
-
-    .pile {
-        inline-size: 100%;
-        block-size: 100%;
-        overflow: hidden;
-    }
-	section {
-		perspective: 200px;
-		inline-size: unset;
+	.container {
+		max-inline-size: 1400px;
+		block-size: 60vh;
+		padding: 0;
 	}
 
-    .bg {
-        inline-size: 100%;
-        block-size: 100%;
-        min-block-size: 0;
-        min-inline-size: 0;
-        /* opacity: 0.2; */
-        /* filter: saturate(6.5); */
-    }
+	.pile {
+		inline-size: 100%;
+		block-size: 100%;
+		/* overflow: hidden; */
+	}
+	section {
+		perspective: 200px;
+		inline-size: 100%;
+	}
 
-    .bg-logo {
-        /* inline-size: 35vmin;
+	.bg {
+		inline-size: 100%;
+		block-size: 100%;
+		min-block-size: 0;
+		min-inline-size: 0;
+	}
+
+	.bg-logo {
+		/* inline-size: 35vmin;
         block-size: 35vmin; */
-        inline-size: 140vw;
-        block-size: 140vw;
-        background: linear-gradient(to bottom, oklch(var(--color-brand-primary-base-lch) / 1), transparent);
+		inline-size: 30vw;
+		block-size: 30vw;
 		clip-path: url(#logo-clip);
-        mix-blend-mode: multiply;
 
-        &:nth-of-type(1) {
-            transform: rotate(45deg);
-        }
+		&:nth-of-type(1) {
+			background-image: linear-gradient(
+				to right in oklch,
+				oklch(90% 0.5 200 / 0) 0%,
+				oklch(70% 0.5 256) 50%,
+				oklch(90% 0.5 200 / 0) 100%
+			);
+			/* transform: rotate(173deg); */
+		}
 
-        &:nth-of-type(2) {
-            transform: rotate(216deg);
-        }
-    }
+		&:nth-of-type(2) {
+			background-image: linear-gradient(
+				to right in oklch,
+				oklch(90% 0.5 200 / 0) 0%,
+				oklch(70% 0.5 256) 50%,
+				oklch(90% 0.5 200 / 0) 100%
+			);
+			transform: translateX(10%);
+		}
+	}
 
 	.colors {
 		display: grid;
@@ -92,16 +100,15 @@ import SecondaryCtaButton from '$lib/modules/common/components/SecondaryCtaButto
 			backface-visibility: hidden;
 			border-radius: 5%;
 
-
 			&:nth-child(1) {
 				background: #00d5ff;
-                box-shadow: 0 0 30px 10px oklch(var(--color-brand-secondary-base-lch) / 0.4);
+				box-shadow: 0 0 30px 10px oklch(var(--color-brand-secondary-base-lch) / 0.4);
 				animation-delay: -3s;
 			}
 
 			&:nth-child(2) {
 				background: #0000ff;
-                                box-shadow: 0 0 30px 10px oklch(var(--color-brand-primary-base-lch) / 0.4);
+				box-shadow: 0 0 30px 10px oklch(var(--color-brand-primary-base-lch) / 0.4);
 			}
 		}
 	}
@@ -126,11 +133,11 @@ import SecondaryCtaButton from '$lib/modules/common/components/SecondaryCtaButto
 	}
 
 	.finalCTA {
+		font-weight: lighter;
 		font-size: calc(var(--font-size-largest) * 1.5);
-        color: var(--color-text-default);
+		/* color: var(--color-text-default);
         background-color: var(--color-surface-default);
-        border-radius: var(--border-radius-large);
-        mix-blend-mode: normal;
+        border-radius: var(--border-radius-large); */
 	}
 
 	@keyframes spin {
