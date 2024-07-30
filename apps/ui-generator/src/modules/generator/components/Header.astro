@@ -2,6 +2,17 @@
 import Themepicker from './Themepicker.astro';
 import ConfigLoader from '../../store/components/ConfigLoader.svelte';
 import ResetButton from '../../common/components/ResetButton.svelte';
+
+const currentPage = Astro.url.pathname;
+
+const links = [
+    { href: '/', text: 'Presets' },
+    { href: '/typography', text: 'Typography' },
+    { href: '/colors', text: 'Colors' },
+    { href: '/sizes', text: 'Sizes' },
+    { href: '/components', text: 'Components' },
+    { href: '/layouts', text: 'Layouts' },
+];
 ---
 
 <div class="nc-cluster -far -centered | header">
@@ -12,25 +23,11 @@ import ResetButton from '../../common/components/ResetButton.svelte';
     </span>UI Generator</h1>
     <nav class="mr-auto">
         <ul class="nc-list-reset nc-cluster -near">
-            <li>
-                <a href="/">Presets</a>
-            </li>
-
-            <li>
-                <a href="/typography">Typography</a>
-            </li>
-            <li>
-                <a href="/colors">Colors</a>
-            </li>
-            <li>
-                <a href="/sizes">Sizes</a>
-            </li>
-            <li>
-                <a href="/components">Components</a>
-            </li>
-            <li>
-                <a href="/layouts">Layouts</a>
-            </li>
+            {links.map(({ href, text }) => (
+                <li>
+                    <a href={href} aria-current={href === currentPage ? "page" : undefined}>{text}</a>
+                </li>
+            ))}
         </ul>
     </nav>
     <div class="nc-cluster">
@@ -101,9 +98,14 @@ import ResetButton from '../../common/components/ResetButton.svelte';
     nav a {
         text-decoration: none;
         text-underline-offset: 0.2em;
+        color: var(--color-text-muted);
 
         &:hover {
             text-decoration: underline;
+        }
+
+        &[aria-current="page"] {
+            font-weight: var(--font-weight-active);
         }
     }
 
