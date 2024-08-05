@@ -266,11 +266,14 @@
     }
 
     :where(button[type='reset']:not([class]), .nc-button.-destructive) {
-        --button-background: var(--color-status-danger-surface);
-        --button-background-hover: var(--color-status-danger-hover) !important;
-        --button-border-color: var(--color-status-danger-text);
-        --button-border-color-hover: var(--color-status-danger-text) !important;
-        --button-color: var(--color-status-danger-text) !important;
-        --button-color-hover: var(--color-status-danger-text) !important;
+        --text: var(--color-status-danger-emphasis);
+        --color: var(--color-status-danger-base);
+        --surface: var(--color-status-danger-surface);
+        --border: var(--color-status-danger-base);
+
+        --text-hover: var(--color-status-danger-contrast);
+        --color-hover: var(--color-status-danger-contrast);
+        --surface-hover: var(--color-status-danger-base);
+        --border-hover: var(--color-status-danger-base);
     }
 }

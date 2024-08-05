@@ -194,15 +194,15 @@ const defaultStore: ConfigStore = {
     // COLORS
 
     //basics
-    lightnessMax: 0.98,
-    lightnessMin: 0.02,
-    neutralChromaScale: 0.3,
+    lightnessMax: 0.99,
+    lightnessMin: 0.03,
+    neutralChromaScale: 0.25,
     transparencyWeaker: 0.8,
 
     primaryHue: 265,
     primaryLightness: 56,
-    primaryLightnessDark: 80,
-    primaryChroma: 0.4,
+    primaryLightnessDark: 75,
+    primaryChroma: 0.3,
     secondaryHue: 215,
     secondaryLightness: 51,
     secondaryLightnessDark: 76,
@@ -235,7 +235,7 @@ const defaultStore: ConfigStore = {
 const round = (num: number) => Math.round(num * 1000) / 1000;
 
 export const updateSpacingScale = (newScale: number) => {
-    configStore?.update((store) => {
+    configStore?.update(store => {
         return {
             ...store,
             spacingScale: newScale,
@@ -249,7 +249,7 @@ export const updateSpacingScale = (newScale: number) => {
 };
 
 export const updateSpacingBase = (baseSize: number) => {
-    configStore?.update((store) => {
+    configStore?.update(store => {
         return {
             ...store,
             spacingBase: baseSize,
@@ -263,7 +263,7 @@ export const updateSpacingBase = (baseSize: number) => {
 };
 
 export const updateBorderWidthScale = (newScale: number) => {
-    configStore?.update((store) => {
+    configStore?.update(store => {
         return {
             ...store,
             borderWidthScale: newScale,
@@ -274,7 +274,7 @@ export const updateBorderWidthScale = (newScale: number) => {
 };
 
 export const updateBorderWidths = (baseSize: number) => {
-    configStore?.update((store) => {
+    configStore?.update(store => {
         return {
             ...store,
             borderWidthThin: baseSize,
@@ -285,7 +285,7 @@ export const updateBorderWidths = (baseSize: number) => {
 };
 
 export const updateBorderRadiusScale = (newScale: number) => {
-    configStore?.update((store) => {
+    configStore?.update(store => {
         return {
             ...store,
             borderRadiusScale: newScale,
@@ -296,7 +296,7 @@ export const updateBorderRadiusScale = (newScale: number) => {
 };
 
 export const updateBorderRadius = (baseSize: number) => {
-    configStore?.update((store) => {
+    configStore?.update(store => {
         return {
             ...store,
             borderRadiusSmall: baseSize,
@@ -307,7 +307,7 @@ export const updateBorderRadius = (baseSize: number) => {
 };
 
 export const updateFontScale = (newScale: number) => {
-    configStore?.update((store) => {
+    configStore?.update(store => {
         return {
             ...store,
             fontSizeScale: newScale,
@@ -321,7 +321,7 @@ export const updateFontScale = (newScale: number) => {
 };
 
 export const setPreset = (preset: PresetName) => {
-    configStore?.update((store) => {
+    configStore?.update(store => {
         return {
             ...store,
             ...Presets[preset],
