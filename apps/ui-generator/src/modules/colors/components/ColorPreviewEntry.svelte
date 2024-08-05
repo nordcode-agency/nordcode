@@ -56,7 +56,7 @@
         {#if isSurface}
             <p class="nc-input-label current">Current surface color</p>
         {:else}
-            <div class="nc-box preview-box" style="background: var({lightText});"></div>
+            <div class="nc-box color-preview" style="background: var({lightText});"></div>
             <p class="preview-text" style="color: var({lightText});">Aa</p>
         {/if}
     </div>
@@ -64,7 +64,7 @@
         {#if isSurface}
             <p class="nc-input-label current">Current surface color</p>
         {:else}
-            <div class="nc-box preview-box" style="background: var({darkText});"></div>
+            <div class="nc-box color-preview" style="background: var({darkText});"></div>
             <p class="preview-text" style="color: var({darkText});">Aa</p>
         {/if}
     </div>
@@ -84,13 +84,6 @@
             border-end-start-radius: var(--border-radius-medium);
             border-end-end-radius: var(--border-radius-medium);
         }
-    }
-
-    .preview-box {
-        inline-size: 6rem;
-        block-size: 6rem;
-        border-radius: var(--border-radius-medium);
-        box-shadow: var(--shadow-near);
     }
 
     .preview-text {
