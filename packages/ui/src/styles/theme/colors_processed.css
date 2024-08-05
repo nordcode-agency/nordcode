@@ -37,7 +37,7 @@
     --color-brand-secondary-surface: var(--lightningcss-light, var(--color-brand-secondary-surface-light)) var(--lightningcss-dark, var(--color-brand-secondary-surface-dark));
     --color-brand-secondary-hover: var(--lightningcss-light, var(--color-brand-secondary-hover-light)) var(--lightningcss-dark, var(--color-brand-secondary-hover-dark));
     --color-brand-secondary-contrast: var(--lightningcss-light, var(--color-brand-secondary-contrast-light)) var(--lightningcss-dark, var(--color-brand-secondary-contrast-dark));
-    --color-text-base: var(--lightningcss-light, var(--color-text-base-light)) var(--lightningcss-dark, var(--color-text-base-light));
+    --color-text-base: var(--lightningcss-light, var(--color-text-base-light)) var(--lightningcss-dark, var(--color-text-base-dark));
     --color-text-muted: var(--lightningcss-light, var(--color-text-muted-light)) var(--lightningcss-dark, var(--color-text-muted-dark));
     --color-text-subtle: var(--lightningcss-light, var(--color-text-subtle-light)) var(--lightningcss-dark, var(--color-text-subtle-dark));
     --color-text-on-emphasis: var(--lightningcss-light, var(--color-text-on-emphasis-light)) var(--lightningcss-dark, var(--color-text-on-emphasis-dark));
