@@ -1,36 +1,37 @@
 ---
 import Themepicker from './Themepicker.astro';
 import ConfigLoader from '../../store/components/ConfigLoader.svelte';
+import ResetButton from '../../common/components/ResetButton.svelte';
+
+const currentPage = Astro.url.pathname;
+
+const links = [
+    { href: '/', text: 'Presets' },
+    { href: '/typography', text: 'Typography' },
+    { href: '/colors', text: 'Colors' },
+    { href: '/sizes', text: 'Sizes' },
+    { href: '/components', text: 'Components' },
+    { href: '/layouts', text: 'Layouts' },
+];
 ---
 
-<div class="nc-cluster -centered | header">
-    <h1>UI Generator</h1>
+<div class="nc-cluster -far -centered | header">
+    <h1 class="nc-cluster -near -centered"><span>
+<svg class="nc-icon" aria-hidden="true" viewBox="0 0 800 800" fill="none" data-size="inline" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M500 0C500 112.561 462.806 216.434 400.037 300H800V500V500.164C638.944 505.438 510 637.661 510 800H300C300 687.439 337.194 583.566 399.963 500H0V300V299.836C3.31997 299.945 6.65359 300 10 300C175.685 300 310 165.685 310 0H500Z" fill="black"/>
+</svg>
+    </span>UI Generator</h1>
     <nav class="mr-auto">
         <ul class="nc-list-reset nc-cluster -near">
-            <li>
-                <a href="/">Presets</a>
-            </li>
-
-            <li>
-                <a href="/typography">Typography</a>
-            </li>
-            <li>
-                <a href="/colors">Colors</a>
-            </li>
-            <li>
-                <a href="/sizes">Sizes</a>
-            </li>
-            <li>
-                <a href="/components">Components</a>
-            </li>
-            <li>
-                <a href="/layouts">Layouts</a>
-            </li>
+            {links.map(({ href, text }) => (
+                <li>
+                    <a href={href} aria-current={href === currentPage ? "page" : undefined}>{text}</a>
+                </li>
+            ))}
         </ul>
     </nav>
     <div class="nc-cluster">
         <ConfigLoader client:only="svelte" />
-
         <Themepicker />
         <button class="nc-button -icon -small import-button" data-dialogtarget="import-dialog">
             <span class="text-assistive">Import theme</span>
@@ -66,6 +67,7 @@ import ConfigLoader from '../../store/components/ConfigLoader.svelte';
                 ></path>
             </svg>
         </button>
+        <ResetButton client:only="svelte"  />
         <button data-toggle-notification-center class="nc-button -icon -small">
             <span class="text-assistive">Toggle Notifications</span>
             <svg
@@ -85,21 +87,25 @@ import ConfigLoader from '../../store/components/ConfigLoader.svelte';
 
 <style>
     .header {
-        background: var(--color-surface-default);
+        background: var(--color-surface-base);
         padding-block: var(--spacing-near);
         padding-inline: var(--spacing-base);
-        border-bottom: var(--border-width-thin) solid var(--color-border-default);
+        border-bottom: var(--border-width-thin) solid var(--color-border-base);
         inline-size: 100%;
         max-inline-size: 100%;
     }
 
     nav a {
-        text-decoration: underline;
+        text-decoration: none;
         text-underline-offset: 0.2em;
-        color: var(--color-brand-secondary-base);
+        color: var(--color-text-muted);
 
         &:hover {
-            color: var(--color-brand-secondary-subtle);
+            text-decoration: underline;
+        }
+
+        &[aria-current="page"] {
+            font-weight: var(--font-weight-active);
         }
     }
 

@@ -20,6 +20,19 @@ import {
     getDangerLightness,
 } from './SharedThemeValues';
 import type { AdapterMapFn } from './ThemeAdapters';
+import { generateColorValues } from './generateColorValues';
+import {
+    generateLightTextColorValues,
+    generateDarkTextColorValues,
+} from './generateTextColorValues.ts';
+import {
+    generateLightSurfaceColorValues,
+    generateDarkSurfaceColorValues,
+} from './generateSurfaceColorValues.ts';
+import {
+    generateLightBorderColorValues,
+    generateDarkBorderColorValues,
+} from './generateBorderColorValues.ts';
 
 export const getMappedColors = <T>(
     store: ConfigStore,
@@ -37,7 +50,98 @@ export const getMappedColors = <T>(
         );
 };
 
-export const getColorTheme = (store: ConfigStore) => {
+export const getColorTheme = (store: ConfigStore): Record<string, string> => {
+    const textHue = store.useSecondaryColorForFG ? +store.secondaryHue : +store.primaryHue;
+    const surfaceHue = store.useSecondaryColorForBG ? +store.secondaryHue : +store.primaryHue;
+    const borderHue = store.useSecondaryColorForBorders ? +store.secondaryHue : +store.primaryHue;
+
+    return {
+        '--lightness-max': `${store.lightnessMax}`,
+        '--lightness-min': `${store.lightnessMin}`,
+        '--lightness-diff': 'calc(var(--lightness-max) - var(--lightness-min))',
+        // this is tricky, because it's not completely uniform
+        // the best contrast seems to be achieved by moving slightly upwards from the middle
+        '--lightness-contrast-cutoff':
+            'calc(var(--lightness-min) + var(--lightness-diff) * 0.5 + 0.05)',
+        '--neutral-chroma-scale': `${store.neutralChromaScale}`,
+        '--transparency-weaker': `${store.transparencyWeaker}`,
+
+        ...generateColorValues('brand-primary', {
+            l: +store.primaryLightness,
+            c: +store.primaryChroma,
+            h: +store.primaryHue,
+            lDark: +store.primaryLightnessDark,
+        }),
+        ...generateColorValues('brand-secondary', {
+            l: +store.secondaryLightness,
+            c: +store.secondaryChroma,
+            h: +store.secondaryHue,
+            lDark: +store.secondaryLightnessDark,
+        }),
+        ...generateLightTextColorValues('text', {
+            l: +store.lightNeutralTextLightness,
+            c: +store.lightNeutralChromaFG,
+            h: textHue,
+            scalingFactor: +store.lightTextLightnessScaleFactor,
+        }),
+        ...generateDarkTextColorValues('text', {
+            l: +store.darkNeutralTextLightness,
+            c: +store.darkNeutralChromaFG,
+            h: textHue,
+            scalingFactor: +store.darkTextLightnessScaleFactor,
+        }),
+        ...generateLightSurfaceColorValues('surface', {
+            l: +store.lightNeutralSurfaceLightness,
+            c: +store.lightNeutralChromaBG,
+            h: surfaceHue,
+            scalingFactor: +store.lightSurfaceLightnessScaleFactor,
+        }),
+        ...generateDarkSurfaceColorValues('surface', {
+            l: +store.darkNeutralSurfaceLightness,
+            c: +store.darkNeutralChromaBG,
+            h: surfaceHue,
+            scalingFactor: +store.darkSurfaceLightnessScaleFactor,
+        }),
+        ...generateLightBorderColorValues('border', {
+            l: +store.lightNeutralBorderLightness,
+            c: +store.lightNeutralChromaBorder,
+            h: borderHue,
+            scalingFactor: +store.lightBorderLightnessScaleFactor,
+        }),
+        ...generateDarkBorderColorValues('border', {
+            l: +store.darkNeutralBorderLightness,
+            c: +store.darkNeutralChromaBorder,
+            h: borderHue,
+            scalingFactor: +store.darkBorderLightnessScaleFactor,
+        }),
+        ...generateColorValues('status-success', {
+            l: +store.primaryLightness,
+            c: +store.primaryChroma,
+            h: successHue,
+            lDark: +store.primaryLightnessDark,
+        }),
+        ...generateColorValues('status-warning', {
+            l: +store.primaryLightness,
+            c: +store.primaryChroma,
+            h: warningHue,
+            lDark: +store.primaryLightnessDark,
+        }),
+        ...generateColorValues('status-danger', {
+            l: +store.primaryLightness,
+            c: +store.primaryChroma,
+            h: dangerHue,
+            lDark: +store.primaryLightnessDark,
+        }),
+        ...generateColorValues('status-info', {
+            l: +store.primaryLightness,
+            c: +store.primaryChroma,
+            h: infoHue,
+            lDark: +store.primaryLightnessDark,
+        }),
+    };
+};
+
+export const getColorTheme2 = (store: ConfigStore) => {
     const textHue = store.useSecondaryColorForFG ? +store.secondaryHue : +store.primaryHue;
     const surfaceHue = store.useSecondaryColorForBG ? +store.secondaryHue : +store.primaryHue;
     const borderHue = store.useSecondaryColorForBorders ? +store.secondaryHue : +store.primaryHue;

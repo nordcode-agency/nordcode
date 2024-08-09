@@ -84,7 +84,7 @@ const sections: Array<Section> = [
                 description: 'The classic input with a label and optional hint(s) and error(s).',
                 notes: [
                     'Ideally, mark labels and inputs as optional and set aria-required="false"',
-                    'You can set min and max-widths globally using --input-field-min-inline-size and --input-field-max-inline-size',
+                    'You can set min and max-widths globally using <var>--input-field-min-inline-size</var> and <var>--input-field-max-inline-size</var>',
                 ],
                 examples: [
                     {
@@ -144,7 +144,6 @@ const sections: Array<Section> = [
                 description: "It's a table. It's good for displaying lots of data in columns.",
                 notes: [
                     'Make sure all data is visible in all responsive setups. We do that using a scroll.',
-                    'You can change the background-color using --nc-table-background-lch',
                 ],
                 examples: [
                     {

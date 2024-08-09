@@ -36,14 +36,9 @@ const spacingModifiers = [
 ---
 
 <style>
-    .preview-box {
-        inline-size: 100%;
-        background: var(--color-surface-inset);
-    }
-
     .preview {
-        background: var(--color-surface-default);
-        color: var(--color-text-default);
+        background: var(--color-surface-base);
+        color: var(--color-text-base);
     }
 
     .article {
@@ -84,14 +79,17 @@ const spacingModifiers = [
             }
         }
     }
+
+    .nc-hint + .nc-flow {
+        margin-block-start: 1.3lh;
+    }
 </style>
 
-<div class="nc-stack -far -stretched">
+<div class="nc-stack -farthest -stretched content-block nc-region">
     <h1>Layouts</h1>
 
-    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-box">
+    <section class="section-to-observe" id="nc-box">
         <SectionTitle title=".nc-box" nested={false} sectionId="nc-box" />
-
         <p class="nc-hint">
             It's a div with padding and a possible version that is using a border.
         </p>
@@ -114,7 +112,8 @@ const spacingModifiers = [
             </div>
         </div>
     </section>
-    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-stack">
+
+    <section class="section-to-observe" id="nc-stack">
         <SectionTitle title=".nc-stack" nested={false} sectionId="nc-stack" />
         <p class="nc-hint">It's a column of content with gaps in between.</p>
         <div class="nc-flow">
@@ -147,7 +146,7 @@ const spacingModifiers = [
             <ModifierList modifiers={spacingModifiers} />
         </div>
     </section>
-    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-flow">
+    <section class="section-to-observe" id="nc-flow">
         <SectionTitle title=".nc-flow" nested={false} sectionId="nc-flow" />
         <p class="nc-hint">Bring your prose content into a nicely styled form.</p>
         <div class="nc-flow">
@@ -159,7 +158,16 @@ const spacingModifiers = [
             <h3>Display</h3>
             <div class="nc-box -bordered preview-box">
                 <div class="nc-flow preview">
-                    <h4>Hallo</h4>
+                    <h3>Hallo</h3>
+                    <p>
+                        Voluptas est voluptatem minima a et ab itaque fuga. A qui ea aperiam
+                        voluptatem reiciendis error. Consectetur nulla ab delectus doloribus
+                        voluptatibus unde suscipit blanditiis quo sit sunt. Nemo minima inventore ut
+                        possimus incidunt molestiae reprehenderit consequatur magni quas. Sint
+                        pariatur animi culpa dolores labore ut sapiente. Corporis et magni
+                        distinctio. Placeat eius dolores delectus soluta.
+                    </p>
+                    <h4>Hallo Nummer 2</h4>
                     <p>
                         Voluptas est voluptatem minima a et ab itaque fuga. A qui ea aperiam
                         voluptatem reiciendis error. Consectetur nulla ab delectus doloribus
@@ -176,11 +184,12 @@ const spacingModifiers = [
                         pariatur animi culpa dolores labore ut sapiente. Corporis et magni
                         distinctio. Placeat eius dolores delectus soluta.
                     </p>
+
                 </div>
             </div>
         </div>
     </section>
-    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-center">
+    <section class="section-to-observe" id="nc-center">
         <SectionTitle title=".nc-center" nested={false} sectionId="nc-center" />
         <p class="nc-hint">Center content and add a possible padding and max-size.</p>
         <div class="nc-flow">
@@ -197,7 +206,7 @@ const spacingModifiers = [
         </div>
     </section>
 
-    <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-gallery">
+    <section class="section-to-observe" id="nc-gallery">
         <SectionTitle title=".nc-gallery" nested={false} sectionId="nc-gallery" />
         <p class="nc-hint">
             An accessible alternative to the carousel. Allows scrolling and tabbing and all the
@@ -272,7 +281,8 @@ const spacingModifiers = [
                 ]}
             />
         </div>
-        <section class="nc-stack -base -stretched nc-box -bordered section-to-observe" id="nc-pile">
+    </section>
+    <section class="section-to-observe" id="nc-pile">
         <SectionTitle title=".nc-pile" nested={false} sectionId="nc-pile" />
         <p class="nc-hint">Pile items on top of each other. Prefer this over position absolute.</p>
         <div class="nc-flow">
@@ -288,6 +298,5 @@ const spacingModifiers = [
                 </div>
             </div>
         </div>
-    </section>
     </section>
 </div>

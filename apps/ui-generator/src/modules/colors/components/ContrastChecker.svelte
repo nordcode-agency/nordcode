@@ -13,9 +13,9 @@ const surfaceOptions = {
     Primary: ['--color-brand-primary-surface'],
     Secondary: ['--color-brand-secondary-surface'],
     Neutrals: [
-        '--color-surface-default',
+        '--color-surface-base',
+        '--color-surface-muted',
         '--color-surface-subtle',
-        '--color-surface-inset',
         '--color-surface-emphasis',
     ],
 };
@@ -32,7 +32,7 @@ const textOptions = {
         '--color-brand-secondary-contrast',
     ],
     Neutrals: [
-        '--color-text-default',
+        '--color-text-base',
         '--color-text-subtle',
         '--color-text-muted',
         '--color-text-on-emphasis',
@@ -95,13 +95,18 @@ onMount(() => {
 </script>
 
 <style>
+    .contrastTool-container {
+        background: var(--color-surface-subtle);
+        margin-inline: var(--spacing-base);
+        inline-size: calc(100% - 2 * var(--spacing-base));
+    }
     .contrastTool {
         grid-template-columns: 2fr 1fr 1fr;
         inline-size: 100%;
     }
 </style>
 
-<section class="nc-region nc-stack -stretched -contained">
+<section class="nc-region nc-stack -stretched -contained nc-box -bordered contrastTool-container">
     <h2 id="contrast-checker">Contrast Checker</h2>
     <p class="nc-hint">
         Select a surface color and a foreground color to see the contrast ratio between them.

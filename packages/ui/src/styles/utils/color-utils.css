@@ -8,7 +8,7 @@
         --text-hover: var(--color-text-on-emphasis);
         --color-hover: var(--color-text-on-emphasis);
         --surface-hover: var(--color-surface-emphasis);
-        --border-hover: var(--color-border-default);
+        --border-hover: var(--color-border-base);
     }
 
     .-primary {
@@ -44,7 +44,7 @@
         --text-hover: var(--color-text-on-emphasis);
         --color-hover: var(--color-text-on-emphasis);
         --surface-hover: var(--color-surface-emphasis);
-        --border-hover: var(--color-border-default);
+        --border-hover: var(--color-border-base);
     }
 
     .-muted {
@@ -52,10 +52,10 @@
         --color: var(--color-text-muted);
         --surface: transparent;
 
-        --text-hover: var(--color-text-default);
-        --color-hover: var(--color-text-default);
-        --surface-hover: var(--color-surface-inset);
-        --border-hover: var(--color-border-default);
+        --text-hover: var(--color-text-base);
+        --color-hover: var(--color-text-base);
+        --surface-hover: var(--color-surface-subtle);
+        --border-hover: var(--color-border-base);
     }
 
     .-emphasis {
@@ -64,57 +64,57 @@
         --surface: var(--color-surface-emphasis);
         --border: var(--color-surface-emphasis);
 
-        --text-hover: var(--color-text-default);
-        --color-hover: var(--color-text-default);
-        --surface-hover: var(--color-surface-inset);
-        --border-hover: var(--color-border-default);
+        --text-hover: var(--color-text-base);
+        --color-hover: var(--color-text-base);
+        --surface-hover: var(--color-surface-subtle);
+        --border-hover: var(--color-border-base);
     }
 
     .-info {
-        --text: var(--color-status-info-text);
+        --text: var(--color-status-info-emphasis);
         --color: var(--color-status-info-base);
         --surface: var(--color-status-info-surface);
         --border: var(--color-status-info-base);
 
-        --text-hover: var(--color-status-info-surface);
-        --color-hover: var(--color-status-info-text);
-        --surface-hover: var(--color-status-info-text);
-        --border-hover: var(--color-status-info-text);
+        --text-hover: var(--color-status-info-contrast);
+        --color-hover: var(--color-status-info-contrast);
+        --surface-hover: var(--color-status-info-base);
+        --border-hover: var(--color-status-info-base);
     }
 
     .-warning {
-        --text: var(--color-status-warning-text);
+        --text: var(--color-status-warning-emphasis);
         --color: var(--color-status-warning-base);
         --surface: var(--color-status-warning-surface);
         --border: var(--color-status-warning-base);
 
-        --text-hover: var(--color-status-warning-surface);
-        --color-hover: var(--color-status-warning-text);
-        --surface-hover: var(--color-status-warning-text);
-        --border-hover: var(--color-status-warning-text);
+        --text-hover: var(--color-status-warning-contrast);
+        --color-hover: var(--color-status-warning-contrast);
+        --surface-hover: var(--color-status-warning-base);
+        --border-hover: var(--color-status-warning-base);
     }
 
     .-danger {
-        --text: var(--color-status-danger-text);
+        --text: var(--color-status-danger-emphasis);
         --color: var(--color-status-danger-base);
         --surface: var(--color-status-danger-surface);
         --border: var(--color-status-danger-base);
 
-        --text-hover: var(--color-status-danger-surface);
-        --color-hover: var(--color-status-danger-text);
-        --surface-hover: var(--color-status-danger-text);
-        --border-hover: var(--color-status-danger-text);
+        --text-hover: var(--color-status-danger-contrast);
+        --color-hover: var(--color-status-danger-contrast);
+        --surface-hover: var(--color-status-danger-base);
+        --border-hover: var(--color-status-danger-base);
     }
 
     .-success {
-        --text: var(--color-status-success-text);
+        --text: var(--color-status-success-emphasis);
         --color: var(--color-status-success-base);
         --surface: var(--color-status-success-surface);
         --border: var(--color-status-success-base);
 
-        --text-hover: var(--color-status-success-surface);
-        --color-hover: var(--color-status-success-text);
-        --surface-hover: var(--color-status-success-text);
-        --border-hover: var(--color-status-success-text);
+        --text-hover: var(--color-status-success-contrast);
+        --color-hover: var(--color-status-success-contrast);
+        --surface-hover: var(--color-status-success-base);
+        --border-hover: var(--color-status-success-base);
     }
 }

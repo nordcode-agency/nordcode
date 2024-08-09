@@ -1,6 +1,6 @@
 <script lang="ts" async>
-	export let heading: string;
-	export let subheading: string | undefined = undefined;
+export let heading: string;
+export let subheading: string | undefined = undefined;
 </script>
 
 <div class="container">
@@ -42,13 +42,13 @@
 			/ 1fr;
 		background: linear-gradient(
 			45deg,
-			oklch(var(--color-border-default-lch) / 0.03),
-			oklch(var(--color-surface-default-lch) / 0.8)
+			color-mix(in oklch, var(--color-border-base), transparent 97%),
+			color-mix(in oklch, var(--color-surface-base), transparent 20%)
 		);
 		backdrop-filter: blur(var(--spacing-base));
 		box-shadow: var(--_card-shadow),
 			inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1)
-				oklch(var(--color-border-default-lch) / 0.8);
+				color-mix(in oklch, var(--color-border-base), transparent 20%);
 		block-size: 100%;
 		text-decoration: none;
 		transition: border-color 300ms ease, box-shadow 300ms;
@@ -68,7 +68,7 @@
 			color: var(--color-text-muted);
 		}
 	}
-    
+
     .action {
         grid-area: action;
         padding: var(--spacing-base);

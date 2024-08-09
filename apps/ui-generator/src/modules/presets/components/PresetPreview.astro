@@ -4,17 +4,13 @@
         place-content: center;
         inline-size: 5rem;
         block-size: 5rem;
-        border: var(--border-width-medium) solid var(--color-border-default);
-    }
-
-    .bg {
-        background: var(--color-surface-subtle);
+        border: var(--border-width-medium) solid var(--color-border-base);
     }
 </style>
 
-<div class="nc-stack -far bg -stretched -contained">
+<div class="nc-region content-block nc-stack -far -stretched -contained">
     <div class="nc-stack -near">
-        <h2>Component Preview</h2>
+        <h2 class="section-headline">Component Preview</h2>
 
         <div class="nc-card">
             <div class="nc-stack">
@@ -212,7 +208,7 @@
     }
 
     .inset {
-        background: var(--color-surface-inset);
+        background: var(--color-surface-subtle);
     }
 
     .subtle-bg {

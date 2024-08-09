@@ -1,15 +1,15 @@
 <script lang="ts">
-	import Hero from '$lib/modules/common/components/Hero.svelte';
-	import Header from '$lib/modules/common/components/Header.svelte';
-	import type { PageData } from './$types';
-	import About from '$lib/modules/common/components/About.svelte';
-	import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
-	import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
-	import Services from '$lib/modules/common/components/Services.svelte';
-	import LogoClipPath from '$lib/modules/common/components/LogoClipPath.svelte';
-	import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
+import Hero from '$lib/modules/common/components/Hero.svelte';
+import Header from '$lib/modules/common/components/Header.svelte';
+import type { PageData } from './$types';
+import About from '$lib/modules/common/components/About.svelte';
+import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
+import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
+import Services from '$lib/modules/common/components/Services.svelte';
+import LogoClipPath from '$lib/modules/common/components/LogoClipPath.svelte';
+import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
 
-	export let data: PageData;
+export let data: PageData;
 </script>
 
 <svelte:head>
@@ -77,9 +77,9 @@
 		inset-inline-start: 0;
 		inset-block-start: 50%;
 		transform: translate(-15%, -60%);
-		background: linear-gradient(to bottom, var(--color-surface-inset), transparent);
+		background: linear-gradient(to bottom, var(--color-surface-subtle), transparent);
 		z-index: -1;
-		color: var(--color-surface-inset);
+		color: var(--color-surface-subtle);
 		clip-path: url(#logo-clip);
 
 		@media (--sm-n-above) {
@@ -112,7 +112,7 @@
 			margin: 0 auto;
 			font-size: calc(var(--font-size-largest) * var(--scaler));
 			padding-block: calc(var(--spacing-farthest) * var(--scaler));
-			color: var(--color-text-default);
+			color: var(--color-text-base);
 
 			@media (--sm-n-above) {
 				--scaler: 1.2;

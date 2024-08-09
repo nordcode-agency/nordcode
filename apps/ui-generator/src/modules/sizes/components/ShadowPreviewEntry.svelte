@@ -1,49 +1,36 @@
 <script lang="ts">
-    import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
-    import {
-        getThemeMutationObserver,
-        type ThemeMutationObserverListener,
-    } from '../../common/utils/ThemeMutationObserver.ts';
-    import { onMount } from 'svelte';
+import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
+import {
+    getThemeMutationObserver,
+    type ThemeMutationObserverListener,
+} from '../../common/utils/ThemeMutationObserver.ts';
+import { onMount } from 'svelte';
 
-    export let entry: {
-        name: string;
-        description: string;
-    };
+export let entry: {
+    name: string;
+    description: string;
+};
 
-    const token = `--shadow-${entry.name.toLowerCase()}`;
-    let resolvedValue = '';
+const token = `--shadow-${entry.name.toLowerCase()}`;
+let resolvedValue = '';
 
-    const getResolvedValue = (token: string) => {
-        if (!document) {
-            return '';
-        }
-        const themeEl = document.querySelector('.live-theme');
-        if (!themeEl) {
-            return '';
-        }
-        const style = getComputedStyle(themeEl);
+$: lightShadow = `${token}-light`;
+$: darkShadow = `${token}-dark`;
 
-        return style.getPropertyValue(token).trim();
-    };
+const updateResolvedValue: ThemeMutationObserverListener = (style) => {
+    if (!style) {
+        return;
+    }
+    resolvedValue = `${style.getPropertyValue(token).trim()}`;
+};
 
-    $: lightShadow = `${token}-light`;
-    $: darkShadow = `${token}-dark`;
-
-    const updateResolvedValue: ThemeMutationObserverListener = style => {
-        if (!style) {
-            return;
-        }
-        resolvedValue = `${style.getPropertyValue(token).trim()}`;
-    };
-
-    onMount(() => {
-        getThemeMutationObserver().subscribe(style => {
-            updateResolvedValue(style);
-        });
-
-        updateResolvedValue(getThemeMutationObserver().getStyle());
+onMount(() => {
+    getThemeMutationObserver().subscribe((style) => {
+        updateResolvedValue(style);
     });
+
+    updateResolvedValue(getThemeMutationObserver().getStyle());
+});
 </script>
 
 <div class="nc-grid">

@@ -3,19 +3,15 @@
         --_dialog-transition-duration: var(--dialog-transition-duration, var(--transition-duration-base));
 
         display: block;
-        position: fixed;
-        inset: 0;
         z-index: var(--layer-important);
         animation: close-dialog var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1) forwards;
         transition: opacity var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1);
-        overflow: hidden;
 
         &[open] {
             animation: open-dialog var(--_dialog-transition-duration) cubic-bezier(0, 0.6, 0.58, 1);
         }
 
         &:not([open]) {
-            pointer-events: none;
             opacity: 0;
         }
 
@@ -30,14 +26,13 @@
         --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
         --_dialog-close-size: var(--dialog-close-size, var(--button-height-base));
 
-        border: var(--border-width-thin) solid var(--color-border-default);
+        border: var(--border-width-thin) solid var(--color-border-base);
         inline-size: calc(100dvw - 2 * var(--spacing-base));
         block-size: 90dvh;
         max-inline-size: 28rem;
-        background: var(--color-surface-default);
+        background: var(--color-surface-base);
         box-shadow: var(--shadow-medium);
         margin-block: 5dvh;
-        margin-inline: auto;
         padding: 0;
         border-radius: var(--_dialog-radius);
     }
@@ -45,7 +40,7 @@
     .dialog-container {
         display: grid;
         grid-template:
-          'header header' calc(2 * var(--spacing-near) + var(--_dialog-close-size))
+          'header header' auto
           'content content' 1fr
           'footer footer' auto / 1fr 1fr;
         inline-size: 100%;
@@ -62,7 +57,7 @@
         grid-template: 'title close' / 1fr var(--_dialog-close-size);
         align-items: flex-start;
         padding-block: var(--spacing-near);
-        overflow: hidden;
+        min-inline-size: calc(2 * var(--spacing-near) + var(--_dialog-close-size));
     }
 
     .dialog-header > button[data-closes-dialog] {
@@ -76,6 +71,7 @@
         margin: 0;
         padding: 0;
         line-height: var(--_dialog-close-size);
+        overflow-wrap: anywhere;
     }
 
     .dialog-content {
@@ -95,10 +91,6 @@
         border-block-start: var(--border-width-thin) solid var(--color-border-muted);
         background-color: var(--color-surface-subtle);
 
-    }
-
-    html:has(dialog[open]) {
-        overflow-y: scroll;
     }
 
     @keyframes open-dialog {

@@ -1,34 +1,34 @@
 <script lang="ts">
-    import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
-    import {
-        getThemeMutationObserver,
-        type ThemeMutationObserverListener,
-    } from '../../common/utils/ThemeMutationObserver.ts';
-    import { onMount } from 'svelte';
+import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
+import {
+    getThemeMutationObserver,
+    type ThemeMutationObserverListener,
+} from '../../common/utils/ThemeMutationObserver.ts';
+import { onMount } from 'svelte';
 
-    export let entry: {
-        name: string;
-        description: string;
-    };
+export let entry: {
+    name: string;
+    description: string;
+};
 
-    export let token: string;
-    export let style: string;
-    let resolvedValue = '';
+export let token: string;
+export let style: string;
+let resolvedValue = '';
 
-    const updateResolvedValue: ThemeMutationObserverListener = style => {
-        if (!style) {
-            return;
-        }
-        resolvedValue = `${style.getPropertyValue(token).trim()}`;
-    };
+const updateResolvedValue: ThemeMutationObserverListener = (style) => {
+    if (!style) {
+        return;
+    }
+    resolvedValue = `${style.getPropertyValue(token).trim()}`;
+};
 
-    onMount(() => {
-        getThemeMutationObserver().subscribe(style => {
-            updateResolvedValue(style);
-        });
-
-        updateResolvedValue(getThemeMutationObserver().getStyle());
+onMount(() => {
+    getThemeMutationObserver().subscribe((style) => {
+        updateResolvedValue(style);
     });
+
+    updateResolvedValue(getThemeMutationObserver().getStyle());
+});
 </script>
 
 <div class="nc-grid">
@@ -46,14 +46,14 @@
     }
 
     .preview-box {
-        background: var(--color-surface-inset);
+        background: var(--color-surface-subtle);
     }
 
     .preview {
-        border: var(--border-width-thin) solid var(--color-border-default);
+        border: var(--border-width-thin) solid var(--color-border-base);
         inline-size: 6rem;
         block-size: 6rem;
-        background: var(--color-surface-default);
+        background: var(--color-surface-base);
         box-shadow: var(--shadow-near);
     }
 </style>

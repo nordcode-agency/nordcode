@@ -9,21 +9,20 @@ const { style, text, label } = Astro.props;
 ---
 
 <div class="text-preview-row">
-    <span class="label">{label}</span>
+    <var class="label">{label}</var>
     <p style={style}>{text}</p>
 </div>
 
 <style>
     .text-preview-row {
         display: grid;
-        grid-template-columns: 20ch 1fr;
+        grid-template-columns: 24ch 1fr;
         gap: var(--spacing-near);
         inline-size: 100%;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .label {
-        font-size: 0.75rem;
-        color: var(--color-brand-primary-base);
+        font-size: var(--font-size-smallest);
     }
 </style>

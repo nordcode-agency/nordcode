@@ -11,13 +11,13 @@ interface Props {
 const { sections } = Astro.props;
 ---
 
-<div class="nc-stack -far -stretched">
+<div class="nc-stack -farthest -stretched content-block nc-region">
     <h1>Components</h1>
-
     {
         sections.map(section => (
-            <section class="nc-stack -base -stretched section-to-observe" id={section.sectionId}>
+            <section class="section-to-observe" id={section.sectionId}>
                 <SectionTitle title={section.titleWithNumber} />
+                <div class="nc-stack -far -stretched -contained">
                 {section.components.map(formEl => (
                     <ComponentPreview
                         component={formEl.component}
@@ -28,7 +28,9 @@ const { sections } = Astro.props;
                         sectionId={formEl.sectionId}
                     />
                 ))}
+                </div>
             </section>
+            <hr />
         ))
     }
 </div>

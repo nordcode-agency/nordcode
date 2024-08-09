@@ -14,126 +14,184 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en" dir="ltr" transition:animate="none">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
-        <ViewTransitions />
-    </head>
-    <body class="live-theme">
-        <header>
-            <Header />
-        </header>
-        <main class="main">
-            <aside class="aside content-block" transition:animate="none">
-                <slot name="aside" />
-            </aside>
-            <section class="content content-block" transition:animate="slide">
-                <slot name="content" />
-            </section>
-        </main>
-        <NotificationTemplate />
-        <NotificationCenter />
-        <ConfigFromUrl client:only="svelte" />
-        <style is:global>
-            @import '@nordcode/ui/media';
-            @import '@nordcode/ui/bundle';
-            @import '@nordcode/ui/components';
-            @import '@nordcode/ui/base';
-            @import './liveTheme.css';
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+</head>
+<body class="live-theme">
+<header>
+    <Header />
+</header>
+<main class="main">
+    <aside class="aside" transition:animate="none">
+        <slot name="aside" />
+    </aside>
+    <section class="content" transition:animate="slide">
+        <slot name="content" />
+    </section>
+</main>
+<NotificationTemplate />
+<NotificationCenter />
+<ConfigFromUrl client:only="svelte" />
+<style is:global>
+    @import '@nordcode/ui/media';
+    @import '@nordcode/ui/bundle';
+    @import '@nordcode/ui/components';
+    @import '@nordcode/ui/base';
+    @import './liveTheme.css';
 
-            html {
-                font-size: clamp(0.875rem, 0.75rem + 0.2vw, 1rem);
-            }
+    html {
+        font-size: clamp(0.875rem, 0.75rem + 0.2vw, 1rem);
+    }
 
-            body {
-                max-block-size: 100%;
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-            }
+    body {
+        max-block-size: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
 
-            .main {
-                display: grid;
-                grid-template:
+    .main {
+        display: grid;
+        grid-template:
                     'config content' 1fr
                     / auto minmax(0, 5fr);
-                background: var(--color-surface-default);
-                inline-size: 100%;
-                overflow: hidden;
-                max-block-size: 100%;
-                position: relative;
+        background: var(--color-surface-base);
+        inline-size: 100%;
+        overflow: hidden;
+        max-block-size: 100%;
+        position: relative;
+    }
+
+    header {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 1;
+    }
+
+    .content-block {
+        padding-inline: var(--spacing-base);
+    }
+
+    .aside {
+        grid-area: config;
+        background: var(--color-surface-base);
+        border-inline-end: var(--border-width-thin) solid var(--color-surface-base);
+        max-block-size: 100%;
+        overflow: auto;
+
+        &:has(div, nav) {
+            inline-size: 24rem;
+        }
+    }
+
+    .content {
+        grid-area: content;
+        background: var(--color-surface-base);
+        min-inline-size: 0;
+        max-block-size: 100%;
+        overflow: auto;
+    }
+
+    .section-headline {
+        margin-block-end: 0.5lh;
+    }
+
+    .nc-notification-center,
+    .nc-notification-output {
+        z-index: 2;
+    }
+
+    .section-to-observe {
+        scroll-margin-top: var(--spacing-far);
+    }
+
+    details > fieldset {
+        padding-inline: var(--p-x-details);
+        padding-block-end: var(--p-y-details);
+    }
+
+    .preview-grid {
+        grid-template-columns: 1fr 3fr;
+        gap: var(--spacing-farthest);
+
+        & fieldset {
+            background: var(--color-surface-subtle);
+            padding: var(--spacing-base);
+            border-radius: var(--border-radius-medium);
+            box-shadow: var(--shadow-medium);
+            position: sticky;
+            inset-block-start: var(--spacing-farthest);
+        }
+    }
+
+    :target {
+        scroll-margin-block-start: 4ex;
+    }
+
+    .preview-box {
+        background-color: var(--color-surface-base);
+        resize: inline;
+        max-inline-size: 100%;
+        overflow: hidden;
+        min-inline-size: 32ch;
+    }
+    
+    .color-preview {
+        inline-size: 6rem;
+        block-size: 6rem;
+        border-radius: var(--border-radius-medium);
+        box-shadow: var(--shadow-near);
+    }
+
+    .preview-sidenav {
+        margin-inline: var(--spacing-base);
+
+        & li > ul {
+            padding-inline-start: 1ch;
+        }
+
+        & li > ul > li:first-child {
+            margin-block-start: var(--spacing-near);
+        }
+
+        & a {
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: var(--color-text-muted);
+
+            &:before {
+                color: var(--color-text-muted);
+                font-size: 0.75rem;
+                right: 100%;
+                content: '►';
+                transform: translate(-0.5rem);
+                opacity: 0;
+                transition: all var(--transition-duration-base) var(--ease-in-2);
+                position: absolute;
             }
+        }
 
-            header {
-                position: sticky;
-                inset-block-start: 0;
-                z-index: 1;
+        & a.-highlight {
+            font-weight: var(--font-weight-active);
+            color: var(--color-text-base);
+
+            &:before {
+                transform: translate(-0.25rem);
+                opacity: 1;
+                transition: all var(--transition-duration-base) var(--ease-out-2);
             }
+        }
+    }
+</style>
 
-            .aside {
-                grid-area: config;
-                background: var(--color-surface-default);
-                border-inline-end: var(--border-width-thin) solid var(--color-border-default);
-                max-block-size: 100%;
-                overflow: auto;
-
-                &:has(div, nav) {
-                    inline-size: 24rem;
-                    padding-inline: var(--spacing-base);
-                }
-            }
-
-            .content {
-                grid-area: content;
-                background: var(--color-surface-default);
-                padding-inline: var(--spacing-base);
-                min-inline-size: 0;
-                max-block-size: 100%;
-                overflow: auto;
-            }
-
-            .content-block {
-                padding-block: var(--spacing-far);
-            }
-
-            .nc-notification-center,
-            .nc-notification-output {
-                z-index: 2;
-            }
-
-            .section-to-observe {
-                scroll-margin-top: var(--spacing-far);
-            }
-
-            details > fieldset {
-                padding-inline: var(--p-x-details);
-                padding-block-end: var(--p-y-details);
-            }
-
-            .preview-grid {
-                grid-template-columns: 1fr 3fr;
-                gap: var(--spacing-far);
-
-                & fieldset {
-                    background: var(--color-surface-inset);
-                    padding: var(--spacing-base);
-                    border-radius: var(--border-radius-medium);
-                    box-shadow: var(--shadow-medium);
-                    position: sticky;
-                    inset-block-start: var(--spacing-far);
-                }
-            }
-
-            :target {
-                scroll-margin-block-start: 4ex;
-            }
-        </style>
-
-        <script src="@nordcode/ui/src/modules/dialogs/ts/dialogs.ts"></script>
-        <script src="@nordcode/ui/src/modules/copyButtons/ts/copyButtons.ts"></script>
-        <script src="@nordcode/ui/src/modules/notifications/js/notifications.js"></script>
-    </body>
+<script src="@nordcode/ui/src/modules/dialogs/ts/dialogs.ts"></script>
+<script src="@nordcode/ui/src/modules/copyButtons/ts/copyButtons.ts"></script>
+<script src="@nordcode/ui/src/modules/notifications/js/notifications.js"></script>
+</body>
 </html>

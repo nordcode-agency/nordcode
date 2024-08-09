@@ -56,13 +56,6 @@ $: resolvedColor = getResolvedColor(token);
         padding-block: var(--spacing-base);
     }
 
-    .preview-box {
-        inline-size: 6rem;
-        block-size: 6rem;
-        border-radius: var(--border-radius-medium);
-        box-shadow: var(--shadow-near);
-    }
-
     .preview-text {
         font-size: 3.5rem;
         line-height: 1;
@@ -109,7 +102,7 @@ $: resolvedColor = getResolvedColor(token);
         <p class="description">{color.description}</p>
     </div>
     <div class="nc-box lightpreview nc-cluster" style="background: var({lightSurface})">
-        <div class="nc-box preview-box" style="background: var({lightText});">
+        <div class="nc-box color-preview" style="background: var({lightText});">
 
         </div>
         <p class="preview-text" style="color: var({lightText});">
@@ -117,7 +110,7 @@ $: resolvedColor = getResolvedColor(token);
         </p>
     </div>
     <div class="nc-box darkpreview nc-cluster" style="background: var({darkSurface})">
-        <div class="nc-box preview-box" style="background: var({darkText});">
+        <div class="nc-box color-preview" style="background: var({darkText});">
 
         </div>
         <p class="preview-text" style="color: var({darkText});">

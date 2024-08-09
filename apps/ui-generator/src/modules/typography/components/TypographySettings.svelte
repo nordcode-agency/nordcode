@@ -7,7 +7,7 @@ import { configStore, updateFontScale } from '../../store/configStore';
 
 {#if configStore}
 <div>
-  <form class="nc-stack -far full-width -stretched">
+  <form class="nc-region nc-stack -farthest full-width -stretched content-block">
     <div class="nc-box -bordered">
       <fieldset class="nc-fieldset nc-stack">
         <legend>Font Families</legend>
@@ -232,7 +232,6 @@ import { configStore, updateFontScale } from '../../store/configStore';
       </fieldset>
     </div>
 
-    <button type="button" class="nc-button -destructive" on:click={configStore.reset}>Reset</button>
   </form>
 </div>
   {/if}

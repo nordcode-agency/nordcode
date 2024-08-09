@@ -121,7 +121,7 @@
             <h2>Borders</h2>
             <div class="nc-cluster">
                 <div class="nc-box"
-                     style="border: var(--border-width-medium) solid var(--color-border-default)">
+                     style="border: var(--border-width-medium) solid var(--color-border-base)">
                     <small>color-border-default</small>
                 </div>
                 <div class="nc-box"

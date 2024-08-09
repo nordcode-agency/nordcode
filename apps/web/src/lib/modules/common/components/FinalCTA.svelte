@@ -102,13 +102,13 @@
 
 			&:nth-child(1) {
 				background: #00d5ff;
-				box-shadow: 0 0 30px 10px oklch(var(--color-brand-secondary-base-lch) / 0.4);
+                box-shadow: 0 0 30px 10px color-mix(in oklch, var(--color-brand-secondary-base), transparent 60%);
 				animation-delay: -3s;
 			}
 
 			&:nth-child(2) {
 				background: #0000ff;
-				box-shadow: 0 0 30px 10px oklch(var(--color-brand-primary-base-lch) / 0.4);
+				box-shadow: 0 0 30px 10px color-mix(in oklch, var(--color-brand-primary-base), transparent 60%);
 			}
 		}
 	}
@@ -125,9 +125,9 @@
 		& div {
 			display: block;
 			aspect-ratio: 1 / 6;
-			background: oklch(var(--color-surface-default-lch) / 0.5);
+			background: color-mix(in oklch, var(--color-surface-base), transparent 50%);
 			backdrop-filter: blur(100px);
-			box-shadow: 0 0 20px 5px oklch(var(--color-surface-default-lch) / 0.4);
+			box-shadow: 0 0 20px 5px color-mix(in oklch, var(--color-surface-base), transparent 60%);
 			border-radius: 5%;
 		}
 	}

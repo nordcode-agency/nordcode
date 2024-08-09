@@ -1,7 +1,7 @@
 ---
-import { Content as ColorsExplanation } from '../../../../docs/colors.md';
 import PresetPreview from '../../presets/components/PresetPreview.astro';
 import ContrastChecker from './ContrastChecker.svelte';
+import GeneralColorSettings from './GeneralColorSettings.svelte';
 import PrimaryColors from './PrimaryColors.svelte';
 import SecondaryColors from './SecondaryColors.svelte';
 import TextColors from './TextColors.svelte';
@@ -11,6 +11,10 @@ import StatusColors from './StatusColors.svelte';
 import SecondaryNav from '../../common/components/SecondaryNav.astro';
 
 const entries = [
+    {
+        title: 'General',
+        url: '#general',
+    },
     {
         title: 'Primary',
         url: '#primary',
@@ -38,6 +42,10 @@ const entries = [
     {
         title: 'Contrast Checker',
         url: '#contrast-checker',
+    },
+    {
+        title: 'Color Preview',
+        url: '#preview',
     },
 ];
 ---
@@ -75,12 +83,9 @@ const entries = [
     }
 </style>
 
-<div class="nc-stack -far">
+<div>
     <SecondaryNav entries={entries} />
-    <div class="nc-flow">
-        <ColorsExplanation />
-    </div>
-
+    <GeneralColorSettings client:only="svelte" />
     <PrimaryColors client:only="svelte" />
     <SecondaryColors client:only="svelte" />
     <TextColors client:only="svelte" />
@@ -89,11 +94,11 @@ const entries = [
     <StatusColors client:only="svelte" />
     <ContrastChecker client:only="svelte" />
 
-    <hr />
     <PresetPreview />
-    <hr />
 
     <hr />
+    <section class="nc-region content-block nc-stack -far">
+        <h2 id="preview">Color Previews</h2>
     <div class="nc-cluster -near">
         <button class="nc-button">Default</button>
         <button class="nc-button -primary">Primary</button>
@@ -138,7 +143,7 @@ const entries = [
 
     <hr />
     <h2>Color utilities</h2>
-    <div class="nc-cluster -far">
+    <div class="nc-cluster -far live-preview">
         <div class="color-util-preview">Standard</div>
         <div class="color-util-preview -neutral">Neutral</div>
         <div class="color-util-preview -muted">Muted</div>
@@ -170,5 +175,6 @@ const entries = [
                 <li><code>.nc-fieldset > legend</code></li>
             </ul>
     </div>
+        </section>
 
 </div>

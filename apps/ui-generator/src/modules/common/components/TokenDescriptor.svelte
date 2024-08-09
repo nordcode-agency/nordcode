@@ -1,8 +1,8 @@
 <script lang="ts">
-    export let name: string;
-    export let token: string;
-    export let description: string;
-    export let resolvedValue: string;
+export let name: string;
+export let token: string;
+export let description: string;
+export let resolvedValue: string;
 </script>
 
 <div class="nc-stack -near text-box">
@@ -14,9 +14,9 @@
     </div>
 
     <div class="nc-cluster -near">
-        <code class="token">
+        <var class="token">
             {token}
-        </code>
+        </var>
         <button class="nc-button -outline -small" data-copy-target={token}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -35,11 +35,6 @@
 <style>
     .text-box {
         padding-block: var(--spacing-base);
-    }
-
-    .token {
-        font-size: var(--font-size-small);
-        padding-inline: 1ch;
     }
 
     .description {

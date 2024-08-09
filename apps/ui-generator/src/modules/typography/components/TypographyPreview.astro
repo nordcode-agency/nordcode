@@ -43,47 +43,57 @@ const longText =
     'Dies ist ein langer Text für dich Lukas. Ich hoffe, du kannst ihn lesen und er tut deinen Augen nicht weh.';
 ---
 
-<div class="nc-stack -far">
-    <div class="nc-stack -near">
-        <h2>Font Families</h2>
-        {
-            Object.entries(fontFamilies).map(([key, value]) => (
-                <TextPreviewRow label={key} style={value} text={text} />
-            ))
-        }
+<div>
+    <div class="nc-region content-block">
+        <h2 class="section-headline">Font Families</h2>
+        <div class="nc-stack -near">
+            {
+                Object.entries(fontFamilies).map(([key, value]) => (
+                    <TextPreviewRow label={key} style={value} text={text} />
+                ))
+            }
+        </div>
     </div>
-    <div class="nc-stack -near">
-        <h2>Font sizes</h2>
-        {
-            Object.entries(fontSizes).map(([key, value]) => (
-                <TextPreviewRow label={key} style={value} text={text} />
-            ))
-        }
+    <div class="nc-region content-block">
+        <h2 class="section-headline">Font Sizes</h2>
+        <div class="nc-stack -near">
+            {
+                Object.entries(fontSizes).map(([key, value]) => (
+                    <TextPreviewRow label={key} style={value} text={text} />
+                ))
+            }
+        </div>
     </div>
-    <div class="nc-stack -near">
-        <h2>Tracking</h2>
-        {
-            Object.entries(tracking).map(([key, value]) => (
-                <TextPreviewRow label={key} style={value} text={text} />
-            ))
-        }
-    </div>
-
-    <div class="nc-stack -near">
-        <h2>Line Heights</h2>
-        {
-            Object.entries(lineheights).map(([key, value]) => (
-                <TextPreviewRow label={key} style={value} text={text} />
-            ))
-        }
+    <div class="nc-region content-block">
+        <h2 class="section-headline">Tracking</h2>
+        <div class="nc-stack -near">
+            {
+                Object.entries(tracking).map(([key, value]) => (
+                    <TextPreviewRow label={key} style={value} text={text} />
+                ))
+            }
+        </div>
     </div>
 
-    <div class="nc-stack -near">
-        <h2>Measures</h2>
-        {
-            Object.entries(measures).map(([key, value]) => (
-                <TextPreviewRow label={key} style={value} text={longText} />
-            ))
-        }
+    <div class="nc-region content-block">
+        <h2 class="section-headline">Line Heights</h2>
+        <div class="nc-stack -near">
+            {
+                Object.entries(lineheights).map(([key, value]) => (
+                    <TextPreviewRow label={key} style={value} text={text} />
+                ))
+            }
+        </div>
+    </div>
+
+    <div class="nc-region content-block">
+        <h2 class="section-headline">Measures</h2>
+        <div class="nc-stack -near">
+            {
+                Object.entries(measures).map(([key, value]) => (
+                    <TextPreviewRow label={key} style={value} text={longText} />
+                ))
+            }
+        </div>
     </div>
 </div>

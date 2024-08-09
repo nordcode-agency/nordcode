@@ -1,7 +1,5 @@
 <script>
-
-	import Stars from "./Stars.svelte";
-
+import Stars from './Stars.svelte';
 </script>
 <section class="nc-box">
     <div class="nc-card card">
@@ -78,12 +76,12 @@
         animation: appear linear both;
         animation-timeline: --atmosphereTimeline;
         animation-range: 86% 96%;
-        background-color: var(--color-surface-default);
+        background-color: var(--color-surface-base);
         box-shadow:
             0px var(--shadow-vertical-offset) calc(var(--shadow-blur) * var(--shadow-max-multiplier) / 8) 0px rgba(255,255,255,0.7),
             0px var(--shadow-vertical-offset) calc(var(--shadow-blur) * var(--shadow-max-multiplier) / 4) 0px rgba(255,255,255,0.5),
-            0px var(--shadow-vertical-offset) calc(var(--shadow-blur) * var(--shadow-max-multiplier) / 2) 0px var(--color-brand-secondary-dark-emphasis),
-            0px var(--shadow-vertical-offset) calc(var(--shadow-blur) * var(--shadow-max-multiplier)) 0px var(--color-brand-primary-light-emphasis);
+            0px var(--shadow-vertical-offset) calc(var(--shadow-blur) * var(--shadow-max-multiplier) / 2) 0px var(--color-brand-secondary-emphasis-dark),
+            0px var(--shadow-vertical-offset) calc(var(--shadow-blur) * var(--shadow-max-multiplier)) 0px var(--color-brand-primary-emphasis-light);
     }
 
     @keyframes appear {

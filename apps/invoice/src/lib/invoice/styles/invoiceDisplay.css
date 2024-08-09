@@ -6,7 +6,7 @@
     block-size: 100%;
     min-block-size: 297mm;
     margin: 0 auto;
-    background: var(--color-surface-default);
+    background: var(--color-surface-base);
 
     & h1 {
         font-size: var(--font-size-largest);
@@ -65,7 +65,7 @@
 
 .printBg {
     width: 100%;
-    background: var(--color-surface-inset);
+    background: var(--color-surface-subtle);
     padding-block: var(--spacing-far);
     margin: 0 auto;
 }

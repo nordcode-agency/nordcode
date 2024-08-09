@@ -2,98 +2,64 @@
 
 ---
 
-<style>
-    .component-nav {
-        padding-inline: var(--spacing-base);
-        min-width: 12rem;
-        inline-size: 100%;
-        position: sticky;
-        top: 0;
 
-        & ul {
-            gap: var(--spacing-nearest);
-        }
-
-        & li > ul {
-            margin-block-start: var(--spacing-nearest);
-        }
-
-        & a {
-            position: relative;
-            display: flex;
-            align-items: center;
-
-            &:before {
-                color: var(--color-text-muted);
-                font-size: 0.75rem;
-                right: 100%;
-                content: '►';
-                transform: translate(-0.5rem);
-                opacity: 0;
-                transition: all var(--transition-duration-base) var(--ease-in-2);
-                position: absolute;
-            }
-        }
-
-        & a.-highlight {
-            color: var(--color-brand-primary-base);
-
-            &:before {
-                transform: translate(-0.25rem);
-                opacity: 1;
-                transition: all var(--transition-duration-base) var(--ease-out-2);
-            }
-        }
-    }
-</style>
-
-<nav class="component-nav">
-    <ul class="nc-list-reset"></ul>
+<nav class="preview-sidenav layout-nav nc-region content-block">
+    <ul class="nc-list-reset nc-stack"></ul>
+    <template id="link-template">
+        <li>
+            <a href=""></a>
+        </li>
+    </template>
 </nav>
 
 <script>
-    document.addEventListener('astro:page-load', () => {
-        const links = document.querySelectorAll('.comp-link');
-        const sections = document.querySelectorAll('.section-to-observe');
-        const options = {
-            // root is only required because this sandbox is in an iframe.
-            root: document,
-            rootMargin: '-50% 0px',
-            threshold: 0,
-        };
-        const HIGHLIGHT_CLASS = '-highlight';
-        const tableOfContentsMap = [...sections].reduce((acc, section, i) => {
-            return {
-                ...acc,
-                [section.id]: links[i],
-            };
-        }, {});
+    const linkContainer = document.querySelector('.preview-sidenav ul');
+    const linkTemplate = document.getElementById('link-template');
+    const sections = document.querySelectorAll('.section-to-observe');
+    const options = {
+        // root is only required because this sandbox is in an iframe.
+        root: document,
+        rootMargin: '-50% 0px',
+        threshold: 0,
+    };
+    const HIGHLIGHT_CLASS = '-highlight';
 
-        function removeHighlight(id) {
-            tableOfContentsMap[id].classList.remove(HIGHLIGHT_CLASS);
-        }
+    const tableOfContentsMap = {};
 
-        function addHighlight(id) {
-            tableOfContentsMap[id].classList.add(HIGHLIGHT_CLASS);
-        }
+    function removeHighlight(id) {
+        tableOfContentsMap[id].classList.remove(HIGHLIGHT_CLASS);
+        tableOfContentsMap[id].removeAttribute("aria-current");
+    }
 
-        function onObserve(entries, _) {
-            entries.forEach(entry => {
+    function addHighlight(id) {
+        tableOfContentsMap[id].classList.add(HIGHLIGHT_CLASS);
+        tableOfContentsMap[id].setAttribute("aria-current", "true");
+
+    }
+
+    function onObserve(entries, _) {
+        entries.forEach(entry => {
+            const { id } = entry.target;
+
+            if (entry.isIntersecting) {
+                addHighlight(id);
+            } else {
                 const { id } = entry.target;
-
-                if (entry.isIntersecting) {
-                    addHighlight(id);
-                } else {
-                    const { id } = entry.target;
-                    removeHighlight(id);
-                }
-            });
-        }
-
-        const observer = new IntersectionObserver(onObserve, options);
-
-        sections.forEach(section => {
-            observer.observe(section);
+                removeHighlight(id);
+            }
         });
+    }
+
+    const observer = new IntersectionObserver(onObserve, options);
+
+    sections.forEach(section => {
+        const sectionLink = section.querySelector(".anchor-link")
+        const newLink = linkTemplate.content.cloneNode(true);
+        const newLinkElement = newLink.querySelector('a');
+        newLinkElement.href = sectionLink;
+        newLinkElement.textContent = `.${section.id}`;
+        tableOfContentsMap[section.id] =newLinkElement;
+        linkContainer.appendChild(newLink);
+        observer.observe(section);
     });
 </script>

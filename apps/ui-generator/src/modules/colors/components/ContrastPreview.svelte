@@ -20,7 +20,7 @@ export let apcaContrast: number;
         display: flex;
         align-items: center;
         gap: 1ch;
-        background: var(--color-surface-default);
+        background: var(--color-surface-base);
     }
 
     .badge > span {

@@ -1,33 +1,30 @@
 <script lang="ts">
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
-    import { configStore } from '../../store/configStore.ts';
-    import SurfaceColorPreviewEntry from './SurfaceColorPreviewEntry.svelte';
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import { configStore } from '../../store/configStore.ts';
+import SurfaceColorPreviewEntry from './SurfaceColorPreviewEntry.svelte';
 
-    const baseColors = [
-        {
-            name: 'Default',
-            description: 'Primary color for backgrounds in any given interface.',
-        },
+const baseColors = [
+    {
+        name: 'Base',
+        description: 'Primary color for backgrounds in any given interface.',
+    },
+    {
+        name: 'Muted',
+        description: 'Provides visual rest and contrast against the default background.',
+    },
+    {
+        name: 'Subtle',
+        description: 'Provides a little more distinction, but still remains in the background.',
+    },
+];
 
-        {
-            name: 'Subtle',
-            description: 'Provides visual rest and contrast against the default background.',
-        },
-        {
-            name: 'Inset',
-            description:
-                'Can be used instead of the default background to create a focal point, such as in conversations or activity feeds.',
-        },
-    ];
-
-    const emphasisColor = {
-        name: 'Emphasis',
-        description:
-            'Use for backgrounds that need to stand out, such as banners, badges, and alerts.',
-    };
+const emphasisColor = {
+    name: 'Emphasis',
+    description: 'Use for backgrounds that need to stand out, such as banners, badges, and alerts.',
+};
 </script>
 
-<section class="nc-region nc-stack -contained -stretched">
+<section class="nc-region nc-stack -contained -stretched content-block">
     <h2 id="surface">Surface Colors</h2>
     <div class="nc-grid preview-grid">
         <div class="nc-stack">
@@ -86,7 +83,7 @@
             {#each baseColors as color}
                 <SurfaceColorPreviewEntry
                     {color}
-                    textColor="--color-text-default"
+                    textColor="--color-text-base"
                     baseToken="--color-surface"
                 ></SurfaceColorPreviewEntry>
             {/each}

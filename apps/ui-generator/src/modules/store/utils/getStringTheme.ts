@@ -7,12 +7,7 @@ export const getStringTheme = (store: ConfigStore) => {
     let themeString = '';
 
     for (const [name, value] of Object.entries(theme)) {
-        themeString = themeString.concat(
-            `
-${name}-lch: ${value};
-${name}: oklch(var(${name}-lch));
-            `.trim(),
-        );
+        themeString = themeString.concat(`${name}: ${value};`.trim());
         themeString = `${themeString}\n`;
     }
 
