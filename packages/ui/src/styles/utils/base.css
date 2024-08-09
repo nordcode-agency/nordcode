@@ -329,7 +329,7 @@
     :where(th) {
         font-weight: var(--font-weight-active);
         color: var(--color-text-muted);
-        background-color: oklch(var(--color-surface-emphasis-lch) / 0.04);
+        background-color: var(--color-surface-subtle);
     }
 
     :where(tbody tr:hover) {
@@ -354,7 +354,7 @@
     }
 
     :where(tbody tr:nth-child(even) > td) {
-        background-color: oklch(var(--color-surface-emphasis-lch) / 0.02);
+        background-color: var(--color-surface-muted);
     }
 
     :target {

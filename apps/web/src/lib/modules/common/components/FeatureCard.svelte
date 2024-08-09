@@ -44,8 +44,8 @@ export let id: string | undefined = undefined;
 			/ 1fr;
 		background: linear-gradient(
 			45deg,
-			oklch(var(--color-border-base-lch) / 0.03),
-			oklch(var(--color-surface-base-lch) / 0.8)
+			color-mix(in oklch, var(--color-border-base), transparent 97%),
+			color-mix(in oklch, var(--color-surface-base), transparent 20%)
 		);
 		backdrop-filter: blur(var(--spacing-base));
 		block-size: 100%;
@@ -71,12 +71,14 @@ export let id: string | undefined = undefined;
 				}
 
 				& .headings {
-					background: oklch(var(--color-surface-subtle-lch) / 0.9);
+					background: color-mix(in oklch, var(--color-surface-subtle), transparent 10%);
 					backdrop-filter: blur(var(--spacing-base));
 					padding-block: var(--spacing-base);
 					padding-inline: var(--spacing-far);
 					border-radius: var(--border-radius-large);
 					box-shadow: var(--shadow-near);
+					transition: var(--ease-2) var(--transition-duration-base);
+					transition-property: box-shadow, background;
 				}
 			}
 		}
@@ -84,6 +86,13 @@ export let id: string | undefined = undefined;
 		@container (min-inline-size: 1024px) {
 			& {
 				aspect-ratio: 21 / 9;
+			}
+		}
+
+		&:hover {
+		   & .headings {
+					box-shadow: var(--shadow-far);
+					background: color-mix(in oklch, var(--color-surface-subtle), transparent 0%);
 			}
 		}
 	}

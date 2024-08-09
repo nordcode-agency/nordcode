@@ -80,7 +80,7 @@ p {
 	&:hover {
 		box-shadow: var(--_card-shadow),
 			inset 0px calc(var(--spacing-near) * -1) var(--spacing-base)
-				calc(var(--spacing-near) * -1) oklch(var(--color-brand-primary-base-lch) / 0.1);
+				calc(var(--spacing-near) * -1) color-mix(in oklch, var(--color-brand-primary-base), transparent 90%);
 	}
 }
 
@@ -137,7 +137,7 @@ section.nc-box {
         opacity: 1;
         transform: translateX(0px);
     }
-    
+
 }
 
 .char-animation {
