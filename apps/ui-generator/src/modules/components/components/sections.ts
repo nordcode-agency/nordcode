@@ -144,7 +144,6 @@ const sections: Array<Section> = [
                 description: "It's a table. It's good for displaying lots of data in columns.",
                 notes: [
                     'Make sure all data is visible in all responsive setups. We do that using a scroll.',
-                    'You can change the background-color using <var>--nc-table-background-lch</var>',
                 ],
                 examples: [
                     {

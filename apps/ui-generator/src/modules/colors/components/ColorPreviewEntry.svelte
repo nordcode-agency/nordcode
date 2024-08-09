@@ -33,7 +33,6 @@ const getComputedColor = (variant: 'light' | 'dark') => {
     if (!el) {
         return '';
     }
-    console.log(el);
     return window.getComputedStyle(el).getPropertyValue('background').trim();
 };
 
