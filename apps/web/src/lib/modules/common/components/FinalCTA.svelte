@@ -1,14 +1,20 @@
 <script>
-	import SecondaryCtaButton from '$lib/modules/common/components/SecondaryCtaButton.svelte';
 	import LogoClipPath from './LogoClipPath.svelte';
+	const logoLength = 7;
 </script>
 
+<!-- style={`transform: scale(${1 + idx * 1.3}) rotate(${(idx + 1) * 6}deg);`} -->
+
 <section class="nc-box nc-pile">
-	<div class="container">
+	<div class="container nc-card">
 		<div class="nc-pile pile">
 			<div class="bg nc-pile">
-				{#each Array.from({ length: 2 }) as _item, idx}
-					<div class="bg-logo" data-idx={idx}>
+				{#each Array.from({ length: logoLength }) as _item, idx}
+					<div
+						class="bg-logo"
+						data-idx={idx}
+						style={`--scale: ${2 + idx * 1.3}; --finalRotation: ${(idx + 1) * 6}deg;`}
+					>
 						<LogoClipPath />
 					</div>
 				{/each}
@@ -33,9 +39,17 @@
 
 <style>
 	.container {
+		--card-border-color: transparent;
+		--shadow-color: color-mix(in oklch, var(--color-surface-subtle), transparent 34%);
+
 		max-inline-size: 1400px;
 		block-size: 60vh;
 		padding: 0;
+		background-color: var(--color-surface-muted);
+		box-shadow: 0px 0.2px 0.2px var(--shadow-color), 0px 1.1px 1.2px -0.4px var(--shadow-color),
+			0px 2.1px 2.4px -0.7px var(--shadow-color), 0px 3.4px 3.8px -1.1px var(--shadow-color),
+			0px 5.4px 6.1px -1.4px var(--shadow-color), 0px 8.5px 9.6px -1.8px var(--shadow-color),
+			0px 12.9px 14.5px -2.1px var(--shadow-color), 0px 19px 21.4px -2.5px var(--shadow-color);
 	}
 
 	.pile {
@@ -55,32 +69,33 @@
 		min-inline-size: 0;
 	}
 
+    @keyframes rotateLogo {
+        from {
+            transform: rotate(0deg) scale(var(--scale));
+        }
+        to {
+            transform: rotate(var(--finalRotation)) scale(var(--scale));
+        }
+    }
+
 	.bg-logo {
 		/* inline-size: 35vmin;
         block-size: 35vmin; */
-		inline-size: 30vw;
-		block-size: 30vw;
+		inline-size: 20vw;
+		block-size: 20vw;
 		clip-path: url(#logo-clip);
-
-		&:nth-of-type(1) {
-			background-image: linear-gradient(
-				to right in oklch,
-				oklch(90% 0.5 200 / 0) 0%,
-				oklch(70% 0.5 256) 50%,
-				oklch(90% 0.5 200 / 0) 100%
-			);
-			/* transform: rotate(173deg); */
-		}
-
-		&:nth-of-type(2) {
-			background-image: linear-gradient(
-				to right in oklch,
-				oklch(90% 0.5 200 / 0) 0%,
-				oklch(70% 0.5 256) 50%,
-				oklch(90% 0.5 200 / 0) 100%
-			);
-			transform: translateX(10%);
-		}
+		background-image: radial-gradient(
+			in oklch,
+			color-mix(in oklch, var(--color-brand-primary-emphasis), transparent 80%),
+			color-mix(in oklch, var(--color-brand-secondary-emphasis), transparent 80%)
+		);
+        transform: rotate(var(--finalRotation)) scale(var(--scale));
+        animation: rotateLogo linear both;
+        /* animation-timeline: view(block); */
+        /* animation-range: cover 0% cover 100%; */
+        animation-duration: 1ms; /* Firefox requires this to apply the animation */
+        animation-timeline: --bodyTimeline;
+        animation-range: 90% 100%;
 	}
 
 	.colors {
@@ -102,13 +117,15 @@
 
 			&:nth-child(1) {
 				background: #00d5ff;
-                box-shadow: 0 0 30px 10px color-mix(in oklch, var(--color-brand-secondary-base), transparent 60%);
+				box-shadow: 0 0 30px 10px
+					color-mix(in oklch, var(--color-brand-secondary-base), transparent 60%);
 				animation-delay: -3s;
 			}
 
 			&:nth-child(2) {
 				background: #0000ff;
-				box-shadow: 0 0 30px 10px color-mix(in oklch, var(--color-brand-primary-base), transparent 60%);
+				box-shadow: 0 0 30px 10px
+					color-mix(in oklch, var(--color-brand-primary-base), transparent 60%);
 			}
 		}
 	}
@@ -133,8 +150,11 @@
 	}
 
 	.finalCTA {
-		font-weight: lighter;
-		font-size: calc(var(--font-size-largest) * 1.5);
+		& a {
+			color: var(--color-text-on-emphasis);
+			font-weight: normal;
+			font-size: calc(var(--font-size-largest) * 1.5);
+		}
 		/* color: var(--color-text-default);
         background-color: var(--color-surface-default);
         border-radius: var(--border-radius-large); */
