@@ -77,8 +77,6 @@ export let id: string | undefined = undefined;
 					padding-inline: var(--spacing-far);
 					border-radius: var(--border-radius-large);
 					box-shadow: var(--shadow-near);
-					transition: var(--ease-2) var(--transition-duration-base);
-					transition-property: box-shadow, background;
 				}
 			}
 		}
@@ -86,13 +84,6 @@ export let id: string | undefined = undefined;
 		@container (min-inline-size: 1024px) {
 			& {
 				aspect-ratio: 21 / 9;
-			}
-		}
-
-		&:hover {
-		   & .headings {
-					box-shadow: var(--shadow-far);
-					background: color-mix(in oklch, var(--color-surface-subtle), transparent 0%);
 			}
 		}
 	}
