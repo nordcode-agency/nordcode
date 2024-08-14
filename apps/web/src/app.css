@@ -60,6 +60,36 @@ p {
 
 .nc-button {
 	font-weight: bold;
+    transition: background 0.3s ease;
+
+    &:not(.-outline) {
+        border: 0;
+    }
+    
+    &.-outline {
+        border-color: var(--color-text-muted);
+    }
+
+    &:is(.-outline, .-stealth) {
+        color: var(--color-text-base);
+    }
+
+	&:not(.-outline, .-stealth) {
+		background: radial-gradient(
+			circle at center left,
+			var(--color-brand-primary-base),
+			var(--color-brand-secondary-base)
+		);
+
+        &:hover {
+            color: var(--text-hover);
+            background: radial-gradient(
+                circle at center left,
+                var(--color-brand-primary-base) -50%,
+                var(--color-brand-secondary-base)
+            );
+        }
+	}
 }
 
 .nc-box {
