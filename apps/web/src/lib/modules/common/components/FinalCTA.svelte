@@ -1,7 +1,7 @@
 <section class="nc-box">
 	<div class="container nc-center nc-card">
 		<div class="nc-stack -far">
-			<h3>Bereit für dein Projekt?</h3>
+			<h2>Bereit für dein Projekt?</h2>
 			<p>
 				Wir würden gerne mehr über dein Vorhaben erfahren. Egal ob mit einer konkreten Idee,
 				einer vagen Vorstellung, kleinem oder großen Budget. Erzähl uns mehr, unverbindlich
@@ -9,8 +9,8 @@
 			</p>
 			<div class="actions">
 				<a class="nc-button -primary" href="/start">Jetzt loslegen</a>
-				<a class="nc-button -outline" href="mailto:hello@nordcode.agency"
-					>hello@nordcode.agency</a
+				<a class="nc-button -outline" href="mailto:hallo@nordcode.agency"
+					>hallo@nordcode.agency</a
 				>
 			</div>
 		</div>
@@ -22,9 +22,9 @@
 		display: flex;
 		align-items: center;
 
-		& h3 {
-            font-size: 2.4rem;
+		& h2 {
 			color: var(--color-text-base);
+            margin-block-end: var(--spacing-far);
 		}
 
 		& p {
@@ -40,7 +40,7 @@
 
 		display: flex;
 		align-items: center;
-		block-size: 60vh;
+		min-block-size: 60vh;
 		padding: var(--spacing-adaptive);
 		background: radial-gradient(
 				ellipse at top right in oklch,
@@ -57,6 +57,7 @@
 
 	.actions {
 		display: flex;
+        flex-wrap: wrap;
 		gap: var(--spacing-near);
 	}
 </style>
