@@ -14,7 +14,13 @@
 	<Header />
 	<section class="nc-stack -farthest nc-center">
 		<div class="nc-stack">
-			<h1>Erzähl uns mehr!</h1>
+			<h1>Wir melden uns bei dir.</h1>
+			<p>
+				Mit der Angabe deiner E-Mail bekommen wir einen guten ersten Einblick, was dir
+				vorschwebt. Wir melden uns bei dir, damit wir mehr über dein Projekt, deine Idee
+				oder Herausforderung erfahren können. Zusammen finden wir eine Lösung die zu dir und
+				deinem Budget passt.
+			</p>
 		</div>
 		<form class="nc-stack -far">
 			<!-- COMPONENT-START: nc-input-field -->
