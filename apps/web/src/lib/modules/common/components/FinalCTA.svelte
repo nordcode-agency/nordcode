@@ -5,7 +5,7 @@
 			<p>
 				Wir würden gerne mehr über dein Vorhaben erfahren. Egal ob mit einer konkreten Idee,
 				einer vagen Vorstellung, kleinem oder großen Budget. Erzähl uns mehr, unverbindlich
-				und ohne Kosten.
+				und ohne doppelten Boden.
 			</p>
 			<div class="actions">
 				<a class="nc-button -primary" href="/start">Jetzt loslegen</a>
