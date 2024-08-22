@@ -12,19 +12,19 @@
     }
   }
 
-  :where(html[color-scheme="light"]) {
+  :where(html[color-scheme="light"], [data-theme="light"]) {
     --lightningcss-light: initial;
     --lightningcss-dark: ;
     color-scheme: light;
   }
 
-  :where(html[color-scheme="dark"]) {
+  :where(html[color-scheme="dark"], [data-theme="dark"]) {
     --lightningcss-light: ;
     --lightningcss-dark: initial;
     color-scheme: dark;
   }
 
-  :where(html) {
+  :where(*) {
     --l-brand-primary: var(--lightningcss-light, var(--l-brand-primary-light)) var(--lightningcss-dark, var(--l-brand-primary-dark));
     --color-brand-primary-emphasis: var(--lightningcss-light, var(--color-brand-primary-emphasis-light)) var(--lightningcss-dark, var(--color-brand-primary-emphasis-dark));
     --color-brand-primary-base: var(--lightningcss-light, var(--color-brand-primary-base-light)) var(--lightningcss-dark, var(--color-brand-primary-base-dark));
