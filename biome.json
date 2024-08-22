@@ -21,7 +21,7 @@
     },
     "formatter": {
         "enabled": true,
-        "formatWithErrors": false,
+        "formatWithErrors": true,
         "indentStyle": "space",
         "indentWidth": 4,
         "lineEnding": "lf",
@@ -66,5 +66,18 @@
         "linter": {
             "enabled": true
         }
-    }
+    },
+    "overrides": [
+        {
+            "include": ["*.svelte", "*.astro", "*.vue"],
+            "linter": {
+                "rules": {
+                    "style": {
+                        "useConst": "off",
+                        "useImportType": "off"
+                    }
+                }
+            }
+        }
+    ]
 }

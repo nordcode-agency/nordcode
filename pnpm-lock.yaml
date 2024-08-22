@@ -243,6 +243,9 @@ importers:
 
   packages/forms-svelte:
     devDependencies:
+      '@biomejs/biome':
+        specifier: 1.8.3
+        version: 1.8.3
       '@markdoc/markdoc':
         specifier: ^0.4.0
         version: 0.4.0
