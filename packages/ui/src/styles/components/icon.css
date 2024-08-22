@@ -4,37 +4,36 @@
     display: block;
     inline-size: var(--icon-size);
     block-size: var(--icon-size);
-    fill: currentColor;
 
-    &[data-flip='true'] {
+    &[data-flip="true"] {
         transform: scaleX(-1);
     }
 
-    &[data-size='xs'] {
+    &[data-size="xs"] {
         --icon-size: 1ex;
     }
 
-    &[data-size='sm'] {
+    &[data-size="sm"] {
         --icon-size: 1.5ex;
     }
 
-    &[data-size='md'] {
+    &[data-size="md"] {
         --icon-size: 2ex;
     }
 
-    &[data-size='lg'] {
+    &[data-size="lg"] {
         --icon-size: 3ex;
     }
 
-    &[data-size='xl'] {
+    &[data-size="xl"] {
         --icon-size: 4ex;
     }
 
-    &[data-size='inline'] {
+    &[data-size="inline"] {
         --icon-size: 0.75lh;
     }
 
-    &[data-animation='spinning'] {
+    &[data-animation="spinning"] {
         animation: spinning 1s infinite linear;
     }
 }
