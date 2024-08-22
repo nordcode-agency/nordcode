@@ -1,4 +1,4 @@
-.badge {
+:where(.badge) {
     font-family: var(--font-family-mono);
     letter-spacing: var(--tracking-tight);
     font-weight: var(--font-weight-default);
