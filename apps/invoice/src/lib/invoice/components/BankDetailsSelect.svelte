@@ -3,7 +3,7 @@
         currentInvoice,
         setBankDetails,
     } from "../invoiceStore";
-    import Select from "@nordcode/ui/src/modules/forms/svelte/InputFields/Select.svelte";
+    import { Select } from "@nordcode/forms-svelte";
     import type {
         BankingDetails,
     } from '$lib/invoice/models/Invoice.model';

@@ -1,7 +1,5 @@
 <script lang="ts">
-import Input from '@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte';
-import Select from '@nordcode/ui/src/modules/forms/svelte/InputFields/Select.svelte';
-import InputWrapper from '@nordcode/ui/src/modules/forms/svelte/InputFields/InputWrapper.svelte';
+import { Input, Select, InputWrapper } from '@nordcode/forms-svelte';
 import { configStore, updateFontScale } from '../../store/configStore';
 </script>
 

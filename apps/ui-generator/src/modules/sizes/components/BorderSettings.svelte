@@ -1,6 +1,5 @@
 <script lang="ts">
-import Input from '@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte';
-import InputWrapper from '@nordcode/ui/src/modules/forms/svelte/InputFields/InputWrapper.svelte';
+import { Input } from '@nordcode/forms-svelte';
 import {
     configStore,
     updateBorderRadiusScale,

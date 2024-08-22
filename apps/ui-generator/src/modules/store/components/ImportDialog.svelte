@@ -1,5 +1,5 @@
 <script>
-import Textarea from '@nordcode/ui/src/modules/forms/svelte/InputFields/Textarea.svelte';
+import { TextArea } from '@nordcode/forms-svelte';
 import { configStore } from '../configStore';
 
 // biome-ignore lint/style/useConst: <explanation>
@@ -22,12 +22,12 @@ const importStyles = () => {
         </div>
         <div class="dialog-content">
             <div class="nc-stack">
-            <Textarea
+            <TextArea
                     name="imported Styles"
                     label="Styles to import"
                     id="imported Styles"
                     bind:value={importedStyles}
-            ></Textarea>
+            ></TextArea>
             </div>
         </div>
         <div class="dialog-actions">

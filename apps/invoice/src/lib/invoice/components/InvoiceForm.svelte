@@ -4,8 +4,7 @@
         currentInvoice,
         removeJobDescription,
     } from "../invoiceStore";
-    import Input from "@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte";
-    import Textarea from "@nordcode/ui/src/modules/forms/svelte/InputFields/Textarea.svelte";
+    import {Input, TextArea} from "@nordcode/forms-svelte";
     import type {
         Issuer,
         BankingDetails,
@@ -100,7 +99,7 @@
                    type="text"
                    bind:value={$currentInvoice.invoice.recipient.name}
             />
-            <Textarea errors={$currentInvoice.errors.recipient}
+            <TextArea errors={$currentInvoice.errors.recipient}
                       name="recipientAddress"
                       label="Adresse"
                       id="recipientAddress"
@@ -130,14 +129,14 @@
                             name="{`job-${job.id}-title`}"
                             label="Titel"
                             id="{`job-${job.id}-title`}"
-                            optional="true"
+                            optional={true}
                             bind:value={job.title} />
-                        <Textarea
+                        <TextArea
                             name={`job-${job.id}-description`}
                             label={"Beschreibung"}
                             id={`job-${job.id}-description`}
                             bind:value={job.description}
-                        ></Textarea>
+                        ></TextArea>
                         <button class="nc-button -small -destructive"
                                 type="button"
                                 on:click={() => removeJobDescription(job.id)}>Leistung "{index + 1}"
@@ -155,7 +154,7 @@
         <fieldset class="nc-fieldset nc-stack">
             <legend class="nc-legend">Rechnungsdetails</legend>
 
-            <Textarea errors={$currentInvoice.errors.notes}
+            <TextArea errors={$currentInvoice.errors.notes}
                       name="notes"
                       label="Anmerkungen"
                       id="notes"
@@ -198,7 +197,7 @@
                    type="text"
                    bind:value={$currentInvoice.invoice.issuer.name}
             />
-            <Textarea errors={$currentInvoice.errors.issuer}
+            <TextArea errors={$currentInvoice.errors.issuer}
                       name="issuerAddress"
                       label="Adresse"
                       id="issuerAddress"

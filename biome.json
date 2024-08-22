@@ -4,11 +4,7 @@
         "enabled": true
     },
     "files": {
-        "ignore": [
-            "dist",
-            ".astro",
-            "public/assets"
-        ]
+        "ignore": ["dist", ".astro", "public/assets"]
     },
     "linter": {
         "enabled": true,
@@ -40,7 +36,7 @@
             "lineWidth": 100,
             "quoteStyle": "single",
             "jsxQuoteStyle": "double",
-            "trailingComma": "all",
+            "trailingCommas": "all",
             "semicolons": "always",
             "bracketSameLine": false,
             "bracketSpacing": true
@@ -57,6 +53,18 @@
             "indentWidth": 4,
             "lineEnding": "lf",
             "lineWidth": 100
+        }
+    },
+    "css": {
+        "formatter": {
+            "enabled": true,
+            "indentStyle": "space",
+            "indentWidth": 4,
+            "lineEnding": "lf",
+            "lineWidth": 100
+        },
+        "linter": {
+            "enabled": true
         }
     }
 }

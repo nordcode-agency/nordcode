@@ -1,5 +1,5 @@
 <script lang="ts">
-import Input from '@nordcode/ui/src/modules/forms/svelte/InputFields/Input.svelte';
+import { Input } from '@nordcode/forms-svelte';
 import { configStore } from '../../store/configStore';
 import SettingsInput from '../../common/components/SettingsInput.svelte';
 </script>

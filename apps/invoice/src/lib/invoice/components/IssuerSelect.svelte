@@ -3,7 +3,7 @@
         currentInvoice,
         setIssuer,
     } from "../invoiceStore";
-    import Select from "@nordcode/ui/src/modules/forms/svelte/InputFields/Select.svelte";
+    import {Select} from "@nordcode/forms-svelte";
     import type { Issuer } from '$lib/invoice/models/Invoice.model';
     import { invalidate } from '$app/navigation';
 
