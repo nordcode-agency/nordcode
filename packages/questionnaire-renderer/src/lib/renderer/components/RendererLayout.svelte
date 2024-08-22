@@ -1,9 +1,9 @@
 <script lang="ts">
 import { goBack, rendererStore } from '../store/rendererStore.ts';
 </script>
-<section class="nc-questionnaire-renderer">
+<section class="nc-questionnaire-renderer nc-region">
     <div class="nc-center page-center-layout">
-        <div class="nc-stack">
+        <div class="nc-stack -far">
         <button
             class="nc-button -stealth"
             type="button"
@@ -28,7 +28,18 @@ import { goBack, rendererStore } from '../store/rendererStore.ts';
     <div class="nc-questionnaire-renderer-controls">
         <slot name="controls" />
     </div>
+    <dl>
+    {#each $rendererStore.answers as answer}
+        <dt>{answer.question.title}</dt>
+        <dd>{answer.answer}</dd>
+    {/each}
+    </dl>
+        <!-- @todo: add overview over answers -->
+        <pre>
+            <code>
+                {JSON.stringify($rendererStore, null, 2)}
+                </code>
+            </pre>
     </div>
-
     </div>
 </section>

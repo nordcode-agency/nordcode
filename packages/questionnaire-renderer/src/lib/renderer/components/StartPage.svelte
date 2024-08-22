@@ -1,15 +1,13 @@
 <script lang="ts">
 import RendererLayout from './RendererLayout.svelte';
-import { startQuestionnaire } from '../store/rendererStore.ts';
-export let title: string;
-export let description: string | undefined;
+import { startQuestionnaire, rendererStore } from '../store/rendererStore.ts';
 </script>
 
 <RendererLayout>
     <div slot="content">
-        <h1>{title}</h1>
-        {#if description}
-            <p>{description}</p>
+        <h1>{$rendererStore.questionnaire.title}</h1>
+        {#if $rendererStore.questionnaire.description}
+            <p>{$rendererStore.questionnaire.description}</p>
         {/if}
     </div>
     <span slot="controls">

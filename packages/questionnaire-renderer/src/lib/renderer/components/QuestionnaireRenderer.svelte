@@ -17,11 +17,9 @@ onMount(() => {
 {#if $rendererStore?.questionnaire}
     {#if $rendererStore.currentState === "start"}
     <StartPage></StartPage>
-        {:else if $rendererStore.currentState === "question"}
-            <QuestionPage></QuestionPage>
-        {/if}
-        <!-- @todo: add overview over answers -->
-
+    {:else if $rendererStore.currentState === "questions"}
+        <QuestionPage></QuestionPage>
+    {/if}
 {:else}
     <p>Kein Fragebogen ausgewählt</p>
 {/if}

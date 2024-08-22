@@ -1,6 +1,9 @@
 import { localStore } from '@nordcode/forms-svelte';
 import type { Questionnaire } from '../../questionnaire/models/Questionnaire.model.ts';
-import type { QuestionnaireAnswer } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
+import type {
+    AnswerValue,
+    QuestionnaireAnswer,
+} from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
 
 const STORE_KEY = 'RENDERER_QUESTIONNAIRE';
 
@@ -31,7 +34,10 @@ export const setQuestionnaire = (questionnaire: Questionnaire) => {
         errors: {},
         currentQuestion: 0,
         currentState: 'start',
-        answers: [],
+        answers: questionnaire.questions.map((question) => ({
+            question,
+            answer: undefined,
+        })),
     });
 };
 
@@ -89,5 +95,16 @@ export const goToNextQuestion = () => {
                 store.questionnaire.questions.length - 1,
             ),
         };
+    });
+};
+
+export const answerQuestion = (answer: AnswerValue) => {
+    rendererStore.update((store: CurrentQuestionnaireStore) => {
+        if (!store.questionnaire) {
+            return;
+        }
+
+        store.answers[store.currentQuestion].answer = answer;
+        return store;
     });
 };

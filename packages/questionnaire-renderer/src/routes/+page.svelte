@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { Questionnaire } from '$lib/index.ts';
 import { QuestionnaireRenderer } from '../lib/renderer/index.ts';
 
 const json = {
@@ -16,13 +17,19 @@ const json = {
                 {
                     id: 'option-3DYR_EfRswywyJ156X7SF',
                     title: 'Schlecht',
-                    description: '',
+                    description: 'Das ist aber schade.',
                     value: 'Schlecht',
                 },
             ],
+        },
+        {
+            id: 'question-c5SD_dasdsada',
+            title: 'Wie gehts dir heute genau?',
+            type: 'text',
+            description: 'Wie geht es dir heute?',
         },
     ],
 };
 </script>
 
-<QuestionnaireRenderer questionnaire={json}></QuestionnaireRenderer>
+<QuestionnaireRenderer questionnaire={json as Questionnaire}></QuestionnaireRenderer>
