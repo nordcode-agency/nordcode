@@ -1,5 +1,9 @@
 <script lang="ts">
-import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
+import { onMount } from 'svelte';
+import {
+    getThemeMutationObserver,
+    type ThemeMutationObserverListener,
+} from '../../common/utils/ThemeMutationObserver.ts';
 
 export let color: {
     name: string;
@@ -10,29 +14,33 @@ export let surfaceColor: string;
 export let baseToken: string;
 
 const token = `${baseToken}-${color.name.toLowerCase()}`;
+const previewId = `border-preview-${color.name}`;
 
-const isSurface = token === surfaceColor;
+let resolvedColor = '';
 
-const getResolvedColor = (color: string) => {
-    if (!document) {
+const getComputedColor = (variant: 'light' | 'dark') => {
+    const el = document.getElementById(`${previewId}-${variant}`);
+    console.log(el);
+    if (!el) {
         return '';
     }
-    const themeEl = document.querySelector('.live-theme');
-    if (!themeEl) {
-        return '';
-    }
-    const style = getComputedStyle(themeEl);
-
-    return style.getPropertyValue(color).trim();
+    return window.getComputedStyle(el).getPropertyValue('border-color').trim();
 };
 
-$: lightSurface = toSpecificVersion(surfaceColor, 'light');
-$: darkSurface = toSpecificVersion(surfaceColor, 'dark');
+const updateResolvedColor: ThemeMutationObserverListener = (style) => {
+    if (!style) {
+        return;
+    }
+    resolvedColor = `${getComputedColor('light')} / ${getComputedColor('dark')}`;
+};
 
-$: lightBorder = toSpecificVersion(token, 'light');
-$: darkBorder = toSpecificVersion(token, 'dark');
+onMount(() => {
+    getThemeMutationObserver().subscribe((style) => {
+        updateResolvedColor(style);
+    });
 
-$: resolvedColor = getResolvedColor(token);
+    updateResolvedColor(getThemeMutationObserver().getStyle());
+});
 </script>
 
 <style>
@@ -107,12 +115,12 @@ $: resolvedColor = getResolvedColor(token);
                 </div>
         <p class="description">{color.description}</p>
     </div>
-    <div class="nc-box lightpreview nc-cluster" style="background: var({lightSurface}); border-color: var({lightBorder})">
+    <div class="nc-box lightpreview nc-cluster" id="{previewId}-light" style="background: var({surfaceColor}); border-color: var({token})" data-theme="light">
         <div class="thin"></div>
         <div class="medium"></div>
         <div class="thick"></div>
     </div>
-    <div class="nc-box darkpreview nc-cluster" style="background: var({darkSurface}); border-color: var({darkBorder})">
+    <div class="nc-box darkpreview nc-cluster" id="{previewId}-dark" style="background: var({surfaceColor}); border-color: var({token})" data-theme="dark">
         <div class="thin"></div>
         <div class="medium"></div>
         <div class="thick"></div>

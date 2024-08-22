@@ -16,17 +16,11 @@ export let surfaceColor: string;
 export let baseToken: string;
 
 const token = `${baseToken}-${color.name.toLowerCase()}`;
-const previewId = `preview-${color.name}`;
+const previewId = `color-preview-${color.name}`;
 
 const isSurface = token === surfaceColor;
 
 let resolvedColor = '';
-
-$: lightSurface = toSpecificVersion(surfaceColor, 'light');
-$: darkSurface = toSpecificVersion(surfaceColor, 'dark');
-
-$: lightText = toSpecificVersion(token, 'light');
-$: darkText = toSpecificVersion(token, 'dark');
 
 const getComputedColor = (variant: 'light' | 'dark') => {
     const el = document.getElementById(`${previewId}-${variant}`);
@@ -59,22 +53,22 @@ onMount(() => {
         description={color.description}
         resolvedValue={resolvedColor}
     />
-    <div class="nc-box lightpreview nc-cluster preview" style="background: var({lightSurface})">
+    <div class="nc-box lightpreview nc-cluster preview" style="background: var({surfaceColor})" data-theme="light">
         {#if isSurface}
             <p class="nc-input-label current">Current surface color</p>
         {/if}
         <div class="nc-cluster">
-            <div class="nc-box color-preview" id="{previewId}-light" style="background: var({lightText});"></div>
-            <p class="preview-text" style="color: var({lightText});">Aa</p>
+            <div class="nc-box color-preview" id="{previewId}-light" style="background: var({token});"></div>
+            <p class="preview-text" style="color: var({token});">Aa</p>
         </div>
     </div>
-    <div class="nc-box darkpreview nc-cluster preview" style="background: var({darkSurface})">
+    <div class="nc-box darkpreview nc-cluster preview" style="background: var({surfaceColor})" data-theme="dark">
         {#if isSurface}
             <p class="nc-input-label current">Current surface color</p>
             {/if}
         <div class="nc-cluster">
-            <div class="nc-box color-preview" id="{previewId}-dark" style="background: var({darkText});"></div>
-            <p class="preview-text" style="color: var({darkText});">Aa</p>
+            <div class="nc-box color-preview" id="{previewId}-dark" style="background: var({token});"></div>
+            <p class="preview-text" style="color: var({token});">Aa</p>
         </div>
     </div>
 </div>

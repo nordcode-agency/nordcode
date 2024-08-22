@@ -1,4 +1,9 @@
 <script lang="ts">
+import { onMount } from 'svelte';
+import {
+    getThemeMutationObserver,
+    type ThemeMutationObserverListener,
+} from '../../common/utils/ThemeMutationObserver.ts';
 import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
 
 export let color: {
@@ -8,30 +13,34 @@ export let color: {
 
 export let textColor: string;
 export let baseToken: string;
-export let protectedString = '';
 
 const token = `${baseToken}-${color.name.toLowerCase()}`;
+const previewId = `surface-preview-${color.name}`;
 
-const getResolvedColor = (color: string) => {
-    if (!document) {
+let resolvedColor = '';
+
+const getComputedColor = (variant: 'light' | 'dark') => {
+    const el = document.getElementById(`${previewId}-${variant}`);
+    if (!el) {
         return '';
     }
-    const themeEl = document.querySelector('.live-theme');
-    if (!themeEl) {
-        return '';
-    }
-    const style = getComputedStyle(themeEl);
-
-    return style.getPropertyValue(color).trim();
+    return window.getComputedStyle(el).getPropertyValue('background').trim();
 };
 
-$: lightSurface = toSpecificVersion(token, 'light');
-$: darkSurface = toSpecificVersion(token, 'dark');
+const updateResolvedColor: ThemeMutationObserverListener = (style) => {
+    if (!style) {
+        return;
+    }
+    resolvedColor = `${getComputedColor('light')} / ${getComputedColor('dark')}`;
+};
 
-$: lightText = toSpecificVersion(textColor, 'light', protectedString);
-$: darkText = toSpecificVersion(textColor, 'dark', protectedString);
+onMount(() => {
+    getThemeMutationObserver().subscribe((style) => {
+        updateResolvedColor(style);
+    });
 
-$: resolvedColor = getResolvedColor(token);
+    updateResolvedColor(getThemeMutationObserver().getStyle());
+});
 </script>
 
 <style>
@@ -70,16 +79,6 @@ $: resolvedColor = getResolvedColor(token);
     .description {
         color: var(--color-text-muted);
     }
-
-    .lightpreview .current {
-        color: var(--color-text-light-default);
-        cursor: unset;
-    }
-
-    .darkpreview .current {
-        color: var(--color-text-dark-default);
-        cursor: unset;
-    }
 </style>
 
 <div class="nc-grid">
@@ -101,19 +100,19 @@ $: resolvedColor = getResolvedColor(token);
                 </div>
         <p class="description">{color.description}</p>
     </div>
-    <div class="nc-box lightpreview nc-cluster" style="background: var({lightSurface})">
-        <div class="nc-box color-preview" style="background: var({lightText});">
+    <div class="nc-box lightpreview nc-cluster" id="{previewId}-light" style="background: var({token})" data-theme="light">
+        <div class="nc-box color-preview" style="background: var({textColor});">
 
         </div>
-        <p class="preview-text" style="color: var({lightText});">
+        <p class="preview-text" style="color: var({textColor});">
             Aa
         </p>
     </div>
-    <div class="nc-box darkpreview nc-cluster" style="background: var({darkSurface})">
-        <div class="nc-box color-preview" style="background: var({darkText});">
+    <div class="nc-box darkpreview nc-cluster" id="{previewId}-dark" style="background: var({token})" data-theme="dark">
+        <div class="nc-box color-preview" style="background: var({textColor});">
 
         </div>
-        <p class="preview-text" style="color: var({darkText});">
+        <p class="preview-text" style="color: var({textColor});">
             Aa
         </p>
     </div>
