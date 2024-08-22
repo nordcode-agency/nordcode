@@ -6,6 +6,8 @@ import inputSelect from '../examples/input/inputSelect.html?raw';
 import inputTextarea from '../examples/input/inputTextarea.html?raw';
 import inputSegmentedControl from '../examples/input/inputSegmentedControl.html?raw';
 import inputCheckbox from '../examples/input/inputCheckbox.html?raw';
+import inputRadioField from '../examples/input/inputRadioField.html?raw';
+import inputCheckboxField from '../examples/input/inputCheckboxField.html?raw';
 import fieldsetBase from '../examples/fieldset/fieldsetBase.html?raw';
 import fieldsetStandard from '../examples/fieldset/fieldsetStandard.html?raw';
 import fieldsetWithH1 from '../examples/fieldset/fieldsetWithH1.html?raw';
@@ -119,6 +121,19 @@ const sections: Array<Section> = [
                         title: 'Segmented control',
                         description: 'A more stylish radio control',
                         code: inputSegmentedControl as string,
+                    },
+                    {
+                        title: 'Radio Input Field',
+                        description: 'A standard radio input field.',
+                        code: inputRadioField as string,
+                        notes: [
+                            "You can register a 'change' event on the fieldset to listen for changes in the radio inputs.",
+                        ],
+                    },
+                    {
+                        title: 'Checkbox Input Field',
+                        description: 'A standard checkbox input field.',
+                        code: inputCheckboxField as string,
                     },
                 ],
             } as Component,

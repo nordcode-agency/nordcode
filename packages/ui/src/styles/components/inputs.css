@@ -76,7 +76,9 @@
             .nc-input-field,
             .nc-input-error,
             .nc-checkbox-wrapper,
-            .nc-input-switch
+            .nc-input-switch,
+            .nc-radio-field,
+            .nc-checkbox-field
         ) {
         --_input-background: var(--input-background, var(--color-surface-base));
         --_input-color: var(--input-color, var(--color-text-base));
@@ -95,7 +97,8 @@
 
         --_input-padding-block: var(--input-padding-block, 0.125lh);
         --_input-padding-inline: var(--input-padding-inline, 1ch);
-        --_input-hover-background: var(--input-hover-background,
+        --_input-hover-background: var(
+            --input-hover-background,
             color-mix(
                 in oklch,
                 var(--color-brand-primary-base) calc(var(--transparency-weaker) * 10%),
@@ -373,6 +376,16 @@
         }
     }
 
+    :where(.nc-radio-field, .nc-checkbox-field) {
+        & fieldset {
+            margin-block-start: 0.6lh;
+        }
+
+        & fieldset > *:not(:first-child) {
+            margin-block-start: 0.6lh;
+        }
+    }
+
     :where(.nc-input-switch) {
         --_switch-width: var(--switch-width, calc(var(--line-height-base) * 2));
         --_switch-height: var(--switch-height, calc(var(--_switch-width) / 2));
@@ -472,12 +485,12 @@
 
             &:first-child {
                 border-radius: var(--_segmented-control-border-radius)
-                var(--_segmented-control-border-radius) 0 0;
+                    var(--_segmented-control-border-radius) 0 0;
             }
 
             &:last-child {
                 border-radius: 0 0 var(--_segmented-control-border-radius)
-                var(--_segmented-control-border-radius);
+                    var(--_segmented-control-border-radius);
             }
 
             &:not(:last-child) {
@@ -506,32 +519,32 @@
         }
     }
 
-@container segmented-control (min-width: 32rem) {
-    fieldset {
-        grid-auto-columns: 1fr;
-        grid-auto-flow: column;
+    @container segmented-control (min-width: 32rem) {
+        fieldset {
+            grid-auto-columns: 1fr;
+            grid-auto-flow: column;
 
-        & > label {
-            &:first-child {
-                border-radius: var(--_segmented-control-border-radius) 0 0
-                var(--_segmented-control-border-radius);
-            }
+            & > label {
+                &:first-child {
+                    border-radius: var(--_segmented-control-border-radius) 0 0
+                        var(--_segmented-control-border-radius);
+                }
 
-            &:last-child {
-                border-radius: 0 var(--_segmented-control-border-radius)
-                var(--_segmented-control-border-radius) 0;
-            }
+                &:last-child {
+                    border-radius: 0 var(--_segmented-control-border-radius)
+                        var(--_segmented-control-border-radius) 0;
+                }
 
-            &:not(:last-child) {
-                border-block-end: var(--_input-border);
-                border-inline-end: var(--border-width-thin) solid var(--color-border-muted);
-            }
+                &:not(:last-child) {
+                    border-block-end: var(--_input-border);
+                    border-inline-end: var(--border-width-thin) solid var(--color-border-muted);
+                }
 
-            &:not(:first-child) {
-                border-block-start: var(--_input-border);
-                border-inline-start: none;
+                &:not(:first-child) {
+                    border-block-start: var(--_input-border);
+                    border-inline-start: none;
+                }
             }
         }
     }
-}
 }

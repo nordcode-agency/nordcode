@@ -6,3 +6,5 @@ export { default as InputWrapper } from './InputWrapper.svelte';
 export { default as RangeInput } from './RangeInput.svelte';
 export { default as Select } from './Select.svelte';
 export { default as TextArea } from './TextArea.svelte';
+export { default as RadioInputField } from './RadioInputField.svelte';
+export { default as CheckboxInputField } from './CheckboxInputField.svelte';
