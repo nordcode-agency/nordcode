@@ -461,7 +461,12 @@
         inline-size: 100%;
 
         & input {
-            display: none;
+            opacity: 0;
+        }
+
+        &:focus-within {
+            outline: var(--_input-outline);
+            outline-offset: 0;
         }
 
         & label {
@@ -508,8 +513,7 @@
             }
 
             &:focus-within {
-                outline: var(--_input-outline);
-                outline-offset: 0;
+                outline: none;
             }
 
             &:has(input:disabled) {
