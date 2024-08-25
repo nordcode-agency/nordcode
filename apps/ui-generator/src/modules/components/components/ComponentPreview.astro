@@ -1,7 +1,6 @@
 ---
 import SectionTitle from './SectionTitle.astro';
-import SourceCodeDisplay
-    from './SourceCodeDisplay.astro';
+import SourceCodeDisplay from './SourceCodeDisplay.astro';
 
 export interface Example {
     title: string;
@@ -23,7 +22,7 @@ const { sectionId, component, description, title, examples, notes } = Astro.prop
 
 <section class="nc-stack -contained section-to-observe component-preview" id={sectionId}>
     <div>
-        <SectionTitle title={title} nested="true" sectionId={sectionId} />
+        <SectionTitle title={title} nested={true} sectionId={sectionId} />
         {description ? <p class="nc-hint">{description}</p> : null}
     </div>
     <h4>Rendered</h4>
@@ -48,7 +47,7 @@ const { sectionId, component, description, title, examples, notes } = Astro.prop
     {
         examples ? (
             <>
-                <h4>Examples</h4>
+                <h4>Variations</h4>
 
                 {examples?.map(ex => (
                     <details>
@@ -59,6 +58,20 @@ const { sectionId, component, description, title, examples, notes } = Astro.prop
                                 <Fragment set:html={ex.code} />
                             </div>
                             <SourceCodeDisplay code={ex.code} title={ex.title} />
+                            {
+                                ex.notes ? (
+                                    <>
+                                        <h5>Notes</h5>
+                                        <ul>
+                                            {ex.notes.map(note => (
+                                                <li>
+                                                    <Fragment set:html={note}/>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </>
+                                ) : null
+                            }
                         </div>
                     </details>
                 ))}

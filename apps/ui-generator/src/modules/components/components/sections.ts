@@ -36,6 +36,7 @@ interface Component {
         title: string;
         description?: string;
         code: string;
+        notes?: string[];
     }>;
 }
 
@@ -143,7 +144,7 @@ const sections: Array<Section> = [
                         code: inputTagSelect as string,
                         notes: [
                             'Feel free to change the contents and class of the label to whatever suits your needs',
-                            'You can easily style the selected state with label:has(input:checked)',
+                            'You can easily style the selected state with <var>label:has(input:checked)</var>',
                         ],
                     },
                 ],
