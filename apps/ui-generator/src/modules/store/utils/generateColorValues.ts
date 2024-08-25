@@ -19,22 +19,20 @@ const generateLightColorValues = (
         [`--color-${tokenName}-base-${themeSuffix}`]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-emphasis-${themeSuffix}`]: `color-mix(
             in oklch,
-            oklch(var(${lTokenName}) calc(1.25 * var(${cTokenName})) var(${hTokenName})), 
+            oklch(var(${lTokenName}) calc(1.25 * var(${cTokenName})) var(${hTokenName})),
             var(--color-${tokenName}-black) 15%)`,
         [`--color-${tokenName}-surface-${themeSuffix}`]: `color-mix(
             in oklch,
             oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName})), var(--color-${tokenName}-white) 96%)`,
-
         [`--color-${tokenName}-contrast-lightness-${themeSuffix}`]: `calc(
-  var(--lightness-max) - 
+  var(--lightness-max) -
   (var(--lightness-diff) * min(max((var(${lTokenName}) - var(--lightness-contrast-cutoff)) * 1000000, 0), 1))
 )`,
-
         [`--color-${tokenName}-contrast-${themeSuffix}`]: `oklch(var(--color-${tokenName}-contrast-lightness-${themeSuffix}) var(--color-${tokenName}-neutral-chroma) var(${hTokenName}))`,
         [`--color-${tokenName}-hover-${themeSuffix}`]: `color-mix(
                 in oklch,
                 var(--color-${tokenName}-base-${themeSuffix}) calc(var(--transparency-weaker) * 10%),
-                transparent 
+                transparent
             )`,
     };
 };
@@ -53,20 +51,20 @@ const generateDarkColorValues = (
         [`--color-${tokenName}-base-${themeSuffix}`]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-emphasis-${themeSuffix}`]: `color-mix(
             in oklch,
-            oklch(var(${lTokenName}) calc(1.25 * var(${cTokenName})) var(${hTokenName})), 
+            oklch(var(${lTokenName}) calc(1.25 * var(${cTokenName})) var(${hTokenName})),
             var(--color-${tokenName}-white) 15%)`,
         [`--color-${tokenName}-surface-${themeSuffix}`]: `color-mix(
             in oklch,
             oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName})), var(--color-${tokenName}-black) 65%)`,
         [`--color-${tokenName}-contrast-lightness-${themeSuffix}`]: `calc(
-  var(--lightness-max) - 
+  var(--lightness-max) -
   (var(--lightness-diff) * min(max((var(${lTokenName}) - var(--lightness-contrast-cutoff)) * 1000000, 0), 1))
 )`,
         [`--color-${tokenName}-contrast-${themeSuffix}`]: `oklch(var(--color-${tokenName}-contrast-lightness-${themeSuffix}) var(--color-${tokenName}-neutral-chroma) var(${hTokenName}))`,
         [`--color-${tokenName}-hover-${themeSuffix}`]: `color-mix(
                 in oklch,
                 var(--color-${tokenName}-base-${themeSuffix}) calc(var(--transparency-weaker) * 10%),
-                transparent 
+                transparent
             )`,
     };
 };

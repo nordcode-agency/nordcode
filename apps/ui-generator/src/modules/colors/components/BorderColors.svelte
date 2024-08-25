@@ -56,7 +56,7 @@ const emphasisColor = {
                      <SettingsInput
                         label="Scale Factor Light"
                         bind:value={$configStore.lightBorderLightnessScaleFactor}
-                        max="0.2"
+                        max="1"
                         min="0"
                         step="0.001"
                     ></SettingsInput>
@@ -104,4 +104,3 @@ const emphasisColor = {
         </div>
     </div>
 </section>
-
