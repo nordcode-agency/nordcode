@@ -8,6 +8,7 @@ import inputSegmentedControl from '../examples/input/inputSegmentedControl.html?
 import inputCheckbox from '../examples/input/inputCheckbox.html?raw';
 import inputRadioField from '../examples/input/inputRadioField.html?raw';
 import inputCheckboxField from '../examples/input/inputCheckboxField.html?raw';
+import inputTagSelect from '../examples/input/inputTagSelect.html?raw';
 import fieldsetBase from '../examples/fieldset/fieldsetBase.html?raw';
 import fieldsetStandard from '../examples/fieldset/fieldsetStandard.html?raw';
 import fieldsetWithH1 from '../examples/fieldset/fieldsetWithH1.html?raw';
@@ -134,6 +135,16 @@ const sections: Array<Section> = [
                         title: 'Checkbox Input Field',
                         description: 'A standard checkbox input field.',
                         code: inputCheckboxField as string,
+                    },
+                    {
+                        title: 'Tag Select Field',
+                        description:
+                            'If you have a longer list of options, you might want to display them like tags.',
+                        code: inputTagSelect as string,
+                        notes: [
+                            'Feel free to change the contents and class of the label to whatever suits your needs',
+                            'You can easily style the selected state with label:has(input:checked)',
+                        ],
                     },
                 ],
             } as Component,

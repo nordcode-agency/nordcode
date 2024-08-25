@@ -1,0 +1,58 @@
+<!-- COMPONENT-START: nc-tag-select-field -->
+<div class="nc-input-field nc-tag-select-field">
+    <p class="nc-stack">
+        <span class="nc-input-label" id="input">Label</span>
+        <span class="nc-hint" id="input-hint"
+            >Hint is an accessible way to provide additional information that might help the
+            user</span
+        >
+        <span class="nc-input-error">Render errors here if there is an issue with the input.</span>
+    </p>
+    <fieldset class="nc-cluster | nc-fieldset" aria-labelledby="input" aria-describedby="input-hint">
+        <!-- Options can be multiple -->
+        <!-- An all items can be useful -->
+        <label for="tag-select-all" class="nc-pile badge">
+            <input
+                id="tag-select-all"
+                class="nc-tag-input"
+                type="radio"
+                value="ALL"
+                name="tag-select"
+                checked
+            />
+            <span >All</span>
+        </label>
+        <label for="tag-select-1" class="nc-pile badge">
+            <input
+                id="tag-select-1"
+                class="nc-tag-input"
+                type="radio"
+                value="value-1"
+                name="tag-select"
+            />
+            <span>Option 1</span>
+        </label>
+        <label for="tag-select-2" class="nc-pile badge">
+            <input
+                id="tag-select-2"
+                class="nc-tag-input"
+                type="radio"
+                value="value-2"
+                name="tag-select"
+            />
+            <span>Option 2</span>
+        </label>
+        <label for="tag-select-3" class="nc-pile badge">
+            <input
+                id="tag-select-3"
+                class="nc-tag-input"
+                type="radio"
+                value="value-3"
+                name="tag-select"
+            />
+            <span>Option 3</span>
+        </label>
+        <!-- End Options -->
+    </fieldset>
+</div>
+<!-- COMPONENT-END: nc-tag-select-field -->
