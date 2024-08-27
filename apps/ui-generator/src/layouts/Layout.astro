@@ -42,7 +42,6 @@ const { title } = Astro.props;
     @import '@nordcode/ui/bundle';
     @import '@nordcode/ui/components';
     @import '@nordcode/ui/base';
-    @import './liveTheme.css';
 
     html {
         font-size: clamp(0.875rem, 0.75rem + 0.2vw, 1rem);
@@ -139,8 +138,26 @@ const { title } = Astro.props;
         max-inline-size: 100%;
         overflow: hidden;
         min-inline-size: 32ch;
+
+        --bg-grid-color: color-mix(in oklch, var(--color-brand-primary-base), transparent 98%);
+
+        background-image:
+            repeating-linear-gradient(
+                to bottom,
+                transparent,
+                transparent 9px,
+                var(--bg-grid-color) 9px,
+                var(--bg-grid-color) 10px
+            ),
+            repeating-linear-gradient(
+                to right,
+                transparent,
+                transparent 9px,
+                var(--bg-grid-color) 9px,
+                var(--bg-grid-color) 10px
+            );
     }
-    
+
     .color-preview {
         inline-size: 6rem;
         block-size: 6rem;
