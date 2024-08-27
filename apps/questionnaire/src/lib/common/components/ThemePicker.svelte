@@ -1,56 +1,55 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+import { onMount } from 'svelte';
 
-    const DARK = '(prefers-color-scheme: dark)';
+const DARK = '(prefers-color-scheme: dark)';
 
-    enum Theme {
-        Light = 0,
-        Dark = 1,
+const Theme = {
+    Light: 0,
+    Dark: 1,
+} as const;
+
+const schemes = ['light', 'dark'] as const;
+const labels = ['Zur dunklen Ansicht wechseln', 'Zur hellen Ansicht wechseln'] as const;
+const pressed = ['false', 'true'] as const;
+let currentTheme: number = Theme.Light;
+
+const setToLight = (shouldUpdateTheme: boolean) => {
+    document.documentElement.setAttribute('color-scheme', 'light');
+    currentTheme = Theme.Light;
+    if (shouldUpdateTheme) {
+        localStorage?.setItem('color-scheme', 'light');
     }
+};
 
-    const schemes = ['light', 'dark'] as const;
-    const labels = ['Zur dunklen Ansicht wechseln', 'Zur hellen Ansicht wechseln'] as const;
-    const pressed = ['false', 'true'] as const;
-    let currentTheme = Theme.Light;
+const setToDark = (shouldUpdateTheme: boolean) => {
+    document.documentElement.setAttribute('color-scheme', 'dark');
+    currentTheme = Theme.Dark;
+    if (shouldUpdateTheme) {
+        localStorage?.setItem('color-scheme', 'dark');
+    }
+};
 
-    const setToLight = (shouldUpdateTheme: boolean) => {
-        document.documentElement.setAttribute('color-scheme', 'light');
-        currentTheme = Theme.Light;
-        if (shouldUpdateTheme) {
-            localStorage?.setItem("color-scheme", "light");
-        }
-    };
+const functionsByScheme = {
+    light: setToDark,
+    dark: setToLight,
+} as const;
 
-    const setToDark = (shouldUpdateTheme: boolean) => {
-        document.documentElement.setAttribute('color-scheme', 'dark');
-        currentTheme = Theme.Dark;
-        if (shouldUpdateTheme) {
-            localStorage?.setItem("color-scheme", "dark");
-        }
-    };
+const toggleTheme = () => {
+    const nextScheme = schemes[currentTheme];
+    functionsByScheme[nextScheme as keyof typeof functionsByScheme](true);
+};
 
-    const functionsByScheme = {
-        light: setToDark,
-        dark: setToLight,
-    } as const;
-
-    const toggleTheme = () => {
-        const nextScheme = schemes[currentTheme];
-        functionsByScheme[nextScheme as keyof typeof functionsByScheme](true);
-    };
-
-    onMount(() => {
-        const colorScheme = localStorage?.getItem('color-scheme');
-        if (colorScheme) {
-            const nextTheme = colorScheme === 'light' ? 'dark' : 'light';
-            functionsByScheme[nextTheme]?.(false);
-        } else if (window.matchMedia(DARK).matches) {
-            setToDark(false);
-        } else {
-            setToLight(false);
-        }
-
-    });
+onMount(() => {
+    const colorScheme = localStorage?.getItem('color-scheme');
+    if (colorScheme) {
+        const nextTheme = colorScheme === 'light' ? 'dark' : 'light';
+        functionsByScheme[nextTheme]?.(false);
+    } else if (window.matchMedia(DARK).matches) {
+        setToDark(false);
+    } else {
+        setToLight(false);
+    }
+});
 </script>
 
 <div>

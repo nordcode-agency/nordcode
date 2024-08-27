@@ -1,5 +1,5 @@
 <script lang="ts">
-import { Input, Select, TextArea } from '@nordcode/forms-svelte';
+import { Input, MarkdownEditor, Select, TextArea } from '@nordcode/forms-svelte';
 import { Navigation } from '../../common/config/Navigation';
 import { type Question, QuestionType } from '@nordcode/questionnaire-renderer';
 import { questionHasOptions } from '@nordcode/questionnaire-renderer';
@@ -45,13 +45,13 @@ $: updateQuestionOptions(question);
             label="Titel"
             id="{`question-${question.id}-title`}"
             bind:value={question.title} />
-        <TextArea
+        <MarkdownEditor
             name={`question-${question.id}-description`}
             label={"Beschreibung"}
             id={`question-${question.id}-description`}
             optional={true}
             bind:value={question.description}
-            ></TextArea>
+        ></MarkdownEditor>
         <Select
             name={`question-${question.id}-type`}
             id={`question-${question.id}-description`}
