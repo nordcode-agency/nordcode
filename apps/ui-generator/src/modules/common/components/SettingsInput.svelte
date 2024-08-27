@@ -1,7 +1,4 @@
 <script lang="ts">
-import { createEventDispatcher } from 'svelte';
-
-const dispatch = createEventDispatcher();
 export let label: string;
 export let max: string;
 export let min: string;
@@ -16,7 +13,11 @@ const handleInput = (event: InputEvent) => {
     // whatever behaviour you need
     const target = event.target as HTMLInputElement;
     value = +target.value;
-    dispatch('input', { value });
+    $host().dispatchEvent(
+        new CustomEvent('input', {
+            detail: { value },
+        }),
+    );
 };
 </script>
 
