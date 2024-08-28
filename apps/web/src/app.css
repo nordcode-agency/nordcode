@@ -122,6 +122,7 @@ section.nc-box {
 }
 
 .nc-center {
+    box-sizing: border-box;
 	/* Ensures that always max space is occupied */
 	inline-size: min(var(--center-measure), 100%);
 }
