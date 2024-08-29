@@ -180,6 +180,9 @@ importers:
       '@sveltejs/adapter-static':
         specifier: ^3.0.0
         version: 3.0.1(@sveltejs/kit@2.0.4(@sveltejs/vite-plugin-svelte@3.1.2(svelte@4.2.1)(vite@5.0.6(lightningcss@1.22.0)))(svelte@4.2.1)(vite@5.0.6(lightningcss@1.22.0)))
+      '@sveltejs/enhanced-img':
+        specifier: ^0.3.4
+        version: 0.3.4(rollup@4.21.1)(svelte@4.2.1)(vite@5.0.6(lightningcss@1.22.0))
       '@sveltejs/kit':
         specifier: ^2.0.0
         version: 2.0.4(@sveltejs/vite-plugin-svelte@3.1.2(svelte@4.2.1)(vite@5.0.6(lightningcss@1.22.0)))(svelte@4.2.1)(vite@5.0.6(lightningcss@1.22.0))
@@ -1493,6 +1496,12 @@ packages:
     resolution: {integrity: sha512-6lMvf7xYEJ+oGeR5L8DFJJrowkefTK6ZgA4JiMqoClMkKq0s6yvsd3FZfCFvX1fQ0tpCD7fkuRVHsnUVgsHyNg==}
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
+
+  '@sveltejs/enhanced-img@0.3.4':
+    resolution: {integrity: sha512-eX+ob5uWr0bTLMKeG9nhhM84aR88hqiLiyEfWZPX7ijhk/wlmYSUX9nOiaVHh2ct1U+Ju9Hhb90Copw+ZNOB8w==}
+    peerDependencies:
+      svelte: ^4.0.0 || ^5.0.0-next.0
+      vite: '>= 5.0.0'
 
   '@sveltejs/kit@2.0.4':
     resolution: {integrity: sha512-pqUOo1Slp2fybNjTouF7qgeN815hO2boRCNO1Z7/XtXu5IPNg9OSwI485qmQ0GUU2v2NmA0XZciFHGrgzOixyw==}
@@ -2854,6 +2863,10 @@ packages:
   ignore@5.3.0:
     resolution: {integrity: sha512-g7dmpshy+gD7mh88OC9NwSGTKoc3kyLAZQRU1mt53Aw/vnvfXnbC+F/7F7QoYVKbV+KNvJx8wArewKy1vXMtlg==}
     engines: {node: '>= 4'}
+
+  imagetools-core@7.0.1:
+    resolution: {integrity: sha512-XDUx3Ac1VrZ4XF5eAJNYdHbFXRPNyebHFrwJsZ4WHb7X2MitOVW23cFphSDByT3MH5rdWdxKr4edSW2agChvDg==}
+    engines: {node: '>=18.0.0'}
 
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
@@ -4571,6 +4584,11 @@ packages:
     peerDependencies:
       svelte: ^3.19.0 || ^4.0.0
 
+  svelte-parse-markup@0.1.5:
+    resolution: {integrity: sha512-T6mqZrySltPCDwfKXWQ6zehipVLk4GWfH1zCMGgRtLlOIFPuw58ZxVYxVvotMJgJaurKi1i14viB2GIRKXeJTQ==}
+    peerDependencies:
+      svelte: ^3.0.0 || ^4.0.0 || ^5.0.0-next.1
+
   svelte-preprocess@5.0.4:
     resolution: {integrity: sha512-ABia2QegosxOGsVlsSBJvoWeXy1wUKSfF7SWJdTjLAbx/Y3SrVevvvbFNQqrSJw89+lNSsM58SipmZJ5SRi5iw==}
     engines: {node: '>= 14.10.0'}
@@ -4927,6 +4945,10 @@ packages:
 
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
+
+  vite-imagetools@7.0.4:
+    resolution: {integrity: sha512-C9C7b2p/8/TCN2g26tE9haoer2i8K4x0v2RXUiHsIjiz221vQuKItCQ+VyiVCsUMPXfJC/tlZsmCZVBz5jh7uA==}
+    engines: {node: '>=18.0.0'}
 
   vite-node@1.1.0:
     resolution: {integrity: sha512-jV48DDUxGLEBdHCQvxL1mEh7+naVy+nhUUUaPAZLd3FJgXuxQiewHcfeZebbJ6onDqNGkP4r3MhQ342PRlG81Q==}
@@ -6267,6 +6289,16 @@ snapshots:
     dependencies:
       '@sveltejs/kit': 2.0.4(@sveltejs/vite-plugin-svelte@3.1.2(svelte@4.2.1)(vite@5.0.6(lightningcss@1.22.0)))(svelte@4.2.1)(vite@5.0.6(lightningcss@1.22.0))
 
+  '@sveltejs/enhanced-img@0.3.4(rollup@4.21.1)(svelte@4.2.1)(vite@5.0.6(lightningcss@1.22.0))':
+    dependencies:
+      magic-string: 0.30.11
+      svelte: 4.2.1
+      svelte-parse-markup: 0.1.5(svelte@4.2.1)
+      vite: 5.0.6(lightningcss@1.22.0)
+      vite-imagetools: 7.0.4(rollup@4.21.1)
+    transitivePeerDependencies:
+      - rollup
+
   '@sveltejs/kit@2.0.4(@sveltejs/vite-plugin-svelte@3.1.2(svelte@4.2.1)(vite@5.0.6(lightningcss@1.22.0)))(svelte@4.2.1)(vite@5.0.6(lightningcss@1.22.0))':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 3.1.2(svelte@4.2.1)(vite@5.0.6(lightningcss@1.22.0))
@@ -7142,13 +7174,11 @@ snapshots:
     dependencies:
       color-name: 1.1.4
       simple-swizzle: 0.2.2
-    optional: true
 
   color@4.2.3:
     dependencies:
       color-convert: 2.0.1
       color-string: 1.9.1
-    optional: true
 
   colorjs.io@0.5.2: {}
 
@@ -7271,8 +7301,7 @@ snapshots:
 
   detect-libc@1.0.3: {}
 
-  detect-libc@2.0.3:
-    optional: true
+  detect-libc@2.0.3: {}
 
   deterministic-object-hash@2.0.2:
     dependencies:
@@ -8194,6 +8223,8 @@ snapshots:
 
   ignore@5.3.0: {}
 
+  imagetools-core@7.0.1: {}
+
   import-fresh@3.3.0:
     dependencies:
       parent-module: 1.0.1
@@ -8228,8 +8259,7 @@ snapshots:
 
   is-arrayish@0.2.1: {}
 
-  is-arrayish@0.3.2:
-    optional: true
+  is-arrayish@0.3.2: {}
 
   is-async-function@2.0.0:
     dependencies:
@@ -9978,7 +10008,6 @@ snapshots:
       '@img/sharp-wasm32': 0.33.5
       '@img/sharp-win32-ia32': 0.33.5
       '@img/sharp-win32-x64': 0.33.5
-    optional: true
 
   shebang-command@1.2.0:
     dependencies:
@@ -10012,7 +10041,6 @@ snapshots:
   simple-swizzle@0.2.2:
     dependencies:
       is-arrayish: 0.3.2
-    optional: true
 
   sirv@2.0.3:
     dependencies:
@@ -10286,6 +10314,10 @@ snapshots:
     dependencies:
       svelte: 5.0.0-next.219
 
+  svelte-parse-markup@0.1.5(svelte@4.2.1):
+    dependencies:
+      svelte: 4.2.1
+
   svelte-preprocess@5.0.4(@babel/core@7.25.2)(postcss-load-config@4.0.1(postcss@8.4.31))(postcss@8.4.31)(svelte@4.2.1)(typescript@5.5.4):
     dependencies:
       '@types/pug': 2.0.7
@@ -10304,7 +10336,7 @@ snapshots:
     dependencies:
       '@types/pug': 2.0.7
       detect-indent: 6.1.0
-      magic-string: 0.30.5
+      magic-string: 0.30.11
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 4.2.12
@@ -10318,7 +10350,7 @@ snapshots:
     dependencies:
       '@types/pug': 2.0.7
       detect-indent: 6.1.0
-      magic-string: 0.30.5
+      magic-string: 0.30.11
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 5.0.0-next.219
@@ -10332,7 +10364,7 @@ snapshots:
     dependencies:
       '@types/pug': 2.0.7
       detect-indent: 6.1.0
-      magic-string: 0.30.5
+      magic-string: 0.30.11
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 5.0.0-next.219
@@ -10668,6 +10700,14 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.2
       vfile-message: 4.0.2
+
+  vite-imagetools@7.0.4(rollup@4.21.1):
+    dependencies:
+      '@rollup/pluginutils': 5.1.0(rollup@4.21.1)
+      imagetools-core: 7.0.1
+      sharp: 0.33.5
+    transitivePeerDependencies:
+      - rollup
 
   vite-node@1.1.0(lightningcss@1.22.0):
     dependencies:
