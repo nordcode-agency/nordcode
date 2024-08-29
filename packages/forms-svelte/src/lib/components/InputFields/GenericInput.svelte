@@ -1,25 +1,30 @@
 <script lang="ts">
-    export let name: string;
-    export let id: string;
-    export let errors: string[] = [];
-    export let hint: string = '';
-    export let autocomplete: string = 'off';
-    export let type: string = 'text';
-    export let optional: boolean = false;
+import type { FormEventHandler } from 'svelte/elements';
+import type { GenericInputProps } from './types/GenericInputProps.ts';
 
-    export let value;
+let {
+    label,
+    name = label.split(' ').join('').toLowerCase(),
+    id = `${name}-label`,
+    errors = [],
+    hint = '',
+    optional = false,
+    autocomplete = 'off',
+    type,
+    value = $bindable(),
+    ...rest
+}: GenericInputProps = $props();
 
-    const handleInput = (event: InputEvent) => {
-        // in here, you can switch on type and implement
-        // whatever behaviour you need
-        const target = event.target as HTMLInputElement
+const handleInput: FormEventHandler<HTMLInputElement> = (event) => {
+    // in here, you can switch on type and implement
+    // whatever behaviour you need
+    const target = event.target as HTMLInputElement;
 
-        if (type.match(/^(number|range)$/)) {
-            value = +target.value
-        }
-        value = target.value
+    if (type.match(/^(number|range)$/)) {
+        value = +target.value;
     }
-
+    value = target.value;
+};
 </script>
 
 <input class="nc-input"
@@ -29,6 +34,6 @@
        autocomplete={autocomplete}
        type={type}
        value={value}
-       on:input={handleInput}
-       {...$$restProps}
+       oninput={handleInput}
+       {...rest}
 >

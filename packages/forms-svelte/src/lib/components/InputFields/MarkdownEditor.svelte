@@ -1,22 +1,8 @@
 <script lang="ts">
 import MarkdownInput from './MarkdownInput.svelte';
+import type { MarkdownInputProps } from './types/MarkdownInputProps.ts';
 
-export let label: string;
-export let name: string;
-export let id: string;
-export let errors: string[] = [];
-export let hint: string = '';
-export let optional: boolean = false;
-export let value: string = '';
-export let htmlOutput: string = '';
-
-const handleInput = (
-    event: CustomEvent<{
-        value: string;
-    }>,
-) => {
-    value = event.detail.value;
-};
+let { htmlOutput = $bindable(), ...rest }: MarkdownInputProps = $props();
 </script>
 
 <style>
@@ -44,15 +30,8 @@ const handleInput = (
 
 <div class="nc-cluster nc-markdown-editor -nowrap">
     <MarkdownInput
-        {id}
-        {label}
-        {optional}
-        {errors}
-        {hint}
-        {name}
-        {value}
+        {...rest}
         bind:htmlOutput={htmlOutput}
-        on:input={handleInput}
     >
     </MarkdownInput>
     <div class="nc-box -bordered nc-flow nc-markdown-preview">

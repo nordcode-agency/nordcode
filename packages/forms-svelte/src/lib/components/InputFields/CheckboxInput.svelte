@@ -1,13 +1,21 @@
 <script lang="ts">
-    export let label: string;
-    export let name: string;
-    export let id: string;
-    export let errors: string[] = [];
-    export let hint: string = '';
-    export let autocomplete: string = "";
-    export let optional: boolean = false;
+import type { GenericInputProps } from './types/GenericInputProps.ts';
 
-    export let value;
+interface CheckboxInputProps extends GenericInputProps {
+    label: string;
+    value: boolean;
+}
+
+let {
+    label,
+    name = label.split(' ').join('').toLowerCase(),
+    id = `${name}-label`,
+    errors = [],
+    hint = '',
+    autocomplete = '',
+    optional = false,
+    value = $bindable(),
+}: CheckboxInputProps = $props();
 </script>
 
 
@@ -29,6 +37,6 @@
        autocomplete={autocomplete}
        type={'checkbox'}
        checked={value}
-       on:input={() => value = !value}
+       oninput={() => value = !value}
 >
 </div>

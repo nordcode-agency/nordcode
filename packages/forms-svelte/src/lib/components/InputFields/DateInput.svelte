@@ -1,38 +1,42 @@
 <script lang="ts">
-    export let name: string;
-    export let id: string;
-    export let autocomplete: string;
-    export let optional: boolean = false;
+import type { FormEventHandler } from 'svelte/elements';
 
-    export let value;
+interface DateInputProps {
+    name: string;
+    id: string;
+    autocomplete: string;
+    optional?: boolean;
+    value: Date;
+}
 
-    $: internalValue = formatForDate(value)
+let { name, id, autocomplete, optional = false, value = $bindable() }: DateInputProps = $props();
 
-    const handleInput = (event: InputEvent) => {
-        // in here, you can switch on type and implement
-        // whatever behaviour you need
-        const target = event.target as HTMLInputElement
+const handleInput: FormEventHandler<HTMLInputElement> = (event) => {
+    // in here, you can switch on type and implement
+    // whatever behaviour you need
+    const target = event.target as HTMLInputElement;
 
-        value = new Date(target.value)
+    value = new Date(target.value);
+};
+
+const formatDate = (date: Date) => {
+    return date.toISOString().substring(0, 10);
+};
+
+const formatForDate = (value: string | Date) => {
+    const parsedDate = new Date(value);
+    // Means it's invalid. Return a new one.
+    if (parsedDate.toString() === 'Invalid Date') {
+        return formatDate(new Date());
     }
+    return formatDate(parsedDate);
+};
 
-    const formatDate = (date: Date) => {
-        return date.toISOString().substring(0, 10)
-    }
+const setToday = () => {
+    value = new Date();
+};
 
-    const formatForDate = (value: string | Date) => {
-        const parsedDate = new Date(value);
-        // Means it's invalid. Return a new one.
-        if (parsedDate.toString() === 'Invalid Date') {
-            return formatDate(new Date())
-        }
-        return formatDate(parsedDate)
-    }
-
-    const setToday = () => {
-        value = new Date()
-    }
-
+let internalValue = $derived(formatDate(value));
 </script>
 
 <div class="nc-cluster full-width nc-input-date">
@@ -43,9 +47,9 @@
        autocomplete={autocomplete}
        type={'date'}
        value={internalValue}
-       on:input={handleInput}
+       oninput={handleInput}
 >
-<button type="button" class="nc-button" on:click={setToday}>
+<button type="button" class="nc-button" onclick={setToday}>
     Heute
 </button>
 </div>

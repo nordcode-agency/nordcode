@@ -4,30 +4,24 @@ import GenericInput from './GenericInput.svelte';
 import DateInput from './DateInput.svelte';
 import CheckboxInput from './CheckboxInput.svelte';
 import RangeInput from './RangeInput.svelte';
+import type { GenericInputProps } from './types/GenericInputProps.ts';
 
-export let label: string;
-export let name: string;
-export let id: string;
-export let errors: string[] = [];
-export let hint: string = '';
-export let autocomplete: string = 'off';
-export let type: string = 'text';
-export let optional: boolean = false;
+let { value = $bindable(), ...props }: GenericInputProps = $props();
 
-export let value;
+const { id, label, optional, errors, hint, type, children } = props;
 </script>
 
 {#if type === "checkbox"}
-    <CheckboxInput {id} {name} bind:value={value} {label} {autocomplete} {optional} {errors} {hint}/>
+    <CheckboxInput {...props} bind:value={value} />
 {:else}
     <InputWrapper {id} {label} {optional} {errors} {hint}>
         {#if type === 'date'}
-            <DateInput {id} {name} {optional} {autocomplete} bind:value={value}/>
+            <DateInput {...props} bind:value={value} />
         {:else if type === "range"}
-            <RangeInput {id} {name} {optional} {autocomplete} {type} bind:value={value} {...$$restProps}/>
+            <RangeInput {...props} bind:value={value} />
         {:else}
-            <GenericInput {id} {name} {optional} {autocomplete} {type} bind:value={value} {...$$restProps}/>
+            <GenericInput {...props} bind:value={value} />
         {/if}
-        <slot></slot>
+        {@render children?.()}
     </InputWrapper>
 {/if}

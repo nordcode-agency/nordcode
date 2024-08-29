@@ -1,35 +1,48 @@
 <script lang="ts">
-    import InputWrapper from "./InputWrapper.svelte";
+import type { FormEventHandler } from 'svelte/elements';
+import InputWrapper from './InputWrapper.svelte';
+import type { Snippet } from 'svelte';
 
-    export let label: string;
-    export let name: string;
-    export let id: string;
-    export let errors: string[] = [];
-    export let hint: string = '';
-    export let optional: boolean = false;
-    export let splitLines: boolean = false;
+import type { GenericInputProps } from './types/GenericInputProps.ts';
 
-    export let value;
+interface TextAreaProps extends Omit<GenericInputProps, 'type'> {
+    splitLines?: boolean;
+    value: string | string[];
+}
 
-    const handleInput = (event: InputEvent) => {
-        // in here, you can switch on type and implement
-        // whatever behaviour you need
-        const target = event.target as HTMLInputElement
-        if (splitLines) {
-            value = target.value.split('\n');
-            return;
-        }
+let {
+    label,
+    name = label.split(' ').join('').toLowerCase(),
+    id = `${name}-label`,
+    errors = [],
+    hint = '',
+    optional = false,
+    autocomplete = 'off',
+    splitLines = false,
+    value = $bindable(),
+    children,
+    ...rest
+}: TextAreaProps = $props();
 
-        value = target.value;
+const handleInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
+    // in here, you can switch on type and implement
+    // whatever behaviour you need
+    const target = event.target as HTMLInputElement;
+    if (splitLines) {
+        value = target.value.split('\n');
+        return;
     }
+
+    value = target.value;
+};
 </script>
 
 <InputWrapper {id} {label} {optional} {errors} {hint}>
     <textarea class="nc-input nc-textarea" id={id}
               name={name}
               aria-required={!optional}
-              value={splitLines ? value?.join("\n") : value}
-              on:input={handleInput}
+              value={splitLines && Array.isArray(value) ? value?.join("\n") : value}
+              oninput={handleInput}
     ></textarea>
-    <slot></slot>
+    {@render children?.()}
 </InputWrapper>

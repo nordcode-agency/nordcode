@@ -1,10 +1,14 @@
 <script lang="ts">
-    export let label: string;
-    export let id: string;
-    export let errors: string[] = [];
-    export let hint: string = '';
-    export let optional: boolean = false;
+import type { InputLabelProps } from './types/InputLabelProps.ts';
 
+let {
+    label,
+    id = `${name}-label`,
+    errors = [],
+    hint = '',
+    optional = false,
+    children,
+}: InputLabelProps = $props();
 </script>
 
 <div class="nc-input-field">
@@ -17,5 +21,7 @@
         {/each}
         {/if}
     </label>
-    <div class="nc-cluster full-width -nowrap"><slot></slot></div>
+    <div class="nc-cluster full-width -nowrap">
+        {@render children?.()}
+        </div>
 </div>

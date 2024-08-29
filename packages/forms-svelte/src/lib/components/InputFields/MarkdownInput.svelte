@@ -2,20 +2,19 @@
 import Markdoc from '@markdoc/markdoc';
 import InputWrapper from './InputWrapper.svelte';
 import type { FormEventHandler } from 'svelte/elements';
-import { createEventDispatcher } from 'svelte';
+import type { MarkdownInputProps } from './types/MarkdownInputProps.ts';
 
-const dispatch = createEventDispatcher();
-
-export let label: string;
-export let name: string;
-export let id: string;
-export let errors: string[] = [];
-export let hint = '';
-export let optional = false;
-
-export let value = '';
-
-export let htmlOutput = '';
+let {
+    label,
+    value = $bindable(),
+    name = label.split(' ').join('').toLowerCase(),
+    id = `${name}-label`,
+    errors = [],
+    hint = '',
+    optional = false,
+    htmlOutput = $bindable(),
+    oninput,
+}: MarkdownInputProps = $props();
 
 const convertToHtml = (v: string): string => {
     const ast = Markdoc.parse(v);
@@ -23,14 +22,16 @@ const convertToHtml = (v: string): string => {
     return Markdoc.renderers.html(content);
 };
 
-$: htmlOutput = convertToHtml(value);
+$effect(() => {
+    htmlOutput = convertToHtml(value);
+});
 
 const handleInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
     // in here, you can switch on type and implement
     // whatever behaviour you need
     const target = event.target as HTMLInputElement;
     value = target.value;
-    dispatch('input', { value });
+    oninput?.(event);
 };
 </script>
 
@@ -45,7 +46,6 @@ const handleInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
               name={name}
               aria-required={!optional}
               value={value}
-              on:input={handleInput}
+              oninput={handleInput}
     ></textarea>
-    <slot></slot>
 </InputWrapper>

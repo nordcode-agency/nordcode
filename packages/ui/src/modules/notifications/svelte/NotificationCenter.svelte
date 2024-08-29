@@ -1,6 +1,10 @@
 <script lang="ts">
-    export let dismissAllText = "Dismiss All"
-    export let closeText = "Close"
+interface NotificationCenterProps {
+    dismissAllText: string;
+    closeText: string;
+}
+
+let { dismissAllText = 'Dismiss all', closeText = 'Close' }: NotificationCenterProps = $props();
 </script>
 
 <div class="nc-notification-center -archive">

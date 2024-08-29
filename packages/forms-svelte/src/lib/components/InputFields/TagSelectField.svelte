@@ -1,16 +1,22 @@
 <script lang="ts">
 import type { FormEventHandler } from 'svelte/elements';
+import type { GenericInputProps } from './types/GenericInputProps.ts';
 import type { Option } from '../../shared/models/Option.ts';
 
-export let label: string;
-export let name: string = label.split(' ').join('').toLowerCase();
-export let id: string = `${name}-label`;
-export let errors: string[] = [];
-export let hint: string = '';
-export let optional: boolean = false;
-export let options: Option[] = [];
+interface TagSelectProps extends GenericInputProps {
+    options: Option[];
+}
 
-export let value: number | string | boolean = 0;
+let {
+    label,
+    name = label.split(' ').join('').toLowerCase(),
+    id = `${name}-label`,
+    errors = [],
+    hint = '',
+    optional = false,
+    value = $bindable(),
+    options,
+}: TagSelectProps = $props();
 
 const handleChange: FormEventHandler<HTMLFieldSetElement> = (event) => {
     const target = event.target as HTMLInputElement;
@@ -33,7 +39,7 @@ const handleChange: FormEventHandler<HTMLFieldSetElement> = (event) => {
         {/each}
         {/if}
     </p>
-    <fieldset class="nc-fieldset" aria-labelledby={id} aria-describedby={`${id}-hint`} on:change={handleChange}>
+    <fieldset class="nc-fieldset" aria-labelledby={id} aria-describedby={`${id}-hint`} onchange={handleChange}>
         {#each options as option}
             <label for="tag-select-1" class="nc-pile badge">
                 <input

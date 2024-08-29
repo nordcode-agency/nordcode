@@ -1,6 +1,10 @@
 <script lang="ts">
-  export let heading: string = '';
-  export const id: string = '';
+interface DialogProps {
+    heading: string;
+    id: string;
+}
+
+let { heading, id }: DialogProps = $props();
 </script>
 
 

@@ -22,7 +22,7 @@ const createObserver = (selector: string, steps: number) => {
     const observer = new IntersectionObserver((entries) => {
         for (const entry of entries) {
             const ratio = entry.intersectionRatio;
-            entry.target.style.setProperty('--intersecting', ratio);
+            (entry.target as HTMLElement)?.style?.setProperty('--intersecting', ratio.toString());
         }
     }, options);
 

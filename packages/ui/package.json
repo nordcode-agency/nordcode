@@ -1,44 +1,43 @@
 {
-  "name": "@nordcode/ui",
-  "version": "2.3.0",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "type": "module",
-  "exports": {
-    "./bundle": "./src/styles/bundle.css",
-    "./complete": "./src/styles/complete.css",
-    "./compiled/bundle": "./out/bundle.css",
-    "./compiled/complete": "./out/complete.css",
-    "./base": "./src/styles/utils/base.css",
-    "./media": "./src/styles/utils/media.css",
-    "./fonts": "./src/assets/fonts/fonts.css",
-    "./inputs": "./src/styles/components/inputs.css",
-    "./buttons": "./src/styles/components/buttons.css",
-    "./badges": "./src/styles/components/badges.css",
-    "./dialogs": "./src/styles/components/dialogs.css",
-    "./components": "./src/styles/components/bundle.css",
-    "./logo": "./src/assets/logos/nordcode-logo.svg",
-    "./ArrowRightSolid": "./src/assets/icons/ArrowRightSolid.svelte",
-    "./src/modules/forms/": "./src/modules/forms/",
-    "./src/modules/dialogs/": "./src/modules/dialogs/",
-    "./src/modules/copyButtons/": "./src/modules/copyButtons/",
-    "./src/modules/notifications/": "./src/modules/notifications/",
-    "./src/modules/sectionObserver/": "./src/modules/sectionObserver/"
-  },
-  "scripts": {
-    "lib:all": "postcss src/styles/**/*.css --base src/styles --dir out",
-    "lib:bundle": "postcss src/styles/bundle.css -o out/bundle.css",
-    "lib:transform": "node transform.js",
-    "build": "pnpm run '/^lib:.*/'"
-  },
-  "devDependencies": {
-    "@nordcode/postcss-config": "workspace:^",
-    "postcss-cli": "^10.1.0"
-  },
-  "dependencies": {
-    "browserslist": "^4.23.0",
-    "lightningcss": "^1.24.0"
-  }
+    "name": "@nordcode/ui",
+    "version": "2.3.0",
+    "license": "MIT",
+    "publishConfig": {
+        "access": "public"
+    },
+    "type": "module",
+    "exports": {
+        "./bundle": "./src/styles/bundle.css",
+        "./complete": "./src/styles/complete.css",
+        "./compiled/bundle": "./out/bundle.css",
+        "./compiled/complete": "./out/complete.css",
+        "./base": "./src/styles/utils/base.css",
+        "./media": "./src/styles/utils/media.css",
+        "./fonts": "./src/assets/fonts/fonts.css",
+        "./inputs": "./src/styles/components/inputs.css",
+        "./buttons": "./src/styles/components/buttons.css",
+        "./badges": "./src/styles/components/badges.css",
+        "./dialogs": "./src/styles/components/dialogs.css",
+        "./components": "./src/styles/components/bundle.css",
+        "./logo": "./src/assets/logos/nordcode-logo.svg",
+        "./ArrowRightSolid": "./src/assets/icons/ArrowRightSolid.svelte",
+        "./src/modules/dialogs/": "./src/modules/dialogs/",
+        "./src/modules/copyButtons/": "./src/modules/copyButtons/",
+        "./src/modules/notifications/": "./src/modules/notifications/",
+        "./src/modules/sectionObserver/": "./src/modules/sectionObserver/"
+    },
+    "scripts": {
+        "lib:all": "postcss src/styles/**/*.css --base src/styles --dir out",
+        "lib:bundle": "postcss src/styles/bundle.css -o out/bundle.css",
+        "lib:transform": "node transform.js",
+        "build": "pnpm run '/^lib:.*/'"
+    },
+    "devDependencies": {
+        "@nordcode/postcss-config": "workspace:^",
+        "postcss-cli": "^10.1.0"
+    },
+    "dependencies": {
+        "browserslist": "^4.23.0",
+        "lightningcss": "^1.24.0"
+    }
 }
