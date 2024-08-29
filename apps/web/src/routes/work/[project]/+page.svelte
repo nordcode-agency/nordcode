@@ -49,7 +49,7 @@
 					auf <a href="#nirgendwo" title="Title für einem Bein">einem Beine</a>.
 				</p>
 				<figure class="full-width">
-					<img src={cover?.src} alt={cover?.alt} />
+					<enhanced:img src={cover?.src} alt={cover?.alt} />
 				</figure>
 				<h2>Header Level 2</h2>
 				<ol>
