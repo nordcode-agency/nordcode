@@ -7,7 +7,11 @@ import { configStore } from '../configStore';
 import ImportDialog from './ImportDialog.svelte';
 import { generateStyleString } from '../utils/generateStyleString';
 
-let allStyles = '';
+interface ConfigLoaderProps {
+    allStyles: string;
+}
+
+let { allStyles = '' }: ConfigLoaderProps = $props();
 
 const previewContainer = typeof document !== 'undefined' ? document?.body : undefined;
 
@@ -25,7 +29,7 @@ const togglePreview = () => {
 </script>
 
 <div class="nc-cluster">
-    <button class="nc-button -small -icon" on:click={togglePreview}>
+    <button class="nc-button -small -icon" onclick={togglePreview}>
         <span class="text-assistive">Toggle Preview</span>
         <svg xmlns="http://www.w3.org/2000/svg"
              viewBox="0 0 24 24"

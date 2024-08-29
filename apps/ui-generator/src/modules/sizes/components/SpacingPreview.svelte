@@ -4,14 +4,18 @@ import {
     getThemeMutationObserver,
     type ThemeMutationObserverListener,
 } from '../../common/utils/ThemeMutationObserver.ts';
-import { onMount } from 'svelte';
-export let spacing: {
-    name: string;
-    description: string;
-};
 
-const token = `--spacing-${spacing.name.toLowerCase()}`;
-let resolvedValue = '';
+interface PreviewEntryProps {
+    entry: {
+        name: string;
+        description: string;
+    };
+}
+
+const { entry }: PreviewEntryProps = $props();
+
+let token = $derived(`--spacing-${entry.name.toLowerCase()}`);
+let resolvedValue = $state('');
 
 const style = `gap: var(${token})`;
 
@@ -22,7 +26,7 @@ const updateResolvedValue: ThemeMutationObserverListener = (style) => {
     resolvedValue = `${style.getPropertyValue(token).trim()}`;
 };
 
-onMount(() => {
+$effect(() => {
     getThemeMutationObserver().subscribe((style) => {
         updateResolvedValue(style);
     });
@@ -33,9 +37,9 @@ onMount(() => {
 
 <div class="nc-grid">
     <TokenDescriptor
-        name={spacing.name}
+        name={entry.name}
         {token}
-        description={spacing.description}
+        description={entry.description}
         {resolvedValue}
     />
 

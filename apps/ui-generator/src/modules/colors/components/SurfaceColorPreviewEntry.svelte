@@ -1,23 +1,24 @@
 <script lang="ts">
-import { onMount } from 'svelte';
 import {
     getThemeMutationObserver,
     type ThemeMutationObserverListener,
 } from '../../common/utils/ThemeMutationObserver.ts';
-import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
 
-export let color: {
-    name: string;
-    description: string;
-};
+interface ColorPreviewProps {
+    color: {
+        name: string;
+        description: string;
+    };
+    textColor: string;
+    baseToken: string;
+}
 
-export let textColor: string;
-export let baseToken: string;
+let { color, textColor, baseToken }: ColorPreviewProps = $props();
 
 const token = `${baseToken}-${color.name.toLowerCase()}`;
 const previewId = `surface-preview-${color.name}`;
 
-let resolvedColor = '';
+let resolvedColor = $state('');
 
 const getComputedColor = (variant: 'light' | 'dark') => {
     const el = document.getElementById(`${previewId}-${variant}`);
@@ -34,7 +35,7 @@ const updateResolvedColor: ThemeMutationObserverListener = (style) => {
     resolvedColor = `${getComputedColor('light')} / ${getComputedColor('dark')}`;
 };
 
-onMount(() => {
+$effect(() => {
     getThemeMutationObserver().subscribe((style) => {
         updateResolvedColor(style);
     });

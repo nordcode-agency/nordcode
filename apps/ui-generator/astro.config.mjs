@@ -7,7 +7,13 @@ import browserslist from 'browserslist';
 // https://astro.build/config
 // biome-ignore lint/nursery/noDefaultExport: config file works like that
 export default defineConfig({
-    integrations: [svelte()],
+    integrations: [
+        svelte({
+            compilerOptions: {
+                runes: true,
+            },
+        }),
+    ],
     server: {
         port: 3002,
     },

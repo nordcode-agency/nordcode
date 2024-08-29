@@ -1,5 +1,4 @@
 <script lang="ts">
-import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
 import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
 import {
     getThemeMutationObserver,
@@ -7,20 +6,23 @@ import {
 } from '../../common/utils/ThemeMutationObserver.ts';
 import { onMount } from 'svelte';
 
-export let color: {
-    name: string;
-    description: string;
-};
+interface ColorPreviewProps {
+    color: {
+        name: string;
+        description: string;
+    };
+    surfaceColor: string;
+    baseToken: string;
+}
 
-export let surfaceColor: string;
-export let baseToken: string;
+let { color, surfaceColor, baseToken }: ColorPreviewProps = $props();
 
 const token = `${baseToken}-${color.name.toLowerCase()}`;
 const previewId = `color-preview-${color.name}`;
 
 const isSurface = token === surfaceColor;
 
-let resolvedColor = '';
+let resolvedColor = $state('');
 
 const getComputedColor = (variant: 'light' | 'dark') => {
     const el = document.getElementById(`${previewId}-${variant}`);

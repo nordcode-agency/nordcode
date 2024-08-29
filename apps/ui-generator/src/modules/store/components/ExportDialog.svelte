@@ -1,19 +1,28 @@
-<script>
+<script lang="ts">
 import { configStore } from '../configStore';
 import { getWpTheme } from '../utils/generateWpTheme';
 import { getFigmaTheme } from '../utils/getFigmaTheme';
 
-export let allStyles = '';
+interface ExportDialogProps {
+    allStyles: string;
+}
+
+let { allStyles = '' }: ExportDialogProps = $props();
+
 const copyStyleExport = async () => {
     const exportString = configStore?.exportToString();
-    await navigator.clipboard.writeText(exportString);
+    if (exportString) {
+        await navigator.clipboard.writeText(exportString);
+    }
 };
 
 const copyURLToClipboard = async () => {
-    const searchParams = new URLSearchParams({ styles: configStore?.exportToString() });
+    const searchParams = new URLSearchParams({ styles: configStore?.exportToString() ?? '' });
     const url = new URL(window.location.origin + window.location.pathname);
     url.search = searchParams.toString();
-    await navigator.clipboard.writeText(url);
+    if (url) {
+        await navigator.clipboard.writeText(url.toString());
+    }
 };
 
 const copyFigmaColors = async () => {
@@ -52,21 +61,21 @@ const copyWPThemeToClipboard = async () => {
                     data-closes-dialog
             >Copy to clipboard
             </button>
-            <button on:click={copyStyleExport}
+            <button onclick={copyStyleExport}
                     data-closes-dialog="export-dialog"
                     data-has-notification
                     data-notification-title="✓ To clipboard"
                     data-notification-description="Copied all styles to clipboard"
             >Export to clipboard
             </button>
-            <button on:click={copyURLToClipboard}
+            <button onclick={copyURLToClipboard}
                     data-closes-dialog="export-dialog"
                     data-has-notification
                     data-notification-title="✓ To clipboard"
                     data-notification-description="Copied stateful URL to clipboard"
             >Copy URL
             </button>
-            <button on:click={copyWPThemeToClipboard}
+            <button onclick={copyWPThemeToClipboard}
                     data-closes-dialog="export-dialog"
                     data-has-notification
                     data-notification-title="✓ To clipboard"
@@ -74,7 +83,7 @@ const copyWPThemeToClipboard = async () => {
             >
                 Copy WP
             </button>
-            <button on:click={copyFigmaColors}
+            <button onclick={copyFigmaColors}
                     data-closes-dialog="export-dialog"
                     data-has-notification
                     data-notification-title="✓ To clipboard"

@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
 import { TextArea } from '@nordcode/forms-svelte';
 import { configStore } from '../configStore';
 
-// biome-ignore lint/style/useConst: <explanation>
-let importedStyles = '';
+let importedStyles = $state('');
 
 const importStyles = () => {
     const cleanStyles = importedStyles
@@ -31,7 +30,7 @@ const importStyles = () => {
             </div>
         </div>
         <div class="dialog-actions">
-            <button class="nc-button" on:click={importStyles} data-closes-dialog="import-dialog"
+            <button class="nc-button" onclick={importStyles} data-closes-dialog="import-dialog"
             >Import
             </button>
         </div>

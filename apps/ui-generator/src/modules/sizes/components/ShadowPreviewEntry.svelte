@@ -4,18 +4,21 @@ import {
     getThemeMutationObserver,
     type ThemeMutationObserverListener,
 } from '../../common/utils/ThemeMutationObserver.ts';
-import { onMount } from 'svelte';
 
-export let entry: {
-    name: string;
-    description: string;
-};
+interface ShadowPreviewEntryProps {
+    entry: {
+        name: string;
+        description: string;
+    };
+}
 
-const token = `--shadow-${entry.name.toLowerCase()}`;
-let resolvedValue = '';
+const { entry }: ShadowPreviewEntryProps = $props();
 
-$: lightShadow = `${token}-light`;
-$: darkShadow = `${token}-dark`;
+let resolvedValue = $state('');
+
+let token = $derived(`--shadow-${entry.name.toLowerCase()}`);
+let lightShadow = $derived(`${token}-light`);
+let darkShadow = $derived(`${token}-dark`);
 
 const updateResolvedValue: ThemeMutationObserverListener = (style) => {
     if (!style) {
@@ -24,7 +27,7 @@ const updateResolvedValue: ThemeMutationObserverListener = (style) => {
     resolvedValue = `${style.getPropertyValue(token).trim()}`;
 };
 
-onMount(() => {
+$effect(() => {
     getThemeMutationObserver().subscribe((style) => {
         updateResolvedValue(style);
     });

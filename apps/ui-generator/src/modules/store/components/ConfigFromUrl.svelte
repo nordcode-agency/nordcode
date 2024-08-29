@@ -3,7 +3,9 @@ import { addNotification } from '@nordcode/ui/src/modules/notifications/js/notif
 import { configStore } from '../configStore';
 
 const checkUrlForStyles = () => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined') {
+        return;
+    }
     const url = new URL(window.location.href);
     const styles = new URLSearchParams(url.search).get('styles');
     if (styles) {

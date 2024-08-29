@@ -1,8 +1,12 @@
 <script lang="ts">
-export let textColor: string;
-export let surfaceColor: string;
-export let wcagContrast: number;
-export let apcaContrast: number;
+interface ContrastPreviewProps {
+    textColor: string;
+    surfaceColor: string;
+    wcagContrast: number;
+    apcaContrast: number;
+}
+
+let { textColor, surfaceColor, wcagContrast, apcaContrast }: ContrastPreviewProps = $props();
 </script>
 
 <style>

@@ -7,7 +7,6 @@ import {
     getThemeMutationObserver,
     type ThemeMutationObserverListener,
 } from '../../common/utils/ThemeMutationObserver.ts';
-import { onMount } from 'svelte';
 
 const surfaceOptions = {
     Primary: ['--color-brand-primary-surface'],
@@ -39,8 +38,16 @@ const textOptions = {
     ],
 };
 
-let lightContrast: [number, number] = [0, 0];
-let darkContrast: [number, number] = [0, 0];
+let lightContrast: [number, number] = $state([0, 0]);
+let darkContrast: [number, number] = $state([0, 0]);
+let surfaceColor: string = $state(surfaceOptions.Neutrals[0]);
+let textColor: string = $state(textOptions.Neutrals[0]);
+
+let lightSurface = $derived(toSpecificVersion(surfaceColor, 'light'));
+let darkSurface = $derived(toSpecificVersion(surfaceColor, 'dark'));
+
+let lightText = $derived(toSpecificVersion(textColor, 'light'));
+let darkText = $derived(toSpecificVersion(textColor, 'dark'));
 
 const getContrast = (
     style: CSSStyleDeclaration | null,
@@ -58,15 +65,6 @@ const getContrast = (
     return [wcag, apca];
 };
 
-let surfaceColor: string = surfaceOptions.Neutrals[0];
-let textColor: string = textOptions.Neutrals[0];
-
-$: lightSurface = toSpecificVersion(surfaceColor, 'light');
-$: darkSurface = toSpecificVersion(surfaceColor, 'dark');
-
-$: lightText = toSpecificVersion(textColor, 'light');
-$: darkText = toSpecificVersion(textColor, 'dark');
-
 const updateContrast: ThemeMutationObserverListener = (style) => {
     if (!style) {
         return;
@@ -76,16 +74,16 @@ const updateContrast: ThemeMutationObserverListener = (style) => {
     darkContrast = getContrast(style, darkSurface, darkText);
 };
 
-$: {
+$effect(() => {
     const style = getThemeMutationObserver().getStyle();
 
     if (style) {
         lightContrast = getContrast(style, lightSurface, lightText);
         darkContrast = getContrast(style, darkSurface, darkText);
     }
-}
+});
 
-onMount(() => {
+$effect(() => {
     getThemeMutationObserver().subscribe((style) => {
         updateContrast(style);
     });

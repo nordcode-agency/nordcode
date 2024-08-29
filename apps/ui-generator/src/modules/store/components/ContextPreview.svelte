@@ -50,14 +50,13 @@
                 </ul>
             </li>
             <li>
-                <a href="#layouts">
-                    <ul>
-                        <li>
-                            <a href="#box">Box</a>
-                            <a href="#stack">Stack</a>
-                        </li>
-                    </ul>
-                </a>
+                <a href="#layouts">Layouts</a>
+                <ul>
+                    <li>
+                        <a href="#box">Box</a>
+                        <a href="#stack">Stack</a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </nav>
@@ -461,7 +460,7 @@
   0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
   @ A B C D E F G H I J K L M N O
   P Q R S T U V W X Y Z [ \ ] ^ _
-  ` a b c d e f g h i j k l m n o
+   a b c d e f g h i j k l m n o
   p q r s t u v w x y z ~ </pre>
                 </div>
                 <footer><p><a href="#top">[Top]</a></p></footer>

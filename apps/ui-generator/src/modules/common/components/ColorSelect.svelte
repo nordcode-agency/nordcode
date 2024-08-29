@@ -1,12 +1,17 @@
 <script lang="ts">
-export let options: Record<string, string[]>;
-export let label: string;
+import type { FormEventHandler } from 'svelte/elements';
 
-export let value: string;
+interface ColorSelectProps {
+    options: Record<string, string[]>;
+    label: string;
+    value: string;
+}
+
+let { options, label, value = $bindable() }: ColorSelectProps = $props();
 
 const name = label.split(' ').join('').toLowerCase();
 
-const handleInput = (event: InputEvent) => {
+const handleInput: FormEventHandler<HTMLSelectElement> = (event) => {
     // in here, you can switch on type and implement
     // whatever behaviour you need
     const target = event.target as HTMLInputElement;
@@ -21,7 +26,7 @@ const handleInput = (event: InputEvent) => {
     </label>
 
     <select name={name}
-            on:input={handleInput}
+            oninput={handleInput}
     >
         {#each Object.entries(options) as optGroup}
             <optgroup label={optGroup[0]}>

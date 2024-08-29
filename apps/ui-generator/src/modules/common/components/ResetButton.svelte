@@ -2,7 +2,7 @@
 import { configStore } from '../../store/configStore';
 </script>
 
-<button type="button" class="nc-button -icon -small" on:click={configStore.reset} title="Reset theme">
+<button type="button" class="nc-button -icon -small" onclick={configStore?.reset} title="Reset theme">
     <span class="text-assistive">Reset theme</span>
     <svg xmlns="http://www.w3.org/2000/svg"
          class="nc-icon"

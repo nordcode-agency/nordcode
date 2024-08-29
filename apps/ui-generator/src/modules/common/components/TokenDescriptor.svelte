@@ -1,8 +1,12 @@
 <script lang="ts">
-export let name: string;
-export let token: string;
-export let description: string;
-export let resolvedValue: string;
+interface TokenDescriptorProps {
+    name: string;
+    token: string;
+    description: string;
+    resolvedValue: string;
+}
+
+let { name, token, description, resolvedValue }: TokenDescriptorProps = $props();
 </script>
 
 <div class="nc-stack -near text-box">

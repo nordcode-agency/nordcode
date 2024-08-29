@@ -13,17 +13,19 @@
         "format": "biome format src --write && biome lint src --apply"
     },
     "dependencies": {
-        "@astrojs/svelte": "^5.2.0",
+        "@astrojs/svelte": "^5.7.0",
         "@nordcode/forms-svelte": "workspace:*",
         "@nordcode/ui": "workspace:*",
-        "astro": "^4.4.10",
-        "colorjs.io": "^0.5.0",
-        "svelte": "^4.2.12"
+        "astro": "^4.15.0",
+        "colorjs.io": "^0.5.2",
+        "svelte": "^5.0.0-next.1"
     },
     "devDependencies": {
         "@nordcode/postcss-config": "workspace:*",
         "@nordcode/types": "workspace:*",
-        "browserslist": "^4.23.0",
-        "lightningcss": "^1.24.0"
-    }
+        "browserslist": "^4.23.3",
+        "lightningcss": "^1.26.0",
+        "@sveltejs/vite-plugin-svelte": "^4.0.0-next.6"
+    },
+    "overrides": { "@sveltejs/vite-plugin-svelte": "^4.0.0-next.6" }
 }
