@@ -12,7 +12,7 @@ export let id: string | undefined = undefined;
 <div class="container">
 	<a href={slug} class="nc-card card">
 		<figure style={`view-transition-name: ${id}`}>
-			<img src={cover.src} alt={cover.alt} />
+			<enhanced:img class="img" src={cover.src} alt={cover.alt} />
 		</figure>
 		<div class="header">
 			<div class="headings">
@@ -90,9 +90,10 @@ export let id: string | undefined = undefined;
 
 	figure {
 		grid-area: img;
+        overflow: hidden;
 	}
 
-	img {
+	.img, picture {
 		inline-size: 100%;
 		aspect-ratio: 3 / 2;
 		object-fit: cover;

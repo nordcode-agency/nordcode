@@ -1,10 +1,10 @@
 import type { WorkProject } from "$lib/types";
-import ImgRicola from '$lib/assets/ricola.avif';
-import ImgNewYork from '$lib/assets/new-york.avif'
-import ImgMountains from '$lib/assets/mountains.avif'
-import ImgItaly from '$lib/assets/italy.avif'
-import ImgIce from '$lib/assets/ice.avif'
-import ImgDesert from '$lib/assets/desert.avif'
+import ImgRicola from '$lib/assets/ricola.avif?enhanced';
+import ImgNewYork from '$lib/assets/new-york.avif?enhanced'
+import ImgMountains from '$lib/assets/mountains.avif?enhanced'
+import ImgItaly from '$lib/assets/italy.avif?enhanced'
+import ImgIce from '$lib/assets/ice.avif?enhanced'
+import ImgDesert from '$lib/assets/desert.avif?enhanced'
 
 export const projects = [
   {
