@@ -4,6 +4,7 @@
         "build": "turbo run build",
         "dev": "turbo run dev",
         "web": "pnpm --filter \"@nordcode/web\" dev",
+        "invoice": "pnpm --filter \"@nordcode/invoice\" dev",
         "ui-generator": "pnpm --filter \"@nordcode/ui-generator\" dev",
         "lint": "turbo run lint",
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
