@@ -1,38 +1,39 @@
 <script lang="ts">
-    import {
-        currentInvoice,
-        setBankDetails,
-    } from "../invoiceStore";
-    import { Select } from "@nordcode/forms-svelte";
-    import type {
-        BankingDetails,
-    } from '$lib/invoice/models/Invoice.model';
-    import { invalidate } from '$app/navigation';
+import { currentInvoice, setBankDetails } from '../invoiceStore';
+import { Select } from '@nordcode/forms-svelte';
+import type { BankingDetails } from '$lib/invoice/models/Invoice.model';
+import { invalidate } from '$app/navigation';
 
-    export let availableBankingDetails: BankingDetails[] = [];
+interface BankDetailsSelectProps {
+    availableBankingDetails: BankingDetails[];
+}
 
-    let selectedBankIban: string;
+export const { availableBankingDetails = [] }: BankDetailsSelectProps = $props();
 
-    const createBankDetails = async () => {
-        const res = await fetch('/bankDetails', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify($currentInvoice.invoice.bankingDetails),
-        });
-        if (res.status === 201) {
-            await invalidate("bankDetails:get");
-            selectedBankIban = $currentInvoice.invoice.bankingDetails.iban;
-        }
-    };
+let selectedBankIban = $state('');
 
-    $: {
-        const selectedBankDetails = availableBankingDetails.find(bankDetails => bankDetails.iban === selectedBankIban);
-        if (selectedBankDetails) {
-            setBankDetails({ ...selectedBankDetails });
-        }
+const createBankDetails = async () => {
+    const res = await fetch('/bankDetails', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify($currentInvoice.invoice.bankingDetails),
+    });
+    if (res.status === 201) {
+        await invalidate('bankDetails:get');
+        selectedBankIban = $currentInvoice.invoice.bankingDetails.iban;
     }
+};
+
+$effect(() => {
+    const selectedBankDetails = availableBankingDetails.find(
+        (bankDetails) => bankDetails.iban === selectedBankIban,
+    );
+    if (selectedBankDetails) {
+        setBankDetails({ ...selectedBankDetails });
+    }
+});
 </script>
 
 <div class="nc-cluster full-width bankDetails">
@@ -43,7 +44,7 @@
         options="{availableBankingDetails.map(details => ({ value: details.iban, label: `${details.bankName} - ${details.iban}` }))}"
         bind:value={selectedBankIban}
     ></Select>
-    <button class="nc-button" type="button" on:click={createBankDetails}>
+    <button class="nc-button" type="button" onclick={createBankDetails}>
         Aktuelle Bankverbindung speichern
     </button>
 </div>

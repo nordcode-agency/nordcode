@@ -1,7 +1,10 @@
 <script lang="ts">
-    import "../global.css";
+import { page } from '$app/stores';
+import '../global.css';
 
-    import { page } from "$app/stores";
+import type { WithChildren } from '$lib/common/types/WithChildren';
+
+export const { children }: WithChildren = $props();
 </script>
 
 <svelte:head>
@@ -9,4 +12,4 @@
     <meta name="description" content={$page.data.description} />
 </svelte:head>
 
-<slot />
+{@render children?.()}

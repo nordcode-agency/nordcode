@@ -1,11 +1,14 @@
 <script lang="ts">
-    import Header from '$lib/common/components/Header.svelte';
-    import Footer from '$lib/common/components/Footer.svelte';
+import Header from '$lib/common/components/Header.svelte';
+import Footer from '$lib/common/components/Footer.svelte';
+import type { WithChildren } from '$lib/common/types/WithChildren';
+
+export const { children }: WithChildren = $props();
 </script>
 
 <Header></Header>
 <main class="nc-center page-center-layout">
-    <slot />
+    {@render children?.()}
 </main>
 <Footer></Footer>
 

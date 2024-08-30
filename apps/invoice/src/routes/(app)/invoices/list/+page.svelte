@@ -1,11 +1,25 @@
 <script lang="ts">
-    import InvoiceList from '$lib/invoice/components/InvoiceList.svelte';
-    import { Navigation } from '$lib/common/config/Navigation';
-    import { toInvoiceListItem } from '$lib/invoice/utils/toInvoiceListItem';
+import InvoiceList from '$lib/invoice/components/InvoiceList.svelte';
+import { Navigation } from '$lib/common/config/Navigation';
+import { toInvoiceListItem } from '$lib/invoice/utils/toInvoiceListItem';
+import {
+    type Issuer,
+    type BankingDetails,
+    type ContactDetails,
+    type Invoice,
+} from '$lib/invoice/models/Invoice.model.js';
 
-    export let data;
+interface PageData {
+    data: {
+        issuers: Issuer[];
+        bankDetails: BankingDetails[];
+        recipients: ContactDetails[];
+        invoices: Invoice[];
+    };
+}
+let { data }: PageData = $props();
 
-    const invoiceList = data.invoices.map(toInvoiceListItem);
+const invoiceList = data.invoices.map(toInvoiceListItem);
 </script>
 
 <svelte:head>

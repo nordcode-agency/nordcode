@@ -1,15 +1,22 @@
 <script lang="ts">
-    import InvoiceForm from '$lib/invoice/components/InvoiceForm.svelte';
-    import { onMount } from 'svelte';
-    import {
-        resetInvoice,
-    } from '$lib/invoice/invoiceStore';
+import InvoiceForm from '$lib/invoice/components/InvoiceForm.svelte';
+import { onMount } from 'svelte';
+import { resetInvoice } from '$lib/invoice/invoiceStore';
+import type { Issuer, BankingDetails, ContactDetails } from '$lib/invoice/models/Invoice.model';
 
-    export let data;
+interface PageData {
+    data: {
+        issuers: Issuer[];
+        bankDetails: BankingDetails[];
+        recipients: ContactDetails[];
+    };
+}
 
-    onMount(() => {
-        resetInvoice();
-    });
+let { data }: PageData = $props();
+
+$effect(() => {
+    resetInvoice();
+});
 </script>
 
 <svelte:head>
@@ -19,7 +26,7 @@
 <div class="nc-stack -far -contained">
     <h1>Neue Rechnung anlegen</h1>
     <InvoiceForm availableIssuers={data.issuers}
-                 availablebBankingDetails={data.bankDetails}
+                 availableBankingDetails={data.bankDetails}
                  availableRecipients={data.recipients}
 
     ></InvoiceForm>

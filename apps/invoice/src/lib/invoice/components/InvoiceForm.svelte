@@ -1,43 +1,44 @@
 <script lang="ts">
-    import {
-        addJobDescription,
-        currentInvoice,
-        removeJobDescription,
-    } from "../invoiceStore";
-    import {Input, TextArea} from "@nordcode/forms-svelte";
-    import type {
-        Issuer,
-        BankingDetails,
-        Recipient,
-    } from '$lib/invoice/models/Invoice.model';
-    import IssuerSelect from '$lib/invoice/components/IssuerSelect.svelte';
-    import BankDetailsSelect from '$lib/invoice/components/BankDetailsSelect.svelte';
-    import RecipientSelect from '$lib/invoice/components/RecipientSelect.svelte';
+import { addJobDescription, currentInvoice, removeJobDescription } from '../invoiceStore';
+import { Input, MarkdownEditor, TextArea } from '@nordcode/forms-svelte';
+import type { Issuer, BankingDetails, Recipient } from '$lib/invoice/models/Invoice.model';
+import IssuerSelect from '$lib/invoice/components/IssuerSelect.svelte';
+import BankDetailsSelect from '$lib/invoice/components/BankDetailsSelect.svelte';
+import RecipientSelect from '$lib/invoice/components/RecipientSelect.svelte';
 
-    export let availableIssuers: Issuer[] = [];
-    export let availableRecipients: Recipient[] = [];
-    export let availablebBankingDetails: BankingDetails[] = [];
+interface InvoiceFormProps {
+    availableIssuers: Issuer[];
+    availableRecipients: Recipient[];
+    availableBankingDetails: BankingDetails[];
+}
 
-    const createInvoice = async (event: SubmitEvent) => {
-        event.preventDefault();
+export const {
+    availableIssuers = [],
+    availableRecipients = [],
+    availableBankingDetails = [],
+}: InvoiceFormProps = $props();
 
-        const res = await fetch('/invoices', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify($currentInvoice.invoice),
-        });
+const createInvoice = async (event: SubmitEvent) => {
+    event.preventDefault();
 
-        if (res.status === 201) {
-            const { invoiceNumber } = await res.json();
-            location.href = `/view/${ invoiceNumber }`;
-        }
-    };
+    const res = await fetch('/invoices', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify($currentInvoice.invoice),
+    });
+
+    if (res.status === 201) {
+        const { invoiceNumber } = await res.json();
+        location.href = `/view/${invoiceNumber}`;
+    }
+};
 </script>
 
-<form class="nc-stack -far full-width -contained -stretched" on:submit={createInvoice}>
-    <Input bind:errors={$currentInvoice.errors.title}
+<form class="nc-stack -far full-width -contained -stretched" onsubmit={createInvoice}>
+    <Input
+        errors={$currentInvoice.errors.title}
            name="title"
            label="Rechnungs Titel"
            id="title"
@@ -52,6 +53,7 @@
                    name="invoiceNumber"
                    label="Rechnungsnummer"
                    id="title"
+                   type="text"
                    bind:value={$currentInvoice.invoice.invoiceNumber}
             />
 
@@ -131,21 +133,22 @@
                             id="{`job-${job.id}-title`}"
                             optional={true}
                             bind:value={job.title} />
-                        <TextArea
+
+                        <MarkdownEditor
                             name={`job-${job.id}-description`}
                             label={"Beschreibung"}
                             id={`job-${job.id}-description`}
                             bind:value={job.description}
-                        ></TextArea>
+                        ></MarkdownEditor>
                         <button class="nc-button -small -destructive"
                                 type="button"
-                                on:click={() => removeJobDescription(job.id)}>Leistung "{index + 1}"
+                                onclick={() => removeJobDescription(job.id)}>Leistung "{index + 1}"
                             löschen
                         </button>
                     </fieldset>
                 </div>
             {/each}
-            <button class="nc-button" type="button" on:click={addJobDescription}>
+            <button class="nc-button" type="button" onclick={addJobDescription}>
                 Leistung hinzufügen
             </button>
         </fieldset>
@@ -224,7 +227,7 @@
         <fieldset class="nc-fieldset nc-stack">
             <legend class="nc-legend">Bankverbindung</legend>
 
-            <BankDetailsSelect availableBankingDetails={availablebBankingDetails} />
+            <BankDetailsSelect availableBankingDetails={availableBankingDetails} />
 
             <Input errors={$currentInvoice.errors.bankingDetails}
                    name="bankName"
@@ -237,18 +240,21 @@
                    name="bankIban"
                    label="IBAN"
                    id="bankIban"
+                   type="text"
                    bind:value={$currentInvoice.invoice.bankingDetails.iban}
             />
             <Input errors={$currentInvoice.errors.bankingDetails}
                    name="bankBic"
                    label="BIC"
                    id="bankBic"
+                   type="text"
                    bind:value={$currentInvoice.invoice.bankingDetails.bic}
             />
             <Input errors={$currentInvoice.errors.bankingDetails}
                    name="bankUST"
                    label="UST-ID"
                    id="bankUST"
+                   type="text"
                    bind:value={$currentInvoice.invoice.bankingDetails.ust}
             />
         </fieldset>

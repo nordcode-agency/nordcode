@@ -8,15 +8,15 @@ import type { GenericInputProps } from './types/GenericInputProps.ts';
 
 let { value = $bindable(), ...props }: GenericInputProps = $props();
 
-const { id, label, optional, errors, hint, type, children } = props;
+const { id, label, optional, errors, hint, type, children, name } = props;
 </script>
 
-{#if type === "checkbox"}
+{#if type === "checkbox" && typeof value === "boolean"}
     <CheckboxInput {...props} bind:value={value} />
 {:else}
     <InputWrapper {id} {label} {optional} {errors} {hint}>
-        {#if type === 'date'}
-            <DateInput {...props} bind:value={value} />
+        {#if type === 'date' && value instanceof Date}
+            <DateInput {...props} bind:value={value} name={name ?? label} />
         {:else if type === "range"}
             <RangeInput {...props} bind:value={value} />
         {:else}

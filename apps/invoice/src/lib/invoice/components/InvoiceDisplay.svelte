@@ -6,17 +6,21 @@ import '../styles/invoiceDisplay.css';
 import Markdoc from '@markdoc/markdoc';
 import QRCode from 'qrcode';
 
-let targetDate: Date;
+interface InvoiceDisplayProps {
+    currentInvoice: Invoice;
+}
 
-export let currentInvoice: Invoice;
+export const { currentInvoice }: InvoiceDisplayProps = $props();
 
-$: {
+let targetDate: Date = $state(new Date());
+
+$effect(() => {
     if (currentInvoice) {
         const date = new Date(currentInvoice.date);
         date.setDate(date.getDate() + currentInvoice.daysToPay);
         targetDate = date;
     }
-}
+});
 
 const convertToHtml = (doc: string) => {
     const ast = Markdoc.parse(doc);
@@ -131,7 +135,7 @@ Rechnung Nr. ${invoice.invoiceNumber}
             </div>
             <div class="nc-stack -nearest | printBankDetails">
                 <h4>Bitte überweisen an</h4>
-                
+
                 <div class="nc-cluster -far nc-box -bordered">
 
                     <div class="nc-stack -nearest">

@@ -13,12 +13,26 @@ let {
     hint = '',
     optional = false,
     htmlOutput = $bindable(),
+    children,
     oninput,
 }: MarkdownInputProps = $props();
 
 const convertToHtml = (v: string): string => {
     const ast = Markdoc.parse(v);
-    const content = Markdoc.transform(ast);
+    const content = Markdoc.transform(ast, {
+        nodes: {
+            document: {
+                ...Markdoc.nodes.document,
+                transform(node, config) {
+                    return new Markdoc.Tag(
+                        'article',
+                        { source: config?.source, class: 'nc-markdown nc-flow' },
+                        node.transformChildren(config),
+                    );
+                },
+            },
+        },
+    });
     return Markdoc.renderers.html(content);
 };
 
@@ -48,4 +62,5 @@ const handleInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
               value={value}
               oninput={handleInput}
     ></textarea>
+    {@render children?.()}
 </InputWrapper>

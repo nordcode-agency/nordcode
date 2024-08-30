@@ -1,26 +1,33 @@
 <script lang="ts">
-    import IssuerList from '$lib/invoice/components/IssuerList.svelte';
-    import RecipientList from '$lib/invoice/components/RecipientList.svelte';
-    import BankingDetailsList from '$lib/invoice/components/BankingDetailsList.svelte';
+import IssuerList from '$lib/invoice/components/IssuerList.svelte';
+import RecipientList from '$lib/invoice/components/RecipientList.svelte';
+import BankingDetailsList from '$lib/invoice/components/BankingDetailsList.svelte';
+import type { BankingDetails, ContactDetails, Issuer } from '$lib/invoice/models/Invoice.model.js';
 
-    export let data;
+interface PageData {
+    data: {
+        issuers: Issuer[];
+        bankDetails: BankingDetails[];
+        recipients: ContactDetails[];
+    };
+}
 
-    async function createFiles() {
-        const res = await fetch('/management', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+let { data }: PageData = $props();
 
-        if (res.ok) {
-            alert('Dateien wurden erstellt');
-        } else {
-            alert('Fehler beim Erstellen der Dateien');
-        }
+async function createFiles() {
+    const res = await fetch('/management', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
 
+    if (res.ok) {
+        alert('Dateien wurden erstellt');
+    } else {
+        alert('Fehler beim Erstellen der Dateien');
     }
-
+}
 </script>
 
 <svelte:head>
