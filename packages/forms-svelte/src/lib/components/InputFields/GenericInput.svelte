@@ -10,7 +10,7 @@ let {
     hint = '',
     optional = false,
     autocomplete = 'off',
-    type,
+    type = 'text',
     value = $bindable(),
     ...rest
 }: GenericInputProps = $props();

@@ -4,7 +4,7 @@ import type { FormEventHandler } from 'svelte/elements';
 interface DateInputProps {
     name: string;
     id: string;
-    autocomplete: string;
+    autocomplete?: string;
     optional?: boolean;
     value: Date;
 }

@@ -5,6 +5,6 @@ export interface MarkdownInputProps extends InputLabelProps {
     label: string;
     value: string;
     name: string;
-    htmlOutput: string;
+    htmlOutput?: string;
     oninput?: FormEventHandler<HTMLTextAreaElement>;
 }
