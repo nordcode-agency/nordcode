@@ -1,13 +1,13 @@
 <script lang="ts">
-    import type { InvoiceListItem } from "../models/Invoice.model";
-    import {
-        formatDateString,
-        formatMoney,
-    } from "$lib/common/utils/formatters";
-    import { Navigation } from '$lib/common/config/Navigation';
+import type { InvoiceListItem } from '../models/Invoice.model';
+import { formatDateString, formatMoney } from '$lib/common/utils/formatters';
+import { Navigation } from '$lib/common/config/Navigation';
 
-    export let invoices: InvoiceListItem[] = [];
+interface InvoiceListProps {
+    invoices: InvoiceListItem[];
+}
 
+let { invoices }: InvoiceListProps = $props();
 </script>
 
 <div class="nc-table" role="group" style="background: none;">

@@ -1,14 +1,27 @@
 <script lang="ts">
+import InvoiceForm from '$lib/invoice/components/InvoiceForm.svelte';
+import { onMount } from 'svelte';
+import { setInvoice } from '$lib/invoice/invoiceStore';
+import type {
+    Issuer,
+    BankingDetails,
+    ContactDetails,
+    Invoice,
+} from '$lib/invoice/models/Invoice.model.js';
 
-    import InvoiceForm from '$lib/invoice/components/InvoiceForm.svelte';
-    import { onMount } from 'svelte';
-    import { setInvoice } from '$lib/invoice/invoiceStore';
+interface PageData {
+    data: {
+        issuers: Issuer[];
+        bankDetails: BankingDetails[];
+        recipients: ContactDetails[];
+        invoice: Invoice;
+    };
+}
+let { data }: PageData = $props();
 
-    export let data;
-
-    onMount(() => {
-        setInvoice(data.invoice);
-    });
+onMount(() => {
+    setInvoice(data.invoice);
+});
 </script>
 
 <svelte:head>
@@ -18,7 +31,7 @@
 <div class="nc-stack -far -contained">
     <h1>Rechnung Nr. {data.invoice.invoiceNumber} bearbeiten</h1>
     <InvoiceForm availableIssuers={data.issuers}
-                 availablebBankingDetails={data.bankDetails}
+                 availableBankingDetails={data.bankDetails}
                  availableRecipients={data.recipients}
     ></InvoiceForm>
 </div>

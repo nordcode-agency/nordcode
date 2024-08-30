@@ -1,9 +1,17 @@
 <script lang="ts">
 import InvoiceDisplay from '$lib/invoice/components/InvoiceDisplay.svelte';
 import { Navigation } from '$lib/common/config/Navigation';
+import type { Invoice } from '$lib/invoice/models/Invoice.model.js';
 
 export const layout = {};
-export let data;
+
+interface PageData {
+    data: {
+        invoice: Invoice;
+    };
+}
+
+let { data }: PageData = $props();
 </script>
 
 <svelte:head>

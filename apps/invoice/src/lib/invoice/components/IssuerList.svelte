@@ -1,23 +1,26 @@
 <script lang="ts">
-    import type { Issuer } from "../models/Invoice.model";
-    import { invalidate } from '$app/navigation';
+import type { Issuer } from '../models/Invoice.model';
+import { invalidate } from '$app/navigation';
 
-    export let issuers: Issuer[] = [];
+interface InvoiceListProps {
+    issuers: Issuer[];
+}
 
-    async function deleteIssuer(id: string) {
-        const response = await fetch(`/issuers`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ id }),
-        });
+let { issuers }: InvoiceListProps = $props();
 
-        if (response.ok) {
-            await invalidate("issuers:get");
-        }
+async function deleteIssuer(id: string) {
+    const response = await fetch('/issuers', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id }),
+    });
+
+    if (response.ok) {
+        await invalidate('issuers:get');
     }
-
+}
 </script>
 
 <div class="nc-table" role="group" style="background: none;">

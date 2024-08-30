@@ -1,36 +1,39 @@
 <script lang="ts">
-    import {
-        currentInvoice,
-        setRecipient,
-    } from "../invoiceStore";
-    import {Select} from "@nordcode/forms-svelte";
-    import type { Recipient } from '$lib/invoice/models/Invoice.model';
-    import { invalidate } from '$app/navigation';
+import { currentInvoice, setRecipient } from '../invoiceStore';
+import { Select } from '@nordcode/forms-svelte';
+import type { Recipient } from '$lib/invoice/models/Invoice.model';
+import { invalidate } from '$app/navigation';
 
-    export let availableRecipients: Recipient[] = [];
+interface InvoiceListProps {
+    availableRecipients: Recipient[];
+}
 
-    let selectedRecipientId: string;
+let { availableRecipients }: InvoiceListProps = $props();
 
-    const createRecipient = async () => {
-        const res = await fetch('/recipients', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify($currentInvoice.invoice.recipient),
-        });
-        if (res.status === 201) {
-            await invalidate("recipients:get");
-            selectedRecipientId = $currentInvoice.invoice.recipient.id;
-        }
-    };
+let selectedRecipientId = $state('');
 
-    $: {
-        const selectedRecipient = availableRecipients.find(issuer => issuer.id === selectedRecipientId);
-        if (selectedRecipient) {
-            setRecipient({ ...selectedRecipient });
-        }
+const createRecipient = async () => {
+    const res = await fetch('/recipients', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify($currentInvoice.invoice.recipient),
+    });
+    if (res.status === 201) {
+        await invalidate('recipients:get');
+        selectedRecipientId = $currentInvoice.invoice.recipient.id;
     }
+};
+
+$effect(() => {
+    const selectedRecipient = availableRecipients.find(
+        (issuer) => issuer.id === selectedRecipientId,
+    );
+    if (selectedRecipient) {
+        setRecipient({ ...selectedRecipient });
+    }
+});
 </script>
 
 <div class="nc-cluster full-width recipients">
@@ -41,7 +44,7 @@
         options="{availableRecipients.map(recipient => ({ value: recipient.id, label: `${recipient.id} - ${recipient.name}` }))}"
         bind:value={selectedRecipientId}
     ></Select>
-    <button class="nc-button" type="button" on:click={createRecipient}>
+    <button class="nc-button" type="button" onclick={createRecipient}>
         Aktuellen Empfänger:in speichern
     </button>
 </div>
