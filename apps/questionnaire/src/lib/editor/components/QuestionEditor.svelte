@@ -6,7 +6,13 @@ import { questionHasOptions } from '@nordcode/questionnaire-renderer';
 import { createOrUpdateQuestion } from '../editorStore';
 import OptionsEditor from './OptionsEditor.svelte';
 
-export let question: Question;
+interface QuestionEditorProps {
+    question: Question;
+}
+
+let { question }: QuestionEditorProps = $props();
+
+let questionUpdate = $state({ ...question });
 
 export const availableTypesRecord: Record<QuestionType, string> = {
     [QuestionType.text]: 'Text',
@@ -25,43 +31,55 @@ const createQuestion = async (event: SubmitEvent) => {
     event.preventDefault();
 
     // @todo: remove options if question type does not support options
-    createOrUpdateQuestion(question);
+    createOrUpdateQuestion(questionUpdate);
     window.location.href = Navigation.editor.url;
 };
 
-const updateQuestionOptions = (question: Question) => {
-    if (questionHasOptions(question) && question.options === undefined) {
-        question.options = [];
+const updateQuestionOptions = (q: Question) => {
+    if (questionHasOptions(q) && q.options === undefined) {
+        q.options = [];
     }
 };
 
-$: updateQuestionOptions(question);
+$effect(() => {
+    updateQuestionOptions(questionUpdate);
+});
 </script>
 
-<form class="nc-stack -far full-width -contained -stretched nc-box" on:submit={createQuestion}>
+<form class="nc-stack -far full-width -contained -stretched nc-box" onsubmit={createQuestion}>
 <fieldset class="nc-fieldset nc-stack">
         <Input
-            name="{`question-${question.id}-title`}"
+            name={`question-${questionUpdate.id}-title`}
             label="Titel"
-            id="{`question-${question.id}-title`}"
-            bind:value={question.title} />
+            id={`question-${questionUpdate.id}-title`}
+            bind:value={questionUpdate.title} />
         <MarkdownEditor
-            name={`question-${question.id}-description`}
+            name={`question-${questionUpdate.id}-description`}
             label={"Beschreibung"}
-            id={`question-${question.id}-description`}
+            id={`question-${questionUpdate.id}-description`}
             optional={true}
-            bind:value={question.description}
+            bind:value={questionUpdate.description}
         ></MarkdownEditor>
         <Select
-            name={`question-${question.id}-type`}
-            id={`question-${question.id}-description`}
+            name={`question-${questionUpdate.id}-type`}
+            id={`question-${questionUpdate.id}-type`}
             label={"Typ"}
-            bind:value={question.type}
+            bind:value={questionUpdate.type}
             options={availableTypes}
         >
         </Select>
-        {#if questionHasOptions(question)}
-            <OptionsEditor bind:options={question.options}></OptionsEditor>
+        <TextArea
+            name={`question-${questionUpdate.id}-hint`}
+            id={`question-${questionUpdate.id}-hint`}
+            label={"Hinweis"}
+            hint={"Ein Hinweis, wie die Frage gemeint oder zu beantworten ist"}
+            optional={true}
+            bind:value={questionUpdate.hint}
+            splitLines={false}
+        >
+        </TextArea>
+        {#if questionHasOptions(questionUpdate)}
+            <OptionsEditor bind:options={questionUpdate.options}></OptionsEditor>
         {/if}
     </fieldset>
 <button class="nc-button" type="submit">

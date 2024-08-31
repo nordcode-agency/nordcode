@@ -5,7 +5,11 @@ import TextArea from '../../../../../../packages/forms-svelte/src/lib/components
 import { createNewOption } from '../editorStore';
 import Trash from '../../common/components/icons/Trash.svelte';
 
-export let options: Option[];
+interface OptionEditorProps {
+    options: Option[];
+}
+
+let { options = $bindable() }: OptionEditorProps = $props();
 
 const addOption = () => {
     const newOption = createNewOption();
@@ -26,26 +30,26 @@ const removeOption = (optionId: string) => {
     <div class="nc-cluster -between nc-box -bordered | options-row">
     <div class="options-inputs">
     <Input
-        name="{`option-${option.id}-title`}"
+        name={`option-${option.id}-title`}
         label="Titel"
-        id="{`option-${option.id}-title`}"
+        id={`option-${option.id}-title`}
         bind:value={option.title} />
 
     <Input
-        name="{`option-${option.id}-value`}"
+        name={`option-${option.id}-value`}
         label="Wert"
-        id="{`option-${option.id}-value`}"
+        id={`option-${option.id}-value`}
         bind:value={option.value} />
     <div class="options-desc">
     <TextArea
-        name="{`option-${option.id}-description`}"
+        name={`option-${option.id}-description`}
         label="Beschreibung"
-        id="{`option-${option.id}-description`}"
+        id={`option-${option.id}-description`}
         bind:value={option.description}
         />
     </div>
         </div>
-    <button class="nc-button -danger -outline" type="button" on:click={() => removeOption(option.id)}>
+    <button class="nc-button -danger -outline" type="button" onclick={() => removeOption(option.id)}>
         <Trash></Trash>
         <span class="text-assistive">Option löschen</span>
     </button>
@@ -54,7 +58,7 @@ const removeOption = (optionId: string) => {
 </fieldset>
 
 
-<button class="nc-button" type="button" on:click={addOption}>
+<button class="nc-button" type="button" onclick={addOption}>
     Option hinzufügen
 </button>
 </fieldset>

@@ -3,7 +3,11 @@ import { Navigation } from '../../common/config/Navigation';
 import type { Question } from '@nordcode/questionnaire-renderer';
 import { removeQuestion } from '../editorStore';
 
-export let question: Question;
+interface QuestionLinkProps {
+    question: Question;
+}
+
+let { question }: QuestionLinkProps = $props();
 
 const questionLink = Navigation.question.url.replace(':id', question.id);
 </script>
@@ -15,7 +19,7 @@ const questionLink = Navigation.question.url.replace(':id', question.id);
     <td>
     <button class="nc-button -small -destructive"
             type="button"
-            on:click={() => removeQuestion(question.id)}>Frage
+            onclick={() => removeQuestion(question.id)}>Frage
         löschen
     </button>
     </td>

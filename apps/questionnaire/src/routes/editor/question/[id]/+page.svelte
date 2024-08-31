@@ -2,9 +2,14 @@
 import QuestionEditor from '$lib/editor/components/QuestionEditor.svelte';
 import { currentQuestionnaire } from '$lib/editor/editorStore';
 import { createNewQuestion, NEW_QUESTION_ID } from '../../../../lib/editor/editorStore';
-import type { PageData } from './$types';
 
-export let data: PageData;
+interface PageData {
+    data: {
+        questionId: string;
+    };
+}
+
+let { data }: PageData = $props();
 
 const question =
     data.questionId === NEW_QUESTION_ID

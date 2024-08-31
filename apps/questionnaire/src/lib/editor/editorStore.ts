@@ -20,6 +20,7 @@ export const initialQuestionnaireState: Questionnaire = {
     id: generateId('questionnaire'),
     title: 'Neuer Fragebogen',
     description: '',
+    renderedDescription: '',
     questions: [],
 };
 
@@ -52,6 +53,7 @@ export const createNewQuestion = (): Question => ({
     title: 'Neue Frage',
     type: QuestionType.text,
     description: '',
+    renderedDescription: '',
 });
 
 export const createOrUpdateQuestion = (question: Question) => {

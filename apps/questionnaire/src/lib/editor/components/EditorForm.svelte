@@ -1,6 +1,6 @@
 <script lang="ts">
 import { currentQuestionnaire, NEW_QUESTION_ID } from '../editorStore';
-import { Input } from '@nordcode/forms-svelte';
+import { Input, MarkdownEditor } from '@nordcode/forms-svelte';
 import QuestionLink from './QuestionLink.svelte';
 import { Navigation } from '../../common/config/Navigation';
 import { finaliseQuestionnaire } from '../utils/finaliseQuestionnaire';
@@ -10,7 +10,8 @@ type Download = {
     dataUri: string;
     title: string;
 };
-let download: Download | null = null;
+
+let download: Download | null = $state(null);
 
 const createQuestionnaire = async (event: SubmitEvent) => {
     event.preventDefault();
@@ -27,15 +28,15 @@ const createNewQuestion = () => {
 </script>
 
 {#if $currentQuestionnaire}
-<form class="nc-stack -far full-width -contained -stretched nc-box" on:submit={createQuestionnaire}>
-    <Input bind:errors={$currentQuestionnaire.errors.title}
+<form class="nc-stack -far full-width -contained -stretched nc-box" onsubmit={createQuestionnaire}>
+    <Input errors={$currentQuestionnaire.errors.title}
            name="title"
            label="Fragebogen Titel"
            id="title"
            type="text"
            bind:value={$currentQuestionnaire.questionnaire.title}
     />
-    <Input bind:errors={$currentQuestionnaire.errors.description}
+    <MarkdownEditor errors={$currentQuestionnaire.errors.description}
            name="description"
            label="Fragebogen Beschreibung"
            id="description"
@@ -68,14 +69,14 @@ const createNewQuestion = () => {
     </div>
 
 
-            <button class="nc-button" type="button" on:click={createNewQuestion}>
+            <button class="nc-button" type="button" onclick={createNewQuestion}>
                 Frage hinzufügen
             </button>
     </div>
     <button class="nc-button" type="submit">Fragebogen erstellen</button>
 
     {#if download}
-        <a href={download.dataUri} download="{`${download.title}.json`}">Download "{$currentQuestionnaire.questionnaire.title}"</a>
+        <a href={download.dataUri} download={`${download.title}.json`}>Download "{$currentQuestionnaire.questionnaire.title}"</a>
     {/if}
 </form>
 {/if}

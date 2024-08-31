@@ -4,6 +4,9 @@ import '../global.css';
 import { page } from '$app/stores';
 import Header from '$lib/common/components/Header.svelte';
 import Footer from '$lib/common/components/Footer.svelte';
+import type { WithChildren } from '$lib/common/types/WithChildren';
+
+let { children }: WithChildren = $props();
 </script>
 
 <svelte:head>
@@ -13,7 +16,7 @@ import Footer from '$lib/common/components/Footer.svelte';
 
 <Header></Header>
 <main>
-<slot />
+{@render children?.()}
 </main>
 <Footer></Footer>
 

@@ -11,7 +11,8 @@ const Theme = {
 const schemes = ['light', 'dark'] as const;
 const labels = ['Zur dunklen Ansicht wechseln', 'Zur hellen Ansicht wechseln'] as const;
 const pressed = ['false', 'true'] as const;
-let currentTheme: number = Theme.Light;
+
+let currentTheme: number = $state(Theme.Light);
 
 const setToLight = (shouldUpdateTheme: boolean) => {
     document.documentElement.setAttribute('color-scheme', 'light');
@@ -39,7 +40,7 @@ const toggleTheme = () => {
     functionsByScheme[nextScheme as keyof typeof functionsByScheme](true);
 };
 
-onMount(() => {
+$effect(() => {
     const colorScheme = localStorage?.getItem('color-scheme');
     if (colorScheme) {
         const nextTheme = colorScheme === 'light' ? 'dark' : 'light';
@@ -57,7 +58,7 @@ onMount(() => {
             title="Theme Picker"
             aria-pressed={pressed[currentTheme]}
             aria-label={labels[currentTheme]}
-            on:click={toggleTheme}
+            onclick={toggleTheme}
     >
         <svg xmlns="http://www.w3.org/2000/svg"
              class="nc-icon sun"
