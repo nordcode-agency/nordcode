@@ -19,7 +19,7 @@ interface PageData {
 }
 let { data }: PageData = $props();
 
-onMount(() => {
+$effect(() => {
     setInvoice(data.invoice);
 });
 </script>

@@ -316,6 +316,6 @@ const createInvoice = async (event: SubmitEvent) => {
     }
 
     :target {
-        scroll-margin-block-start:7ex;
+        scroll-margin-block-start: 7ex;
     }
 </style>

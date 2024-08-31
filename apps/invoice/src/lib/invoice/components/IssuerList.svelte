@@ -40,7 +40,7 @@ async function deleteIssuer(id: string) {
                 <td>{issuer.name}</td>
                 <td>
                     <button class="nc-button -small -destructive"
-                            on:click={() => deleteIssuer(issuer.id)}>Löschen
+                            onclick={() => deleteIssuer(issuer.id)}>Löschen
                     </button>
                 </td>
             </tr>

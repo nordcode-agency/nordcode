@@ -42,7 +42,7 @@ async function createFiles() {
     <BankingDetailsList bankDetails={data.bankDetails} />
 
     <div class="nc-stack -near">
-        <button class="nc-button" on:click={createFiles}>Dateien erstellen</button>
+        <button class="nc-button" onclick={createFiles}>Dateien erstellen</button>
         <p class="nc-hint">Erstellt alle notwendigen Dateien, falls sie noch nicht existieren</p>
     </div>
 </div>
