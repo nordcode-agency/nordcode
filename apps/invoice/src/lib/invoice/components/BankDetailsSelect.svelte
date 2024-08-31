@@ -41,7 +41,7 @@ $effect(() => {
         label="Bankverbindung wählen"
         id="selectBankDetails"
         name="selectBankDetails"
-        options="{availableBankingDetails.map(details => ({ value: details.iban, label: `${details.bankName} - ${details.iban}` }))}"
+        options={availableBankingDetails.map(details => ({ value: details.iban, label: `${details.bankName} - ${details.iban}` }))}
         bind:value={selectedBankIban}
     ></Select>
     <button class="nc-button" type="button" onclick={createBankDetails}>

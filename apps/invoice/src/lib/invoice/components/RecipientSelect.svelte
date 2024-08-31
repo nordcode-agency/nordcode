@@ -41,7 +41,7 @@ $effect(() => {
         label="Empfänger:in wählen"
         id="selectRecipient"
         name="selectRecipient"
-        options="{availableRecipients.map(recipient => ({ value: recipient.id, label: `${recipient.id} - ${recipient.name}` }))}"
+        options={availableRecipients.map(recipient => ({ value: recipient.id, label: `${recipient.id} - ${recipient.name}` }))}
         bind:value={selectedRecipientId}
     ></Select>
     <button class="nc-button" type="button" onclick={createRecipient}>

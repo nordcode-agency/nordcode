@@ -36,7 +36,22 @@ const createInvoice = async (event: SubmitEvent) => {
 };
 </script>
 
-<form class="nc-stack -far full-width -contained -stretched" onsubmit={createInvoice}>
+<form class="nc-stack -farthest full-width -contained -stretched" onsubmit={createInvoice}>
+    <header>
+        <nav>
+            <ul class="nc-list-reset nc-cluster">
+                <li><a href="#allgemeines">1. Allgemeines</a></li>
+                <li><a href="#empfaenger">2. Empfänger</a></li>
+                <li><a href="#leistungen">3. Leistungen</a></li>
+                <li><a href="#rechnungsdetails">4. Rechnungsdetails</a></li>
+                <li><a href="#aussteller">5. Austeller</a></li>
+                <li><a href="#bankverbindung">6. Bankverbindung</a></li>
+                <li class="generate"><a href="#generieren" class="nc-cluster -near -centered">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"aria-hidden="true" class="nc-icon" data-size="inline"><path fill="none" d="M0 0h24v24H0z"/><path d="M6 4v16a1 1 0 0 0 1.524.852l13-8a1 1 0 0 0 0-1.704l-13-8A1 1 0 0 0 6 4z"/></svg>
+                    <span>Rechnungs Generieren</span></a></li>
+            </ul>
+        </nav>
+    </header>
     <Input
         errors={$currentInvoice.errors.title}
            name="title"
@@ -45,9 +60,9 @@ const createInvoice = async (event: SubmitEvent) => {
            type="text"
            bind:value={$currentInvoice.invoice.title}
     />
-    <div class="nc-box -bordered">
+    <div class="nc-card">
         <fieldset class="nc-fieldset nc-stack">
-            <legend class="nc-legend">Allgemeines</legend>
+            <legend class="nc-legend"><h2 id="allgemeines">1. Allgemeines</h2></legend>
 
             <Input errors={$currentInvoice.errors.invoiceNumber}
                    name="invoiceNumber"
@@ -83,9 +98,9 @@ const createInvoice = async (event: SubmitEvent) => {
         </fieldset>
     </div>
 
-    <div class="nc-box -bordered">
+    <div class="nc-card">
         <fieldset class="nc-fieldset nc-stack">
-            <legend class="nc-legend">Empfänger</legend>
+            <legend class="nc-legend"><h2 id="empfaenger">2. Empfänger</h2></legend>
             <RecipientSelect availableRecipients={availableRecipients} />
             <Input errors={$currentInvoice.errors.recipient}
                    name="recipientId"
@@ -112,9 +127,9 @@ const createInvoice = async (event: SubmitEvent) => {
         </fieldset>
     </div>
 
-    <div class="nc-box -bordered">
+    <div class="nc-card">
         <fieldset class="nc-fieldset nc-stack -stretched -contained">
-            <legend class="nc-legend">Leistungen</legend>
+            <legend class="nc-legend"><h2 id="leistungen">3. Leistungen</h2></legend>
             <Input errors={$currentInvoice.errors.jobDuration}
                    name="jobDuration"
                    label="Leistungszeitraum"
@@ -128,9 +143,9 @@ const createInvoice = async (event: SubmitEvent) => {
                     <fieldset class="nc-fieldset nc-stack">
                         <legend class="nc-legend">Leistung {index + 1}</legend>
                         <Input
-                            name="{`job-${job.id}-title`}"
+                            name={`job-${job.id}-title`}
                             label="Titel"
-                            id="{`job-${job.id}-title`}"
+                            id={`job-${job.id}-title`}
                             optional={true}
                             bind:value={job.title} />
 
@@ -153,9 +168,9 @@ const createInvoice = async (event: SubmitEvent) => {
             </button>
         </fieldset>
     </div>
-    <div class="nc-box -bordered">
+    <div class="nc-card">
         <fieldset class="nc-fieldset nc-stack">
-            <legend class="nc-legend">Rechnungsdetails</legend>
+            <legend class="nc-legend"><h2 id="rechnungsdetails">4. Rechnungsdetails</h2></legend>
 
             <TextArea errors={$currentInvoice.errors.notes}
                       name="notes"
@@ -179,9 +194,9 @@ const createInvoice = async (event: SubmitEvent) => {
                    bind:value={$currentInvoice.invoice.hasUmsatzSteuer} />
         </fieldset>
     </div>
-    <div class="nc-box -bordered">
+    <div class="nc-card">
         <fieldset class="nc-fieldset nc-stack">
-            <legend class="nc-legend">Aussteller</legend>
+            <legend class="nc-legend"><h2 id="aussteller">5. Aussteller</h2></legend>
 
             <IssuerSelect availableIssuers={availableIssuers} />
 
@@ -223,9 +238,9 @@ const createInvoice = async (event: SubmitEvent) => {
             />
         </fieldset>
     </div>
-    <div class="nc-box -bordered">
+    <div class="nc-card">
         <fieldset class="nc-fieldset nc-stack">
-            <legend class="nc-legend">Bankverbindung</legend>
+            <legend class="nc-legend"><h2 id="bankverbindung">6. Bankverbindung</h2></legend>
 
             <BankDetailsSelect availableBankingDetails={availableBankingDetails} />
 
@@ -259,10 +274,35 @@ const createInvoice = async (event: SubmitEvent) => {
             />
         </fieldset>
     </div>
-    <button class="nc-button" type="submit">Rechnung generieren</button>
+    <button class="nc-button" id="generieren" type="submit">Rechnung generieren</button>
 </form>
 
 <style>
+    header {
+        position: sticky;
+        inset-block-start: 0;
+        inset-inline: 0;
+        inline-size: 100%;
+        padding-block: var(--spacing-near);
+        background: var(--color-surface-muted);
+        box-shadow: var(--shadow-near);
+        padding-inline: var(--spacing-base);
+        border-block-end: var(--border-width-thin) solid var(--color-border-muted);
+        z-index: 2;
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .generate {
+        margin-inline-start: auto;
+    }
+
     form {
         --input-field-max-inline-size: 40ch;
     }
@@ -273,5 +313,9 @@ const createInvoice = async (event: SubmitEvent) => {
 
     .nc-button {
         max-inline-size: fit-content;
+    }
+
+    :target {
+        scroll-margin-block-start:7ex;
     }
 </style>
