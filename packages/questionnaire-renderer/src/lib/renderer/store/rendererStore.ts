@@ -73,7 +73,7 @@ export const goBack = () => {
 };
 
 export const goToNextQuestion = () => {
-    rendererStore.update((store: CurrentQuestionnaireStore) => {
+    rendererStore?.update((store: CurrentQuestionnaireStore) => {
         if (!store.questionnaire) {
             return;
         }
@@ -99,7 +99,7 @@ export const goToNextQuestion = () => {
 };
 
 export const answerQuestion = (answer: AnswerValue) => {
-    rendererStore.update((store: CurrentQuestionnaireStore) => {
+    rendererStore?.update((store: CurrentQuestionnaireStore) => {
         if (!store.questionnaire) {
             return;
         }
@@ -108,3 +108,5 @@ export const answerQuestion = (answer: AnswerValue) => {
         return store;
     });
 };
+
+export const finishQuestionnaire = () => {};

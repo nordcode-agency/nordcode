@@ -1,5 +1,13 @@
 <script lang="ts">
 import { goBack, rendererStore } from '../store/rendererStore.ts';
+
+let {
+    content,
+    controls,
+}: {
+    content: Snippet[];
+    controls: Snippet[];
+} = $props();
 </script>
 <section class="nc-questionnaire-renderer nc-region">
     <div class="nc-center page-center-layout">
@@ -8,7 +16,7 @@ import { goBack, rendererStore } from '../store/rendererStore.ts';
             class="nc-button -stealth"
             type="button"
             disabled={$rendererStore.currentState === "start"}
-            on:click={goBack}
+            onclick={goBack}
             >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -24,9 +32,9 @@ import { goBack, rendererStore } from '../store/rendererStore.ts';
                 ><path stroke="none" d="M0 0h24v24H0z"/><path d="M5 12h14M5 12l4 4M5 12l4-4"/></svg>
             <span>Zurück</span>
         </button>
-        <slot name="content" />
+        {@render content?.()}
     <div class="nc-questionnaire-renderer-controls">
-        <slot name="controls" />
+        {@render controls?.()}
     </div>
     <dl>
     {#each $rendererStore.answers as answer}

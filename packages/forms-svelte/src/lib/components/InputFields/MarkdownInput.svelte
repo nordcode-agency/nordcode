@@ -1,6 +1,7 @@
 <script lang="ts">
 import Markdoc from '@markdoc/markdoc';
 import InputWrapper from './InputWrapper.svelte';
+import { convertToHtml } from '../../markdoc/convertToHtml.ts';
 import type { FormEventHandler } from 'svelte/elements';
 import type { MarkdownInputProps } from './types/MarkdownInputProps.ts';
 
@@ -17,27 +18,10 @@ let {
     oninput,
 }: MarkdownInputProps = $props();
 
-const convertToHtml = (v: string): string => {
-    const ast = Markdoc.parse(v);
-    const content = Markdoc.transform(ast, {
-        nodes: {
-            document: {
-                ...Markdoc.nodes.document,
-                transform(node, config) {
-                    return new Markdoc.Tag(
-                        'article',
-                        { source: config?.source, class: 'nc-markdown nc-flow' },
-                        node.transformChildren(config),
-                    );
-                },
-            },
-        },
-    });
-    return Markdoc.renderers.html(content);
-};
-
 $effect(() => {
-    htmlOutput = convertToHtml(value);
+    if (value) {
+        htmlOutput = convertToHtml(value);
+    }
 });
 
 const handleInput: FormEventHandler<HTMLTextAreaElement> = (event) => {

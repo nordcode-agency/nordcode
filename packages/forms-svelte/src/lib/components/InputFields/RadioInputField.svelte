@@ -5,7 +5,7 @@ import type { GenericInputProps } from './types/GenericInputProps.ts';
 
 interface RadioInputFieldProps extends GenericInputProps {
     options: Option[];
-    value: number | string | boolean;
+    value?: number | string | boolean;
 }
 
 let {

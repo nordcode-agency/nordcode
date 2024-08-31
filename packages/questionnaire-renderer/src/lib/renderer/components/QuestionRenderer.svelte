@@ -1,8 +1,14 @@
 <script lang="ts">
+import type { QuestionnaireAnswer } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
 import { type Question, QuestionType } from '../../questionnaire/models/Questionnaire.model.ts';
-import { RadioInputField, CheckboxInputField, TextArea, Input } from '@nordcode/forms-svelte';
+import { RadioInputField, CheckboxInputField, Input, MarkdownEditor } from '@nordcode/forms-svelte';
 
-export let question: Question;
+interface QuestionRendererProps {
+    question: Question;
+    answer?: QuestionnaireAnswer;
+}
+
+let { question, answer }: QuestionRendererProps = $props();
 </script>
 
 <fieldset>
@@ -11,23 +17,27 @@ export let question: Question;
              label={question.title}
              name={question.id}
         id={question.id}
-        hint={question.description}
-        optional={!question.required}></Input>
+        hint={question.hint}
+        optional={!question.required}
+        value={answer?.answer}
+        ></Input>
          {:else if question.type === QuestionType.long_text}
-         <TextArea
+         <MarkdownEditor
              label={question.title}
              name={question.id}
         id={question.id}
-        hint={question.description}
-        splitLines={true}
-        optional={!question.required}></TextArea>
+        hint={question.hint}
+        optional={!question.required}
+        value={answer?.answer as string}
+        ></MarkdownEditor>
      {:else if question.type === QuestionType.multiple_choice}
      <CheckboxInputField
          label={question.title}
          name={question.id}
         id={question.id}
-        hint={question.description}
+        hint={question.hint}
         optional={!question.required}
+        value={answer?.answer as string}
         options={question.options.map(o => ({
             label: o.title,
             value: o.value,
@@ -39,8 +49,9 @@ export let question: Question;
          label={question.title}
          name={question.id}
         id={question.id}
-        hint={question.description}
+        hint={question.hint}
         optional={!question.required}
+        value={answer?.answer as string}
         options={question.options.map(o => ({
             label: o.title,
             value: o.value,
@@ -52,8 +63,9 @@ export let question: Question;
          label={question.title}
          name={question.id}
     id={question.id}
-    hint={question.description}
+    hint={question.hint}
     optional={!question.required}
+    value={answer?.answer as number}
     type="number"
     ></Input>
      {/if}

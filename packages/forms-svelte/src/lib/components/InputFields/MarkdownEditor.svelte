@@ -54,7 +54,9 @@ let { htmlOutput = $bindable(), value = $bindable(), ...rest }: MarkdownInputPro
         bind:htmlOutput={htmlOutput}
     >
     <div class="nc-box -bordered nc-markdown-preview">
-        {@html htmlOutput}
+        {#if htmlOutput}
+            {@html htmlOutput}
+        {/if}
         <span class="badge preview-tag -emphasis">Markdown Preview</span>
 
     </div>

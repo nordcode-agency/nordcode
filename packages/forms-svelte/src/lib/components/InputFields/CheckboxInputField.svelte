@@ -5,7 +5,7 @@ import type { GenericInputProps } from './types/GenericInputProps.ts';
 
 interface CheckboxInputFieldProps extends GenericInputProps {
     options: Option[];
-    value: number | string | boolean;
+    value?: number | string | boolean;
 }
 
 let {
@@ -53,7 +53,7 @@ const handleChange: FormEventHandler<HTMLFieldSetElement> = (event) => {
 </label>
 <input
     id={option.label}
-    class="nc-input-radio"
+    class="nc-input-checkbox"
     type="checkbox"
     value={option.value}
     name={name}

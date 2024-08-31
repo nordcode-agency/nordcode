@@ -4,15 +4,15 @@ import { startQuestionnaire, rendererStore } from '../store/rendererStore.ts';
 </script>
 
 <RendererLayout>
-    <div slot="content">
+        {#snippet content()}
         <h1>{$rendererStore.questionnaire.title}</h1>
         {#if $rendererStore.questionnaire.description}
-            <p>{$rendererStore.questionnaire.description}</p>
+            {@html $rendererStore.questionnaire.description}
         {/if}
-    </div>
-    <span slot="controls">
-        <button class="nc-button" type="button" on:click={startQuestionnaire}>
+        {/snippet}
+        {#snippet controls()}
+        <button class="nc-button" type="button" onclick={startQuestionnaire}>
             <span>Fragebogen starten</span>
         </button>
-    </span>
+        {/snippet}
 </RendererLayout>

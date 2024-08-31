@@ -7,7 +7,7 @@ import type { GenericInputProps } from './types/GenericInputProps.ts';
 
 interface TextAreaProps extends Omit<GenericInputProps, 'type'> {
     splitLines?: boolean;
-    value: string | string[];
+    value?: string | string[];
 }
 
 let {

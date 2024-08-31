@@ -8,7 +8,7 @@ import type { GenericInputProps } from './types/GenericInputProps.ts';
 
 let { value = $bindable(), ...props }: GenericInputProps = $props();
 
-const { id, label, optional, errors, hint, type, children, name } = props;
+const { id, label, optional, errors, hint, type = 'text', children, name } = props;
 </script>
 
 {#if type === "checkbox" && typeof value === "boolean"}

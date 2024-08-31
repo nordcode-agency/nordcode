@@ -4,10 +4,15 @@ import { rendererStore, setQuestionnaire } from '../store/rendererStore.ts';
 import type { Questionnaire } from '$lib/questionnaire/index.ts';
 import StartPage from './StartPage.svelte';
 import QuestionPage from './QuestionPage.svelte';
+import FinishPage from './FinishPage.svelte';
 
-export let questionnaire: Questionnaire;
+interface QuestionnaireRendererProps {
+    questionnaire: Questionnaire;
+}
 
-onMount(() => {
+let { questionnaire }: QuestionnaireRendererProps = $props();
+
+$effect(() => {
     if (questionnaire) {
         setQuestionnaire(questionnaire);
     }
@@ -19,7 +24,8 @@ onMount(() => {
     <StartPage></StartPage>
     {:else if $rendererStore.currentState === "questions"}
         <QuestionPage></QuestionPage>
+    {:else if $rendererStore.currentState === "finished"}
+        <FinishPage></FinishPage>
     {/if}
-{:else}
     <p>Kein Fragebogen ausgewählt</p>
 {/if}
