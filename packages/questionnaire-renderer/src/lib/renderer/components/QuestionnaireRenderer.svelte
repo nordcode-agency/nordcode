@@ -27,5 +27,4 @@ $effect(() => {
     {:else if $rendererStore.currentState === "finished"}
         <FinishPage></FinishPage>
     {/if}
-    <p>Kein Fragebogen ausgewählt</p>
 {/if}

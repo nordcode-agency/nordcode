@@ -50,6 +50,21 @@ export const startQuestionnaire = () => {
     });
 };
 
+export const resetQuestionnaire = () => {
+    rendererStore?.update((store: CurrentQuestionnaireStore) => {
+        return {
+            ...store,
+            errors: {},
+            currentQuestion: 0,
+            currentState: 'start',
+            answers: store?.questionnaire?.questions.map((question) => ({
+                question,
+                answer: undefined,
+            })),
+        };
+    });
+};
+
 export const goBack = () => {
     rendererStore?.update((store: CurrentQuestionnaireStore) => {
         if (store.currentState === 'start') {
@@ -98,12 +113,21 @@ export const goToNextQuestion = () => {
     });
 };
 
+export const goToQuestion = (questionNumber: number) => {
+    rendererStore?.update((store: CurrentQuestionnaireStore) => {
+        return {
+            ...store,
+            currentQuestion: questionNumber,
+            currentState: 'questions',
+        };
+    });
+};
+
 export const answerQuestion = (answer: AnswerValue) => {
     rendererStore?.update((store: CurrentQuestionnaireStore) => {
         if (!store.questionnaire) {
             return;
         }
-
         store.answers[store.currentQuestion].answer = answer;
         return store;
     });

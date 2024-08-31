@@ -1,5 +1,6 @@
 <script lang="ts">
-import { goBack, rendererStore } from '../store/rendererStore.ts';
+import { goBack, rendererStore, resetQuestionnaire } from '../store/rendererStore.ts';
+import AnswerDisplay from './AnswerDisplay.svelte';
 
 let {
     content,
@@ -36,18 +37,12 @@ let {
     <div class="nc-questionnaire-renderer-controls">
         {@render controls?.()}
     </div>
-    <dl>
-    {#each $rendererStore.answers as answer}
-        <dt>{answer.question.title}</dt>
-        <dd>{answer.answer}</dd>
-    {/each}
-    </dl>
-        <!-- @todo: add overview over answers -->
-        <pre>
-            <code>
-                {JSON.stringify($rendererStore, null, 2)}
-                </code>
-            </pre>
-    </div>
+    {#if $rendererStore.currentState === "questions"}
+        <section class="nc-region nc-stack -contained -stretched">
+            <h3>Deine Antworten</h3>
+            <button onclick={resetQuestionnaire} class="nc-button -outline">Von vorne beginnen</button>
+        <AnswerDisplay></AnswerDisplay>
+        </section>
+    {/if}
     </div>
 </section>
