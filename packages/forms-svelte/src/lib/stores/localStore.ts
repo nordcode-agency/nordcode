@@ -1,45 +1,46 @@
 // taken from: https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_stores#implementing_our_custom_to-dos_store
-import { writable } from 'svelte/store';
+import { writable, get } from 'svelte/store';
+import { browser } from '$app/environment';
 
-const Noop = () => {};
 export const localStore = <T>(key: string, initial: T) => {
-    // receives the key of the local storage and an initial value
+    const serialize = (value: T) => JSON.stringify(value, null, 2);
+    const deserialize = (stringValue: string): T => JSON.parse(stringValue);
 
-    const stringify = (value: T) => JSON.stringify(value, null, 2); // helper function
-    const toObj = JSON.parse; // helper function
+    let initialValue = initial;
+    let hasStoredValue = false;
 
-    if (localStorage.getItem(key) === null) {
-        // item not present in local storage
-        localStorage.setItem(key, stringify(initial)); // initialize local storage with initial value
+    if (browser) {
+        const item = localStorage.getItem(key);
+        if (item) {
+            initialValue = deserialize(item);
+            hasStoredValue = true;
+        }
     }
 
-    let saved = toObj(localStorage.getItem(key) ?? ''); // convert to object
+    const store = writable(initialValue);
+    const { subscribe, set, update } = store;
 
-    const { subscribe, set, update } = writable(saved); // create the underlying writable store
+    subscribe((current) => {
+        if (browser) {
+            localStorage.setItem(key, serialize(current));
+        }
+    });
 
     return {
         subscribe,
-        set: (value: T) => {
-            localStorage.setItem(key, stringify(value)); // save also to local storage as a string
-            return set(value);
-        },
-        // update,
-        update: (updateFn: (state: T) => T) => {
-            const updated = updateFn(saved);
-            localStorage.setItem(key, stringify(updated));
-            saved = updated;
-            return update(updateFn);
-        },
+        set,
+        update,
+        hasStoredValue,
         exportToString: () => {
-            return stringify(saved);
+            return serialize(get(store));
         },
-        exportToJson: () => saved,
+        exportToJson: () => {
+            return get(store);
+        },
         import: (valueString: string) => {
-            const value = toObj(valueString);
-            return set(value);
+            return set(deserialize(valueString));
         },
         reset: () => {
-            localStorage.setItem(key, stringify(initial));
             return set(initial);
         },
     };
