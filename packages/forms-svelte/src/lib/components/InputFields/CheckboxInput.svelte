@@ -33,8 +33,8 @@ let {
     <input
       id={id}
        name={name}
-       aria-required={!optional}
        autocomplete={autocomplete}
+       required={optional ? false : true}
        type={'checkbox'}
        checked={value}
        oninput={() => value = !value}

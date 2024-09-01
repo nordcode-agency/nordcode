@@ -40,7 +40,12 @@ const handleChange: FormEventHandler<HTMLFieldSetElement> = (event) => {
         {/each}
         {/if}
     </p>
-    <fieldset class="nc-fieldset" aria-labelledby={id} aria-describedby={`${id}-hint`} onchange={handleChange}>
+    <fieldset
+        class="nc-fieldset"
+        aria-labelledby={id}
+        aria-describedby={`${id}-hint`}
+        onchange={handleChange}
+        >
         {#each options as option}
 <div class="nc-checkbox-wrapper nc-input-field">
             <label for={option.label} class="nc-stack">
@@ -57,6 +62,7 @@ const handleChange: FormEventHandler<HTMLFieldSetElement> = (event) => {
     type="checkbox"
     value={option.value}
     name={name}
+    required={optional ? false : true}
 />
 </div>
 {/each}

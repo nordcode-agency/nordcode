@@ -31,7 +31,7 @@ const handleInput: FormEventHandler<HTMLSelectElement> = (event) => {
     <select class="nc-select"
             id={id}
             name={name}
-            aria-required={!optional}
+            required={optional ? false : true}
             oninput={handleInput}
     >
         {#each options as option}

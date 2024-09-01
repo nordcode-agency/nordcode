@@ -48,6 +48,7 @@ const handleChange: FormEventHandler<HTMLFieldSetElement> = (event) => {
                     type="radio"
                     value={option.value}
                     name={name}
+                    required={optional ? false : true}
                 />
                 <span>{option.label}</span>
             </label>

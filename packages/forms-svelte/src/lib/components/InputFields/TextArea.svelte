@@ -40,9 +40,9 @@ const handleInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
 <InputWrapper {id} {label} {optional} {errors} {hint}>
     <textarea class="nc-input nc-textarea" id={id}
               name={name}
-              aria-required={!optional}
               value={splitLines && Array.isArray(value) ? value?.join("\n") : value}
               oninput={handleInput}
+              required={optional ? false : true}
     ></textarea>
     {@render children?.()}
 </InputWrapper>

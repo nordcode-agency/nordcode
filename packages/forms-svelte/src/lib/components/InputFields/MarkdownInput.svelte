@@ -40,11 +40,13 @@ const handleInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
 </style>
 
 <InputWrapper {id} {label} {optional} {errors} {hint}>
-    <textarea class="nc-input nc-markdown-input" id={id}
-              name={name}
-              aria-required={!optional}
-              value={value}
-              oninput={handleInput}
+    <textarea
+            class="nc-input nc-markdown-input"
+            id={id}
+            name={name}
+            required={optional ? false : true}
+            value={value}
+            oninput={handleInput}
     ></textarea>
     {@render children?.()}
 </InputWrapper>

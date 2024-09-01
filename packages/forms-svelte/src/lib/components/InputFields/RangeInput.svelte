@@ -31,7 +31,7 @@ const handleInput: FormEventHandler<HTMLInputElement> = (event) => {
 <input class="nc-input"
        id={id}
        name={name}
-       aria-required={!optional}
+       required={optional ? false : true}
        autocomplete={autocomplete}
        type={type}
        value={value}

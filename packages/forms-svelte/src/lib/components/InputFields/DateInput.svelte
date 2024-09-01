@@ -43,11 +43,11 @@ let internalValue = $derived(formatDate(value));
 <input class="nc-input"
        id={id}
        name={name}
-       aria-required={!optional}
        autocomplete={autocomplete}
        type={'date'}
        value={internalValue}
        oninput={handleInput}
+       required={optional ? false : true}
 >
 <button type="button" class="nc-button" onclick={setToday}>
     Heute
