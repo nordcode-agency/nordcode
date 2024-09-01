@@ -1,6 +1,5 @@
 <script lang="ts">
-import { onMount } from 'svelte';
-import { rendererStore, setQuestionnaire } from '../store/rendererStore.ts';
+import { rendererStore, initialiseQuestionnaire } from '../store/rendererStore.ts';
 import type { Questionnaire } from '$lib/questionnaire/index.ts';
 import StartPage from './StartPage.svelte';
 import QuestionPage from './QuestionPage.svelte';
@@ -14,7 +13,7 @@ let { questionnaire }: QuestionnaireRendererProps = $props();
 
 $effect(() => {
     if (questionnaire) {
-        setQuestionnaire(questionnaire);
+        initialiseQuestionnaire(questionnaire);
     }
 });
 </script>

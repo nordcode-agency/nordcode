@@ -20,7 +20,6 @@ export const initialQuestionnaireState: Questionnaire = {
     id: generateId('questionnaire'),
     title: 'Neuer Fragebogen',
     description: '',
-    renderedDescription: '',
     questions: [],
 };
 

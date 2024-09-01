@@ -4,6 +4,7 @@ import type {
     AnswerValue,
     QuestionnaireAnswer,
 } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
+import { get } from 'svelte/store';
 
 const STORE_KEY = 'RENDERER_QUESTIONNAIRE';
 
@@ -17,19 +18,16 @@ export type CurrentQuestionnaireStore = {
     errors: Partial<{ [name in keyof Questionnaire]: string[] }>;
 };
 
-export const rendererStore =
-    typeof localStorage === 'undefined'
-        ? null
-        : localStore<CurrentQuestionnaireStore>(STORE_KEY, {
-              questionnaire: null,
-              currentQuestion: 0,
-              currentState: 'idle',
-              answers: [],
-              errors: {},
-          });
+export const rendererStore = localStore<CurrentQuestionnaireStore>(STORE_KEY, {
+    questionnaire: null,
+    currentQuestion: 0,
+    currentState: 'idle',
+    answers: [],
+    errors: {},
+});
 
 export const setQuestionnaire = (questionnaire: Questionnaire) => {
-    rendererStore?.set({
+    rendererStore.set({
         questionnaire,
         errors: {},
         currentQuestion: 0,
@@ -41,8 +39,20 @@ export const setQuestionnaire = (questionnaire: Questionnaire) => {
     });
 };
 
+export const initialiseQuestionnaire = (questionnaire: Questionnaire) => {
+    if (rendererStore.hasStoredValue) {
+        const oldValue = get(rendererStore) as CurrentQuestionnaireStore;
+        if (oldValue?.questionnaire?.id === questionnaire.id) {
+            // do nothing and let the old version take over
+            return;
+        }
+    }
+
+    setQuestionnaire(questionnaire);
+};
+
 export const startQuestionnaire = () => {
-    rendererStore?.update((store: CurrentQuestionnaireStore) => {
+    rendererStore.update((store: CurrentQuestionnaireStore) => {
         return {
             ...store,
             currentState: 'questions',
@@ -51,7 +61,7 @@ export const startQuestionnaire = () => {
 };
 
 export const resetQuestionnaire = () => {
-    rendererStore?.update((store: CurrentQuestionnaireStore) => {
+    rendererStore.update((store: CurrentQuestionnaireStore) => {
         return {
             ...store,
             errors: {},
@@ -66,7 +76,7 @@ export const resetQuestionnaire = () => {
 };
 
 export const goBack = () => {
-    rendererStore?.update((store: CurrentQuestionnaireStore) => {
+    rendererStore.update((store: CurrentQuestionnaireStore) => {
         if (store.currentState === 'start') {
             return;
         }
@@ -88,7 +98,7 @@ export const goBack = () => {
 };
 
 export const goToNextQuestion = () => {
-    rendererStore?.update((store: CurrentQuestionnaireStore) => {
+    rendererStore.update((store: CurrentQuestionnaireStore) => {
         if (!store.questionnaire) {
             return;
         }
@@ -114,7 +124,7 @@ export const goToNextQuestion = () => {
 };
 
 export const goToQuestion = (questionNumber: number) => {
-    rendererStore?.update((store: CurrentQuestionnaireStore) => {
+    rendererStore.update((store: CurrentQuestionnaireStore) => {
         return {
             ...store,
             currentQuestion: questionNumber,
@@ -124,7 +134,7 @@ export const goToQuestion = (questionNumber: number) => {
 };
 
 export const answerQuestion = (answer: AnswerValue) => {
-    rendererStore?.update((store: CurrentQuestionnaireStore) => {
+    rendererStore.update((store: CurrentQuestionnaireStore) => {
         if (!store.questionnaire) {
             return;
         }

@@ -17,14 +17,28 @@ let currentAnswer: QuestionnaireAnswer = $derived(
     $rendererStore.answers[$rendererStore.currentQuestion],
 );
 
+const modifierKey = navigator.userAgent.includes('Mac') ? '⌘' : 'Strg';
+
 const answerCurrentQuestion = (form: HTMLFormElement) => {
     const formData = new FormData(form as HTMLFormElement);
     const answer = formData.get(currentQuestion.id);
 
-    if (answer) {
-        answerQuestion(answer as AnswerValue);
-        goToNextQuestion();
+    if (!form.checkValidity()) {
+        // @todo: show errors
+        return;
     }
+
+    if (answer === '' || answer === undefined || answer === null) {
+        skipQuestion();
+        return;
+    }
+    answerQuestion(answer as AnswerValue);
+    goToNextQuestion();
+};
+
+const skipQuestion = () => {
+    answerQuestion('(nicht beantwortet)');
+    goToNextQuestion();
 };
 
 const onFormSubmit: FormEventHandler<HTMLFormElement> = (event) => {
@@ -41,6 +55,22 @@ const submitForm = () => {
     }
     answerCurrentQuestion(form);
 };
+
+const handleKeyboardSubmit = (event: KeyboardEvent) => {
+    if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
+        event.stopPropagation();
+        submitForm();
+    }
+};
+
+$effect(() => {
+    document.addEventListener('keydown', handleKeyboardSubmit);
+
+    return () => {
+        document.removeEventListener('keydown', handleKeyboardSubmit);
+    };
+});
 </script>
 
 <RendererLayout>
@@ -66,7 +96,7 @@ const submitForm = () => {
         <span>Weiter</span>
     </button>
         <small>
-            oder <strong>Enter</strong> drücken <kbd>⏎ </kbd>
+            oder <strong>{modifierKey} + Enter</strong> drücken <kbd>{modifierKey}</kbd> + <kbd>⏎</kbd>
         </small>
     </div>
     {/snippet}

@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { Snippet } from 'svelte';
 import { goBack, rendererStore, resetQuestionnaire } from '../store/rendererStore.ts';
 import AnswerDisplay from './AnswerDisplay.svelte';
 
@@ -10,6 +11,7 @@ let {
     controls: Snippet[];
 } = $props();
 </script>
+
 <section class="nc-questionnaire-renderer nc-region">
     <div class="nc-center page-center-layout">
         <div class="nc-stack -far">
