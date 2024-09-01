@@ -462,6 +462,7 @@
 
         & input {
             opacity: 0;
+            position: absolute;
         }
 
         &:focus-within {
@@ -574,6 +575,7 @@
 
         & input {
             opacity: 0;
+            position: absolute;
         }
 
         & label {
