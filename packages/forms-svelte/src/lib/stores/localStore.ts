@@ -1,6 +1,6 @@
 // taken from: https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_stores#implementing_our_custom_to-dos_store
 import { writable, get } from 'svelte/store';
-import { browser } from '$app/environment';
+import { BROWSER } from 'esm-env';
 
 export const localStore = <T>(key: string, initial: T) => {
     const serialize = (value: T) => JSON.stringify(value, null, 2);
@@ -9,7 +9,7 @@ export const localStore = <T>(key: string, initial: T) => {
     let initialValue = initial;
     let hasStoredValue = false;
 
-    if (browser) {
+    if (BROWSER) {
         const item = localStorage.getItem(key);
         if (item) {
             initialValue = deserialize(item);
@@ -21,7 +21,7 @@ export const localStore = <T>(key: string, initial: T) => {
     const { subscribe, set, update } = store;
 
     subscribe((current) => {
-        if (browser) {
+        if (BROWSER) {
             localStorage.setItem(key, serialize(current));
         }
     });

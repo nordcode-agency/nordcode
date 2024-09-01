@@ -245,6 +245,10 @@ importers:
         version: 7.28.0(eslint@9.1.0)
 
   packages/forms-svelte:
+    dependencies:
+      esm-env:
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@biomejs/biome':
         specifier: 1.8.3

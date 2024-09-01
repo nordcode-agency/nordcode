@@ -2,6 +2,13 @@
 import '../global.css';
 
 import { page } from '$app/stores';
+import type { Snippet } from 'svelte';
+
+const {
+    children,
+}: {
+    children: Snippet[];
+} = $props();
 </script>
 
 <svelte:head>
@@ -10,7 +17,7 @@ import { page } from '$app/stores';
 </svelte:head>
 
 <main>
-<slot />
+{@render children?.()}
 </main>
 
 <style>
