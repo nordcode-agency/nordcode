@@ -28,7 +28,12 @@ const createNewQuestion = () => {
 </script>
 
 {#if $currentQuestionnaire}
-<form class="nc-stack -far full-width -contained -stretched nc-box" onsubmit={createQuestionnaire}>
+<form class="nc-card nc-form" onsubmit={createQuestionnaire}>
+    <h1 class="nc-form-title">Fragenbogen erstellen</h1>
+
+    <p class="nc-form-hint">Zuerst erstellen wir eine grobe Beschreibung. Diese wird den Ausfüller:innen zum Start angezeigt. Idealerweise beschreibt sie den Zweck des Fragebogens.</p>
+
+    <div class="nc-stack -far">
     <Input errors={$currentQuestionnaire.errors.title}
            name="title"
            label="Fragebogen Titel"
@@ -41,17 +46,17 @@ const createNewQuestion = () => {
            label="Fragebogen Beschreibung"
            id="description"
            type="text"
+           hint="Markdown wird unterstützt."
            optional={true}
            bind:value={$currentQuestionnaire.questionnaire.description}
     />
 
 
-    <div class="nc-stack">
-    <div class="nc-table" role="group" aria-labelledby="questions-table">
+    <fieldset style="inline-size: 100%;">
+        <legend>Fragen</legend>
+        <div class="nc-stack">
+    <div class="nc-table" role="group">
         <table>
-            <caption id="questions-table">
-            Fragen
-            </caption>
             <thead>
                 <tr>
                     <th></th>
@@ -68,15 +73,19 @@ const createNewQuestion = () => {
         </table>
     </div>
 
-
             <button class="nc-button" type="button" onclick={createNewQuestion}>
                 Frage hinzufügen
             </button>
-    </div>
+            </div>
+            </fieldset>
+
+    <hr>
+
     <button class="nc-button" type="submit">Fragebogen erstellen</button>
 
     {#if download}
         <a href={download.dataUri} download={`${download.title}.json`}>Download "{$currentQuestionnaire.questionnaire.title}"</a>
     {/if}
+    </div>
 </form>
 {/if}

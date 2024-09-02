@@ -21,11 +21,11 @@ const removeOption = (optionId: string) => {
 };
 </script>
 
-<fieldset class="nc-fieldset nc-stack -stretched -containted">
-<legend>
+<fieldset class="nc-fieldset">
+<legend class="nc-legend">
     <h2>Optionen</h2>
 </legend>
-<fieldset class="nc-fieldset options-grid">
+<div class="nc-stack">
     {#each options as option (option.id)}
     <div class="nc-cluster -between nc-box -bordered | options-row">
     <div class="options-inputs">
@@ -55,22 +55,17 @@ const removeOption = (optionId: string) => {
     </button>
     </div>
     {/each}
-</fieldset>
+    <button class="nc-button" type="button" onclick={addOption}>
+        Option hinzufügen
+    </button>
+</div>
 
 
-<button class="nc-button" type="button" onclick={addOption}>
-    Option hinzufügen
-</button>
+
 </fieldset>
 
 <style>
-    .options-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: var(--spacing-far);
-        inline-size: 100%;
 
-    }
 
     .options-row {
         inline-size: 100%;

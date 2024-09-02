@@ -46,28 +46,32 @@ $effect(() => {
 });
 </script>
 
-<form class="nc-stack -far full-width -contained -stretched nc-box" onsubmit={createQuestion}>
-<fieldset class="nc-fieldset nc-stack">
-        <Input
+<form class="nc-card nc-form" onsubmit={createQuestion}>
+    <h1 class="nc-form-title">Frage bearbeiten</h1>
+    <p class="nc-form-hint">Zuerst erstellen wir eine grobe Beschreibung. Diese wird den Ausfüller:innen zum Start angezeigt. Idealerweise beschreibt sie den Zweck des Fragebogens.</p>
+    <div class="nc-stack">
+    <Input
             name={`question-${questionUpdate.id}-title`}
             label="Titel"
             id={`question-${questionUpdate.id}-title`}
             bind:value={questionUpdate.title} />
+    <Select
+        name={`question-${questionUpdate.id}-type`}
+        id={`question-${questionUpdate.id}-type`}
+        label={"Typ"}
+        bind:value={questionUpdate.type}
+        options={availableTypes}
+    >
+    </Select>
         <MarkdownEditor
             name={`question-${questionUpdate.id}-description`}
             label={"Beschreibung"}
+            hint={"Markdown wird unterstützt."}
             id={`question-${questionUpdate.id}-description`}
             optional={true}
             bind:value={questionUpdate.description}
         ></MarkdownEditor>
-        <Select
-            name={`question-${questionUpdate.id}-type`}
-            id={`question-${questionUpdate.id}-type`}
-            label={"Typ"}
-            bind:value={questionUpdate.type}
-            options={availableTypes}
-        >
-        </Select>
+
         <TextArea
             name={`question-${questionUpdate.id}-hint`}
             id={`question-${questionUpdate.id}-hint`}
@@ -81,8 +85,9 @@ $effect(() => {
         {#if questionHasOptions(questionUpdate)}
             <OptionsEditor bind:options={questionUpdate.options}></OptionsEditor>
         {/if}
-    </fieldset>
-<button class="nc-button" type="submit">
-    Frage speichern
-</button>
+        <button class="nc-button" type="submit">
+            Frage speichern
+        </button>
+        </div>
+
 </form>
