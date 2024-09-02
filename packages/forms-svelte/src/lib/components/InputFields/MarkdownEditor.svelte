@@ -8,9 +8,9 @@ let { htmlOutput = $bindable(), value = $bindable(), ...rest }: MarkdownInputPro
 <style>
     .nc-markdown-editor {
         inline-size: 100%;
-        min-block-size: 15lh;
-        --nc-markdown-min-block-size: 15lh;
+
         --input-field-max-inline-size: 100%;
+        min-block-size: var(--nc-markdown-min-block-size, 8lh);
         isolation: isolate;
 
         & :global(.nc-cluster) {
@@ -39,12 +39,6 @@ let { htmlOutput = $bindable(), value = $bindable(), ...rest }: MarkdownInputPro
         z-index: -1;
     }
 
-    .preview-tag {
-        position: absolute;
-        inset-block-start: 0;
-        inset-inline-end: 0;
-        font-size: var(--font-size-smallest);
-    }
 </style>
 
 <div class="nc-markdown-editor">
@@ -57,7 +51,6 @@ let { htmlOutput = $bindable(), value = $bindable(), ...rest }: MarkdownInputPro
         {#if htmlOutput}
             {@html htmlOutput}
         {/if}
-        <span class="badge preview-tag -emphasis">Markdown Preview</span>
 
     </div>
     </MarkdownInput>

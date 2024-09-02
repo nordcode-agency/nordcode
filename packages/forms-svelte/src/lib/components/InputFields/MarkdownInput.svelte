@@ -35,7 +35,7 @@ const handleInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
 
 <style>
     .nc-markdown-input {
-        min-block-size: var(--nc-markdown-min-block-size, 4lh);
+        min-block-size: var(--nc-markdown-min-block-size, 8lh);
     }
 </style>
 

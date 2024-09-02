@@ -50,7 +50,7 @@
     }
 
     .nc-slub {
-        color: color-mix(in oklch, currentColor, transparent calc(var(--transparency-weaker) * 10%));
+        color: var(--color-text-subtle);
         text-transform: uppercase;
         letter-spacing: var(--tracking-wide);
         font-weight: var(--font-weight-active);
