@@ -61,10 +61,6 @@ const sections: Array<Section> = [
                 description:
                     'The one and only button. Triggers actions. Should rarely be used for navigation.',
                 component: buttonBase as string,
-                notes: [
-                    "Make sure to set the icon to aria-hidden, so the content isn't read to screen reader users",
-                    'Also add a screen-reader only label',
-                ],
                 modifiers: [...buttonModifiers, ...colorUtilModifiers],
                 cssVariables: [...buttonVariables],
                 examples: [
