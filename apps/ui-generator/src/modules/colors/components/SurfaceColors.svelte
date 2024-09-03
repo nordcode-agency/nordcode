@@ -28,7 +28,7 @@ const emphasisColor = {
     <h2 id="surface">Surface Colors</h2>
     <div class="nc-grid preview-grid">
         <div class="nc-stack">
-            <form>
+            <form class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
                     <SettingsInput
                         label="Chroma Light"
@@ -53,7 +53,7 @@ const emphasisColor = {
                     ></SettingsInput>
                 </fieldset>
             </form>
-            <form>
+            <form class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
                     <SettingsInput
                         label="Chroma Dark"

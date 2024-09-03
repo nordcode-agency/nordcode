@@ -5,7 +5,7 @@ import { configStore, setPreset } from '../../store/configStore';
 {#if configStore}
     <div class="nc-region content-block">
         <form class="nc-stack -far -full-width -stretched">
-            <div class="nc-box -bordered">
+            <div class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
                     <legend>Presets</legend>
                     <div class="nc-cluster">

@@ -6,7 +6,7 @@ import { configStore } from '../../store/configStore.ts';
     <h2 id="general">General Color Settings</h2>
     <div class="nc-grid preview-grid">
         <div class="nc-stack">
-            <form>
+            <form class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
                     <SettingsInput
                         label="Minimum Lightness"
@@ -69,4 +69,3 @@ import { configStore } from '../../store/configStore.ts';
         </div>
     </div>
 </section>
-

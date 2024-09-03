@@ -31,7 +31,8 @@ const baseColors = [
 <section class="nc-region nc-stack -contained -stretched content-block">
     <h2 id="primary">Primary Colors</h2>
     <div class="nc-grid preview-grid">
-        <form>
+        <div>
+        <form class="settings-container -sticky">
             <fieldset class="nc-fieldset nc-stack">
                 <SettingsInput
                     label="Accent Hue"
@@ -64,6 +65,7 @@ const baseColors = [
                 ></SettingsInput>
             </fieldset>
         </form>
+        </div>
         <div class="nc-stack -nogap -stretched -contained">
             {#each baseColors as color}
                 <ColorPreviewEntry

@@ -39,7 +39,7 @@ const updateResolvedColor: ThemeMutationObserverListener = (style) => {
     resolvedColor = `${getComputedColor('light')} / ${getComputedColor('dark')}`;
 };
 
-onMount(() => {
+$effect(() => {
     getThemeMutationObserver().subscribe((style) => {
         updateResolvedColor(style);
     });

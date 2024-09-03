@@ -6,7 +6,7 @@ import { configStore, updateFontScale } from '../../store/configStore';
 {#if configStore}
 <div>
   <form class="nc-region nc-stack -farthest full-width -stretched content-block">
-    <div class="nc-box -bordered">
+    <div class="settings-container">
       <fieldset class="nc-fieldset nc-stack">
         <legend>Font Families</legend>
         <Input
@@ -42,7 +42,7 @@ import { configStore, updateFontScale } from '../../store/configStore';
         />
       </fieldset>
     </div>
-    <div class="nc-box -bordered">
+    <div class="settings-container">
 
       <fieldset class="nc-fieldset nc-stack">
         <legend>Font Sizes</legend>
@@ -119,7 +119,7 @@ import { configStore, updateFontScale } from '../../store/configStore';
         </details>
       </fieldset>
     </div>
-    <div class="nc-box -bordered">
+    <div class="settings-container">
       <fieldset class="nc-fieldset nc-stack">
         <legend>Line Heights</legend>
         <Input
@@ -142,7 +142,7 @@ import { configStore, updateFontScale } from '../../store/configStore';
           bind:value={$configStore.lineHeightSmall} />
       </fieldset>
     </div>
-    <div class="nc-box -bordered">
+    <div class="settings-container">
       <fieldset class="nc-fieldset nc-stack">
         <legend>Font Weights</legend>
         <Input
@@ -177,7 +177,7 @@ import { configStore, updateFontScale } from '../../store/configStore';
       </fieldset>
     </div>
 
-    <div class="nc-box -bordered">
+    <div class="settings-container">
       <fieldset class="nc-fieldset nc-stack">
         <legend>Tracking</legend>
         <Input
@@ -203,7 +203,7 @@ import { configStore, updateFontScale } from '../../store/configStore';
           bind:value={$configStore.trackingTight} />
       </fieldset>
     </div>
-    <div class="nc-box -bordered">
+    <div class="settings-container">
       <fieldset class="nc-fieldset nc-stack">
         <legend>Measure</legend>
         <Input

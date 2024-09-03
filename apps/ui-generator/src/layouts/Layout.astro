@@ -52,6 +52,7 @@ const { title } = Astro.props;
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        background: var(--color-surface-muted);
     }
 
     .main {
@@ -59,7 +60,7 @@ const { title } = Astro.props;
         grid-template:
                     'config content' 1fr
                     / auto minmax(0, 5fr);
-        background: var(--color-surface-base);
+        background: var(--color-surface-muted);
         inline-size: 100%;
         overflow: hidden;
         max-block-size: 100%;
@@ -78,7 +79,6 @@ const { title } = Astro.props;
 
     .aside {
         grid-area: config;
-        background: var(--color-surface-base);
         border-inline-end: var(--border-width-thin) solid var(--color-surface-base);
         max-block-size: 100%;
         overflow: auto;
@@ -90,7 +90,6 @@ const { title } = Astro.props;
 
     .content {
         grid-area: content;
-        background: var(--color-surface-base);
         min-inline-size: 0;
         max-block-size: 100%;
         overflow: auto;
@@ -115,14 +114,18 @@ const { title } = Astro.props;
     }
 
     .preview-grid {
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: minmax(min-content, max-content) 3fr;
         gap: var(--spacing-farthest);
+    }
 
-        & fieldset {
-            background: var(--color-surface-subtle);
-            padding: var(--spacing-base);
-            border-radius: var(--border-radius-medium);
-            box-shadow: var(--shadow-medium);
+    .settings-container {
+        background-color: var(--color-surface-base);
+        padding: var(--spacing-base);
+        border-radius: var(--border-radius-medium);
+        box-shadow: var(--shadow-medium);
+        border: var(--border-width-thin) solid var(--color-border-muted);
+
+        &.-sticky {
             position: sticky;
             inset-block-start: var(--spacing-farthest);
         }
