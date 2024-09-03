@@ -2,7 +2,7 @@
     inline-size: max-content;
     max-inline-size: 100%;
     background-color: var(--nc-breadcrumbs-surface, transparent);
-    color: var(--nc-breadcrumbs-text, --color-text-base);
+    color: var(--nc-breadcrumbs-text, --color-text-muted);
 
     & > * {
         color: inherit;
@@ -15,12 +15,13 @@
     & > *:not(:last-child):after {
         padding-inline: 1ch;
         color: inherit;
-        content: '›';
+        content: "›";
         font-size: inherit;
     }
 
-    & [aria-current='page'] {
+    & [aria-current="page"] {
         pointer-events: none;
+        color: var(--nc-breadcrumbs-text-active, --color-text-base);
     }
 
     & a {
