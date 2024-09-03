@@ -52,7 +52,7 @@
     :where(body) {
         font-weight: var(--font-weight-default);
         color: var(--color-text-base);
-        background-color: var(--color-surface-base);
+        background-color: var(--color-surface-muted);
         font-family: var(--font-family-default);
         line-height: var(--line-height-base);
         font-style: normal;
@@ -64,7 +64,7 @@
     }
 
     /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-    :where(ul[role='list'], ol[role='list']) {
+    :where(ul[role="list"], ol[role="list"]) {
         list-style: none;
     }
 
@@ -103,7 +103,7 @@
             select,
             summary,
             textarea,
-            [tabindex]:not([tabindex*='-'])
+            [tabindex]:not([tabindex*="-"])
         ) {
         cursor: pointer;
         touch-action: manipulation;
@@ -111,7 +111,7 @@
     }
 
     :where(input, button, textarea, select),
-    :where(input[type='file'])::-webkit-file-upload-button {
+    :where(input[type="file"])::-webkit-file-upload-button {
         font: inherit;
         color: inherit;
         letter-spacing: inherit;
