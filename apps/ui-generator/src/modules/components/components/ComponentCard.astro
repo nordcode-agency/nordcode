@@ -1,0 +1,35 @@
+---
+import type { SmarterComponent } from './sections';
+
+interface Props {
+    component: SmarterComponent;
+}
+
+const { component } = Astro.props;
+---
+
+<style>
+.component-card {
+    display: flex;
+    block-size: 100%;
+    text-decoration: none;
+    /* inline-size: 100%;
+    min-inline-size: 18rem;
+    max-inline-size: 24rem; */
+
+    & > * {
+        text-decoration: none;
+    }
+
+    &:hover {
+        outline: var(--border-width-thin) solid var(--color-brand-primary-base);
+    }
+}
+</style>
+
+<a href={`/components/${component.sectionId}`} class="component-card nc-card">
+<article class="nc-flow">
+    <h3>{component.title}</h3>
+    <p>{component.description}</p>
+</article>
+</a>

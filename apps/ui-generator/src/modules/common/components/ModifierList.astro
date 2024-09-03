@@ -1,0 +1,25 @@
+---
+interface Props {
+    modifiers: {
+        name: string;
+        description: string;
+    }[];
+}
+
+const { modifiers } = Astro.props;
+---
+
+<!-- COMPONENT-START: nc-description-list -->
+<dl>
+    {
+        modifiers.map(m => (
+            <>
+                <dt>
+                    <var>{m.name}</var>
+                </dt>
+                <dd><Fragment set:html={m.description}/></dd>
+            </>
+        ))
+    }
+</dl>
+<!-- COMPONENT-END: nc-description-list -->

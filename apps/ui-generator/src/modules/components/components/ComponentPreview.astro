@@ -1,4 +1,6 @@
 ---
+import ModifierList from '../../common/components/ModifierList.astro';
+import type { SmarterComponent } from './sections';
 import SectionTitle from './SectionTitle.astro';
 import SourceCodeDisplay from './SourceCodeDisplay.astro';
 
@@ -9,31 +11,35 @@ export interface Example {
 }
 
 interface Props {
-    component: string;
-    title: string;
-    sectionId: string;
-    description?: string;
-    notes?: string[];
-    examples?: Example[];
+    component: SmarterComponent;
 }
 
-const { sectionId, component, description, title, examples, notes } = Astro.props;
+const { component } = Astro.props;
+const {
+    sectionId,
+    title,
+    examples,
+    notes,
+    component: componentPreview,
+    modifiers,
+    cssVariables,
+} = component;
 ---
 
-<section class="nc-stack -contained section-to-observe component-preview" id={sectionId}>
-    <div>
-        <SectionTitle title={title} nested={true} sectionId={sectionId} />
-        {description ? <p class="nc-hint">{description}</p> : null}
+<section class="nc-region nc-stack -far -stretched -contained component-preview" id={sectionId}>
+<div class="nc-stack">
+    <SectionTitle sectionId="component" title="Component"></SectionTitle>
+    <div class="nc-stack -nogap -stretched -contained">
+        <div class="nc-box -bordered preview-box">
+            <Fragment set:html={componentPreview} />
+        </div>
+        <SourceCodeDisplay code={componentPreview} title={title} />
     </div>
-    <h4>Rendered</h4>
-    <div class="nc-box -bordered preview-box">
-        <Fragment set:html={component} />
     </div>
-    <SourceCodeDisplay code={component} title={title} />
     {
         notes ? (
-            <>
-                <h4>Notes</h4>
+            <div class="nc-stack">
+                <SectionTitle sectionId="notes" title="Notes"></SectionTitle>
                 <ul>
                     {notes.map(note => (
                         <li>
@@ -41,48 +47,51 @@ const { sectionId, component, description, title, examples, notes } = Astro.prop
                         </li>
                     ))}
                 </ul>
-            </>
+            </div>
         ) : null
     }
+    { modifiers ? (
+    <div class="nc-stack">
+        <SectionTitle sectionId="modifiers" title="Modifiers"></SectionTitle>
+        <ModifierList modifiers={modifiers}></ModifierList>
+        </div>
+    ) : null }
+    { cssVariables ? (
+    <div class="nc-stack">
+        <SectionTitle sectionId="cssVariables" title="CSS Variables"></SectionTitle>
+        <ModifierList modifiers={cssVariables}></ModifierList>
+        </div>
+    ) : null }
     {
         examples ? (
-            <>
-                <h4>Variations</h4>
-
+            <div class="nc-stack">
+                <SectionTitle sectionId="examples" title="Examples"></SectionTitle>
                 {examples?.map(ex => (
-                    <details>
-                        <summary>{ex.title}</summary>
-                        <div class="nc-stack -contained">
-                            {ex.description ? <p class="nc-hint">{ex.description}</p> : null}
-                            <div class="nc-box -bordered preview-box">
-                                <Fragment set:html={ex.code} />
-                            </div>
-                            <SourceCodeDisplay code={ex.code} title={ex.title} />
-                            {
-                                ex.notes ? (
-                                    <>
-                                        <h5>Notes</h5>
-                                        <ul>
-                                            {ex.notes.map(note => (
-                                                <li>
-                                                    <Fragment set:html={note}/>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </>
-                                ) : null
-                            }
+                    <div class="nc-stack">
+                    <h3>{ex.title}</h3>
+                    {ex.description ? <p>{ex.description}</p> : null}
+
+                    <div class="nc-stack -nogap -stretched -contained">
+                        <div class="nc-box -bordered preview-box">
+                            <Fragment set:html={ex.code} />
                         </div>
-                    </details>
+                        <SourceCodeDisplay code={ex.code} title={ex.title} />
+                    </div>
+                    </div>
                 ))}
-            </>
+            </div>
         ) : null
     }
 </section>
 
 <style>
     .component-preview {
-        padding-block: var(--spacing-base);
+        padding-inline: var(--spacing-far);
         --input-field-min-inline-size: 32ch;
+    }
+
+    .preview-box {
+        min-block-size: 12lh;
+        inline-size: 100%;
     }
 </style>

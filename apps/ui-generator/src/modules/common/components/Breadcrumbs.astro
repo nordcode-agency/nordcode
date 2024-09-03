@@ -1,0 +1,40 @@
+---
+type Breadcrumb = {
+    url: string;
+    name: string;
+};
+
+interface Props {
+    breadcrumbs: Breadcrumb[];
+}
+
+const { breadcrumbs } = Astro.props;
+---
+<style>
+    /* .nc-breadcrumbs {
+        color: var(--color-text-muted);
+
+        & li:after {
+            padding-inline: 0.5ch;
+        }
+
+        & > :last-child {
+            color: var(--color-brand-secondary-emphasis);
+        }
+
+    } */
+</style>
+
+<!-- COMPONENT-START: nc-breadcrumbs -->
+<nav>
+    <ol class="nc-list-reset nc-cluster -nogap nc-breadcrumbs">
+        { breadcrumbs.map((bc, index) => (
+                <li><a
+                        class="slub"
+                        href={ bc.url }
+                        aria-current={ index === breadcrumbs.length - 1 ? "page" : undefined }>{ bc.name }</a>
+                </li>
+        )) }
+    </ol>
+</nav>
+<!-- COMPONENT-END: nc-breadcrumbs -->

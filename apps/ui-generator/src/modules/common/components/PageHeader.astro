@@ -1,0 +1,28 @@
+---
+
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<style>
+.page-header {
+    background: var(--color-surface-base);
+    border-block-end: var(--border-width-medium) solid var(--color-border-base);
+    padding-inline: var(--spacing-far);
+}
+
+.nc-hint {
+    font-size: var(--font-size-large);
+}
+</style>
+
+<header class="nc-region nc-stack page-header">
+    <slot name="before"></slot>
+    <h1>{title}</h1>
+    <p class="nc-hint">{description}</p>
+    <slot name="after"></slot>
+</header>
