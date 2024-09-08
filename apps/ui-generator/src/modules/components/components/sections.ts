@@ -1,6 +1,7 @@
 import buttonBase from '../examples/button/buttonBase.html?raw';
 import buttonIcon from '../examples/button/buttonIcon.html?raw';
 import buttonAll from '../examples/button/buttonAll.html?raw';
+import buttonWithIcon from '../examples/button/buttonWithIcon.html?raw';
 import inputBase from '../examples/input/inputBase.html?raw';
 import inputDate from '../examples/input/inputDate.html?raw';
 import inputRange from '../examples/input/inputRange.html?raw';
@@ -27,9 +28,15 @@ import { colorUtilModifiers } from '../modifiers/colorUtilModifiers';
 import { buttonModifiers } from '../modifiers/buttonModifiers';
 import { buttonVariables } from '../cssVariables/buttonVariables';
 
+import buttonPreview from '../cardPreviews/button.html?raw';
+import iconButtonPreview from '../cardPreviews/iconButton.html?raw';
+import formPreview from '../cardPreviews/form.html?raw';
+import inputBasePreview from '../cardPreviews/inputBase.html?raw';
+
 interface Component {
     title: string;
     description: string;
+    preview?: string;
     component: string;
     notes?: Array<string>;
     modifiers?: Array<Modifier>;
@@ -58,28 +65,42 @@ const sections: Array<Section> = [
         components: [
             {
                 title: 'Button Base',
+                preview: buttonPreview,
                 description:
-                    'The one and only button. Triggers actions. Should rarely be used for navigation.',
-                component: buttonBase as string,
+                    'Primarily used for interface interactions. Has a lot of variations and semantic power.',
+                component: buttonBase,
                 modifiers: [...buttonModifiers, ...colorUtilModifiers],
                 cssVariables: [...buttonVariables],
+                notes: [
+                    'Primary buttons should be used only once per form / view, while the others can be used multiple times.',
+                    'When labeling, prefer strong verbs describing the action.',
+                    "<strong>Don't</strong> use buttons for navigation. Prefer standard links for that.",
+                    "<strong>Don't</strong> use undescriptive button texts, like OK, or 'Read more'.",
+                ],
                 examples: [
                     {
                         title: 'All Button Variants',
                         description: 'An overview over all button variants and their modifiers',
-                        code: buttonAll as string,
+                        code: buttonAll,
+                    },
+                    {
+                        title: 'Button with Icon',
+                        description: 'Buttons can also have inline icons indicating their action',
+                        code: buttonWithIcon,
                     },
                 ],
             } as Component,
             {
                 title: 'Icon Button',
-                description: 'An icon-only button for when you want a more minimal interface.',
-                component: buttonIcon as string,
+                preview: iconButtonPreview,
+                description:
+                    'Icon only button for minimalistic interfaces or when you have little room with lots of actions.',
+                component: buttonIcon,
                 modifiers: [...buttonModifiers, ...colorUtilModifiers],
                 cssVariables: [...buttonVariables],
                 notes: [
-                    "Make sure to set the icon to aria-hidden, so the content isn't read to screen reader users",
-                    'Also add a screen-reader only label',
+                    "Make sure to set the icon to aria-hidden, so the content isn't read to screen reader users.",
+                    'Make sure to have a fitting and descriptive aria-label for screen reader users.',
                 ],
             } as Component,
         ],
@@ -89,7 +110,7 @@ const sections: Array<Section> = [
         components: [
             {
                 title: 'Fieldset',
-                component: fieldsetBase as string,
+                component: fieldsetBase,
                 description:
                     'Used to group inputs that belong together. Mandatory for radio-inputs. Can have a hint to describe what it is about.',
                 examples: [
@@ -97,20 +118,21 @@ const sections: Array<Section> = [
                         title: 'Standard Fieldset',
                         description:
                             'A more practical example with inputs and a box around it for design purposes.',
-                        code: fieldsetStandard as string,
+                        code: fieldsetStandard,
                     },
                     {
                         title: 'Fieldset for single question pages',
                         description: 'You can nest an h1 in the legend like this.',
-                        code: fieldsetWithH1 as string,
+                        code: fieldsetWithH1,
                     },
                 ],
             } as Component,
             {
                 title: 'Form',
-                component: formSmall as string,
+                preview: formPreview,
+                component: formSmall,
                 description:
-                    'A straightforward form should be used for all cases. Get data from your users in the most efficient way. You can get fancy or not, up to you.',
+                    'Use a form to collect user input. Can have multiple inputs or only one. Should have a single primary button.',
                 notes: [
                     "It's preferred to have a 1-column layout for the best experience. Otherwise it's hard to scan",
                     "It's preferred to have as few questions as possible per form. Best is a single question to not overwhelm the users.",
@@ -120,13 +142,13 @@ const sections: Array<Section> = [
                         title: 'Longer Form',
                         description:
                             'You can also have long forms. Feel free to add fieldsets to group inputs together.',
-                        code: formFull as string,
+                        code: formFull,
                     },
                     {
                         title: 'Page Form',
                         description:
                             'One question per page provides the best UX. It is super scannable and does not overwhelm the user. No card required.',
-                        code: formPage as string,
+                        code: formPage,
                     },
                 ],
             } as Component,
@@ -137,8 +159,10 @@ const sections: Array<Section> = [
         components: [
             {
                 title: 'Base Input',
-                component: inputBase as string,
-                description: 'The classic input with a label and optional hint(s) and error(s).',
+                preview: inputBasePreview,
+                component: inputBase,
+                description:
+                    'Basic text input with a label and optional hint(s) and error(s). Use it for short text inputs like names and emails.',
                 notes: [
                     'Ideally, mark labels and inputs as optional and set aria-required="false"',
                     'You can set min and max-widths globally using <var>--input-field-min-inline-size</var> and <var>--input-field-max-inline-size</var>',
@@ -146,55 +170,59 @@ const sections: Array<Section> = [
             },
             {
                 title: 'Checkbox Input',
-                description: 'A standard checkbox input.',
-                component: inputCheckbox as string,
+                description: 'Checkbox inputs are used for agreeing or enabling features.',
+                component: inputCheckbox,
             },
             {
                 title: 'Date Input',
                 description:
-                    'Date Inputs can have a little button next to them to make it easier to set the date. You do have to hook up the logic, though.',
-                component: inputDate as string,
+                    'Use date inputs to collect single dates. Can be hooked up to a button to set the date for today. Builts on browser built-in date picker.',
+                component: inputDate,
             },
             {
                 title: 'Range Input',
                 description:
-                    'It is nice to display the range value below, we think. You need to keep it in sync yourself though.',
-                component: inputRange as string,
+                    'Prefer the range input over a standard number input for easier adjustments. Usually not as precise. Display the currently selected value below or group with a number input for the best of both worlds.',
+                component: inputRange,
             },
             {
                 title: 'Select',
                 description:
                     'Selects are useful for when you have more than 5 items, but still a managable amount.',
-                component: inputSelect as string,
+                component: inputSelect,
             },
             {
                 title: 'Textarea',
-                description: 'Need more space? Use a textarea.',
-                component: inputTextarea as string,
+                description:
+                    'Use a textarea for longer text inputs, like descriptions or bios. Allows for multiple lines.',
+                component: inputTextarea,
             },
             {
                 title: 'Segmented control',
-                description: 'A more stylish radio control',
-                component: inputSegmentedControl as string,
+                description:
+                    'A styled radio control. Use when you have a small amount of options (2-5). Can be used for on/off switches. Has intrinsic sizing and switches between column and row.',
+                component: inputSegmentedControl,
             },
             {
                 title: 'Radio Input Field',
-                description: 'A standard radio input field.',
-                component: inputRadioField as string,
+                description:
+                    'Oftentimes the best choice for selecting one option out of a few. Prefer over selects for 2-5 options.',
+                component: inputRadioField,
                 notes: [
                     "You can register a 'change' event on the fieldset to listen for changes in the radio inputs.",
                 ],
             },
             {
                 title: 'Checkbox Input Field',
-                description: 'A standard checkbox input field.',
-                component: inputCheckboxField as string,
+                description:
+                    'Oftentimes the best choice for selecting multiple options out of a few. Prefer over selects for 2-5 options.',
+                component: inputCheckboxField,
             },
             {
                 title: 'Tag Select Field',
                 description:
-                    'If you have a longer list of options, you might want to display them like tags.',
-                component: inputTagSelect as string,
+                    'Shows multiple options as tags or chips. Styles can be adjusted. Use it to show lots of short options.',
+                component: inputTagSelect,
                 notes: [
                     'Feel free to change the contents and class of the label to whatever suits your needs',
                     'You can easily style the selected state with <var>label:has(input:checked)</var>',
@@ -207,21 +235,23 @@ const sections: Array<Section> = [
         components: [
             {
                 title: 'Meta List',
-                component: metaList as string,
-                description: 'Display tags and meta data for posts and alike.',
+                component: metaList,
+                description:
+                    'Display tags and meta data for posts and alike, like date, author, and tags. Has intrinsic sizing.',
             },
             {
                 title: 'Descriptions List',
-                component: descriptionList as string,
+                component: descriptionList,
                 description:
-                    'Description lists are a way to organize and explain related information. They’re particularly useful when you need to list and define terms such as in a glossary. (from shopify)',
+                    'Description lists are a way to organize and explain related information. Use it when you need to list and define terms such as in a glossary.',
             },
             {
                 title: 'Tables',
                 component: tableStandard,
-                description: "It's a table. It's good for displaying lots of data in columns.",
+                description:
+                    'Tables should be used for tabular data. They can easily hold a lot of data and group it together clearly and semantically correct.',
                 notes: [
-                    'Make sure all data is visible in all responsive setups. We do that using a scroll.',
+                    'Make sure all data is visible in all responsive setups. Either change the layout or allow scrolling..',
                 ],
                 examples: [
                     {
@@ -239,7 +269,7 @@ const sections: Array<Section> = [
         components: [
             {
                 title: 'Breadcrumbs',
-                component: breadcrumbs as string,
+                component: breadcrumbs,
                 description:
                     'Breadcrumbs display the current page or context within the site, allowing them to navigate different levels of the hierarchy.',
                 notes: [

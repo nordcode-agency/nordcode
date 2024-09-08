@@ -13,9 +13,8 @@ const { component } = Astro.props;
     display: flex;
     block-size: 100%;
     text-decoration: none;
-    /* inline-size: 100%;
-    min-inline-size: 18rem;
-    max-inline-size: 24rem; */
+    padding-inline: 0;
+    padding-block: 0;
 
     & > * {
         text-decoration: none;
@@ -24,12 +23,48 @@ const { component } = Astro.props;
     &:hover {
         outline: var(--border-width-thin) solid var(--color-brand-primary-base);
     }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        inline-size: 100%;
+    }
+
+    .card-preview {
+        aspect-ratio: 3 / 2;
+        --bg-grid-color: color-mix(in oklch, var(--color-brand-primary-base), transparent 98%);
+
+        background-image:
+            repeating-linear-gradient(
+                to bottom,
+                transparent,
+                transparent 9px,
+                var(--bg-grid-color) 9px,
+                var(--bg-grid-color) 10px
+            ),
+            repeating-linear-gradient(
+                to right,
+                transparent,
+                transparent 9px,
+                var(--bg-grid-color) 9px,
+                var(--bg-grid-color) 10px
+            );
+    }
+
+    .card-text {
+        padding: var(--spacing-base);
+    }
 }
 </style>
 
 <a href={`/components/${component.sectionId}`} class="component-card nc-card">
-<article class="nc-flow">
-    <h3>{component.title}</h3>
-    <p>{component.description}</p>
+<article>
+    <div class="card-preview">
+        <Fragment set:html={component.preview}/>
+    </div>
+    <div class="card-text nc-flow">
+        <h3>{component.title}</h3>
+        <p>{component.description}</p>
+    </div>
 </article>
 </a>

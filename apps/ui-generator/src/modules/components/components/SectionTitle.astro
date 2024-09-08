@@ -8,7 +8,7 @@ export interface Props {
 const { title, nested, sectionId } = Astro.props;
 ---
 
-<div class="nc-cluster -nearest -centered section-headline">
+<div class="nc-cluster -nearest -centered section-headline" id={sectionId}>
     <a class="anchor-link" href={`#${sectionId}`}>
         <>
             <svg
