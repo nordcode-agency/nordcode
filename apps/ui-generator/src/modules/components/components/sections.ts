@@ -23,10 +23,23 @@ import metaList from '../examples/lists/metalist.html?raw';
 import descriptionList from '../examples/lists/descriptionlist.html?raw';
 import tableHorizontal from '../examples/table/tableHorizontal.html?raw';
 import breadcrumbs from '../examples/navigation/breadcrumbs.html?raw';
+import box from '../examples/layouts/box.html?raw';
+import stack from '../examples/layouts/stack.html?raw';
+import cluster from '../examples/layouts/cluster.html?raw';
+import center from '../examples/layouts/center.html?raw';
+import withSidebar from '../examples/layouts/withSidebar.html?raw';
+import grid from '../examples/layouts/grid.html?raw';
+import switcher from '../examples/layouts/switcher.html?raw';
+import gallery from '../examples/layouts/gallery.html?raw';
+import flow from '../examples/layouts/flow.html?raw';
+import region from '../examples/layouts/region.html?raw';
+import pile from '../examples/layouts/pile.html?raw';
+
 import { slugify } from '../../common/utils/slugify';
 import { colorUtilModifiers } from '../modifiers/colorUtilModifiers';
 import { buttonModifiers } from '../modifiers/buttonModifiers';
 import { buttonVariables } from '../cssVariables/buttonVariables';
+import { spacingModifiers } from '../modifiers/spacingModifiers';
 
 import buttonPreview from '../cardPreviews/Button.svg?raw';
 import iconButtonPreview from '../cardPreviews/IconButton.svg?raw';
@@ -46,6 +59,17 @@ import metaListPreview from '../cardPreviews/MetaList.svg?raw';
 import descriptionListPreview from '../cardPreviews/DescriptionList.svg?raw';
 import tablePreview from '../cardPreviews/Table.svg?raw';
 import breadcrumbsPreview from '../cardPreviews/Breadcrumbs.svg?raw';
+import boxPreview from '../cardPreviews/Box.svg?raw';
+import centerPreview from '../cardPreviews/Center.svg?raw';
+import clusterPreview from '../cardPreviews/Cluster.svg?raw';
+import flowPreview from '../cardPreviews/Flow.svg?raw';
+import galleryPreview from '../cardPreviews/Gallery.svg?raw';
+import gridPreview from '../cardPreviews/Grid.svg?raw';
+import pilePreview from '../cardPreviews/Pile.svg?raw';
+import regionPreview from '../cardPreviews/Region.svg?raw';
+import stackPreview from '../cardPreviews/Stack.svg?raw';
+import switcherPreview from '../cardPreviews/Switcher.svg?raw';
+import withSidebarPreview from '../cardPreviews/WithSidebar.svg?raw';
 
 interface Component {
     title: string;
@@ -306,6 +330,318 @@ const sections: Array<Section> = [
             },
         ],
     },
+    {
+        title: 'Layouts',
+        components: [
+            {
+                title: 'Box',
+                component: box,
+                preview: boxPreview,
+                description:
+                    "It's a padded box, and an optional border. Can be wrapped around most content and serves as a standardised way to display content.",
+                modifiers: [
+                    {
+                        name: '-bordered',
+                        description: 'Adds a border to the box',
+                    },
+                    {
+                        name: '-tiny',
+                        description: 'Sets padding to --spacing-tiny',
+                    },
+                    {
+                        name: '-nearest',
+                        description: 'Sets padding to --spacing-nearest',
+                    },
+                    {
+                        name: '-near',
+                        description: 'Sets padding to --spacing-near',
+                    },
+                    {
+                        name: '-base',
+                        description: 'Sets padding to --spacing-base',
+                    },
+                    {
+                        name: '-far',
+                        description: 'Sets padding to --spacing-far',
+                    },
+                    {
+                        name: '-farthest',
+                        description: 'Sets padding to --spacing-farthest',
+                    },
+                ],
+            },
+            {
+                title: 'Stack',
+                component: stack,
+                preview: stackPreview,
+                description:
+                    "Stack content vertically in a column and space it equally. Since most websites are built this way, it's basic building block.",
+                modifiers: [
+                    {
+                        name: '-inherit',
+                        description: 'Inherits the gap spacing of the parent container',
+                    },
+                    {
+                        name: '-stretched',
+                        description: 'Makes it and all children 100% of the parents width',
+                    },
+                    {
+                        name: '-contained',
+                        description:
+                            'Contains the stack to the width of the parent. Prevents overflow.',
+                    },
+
+                    ...spacingModifiers,
+                ],
+                cssVariables: [
+                    {
+                        name: '--stack-gap',
+                        description: 'Set a custom gap between the children',
+                    },
+                ],
+            },
+            {
+                title: 'Cluster',
+                component: cluster,
+                preview: clusterPreview,
+                description:
+                    "Flow it's children horizontally and spaces it equally. Usually allows wrapping. The horizontal content sibling of the stack.",
+                modifiers: [
+                    {
+                        name: '-inherit',
+                        description: 'Inherits the gap spacing of the parent container',
+                    },
+                    {
+                        name: '-centered',
+                        description: 'Aligns content to the center',
+                    },
+                    {
+                        name: '-nowrap',
+                        description:
+                            'Prevents wrapping of the children. Will cause overflow if not enough space is available.',
+                    },
+                    {
+                        name: '-between',
+                        description:
+                            'Spaces the children equally and pushes them to the edges. Useful for navbars, for example.',
+                    },
+                    ...spacingModifiers,
+                ],
+                cssVariables: [
+                    {
+                        name: '--cluster-gap',
+                        description: 'Set a custom gap between the children',
+                    },
+                ],
+            },
+            {
+                title: 'Center',
+                component: center,
+                preview: centerPreview,
+                description:
+                    'Center content horizontally. Use it as a layout wrapper or to center content inside a parent. Will take exact size given.',
+                cssVariables: [
+                    {
+                        name: '--center-measure',
+                        description:
+                            'Set the max width of the container. Defaults to <code>max-content</code>.',
+                    },
+                    {
+                        name: '--center-padding',
+                        description:
+                            'Set the padding of the container. Defaults to <code>0</code>.',
+                    },
+                ],
+                notes: [
+                    'To use it as a layout wrapper, pair it with a simple class, that sets the CSS Variables to your desired layout specifics.',
+                ],
+            },
+            {
+                title: 'With Sidebar',
+                component: withSidebar,
+                preview: withSidebarPreview,
+                description:
+                    'Place two containers side by side. The main content (data-grow) has a min size and will grow, the aside content (data-aside) a target size. If there is no more space for the min size, it will wrap.',
+                modifiers: [
+                    { name: 'data-direction=rtl', description: 'Flip the main and aside content.' },
+                    { name: '-centered', description: 'Align the content horizontally centered.' },
+                    ...spacingModifiers,
+                ],
+                cssVariables: [
+                    {
+                        name: '--with-sidebar-gap',
+                        description:
+                            'Set the gap between the main and aside content. Defaults to <var>--spacing-far</var>',
+                    },
+                    {
+                        name: '--with-sidebar-target-width',
+                        description:
+                            'Control the target size of the aside. Defaults to <code>20rem</code>',
+                    },
+                    {
+                        name: '--with-sidebar-min-size',
+                        description:
+                            'Control the min size of the main. Defaults to <code>50%</code>',
+                    },
+                ],
+                notes: ['Use it for standard image text sections or sidebar navigations.'],
+            },
+            {
+                title: 'Grid',
+                component: grid,
+                preview: gridPreview,
+                description:
+                    'Align content in a grid. Default is a responsive autofil-grid, aka RAM grid, but can be used with modifers create 2- or 3-column layouts.',
+                modifiers: [
+                    {
+                        name: 'data-layout=50-50',
+                        description: 'Create a responsive 2 column grid.',
+                    },
+                    {
+                        name: 'data-layout=thirds',
+                        description: 'Create a responsive 3 column grid.',
+                    },
+                    ...spacingModifiers,
+                ],
+                cssVariables: [
+                    {
+                        name: '--grid-placement',
+                        description:
+                            'Set the repeat placement property of the grid. Defaults to <code>auto-fill</code>.',
+                    },
+                    {
+                        name: '--grid-min-item-size',
+                        description:
+                            'Set the minimum size for the grid items. Defaults to <code>16rem</code>.',
+                    },
+                    {
+                        name: '--grid-gap',
+                        description: 'Set a custom gap between the children',
+                    },
+                ],
+            },
+            {
+                title: 'Switcher',
+                component: switcher,
+                preview: switcherPreview,
+                description:
+                    'Allows to to layout three items next to each other, until there is not enough horizontal space. Will then switch to a column layout.',
+                modifiers: [...spacingModifiers],
+                cssVariables: [
+                    {
+                        name: '--switcher-vertical-alignment',
+                        description:
+                            'Sets the vertical alignment of th items. Defaults to <code>flex-start</code>.',
+                    },
+                    {
+                        name: '--switcher-target-container-width',
+                        description:
+                            'Sets the minimum size of the children before switching to a column layout. Defaults to <code>40rem</code>.',
+                    },
+                    {
+                        name: '--switcher-gap',
+                        description: 'Set a custom gap between the children',
+                    },
+                ],
+            },
+            {
+                title: 'Pile',
+                component: pile,
+                preview: pilePreview,
+                description:
+                    'Pile items on top of each other. Prefer this over position: absolute.',
+            },
+            {
+                title: 'Region',
+                component: region,
+                preview: regionPreview,
+                description:
+                    'A consistently spaced section to bring some white space to your blocks. Used in most website layouts.',
+                cssVariables: [
+                    {
+                        name: '--region-space',
+                        description:
+                            'Set the vertical padding of the region. Defaults to <var>--spacing-farthest</var>.',
+                    },
+                ],
+            },
+            {
+                title: 'Flow',
+                component: flow,
+                preview: flowPreview,
+                description:
+                    'Create a vertical rhythm section for text layouts. Nicely spaces headlines, paragraphs and imaages. Think of it as a standard blog layout.',
+                cssVariables: [
+                    {
+                        name: '--flow-base-measure',
+                        description:
+                            'Set the max size of any non-headline content. Defaults to <code>72ch</code>.',
+                    },
+                    {
+                        name: '--flow-headline-measure',
+                        description: 'Set the max size of headline. Defaults to <code>32ch</code>.',
+                    },
+                ],
+            },
+            {
+                title: 'Gallery',
+                component: gallery,
+                preview: galleryPreview,
+                description:
+                    'A horizontal, scrollable gallery. Uses mandatory scroll snap stops by default. Use it for image galleries, content carousels or slides.',
+                modifiers: [
+                    {
+                        name: '-custom-scrollbar',
+                        description:
+                            'Enable a styled custom scrollbar. See CSS Variables for customization.',
+                    },
+                    ...spacingModifiers,
+                ],
+                cssVariables: [
+                    {
+                        name: '--gallery-size',
+                        description:
+                            'Set the max block size of the gallery. Defaults to <code>auto</code>, so it will take on the size of the largest child.',
+                    },
+                    {
+                        name: '--gallery-scrollbar-padding',
+                        description:
+                            'Set the padding at the block end, between the children and the scrollbar. Defaults to <var>--spacing-base</var>.',
+                    },
+                    {
+                        name: '--gallery-scroll-padding-inline',
+                        description:
+                            'Set the inline padding, controls the scroll snap position. Defaults to <var>--spacing-base</var>.',
+                    },
+                    {
+                        name: '--gallery-item-size',
+                        description:
+                            'Set the target size of the children. Defaults to <code>auto</code>, so each child will have its own size based on its contents.',
+                    },
+                    {
+                        name: '--gallery-scrollbar-fg',
+                        description:
+                            'Set the scrollbar foreground color. Defaults to <var>--color-text-on-emphasis</var>.',
+                    },
+                    {
+                        name: '--gallery-scrollbar-bg',
+                        description:
+                            'Set the scrollbar background color. Defaults to <var>--color-surface-emphasis</var>.',
+                    },
+                    {
+                        name: '--gallery-scrollbar-height',
+                        description:
+                            'Set the scrollbar height. Defaults to <var>--spacing-base</var>.',
+                    },
+                    {
+                        name: '--gallery-gap',
+                        description:
+                            'Set the gap bwteen th children. Defaults to <var>--spacing-base</var>.',
+                    },
+                ],
+            },
+        ],
+    },
 ];
 
 export interface SmarterComponent extends Component {
@@ -321,11 +657,13 @@ export const smarterSections = sections.map((sect, idx) => {
     return {
         ...sect,
         sectionId: slugify(sect.title),
-        components: sect.components.map((comp, compIdx) => {
-            return {
-                ...comp,
-                sectionId: slugify(comp.title),
-            };
-        }),
+        components: sect.components
+            .sort((a, b) => a.title.localeCompare(b.title))
+            .map((comp, compIdx) => {
+                return {
+                    ...comp,
+                    sectionId: slugify(comp.title),
+                };
+            }),
     };
 });
