@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 200">
+  <g filter="url(#icon-button__a)">
+    <rect width="56" height="56" x="122" y="72" fill="#1B4FFF" rx="28"/>
+  </g>
+  <g clip-path="url(#icon-button__b)">
+    <path stroke="#E3FCFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M141 94.5a3.503 3.503 0 0 0 4.839 3.234A3.499 3.499 0 0 0 144.5 91a3.494 3.494 0 0 0-2.475 1.025A3.503 3.503 0 0 0 141 94.5Zm-.5 14.5h8l-4-7-4 7ZM152 91l7 7m-7 0 7-7m-7 11h7v7h-7v-7Z"/>
+  </g>
+  <defs>
+    <clipPath id="icon-button__b">
+      <path fill="#fff" d="M138 88h24v24h-24z"/>
+    </clipPath>
+    <filter id="icon-button__a" width="72" height="72" x="116" y="66" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dx="2" dy="2"/>
+      <feGaussianBlur stdDeviation="4"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0.705882 0 0 0 0 0.745098 0 0 0 0 0.823529 0 0 0 1 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_1_13"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_1_13" result="shape"/>
+    </filter>
+  </defs>
+</svg>

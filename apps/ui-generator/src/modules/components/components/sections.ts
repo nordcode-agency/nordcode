@@ -28,10 +28,24 @@ import { colorUtilModifiers } from '../modifiers/colorUtilModifiers';
 import { buttonModifiers } from '../modifiers/buttonModifiers';
 import { buttonVariables } from '../cssVariables/buttonVariables';
 
-import buttonPreview from '../cardPreviews/button.html?raw';
-import iconButtonPreview from '../cardPreviews/iconButton.html?raw';
-import formPreview from '../cardPreviews/form.html?raw';
-import inputBasePreview from '../cardPreviews/inputBase.html?raw';
+import buttonPreview from '../cardPreviews/Button.svg?raw';
+import iconButtonPreview from '../cardPreviews/IconButton.svg?raw';
+import formPreview from '../cardPreviews/Form.svg?raw';
+import fieldsetPreview from '../cardPreviews/Fieldset.svg?raw';
+import inputBasePreview from '../cardPreviews/Input.svg?raw';
+import checkboxPreview from '../cardPreviews/Checkbox.svg?raw';
+import dateInputPreview from '../cardPreviews/DateInput.svg?raw';
+import rangeInputPreview from '../cardPreviews/RangeInput.svg?raw';
+import selectPreview from '../cardPreviews/Select.svg?raw';
+import textareaPreview from '../cardPreviews/TextArea.svg?raw';
+import segmentedPreview from '../cardPreviews/SegmentedControl.svg?raw';
+import radioGroupPreview from '../cardPreviews/RadioGroup.svg?raw';
+import checkboxGroupPreview from '../cardPreviews/CheckboxGroup.svg?raw';
+import tagSelectPreview from '../cardPreviews/TagSelect.svg?raw';
+import metaListPreview from '../cardPreviews/MetaList.svg?raw';
+import descriptionListPreview from '../cardPreviews/DescriptionList.svg?raw';
+import tablePreview from '../cardPreviews/Table.svg?raw';
+import breadcrumbsPreview from '../cardPreviews/Breadcrumbs.svg?raw';
 
 interface Component {
     title: string;
@@ -111,6 +125,7 @@ const sections: Array<Section> = [
             {
                 title: 'Fieldset',
                 component: fieldsetBase,
+                preview: fieldsetPreview,
                 description:
                     'Used to group inputs that belong together. Mandatory for radio-inputs. Can have a hint to describe what it is about.',
                 examples: [
@@ -172,36 +187,42 @@ const sections: Array<Section> = [
                 title: 'Checkbox Input',
                 description: 'Checkbox inputs are used for agreeing or enabling features.',
                 component: inputCheckbox,
+                preview: checkboxPreview,
             },
             {
                 title: 'Date Input',
                 description:
                     'Use date inputs to collect single dates. Can be hooked up to a button to set the date for today. Builts on browser built-in date picker.',
                 component: inputDate,
+                preview: dateInputPreview,
             },
             {
                 title: 'Range Input',
                 description:
                     'Prefer the range input over a standard number input for easier adjustments. Usually not as precise. Display the currently selected value below or group with a number input for the best of both worlds.',
                 component: inputRange,
+                preview: rangeInputPreview,
             },
             {
                 title: 'Select',
                 description:
                     'Selects are useful for when you have more than 5 items, but still a managable amount.',
                 component: inputSelect,
+                preview: selectPreview,
             },
             {
                 title: 'Textarea',
                 description:
                     'Use a textarea for longer text inputs, like descriptions or bios. Allows for multiple lines.',
                 component: inputTextarea,
+                preview: textareaPreview,
             },
             {
                 title: 'Segmented control',
                 description:
                     'A styled radio control. Use when you have a small amount of options (2-5). Can be used for on/off switches. Has intrinsic sizing and switches between column and row.',
                 component: inputSegmentedControl,
+                preview: segmentedPreview,
             },
             {
                 title: 'Radio Input Field',
@@ -211,12 +232,14 @@ const sections: Array<Section> = [
                 notes: [
                     "You can register a 'change' event on the fieldset to listen for changes in the radio inputs.",
                 ],
+                preview: radioGroupPreview,
             },
             {
                 title: 'Checkbox Input Field',
                 description:
                     'Oftentimes the best choice for selecting multiple options out of a few. Prefer over selects for 2-5 options.',
                 component: inputCheckboxField,
+                preview: checkboxGroupPreview,
             },
             {
                 title: 'Tag Select Field',
@@ -227,6 +250,7 @@ const sections: Array<Section> = [
                     'Feel free to change the contents and class of the label to whatever suits your needs',
                     'You can easily style the selected state with <var>label:has(input:checked)</var>',
                 ],
+                preview: tagSelectPreview,
             },
         ],
     },
@@ -238,12 +262,14 @@ const sections: Array<Section> = [
                 component: metaList,
                 description:
                     'Display tags and meta data for posts and alike, like date, author, and tags. Has intrinsic sizing.',
+                preview: metaListPreview,
             },
             {
                 title: 'Descriptions List',
                 component: descriptionList,
                 description:
                     'Description lists are a way to organize and explain related information. Use it when you need to list and define terms such as in a glossary.',
+                preview: descriptionListPreview,
             },
             {
                 title: 'Tables',
@@ -253,6 +279,7 @@ const sections: Array<Section> = [
                 notes: [
                     'Make sure all data is visible in all responsive setups. Either change the layout or allow scrolling..',
                 ],
+                preview: tablePreview,
                 examples: [
                     {
                         title: 'Horizontal Table',
@@ -270,6 +297,7 @@ const sections: Array<Section> = [
             {
                 title: 'Breadcrumbs',
                 component: breadcrumbs,
+                preview: breadcrumbsPreview,
                 description:
                     'Breadcrumbs display the current page or context within the site, allowing them to navigate different levels of the hierarchy.',
                 notes: [

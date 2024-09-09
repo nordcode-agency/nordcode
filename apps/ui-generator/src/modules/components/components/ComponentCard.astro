@@ -32,6 +32,7 @@ const { component } = Astro.props;
 
     .card-preview {
         aspect-ratio: 3 / 2;
+        background-color: color-mix(in oklch, var(--color-surface-muted), transparent 50%);
         --bg-grid-color: color-mix(in oklch, var(--color-brand-primary-base), transparent 98%);
 
         background-image:
