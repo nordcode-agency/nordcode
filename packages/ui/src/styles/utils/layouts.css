@@ -7,6 +7,30 @@
             border: var(--border-width-thin) solid var(--border, var(--color-border-base));
             border-radius: var(--border-radius-medium);
         }
+
+        &.-tiny {
+            padding: var(--spacing-tiny);
+        }
+
+        &.-nearest {
+            padding: var(--spacing-nearest);
+        }
+
+        &.-near {
+            padding: var(--spacing-near);
+        }
+
+        &.-base {
+            padding: var(--spacing-base);
+        }
+
+        &.-far {
+            padding: var(--spacing-far);
+        }
+
+        &.-farthest {
+            padding: var(--spacing-farthest);
+        }
     }
 
     .nc-stack {
@@ -68,7 +92,7 @@
     .nc-center {
         box-sizing: content-box;
         margin-inline: auto;
-        max-inline-size: var(--center-measure, 0);
+        max-inline-size: var(--center-measure, max-content);
         padding-inline: var(--center-padding, 0);
         position: relative;
     }
@@ -109,7 +133,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
-        gap: var(--spacing-far);
+        gap: var(--with-sidebar-gap, var(--spacing-far));
 
         & > [data-aside] {
             flex-grow: 1;
@@ -123,7 +147,7 @@
             min-width: var(--with-sidebar-min-size, 50%);
         }
 
-        &[data-direction='rtl'] {
+        &[data-direction="rtl"] {
             flex-direction: row-reverse;
         }
 
@@ -151,21 +175,21 @@
     .nc-grid {
         display: grid;
         grid-template-columns: repeat(
-            var(--grid-placement, auto-fill),
-            minmax(var(--grid-min-item-size, 16rem), 1fr)
-        );
-        gap: var(--spacing-base);
+                var(--grid-placement, auto-fill),
+                minmax(var(--grid-min-item-size, 16rem), 1fr)
+            );
+        gap: var(--grid-gap, var(--spacing-base));
 
         /* A split 50/50 layout */
 
-        &[data-layout='50-50'] {
+        &[data-layout="50-50"] {
             --grid-placement: auto-fit;
             --grid-min-item-size: clamp(16rem, 50vw, 33rem);
         }
 
         /* Three column grid layout */
 
-        &[data-layout='thirds'] {
+        &[data-layout="thirds"] {
             --grid-placement: auto-fit;
             --grid-min-item-size: clamp(16rem, 33%, 20rem);
         }
@@ -174,7 +198,7 @@
     /*
     SWITCHER
     More info: https://every-layout.dev/layouts/switcher/
-    A layout that allows you to lay **2** items next to each other
+    A layout that allows you to lay **3** items next to each other
     until there is not enough horizontal space to allow that.
 
     CUSTOM PROPERTIES AND CONFIGURATION
@@ -190,7 +214,7 @@
     .nc-switcher {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--spacing-base);
+        gap: var(--switcher-gap, var(--spacing-base));
         align-items: var(--switcher-vertical-alignment, flex-start);
 
         & > * {
@@ -201,7 +225,7 @@
         /* Max 2 items,
         so anything greater than 2 is ful width */
 
-        & > :nth-child(n + 3) {
+        & > :nth-child(n + 4) {
             flex-basis: 100%;
         }
     }
@@ -219,7 +243,7 @@
         }
     }
 
-    :where(.nc-stack, .nc-cluster, .nc-with-sidebar, .nc-grid, .nc-gallery) {
+    :where(.nc-stack, .nc-cluster, .nc-with-sidebar, .nc-grid, .nc-gallery, .nc-switcher) {
         &.-inherit {
             gap: inherit;
         }
@@ -255,10 +279,5 @@
 
     .full-width {
         inline-size: 100%;
-    }
-
-    .nc-centered-content {
-        display: grid;
-        place-items: center;
     }
 }

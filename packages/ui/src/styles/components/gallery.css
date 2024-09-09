@@ -12,7 +12,7 @@
 .nc-gallery {
     display: flex;
     flex-direction: row;
-    gap: var(--spacing-base);
+    gap: var(--gallery-gap, var(--spacing-base));
     margin: 0;
     max-inline-size: 100%;
     block-size: var(--gallery-size, auto);
