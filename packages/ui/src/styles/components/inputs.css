@@ -111,6 +111,7 @@
         padding-inline: var(--_input-padding-inline);
         box-shadow: var(--_input-box-shadow);
         inline-size: var(--input-inline-size, auto);
+        line-height: var(--line-height-base);
 
         &:focus {
             --current-background: var(--_input-background-active);
