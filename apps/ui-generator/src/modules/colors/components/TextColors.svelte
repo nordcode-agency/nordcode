@@ -1,4 +1,5 @@
 <script lang="ts">
+import { CheckboxInput } from '@nordcode/forms-svelte';
 import SettingsInput from '../../common/components/SettingsInput.svelte';
 import { configStore } from '../../store/configStore.ts';
 import ColorPreviewEntry from './ColorPreviewEntry.svelte';
@@ -35,6 +36,12 @@ const emphasisColor = {
     <h2 id="text">Text Colors</h2>
     <div class="nc-grid preview-grid">
         <div class="nc-stack">
+            <CheckboxInput
+                id="use-secondary-hue-fg"
+                name="use-secondary-hue-fg"
+                label="Use secondary hue"
+                bind:checked={$configStore.useSecondaryColorForFG}
+            />
             <form class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
                     <SettingsInput
