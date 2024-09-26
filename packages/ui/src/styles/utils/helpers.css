@@ -1,4 +1,5 @@
 @layer utils {
+
     .text-assistive,
     .sr-only {
         border: 0;
@@ -10,5 +11,11 @@
         position: absolute;
         width: 1px;
         white-space: nowrap;
+    }
+
+    .break-word {
+        overflow-wrap: break-word;
+        max-inline-size: 100%;
+        hyphens: auto;
     }
 }
