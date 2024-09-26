@@ -1,17 +1,15 @@
-@layer utils {
-    .mt-base {
-        margin-top: var(--spacing-base);
-    }
+.mt-base {
+    margin-top: var(--spacing-base);
+}
 
-    .mt-auto {
-        margin-block-start: auto;
-    }
+.mt-auto {
+    margin-block-start: auto;
+}
 
-    .ml-auto {
-        margin-inline-start: auto;
-    }
+.ml-auto {
+    margin-inline-start: auto;
+}
 
-    .mr-auto {
-        margin-inline-end: auto;
-    }
+.mr-auto {
+    margin-inline-end: auto;
 }

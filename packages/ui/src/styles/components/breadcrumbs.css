@@ -4,22 +4,22 @@
     background-color: var(--nc-breadcrumbs-surface, transparent);
     color: var(--nc-breadcrumbs-text, --color-text-muted);
 
-    & > * {
+    &>li {
         color: inherit;
     }
 
-    & > *:last-child {
+    &>li:last-child {
         color: var(--color-brand-primary-base);
     }
 
-    & > *:not(:last-child):after {
+    &>li:not(:last-child):after {
         padding-inline: 1ch;
         color: inherit;
         content: "›";
         font-size: inherit;
     }
 
-    & [aria-current="page"] {
+    & a[aria-current="page"] {
         pointer-events: none;
         color: var(--nc-breadcrumbs-text-active, --color-text-base);
     }
