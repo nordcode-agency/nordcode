@@ -1,27 +1,21 @@
 :where(.nc-meta-list) {
     inline-size: 100%;
     container: metalist / inline-size;
+}
 
-    & > li {
-        overflow-wrap: break-word;
-        max-inline-size: 100%;
-        hyphens: auto;
-        inline-size: 100%;
+:where(.nc-meta-list-item) {
+    overflow-wrap: break-word;
+    max-inline-size: 100%;
+    hyphens: auto;
+    inline-size: 100%;
 
-        & > span {
-            overflow-wrap: break-word;
-            max-inline-size: 100%;
-            hyphens: auto;
-        }
-
-        &:not(:last-child) {
-            margin-block-end: 1ch;
-        }
+    &:not(:last-child) {
+        margin-block-end: 1ch;
     }
 }
 
 @container metalist (min-width: 20rem) {
-    li {
+    :where(.nc-meta-list-item) {
         inline-size: auto;
 
         &:not(:last-child):after {

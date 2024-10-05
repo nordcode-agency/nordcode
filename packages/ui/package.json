@@ -27,17 +27,11 @@
         "./src/modules/sectionObserver/": "./src/modules/sectionObserver/"
     },
     "scripts": {
-        "lib:all": "postcss src/styles/**/*.css --base src/styles --dir out",
-        "lib:bundle": "postcss src/styles/bundle.css -o out/bundle.css",
         "lib:transform": "node transform.js",
         "build": "pnpm run '/^lib:.*/'"
     },
-    "devDependencies": {
-        "@nordcode/postcss-config": "workspace:^",
-        "postcss-cli": "^10.1.0"
-    },
     "dependencies": {
-        "browserslist": "^4.23.0",
-        "lightningcss": "^1.24.0"
+        "browserslist": "^4.23.3",
+        "lightningcss": "^1.27.0"
     }
 }

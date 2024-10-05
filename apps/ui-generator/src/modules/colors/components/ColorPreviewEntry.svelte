@@ -18,7 +18,7 @@ interface ColorPreviewProps {
 let { color, surfaceColor, baseToken }: ColorPreviewProps = $props();
 
 const token = `${baseToken}-${color.name.toLowerCase()}`;
-const previewId = `color-preview-${color.name}`;
+const previewId = `color-preview-${baseToken}-${color.name}`;
 
 const isSurface = token === surfaceColor;
 
@@ -26,6 +26,11 @@ let resolvedColor = $state('');
 
 const getComputedColor = (variant: 'light' | 'dark') => {
     const el = document.getElementById(`${previewId}-${variant}`);
+    console.log(
+        `${previewId}-${variant}`,
+        window.getComputedStyle(el).getPropertyValue('background'),
+        el,
+    );
     if (!el) {
         return '';
     }
@@ -39,7 +44,7 @@ const updateResolvedColor: ThemeMutationObserverListener = (style) => {
     resolvedColor = `${getComputedColor('light')} / ${getComputedColor('dark')}`;
 };
 
-onMount(() => {
+$effect(() => {
     getThemeMutationObserver().subscribe((style) => {
         updateResolvedColor(style);
     });

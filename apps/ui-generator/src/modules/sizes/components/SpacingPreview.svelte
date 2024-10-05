@@ -14,10 +14,10 @@ interface PreviewEntryProps {
 
 const { entry }: PreviewEntryProps = $props();
 
-let token = $derived(`--spacing-${entry.name.toLowerCase()}`);
+const token = $derived(`--spacing-${entry.name.toLowerCase()}`);
 let resolvedValue = $state('');
 
-const style = `gap: var(${token})`;
+const style = $derived(`gap: var(${token})`);
 
 const updateResolvedValue: ThemeMutationObserverListener = (style) => {
     if (!style) {

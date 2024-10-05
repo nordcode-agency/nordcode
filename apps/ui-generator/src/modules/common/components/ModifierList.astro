@@ -17,7 +17,7 @@ const { modifiers } = Astro.props;
                 <dt>
                     <var>{m.name}</var>
                 </dt>
-                <dd>{m.description}</dd>
+                <dd><Fragment set:html={m.description}/></dd>
             </>
         ))
     }

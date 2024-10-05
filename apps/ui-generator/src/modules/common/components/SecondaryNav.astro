@@ -18,7 +18,7 @@ const { entries } = Astro.props;
         padding-block: var(--spacing-near);
         background: var(--color-surface-muted);
         box-shadow: var(--shadow-near);
-        padding-inline: var(--spacing-base);
+        padding-inline: var(--nav-padding-inline, var(--spacing-base));
         border-block-end: var(--border-width-thin) solid var(--color-border-muted);
         z-index: 2;
     }

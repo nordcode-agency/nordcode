@@ -94,7 +94,7 @@ $effect(() => {
 
 <style>
     .contrastTool-container {
-        background: var(--color-surface-subtle);
+        background: var(--color-surface-base);
         margin-inline: var(--spacing-base);
         inline-size: calc(100% - 2 * var(--spacing-base));
     }

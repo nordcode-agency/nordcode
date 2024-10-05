@@ -7,93 +7,82 @@
         display: inline-flex;
         font-size: inherit;
         cursor: pointer;
-        gap: 0.25lh;
+        gap: 0.15lh;
         align-items: center;
     }
 
-    :where(
-            input[type='text'],
-            input[type='email'],
-            input[type='password'],
-            input[type='number'],
-            input[type='url'],
-            input[type='search'],
-            input[type='date'],
-            input[type='month'],
-            input[type='week'],
-            input[type='text'],
-            input[type='datetime'],
-            input[type='datetime-local'],
-            input[type='time'],
-            input[type='tel'],
-            input[type='color'],
-            input[type='file'],
-            input[type='checkbox'],
-            input[type='radio'],
-            textarea,
-            select,
-            .nc-input,
-            .nc-select,
-            .nc-textarea,
-            .nc-input-checkbox,
-            .nc-input-radio,
-            .nc-input-label,
-            .nc-input-color,
-            .nc-input-field,
-            .nc-input-error,
-            .nc-checkbox-wrapper,
-            .nc-input-switch,
-            .nc-radio-field,
-            .nc-checkbox-field
-        ) {
-        --_input-background: var(--input-background, var(--color-surface-base));
+    :where(input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="url"],
+        input[type="search"],
+        input[type="date"],
+        input[type="month"],
+        input[type="week"],
+        input[type="text"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="time"],
+        input[type="tel"],
+        input[type="color"],
+        input[type="file"],
+        input[type="checkbox"],
+        input[type="radio"],
+        textarea,
+        select,
+        .nc-input,
+        .nc-select,
+        .nc-textarea,
+        .nc-input-checkbox,
+        .nc-input-radio,
+        .nc-input-label,
+        .nc-input-color,
+        .nc-input-field,
+        .nc-input-error,
+        .nc-checkbox-wrapper,
+        .nc-input-switch,
+        .nc-radio-field,
+        .nc-checkbox-field) {
+        --_input-background: var(--input-background, var(--color-surface-subtle));
+        --_input-background-active: var(--input-background-active, var(--color-surface-base));
         --_input-color: var(--input-color, var(--color-text-base));
-        --_input-border: var(
-            --input-border,
-            var(--border-width-thin) solid var(--color-border-base)
-        );
+        --_input-border: var(--input-border,
+                var(--border-width-thin) solid var(--color-border-base));
         --_input-border-radius: var(--input-border-radius, var(--border-radius-medium));
 
         --_input-box-shadow: var(--input-box-shadow, var(--shadow-inset));
-        --_input-outline: var(
-            --input-outline,
-            var(--border-width-thick) solid var(--color-brand-primary-base)
-        );
+        --_input-outline: var(--input-outline,
+                var(--border-width-thick) solid var(--color-brand-primary-base));
         --_input-disabled-filter: var(--input-disabled-filter, contrast(0.72) opacity(0.72));
 
         --_input-padding-block: var(--input-padding-block, 0.125lh);
         --_input-padding-inline: var(--input-padding-inline, 1ch);
-        --_input-hover-background: var(
-            --input-hover-background,
-            color-mix(
-                in oklch,
-                var(--color-brand-primary-base) calc(var(--transparency-weaker) * 10%),
-                transparent
-            )
-        );
+        --_input-hover-background: var(--input-hover-background,
+                color-mix(in oklch,
+                    var(--color-brand-primary-base) calc(var(--transparency-weaker) * 10%),
+                    transparent));
     }
 
-    :where(
-            input[type='text'],
-            input[type='email'],
-            input[type='password'],
-            input[type='number'],
-            input[type='url'],
-            input[type='search'],
-            input[type='date'],
-            input[type='month'],
-            input[type='week'],
-            input[type='text'],
-            input[type='datetime'],
-            input[type='datetime-local'],
-            input[type='time'],
-            input[type='tel'],
-            input[type='color'],
-            input[type='file'],
-            textarea,
-            select,
-            .nc-input
-        ) {
+    :where(input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="url"],
+        input[type="search"],
+        input[type="date"],
+        input[type="month"],
+        input[type="week"],
+        input[type="text"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="time"],
+        input[type="tel"],
+        input[type="color"],
+        input[type="file"],
+        textarea,
+        select,
+        .nc-input) {
         font: inherit;
         letter-spacing: inherit;
         word-spacing: inherit;
@@ -110,10 +99,13 @@
         padding-inline: var(--_input-padding-inline);
         box-shadow: var(--_input-box-shadow);
         inline-size: var(--input-inline-size, auto);
+        line-height: var(--line-height-base);
 
         &:focus {
+            --current-background: var(--_input-background-active);
             outline: var(--_input-outline);
             outline-offset: 0;
+            background-color: var(--_input-background-active);
         }
 
         &:disabled {
@@ -124,6 +116,11 @@
         &:hover {
             --current-background: var(--_input-hover-background);
             background-color: var(--_input-hover-background);
+        }
+
+        &:hover:focus {
+            --current-background: var(--_input-background-active);
+            background-color: var(--_input-background-active);
         }
 
         &[required] {
@@ -148,13 +145,11 @@
         padding-block: var(--_input-padding-block);
     }
 
-    :where(
-            input[type='checkbox']:not([class]),
-            input[type='radio']:not([class]),
-            .nc-input-checkbox,
-            .nc-input-radio,
-            .nc-input-switch
-        ) {
+    :where(input[type="checkbox"]:not([class]),
+        input[type="radio"]:not([class]),
+        .nc-input-checkbox,
+        .nc-input-radio,
+        .nc-input-switch) {
         inline-size: 1lh;
         block-size: 1lh;
         aspect-ratio: 1;
@@ -179,13 +174,13 @@
         }
     }
 
-    :where(input[type='checkbox']:not([class]), .nc-input-checkbox) {
+    :where(input[type="checkbox"]:not([class]), .nc-input-checkbox) {
         --_transition-duration: 0ms;
         overflow: hidden;
         border-radius: var(--_input-border-radius);
 
         &:before {
-            content: '';
+            content: "";
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -210,12 +205,12 @@
         }
     }
 
-    :where(input[type='radio'], .nc-input-radio) {
+    :where(input[type="radio"], .nc-input-radio) {
         border-radius: var(--border-radius-round);
         overflow: hidden;
 
         &:before {
-            content: '';
+            content: "";
             display: inline-flex;
             block-size: 50%;
             inline-size: 50%;
@@ -234,18 +229,18 @@
         }
     }
 
-    :where(input[type='color'], .nc-input-color) {
+    :where(input[type="color"], .nc-input-color) {
         aspect-ratio: 1;
         width: auto;
         padding: calc(var(--button-height-base) / 12);
     }
 
-    :where(input[type='date'], .nc-input-date) {
+    :where(input[type="date"], .nc-input-date) {
         flex-flow: row nowrap;
     }
 
-    :where(input[type='range'], .nc-input-range) {
-        & > .nc-hint {
+    :where(input[type="range"], .nc-input-range) {
+        &>.nc-hint {
             margin-inline-start: auto;
         }
 
@@ -271,20 +266,20 @@
     /*EXTRAS START HERE */
     :where(.nc-input-field) {
         display: grid;
-        gap: 0.5lh;
+        gap: 0.25lh;
         grid-template-columns: minmax(0, 1fr);
         inline-size: 100%;
         min-inline-size: var(--input-field-min-inline-size);
         max-inline-size: var(--input-field-max-inline-size);
         place-items: start;
 
-        & > label,
-        & > .nc-stack {
-            gap: 0.15lh;
+        &>label,
+        &>.nc-stack {
+            gap: 0.125lh;
             line-height: var(--line-height-small);
         }
 
-        & > .nc-cluster {
+        &>.nc-cluster {
             gap: 1ch;
         }
     }
@@ -295,7 +290,7 @@
         font-size: var(--font-size-small);
 
         &:before {
-            content: '!';
+            content: "!";
         }
     }
 
@@ -319,13 +314,13 @@
     :where(.nc-checkbox-wrapper) {
         display: grid;
         grid-template:
-            'checkbox label' 1fr
+            "checkbox label" 1fr
             / auto 1fr;
         gap: 1ch;
         place-items: start;
         font-size: inherit;
 
-        & > .nc-stack {
+        &>.nc-stack {
             grid-area: label;
         }
 
@@ -333,11 +328,11 @@
             min-block-size: var(--line-height-base);
         }
 
-        & > input {
+        &>input {
             grid-area: checkbox;
         }
 
-        &:hover:not(:has(input:checked)) > input {
+        &:hover:not(:has(input:checked))>input {
             background: var(--_input-hover-background);
         }
     }
@@ -347,7 +342,7 @@
             margin-block-start: 0.6lh;
         }
 
-        & fieldset > *:not(:first-child) {
+        & fieldset>*:not(:first-child) {
             margin-block-start: 0.6lh;
         }
     }
@@ -374,7 +369,7 @@
         }
 
         &:before {
-            content: '';
+            content: "";
             display: block;
             aspect-ratio: 1;
             margin: var(--_thumb-margin);
@@ -391,9 +386,7 @@
         }
 
         &:checked:before {
-            margin-inline-start: calc(
-                var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin)
-            );
+            margin-inline-start: calc(var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin));
         }
     }
 
@@ -402,18 +395,12 @@
     }
 
     :where(.nc-segmented-control) {
-        --_segmented-control-border-radius: var(
-            --segmented-control-border-radius,
-            var(--_input-border-radius)
-        );
-        --_segmented-control-checked-text-color: var(
-            --segmented-control-checked-text-color,
-            var(--color-brand-primary-contrast)
-        );
-        --_segmented-control-checked-surface-color: var(
-            --segmented-control-checked-surface-color,
-            var(--color-brand-primary-base)
-        );
+        --_segmented-control-border-radius: var(--segmented-control-border-radius,
+                var(--_input-border-radius));
+        --_segmented-control-checked-text-color: var(--segmented-control-checked-text-color,
+                var(--color-brand-primary-contrast));
+        --_segmented-control-checked-surface-color: var(--segmented-control-checked-surface-color,
+                var(--color-brand-primary-base));
         display: grid;
         grid-auto-rows: 1fr;
         grid-auto-flow: row;
@@ -446,7 +433,7 @@
             align-items: center;
             justify-content: center;
 
-            & > span {
+            >.nc-input-label {
                 color: inherit;
             }
 
@@ -456,13 +443,11 @@
             }
 
             &:first-child {
-                border-radius: var(--_segmented-control-border-radius)
-                    var(--_segmented-control-border-radius) 0 0;
+                border-radius: var(--_segmented-control-border-radius) var(--_segmented-control-border-radius) 0 0;
             }
 
             &:last-child {
-                border-radius: 0 0 var(--_segmented-control-border-radius)
-                    var(--_segmented-control-border-radius);
+                border-radius: 0 0 var(--_segmented-control-border-radius) var(--_segmented-control-border-radius);
             }
 
             &:not(:last-child) {
@@ -495,15 +480,13 @@
             grid-auto-columns: 1fr;
             grid-auto-flow: column;
 
-            & > label {
+            >label {
                 &:first-child {
-                    border-radius: var(--_segmented-control-border-radius) 0 0
-                        var(--_segmented-control-border-radius);
+                    border-radius: var(--_segmented-control-border-radius) 0 0 var(--_segmented-control-border-radius);
                 }
 
                 &:last-child {
-                    border-radius: 0 var(--_segmented-control-border-radius)
-                        var(--_segmented-control-border-radius) 0;
+                    border-radius: 0 var(--_segmented-control-border-radius) var(--_segmented-control-border-radius) 0;
                 }
 
                 &:not(:last-child) {
@@ -520,18 +503,11 @@
     }
 
     :where(.nc-tag-select-field) {
-        --_tag-select-checked-text-color: var(
-            --tag-select-checked-text-color,
-            var(--color-brand-primary-contrast)
-        );
-        --_tag-select-checked-surface-color: var(
-            --tag-select-checked-surface-color,
-            var(--color-brand-primary-base)
-        );
-        --_tag-select-border-radius: var(
-            --tag-select-border-radius,
-            var(--_input-border-radius)
-        );
+        --_tag-select-checked-text-color: var(--tag-select-checked-text-color,
+                var(--color-brand-primary-contrast));
+        --_tag-select-checked-surface-color: var(--tag-select-checked-surface-color,
+                var(--color-brand-primary-base));
+        --_tag-select-border-radius: var(--tag-select-border-radius, var(--_input-border-radius));
 
         &:focus-within:has(:focus-visible) {
             outline-offset: 1ch;
@@ -547,7 +523,8 @@
         & label {
             display: grid;
 
-            &:hover, &:focus-within {
+            &:hover,
+            &:focus-within {
                 background-color: var(--_input-hover-background);
             }
 
@@ -562,6 +539,5 @@
                 cursor: not-allowed;
             }
         }
-
     }
 }

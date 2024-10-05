@@ -1,7 +1,7 @@
 export type TextColorDefinition = {
     l: number;
     c: number;
-    h: number;
+    hueToken: string;
     scalingFactor: number;
 };
 
@@ -21,7 +21,7 @@ export const generateLightSurfaceColorValues = (
     return {
         [lTokenName]: `${colorDef.l / 100}`,
         [cTokenName]: `${colorDef.c}`,
-        [hTokenName]: `${colorDef.h}`,
+        [hTokenName]: `var(${colorDef.hueToken})`,
         [scaleTokenName]: `${colorDef.scalingFactor}`,
         [neutralColorTokenName]: `calc(var(${cTokenName}) * var(--neutral-chroma-scale))`,
         [contrastColorTokenName]: `oklch(var(--lightness-min) var(${neutralColorTokenName}) var(${hTokenName}))`,
@@ -47,13 +47,15 @@ export const generateDarkSurfaceColorValues = (
     const cTokenName = `--c-${tokenName}-${themeSuffix}`;
     const hTokenName = `--h-${tokenName}-${themeSuffix}`;
 
+    const neutralColorTokenName = `--color-${tokenName}-neutral-chroma-${themeSuffix}`;
     const contrastColorTokenName = `--color-${tokenName}-contrast-${themeSuffix}`;
 
     return {
         [lTokenName]: `${colorDef.l / 100}`,
         [cTokenName]: `${colorDef.c}`,
-        [hTokenName]: `${colorDef.h}`,
-        [contrastColorTokenName]: `oklch(var(--lightness-max) var(${cTokenName}) var(${hTokenName}))`,
+        [hTokenName]: `var(${colorDef.hueToken})`,
+        [neutralColorTokenName]: `calc(var(${cTokenName}) * var(--neutral-chroma-scale))`,
+        [contrastColorTokenName]: `oklch(var(--lightness-max) var(${neutralColorTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-base-${themeSuffix}`]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-muted-${themeSuffix}`]: `
             color-mix(in oklch,

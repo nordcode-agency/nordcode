@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../modules/common/components/PageHeader.astro';
+import ComponentDetails from '../../modules/components/components/ComponentDetails.astro';
+import ComponentsDisplay from '../../modules/components/components/ComponentsDisplay.astro';
+import {
+    smarterSections,
+    type SmarterComponent,
+} from '../../modules/components/components/sections';
+
+export async function getStaticPaths() {
+    const allComponents = smarterSections.reduce((acc, sect) => {
+        return acc.concat(sect.components);
+    }, [] as SmarterComponent[]);
+
+    return allComponents.map((component) => {
+        return {
+            params: { id: component.sectionId },
+            props: { component },
+        };
+    });
+}
+
+const { component } = Astro.props;
+
+// const projectCrumbs = [
+//     { url: Navigation.projects.url, name: Navigation.projects.name },
+//     { name: project.data.title, url: Astro.url.pathname },
+// ];
+---
+
+<Layout title={component.title}>
+
+<ComponentDetails component={component} slot="content" />
+</Layout>

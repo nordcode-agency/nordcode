@@ -3,7 +3,7 @@ import type { GenericInputProps } from './types/GenericInputProps.ts';
 
 interface CheckboxInputProps extends GenericInputProps {
     label: string;
-    value: boolean;
+    checked: boolean;
 }
 
 let {
@@ -14,7 +14,8 @@ let {
     hint = '',
     autocomplete = '',
     optional = false,
-    value = $bindable(),
+    checked = $bindable(),
+    value,
 }: CheckboxInputProps = $props();
 </script>
 
@@ -36,7 +37,8 @@ let {
        autocomplete={autocomplete}
        required={optional ? false : true}
        type={'checkbox'}
-       checked={value}
-       oninput={() => value = !value}
+       checked={checked}
+       value={value}
+       oninput={() => checked = !checked}
 >
 </div>

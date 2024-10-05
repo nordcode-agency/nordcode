@@ -49,7 +49,8 @@ const radius = [
 <section class="nc-region content-block -contained -stretched">
     <h2 id="borders" class="section-headline">Borders</h2>
     <div class="nc-grid preview-grid">
-        <form>
+        <div>
+        <form class="settings-container">
             <fieldset class="nc-fieldset nc-stack">
                 <SettingsInput
                     label="Border Width Thin (Base)"
@@ -129,8 +130,6 @@ const radius = [
 
                 <details class="full-width">
                     <summary>Use custom border radii?</summary>
-                    <fieldset class="nc-fieldset nc-stack">
-                        <legend>Custom Border radii</legend>
                         <Input
                             name="borderRadiusSmall"
                             label="Border Radius Small"
@@ -156,10 +155,10 @@ const radius = [
                             step="1"
                             bind:value={$configStore.borderRadiusLarge}
                         />
-                    </fieldset>
                 </details>
             </fieldset>
         </form>
+        </div>
         <div class="nc-stack -stretched -contained">
             {#each widths as width}
                 <BorderPreviewEntry

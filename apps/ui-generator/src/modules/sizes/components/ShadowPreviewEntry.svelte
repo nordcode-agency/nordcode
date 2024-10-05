@@ -41,17 +41,16 @@ $effect(() => {
 
     <div
         class="nc-box lightpreview nc-cluster"
-        style="background: var(--color-surface-light-inset);"
     >
         <div
             class="nc-box preview-box"
-            style="box-shadow: var({lightShadow}); border-color: var(--color-border-light-default);"
+            style="box-shadow: var({lightShadow}); border-color: var(--color-border-base-light);"
         ></div>
     </div>
-    <div class="nc-box darkpreview nc-cluster" style="background: var(--color-surface-dark-inset);">
+    <div class="nc-box darkpreview nc-cluster">
         <div
             class="nc-box preview-box"
-            style="box-shadow: var({darkShadow}); border-color: var(--color-border-dark-default);"
+            style="box-shadow: var({darkShadow}); border-color: var(--color-border-base-dark);"
         ></div>
     </div>
 </div>
@@ -77,5 +76,13 @@ $effect(() => {
         block-size: 9rem;
         border-radius: var(--border-radius-medium);
         border: var(--border-width-thin) solid;
+    }
+
+    .lightpreview {
+        background: var(--color-surface-base-light);
+    }
+
+    .darkpreview {
+        background: var(--color-surface-base-dark);
     }
 </style>

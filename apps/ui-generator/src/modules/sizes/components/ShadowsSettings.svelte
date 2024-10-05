@@ -33,7 +33,7 @@ const shadows = [
     <h2 id="shadows" class="section-headline">Shadows</h2>
     <div class="nc-grid preview-grid">
         <div class="nc-stack">
-            <form>
+            <form class="settings-container nc-stack">
                 <fieldset class="nc-fieldset nc-stack">
                     <SettingsInput
                         label="Chroma Light"
@@ -50,8 +50,7 @@ const shadows = [
                         step="0.1"
                     ></SettingsInput>
                 </fieldset>
-            </form>
-            <form>
+                <hr />
                 <fieldset class="nc-fieldset nc-stack">
                     <SettingsInput
                         label="Chroma Dark"
@@ -68,8 +67,7 @@ const shadows = [
                         step="0.1"
                     ></SettingsInput>
                 </fieldset>
-            </form>
-            <form>
+                <hr />
                 <fieldset class="nc-fieldset nc-stack">
                     <SettingsInput
                         label="Base Distance"

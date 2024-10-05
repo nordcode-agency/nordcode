@@ -9,9 +9,8 @@ const links = [
     { href: '/', text: 'Presets' },
     { href: '/typography', text: 'Typography' },
     { href: '/colors', text: 'Colors' },
-    { href: '/sizes', text: 'Sizes' },
+    { href: '/borders-shadows', text: 'Borders & Shadows' },
     { href: '/components', text: 'Components' },
-    { href: '/layouts', text: 'Layouts' },
 ];
 ---
 
@@ -93,7 +92,11 @@ const links = [
         border-bottom: var(--border-width-thin) solid var(--color-border-base);
         inline-size: 100%;
         max-inline-size: 100%;
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 1;
     }
+
 
     nav a {
         text-decoration: none;

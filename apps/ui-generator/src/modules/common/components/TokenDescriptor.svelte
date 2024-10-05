@@ -22,6 +22,7 @@ let { name, token, description, resolvedValue }: TokenDescriptorProps = $props()
             {token}
         </var>
         <button class="nc-button -outline -small" data-copy-target={token}>
+            <span class="text-assistive">Token kopieren</span>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="nc-icon"

@@ -1,0 +1,71 @@
+---
+import type { SmarterComponent } from './sections';
+
+interface Props {
+    component: SmarterComponent;
+}
+
+const { component } = Astro.props;
+---
+
+<style>
+.component-card {
+    display: flex;
+    block-size: 100%;
+    text-decoration: none;
+    padding-inline: 0;
+    padding-block: 0;
+
+    & > * {
+        text-decoration: none;
+    }
+
+    &:hover {
+        outline: var(--border-width-thin) solid var(--color-brand-primary-base);
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        inline-size: 100%;
+    }
+
+    .card-preview {
+        aspect-ratio: 3 / 2;
+        background-color: color-mix(in oklch, var(--color-surface-muted), transparent 50%);
+        --bg-grid-color: color-mix(in oklch, var(--color-brand-primary-base), transparent 98%);
+
+        background-image:
+            repeating-linear-gradient(
+                to bottom,
+                transparent,
+                transparent 9px,
+                var(--bg-grid-color) 9px,
+                var(--bg-grid-color) 10px
+            ),
+            repeating-linear-gradient(
+                to right,
+                transparent,
+                transparent 9px,
+                var(--bg-grid-color) 9px,
+                var(--bg-grid-color) 10px
+            );
+    }
+
+    .card-text {
+        padding: var(--spacing-base);
+    }
+}
+</style>
+
+<a href={`/components/${component.sectionId}`} class="component-card nc-card">
+<article>
+    <div class="card-preview">
+        <Fragment set:html={component.preview}/>
+    </div>
+    <div class="card-text nc-flow">
+        <h3>{component.title}</h3>
+        <p>{component.description}</p>
+    </div>
+</article>
+</a>

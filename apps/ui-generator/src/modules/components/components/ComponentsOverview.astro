@@ -1,0 +1,53 @@
+---
+import ComponentCard from './ComponentCard.astro';
+import SectionTitle from './SectionTitle.astro';
+import type { SmarterSection } from './sections';
+import PageHeader from '../../common/components/PageHeader.astro';
+import SecondaryNav from '../../common/components/SecondaryNav.astro';
+
+interface Props {
+    sections: SmarterSection[];
+}
+
+const { sections } = Astro.props;
+
+const entries = sections.map((section) => ({
+    title: section.title,
+    url: `#${section.sectionId}`,
+}));
+---
+
+
+<style>
+.components {
+    --nav-padding-inline: var(--spacing-far);
+}
+
+.comp-section {
+    padding-inline: var(--spacing-far);
+}
+
+.nc-grid {
+    grid-template-columns: repeat(
+        var(--grid-placement, auto-fill),
+        minmax(20rem, 1fr)
+    );
+}
+</style>
+
+<div class="components">
+<PageHeader title="Components" description="User interface components with their markup and applied classes. All of these are pre-styled in our theme."></PageHeader>
+<SecondaryNav entries={entries} />
+{sections.map(section => (
+    <section class="comp-section nc-region" id={section.sectionId}>
+        <SectionTitle title={section.title} sectionId={section.sectionId} />
+        <ul class="nc-list-reset nc-grid -far">
+        {section.components.map(comp => (
+            <li>
+                <ComponentCard component={comp} />
+            </li>
+        ))}
+        </ul>
+    </section>
+    ))}
+</div>

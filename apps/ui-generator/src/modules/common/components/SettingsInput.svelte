@@ -7,7 +7,7 @@ interface SettingsInputProps {
     min: string;
     step: string;
     value: number | string | boolean;
-    oninput: FormEventHandler<HTMLInputElement>;
+    oninput?: FormEventHandler<HTMLInputElement>;
 }
 
 let { label, max, min, step, value = $bindable(), oninput, ...rest }: SettingsInputProps = $props();

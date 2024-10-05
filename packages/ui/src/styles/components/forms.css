@@ -2,7 +2,6 @@
     :where(.nc-form) {
         inline-size: 100%;
         max-inline-size: var(--nc-form-max-inline-size, var(--measure-base));
-
     }
 
     :where(.nc-form-title) {
@@ -13,7 +12,7 @@
     }
 
     :where(.nc-form-hint) {
-        margin-block: 0.6lh;
+        margin-block: 0.5lh;
         font-size: var(--font-size-large);
         color: var(--color-text-muted);
     }
@@ -31,12 +30,12 @@
         font-weight: var(--font-weight-active);
         color: var(--text, var(--color-text-base));
         display: block;
-        font-size: var(--font-size-large);
+        font-size: var(--font-size-base);
         padding: 0;
         border: none;
         border-radius: 0;
         inline-size: 100%;
-        margin-block-end: 0.6lh;
+        margin-block-end: 0.75lh;
     }
 
     :where(
@@ -51,5 +50,4 @@
             margin-block-end: 0.6lh;
         }
     }
-
 }

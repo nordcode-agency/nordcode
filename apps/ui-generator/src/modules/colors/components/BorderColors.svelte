@@ -1,4 +1,5 @@
 <script lang="ts">
+import { CheckboxInput } from '@nordcode/forms-svelte';
 import SettingsInput from '../../common/components/SettingsInput.svelte';
 import { configStore } from '../../store/configStore.ts';
 import BorderColorPreviewEntry from './BorderColorPreviewEntry.svelte';
@@ -35,7 +36,13 @@ const emphasisColor = {
     <h2 id="borders">Border Colors</h2>
     <div class="nc-grid preview-grid">
         <div class="nc-stack">
-            <form>
+            <CheckboxInput
+                id="use-secondary-hue-border"
+                name="use-secondary-hue-border"
+                label="Use secondary hue"
+                bind:checked={$configStore.useSecondaryColorForBorders}
+            />
+            <form class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
                     <SettingsInput
                         label="Chroma Light"
@@ -62,7 +69,7 @@ const emphasisColor = {
                     ></SettingsInput>
                 </fieldset>
             </form>
-            <form>
+            <form class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
                     <SettingsInput
                         label="Chroma Dark"

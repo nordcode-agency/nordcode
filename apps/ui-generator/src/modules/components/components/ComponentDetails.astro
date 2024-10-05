@@ -1,0 +1,68 @@
+---
+import Breadcrumbs from '../../common/components/Breadcrumbs.astro';
+import PageHeader from '../../common/components/PageHeader.astro';
+import SecondaryNav from '../../common/components/SecondaryNav.astro';
+import ComponentPreview from './ComponentPreview.astro';
+import type { SmarterComponent } from './sections';
+
+interface Props {
+    component: SmarterComponent;
+}
+
+const { component } = Astro.props;
+
+const breadcrumbs = [
+    { url: '/components', name: 'Components' },
+    { name: component.title, url: Astro.url.pathname },
+];
+
+const entries = [
+    {
+        title: 'Component',
+        url: '#component',
+    },
+];
+
+if (component.modifiers) {
+    entries.push({
+        title: 'Modifiers',
+        url: '#modifiers',
+    });
+}
+
+if (component.cssVariables) {
+    entries.push({
+        title: 'CSS Variables',
+        url: '#cssVariables',
+    });
+}
+
+if (component.notes) {
+    entries.push({
+        title: 'Notes',
+        url: '#notes',
+    });
+}
+
+if (component.examples) {
+    entries.push({
+        title: 'Examples',
+        url: '#examples',
+    });
+}
+---
+
+<style>
+.component-details {
+    --nav-padding-inline: var(--spacing-far);
+}
+
+</style>
+
+<section class="component-details">
+<PageHeader title={component.title} description={component.description}>
+    <Breadcrumbs breadcrumbs={breadcrumbs} slot="before"/>
+</PageHeader>
+<SecondaryNav entries={entries} />
+<ComponentPreview component={component}></ComponentPreview>
+</section>
