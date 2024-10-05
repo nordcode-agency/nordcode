@@ -1,19 +1,19 @@
 <script lang="ts">
 	// import gsap from "gsap";
 	import { onMount } from 'svelte';
-    import { main } from '$lib/modules/common/components/threeScene';
+    import { main } from '$lib/modules/common/components/threeScene1';
 
 	onMount(() => {
 		main();
 	});
 </script>
 
-<canvas id="canvas" />
+<canvas class="webgl"></canvas>
 
 <style lang="postcss">
-	#canvas {
+	.webgl {
         position: absolute;
-        z-index: -1;
+        /* z-index: -1; */
         content: "";
         top: 0;
         right: 0;
@@ -22,6 +22,6 @@
 		block-size: 100%;
 		outline: none;
         background-color: var(--surface-color-default);
-        filter: blur(48px);
+        filter: blur(16px);
 	}
 </style>
