@@ -2,6 +2,7 @@
     --icon-size: 2ex;
 
     display: block;
+    flex-shrink: 0;
     inline-size: var(--icon-size);
     block-size: var(--icon-size);
 
@@ -38,7 +39,7 @@
     }
 }
 
-:where(button, .nc-button) > .nc-icon {
+:where(button, .nc-button)>.nc-icon {
     --icon-size: 2ex;
 }
 
