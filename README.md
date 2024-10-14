@@ -111,6 +111,21 @@ Next, you can link your Turborepo to your Remote Cache by running the following 
 npx turbo link
 ```
 
+## Compliance
+
+- [Google Docs Summary](https://docs.google.com/document/d/1LhYXryfkwYOnvDD6_VSpwSHV-rpmbwH9kcCQla4ZKck/edit?usp=sharing)
+- [Awesome GDPR](https://github.com/oppoverbakke/awesome-gdpr)
+- [Awesome GDPR](https://github.com/erichard/awesome-gdpr)
+
+## Security
+
+- [Awesome Security](https://github.com/sindresorhus/awesome#security)
+- [Awesome AppSec](https://github.com/paragonie/awesome-appsec?tab=readme-ov-file#tools)
+    - [SSL Server Test](https://www.ssllabs.com/ssltest/)
+    - [Security Headers](https://securityheaders.com/)
+    - [CSP Header Analyzer](https://report-uri.com/home/analyse)
+    - [Clickjacker](https://clickjacker.io/)
+
 ## Useful Links
 
 Learn more about the power of Turborepo:
