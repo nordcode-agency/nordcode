@@ -1,4 +1,4 @@
-@layer components {
+@layer components.badge {
     :where(.badge) {
         font-family: var(--font-family-mono);
         letter-spacing: var(--tracking-tight);

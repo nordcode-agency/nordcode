@@ -1,14 +1,11 @@
-@layer components {
+@layer components.dialogs {
     dialog {
-        --_dialog-transition-duration: var(
-            --dialog-transition-duration,
-            var(--transition-duration-base)
-        );
+        --_dialog-transition-duration: var(--dialog-transition-duration,
+                var(--transition-duration-base));
 
         display: block;
         z-index: var(--layer-important);
-        animation: close-dialog var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1)
-            forwards;
+        animation: close-dialog var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1) forwards;
         transition: opacity var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1);
         position: fixed;
         inset: 0;
@@ -66,7 +63,7 @@
         min-inline-size: calc(2 * var(--spacing-near) + var(--_dialog-close-size));
     }
 
-    .dialog-header > button[data-closes-dialog] {
+    .dialog-header>button[data-closes-dialog] {
         grid-area: close;
         inline-size: var(--_dialog-close-size);
         block-size: var(--_dialog-close-size);
@@ -102,6 +99,7 @@
         from {
             transform: translate(0%, 100dvh) rotate(0deg);
         }
+
         to {
             transform: translate(0dvh, 0%) rotate(0deg);
         }
@@ -111,6 +109,7 @@
         from {
             transform: translate(0dvh, 0%) rotate(0deg);
         }
+
         to {
             transform: translate(0%, 100dvh) rotate(10deg);
         }

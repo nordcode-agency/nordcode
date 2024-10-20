@@ -1,4 +1,4 @@
-@layer components {
+@layer components.forms {
     :where(.nc-form) {
         inline-size: 100%;
         max-inline-size: var(--nc-form-max-inline-size, var(--measure-base));
@@ -38,15 +38,10 @@
         margin-block-end: 0.75lh;
     }
 
-    :where(
-            :is(fieldset:not([class]), .nc-fieldset):has(
-                    :is(.nc-legend + .nc-hint, legend:not([class]) + .nc-hint)
-                )
-                > :is(legend:not([class]), .nc-legend)
-        ) {
+    :where( :is(fieldset:not([class]), .nc-fieldset):has( :is(.nc-legend + .nc-hint, legend:not([class]) + .nc-hint)) > :is(legend:not([class]), .nc-legend)) {
         margin-block-end: 0;
 
-        & + .nc-hint {
+        &+.nc-hint {
             margin-block-end: 0.6lh;
         }
     }

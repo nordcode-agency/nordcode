@@ -1,54 +1,56 @@
-.nc-icon {
-    --icon-size: 2ex;
+@layer components.icons {
+    .nc-icon {
+        --icon-size: 2ex;
 
-    display: block;
-    flex-shrink: 0;
-    inline-size: var(--icon-size);
-    block-size: var(--icon-size);
+        display: block;
+        flex-shrink: 0;
+        inline-size: var(--icon-size);
+        block-size: var(--icon-size);
 
-    &[data-flip="true"] {
-        transform: scaleX(-1);
+        &[data-flip="true"] {
+            transform: scaleX(-1);
+        }
+
+        &[data-size="xs"] {
+            --icon-size: 1ex;
+        }
+
+        &[data-size="sm"] {
+            --icon-size: 1.5ex;
+        }
+
+        &[data-size="md"] {
+            --icon-size: 2ex;
+        }
+
+        &[data-size="lg"] {
+            --icon-size: 3ex;
+        }
+
+        &[data-size="xl"] {
+            --icon-size: 4ex;
+        }
+
+        &[data-size="inline"] {
+            --icon-size: 0.75lh;
+        }
+
+        &[data-animation="spinning"] {
+            animation: spinning 1s infinite linear;
+        }
     }
 
-    &[data-size="xs"] {
-        --icon-size: 1ex;
-    }
-
-    &[data-size="sm"] {
-        --icon-size: 1.5ex;
-    }
-
-    &[data-size="md"] {
+    :where(button, .nc-button)>.nc-icon {
         --icon-size: 2ex;
     }
 
-    &[data-size="lg"] {
-        --icon-size: 3ex;
-    }
+    @keyframes spinning {
+        from {
+            transform: rotate(0deg);
+        }
 
-    &[data-size="xl"] {
-        --icon-size: 4ex;
-    }
-
-    &[data-size="inline"] {
-        --icon-size: 0.75lh;
-    }
-
-    &[data-animation="spinning"] {
-        animation: spinning 1s infinite linear;
-    }
-}
-
-:where(button, .nc-button)>.nc-icon {
-    --icon-size: 2ex;
-}
-
-@keyframes spinning {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
+        to {
+            transform: rotate(360deg);
+        }
     }
 }

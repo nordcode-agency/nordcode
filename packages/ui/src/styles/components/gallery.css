@@ -1,4 +1,6 @@
-/**
+@layer components.gallery {
+
+    /**
  * A horizontal stacked gallery that is scrollable when it overflows.
  *
  * @example ```html
@@ -9,56 +11,50 @@
  *  </ul>
  * ```
  */
-.nc-gallery {
-    display: flex;
-    flex-direction: row;
-    gap: var(--gallery-gap, var(--spacing-base));
-    margin: 0;
-    max-inline-size: 100%;
-    block-size: var(--gallery-size, auto);
-    padding-block-end: var(--gallery-scrollbar-padding, var(--spacing-base));
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: inline mandatory;
-    scroll-snap-stop: normal;
-    scroll-padding-inline: var(--gallery-scroll-padding-inline, var(--spacing-base));
-    list-style: none;
+    .nc-gallery {
+        display: flex;
+        flex-direction: row;
+        gap: var(--gallery-gap, var(--spacing-base));
+        margin: 0;
+        max-inline-size: 100%;
+        block-size: var(--gallery-size, auto);
+        padding-block-end: var(--gallery-scrollbar-padding, var(--spacing-base));
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scroll-snap-type: inline mandatory;
+        scroll-snap-stop: normal;
+        scroll-padding-inline: var(--gallery-scroll-padding-inline, var(--spacing-base));
+        list-style: none;
 
-    @media (prefers-reduced-motion: no-preference) {
-        scroll-behavior: smooth;
-    }
-
-    & > * {
-        display: inline-block;
-        scroll-snap-align: start;
-        flex: 0 0 var(--gallery-item-size, auto);
-    }
-
-    &.-custom-scrollbar {
-        scrollbar-color: var(--gallery-scrollbar-fg, var(--color-text-on-emphasis))
-            var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
-
-        &::-webkit-scrollbar {
-            block-size: var(--gallery-scrollbar-height, var(--spacing-base));
+        @media (prefers-reduced-motion: no-preference) {
+            scroll-behavior: smooth;
         }
 
-        &::-webkit-scrollbar-track {
-            background-color: var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
+        &>* {
+            display: inline-block;
+            scroll-snap-align: start;
+            flex: 0 0 var(--gallery-item-size, auto);
         }
 
-        &::-webkit-scrollbar-thumb {
-            background-color: var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
-            background-image: linear-gradient(
-                var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) 0,
-                var(--gallery-scrollbar-bg, var(--color-surface-emphasis))
-                    calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25),
-                var(--gallery-scrollbar-fg, var(--color-text-on-emphasis))
-                    calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25),
-                var(--gallery-scrollbar-fg, var(--color-text-on-emphasis))
-                    calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75),
-                var(--gallery-scrollbar-bg, var(--color-surface-emphasis))
-                    calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75)
-            );
+        &.-custom-scrollbar {
+            scrollbar-color: var(--gallery-scrollbar-fg, var(--color-text-on-emphasis)) var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
+
+            &::-webkit-scrollbar {
+                block-size: var(--gallery-scrollbar-height, var(--spacing-base));
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
+                background-image: linear-gradient(var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) 0,
+                        var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25),
+                        var(--gallery-scrollbar-fg, var(--color-text-on-emphasis)) calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25),
+                        var(--gallery-scrollbar-fg, var(--color-text-on-emphasis)) calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75),
+                        var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75));
+            }
         }
     }
 }

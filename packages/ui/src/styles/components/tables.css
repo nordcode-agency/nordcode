@@ -1,5 +1,7 @@
-:where(.nc-table) {
-    inline-size: 100%;
-    max-inline-size: 100%;
-    overflow-x: auto;
+@layer components.table {
+    :where(.nc-table) {
+        inline-size: 100%;
+        max-inline-size: 100%;
+        overflow-x: auto;
+    }
 }

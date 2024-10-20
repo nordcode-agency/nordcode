@@ -1,12 +1,10 @@
-@layer components {
+@layer components.notifications {
     :root {
         --_notification-max-width: var(--notifications-max-width, 20rem);
         --_notification-gap: var(--notification-gap, var(--spacing-base));
         --_notification-border-color: var(--notification-border-color, var(--color-border-base));
-        --_notification-center-background: var(
-            --notification-center-background,
-            oklch(var(--color-surface-subtle) / 0.05)
-        );
+        --_notification-center-background: var(--notification-center-background,
+                oklch(var(--color-surface-subtle) / 0.05));
     }
 
     .nc-notification-center,
@@ -111,8 +109,7 @@
     }
 
     .nc-notification.-closing {
-        animation: remove-notification var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1)
-            forwards;
+        animation: remove-notification var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1) forwards;
     }
 
     @keyframes pop-in {
@@ -120,9 +117,11 @@
             transform: translate(3vmin, -2vmin) scale(0.98);
             opacity: 0;
         }
+
         50% {
             transform: translate(0, -1vmin) scale(0.98);
         }
+
         100% {
             transform: translate(0, 0) scale(1);
             opacity: 1;

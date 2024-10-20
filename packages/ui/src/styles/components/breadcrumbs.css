@@ -1,35 +1,37 @@
-:where(.nc-breadcrumbs) {
-    inline-size: max-content;
-    max-inline-size: 100%;
-    background-color: var(--nc-breadcrumbs-surface, transparent);
-    color: var(--nc-breadcrumbs-text, --color-text-muted);
-}
-
-:where(.nc-breadcrumb-item) {
-    color: inherit;
-
-    &:last-child {
-        color: var(--color-brand-primary-base);
+@layer components.breadcrumbs {
+    :where(.nc-breadcrumbs) {
+        inline-size: max-content;
+        max-inline-size: 100%;
+        background-color: var(--nc-breadcrumbs-surface, transparent);
+        color: var(--nc-breadcrumbs-text, --color-text-muted);
     }
 
-    &:not(:last-child):after {
-        padding-inline: 1ch;
+    :where(.nc-breadcrumb-item) {
         color: inherit;
-        content: "›";
-        font-size: inherit;
+
+        &:last-child {
+            color: var(--color-brand-primary-base);
+        }
+
+        &:not(:last-child):after {
+            padding-inline: 1ch;
+            color: inherit;
+            content: "›";
+            font-size: inherit;
+        }
     }
-}
 
-:where(.nc-breadcrumb-link) {
-    text-decoration: none;
-    color: inherit;
+    :where(.nc-breadcrumb-link) {
+        text-decoration: none;
+        color: inherit;
 
-    &:hover {
-        text-decoration: underline;
-    }
+        &:hover {
+            text-decoration: underline;
+        }
 
-    &[aria-current="page"] {
-        pointer-events: none;
-        color: var(--nc-breadcrumbs-text-active, --color-text-base);
+        &[aria-current="page"] {
+            pointer-events: none;
+            color: var(--nc-breadcrumbs-text-active, --color-text-base);
+        }
     }
 }
