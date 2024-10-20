@@ -9,6 +9,7 @@ import inputSelect from '../examples/input/inputSelect.html?raw';
 import inputTextarea from '../examples/input/inputTextarea.html?raw';
 import inputSegmentedControl from '../examples/input/inputSegmentedControl.html?raw';
 import inputCheckbox from '../examples/input/inputCheckbox.html?raw';
+import inputSwitch from '../examples/input/inputSwitch.html?raw';
 import inputRadioField from '../examples/input/inputRadioField.html?raw';
 import inputCheckboxField from '../examples/input/inputCheckboxField.html?raw';
 import inputTagSelect from '../examples/input/inputTagSelect.html?raw';
@@ -211,6 +212,12 @@ const sections: Array<Section> = [
                 title: 'Checkbox Input',
                 description: 'Checkbox inputs are used for agreeing or enabling features.',
                 component: inputCheckbox,
+                preview: checkboxPreview,
+            },
+            {
+                title: 'Switch Input',
+                description: 'Basically a checkbox, but designed in a typical on/off way',
+                component: inputSwitch,
                 preview: checkboxPreview,
             },
             {
