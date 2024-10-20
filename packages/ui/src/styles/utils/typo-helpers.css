@@ -1,57 +1,59 @@
-.allcaps {
-    text-transform: capitalize;
-}
+@layer helpers.typo {
+    .allcaps {
+        text-transform: capitalize;
+    }
 
-.strong {
-    font-weight: var(--font-weight-strong);
-}
+    .strong {
+        font-weight: var(--font-weight-strong);
+    }
 
-.font-mono {
-    font-family: var(--font-family-mono);
-}
+    .font-mono {
+        font-family: var(--font-family-mono);
+    }
 
-.font-sans {
-    font-family: var(--font-family-sans);
-}
+    .font-sans {
+        font-family: var(--font-family-sans);
+    }
 
-.font-serif {
-    font-family: var(--font-family-serif);
-}
+    .font-serif {
+        font-family: var(--font-family-serif);
+    }
 
-.font-size-display {
-    font-size: var(--font-size-display);
-}
+    .font-size-display {
+        font-size: var(--font-size-display);
+    }
 
-.font-size-largest {
-    font-size: var(--font-size-largest);
-}
+    .font-size-largest {
+        font-size: var(--font-size-largest);
+    }
 
-.font-size-large {
-    font-size: var(--font-size-large);
-}
+    .font-size-large {
+        font-size: var(--font-size-large);
+    }
 
-.font-size-base {
-    font-size: var(--font-size-base);
-}
+    .font-size-base {
+        font-size: var(--font-size-base);
+    }
 
-.font-size-small {
-    font-size: var(--font-size-small);
-}
+    .font-size-small {
+        font-size: var(--font-size-small);
+    }
 
-.font-size-smallest {
-    font-size: var(--font-size-smallest);
-}
+    .font-size-smallest {
+        font-size: var(--font-size-smallest);
+    }
 
-.nc-hint {
-    color: var(--color-text-muted);
-    font-size: var(--font-size-small);
-    line-height: var(--line-height-base);
-}
+    .nc-hint {
+        color: var(--color-text-muted);
+        font-size: var(--font-size-small);
+        line-height: var(--line-height-base);
+    }
 
-.nc-slub {
-    color: var(--color-text-subtle);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
-    font-weight: var(--font-weight-active);
-    font-size: var(--font-size-smallest);
+    .nc-slub {
+        color: var(--color-text-subtle);
+        text-transform: uppercase;
+        letter-spacing: var(--tracking-wide);
+        font-weight: var(--font-weight-active);
+        font-size: var(--font-size-smallest);
+    }
 }

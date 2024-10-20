@@ -8,8 +8,7 @@
 @import './utils/reset.css';
 @import './utils/easings.css';
 @import './utils/layouts.css';
-@import './utils/spacing-utils.css';
-@import './utils/exceptions.css';
-@import './utils/helpers.css';
+@import './utils/spacing-helpers.css';
+@import './utils/extra-helpers.css';
 @import './utils/typo-helpers.css';
-@import './utils/color-utils.css';
+@import './utils/color-helpers.css';
