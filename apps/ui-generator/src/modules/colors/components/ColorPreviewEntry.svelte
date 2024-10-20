@@ -1,56 +1,52 @@
 <script lang="ts">
-import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
-import {
-    getThemeMutationObserver,
-    type ThemeMutationObserverListener,
-} from '../../common/utils/ThemeMutationObserver.ts';
-import { onMount } from 'svelte';
+    import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
+    import {
+        getThemeMutationObserver,
+        type ThemeMutationObserverListener,
+    } from '../../common/utils/ThemeMutationObserver.ts';
+    import { onMount } from 'svelte';
 
-interface ColorPreviewProps {
-    color: {
-        name: string;
-        description: string;
+    interface ColorPreviewProps {
+        color: {
+            name: string;
+            description: string;
+        };
+        surfaceColor: string;
+        baseToken: string;
+    }
+
+    let { color, surfaceColor, baseToken }: ColorPreviewProps = $props();
+
+    const token = `${baseToken}-${color.name.toLowerCase()}`;
+    const previewId = `color-preview-${baseToken}-${color.name}`;
+
+    const isSurface = token === surfaceColor;
+
+    let resolvedColor = $state('');
+
+    const getComputedColor = (variant: 'light' | 'dark') => {
+        const el = document.getElementById(`${previewId}-${variant}`);
+
+        if (!el) {
+            return '';
+        }
+        return window.getComputedStyle(el).getPropertyValue('background').trim();
     };
-    surfaceColor: string;
-    baseToken: string;
-}
 
-let { color, surfaceColor, baseToken }: ColorPreviewProps = $props();
+    const updateResolvedColor: ThemeMutationObserverListener = style => {
+        if (!style) {
+            return;
+        }
+        resolvedColor = `${getComputedColor('light')} / ${getComputedColor('dark')}`;
+    };
 
-const token = `${baseToken}-${color.name.toLowerCase()}`;
-const previewId = `color-preview-${baseToken}-${color.name}`;
+    $effect(() => {
+        getThemeMutationObserver().subscribe(style => {
+            updateResolvedColor(style);
+        });
 
-const isSurface = token === surfaceColor;
-
-let resolvedColor = $state('');
-
-const getComputedColor = (variant: 'light' | 'dark') => {
-    const el = document.getElementById(`${previewId}-${variant}`);
-    console.log(
-        `${previewId}-${variant}`,
-        window.getComputedStyle(el).getPropertyValue('background'),
-        el,
-    );
-    if (!el) {
-        return '';
-    }
-    return window.getComputedStyle(el).getPropertyValue('background').trim();
-};
-
-const updateResolvedColor: ThemeMutationObserverListener = (style) => {
-    if (!style) {
-        return;
-    }
-    resolvedColor = `${getComputedColor('light')} / ${getComputedColor('dark')}`;
-};
-
-$effect(() => {
-    getThemeMutationObserver().subscribe((style) => {
-        updateResolvedColor(style);
+        updateResolvedColor(getThemeMutationObserver().getStyle());
     });
-
-    updateResolvedColor(getThemeMutationObserver().getStyle());
-});
 </script>
 
 <div class="nc-grid">
@@ -60,21 +56,37 @@ $effect(() => {
         description={color.description}
         resolvedValue={resolvedColor}
     />
-    <div class="nc-box lightpreview nc-cluster preview" style="background: var({surfaceColor})" data-theme="light">
+    <div
+        class="nc-box lightpreview nc-cluster preview"
+        style="background: var({surfaceColor})"
+        data-theme="light"
+    >
         {#if isSurface}
             <p class="nc-input-label current">Current surface color</p>
         {/if}
         <div class="nc-cluster">
-            <div class="nc-box color-preview" id="{previewId}-light" style="background: var({token});"></div>
+            <div
+                class="nc-box color-preview"
+                id="{previewId}-light"
+                style="background: var({token});"
+            ></div>
             <p class="preview-text" style="color: var({token});">Aa</p>
         </div>
     </div>
-    <div class="nc-box darkpreview nc-cluster preview" style="background: var({surfaceColor})" data-theme="dark">
+    <div
+        class="nc-box darkpreview nc-cluster preview"
+        style="background: var({surfaceColor})"
+        data-theme="dark"
+    >
         {#if isSurface}
             <p class="nc-input-label current">Current surface color</p>
-            {/if}
+        {/if}
         <div class="nc-cluster">
-            <div class="nc-box color-preview" id="{previewId}-dark" style="background: var({token});"></div>
+            <div
+                class="nc-box color-preview"
+                id="{previewId}-dark"
+                style="background: var({token});"
+            ></div>
             <p class="preview-text" style="color: var({token});">Aa</p>
         </div>
     </div>
