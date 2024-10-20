@@ -1,4 +1,4 @@
-@layer components {
+@layer components.inputs {
     :where(label:not([class]), .nc-input-label) {
         font-family: var(--font-family-default);
         letter-spacing: var(--tracking-tight);
@@ -11,84 +11,86 @@
         align-items: center;
     }
 
-    :where(input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        input[type="url"],
-        input[type="search"],
-        input[type="date"],
-        input[type="month"],
-        input[type="week"],
-        input[type="text"],
-        input[type="datetime"],
-        input[type="datetime-local"],
-        input[type="time"],
-        input[type="tel"],
-        input[type="color"],
-        input[type="file"],
-        input[type="checkbox"],
-        input[type="radio"],
-        textarea,
-        select,
-        .nc-input,
-        .nc-select,
-        .nc-textarea,
-        .nc-input-checkbox,
-        .nc-input-radio,
-        .nc-input-label,
-        .nc-input-color,
-        .nc-input-field,
-        .nc-input-error,
-        .nc-checkbox-wrapper,
-        .nc-input-switch,
-        .nc-radio-field,
-        .nc-checkbox-field) {
+    :where(
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="number"],
+            input[type="url"],
+            input[type="search"],
+            input[type="date"],
+            input[type="month"],
+            input[type="week"],
+            input[type="text"],
+            input[type="datetime"],
+            input[type="datetime-local"],
+            input[type="time"],
+            input[type="tel"],
+            input[type="color"],
+            input[type="file"],
+            input[type="checkbox"],
+            input[type="radio"],
+            textarea,
+            select,
+            .nc-input,
+            .nc-select,
+            .nc-textarea,
+            .nc-input-checkbox,
+            .nc-input-radio,
+            .nc-input-label,
+            .nc-input-color,
+            .nc-input-field,
+            .nc-input-error,
+            .nc-checkbox-wrapper,
+            .nc-input-switch,
+            .nc-radio-field,
+            .nc-checkbox-field
+        ) {
         --_input-background: var(--input-background, var(--color-surface-subtle));
         --_input-background-active: var(--input-background-active, var(--color-surface-base));
         --_input-color: var(--input-color, var(--color-text-base));
-        --_input-border: var(--input-border,
-                var(--border-width-thin) solid var(--color-border-base));
+        --_input-border: var(
+            --input-border,
+            var(--border-width-thin) solid var(--color-border-base)
+        );
         --_input-border-radius: var(--input-border-radius, var(--border-radius-medium));
 
         --_input-box-shadow: var(--input-box-shadow, var(--shadow-inset));
-        --_input-outline: var(--input-outline,
-                var(--border-width-thick) solid var(--color-brand-primary-base));
+        --_input-outline: var(
+            --input-outline,
+            var(--border-width-thick) solid var(--color-brand-primary-base)
+        );
         --_input-disabled-filter: var(--input-disabled-filter, contrast(0.72) opacity(0.72));
 
         --_input-padding-block: var(--input-padding-block, 0.125lh);
         --_input-padding-inline: var(--input-padding-inline, 1ch);
-        --_input-hover-background: var(--input-hover-background,
-                color-mix(in oklch,
-                    var(--color-brand-primary-base) calc(var(--transparency-weaker) * 10%),
-                    transparent));
+        --_input-hover-background: var(--input-hover-background, var(--color-brand-primary-hover));
     }
 
-    :where(input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        input[type="url"],
-        input[type="search"],
-        input[type="date"],
-        input[type="month"],
-        input[type="week"],
-        input[type="text"],
-        input[type="datetime"],
-        input[type="datetime-local"],
-        input[type="time"],
-        input[type="tel"],
-        input[type="color"],
-        input[type="file"],
-        textarea,
-        select,
-        .nc-input) {
+    :where(
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="number"],
+            input[type="url"],
+            input[type="search"],
+            input[type="date"],
+            input[type="month"],
+            input[type="week"],
+            input[type="text"],
+            input[type="datetime"],
+            input[type="datetime-local"],
+            input[type="time"],
+            input[type="tel"],
+            input[type="color"],
+            input[type="file"],
+            textarea,
+            select,
+            .nc-input
+        ) {
         font: inherit;
         letter-spacing: inherit;
         word-spacing: inherit;
-
-        -moz-appearance: none;
-        -webkit-appearance: none;
         appearance: none;
 
         color: var(--_input-color);
@@ -101,7 +103,8 @@
         inline-size: var(--input-inline-size, auto);
         line-height: var(--line-height-base);
 
-        &:focus {
+        &:focus,
+        &:hover:focus {
             --current-background: var(--_input-background-active);
             outline: var(--_input-outline);
             outline-offset: 0;
@@ -116,11 +119,6 @@
         &:hover {
             --current-background: var(--_input-hover-background);
             background-color: var(--_input-hover-background);
-        }
-
-        &:hover:focus {
-            --current-background: var(--_input-background-active);
-            background-color: var(--_input-background-active);
         }
 
         &[required] {
@@ -140,38 +138,32 @@
     }
 
     :where(textarea:not([class]), .nc-textarea) {
-        min-height: calc(var(--button-height-base) * 2);
+        min-height: calc(5lh + 2 * var(--_input-padding-block));
         max-inline-size: 100%;
         padding-block: var(--_input-padding-block);
     }
 
-    :where(input[type="checkbox"]:not([class]),
-        input[type="radio"]:not([class]),
-        .nc-input-checkbox,
-        .nc-input-radio,
-        .nc-input-switch) {
+    :where(
+            input[type="checkbox"]:not([class]),
+            input[type="radio"]:not([class]),
+            .nc-input-checkbox,
+            .nc-input-radio,
+            .nc-input-switch
+        ) {
         inline-size: 1lh;
         block-size: 1lh;
-        aspect-ratio: 1;
         margin: 0;
         padding: 0;
-        -webkit-appearance: none;
         appearance: none;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        box-sizing: border-box;
         border: var(--_input-border);
         --current-background: var(--_input-background);
         background: var(--current-background);
         cursor: pointer;
         transition: var(--transition-duration-short) background var(--ease-2);
         box-shadow: var(--_input-box-shadow);
-
-        &:disabled {
-            filter: var(--_input-disabled-filter);
-            cursor: not-allowed;
-        }
     }
 
     :where(input[type="checkbox"]:not([class]), .nc-input-checkbox) {
@@ -240,7 +232,7 @@
     }
 
     :where(input[type="range"], .nc-input-range) {
-        &>.nc-hint {
+        & > .nc-hint {
             margin-inline-start: auto;
         }
 
@@ -273,13 +265,13 @@
         max-inline-size: var(--input-field-max-inline-size);
         place-items: start;
 
-        &>label,
-        &>.nc-stack {
+        & > label,
+        & > .nc-stack {
             gap: 0.125lh;
             line-height: var(--line-height-small);
         }
 
-        &>.nc-cluster {
+        & > .nc-cluster {
             gap: 1ch;
         }
     }
@@ -291,11 +283,6 @@
 
         &:before {
             content: "!";
-        }
-    }
-
-    :where(.nc-input-error) {
-        &:before {
             font-family: var(--font-family-default);
             letter-spacing: var(--tracking-tight);
             font-weight: var(--font-weight-default);
@@ -304,10 +291,10 @@
             justify-content: center;
             background-color: var(--color-base);
             color: var(--color-surface-subtle);
-            margin-right: 1ch;
+            margin-inline-end: 1ch;
             inline-size: 1em;
             block-size: 1em;
-            aspect-ratio: 1;
+            flex-shrink: 0;
         }
     }
 
@@ -316,23 +303,22 @@
         grid-template:
             "checkbox label" 1fr
             / auto 1fr;
-        gap: 1ch;
         place-items: start;
-        font-size: inherit;
 
-        &>.nc-stack {
+        & > [data-label] {
             grid-area: label;
+            padding-inline-start: 1ch;
         }
 
         & .nc-input-label {
             min-block-size: var(--line-height-base);
         }
 
-        &>input {
+        & > [data-input] {
             grid-area: checkbox;
         }
 
-        &:hover:not(:has(input:checked))>input {
+        &:hover:not(:has(input:checked)) input {
             background: var(--_input-hover-background);
         }
     }
@@ -342,7 +328,7 @@
             margin-block-start: 0.6lh;
         }
 
-        & fieldset>*:not(:first-child) {
+        & fieldset > *:not(:first-child) {
             margin-block-start: 0.6lh;
         }
     }
@@ -355,18 +341,12 @@
         --_thumb-margin: var(--thumb-margin, calc(var(--_switch-width) / 12));
         --_thumb-color: var(--thumb-color, var(--_input-color));
 
-        appearance: none;
         vertical-align: var(--_thumb-margin);
         inline-size: var(--_switch-width);
         block-size: var(--_switch-height);
-        box-sizing: border-box;
         border-radius: var(--_input-border-radius);
         --current-background: var(--_switch-color);
         justify-content: flex-start;
-
-        @media (--motionOK) {
-            transition-duration: 250ms;
-        }
 
         &:before {
             content: "";
@@ -378,7 +358,7 @@
             border-radius: var(--_input-border-radius);
             box-shadow: var(--shadow-near);
             transition: margin;
-            transition-duration: inherit;
+            transition-duration: var(--transition-duration-base);
         }
 
         &:checked {
@@ -386,7 +366,11 @@
         }
 
         &:checked:before {
-            margin-inline-start: calc(var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin));
+            margin-inline-start: calc(
+                var(--_switch-width) -
+                var(--_switch-height) +
+                var(--_thumb-margin)
+            );
         }
     }
 
@@ -395,12 +379,18 @@
     }
 
     :where(.nc-segmented-control) {
-        --_segmented-control-border-radius: var(--segmented-control-border-radius,
-                var(--_input-border-radius));
-        --_segmented-control-checked-text-color: var(--segmented-control-checked-text-color,
-                var(--color-brand-primary-contrast));
-        --_segmented-control-checked-surface-color: var(--segmented-control-checked-surface-color,
-                var(--color-brand-primary-base));
+        --_segmented-control-border-radius: var(
+            --segmented-control-border-radius,
+            var(--_input-border-radius)
+        );
+        --_segmented-control-checked-text-color: var(
+            --segmented-control-checked-text-color,
+            var(--color-brand-primary-contrast)
+        );
+        --_segmented-control-checked-surface-color: var(
+            --segmented-control-checked-surface-color,
+            var(--color-brand-primary-base)
+        );
         display: grid;
         grid-auto-rows: 1fr;
         grid-auto-flow: row;
@@ -433,7 +423,7 @@
             align-items: center;
             justify-content: center;
 
-            >.nc-input-label {
+            > .nc-input-label {
                 color: inherit;
             }
 
@@ -443,11 +433,13 @@
             }
 
             &:first-child {
-                border-radius: var(--_segmented-control-border-radius) var(--_segmented-control-border-radius) 0 0;
+                border-radius: var(--_segmented-control-border-radius)
+                    var(--_segmented-control-border-radius) 0 0;
             }
 
             &:last-child {
-                border-radius: 0 0 var(--_segmented-control-border-radius) var(--_segmented-control-border-radius);
+                border-radius: 0 0 var(--_segmented-control-border-radius)
+                    var(--_segmented-control-border-radius);
             }
 
             &:not(:last-child) {
@@ -480,13 +472,15 @@
             grid-auto-columns: 1fr;
             grid-auto-flow: column;
 
-            >label {
+            > label {
                 &:first-child {
-                    border-radius: var(--_segmented-control-border-radius) 0 0 var(--_segmented-control-border-radius);
+                    border-radius: var(--_segmented-control-border-radius) 0 0
+                        var(--_segmented-control-border-radius);
                 }
 
                 &:last-child {
-                    border-radius: 0 var(--_segmented-control-border-radius) var(--_segmented-control-border-radius) 0;
+                    border-radius: 0 var(--_segmented-control-border-radius)
+                        var(--_segmented-control-border-radius) 0;
                 }
 
                 &:not(:last-child) {
@@ -503,10 +497,14 @@
     }
 
     :where(.nc-tag-select-field) {
-        --_tag-select-checked-text-color: var(--tag-select-checked-text-color,
-                var(--color-brand-primary-contrast));
-        --_tag-select-checked-surface-color: var(--tag-select-checked-surface-color,
-                var(--color-brand-primary-base));
+        --_tag-select-checked-text-color: var(
+            --tag-select-checked-text-color,
+            var(--color-brand-primary-contrast)
+        );
+        --_tag-select-checked-surface-color: var(
+            --tag-select-checked-surface-color,
+            var(--color-brand-primary-base)
+        );
         --_tag-select-border-radius: var(--tag-select-border-radius, var(--_input-border-radius));
 
         &:focus-within:has(:focus-visible) {

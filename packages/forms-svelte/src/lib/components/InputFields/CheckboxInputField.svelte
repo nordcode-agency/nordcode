@@ -48,7 +48,7 @@ const handleChange: FormEventHandler<HTMLFieldSetElement> = (event) => {
         >
         {#each options as option}
 <div class="nc-checkbox-wrapper nc-input-field">
-            <label for={option.label} class="nc-stack">
+            <label for={option.label} class="nc-stack" data-label>
     <span class="nc-input-label">{option.label}</span>
     {#if option.hint}
     <span class="nc-hint"
@@ -57,6 +57,7 @@ const handleChange: FormEventHandler<HTMLFieldSetElement> = (event) => {
     {/if}
 </label>
 <input
+    data-input
     id={option.label}
     class="nc-input-checkbox"
     type="checkbox"

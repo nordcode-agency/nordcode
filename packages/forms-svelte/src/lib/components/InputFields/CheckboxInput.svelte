@@ -22,7 +22,7 @@ let {
 
 
 <div class="nc-cluster | nc-input-field  | nc-checkbox-wrapper">
-    <label for={id} class="nc-stack">
+    <label for={id} class="nc-stack" data-label>
         <span class="nc-input-label">{label} {#if optional}(optional){/if}</span>
         {#if hint}<span class="nc-input-hint">{hint}</span>{/if}
         {#if errors?.length > 0}
@@ -32,13 +32,14 @@ let {
         {/if}
     </label>
     <input
-      id={id}
-       name={name}
-       autocomplete={autocomplete}
-       required={optional ? false : true}
-       type={'checkbox'}
-       checked={checked}
-       value={value}
-       oninput={() => checked = !checked}
+        data-input
+        id={id}
+        name={name}
+        autocomplete={autocomplete}
+        required={optional ? false : true}
+        type={'checkbox'}
+        checked={checked}
+        value={value}
+        oninput={() => checked = !checked}
 >
 </div>
