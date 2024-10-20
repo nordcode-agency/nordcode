@@ -1,47 +1,45 @@
 <script lang="ts">
-import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
-import {
-    getThemeMutationObserver,
-    type ThemeMutationObserverListener,
-} from '../../common/utils/ThemeMutationObserver.ts';
+    import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
+    import {
+        getThemeMutationObserver,
+        type ThemeMutationObserverListener,
+    } from '../../common/utils/ThemeMutationObserver.ts';
 
-interface ShadowPreviewEntryProps {
-    entry: {
-        name: string;
-        description: string;
-    };
-}
-
-const { entry }: ShadowPreviewEntryProps = $props();
-
-let resolvedValue = $state('');
-
-let token = $derived(`--shadow-${entry.name.toLowerCase()}`);
-let lightShadow = $derived(`${token}-light`);
-let darkShadow = $derived(`${token}-dark`);
-
-const updateResolvedValue: ThemeMutationObserverListener = (style) => {
-    if (!style) {
-        return;
+    interface ShadowPreviewEntryProps {
+        entry: {
+            name: string;
+            description: string;
+        };
     }
-    resolvedValue = `${style.getPropertyValue(token).trim()}`;
-};
 
-$effect(() => {
-    getThemeMutationObserver().subscribe((style) => {
-        updateResolvedValue(style);
+    const { entry }: ShadowPreviewEntryProps = $props();
+
+    let resolvedValue = $state('');
+
+    let token = $derived(`--shadow-${entry.name.toLowerCase()}`);
+    let lightShadow = $derived(`${token}-light`);
+    let darkShadow = $derived(`${token}-dark`);
+
+    const updateResolvedValue: ThemeMutationObserverListener = style => {
+        if (!style) {
+            return;
+        }
+        resolvedValue = `${style.getPropertyValue(token).trim()}`;
+    };
+
+    $effect(() => {
+        getThemeMutationObserver().subscribe(style => {
+            updateResolvedValue(style);
+        });
+
+        updateResolvedValue(getThemeMutationObserver().getStyle());
     });
-
-    updateResolvedValue(getThemeMutationObserver().getStyle());
-});
 </script>
 
 <div class="nc-grid">
     <TokenDescriptor name={entry.name} {token} description={entry.description} {resolvedValue} />
 
-    <div
-        class="nc-box lightpreview nc-cluster"
-    >
+    <div class="nc-box lightpreview nc-cluster">
         <div
             class="nc-box preview-box"
             style="box-shadow: var({lightShadow}); border-color: var(--color-border-base-light);"
@@ -72,8 +70,8 @@ $effect(() => {
     }
 
     .preview-box {
-        inline-size: 12rem;
-        block-size: 9rem;
+        min-inline-size: 6rem;
+        block-size: 6rem;
         border-radius: var(--border-radius-medium);
         border: var(--border-width-thin) solid;
     }
