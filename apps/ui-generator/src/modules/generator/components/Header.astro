@@ -15,23 +15,39 @@ const links = [
 ---
 
 <div class="nc-cluster -far -centered | header">
-    <h1 class="nc-cluster -near -centered"><span>
-<svg class="nc-icon" aria-hidden="true" viewBox="0 0 800 800" fill="none" data-size="inline" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M500 0C500 112.561 462.806 216.434 400.037 300H800V500V500.164C638.944 505.438 510 637.661 510 800H300C300 687.439 337.194 583.566 399.963 500H0V300V299.836C3.31997 299.945 6.65359 300 10 300C175.685 300 310 165.685 310 0H500Z" fill="black"/>
-</svg>
-    </span>UI Generator</h1>
+    <h1 class="nc-cluster -near -centered">
+        <span>
+            <svg
+                class="nc-icon"
+                aria-hidden="true"
+                viewBox="0 0 800 800"
+                fill="none"
+                data-size="inline"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M500 0C500 112.561 462.806 216.434 400.037 300H800V500V500.164C638.944 505.438 510 637.661 510 800H300C300 687.439 337.194 583.566 399.963 500H0V300V299.836C3.31997 299.945 6.65359 300 10 300C175.685 300 310 165.685 310 0H500Z"
+                    fill="black"></path>
+            </svg>
+        </span>UI Generator
+    </h1>
     <nav class="mr-auto">
         <ul class="nc-list-reset nc-cluster -near">
-            {links.map(({ href, text }) => (
-                <li>
-                    <a href={href} aria-current={href === currentPage ? "page" : undefined}>{text}</a>
-                </li>
-            ))}
+            {
+                links.map(({ href, text }) => (
+                    <li>
+                        <a href={href} aria-current={href === currentPage ? 'page' : undefined}>
+                            {text}
+                        </a>
+                    </li>
+                ))
+            }
         </ul>
     </nav>
     <div class="nc-cluster">
         <ConfigLoader client:only="svelte" />
-        <Themepicker />
         <button class="nc-button -icon -small import-button" data-dialogtarget="import-dialog">
             <span class="text-assistive">Import theme</span>
             <svg
@@ -66,7 +82,7 @@ const links = [
                 ></path>
             </svg>
         </button>
-        <ResetButton client:only="svelte"  />
+        <ResetButton client:only="svelte" />
         <button data-toggle-notification-center class="nc-button -icon -small">
             <span class="text-assistive">Toggle Notifications</span>
             <svg
@@ -81,6 +97,7 @@ const links = [
                 ></path>
             </svg>
         </button>
+        <Themepicker />
     </div>
 </div>
 
@@ -97,7 +114,6 @@ const links = [
         z-index: 1;
     }
 
-
     nav a {
         text-decoration: none;
         text-underline-offset: 0.2em;
@@ -107,7 +123,7 @@ const links = [
             text-decoration: underline;
         }
 
-        &[aria-current="page"] {
+        &[aria-current='page'] {
             font-weight: var(--font-weight-active);
         }
     }
