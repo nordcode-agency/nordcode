@@ -139,10 +139,6 @@
     const colorScheme = localStorage?.getItem('color-scheme');
     const themeSwitch = document.querySelector('.theme-switch');
 
-    if (colorScheme) {
-        document.documentElement.setAttribute('data-theme', colorScheme);
-    }
-
     const setToSystem = () => {
         document.documentElement.setAttribute('data-theme', 'system');
         document.documentElement.dispatchEvent(
@@ -167,37 +163,50 @@
         localStorage?.setItem('color-scheme', 'dark');
     };
 
-    themeSwitch?.addEventListener('change', e => {
-        const target = e.target as HTMLInputElement;
-        console.log(target.value);
-        if (target.value === 'system') {
-            setToSystem();
-            return;
+    const setupState = () => {
+        if (colorScheme) {
+            document.documentElement.setAttribute('data-theme', colorScheme);
         }
+        if (colorScheme === 'dark') {
+            const input = document?.getElementById('theme-dark') as HTMLInputElement;
+            if (input) {
+                input.checked = true;
+            }
+        } else if (colorScheme === 'light') {
+            const input = document?.getElementById('theme-light') as HTMLInputElement;
+            if (input) {
+                input.checked = true;
+            }
+        } else {
+            const input = document?.getElementById('theme-system') as HTMLInputElement;
+            if (input) {
+                input.checked = true;
+            }
+        }
+    };
 
-        if (target.value === 'light') {
-            setToLight();
-        }
+    const setup = () => {
+        themeSwitch?.addEventListener('change', e => {
+            const target = e.target as HTMLInputElement;
+            if (target.value === 'system') {
+                setToSystem();
+                return;
+            }
 
-        if (target.value === 'dark') {
-            setToDark();
-        }
+            if (target.value === 'light') {
+                setToLight();
+            }
+
+            if (target.value === 'dark') {
+                setToDark();
+            }
+        });
+
+        setupState();
+    };
+
+    setup();
+    document.addEventListener('astro:after-swap', () => {
+        setupState();
     });
-
-    if (colorScheme === 'dark') {
-        const input = document?.getElementById('theme-dark') as HTMLInputElement;
-        if (input) {
-            input.checked = true;
-        }
-    } else if (colorScheme === 'light') {
-        const input = document?.getElementById('theme-light') as HTMLInputElement;
-        if (input) {
-            input.checked = true;
-        }
-    } else {
-        const input = document?.getElementById('theme-system') as HTMLInputElement;
-        if (input) {
-            input.checked = true;
-        }
-    }
 </script>
