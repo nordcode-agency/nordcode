@@ -12,13 +12,13 @@
     }
   }
 
-  :where(html[color-scheme="light"], [data-theme="light"]) {
+  :where([data-theme="light"]) {
     --lightningcss-light: initial;
     --lightningcss-dark: ;
     color-scheme: light;
   }
 
-  :where(html[color-scheme="dark"], [data-theme="dark"]) {
+  :where([data-theme="dark"]) {
     --lightningcss-light: ;
     --lightningcss-dark: initial;
     color-scheme: dark;
