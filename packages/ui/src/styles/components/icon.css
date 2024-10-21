@@ -35,6 +35,10 @@
             --icon-size: 0.75lh;
         }
 
+        &[data-size="button"] {
+            --icon-size: var(--button-height-base);
+        }
+
         &[data-animation="spinning"] {
             animation: spinning 1s infinite linear;
         }
