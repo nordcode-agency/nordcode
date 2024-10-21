@@ -130,7 +130,7 @@
     }
 
     :where(textarea:not([class]), .nc-textarea) {
-        min-height: calc(5lh + 2 * var(--_input-padding-block));
+        min-block-size: calc(5lh + 2 * var(--_input-padding-block));
         max-inline-size: 100%;
         padding-block: var(--_input-padding-block);
     }
@@ -343,13 +343,15 @@
             content: "";
             display: block;
             aspect-ratio: 1;
-            margin: var(--_thumb-margin);
+            margin-block: var(--_thumb-margin);
+            transform: translateX(var(--_thumb-margin));
             block-size: calc(100% - 2 * var(--_thumb-margin));
-            background: var(--_thumb-color);
+            background-color: var(--_thumb-color);
             border-radius: var(--_input-border-radius);
             box-shadow: var(--shadow-near);
-            transition: margin;
+            transition: transform, background-color;
             transition-duration: var(--transition-duration-base);
+            transition-timing-function: var(--ease-2);
         }
 
         &:checked {
@@ -357,7 +359,7 @@
         }
 
         &:checked:before {
-            margin-inline-start: calc(var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin));
+            transform: translateX(calc(var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin)));
         }
     }
 
