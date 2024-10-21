@@ -18,7 +18,7 @@ import { configStore } from '../../store/configStore.ts';
                     </SettingsInput>
                     <SettingsInput
                         label="Maximum Lightness"
-                        bind:value={$configStore.lightnessMax}
+                        bind:value={$configStore!.lightnessMax}
                         max="1"
                         min="0"
                         step="0.01"
@@ -26,7 +26,7 @@ import { configStore } from '../../store/configStore.ts';
                     </SettingsInput>
                      <SettingsInput
                         label="Neutral Chroma Multiplier"
-                        bind:value={$configStore.neutralChromaScale}
+                        bind:value={$configStore!.neutralChromaScale}
                         max="1"
                         min="0"
                         step="0.001"
