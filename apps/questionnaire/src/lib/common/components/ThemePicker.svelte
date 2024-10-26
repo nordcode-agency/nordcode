@@ -1,122 +1,193 @@
 <script lang="ts">
-import { onMount } from 'svelte';
-
-const DARK = '(prefers-color-scheme: dark)';
-
 const Theme = {
-    Light: 0,
-    Dark: 1,
+    System: 'system',
+    Light: 'light',
+    Dark: 'dark',
 } as const;
 
-const schemes = ['light', 'dark'] as const;
-const labels = ['Zur dunklen Ansicht wechseln', 'Zur hellen Ansicht wechseln'] as const;
-const pressed = ['false', 'true'] as const;
+let currentTheme: string = $state(Theme.Light);
 
-let currentTheme: number = $state(Theme.Light);
+const setToSystem = () => {
+    document.documentElement.setAttribute('data-theme', 'system');
+    currentTheme = Theme.System;
+    localStorage?.removeItem('color-scheme');
+};
 
-const setToLight = (shouldUpdateTheme: boolean) => {
-    document.documentElement.setAttribute('color-scheme', 'light');
+const setToLight = () => {
+    document.documentElement.setAttribute('data-theme', 'light');
     currentTheme = Theme.Light;
-    if (shouldUpdateTheme) {
-        localStorage?.setItem('color-scheme', 'light');
-    }
+    localStorage?.setItem('color-scheme', 'light');
 };
 
-const setToDark = (shouldUpdateTheme: boolean) => {
-    document.documentElement.setAttribute('color-scheme', 'dark');
+const setToDark = () => {
+    document.documentElement.setAttribute('data-theme', 'dark');
     currentTheme = Theme.Dark;
-    if (shouldUpdateTheme) {
-        localStorage?.setItem('color-scheme', 'dark');
-    }
+    localStorage?.setItem('color-scheme', 'dark');
 };
 
-const functionsByScheme = {
-    light: setToDark,
-    dark: setToLight,
-} as const;
+const switchTheme = (e: InputEvent) => {
+    const target = e.target as HTMLInputElement;
+    if (target.value === 'system') {
+        setToSystem();
+        return;
+    }
 
-const toggleTheme = () => {
-    const nextScheme = schemes[currentTheme];
-    functionsByScheme[nextScheme as keyof typeof functionsByScheme](true);
+    if (target.value === 'light') {
+        setToLight();
+    }
+
+    if (target.value === 'dark') {
+        setToDark();
+    }
 };
 
 $effect(() => {
     const colorScheme = localStorage?.getItem('color-scheme');
+
     if (colorScheme) {
-        const nextTheme = colorScheme === 'light' ? 'dark' : 'light';
-        functionsByScheme[nextTheme]?.(false);
-    } else if (window.matchMedia(DARK).matches) {
-        setToDark(false);
-    } else {
-        setToLight(false);
+        document.documentElement.setAttribute('data-theme', colorScheme);
+        currentTheme = colorScheme;
     }
 });
 </script>
 
-<div>
-    <button class="theme-toggle"
-            title="Theme Picker"
-            aria-pressed={pressed[currentTheme]}
-            aria-label={labels[currentTheme]}
-            onclick={toggleTheme}
-    >
-        <svg xmlns="http://www.w3.org/2000/svg"
-             class="nc-icon sun"
-             data-size="inline"
-             viewBox="0 0 256 256"
-             aria-hidden="true">
-            <path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path>
-        </svg>
-        <span class="nc-input-switch theme-toggle-switch" aria-hidden="true"></span>
-        <svg xmlns="http://www.w3.org/2000/svg"
-             class="nc-icon moon"
-             data-size="inline"
-             viewBox="0 0 256 256"
-             aria-hidden="true">
-            <path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"></path>
-        </svg>
-    </button>
-</div>
-
-<style lang="postcss">
-    .theme-toggle {
+<style>
+    .theme-switch {
         all: unset;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         padding: 0;
         position: relative;
         cursor: pointer;
         align-items: center;
-        gap: var(--spacing-near);
+        gap: 1ch;
+        isolation: isolate;
+        flex-shrink: 0;
+        background: var(--color-surface-emphasis);
+        block-size: 2rem;
+        border-radius: var(--border-radius-round);
+        padding-inline: 0.5ch;
     }
 
-    .sun {
-        color: var(--color-brand-secondary-emphasis);
+    .theme-icon {
+        --icon-size: 2ex;
+        color: var(--color-text-on-emphasis);
+
+        &:hover {
+            color: var(--color-brand-primary-contrast);
+        }
     }
 
-    .moon {
-        color: var(--color-text-subtle);
+    .theme-input:checked + .theme-switch-label .theme-icon {
+        color: var(--color-surface-emphasis);
     }
 
-    .theme-toggle[aria-pressed="true"] {
+    .theme-switch-label {
+        grid-row: 1;
+        display: grid;
+        place-content: center;
+        aspect-ratio: 1;
+    }
 
-        & .moon {
-            color: var(--color-brand-secondary-emphasis);
-        }
+    .theme-switch-label:nth-of-type(1) {
+        grid-column: 1;
+    }
 
-        & .sun {
-            color: var(--color-text-subtle);
-        }
+    .theme-switch-label:nth-of-type(2) {
+        grid-column: 2;
+    }
 
-        & .theme-toggle-switch {
+    .theme-switch-label:nth-of-type(3) {
+        grid-column: 3;
+    }
 
-            --current-background: var(--color-brand-secondary-base);
+    .theme-highlighter {
+        pointer-events: none;
+        inline-size: 1lh;
+        block-size: 1lh;
+        background-color: transparent;
+        grid-row: 1;
+        grid-column: 1;
+        position: relative;
+        z-index: -1;
+        transition: transform var(--transition-duration-base) var(--ease-in-2);
+        background: var(--color-text-on-emphasis);
+        border-radius: var(--border-radius-round);
+    }
 
-            &:before {
-                margin-inline-start: calc(
-                    var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin)
-                );
-            }
-        }
+    .theme-input:nth-of-type(1):checked ~ .theme-highlighter {
+        transform: translateX(0%);
+    }
 
+    .theme-input:nth-of-type(2):checked ~ .theme-highlighter {
+        transform: translateX(calc(100% + 1ch));
+    }
+
+    .theme-input:nth-of-type(3) ~ .theme-highlighter {
+        transform: translateX(calc(200% + 2ch));
     }
 </style>
+
+<fieldset class="theme-switch" onchange={switchTheme}>
+    <legend class="sr-only">Select theme appearance</legend>
+    <!-- System  -->
+    <input
+        type="radio"
+        name="theme"
+        value="system"
+        id="theme-system"
+        class="sr-only theme-input"
+        checked={currentTheme === Theme.System}
+    />
+    <label for="theme-system" class="theme-switch-label">
+        <span class="sr-only">System</span>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="nc-icon theme-icon"
+            aria-hidden="true"
+            ><path
+                d="M12 21.9967C6.47715 21.9967 2 17.5196 2 11.9967C2 6.47386 6.47715 1.9967 12 1.9967C17.5228 1.9967 22 6.47386 22 11.9967C22 17.5196 17.5228 21.9967 12 21.9967ZM12 19.9967V3.9967C7.58172 3.9967 4 7.57843 4 11.9967C4 16.415 7.58172 19.9967 12 19.9967Z"
+            ></path></svg
+        >
+    </label>
+
+    <!-- Light  -->
+    <input type="radio" name="theme" value="light" id="theme-light" class="sr-only theme-input"
+       checked={currentTheme === Theme.Light}
+        />
+    <label for="theme-light" class="theme-switch-label">
+        <span class="sr-only">Light</span>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="nc-icon theme-icon"
+            aria-hidden="true"
+            ><path
+                d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"
+            ></path></svg
+        >
+    </label>
+
+    <!-- Dark  -->
+    <input type="radio" name="theme" value="dark" id="theme-dark" class="sr-only theme-input"
+       checked={currentTheme === Theme.Dark}
+        />
+    <label for="theme-dark" class="theme-switch-label">
+        <span class="sr-only">Dark</span>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="nc-icon theme-icon"
+            aria-hidden="true"
+            ><path
+                d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"
+            ></path></svg
+        >
+    </label>
+
+    <span class="theme-highlighter"></span>
+</fieldset>
