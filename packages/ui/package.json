@@ -31,7 +31,7 @@
         "build": "pnpm run '/^lib:.*/'"
     },
     "dependencies": {
-        "browserslist": "^4.24.0",
+        "browserslist": "^4.24.2",
         "lightningcss": "^1.27.0"
     }
 }

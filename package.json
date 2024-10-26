@@ -17,12 +17,9 @@
         "biome:ui-generator": "biome format apps/ui-generator --write && biome lint apps/ui-generator --apply"
     },
     "devDependencies": {
-        "@biomejs/biome": "1.8.3",
+        "@biomejs/biome": "1.9.4",
         "@changesets/cli": "^2.27.1",
-        "eslint": "^9.1.0",
-        "eslint-config-custom": "workspace:*",
         "prettier": "^3.2.5",
-        "prettier-plugin-astro": "^0.13.0",
         "turbo": "^1.13.2"
     },
     "packageManager": "pnpm@9.6.0",

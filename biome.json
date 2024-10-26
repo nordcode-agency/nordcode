@@ -9,7 +9,11 @@
         "defaultBranch": "main"
     },
     "files": {
-        "ignore": ["dist", ".astro", "public/assets"]
+        "ignore": [
+            "dist",
+            ".astro",
+            "public/assets"
+        ]
     },
     "linter": {
         "enabled": true,
@@ -71,7 +75,11 @@
     },
     "overrides": [
         {
-            "include": ["*.svelte", "*.astro", "*.vue"],
+            "include": [
+                "*.svelte",
+                "*.astro",
+                "*.vue"
+            ],
             "linter": {
                 "rules": {
                     "style": {
