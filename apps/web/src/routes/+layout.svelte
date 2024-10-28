@@ -24,6 +24,11 @@
 
   import { onMount } from "svelte";
   import { page } from "$app/stores";
+  interface Props {
+    children?: import('svelte').Snippet;
+  }
+
+  let { children }: Props = $props();
 
   onMount(async () => {
     await import("@nordcode/ui/src/modules/dialogs/ts/dialogs")
@@ -37,7 +42,7 @@
 </svelte:head>
 
 <main>
-  <slot/>
+  {@render children?.()}
 </main>
 <Footer/>
 

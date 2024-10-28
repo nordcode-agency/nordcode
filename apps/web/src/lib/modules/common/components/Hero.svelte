@@ -3,7 +3,11 @@
 	import ActionCard from './ActionCard.svelte';
 	import ProjectCard from './ProjectCard.svelte';
 
-	export let projects: TProjects;
+	interface Props {
+		projects: TProjects;
+	}
+
+	let { projects }: Props = $props();
 </script>
 
 <div class="nc-stack container">
@@ -29,7 +33,9 @@
 		</div>
 		<div style="inline-size: min(240px, 100%)">
 			<ActionCard heading="Lass uns schauen, wie wir dich unterstützen können">
-                <a href="/start" slot="action" class="nc-button -primary">Loslegen</a>
+                {#snippet action()}
+								<a href="/start"  class="nc-button -primary">Loslegen</a>
+							{/snippet}
             </ActionCard>
 		</div>
 	</div>

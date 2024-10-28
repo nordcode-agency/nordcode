@@ -9,7 +9,11 @@ import Services from '$lib/modules/common/components/Services.svelte';
 import LogoClipPath from '$lib/modules/common/components/LogoClipPath.svelte';
 import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
 
-export let data: PageData;
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
 </script>
 
 <svelte:head>

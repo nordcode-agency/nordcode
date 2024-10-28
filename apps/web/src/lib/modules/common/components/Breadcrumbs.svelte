@@ -2,7 +2,11 @@
 	import type { Breadcrumb } from '$lib/types/Breadcrumb';
 	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 
-	export let items: Breadcrumb[];
+	interface Props {
+		items: Breadcrumb[];
+	}
+
+	let { items }: Props = $props();
 </script>
 
 <!-- COMPONENT-START: nc-breadcrumbs -->

@@ -2,12 +2,23 @@
 	import { navigateToId } from "$lib/utils/navigateToId";
 	import { onMount } from "svelte";
 
-  export let caption: string;
-  export let id: string;
-  let liEl: HTMLLIElement;
+  interface Props {
+    caption: string;
+    id: string;
+    children?: import('svelte').Snippet;
+    cta?: import('svelte').Snippet;
+  }
 
-  let disabledPrevious = false;
-  let disabledNext = false;
+  let {
+    caption,
+    id,
+    children,
+    cta
+  }: Props = $props();
+  let liEl: HTMLLIElement = $state();
+
+  let disabledPrevious = $state(false);
+  let disabledNext = $state(false);
 
   onMount(() => {
     if (liEl.id === liEl.parentElement?.firstElementChild?.id) disabledPrevious = true
@@ -35,18 +46,18 @@
 <li {id} bind:this={liEl}>
   <figure>
     <div class="figure">
-      <slot />
+      {@render children?.()}
     </div>
     <button
       class="nc-button -stealth previous"
-      on:click={handlePrevious}
+      onclick={handlePrevious}
       disabled={disabledPrevious}
       type="button"
       aria-label="Previous"
     ></button>
     <button
       class="nc-button -stealth next"
-      on:click={handleNext}
+      onclick={handleNext}
       disabled={disabledNext}
       type="button"
       aria-label="Next"
@@ -57,9 +68,9 @@
         {caption}
       </figcaption>
     {/if}
-    {#if $$slots.cta}
+    {#if cta}
       <div class="cta">
-        <slot name="cta" />
+        {@render cta?.()}
       </div>
     {/if}
   </figure>

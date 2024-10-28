@@ -3,11 +3,21 @@
 	import type { MediaImage } from '$lib/types/index';
 	import FeatureCard from './FeatureCard.svelte';
 
-	export let heading: string;
-	export let subheading: string | undefined = undefined;
-	export let cover: MediaImage;
-	export let slug: string;
-	export let name: string;
+	interface Props {
+		heading: string;
+		subheading?: string | undefined;
+		cover: MediaImage;
+		slug: string;
+		name: string;
+	}
+
+	let {
+		heading,
+		subheading = undefined,
+		cover,
+		slug,
+		name
+	}: Props = $props();
 
 	let vtName = '';
 	beforeNavigate((navigation) => {

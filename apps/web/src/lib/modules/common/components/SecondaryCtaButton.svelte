@@ -1,11 +1,16 @@
 <script lang="ts">
 	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 
-	export let href: string;
+	interface Props {
+		href: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let { href, children }: Props = $props();
 </script>
 
 <a href={ensureTrailingSlash(href)} class="nc-button -stealth gradient-text">
-	<slot />
+	{@render children?.()}
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		class="nc-icon"

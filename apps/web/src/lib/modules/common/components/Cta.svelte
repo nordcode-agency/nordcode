@@ -7,7 +7,7 @@
 <section class="nc-box">
 	<div class="nc-card card">
 		<div class="oval-wrapper">
-			<div class="oval" />
+			<div class="oval"></div>
 		</div>
 		<div class="nc-box box">
 			<a

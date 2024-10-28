@@ -1,6 +1,11 @@
 <script lang="ts" async>
-	export let heading: string;
-	export let subheading: string | undefined = undefined;
+	interface Props {
+		heading: string;
+		subheading?: string | undefined;
+		action?: import('svelte').Snippet;
+	}
+
+	let { heading, subheading = undefined, action }: Props = $props();
 </script>
 
 <div class="container">
@@ -13,9 +18,9 @@
 				<h2 class="section-title">{heading}</h2>
 			</div>
 		</div>
-		{#if $$slots.action}
+		{#if action}
 			<div class="action">
-				<slot name="action" />
+				{@render action?.()}
 			</div>
 		{/if}
 	</div>

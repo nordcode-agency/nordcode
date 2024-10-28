@@ -1,27 +1,32 @@
 <script lang="ts">
 	import { navigateToId } from "$lib/utils/navigateToId";
 
-  export let id: string;
+  interface Props {
+    id: string;
+    children?: import('svelte').Snippet;
+  }
 
-  let ulElement: HTMLUListElement;
-  $: items = Array.from(ulElement?.children ?? []).map((item) => {
+  let { id, children }: Props = $props();
+
+  let ulElement: HTMLUListElement = $state();
+  let items = $derived(Array.from(ulElement?.children ?? []).map((item) => {
     return {
       id: item.id,
       text: (item as HTMLLIElement).innerText,
     };
-  });
+  }));
 </script>
 
 <dialog {id}>
   <ul class="nc-gallery" bind:this={ulElement}>
-    <slot />
+    {@render children?.()}
   </ul>
   <div class="controls">
     <div class="indicator">
       {#each items as {id, text} (id)}
         <button
           class="nc-button -stealth"
-          on:click={() => navigateToId(id)}
+          onclick={() => navigateToId(id)}
           aria-label={text}
         >
           <div class="indicator-item"></div>

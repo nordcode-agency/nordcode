@@ -2,8 +2,12 @@
 	import Header from '$lib/modules/common/components/Header.svelte';
 	import type { PageData } from '../$types';
 
-	export let data: PageData;
-	let showMessage = false;
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
+	let showMessage = $state(false);
 </script>
 
 <svelte:head>
@@ -50,7 +54,7 @@
 						class="nc-input nc-textarea"
 						aria-required="true"
 						required
-					/>
+					></textarea>
 				</div>
 			{/if}
 			<!-- COMPONENT-END: nc-input-field: Textarea -->
@@ -58,7 +62,7 @@
 				<button
 					type="button"
 					class="nc-button -outline"
-					on:click={() => (showMessage = !showMessage)}>Nachricht hinzufügen</button
+					onclick={() => (showMessage = !showMessage)}>Nachricht hinzufügen</button
 				>
 				<button type="submit" class="nc-button">Abschicken</button>
 			</div>

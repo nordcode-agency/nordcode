@@ -2,12 +2,23 @@
 	import type { MediaImage } from '$lib/types/index';
 	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 
-	export let heading: string;
-	export let subheading: string | undefined = undefined;
-	export let cover: MediaImage;
-	export let slug: string;
-	/** Used to perform view transitions */
-	export let id: string | undefined = undefined;
+	
+	interface Props {
+		heading: string;
+		subheading?: string | undefined;
+		cover: MediaImage;
+		slug: string;
+		/** Used to perform view transitions */
+		id?: string | undefined;
+	}
+
+	let {
+		heading,
+		subheading = undefined,
+		cover,
+		slug,
+		id = undefined
+	}: Props = $props();
 </script>
 
 <div class="container">
