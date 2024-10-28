@@ -51,7 +51,7 @@ export function main() {
 
 			uDepthColor: { value: new THREE.Color(debugObject.depthColor) },
 			uSurfaceColor: { value: new THREE.Color(debugObject.surfaceColor) },
-			uColorMultiplier: { value: 5.0 },
+			uColorMultiplier: { value: 20.0 },
 			uColorOffset: { value: 0.0 }
 		}
 		// side: THREE.DoubleSide,
@@ -130,7 +130,7 @@ export function main() {
 	colorsGroup
 		.add(waterMaterial.uniforms.uColorMultiplier, 'value')
 		.min(0)
-		.max(10)
+		.max(20)
 		.step(0.1)
 		.name('uColorMultiplier');
 	colorsGroup
@@ -139,6 +139,21 @@ export function main() {
 		.max(3)
 		.step(0.001)
 		.name('uColorOffset');
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+		// const dataTheme = document.querySelector('html')?.getAttribute("data-theme") as "light" | "dark" | "system" | null;
+		const newColorScheme = event.matches ? "dark" : "light";
+		if (newColorScheme === "dark") {
+			console.log("threeScene:dark");
+			
+			waterMaterial.uniforms.uDepthColor.value.set('#0b152d');
+			waterMaterial.uniforms.surfaceColor.value.set('#006eff');
+		} else {
+			console.log("threeScene:light");
+			waterMaterial.uniforms.uDepthColor.value.set('#ecf6ff');
+			waterMaterial.uniforms.surfaceColor.value.set('#45b8f2');
+		}
+	});
 
 	/**
 	 * Sizes
