@@ -23,7 +23,7 @@
 
 <div class="container">
 	<a href={ensureTrailingSlash(slug)} class="nc-card card">
-		<figure style={`view-transition-name: ${id}`}>
+		<figure class="figure" style={`view-transition-name: ${id}`}>
 			<enhanced:img class="img" src={cover.src} alt={cover.alt} />
 		</figure>
 		<div class="header">
@@ -72,7 +72,7 @@
 			& {
 				aspect-ratio: 16 / 9;
 
-				& :is(figure, .img-placeholder) {
+				& :is(.figure, .img-placeholder) {
 					grid-area: full;
 				}
 
@@ -100,7 +100,7 @@
 		}
 	}
 
-	figure {
+	.figure {
 		grid-area: img;
 		overflow: hidden;
 	}

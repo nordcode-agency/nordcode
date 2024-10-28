@@ -9,8 +9,8 @@
 		<a href={ensureTrailingSlash(Navigation.home.url)} aria-label="Startseite">
 			<Logo />
 		</a>
-		<a class="gradient-text" href="/#work">work</a>
-		<a class="gradient-text" href="/#about">about</a>
+		<a class="gradient-text work" href="/#work">work</a>
+		<a class="gradient-text about" href="/#about">about</a>
 	</nav>
 </header>
 
@@ -41,8 +41,8 @@
 
 		@media (--sm-n-above) {
 			grid:
-				'home home work about' auto
-				/ 1fr 1fr auto auto;
+				'home . work about' auto
+				/ auto 1fr auto auto;
 		}
 	}
 
@@ -51,15 +51,15 @@
 		grid-area: home;
 	}
 
-	a[href='/work'] {
+	.work {
 		grid-area: work;
 	}
 
-	a[href='/about'] {
+	.about {
 		grid-area: about;
 	}
 
-	a {
+	.work, .about {
 		display: block;
 		inline-size: 100%;
 		font-size: calc(var(--font-size-base) * 1.5);
