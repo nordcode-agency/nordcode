@@ -1,7 +1,7 @@
 <script lang="ts">
 	// import gsap from "gsap";
 	import { onMount } from 'svelte';
-    import { main } from '$lib/modules/common/components/threeScene1';
+    import { main } from '$lib/modules/common/components/threeScene2';
 
 	onMount(() => {
 		main();
@@ -13,7 +13,7 @@
 <style lang="postcss">
 	.webgl {
         position: absolute;
-        /* z-index: -1; */
+        z-index: -1;
         content: "";
         top: 0;
         right: 0;
@@ -22,6 +22,6 @@
 		block-size: 100%;
 		outline: none;
         background-color: var(--surface-color-default);
-        filter: blur(16px);
+        filter: blur(10px);
 	}
 </style>

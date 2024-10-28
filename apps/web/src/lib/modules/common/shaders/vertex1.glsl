@@ -1,17 +1,10 @@
-uniform float uBigWavesElevation;
-
-uniform float uSmallWavesElevation;
-uniform float uSmallIterations;
-uniform float uSmallWavesFrequency;
-
-uniform vec2 uBigWavesFrequency;
-uniform vec2 uDistortionFrequency;
-uniform vec2 uDistortion;
 uniform float uTime;
-uniform float uSpeed;
+uniform float uBigWavesElevation;
+uniform float uSmallWavesElevation;
+uniform vec2 uBigWavesFrequency;
+uniform float uBigWavesSpeed;
 
 varying float vElevation;
-varying vec3 vPosition;
 
 // Classic Perlin 3D Noise 
 // by Stefan Gustavson
@@ -94,32 +87,17 @@ float cnoise(vec3 P) {
     return 2.2 * n_xyz;
 }
 
-void main()
-{
+void main() {
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
-
-    float speed = uSpeed * uTime;
-
-    float elevation = sin(modelPosition.x * uBigWavesFrequency.x + speed) *
-                      sin(modelPosition.z * uBigWavesFrequency.y + speed) *
+    float elevation = sin(modelPosition.x * uBigWavesFrequency.x + uTime * uBigWavesSpeed) *
+                      sin(modelPosition.z * uBigWavesFrequency.y + uTime * uBigWavesSpeed) *
                       uBigWavesElevation;
-        //   elevation += cnoise(vec3(modelPosition.x * uSmallWavesElevation * 2.0, modelPosition.z * uSmallWavesElevation, uTime * 0.1)) * 0.25;
-
-    float distortionX = sin(modelPosition.z * uDistortionFrequency.x + speed) * uBigWavesElevation;
-    float distortionZ = sin(modelPosition.x * uDistortionFrequency.y) * uBigWavesElevation;
-
-    for(float i = 1.0; i <= uSmallIterations; i++) {
-        elevation -= abs(cnoise(vec3(modelPosition.x * uSmallWavesFrequency * i * 3.0, modelPosition.z * uSmallWavesFrequency * i * 0.0, speed)) * uSmallWavesElevation / i);
-    }
+    elevation += cnoise(vec3(modelPosition.yz * uSmallWavesElevation * 2.0, uTime * 0.1)) * 0.25;
 
     modelPosition.y += elevation;
-    modelPosition.x += distortionX;
-    modelPosition.z += distortionZ;
-
     vec4 viewPosition = viewMatrix * modelPosition;
     vec4 projectedPosition = projectionMatrix * viewPosition;
-    gl_Position = projectedPosition;
 
+    gl_Position = projectedPosition;
     vElevation = elevation;
-    vPosition = position;
 }
