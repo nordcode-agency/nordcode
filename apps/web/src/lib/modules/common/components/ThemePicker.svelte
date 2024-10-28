@@ -60,13 +60,10 @@ $effect(() => {
         position: relative;
         cursor: pointer;
         align-items: center;
-        gap: 1ch;
         isolation: isolate;
         flex-shrink: 0;
         background: var(--color-surface-emphasis);
-        block-size: 2rem;
         border-radius: var(--border-radius-round);
-        padding-inline: 0.5ch;
     }
 
     .theme-icon {
@@ -87,6 +84,8 @@ $effect(() => {
         display: grid;
         place-content: center;
         aspect-ratio: 1;
+        block-size: 2rem;
+        inline-size: 2rem;
     }
 
     .theme-switch-label:nth-of-type(1) {
@@ -103,14 +102,15 @@ $effect(() => {
 
     .theme-highlighter {
         pointer-events: none;
-        inline-size: 1lh;
-        block-size: 1lh;
+        inline-size: 2rem;
+        block-size: 2rem;
+        outline: 6px solid var(--color-surface-emphasis);
         background-color: transparent;
         grid-row: 1;
         grid-column: 1;
         position: relative;
         z-index: -1;
-        transition: transform var(--transition-duration-base) var(--ease-in-2);
+        transition: transform var(--transition-duration-base) var(--ease-squish-3);
         background: var(--color-text-on-emphasis);
         border-radius: var(--border-radius-round);
     }
@@ -120,11 +120,11 @@ $effect(() => {
     }
 
     .theme-input:nth-of-type(2):checked ~ .theme-highlighter {
-        transform: translateX(calc(100% + 1ch));
+        transform: translateX(calc(100%));
     }
 
     .theme-input:nth-of-type(3) ~ .theme-highlighter {
-        transform: translateX(calc(200% + 2ch));
+        transform: translateX(calc(200%));
     }
 </style>
 
