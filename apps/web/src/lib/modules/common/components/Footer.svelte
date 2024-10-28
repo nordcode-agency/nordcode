@@ -2,6 +2,7 @@
 	import { EMAIL } from '$lib/content/contact';
 	import { Navigation } from '$lib/content/navigation';
 	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
+	import ThemePicker from './ThemePicker.svelte';
 </script>
 
 <footer class="nc-box nc-center footer">
@@ -13,6 +14,7 @@
 				>{Navigation.datenschutz.name}</a
 			>
 		</div>
+        <ThemePicker />
 	</div>
 	<div class="nc-stack -far">
 		<div class="nc-stack contact-item">
