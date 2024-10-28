@@ -1,6 +1,6 @@
 <script lang="ts" async>
-export let heading: string;
-export let subheading: string | undefined = undefined;
+	export let heading: string;
+	export let subheading: string | undefined = undefined;
 </script>
 
 <div class="container">
@@ -10,7 +10,7 @@ export let subheading: string | undefined = undefined;
 				{#if subheading}
 					<span>{subheading}</span>
 				{/if}
-				<h2>{heading}</h2>
+				<h2 class="section-title">{heading}</h2>
 			</div>
 		</div>
 		{#if $$slots.action}
@@ -32,7 +32,7 @@ export let subheading: string | undefined = undefined;
 		--card-padding-inline: 0px;
 		--card-padding-block: 0px;
 
-        display: grid;
+		display: grid;
 		grid-template:
 			[header-start]
 			1fr
@@ -69,11 +69,11 @@ export let subheading: string | undefined = undefined;
 		}
 	}
 
-    .action {
-        grid-area: action;
-        padding: var(--spacing-base);
-        display: flex;
-        justify-content: end;
-        line-height: var(--line-height-base);
-    }
+	.action {
+		grid-area: action;
+		padding: var(--spacing-base);
+		display: flex;
+		justify-content: end;
+		line-height: var(--line-height-base);
+	}
 </style>

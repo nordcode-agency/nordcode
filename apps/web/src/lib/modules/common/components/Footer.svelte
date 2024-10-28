@@ -1,50 +1,58 @@
+<script lang="ts">
+	import { EMAIL } from '$lib/content/contact';
+	import { Navigation } from '$lib/content/navigation';
+	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
+</script>
+
 <footer class="nc-box nc-center footer">
-        <div class="misc nc-stack -farthest">
-            <span class="greeting">Liebe Grüße aus<br />Zeetze & Hamburg</span>
-            <div class="nc-stack -near">
-                <a href="/imprint">Impressum</a>
-                <a href="/data-privacy">Datenschutz</a>
-            </div>
-        </div>
-        <div class="nc-stack -far">
-            <div class="nc-stack contact-item">
-                <span class="nc-input-label">E-Mail</span>
-                <a class="gradient-text contact-links" href="mailto:hallo@nordcode.agency">
-                    hallo@nordcode.agency
-                </a>
-            </div>
-            <div class="nc-stack contact-item">
-                <span class="nc-input-label">Schreib uns auf</span>
-                <a class="gradient-text contact-links" href="https://wa.me/490000">Whatsapp</a>
-            </div>
-            <!-- <a class="gradient-text contact-links" href="https://signal.me/#p/+490000"> Signal </a> -->
-            <div class="nc-stack contact-item">
-                <span class="nc-input-label">Telefon</span>
-                <a class="gradient-text contact-links" href="tel:+490000">+49 40 228 680 000</a>
-            </div>
-        </div>
+	<div class="misc nc-stack -farthest">
+		<span class="greeting">Liebe Grüße aus<br />Zeetze & Hamburg</span>
+		<div class="nc-stack -near">
+			<a href={ensureTrailingSlash(Navigation.impressum.url)}>{Navigation.impressum.name}</a>
+			<a href={ensureTrailingSlash(Navigation.datenschutz.url)}
+				>{Navigation.datenschutz.name}</a
+			>
+		</div>
+	</div>
+	<div class="nc-stack -far">
+		<div class="nc-stack contact-item">
+			<span class="nc-input-label">E-Mail</span>
+			<a class="gradient-text contact-links" href={`mailto:${EMAIL}`}>
+				{EMAIL}
+			</a>
+		</div>
+		<div class="nc-stack contact-item">
+			<span class="nc-input-label">Schreib uns auf</span>
+			<a class="gradient-text contact-links" href="https://wa.me/490000">Whatsapp</a>
+		</div>
+		<!-- <a class="gradient-text contact-links" href="https://signal.me/#p/+490000"> Signal </a> -->
+		<div class="nc-stack contact-item">
+			<span class="nc-input-label">Telefon</span>
+			<a class="gradient-text contact-links" href="tel:+490000">+49 40 228 680 000</a>
+		</div>
+	</div>
 </footer>
 
-<style lang="postcss">
-    .footer {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--spacing-farthest);
-        justify-content: space-between;
-        padding-block-end: var(--spacing-farthest);
+<style>
+	.footer {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-farthest);
+		justify-content: space-between;
+		padding-block-end: var(--spacing-farthest);
 
-        @media (--md-n-above) {
-            padding-block-end: calc(var(--spacing-farthest) * 2);
-        }
-    }
+		@media (--md-n-above) {
+			padding-block-end: calc(var(--spacing-farthest) * 2);
+		}
+	}
 
-    .greeting {
-        display: block;
-        max-inline-size: 24ch;
-        font-size: 1.5rem;
-        line-height: 3ex;
-        color: var(--color-text-muted);
-    }
+	.greeting {
+		display: block;
+		max-inline-size: 24ch;
+		font-size: 1.5rem;
+		line-height: 3ex;
+		color: var(--color-text-muted);
+	}
 
 	.contact-item {
 		gap: 0.25lh;

@@ -1,10 +1,12 @@
 <script>
-	import Logo from "./Logo.svelte";
+	import { Navigation } from '$lib/content/navigation';
+	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
+	import Logo from './Logo.svelte';
 </script>
 
 <header class="nc-box">
 	<nav>
-		<a href="/" aria-label="Startseite">
+		<a href={ensureTrailingSlash(Navigation.home.url)} aria-label="Startseite">
 			<Logo />
 		</a>
 		<a class="gradient-text" href="/#work">work</a>
@@ -13,7 +15,7 @@
 </header>
 
 <style>
-  header {
+	header {
 		pointer-events: none;
 		isolation: isolate;
 		display: grid;
@@ -28,8 +30,8 @@
 		inline-size: 100%;
 		display: grid;
 		grid:
-			"home home work" auto
-			"home home about" auto
+			'home home work' auto
+			'home home about' auto
 			/ 1fr 1fr auto;
 		align-items: center;
 		border-radius: var(--border-radius-large);
@@ -39,38 +41,37 @@
 
 		@media (--sm-n-above) {
 			grid:
-				"home home work about" auto
+				'home home work about' auto
 				/ 1fr 1fr auto auto;
 		}
 	}
 
-	a[href="/"] {
+	a[href='/'] {
 		max-inline-size: 14rem;
 		grid-area: home;
 	}
 
-	a[href="/work"] {
+	a[href='/work'] {
 		grid-area: work;
 	}
 
-	a[href="/about"] {
+	a[href='/about'] {
 		grid-area: about;
 	}
 
 	a {
 		display: block;
 		inline-size: 100%;
-    font-size: calc(var(--font-size-base) * 1.5);
-    text-decoration: none;
-    color: var(--color-brand-primary-base);
-    padding-inline: var(--spacing-base);
-    /* padding-block: var(--spacing-nearest); */
+		font-size: calc(var(--font-size-base) * 1.5);
+		text-decoration: none;
+		color: var(--color-brand-primary-base);
+		padding-inline: var(--spacing-base);
+		/* padding-block: var(--spacing-nearest); */
 		text-align: center;
 
 		@media (--md-n-above) {
 			padding-block: var(--spacing-base);
 			/* font-size: var(--font-size-largest); */
 		}
-  }
+	}
 </style>
-

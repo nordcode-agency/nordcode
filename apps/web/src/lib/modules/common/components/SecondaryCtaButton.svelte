@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
+
 	export let href: string;
 </script>
 
-<a {href} class="nc-button -stealth gradient-text">
+<a href={ensureTrailingSlash(href)} class="nc-button -stealth gradient-text">
 	<slot />
 	<svg
 		xmlns="http://www.w3.org/2000/svg"

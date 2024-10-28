@@ -1,16 +1,17 @@
 <script lang="ts" async>
-import type { MediaImage } from '$lib/types/index';
+	import type { MediaImage } from '$lib/types/index';
+	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 
-export let heading: string;
-export let subheading: string | undefined = undefined;
-export let cover: MediaImage;
-export let slug: string;
-/** Used to perform view transitions */
-export let id: string | undefined = undefined;
+	export let heading: string;
+	export let subheading: string | undefined = undefined;
+	export let cover: MediaImage;
+	export let slug: string;
+	/** Used to perform view transitions */
+	export let id: string | undefined = undefined;
 </script>
 
 <div class="container">
-	<a href={slug} class="nc-card card">
+	<a href={ensureTrailingSlash(slug)} class="nc-card card">
 		<figure style={`view-transition-name: ${id}`}>
 			<enhanced:img class="img" src={cover.src} alt={cover.alt} />
 		</figure>
@@ -19,7 +20,7 @@ export let id: string | undefined = undefined;
 				{#if subheading}
 					<span>{subheading}</span>
 				{/if}
-				<h2>{heading}</h2>
+				<h2 class="section-title">{heading}</h2>
 			</div>
 		</div>
 	</a>
@@ -90,10 +91,11 @@ export let id: string | undefined = undefined;
 
 	figure {
 		grid-area: img;
-        overflow: hidden;
+		overflow: hidden;
 	}
 
-	.img, picture {
+	.img,
+	picture {
 		inline-size: 100%;
 		aspect-ratio: 3 / 2;
 		object-fit: cover;

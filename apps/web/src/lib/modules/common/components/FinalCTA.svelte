@@ -1,17 +1,23 @@
+<script>
+	import { EMAIL } from '$lib/content/contact';
+	import { Navigation } from '$lib/content/navigation';
+	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
+</script>
+
 <section class="nc-box">
 	<div class="container nc-center nc-card">
 		<div class="nc-stack -far">
-			<h2>Bereit für dein Projekt?</h2>
+			<h2 class="section-title">Bereit für dein Projekt?</h2>
 			<p>
 				Wir würden gerne mehr über dein Vorhaben erfahren. Egal ob mit einer konkreten Idee,
 				einer vagen Vorstellung, kleinem oder großen Budget. Erzähl uns mehr, unverbindlich
 				und ohne doppelten Boden.
 			</p>
 			<div class="actions">
-				<a class="nc-button -primary" href="/start">Jetzt loslegen</a>
-				<a class="nc-button -outline" href="mailto:hallo@nordcode.agency"
-					>hallo@nordcode.agency</a
+				<a class="nc-button -primary" href={ensureTrailingSlash(Navigation.start.url)}
+					>{Navigation.start.name}</a
 				>
+				<a class="nc-button -outline" href={`mailto:${EMAIL}`}>{EMAIL}</a>
 			</div>
 		</div>
 	</div>
@@ -24,7 +30,7 @@
 
 		& h2 {
 			color: var(--color-text-base);
-            margin-block-end: var(--spacing-far);
+			margin-block-end: var(--spacing-far);
 		}
 
 		& p {
@@ -57,7 +63,7 @@
 
 	.actions {
 		display: flex;
-        flex-wrap: wrap;
+		flex-wrap: wrap;
 		gap: var(--spacing-near);
 	}
 </style>

@@ -1,18 +1,33 @@
 <script lang="ts">
+	import Breadcrumbs from '$lib/modules/common/components/Breadcrumbs.svelte';
+	import { page } from '$app/stores';
+	import type { Breadcrumb } from '$lib/types/Breadcrumb';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
 	const { heading, subheading, cover, name } = data;
+
+	const breadcrumbItems: Breadcrumb[] = [
+		{
+			name: 'Work',
+			url: '/#work'
+		},
+		{
+			name: heading,
+			url: $page.url.toString()
+		}
+	];
 </script>
 
 <svelte:head>
-	<title>nordcode - {heading}</title>
+	<title>{heading} - nordcode</title>
 </svelte:head>
 
 <article class="nc-box">
 	<div class="nc-stack">
 		<div class="nc-box nc-stack -inherit hero">
+			<Breadcrumbs items={breadcrumbItems} />
 			<div class="nc-cluster">
 				<figure class="thumbnail" style={`view-transition-name: ${name}`}>
 					<enhanced:img class="img" src={cover?.src} alt={cover?.alt} />
@@ -216,9 +231,10 @@
 
 		margin-block: var(--flow-gap);
 		min-block-size: 0;
-        overflow: hidden;
+		overflow: hidden;
 	}
-	.img, picture {
+	.img,
+	picture {
 		/* aspect-ratio: 16/9; */
 		inline-size: 100%;
 		block-size: 100%;
