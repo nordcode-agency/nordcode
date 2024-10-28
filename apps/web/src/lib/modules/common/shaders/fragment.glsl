@@ -13,8 +13,9 @@ void main() {
     float mixStrength = (vElevation + uColorOffset) * uColorMultiplier;
     float mixStrengthElevation = vElevation * mixStrength;
     vec3 color = mix(uDepthColor, uSurfaceColor, vElevation * mixStrength);
-    gl_FragColor = vec4(color * smoothstep(-1.0, -1.0 + THRESHOLD, vPosition.y) *
-            smoothstep(1.0, 1.0 - THRESHOLD, vPosition.y), 1.0
-    );
+    // gl_FragColor = vec4(color * smoothstep(-1.0, -1.0 + THRESHOLD, vPosition.y) *
+    //         smoothstep(1.0, 1.0 - THRESHOLD, vPosition.y), 1.0
+    // );
+    gl_FragColor = vec4(color, 1.0);
     #include <colorspace_fragment>
 }
