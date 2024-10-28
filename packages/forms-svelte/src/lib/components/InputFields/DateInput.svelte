@@ -6,7 +6,7 @@ interface DateInputProps {
     id: string;
     autocomplete?: string;
     optional?: boolean;
-    value: Date;
+    value: Date | undefined;
 }
 
 let { name, id, autocomplete, optional = false, value = $bindable() }: DateInputProps = $props();
@@ -36,7 +36,7 @@ const setToday = () => {
     value = new Date();
 };
 
-let internalValue = $derived(formatDate(value));
+let internalValue = $derived(value ? formatDate(value) : '');
 </script>
 
 <div class="nc-cluster full-width nc-input-date">
