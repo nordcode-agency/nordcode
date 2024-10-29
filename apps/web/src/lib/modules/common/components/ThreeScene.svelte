@@ -22,6 +22,6 @@
 		block-size: 100%;
 		outline: none;
         background-color: var(--surface-color-default);
-        filter: blur(10px);
+        filter: blur(3px);
 	}
 </style>

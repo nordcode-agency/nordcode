@@ -4,6 +4,16 @@ import GUI from 'lil-gui';
 import vertexShader from '../shaders/vertex.glsl?raw';
 import fragmentShader from '../shaders/fragment.glsl?raw';
 
+const setUniformColors = (colorSchema: 'light' | 'dark', material: THREE.ShaderMaterial) => {
+	if (colorSchema === 'dark') {
+		material.uniforms.uDepthColor.value.set('#0b152d');
+		material.uniforms.uSurfaceColor.value.set('#006eff');
+	} else {
+		material.uniforms.uDepthColor.value.set('#ecf6ff');
+		material.uniforms.uSurfaceColor.value.set('#45b8f2');
+	}
+};
+
 export function main() {
 	/**
 	 * Base
@@ -26,7 +36,7 @@ export function main() {
 	 * Water
 	 */
 	// Geometry
-	const waterGeometry = new THREE.PlaneGeometry(4, 2, 128, 128);
+	const waterGeometry = new THREE.PlaneGeometry(1, 4, 128, 128);
 	// const waterGeometry = new THREE.IcosahedronGeometry(1, 64);
 	// const waterGeometry = new THREE.BoxGeometry(2, 2, 0.25, 512);;
 
@@ -36,8 +46,8 @@ export function main() {
 		fragmentShader,
 		uniforms: {
 			uTime: { value: 0 },
-			uSpeed: { value: 0.1 },
-            uBackgroundColor: { value: new THREE.Color('#0b152d') },
+			uSpeed: { value: 0.05 },
+			uBackgroundColor: { value: new THREE.Color('#0b152d') },
 
 			uBigWavesElevation: { value: 0.2 },
 
@@ -56,6 +66,8 @@ export function main() {
 		}
 		// side: THREE.DoubleSide,
 	});
+
+    setUniformColors(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light', waterMaterial);
 
 	// Mesh
 	const water = new THREE.Mesh(waterGeometry, waterMaterial);
@@ -140,19 +152,10 @@ export function main() {
 		.step(0.001)
 		.name('uColorOffset');
 
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
 		// const dataTheme = document.querySelector('html')?.getAttribute("data-theme") as "light" | "dark" | "system" | null;
-		const newColorScheme = event.matches ? "dark" : "light";
-		if (newColorScheme === "dark") {
-			console.log("threeScene:dark");
-			
-			waterMaterial.uniforms.uDepthColor.value.set('#0b152d');
-			waterMaterial.uniforms.surfaceColor.value.set('#006eff');
-		} else {
-			console.log("threeScene:light");
-			waterMaterial.uniforms.uDepthColor.value.set('#ecf6ff');
-			waterMaterial.uniforms.surfaceColor.value.set('#45b8f2');
-		}
+		const newColorScheme = event.matches ? 'dark' : 'light';
+		setUniformColors(newColorScheme, waterMaterial);
 	});
 
 	/**
@@ -182,12 +185,16 @@ export function main() {
 	 */
 	// Base camera
 	const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
-	camera.position.set(1, 1, 1);
+	camera.position.set(0.6924198050961325, 0.717913837087474, 1.1226317501039604);
+    camera.rotation.set(-1.0066190542664037, 0.6757842914804814, 0.7796168753682582);
 	scene.add(camera);
 
 	// Controls
 	const controls = new OrbitControls(camera, canvas);
 	controls.enableDamping = true;
+	// controls.addEventListener( "change", (event) => {
+	//     console.log( controls.object );
+	// });
 
 	/**
 	 * Renderer
