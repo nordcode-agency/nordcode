@@ -131,6 +131,7 @@
 
     :where(textarea:not([class]), .nc-textarea) {
         min-block-size: calc(5lh + 2 * var(--_input-padding-block));
+        inline-size: auto;
         max-inline-size: 100%;
         padding-block: var(--_input-padding-block);
     }
@@ -213,7 +214,7 @@
 
     :where(input[type="color"], .nc-input-color) {
         aspect-ratio: 1;
-        width: auto;
+        inline-size: auto;
         padding: calc(var(--button-height-base) / 12);
     }
 

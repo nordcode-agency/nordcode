@@ -19,13 +19,6 @@
             --_card-padding-block: var(--card-padding-block, var(--spacing-base));
         }
 
-        /* &[data-variant="inverted"] {
-      --card-background-color: var();
-      --card-color: var();
-      --info-text-color: var();
-      --card-border-color: var();
-    } */
-
         inline-size: 100%;
         display: inline-block;
         box-sizing: border-box;
@@ -41,8 +34,7 @@
         border-radius: var(--_card-border-radius);
         box-shadow: var(--_card-shadow);
 
-        transition: border-color 300ms ease,
-        box-shadow 300ms;
+        transition: border-color var(--transition-duration-base) var(--ease-2);
 
         @media (--sm-n-above) {
             --_card-padding-inline: var(--card-padding-inline, var(--spacing-far));
