@@ -1,7 +1,6 @@
 @layer components.forms {
     :where(.nc-form) {
-        inline-size: 100%;
-        max-inline-size: var(--nc-form-max-inline-size, var(--measure-base));
+        inline-size: min(100%, var(--nc-form-max-inline-size, var(--measure-base)));
     }
 
     :where(.nc-form-title) {

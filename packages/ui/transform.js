@@ -2,7 +2,18 @@ import { browserslistToTargets, bundle } from 'lightningcss';
 import browserslist from 'browserslist';
 import fs from 'node:fs';
 
-const targets = browserslistToTargets(browserslist('defaults'));
+const browserlistTargtsWidelyAvailable = [
+    "Chrome > 0 and last 2.5 years",
+    "ChromeAndroid > 0 and last 2.5 years",
+    "Edge > 0 and last 2.5 years",
+    "Firefox > 0 and last 2.5 years",
+    "FirefoxAndroid > 0 and last 2.5 years",
+    "Safari > 0 and last 2.5 years",
+    "iOS > 0 and last 2.5 years",
+    "not dead"
+]
+
+const targets = browserslistToTargets(browserslist(browserlistTargtsWidelyAvailable));
 
 const { code: colors } = bundle({
     // ...
