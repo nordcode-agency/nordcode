@@ -36,7 +36,7 @@ export function main() {
 		fragmentShader,
 		uniforms: {
 			uTime: { value: 0 },
-			uSpeed: { value: 0.2 },
+			uSpeed: { value: 0.1 },
             uBackgroundColor: { value: new THREE.Color('#0b152d') },
 
 			uBigWavesElevation: { value: 0.2 },
