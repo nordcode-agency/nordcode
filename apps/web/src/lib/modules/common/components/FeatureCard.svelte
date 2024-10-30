@@ -2,7 +2,6 @@
 	import type { MediaImage } from '$lib/types/index';
 	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 
-	
 	interface Props {
 		heading: string;
 		subheading?: string | undefined;
@@ -12,13 +11,7 @@
 		id?: string | undefined;
 	}
 
-	let {
-		heading,
-		subheading = undefined,
-		cover,
-		slug,
-		id = undefined
-	}: Props = $props();
+	let { heading, subheading = undefined, cover, slug, id = undefined }: Props = $props();
 </script>
 
 <div class="container">
@@ -41,7 +34,7 @@
 	.container {
 		container-type: inline-size;
 		inline-size: 100%;
-        block-size: 100%;
+		block-size: 100%;
 	}
 	.card {
 		--card-padding-inline: 0px;

@@ -11,9 +11,9 @@ export function main() {
 	// Debug
 	const gui = new GUI({ width: 340 });
 	const debugObject = {
-        depthColor: '#030920',
-        surfaceColor: '#004cff',
-    };
+		depthColor: '#030920',
+		surfaceColor: '#004cff'
+	};
 
 	// Canvas
 	const canvas = document.querySelector('canvas.webgl');
@@ -26,7 +26,7 @@ export function main() {
 	 */
 	// Geometry
 	// const waterGeometry = new THREE.BoxGeometry(2, 2, 0.25, 512);
-	const waterGeometry = new THREE.IcosahedronGeometry(2, 200)
+	const waterGeometry = new THREE.IcosahedronGeometry(2, 200);
 
 	// Material
 	const waterMaterial = new THREE.ShaderMaterial({
@@ -96,7 +96,7 @@ export function main() {
 	// Mesh
 	const water = new THREE.Mesh(waterGeometry, waterMaterial);
 	water.rotation.x = -Math.PI * 1;
-    water.position.set(1.0, -1.5, 0.0);
+	water.position.set(1.0, -1.5, 0.0);
 	scene.add(water);
 
 	/**
@@ -138,8 +138,8 @@ export function main() {
 	 */
 	const renderer = new THREE.WebGLRenderer({
 		canvas: canvas,
-        alpha: true,
-        premultipliedAlpha: false,
+		alpha: true,
+		premultipliedAlpha: false
 	});
 	renderer.setSize(sizes.width, sizes.height);
 	renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));

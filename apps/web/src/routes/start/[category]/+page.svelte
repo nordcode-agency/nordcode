@@ -52,7 +52,7 @@
 
 <style lang="postcss">
 	h1 {
-        view-transition-name: title;
+		view-transition-name: title;
 		font-size: var(--font-size-display);
 	}
 
@@ -60,7 +60,7 @@
 		--nc-ram-grid-gap: var(--spacing-base);
 		--nc-ram-grid-min-width: 40ch;
 
-        inline-size: 100%;
+		inline-size: 100%;
 	}
 
 	section {

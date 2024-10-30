@@ -3,131 +3,142 @@
 @import '@nordcode/ui/fonts';
 
 @keyframes slide-up {
-    to {
-        transform: translateY(0%);
-        opacity: 1;
-    }
+	to {
+		transform: translateY(0%);
+		opacity: 1;
+	}
 }
 
 :root {
-    --animation-slide-up: slide-up 0.6s ease forwards;
-    --spacing-adaptive: var(--spacing-base);
+	--animation-slide-up: slide-up 0.6s ease forwards;
+	--spacing-adaptive: var(--spacing-base);
 
-    @media (--sm-n-above) {
-        --spacing-adaptive: var(--spacing-far);
-    }
+	@media (--sm-n-above) {
+		--spacing-adaptive: var(--spacing-far);
+	}
 
-    @media (--md-n-above) {
-        --spacing-adaptive: var(--spacing-farthest);
-    }
+	@media (--md-n-above) {
+		--spacing-adaptive: var(--spacing-farthest);
+	}
 
-    --center-measure: 110ch;
-    --center-padding: var(--spacing-adaptive);
+	--center-measure: 110ch;
+	--center-padding: var(--spacing-adaptive);
 }
 
 html {
-    scroll-timeline: --bodyTimeline y;
-    /* Firefox supports the older "vertical" syntax */
-    scroll-timeline: --bodyTimeline vertical;
+	scroll-timeline: --bodyTimeline y;
+	/* Firefox supports the older "vertical" syntax */
+	scroll-timeline: --bodyTimeline vertical;
 }
 
 body {
-    line-height: initial;
+	line-height: initial;
 }
 
 .section-title {
-    font-size: 3rem;
-    line-height: 2ex;
+	font-size: 3rem;
+	line-height: 2ex;
 
-    @media (--sm-n-above) {
-        font-size: 5rem;
-    }
+	@media (--sm-n-above) {
+		font-size: 5rem;
+	}
 }
 
 p {
-    font-size: 1.2rem;
-    text-wrap: pretty;
+	font-size: 1.2rem;
+	text-wrap: pretty;
 }
 
 .slide-up-from {
-    transform: translateY(var(--spacing-base));
-    opacity: 0;
+	transform: translateY(var(--spacing-base));
+	opacity: 0;
 }
 
 .nc-input {
-    padding-block: var(--_input-padding-block);
+	padding-block: var(--_input-padding-block);
 }
 
 .nc-button {
-    font-weight: bold;
-    transition: background 0.3s ease;
+	font-weight: bold;
+	transition: background 0.3s ease;
 
-    &:not(.-outline) {
-        border: 0;
-    }
+	&:not(.-outline) {
+		border: 0;
+	}
 
-    &.-outline {
-        border-color: var(--color-text-muted);
-    }
+	&.-outline {
+		border-color: var(--color-text-muted);
+	}
 
-    &:is(.-outline, .-stealth) {
-        color: var(--color-text-base);
-    }
+	&:is(.-outline, .-stealth) {
+		color: var(--color-text-base);
+	}
 
-    &:not(.-outline, .-stealth) {
-        background: radial-gradient(circle at center left,
-                var(--color-brand-primary-base),
-                var(--color-brand-secondary-base));
+	&:not(.-outline, .-stealth) {
+		background: radial-gradient(
+			circle at center left,
+			var(--color-brand-primary-base),
+			var(--color-brand-secondary-base)
+		);
 
-        &:hover {
-            color: var(--text-hover);
-            background: radial-gradient(circle at center left,
-                    var(--color-brand-primary-base) -50%,
-                    var(--color-brand-secondary-base));
-        }
-    }
+		&:hover {
+			color: var(--text-hover);
+			background: radial-gradient(
+				circle at center left,
+				var(--color-brand-primary-base) -50%,
+				var(--color-brand-secondary-base)
+			);
+		}
+	}
 }
 
 .nc-box {
-    padding-block: var(--spacing-adaptive);
-    padding-inline: var(--spacing-adaptive);
+	padding-block: var(--spacing-adaptive);
+	padding-inline: var(--spacing-adaptive);
 }
 
 :is([href], button).nc-card {
-    box-shadow: var(--_card-shadow),
-        inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) color-mix(in oklch, var(--color-border-base) 80%, transparent);
+	box-shadow:
+		var(--_card-shadow),
+		inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1)
+			color-mix(in oklch, var(--color-border-base) 80%, transparent);
 
-    @media (--OSdark) {
-        box-shadow: var(--_card-shadow),
-            inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) var(--color-border-base);
-    }
+	@media (--OSdark) {
+		box-shadow:
+			var(--_card-shadow),
+			inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1)
+				var(--color-border-base);
+	}
 
-    &:hover {
-        box-shadow: var(--_card-shadow),
-            inset 0px calc(var(--spacing-near) * -1) var(--spacing-base) calc(var(--spacing-near) * -1) color-mix(in oklch, var(--color-brand-primary-base), transparent 90%);
-    }
+	&:hover {
+		box-shadow:
+			var(--_card-shadow),
+			inset 0px calc(var(--spacing-near) * -1) var(--spacing-base)
+				calc(var(--spacing-near) * -1)
+				color-mix(in oklch, var(--color-brand-primary-base), transparent 90%);
+	}
 }
 
 section.nc-box {
-    padding-block: calc(var(--spacing-adaptive) * 2);
-    padding-inline: var(--spacing-adaptive);
+	padding-block: calc(var(--spacing-adaptive) * 2);
+	padding-inline: var(--spacing-adaptive);
 }
 
 .nc-center {
-    box-sizing: border-box;
-    /* Ensures that always max space is occupied */
-    inline-size: min(var(--center-measure), 100%);
+	box-sizing: border-box;
+	/* Ensures that always max space is occupied */
+	inline-size: min(var(--center-measure), 100%);
 }
 
 .nc-input-field {
-    gap: 0.25lh;
+	gap: 0.25lh;
 }
 
 .heading-bg {
-    position: relative;
-    margin-block-end: var(--spacing-far);
+	position: relative;
+	margin-block-end: var(--spacing-far);
 
-    /* &::after {
+	/* &::after {
 		--conic-size: min(60ch, 100vw);
 		position: absolute;
 		z-index: -1;
@@ -147,34 +158,36 @@ section.nc-box {
 }
 
 .gradient-text {
-    background: linear-gradient(to left,
-            var(--color-brand-secondary-base),
-            var(--color-brand-primary-base));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+	background: linear-gradient(
+		to left,
+		var(--color-brand-secondary-base),
+		var(--color-brand-primary-base)
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 @keyframes char-fade-in {
-    from {
-        opacity: 0;
-        transform: translateX(4px);
-    }
+	from {
+		opacity: 0;
+		transform: translateX(4px);
+	}
 
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-    }
+	to {
+		opacity: 1;
+		transform: translateX(0px);
+	}
 }
 
 .char-animation {
-    opacity: 0;
-    animation: char-fade-in 600ms ease-in-out var(--char-animation-delay, 0ms) forwards;
+	opacity: 0;
+	animation: char-fade-in 600ms ease-in-out var(--char-animation-delay, 0ms) forwards;
 }
 
 ::view-transition-old(*),
 ::view-transition-new(*) {
-    /** @url https://developer.chrome.com/docs/web-platform/view-transitions/#handling-changes-in-aspect-ratio */
-    block-size: 100%;
-    overflow: hidden;
+	/** @url https://developer.chrome.com/docs/web-platform/view-transitions/#handling-changes-in-aspect-ratio */
+	block-size: 100%;
+	overflow: hidden;
 }

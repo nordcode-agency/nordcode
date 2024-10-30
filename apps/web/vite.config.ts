@@ -6,7 +6,7 @@ export default defineConfig({
 	plugins: [enhancedImages(), sveltekit()],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
-	},
+	}
 	// @todo deactivated unless alias and global @custom-media is supported
 	// @see https://discord.com/channels/896960631322849340/1149432511571689522/1149432511571689522
 	// css: {

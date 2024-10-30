@@ -1,13 +1,13 @@
 <script lang="ts">
-import Hero from '$lib/modules/common/components/Hero.svelte';
-import Header from '$lib/modules/common/components/Header.svelte';
-import type { PageData } from './$types';
-import About from '$lib/modules/common/components/About.svelte';
-import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
-import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
-import Services from '$lib/modules/common/components/Services.svelte';
-import LogoClipPath from '$lib/modules/common/components/LogoClipPath.svelte';
-import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
+	import Hero from '$lib/modules/common/components/Hero.svelte';
+	import Header from '$lib/modules/common/components/Header.svelte';
+	import type { PageData } from './$types';
+	import About from '$lib/modules/common/components/About.svelte';
+	import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
+	import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
+	import Services from '$lib/modules/common/components/Services.svelte';
+	import LogoClipPath from '$lib/modules/common/components/LogoClipPath.svelte';
+	import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
 
 	interface Props {
 		data: PageData;
@@ -70,8 +70,8 @@ import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
 	.fullscreen {
 		position: relative;
 		min-block-size: 100vh;
-        background: linear-gradient(transparent 80%, var(--color-surface-muted));
-        overflow: hidden;
+		background: linear-gradient(transparent 80%, var(--color-surface-muted));
+		overflow: hidden;
 	}
 
 	.intro-icon {

@@ -51,12 +51,15 @@
 			color-mix(in oklch, var(--color-surface-base), transparent 20%)
 		);
 		backdrop-filter: blur(var(--spacing-base));
-		box-shadow: var(--_card-shadow),
+		box-shadow:
+			var(--_card-shadow),
 			inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1)
 				color-mix(in oklch, var(--color-border-base), transparent 20%);
 		block-size: 100%;
 		text-decoration: none;
-		transition: border-color 300ms ease, box-shadow 300ms;
+		transition:
+			border-color 300ms ease,
+			box-shadow 300ms;
 	}
 
 	.header {

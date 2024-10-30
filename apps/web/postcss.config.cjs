@@ -4,12 +4,10 @@ const postcssGlobalData = require('@csstools/postcss-global-data');
 const customMediaUrl = require.resolve('@nordcode/ui/media');
 
 module.exports = {
-  plugins: [
-    postcssGlobalData({
-			files: [
-				customMediaUrl,
-			],
+	plugins: [
+		postcssGlobalData({
+			files: [customMediaUrl]
 		}),
-    ...config.plugins,
-  ],
+		...config.plugins
+	]
 };

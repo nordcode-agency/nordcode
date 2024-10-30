@@ -67,7 +67,10 @@ export function main() {
 		// side: THREE.DoubleSide,
 	});
 
-    setUniformColors(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light', waterMaterial);
+	setUniformColors(
+		window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+		waterMaterial
+	);
 
 	// Mesh
 	const water = new THREE.Mesh(waterGeometry, waterMaterial);
@@ -186,7 +189,7 @@ export function main() {
 	// Base camera
 	const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
 	camera.position.set(0.6924198050961325, 0.717913837087474, 1.1226317501039604);
-    camera.rotation.set(-1.0066190542664037, 0.6757842914804814, 0.7796168753682582);
+	camera.rotation.set(-1.0066190542664037, 0.6757842914804814, 0.7796168753682582);
 	scene.add(camera);
 
 	// Controls

@@ -59,7 +59,8 @@
 		grid-area: about;
 	}
 
-	.work, .about {
+	.work,
+	.about {
 		display: block;
 		inline-size: 100%;
 		font-size: calc(var(--font-size-base) * 1.5);

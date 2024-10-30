@@ -11,13 +11,7 @@
 		name: string;
 	}
 
-	let {
-		heading,
-		subheading = undefined,
-		cover,
-		slug,
-		name
-	}: Props = $props();
+	let { heading, subheading = undefined, cover, slug, name }: Props = $props();
 
 	let vtName = '';
 	beforeNavigate((navigation) => {

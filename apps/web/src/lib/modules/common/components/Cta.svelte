@@ -81,7 +81,8 @@
 		animation-timeline: --atmosphereTimeline;
 		animation-range: 86% 96%;
 		background-color: var(--color-surface-base);
-		box-shadow: 0px var(--shadow-vertical-offset)
+		box-shadow:
+			0px var(--shadow-vertical-offset)
 				calc(var(--shadow-blur) * var(--shadow-max-multiplier) / 8) 0px
 				rgba(255, 255, 255, 0.7),
 			0px var(--shadow-vertical-offset)

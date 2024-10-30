@@ -14,7 +14,7 @@
 				>{Navigation.datenschutz.name}</a
 			>
 		</div>
-        <ThemePicker />
+		<ThemePicker />
 	</div>
 	<div class="nc-stack -far">
 		<div class="nc-stack contact-item">

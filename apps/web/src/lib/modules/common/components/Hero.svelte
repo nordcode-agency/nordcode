@@ -1,13 +1,13 @@
 <script lang="ts">
-import type { TProjects } from '$lib/content';
-import ActionCard from './ActionCard.svelte';
-import ProjectCard from './ProjectCard.svelte';
+	import type { TProjects } from '$lib/content';
+	import ActionCard from './ActionCard.svelte';
+	import ProjectCard from './ProjectCard.svelte';
 
-interface Props {
-    projects: TProjects;
-}
+	interface Props {
+		projects: TProjects;
+	}
 
-let { projects }: Props = $props();
+	let { projects }: Props = $props();
 </script>
 
 <div class="nc-stack container">
@@ -33,10 +33,10 @@ let { projects }: Props = $props();
 		</div>
 		<div style="inline-size: min(240px, 100%)">
 			<ActionCard heading="Lass uns schauen, wie wir dich unterstützen können">
-                {#snippet action()}
-                    <a href="/start"  class="nc-button -primary">Loslegen</a>
-                {/snippet}
-            </ActionCard>
+				{#snippet action()}
+					<a href="/start" class="nc-button -primary">Loslegen</a>
+				{/snippet}
+			</ActionCard>
 		</div>
 	</div>
 </div>
@@ -76,18 +76,18 @@ let { projects }: Props = $props();
 		justify-content: end;
 		align-items: stretch;
 		gap: var(--spacing-far);
-        padding-block: var(--spacing-far);
+		padding-block: var(--spacing-far);
 	}
 
-    .featured-project {
-        inline-size: min(240px, 100%);
+	.featured-project {
+		inline-size: min(240px, 100%);
 
-        &:first-child {
-            display: none;
+		&:first-child {
+			display: none;
 
-            @media (--md-n-above) {
-                display: initial;
-            }
-        }
-    }
+			@media (--md-n-above) {
+				display: initial;
+			}
+		}
+	}
 </style>
