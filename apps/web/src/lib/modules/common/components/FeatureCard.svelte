@@ -1,4 +1,4 @@
-<script lang="ts" async>
+<script lang="ts">
 	import type { MediaImage } from '$lib/types/index';
 	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 
@@ -41,6 +41,7 @@
 	.container {
 		container-type: inline-size;
 		inline-size: 100%;
+        block-size: 100%;
 	}
 	.card {
 		--card-padding-inline: 0px;
