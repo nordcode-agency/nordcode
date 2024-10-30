@@ -1,14 +1,12 @@
 <script lang="ts">
-	// import gsap from "gsap";
-	import { onMount } from 'svelte';
 	import { main } from '$lib/modules/common/components/threeScene2';
 
-	onMount(() => {
-		main();
-	});
+    const init: import('svelte/action').Action = () => {
+        main();
+    };
 </script>
 
-<canvas class="webgl"></canvas>
+<canvas class="webgl" use:init></canvas>
 
 <style lang="postcss">
 	.webgl {
