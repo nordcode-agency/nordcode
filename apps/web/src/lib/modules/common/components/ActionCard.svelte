@@ -15,7 +15,7 @@
 				{#if subheading}
 					<span>{subheading}</span>
 				{/if}
-				<h2 class="section-title">{heading}</h2>
+				<h2>{heading}</h2>
 			</div>
 		</div>
 		{#if action}
@@ -69,7 +69,7 @@
 
 	h2 {
 		font-size: var(--font-size-base);
-        line-height: 3ex;
+		line-height: 2.8ex;
 	}
 
 	.headings {

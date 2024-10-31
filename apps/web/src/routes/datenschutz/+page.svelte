@@ -1,6 +1,5 @@
 <script>
 	import Header from '$lib/modules/common/components/Header.svelte';
-	import '@nordcode/ui/base';
 </script>
 
 <svelte:head>

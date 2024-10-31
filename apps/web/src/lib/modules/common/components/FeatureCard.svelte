@@ -24,7 +24,7 @@
 				{#if subheading}
 					<span>{subheading}</span>
 				{/if}
-				<h2 class="section-title">{heading}</h2>
+				<h2 class="font-size-base | heading">{heading}</h2>
 			</div>
 		</div>
 	</a>
@@ -112,9 +112,8 @@
 		padding: var(--spacing-base);
 	}
 
-	h2 {
-		font-size: var(--font-size-base);
-		line-height: var(--line-height-base);
+	.heading {
+		line-height: 2.8ex;
 	}
 
 	.headings {

@@ -1,14 +1,11 @@
 <script lang="ts">
-	import Header from '$lib/modules/common/components/Header.svelte';
-	import Breadcrumbs from '$lib/modules/common/components/Breadcrumbs.svelte';
-	import type { Breadcrumb } from '$lib/types/Breadcrumb';
 	import { page } from '$app/stores';
-	/**
-	 * @typedef {Object} Props
-	 * @property {import('svelte').Snippet} [children]
-	 */
+	import Breadcrumbs from '$lib/modules/common/components/Breadcrumbs.svelte';
+	import ColorPalette from '$lib/modules/common/components/ColorPalette.svelte';
+	import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
+	import Header from '$lib/modules/common/components/Header.svelte';
+	import type { Breadcrumb } from '$lib/types/Breadcrumb';
 
-	/** @type {Props} */
 	let { children } = $props();
 
 	const breadcrumbItems: Breadcrumb[] = [
@@ -22,17 +19,22 @@
 		}
 	];
 
-	// $effect(() => {
-	// 	document.documentElement.style.setProperty('--h-brand-primary', $page.data.hue.light);
-	// });
+	$effect(() => {
+		document.documentElement.style.setProperty('--h-brand-primary', $page.data.hue[0]);
+		document.documentElement.style.setProperty('--h-brand-secondary', $page.data.hue[1]);
 
-	// const { heading, subheading, cover, name, url, goal, colorPalette, tags } = data;
+		return () => {
+			document.documentElement.style.removeProperty('--h-brand-primary');
+			document.documentElement.style.removeProperty('--h-brand-secondary');
+		};
+	});
 </script>
 
 <Header />
 
 <svelte:head>
-	<title>{$page.data.heading} - nordcode</title>
+    <title>{$page.data.heading} - nordcode</title>
+    <meta name="description" content={$page.data.goal} />
 </svelte:head>
 
 <article class="nc-box" style="--h-brand-primary: {$page.data.hue.light}">
@@ -56,57 +58,41 @@
 						<span class="subheading slide-up-from">{$page.data.subheading}</span>
 						<h1 class="gradient-text slide-up-from">{$page.data.heading}</h1>
 					</div>
+				</div>
+			</div>
+		</div>
+		<div class="nc-with-sidebar -farthest | main slide-up-from">
+			<div class="side" data-aside>
+				<div class="nc-stack overview">
+					<p class="font-size-large">
+						<strong>
+							{$page.data.goal}
+						</strong>
+					</p>
 					{#if $page.data.tags}
-						<div class="nc-cluster -near | tags">
+						<ul class="tags">
 							{#each $page.data.tags as tag}
-								<span class="nc-slub tag">{tag}</span>
+								<li class="nc-slub tag">{tag}</li>
 							{/each}
+						</ul>
+					{/if}
+					{#if $page.data.url}
+						<div class="actions">
+							<a href={$page.data.url} target="_blank" class="nc-button -outline info"
+								>Webseite besuchen</a
+							>
 						</div>
 					{/if}
 				</div>
 			</div>
-		</div>
-		<div class="main slide-up-from">
-			<div class="side">
-				<p class="tldr">
-					<strong>
-						{$page.data.goal}
-					</strong>
-				</p>
-				{#if $page.data.url}
-					<div class="actions">
-						<a href={$page.data.url} target="_blank" class="nc-button -outline info"
-							>Webseite besuchen</a
-						>
-					</div>
-				{/if}
+			<div class="body nc-flow text-base" data-grow>
 				{#if $page.data.colorPalette}
-					<div class="nc-stack -nogap">
-						<div class="nc-cluster -nogap -centered">
-							<small class="nc-input-label" style="margin-inline-end: 1ch"
-								>Hell:</small
-							>
-							{#each $page.data.colorPalette.light as color}
-								<div
-									style={`background-color: ${color}; aspect-ratio: 1/1; inline-size: 3ex`}
-								></div>
-							{/each}
-						</div>
-						<div class="nc-cluster -nogap -centered">
-							<small class="nc-input-label" style="margin-inline-end: 1ch"
-								>Dunkel:</small
-							>
-							{#each $page.data.colorPalette.dark as color}
-								<div
-									style={`background-color: ${color}; aspect-ratio: 1/1; inline-size: 3ex`}
-								></div>
-							{/each}
-						</div>
-					</div>
+					<ColorPalette palette={$page.data.colorPalette}></ColorPalette>
 				{/if}
-			</div>
-			<div class="body nc-flow">
 				{@render children?.()}
+				<section class="nc-region">
+					<FinalCTA />
+				</section>
 			</div>
 		</div>
 	</div>
@@ -134,14 +120,18 @@
 
 	.headings {
 		/* view-transition-name: work-headings; */
+		max-inline-size: 100%;
 
 		& h1 {
 			animation: var(--animation-slide-up) 0.2s;
-			font-size: calc(var(--font-size-display) * 1.1);
-			line-height: 1.3;
+			font-size: calc(var(--font-size-display) * 0.8);
+			text-wrap: pretty;
+			max-inline-size: min(100%, 24ch);
+			hyphens: auto;
+			line-height: var(--line-height-small);
 
 			@media (--md-n-above) {
-				font-size: calc(var(--font-size-display) * 1.5);
+				font-size: var(--font-size-display);
 			}
 		}
 	}
@@ -160,30 +150,12 @@
 		@media (--md-n-above) {
 			--stack-gap: var(--spacing-far);
 		}
-
-		@media (--lg-n-above) {
-			padding-block-end: calc(var(--spacing-farthest) * 2);
-		}
 	}
 
 	.main {
 		animation: var(--animation-slide-up) 0.4s;
-		display: grid;
-		grid:
-			'side' auto
-			'main' auto
-			/ 1fr;
-		align-items: start;
-		justify-items: start;
-		gap: var(--spacing-far);
-
-		@media (--lg-n-above) {
-			grid:
-				'side main' auto
-				'side main' auto
-				'.    main' auto
-				/ 2fr 5fr;
-		}
+		--with-sidebar-target-width: 32ch;
+		--with-sidebar-min-size: 60%;
 	}
 
 	article {
@@ -192,41 +164,19 @@
 	}
 
 	.body {
-		grid-area: main;
 		max-inline-size: min(100%, var(--measure-base));
 	}
-
-	p,
-	ul,
-	li {
-		font-size: var(--font-size-large);
-		line-height: var(--line-height-base);
-	}
-
-	.full-width {
-		inline-size: 100%;
-		margin-block: var(--spacing-far);
-	}
-
 	.side {
-		grid-area: side;
+		align-self: stretch;
+	}
 
-		@media (--lg-n-above) {
-			position: sticky;
-			top: calc(var(--spacing-adaptive) / 2);
-		}
+	.overview {
+    	position: sticky;
+    	top: calc(var(--spacing-adaptive) / 2);
 	}
 
 	.actions {
 		padding-block: var(--spacing-base);
-	}
-
-	.tldr {
-		flex-grow: 1;
-		flex-basis: 24ch;
-		text-wrap: balance;
-		font-size: var(--font-size-large);
-		color: var(--color-text-base);
 	}
 
 	figure {
@@ -236,6 +186,7 @@
 		min-block-size: 0;
 		overflow: hidden;
 	}
+
 	.img,
 	picture {
 		/* aspect-ratio: 16/9; */
@@ -244,5 +195,20 @@
 		object-fit: cover;
 		border-radius: var(--border-radius-large);
 		overflow: hidden;
+	}
+
+	.tags {
+		padding-inline-start: 0;
+	}
+
+	.tag {
+		padding-inline-start: 0;
+		display: flex;
+		line-height: var(--line-height-small);
+
+		&::before {
+			content: '—';
+			margin-inline-end: 1ch;
+		}
 	}
 </style>

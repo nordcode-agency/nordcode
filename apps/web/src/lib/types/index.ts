@@ -3,7 +3,7 @@ export type MediaImage = {
 	alt: string;
 };
 
-type ColorPalette = {
+export type ColorPalette = {
 	light: string[];
 	dark: string[];
 };
@@ -20,8 +20,5 @@ export type WorkProject = {
 	goal?: string;
 	// what we did
 	tags?: string[];
-	hue?: {
-		light: string;
-		dark: string;
-	};
+	hue?: [number, number];
 };

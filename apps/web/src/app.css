@@ -1,6 +1,7 @@
 @import '@nordcode/ui/media';
 @import '@nordcode/ui/complete';
 @import '@nordcode/ui/fonts';
+@import '@nordcode/ui/base';
 
 @keyframes slide-up {
 	to {
@@ -31,12 +32,8 @@ html {
 	scroll-timeline: --bodyTimeline vertical;
 }
 
-body {
-	line-height: initial;
-}
-
 .section-title {
-    font-weight: 700;
+	font-weight: 700;
 	font-size: 3rem;
 	line-height: 2ex;
 
@@ -46,7 +43,7 @@ body {
 }
 
 p {
-	font-size: 1.2rem;
+	font-size: 1.125rem;
 	text-wrap: pretty;
 }
 
@@ -63,19 +60,8 @@ p {
 	font-weight: bold;
 	transition: background 0.3s ease;
 
-	&:not(.-outline) {
-		border: 0;
-	}
-
-	&.-outline {
-		border-color: var(--color-text-muted);
-	}
-
-	&:is(.-outline, .-stealth) {
-		color: var(--color-text-base);
-	}
-
-	&:not(.-outline, .-stealth) {
+	&.-brand {
+    	border: 0;
 		background: radial-gradient(
 			circle at center left,
 			var(--color-brand-primary-base),

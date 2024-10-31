@@ -1,11 +1,9 @@
-import type { WorkProject } from '$lib/types';
-import WildtierrettungCover from '$lib/assets/projects/wildtierrettung/cover.webp?enhanced';
-import ImgRicola from '$lib/assets/ricola.avif?enhanced';
-import ImgNewYork from '$lib/assets/new-york.avif?enhanced';
-import ImgMountains from '$lib/assets/mountains.avif?enhanced';
-import ImgItaly from '$lib/assets/italy.avif?enhanced';
-import ImgIce from '$lib/assets/ice.avif?enhanced';
 import ImgDesert from '$lib/assets/desert.avif?enhanced';
+import ImgIce from '$lib/assets/ice.avif?enhanced';
+import ImgItaly from '$lib/assets/italy.avif?enhanced';
+import ImgMountains from '$lib/assets/mountains.avif?enhanced';
+import WildtierrettungCover from '$lib/assets/projects/wildtierrettung/cover.webp?enhanced';
+import type { WorkProject } from '$lib/types';
 
 export const projects = [
 	{
@@ -34,10 +32,7 @@ export const projects = [
 		url: 'https://wildtierrettung-rhein-berg.de/',
 		goal: 'Eine moderne Vorzeigewebseite, auf der Landwirte, interessierte Freiwillige und neue Helfer leicht finde, wonach sie suchen.',
 		tags: ['Design', 'Entwicklung', 'Content', 'SEO'],
-		hue: {
-			light: '142',
-			dark: '142'
-		}
+		hue: [142, 115]
 	},
 	{
 		heading: 'A digital taste of your snack',

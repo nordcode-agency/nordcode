@@ -1,12 +1,10 @@
 <script>
-	import { Navigation } from '$lib/content/navigation';
-	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 	import Logo from './Logo.svelte';
 </script>
 
 <header class="nc-box">
 	<nav>
-		<a href={ensureTrailingSlash(Navigation.home.url)} aria-label="Startseite">
+		<a href={"/"} aria-label="Startseite">
 			<Logo />
 		</a>
 		<a class="gradient-text work" href="/#work">work</a>

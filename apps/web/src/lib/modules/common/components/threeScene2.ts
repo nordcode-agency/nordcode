@@ -5,17 +5,18 @@ import vertexShader from '../shaders/vertex.glsl?raw';
 import fragmentShader from '../shaders/fragment.glsl?raw';
 
 function konami(callback: (args: unknown) => void) {
-    let keyboardKeys: string[] = [];
-    const konami = 'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,KeyB,KeyA';
-    return (event: KeyboardEvent) => {
-        console.log(event);
-        
-        keyboardKeys.push(event.code);
-        if (keyboardKeys.toString().indexOf(konami) >= 0) {
-            callback(event);
-            keyboardKeys = [];
-        }
-    };
+	let keyboardKeys: string[] = [];
+	const konami =
+		'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,KeyB,KeyA';
+	return (event: KeyboardEvent) => {
+		console.log(event);
+
+		keyboardKeys.push(event.code);
+		if (keyboardKeys.toString().indexOf(konami) >= 0) {
+			callback(event);
+			keyboardKeys = [];
+		}
+	};
 }
 
 const setUniformColors = (colorSchema: 'light' | 'dark', material: THREE.ShaderMaterial) => {
@@ -34,10 +35,13 @@ export function main() {
 	 */
 	// Debug
 	const gui = new GUI({ width: 340 });
-    gui.hide();
-    window.addEventListener('keydown', konami(() => {
-        gui.show();
-    }));
+	gui.hide();
+	window.addEventListener(
+		'keydown',
+		konami(() => {
+			gui.show();
+		})
+	);
 
 	// Canvas
 	const canvas = document.querySelector('canvas.webgl');

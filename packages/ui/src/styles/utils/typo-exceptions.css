@@ -1,3 +1,17 @@
+.nc-hint {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-base);
+}
+
+.nc-slub {
+    color: var(--color-text-subtle);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-weight: var(--font-weight-active);
+    font-size: var(--font-size-smallest);
+}
+
 .allcaps {
     text-transform: capitalize;
 }
@@ -39,19 +53,5 @@
 }
 
 .font-size-smallest {
-    font-size: var(--font-size-smallest);
-}
-
-.nc-hint {
-    color: var(--color-text-muted);
-    font-size: var(--font-size-small);
-    line-height: var(--line-height-base);
-}
-
-.nc-slub {
-    color: var(--color-text-subtle);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
-    font-weight: var(--font-weight-active);
     font-size: var(--font-size-smallest);
 }

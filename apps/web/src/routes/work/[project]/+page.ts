@@ -9,5 +9,5 @@ export const load = (async ({ params }) => {
 		error(404, `Projekt "${params.project}" konnte nicht gefunden werden.`);
 	}
 
-	return { ...project };
+	return { ...project, title: "hallo sie" };
 }) satisfies PageLoad;

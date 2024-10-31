@@ -53,13 +53,28 @@
         font-size: var(--font-size-small);
     }
 
+    :where(figure) {
+        border-radius: var(--border-radius-medium);
+
+        & :where(img, picture) {
+            border-start-start-radius: inherit;
+            border-start-end-radius: inherit;
+        }
+
+        & :where(figcaption) {
+            border-end-start-radius: inherit;
+            border-end-end-radius: inherit;
+        }
+    }
+
     :where(figcaption) {
         display: block;
         font-family: var(--font-family-sans);
         font-weight: var(--font-weight-default);
+        line-height: var(--line-height-base);
         color: var(--color-surface-subtle);
         background-color: var(--color-text-base);
-        padding: 0 1ch;
+        padding: 0.3lh 1ch;
     }
 
     :where(details) {
@@ -127,7 +142,7 @@
         }
 
         & cite:before {
-            content: '—';
+            content: "—";
             margin-inline-end: 0.5ch;
         }
     }
@@ -217,7 +232,7 @@
         font-weight: var(--font-weight-default);
     }
 
-    :where([aria-disabled='true'], .disabled, :disabled) {
+    :where([aria-disabled="true"], .disabled, :disabled) {
         color: inherit;
         opacity: 1;
         cursor: not-allowed;
@@ -360,8 +375,6 @@
     :target {
         scroll-margin-block-start: 2ex;
     }
-
-
 
     :where(del) {
         color: var(--color-status-danger-text);

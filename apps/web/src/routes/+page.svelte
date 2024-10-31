@@ -1,13 +1,13 @@
 <script lang="ts">
-	import Hero from '$lib/modules/common/components/Hero.svelte';
-	import Header from '$lib/modules/common/components/Header.svelte';
-	import type { PageData } from './$types';
 	import About from '$lib/modules/common/components/About.svelte';
-	import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
-	import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
-	import Services from '$lib/modules/common/components/Services.svelte';
-	import LogoClipPath from '$lib/modules/common/components/LogoClipPath.svelte';
 	import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
+	import Header from '$lib/modules/common/components/Header.svelte';
+	import Hero from '$lib/modules/common/components/Hero.svelte';
+	import LogoClipPath from '$lib/modules/common/components/LogoClipPath.svelte';
+	import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
+	import Services from '$lib/modules/common/components/Services.svelte';
+	import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
+	import type { PageData } from './$types';
 
 	interface Props {
 		data: PageData;
@@ -64,7 +64,9 @@
 </section>
 <Services />
 <About />
-<FinalCTA />
+<div class="nc-box">
+	<FinalCTA />
+</div>
 
 <style lang="postcss">
 	.fullscreen {
