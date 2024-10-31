@@ -53,5 +53,9 @@
 		min-block-size: 100dvh;
 		block-size: 100%;
 		position: relative;
+
+		max-inline-size: 120rem;
+		margin-inline: auto;
+		overflow: visible
 	}
 </style>
