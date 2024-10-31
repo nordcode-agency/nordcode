@@ -79,6 +79,7 @@
 
     .nc-flow > figure {
         margin-inline: 0;
+        margin-block: 1lh;
     }
 
     .nc-flow .breakAfter {
