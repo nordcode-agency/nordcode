@@ -1,7 +1,7 @@
 <script>
-	import { EMAIL } from '$lib/content/contact';
-	import { Navigation } from '$lib/content/navigation';
-	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
+import { EMAIL } from '$lib/content/contact';
+import { Navigation } from '$lib/content/navigation';
+import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 </script>
 
 <section class="nc-box">
@@ -14,10 +14,10 @@
 				und ohne doppelten Boden.
 			</p>
 			<div class="actions">
-				<a class="nc-button -primary" href={ensureTrailingSlash(Navigation.start.url)}
+				<a class="nc-button -brand" href={ensureTrailingSlash(Navigation.start.url)}
 					>{Navigation.start.name}</a
 				>
-				<a class="nc-button -outline" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+				<a class="nc-button -outline -secondary" href={`mailto:${EMAIL}`}>{EMAIL}</a>
 			</div>
 		</div>
 	</div>

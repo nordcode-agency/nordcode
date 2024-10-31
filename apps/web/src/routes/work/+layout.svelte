@@ -1,32 +1,32 @@
 <script lang="ts">
-	import Header from '$lib/modules/common/components/Header.svelte';
-	import Breadcrumbs from '$lib/modules/common/components/Breadcrumbs.svelte';
-	import type { Breadcrumb } from '$lib/types/Breadcrumb';
-	import { page } from '$app/stores';
-	/**
-	 * @typedef {Object} Props
-	 * @property {import('svelte').Snippet} [children]
-	 */
+import { page } from '$app/stores';
+import Breadcrumbs from '$lib/modules/common/components/Breadcrumbs.svelte';
+import Header from '$lib/modules/common/components/Header.svelte';
+import type { Breadcrumb } from '$lib/types/Breadcrumb';
+/**
+ * @typedef {Object} Props
+ * @property {import('svelte').Snippet} [children]
+ */
 
-	/** @type {Props} */
-	let { children } = $props();
+/** @type {Props} */
+let { children } = $props();
 
-	const breadcrumbItems: Breadcrumb[] = [
-		{
-			name: 'Work',
-			url: '/#work'
-		},
-		{
-			name: $page.data?.heading,
-			url: $page.data?.url?.toString() ?? ''
-		}
-	];
+const breadcrumbItems: Breadcrumb[] = [
+    {
+        name: 'Work',
+        url: '/#work',
+    },
+    {
+        name: $page.data?.heading,
+        url: $page.data?.url?.toString() ?? '',
+    },
+];
 
-	// $effect(() => {
-	// 	document.documentElement.style.setProperty('--h-brand-primary', $page.data.hue.light);
-	// });
+// $effect(() => {
+// 	document.documentElement.style.setProperty('--h-brand-primary', $page.data.hue.light);
+// });
 
-	// const { heading, subheading, cover, name, url, goal, colorPalette, tags } = data;
+// const { heading, subheading, cover, name, url, goal, colorPalette, tags } = data;
 </script>
 
 <Header />

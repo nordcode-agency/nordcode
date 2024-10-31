@@ -1,13 +1,15 @@
 <script lang="ts">
-	import type { TProjects } from '$lib/content';
-	import ActionCard from './ActionCard.svelte';
-	import ProjectCard from './ProjectCard.svelte';
+import type { TProjects } from '$lib/content';
+import { Navigation } from '$lib/content/navigation';
+import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
+import ActionCard from './ActionCard.svelte';
+import ProjectCard from './ProjectCard.svelte';
 
-	interface Props {
-		projects: TProjects;
-	}
+interface Props {
+    projects: TProjects;
+}
 
-	let { projects }: Props = $props();
+let { projects }: Props = $props();
 </script>
 
 <div class="nc-stack container">
@@ -34,7 +36,7 @@
 		<div style="inline-size: min(240px, 100%)">
 			<ActionCard heading="Lass uns schauen, wie wir dich unterstützen können">
 				{#snippet action()}
-					<a href="/start" class="nc-button -primary">Loslegen</a>
+					<a href={ensureTrailingSlash(Navigation.start.url)} class="nc-button -brand">{Navigation.start.name}</a>
 				{/snippet}
 			</ActionCard>
 		</div>

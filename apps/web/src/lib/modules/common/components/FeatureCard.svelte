@@ -1,17 +1,17 @@
 <script lang="ts">
-	import type { MediaImage } from '$lib/types/index';
-	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
+import type { MediaImage } from '$lib/types/index';
+import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 
-	interface Props {
-		heading: string;
-		subheading?: string | undefined;
-		cover: MediaImage;
-		slug: string;
-		/** Used to perform view transitions */
-		id?: string | undefined;
-	}
+interface Props {
+    heading: string;
+    subheading?: string | undefined;
+    cover: MediaImage;
+    slug: string;
+    /** Used to perform view transitions */
+    id?: string | undefined;
+}
 
-	let { heading, subheading = undefined, cover, slug, id = undefined }: Props = $props();
+let { heading, subheading = undefined, cover, slug, id = undefined }: Props = $props();
 </script>
 
 <div class="container">
@@ -24,7 +24,7 @@
 				{#if subheading}
 					<span>{subheading}</span>
 				{/if}
-				<h2 class="section-title">{heading}</h2>
+				<h2 class="font-size-base">{heading}</h2>
 			</div>
 		</div>
 	</a>
@@ -110,11 +110,6 @@
 	.header {
 		grid-area: header;
 		padding: var(--spacing-base);
-	}
-
-	h2 {
-		font-size: var(--font-size-base);
-		line-height: var(--line-height-base);
 	}
 
 	.headings {
