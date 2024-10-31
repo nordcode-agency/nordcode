@@ -12,7 +12,7 @@
 
 <div class="nc-stack container">
 	<div class="headings">
-		<h1 class="text gradient-text">Wir erschaffen digitale Erlebnisse.</h1>
+		<h1 class="text section-title">Wir erschaffen digitale Erlebnisse.</h1>
 	</div>
 	<div class="footer nc-box">
 		<div class="featured-project">
@@ -54,19 +54,6 @@
 		display: flex;
 		gap: var(--spacing-far);
 		align-items: center;
-	}
-
-	h1 {
-		hyphens: none;
-		font-weight: var(--font-weight-regular);
-		/* font-size: var(--font-size-display); @todo adjust theme */
-		font-size: 3rem;
-		line-height: 4rem;
-
-		@media (--md-n-above) {
-			font-size: 4rem;
-			line-height: 5rem;
-		}
 	}
 
 	.footer {

@@ -70,7 +70,7 @@
 	.fullscreen {
 		position: relative;
 		min-block-size: 100vh;
-		background: linear-gradient(transparent 80%, var(--color-surface-muted));
+		background: linear-gradient(transparent 60%, var(--color-surface-muted));
 		overflow: hidden;
 	}
 

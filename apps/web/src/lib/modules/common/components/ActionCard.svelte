@@ -1,4 +1,4 @@
-<script lang="ts" async>
+<script lang="ts">
 	interface Props {
 		heading: string;
 		subheading?: string | undefined;
@@ -69,6 +69,7 @@
 
 	h2 {
 		font-size: var(--font-size-base);
+        line-height: 3ex;
 	}
 
 	.headings {
