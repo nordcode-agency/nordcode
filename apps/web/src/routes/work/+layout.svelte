@@ -1,14 +1,11 @@
 <script lang="ts">
 import { page } from '$app/stores';
 import Breadcrumbs from '$lib/modules/common/components/Breadcrumbs.svelte';
+import ColorPalette from '$lib/modules/common/components/ColorPalette.svelte';
+import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
 import Header from '$lib/modules/common/components/Header.svelte';
 import type { Breadcrumb } from '$lib/types/Breadcrumb';
-/**
- * @typedef {Object} Props
- * @property {import('svelte').Snippet} [children]
- */
 
-/** @type {Props} */
 let { children } = $props();
 
 const breadcrumbItems: Breadcrumb[] = [
@@ -22,11 +19,15 @@ const breadcrumbItems: Breadcrumb[] = [
     },
 ];
 
-// $effect(() => {
-// 	document.documentElement.style.setProperty('--h-brand-primary', $page.data.hue.light);
-// });
+$effect(() => {
+    document.documentElement.style.setProperty('--h-brand-primary', $page.data.hue[0]);
+    document.documentElement.style.setProperty('--h-brand-secondary', $page.data.hue[1]);
 
-// const { heading, subheading, cover, name, url, goal, colorPalette, tags } = data;
+    return () => {
+        document.documentElement.style.removeProperty('--h-brand-primary');
+        document.documentElement.style.removeProperty('--h-brand-secondary');
+    };
+});
 </script>
 
 <Header />
@@ -56,23 +57,24 @@ const breadcrumbItems: Breadcrumb[] = [
 						<span class="subheading slide-up-from">{$page.data.subheading}</span>
 						<h1 class="gradient-text slide-up-from">{$page.data.heading}</h1>
 					</div>
-					{#if $page.data.tags}
-						<div class="nc-cluster -near | tags">
-							{#each $page.data.tags as tag}
-								<span class="nc-slub tag">{tag}</span>
-							{/each}
-						</div>
-					{/if}
 				</div>
 			</div>
 		</div>
 		<div class="main slide-up-from">
 			<div class="side">
-				<p class="tldr">
+			<div class="nc-stack overview">
+				<p class="font-size-large">
 					<strong>
 						{$page.data.goal}
 					</strong>
 				</p>
+				{#if $page.data.tags}
+					<ul class="tags">
+						{#each $page.data.tags as tag}
+							<li class="nc-slub tag">{tag}</li>
+						{/each}
+					</ul>
+				{/if}
 				{#if $page.data.url}
 					<div class="actions">
 						<a href={$page.data.url} target="_blank" class="nc-button -outline info"
@@ -80,34 +82,18 @@ const breadcrumbItems: Breadcrumb[] = [
 						>
 					</div>
 				{/if}
-				{#if $page.data.colorPalette}
-					<div class="nc-stack -nogap">
-						<div class="nc-cluster -nogap -centered">
-							<small class="nc-input-label" style="margin-inline-end: 1ch"
-								>Hell:</small
-							>
-							{#each $page.data.colorPalette.light as color}
-								<div
-									style={`background-color: ${color}; aspect-ratio: 1/1; inline-size: 3ex`}
-								></div>
-							{/each}
-						</div>
-						<div class="nc-cluster -nogap -centered">
-							<small class="nc-input-label" style="margin-inline-end: 1ch"
-								>Dunkel:</small
-							>
-							{#each $page.data.colorPalette.dark as color}
-								<div
-									style={`background-color: ${color}; aspect-ratio: 1/1; inline-size: 3ex`}
-								></div>
-							{/each}
-						</div>
-					</div>
-				{/if}
+				</div>
 			</div>
-			<div class="body nc-flow">
-				{@render children?.()}
+			<div class="body nc-flow text-base">
+			{#if $page.data.colorPalette}
+				<ColorPalette palette={$page.data.colorPalette}></ColorPalette>
+			{/if}
+			{@render children?.()}
+			<section class="nc-region">
+				<FinalCTA />
+				</section>
 			</div>
+
 		</div>
 	</div>
 </article>
@@ -134,14 +120,18 @@ const breadcrumbItems: Breadcrumb[] = [
 
 	.headings {
 		/* view-transition-name: work-headings; */
+		max-inline-size: 100%;
 
 		& h1 {
 			animation: var(--animation-slide-up) 0.2s;
-			font-size: calc(var(--font-size-display) * 1.1);
-			line-height: 1.3;
+			font-size: calc(var(--font-size-display) * 0.8);
+			text-wrap: pretty;
+			max-inline-size: min(100%, 24ch);
+            hyphens: auto;
+
 
 			@media (--md-n-above) {
-				font-size: calc(var(--font-size-display) * 1.5);
+				font-size: var(--font-size-display);
 			}
 		}
 	}
@@ -175,7 +165,7 @@ const breadcrumbItems: Breadcrumb[] = [
 			/ 1fr;
 		align-items: start;
 		justify-items: start;
-		gap: var(--spacing-far);
+		gap: var(--spacing-farthest);
 
 		@media (--lg-n-above) {
 			grid:
@@ -196,18 +186,6 @@ const breadcrumbItems: Breadcrumb[] = [
 		max-inline-size: min(100%, var(--measure-base));
 	}
 
-	p,
-	ul,
-	li {
-		font-size: var(--font-size-large);
-		line-height: var(--line-height-base);
-	}
-
-	.full-width {
-		inline-size: 100%;
-		margin-block: var(--spacing-far);
-	}
-
 	.side {
 		grid-area: side;
 
@@ -221,14 +199,6 @@ const breadcrumbItems: Breadcrumb[] = [
 		padding-block: var(--spacing-base);
 	}
 
-	.tldr {
-		flex-grow: 1;
-		flex-basis: 24ch;
-		text-wrap: balance;
-		font-size: var(--font-size-large);
-		color: var(--color-text-base);
-	}
-
 	figure {
 		--flow-gap: var(--spacing-far);
 
@@ -236,6 +206,7 @@ const breadcrumbItems: Breadcrumb[] = [
 		min-block-size: 0;
 		overflow: hidden;
 	}
+
 	.img,
 	picture {
 		/* aspect-ratio: 16/9; */
@@ -244,5 +215,20 @@ const breadcrumbItems: Breadcrumb[] = [
 		object-fit: cover;
 		border-radius: var(--border-radius-large);
 		overflow: hidden;
+	}
+
+	.tags {
+	   padding-inline-start: 0;
+	}
+
+	.tag {
+	    padding-inline-start: 0;
+		display: flex;
+		line-height: var(--line-height-small);
+
+		&::before {
+    	    content: "—";
+            margin-inline-end: 1ch;
+		}
 	}
 </style>

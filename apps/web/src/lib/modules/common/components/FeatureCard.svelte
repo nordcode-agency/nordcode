@@ -24,7 +24,7 @@ let { heading, subheading = undefined, cover, slug, id = undefined }: Props = $p
 				{#if subheading}
 					<span>{subheading}</span>
 				{/if}
-				<h2 class="font-size-base">{heading}</h2>
+				<h2 class="font-size-base | heading">{heading}</h2>
 			</div>
 		</div>
 	</a>
@@ -110,6 +110,10 @@ let { heading, subheading = undefined, cover, slug, id = undefined }: Props = $p
 	.header {
 		grid-area: header;
 		padding: var(--spacing-base);
+	}
+
+	.heading {
+	   line-height: 2.8ex;
 	}
 
 	.headings {

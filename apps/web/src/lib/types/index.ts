@@ -3,7 +3,7 @@ export type MediaImage = {
     alt: string;
 };
 
-type ColorPalette = {
+export type ColorPalette = {
     light: string[];
     dark: string[];
 };
