@@ -31,12 +31,8 @@ html {
 	scroll-timeline: --bodyTimeline vertical;
 }
 
-body {
-	line-height: initial;
-}
-
 .section-title {
-    font-weight: 700;
+	font-weight: 700;
 	font-size: 3rem;
 	line-height: 2ex;
 
@@ -46,7 +42,7 @@ body {
 }
 
 p {
-	font-size: 1.2rem;
+	font-size: 1.125rem;
 	text-wrap: pretty;
 }
 

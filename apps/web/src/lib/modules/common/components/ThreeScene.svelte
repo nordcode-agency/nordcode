@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { main } from '$lib/modules/common/components/threeScene2';
 
-    const init: import('svelte/action').Action = () => {
-        main();
-    };
+	const init: import('svelte/action').Action = () => {
+		main();
+	};
 </script>
 
 <canvas class="webgl" use:init></canvas>

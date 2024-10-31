@@ -1,19 +1,19 @@
 <script lang="ts">
-import About from '$lib/modules/common/components/About.svelte';
-import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
-import Header from '$lib/modules/common/components/Header.svelte';
-import Hero from '$lib/modules/common/components/Hero.svelte';
-import LogoClipPath from '$lib/modules/common/components/LogoClipPath.svelte';
-import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
-import Services from '$lib/modules/common/components/Services.svelte';
-import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
-import type { PageData } from './$types';
+	import About from '$lib/modules/common/components/About.svelte';
+	import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
+	import Header from '$lib/modules/common/components/Header.svelte';
+	import Hero from '$lib/modules/common/components/Hero.svelte';
+	import LogoClipPath from '$lib/modules/common/components/LogoClipPath.svelte';
+	import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
+	import Services from '$lib/modules/common/components/Services.svelte';
+	import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
+	import type { PageData } from './$types';
 
-interface Props {
-    data: PageData;
-}
+	interface Props {
+		data: PageData;
+	}
 
-let { data }: Props = $props();
+	let { data }: Props = $props();
 </script>
 
 <svelte:head>
@@ -65,7 +65,7 @@ let { data }: Props = $props();
 <Services />
 <About />
 <div class="nc-box">
-<FinalCTA />
+	<FinalCTA />
 </div>
 
 <style lang="postcss">

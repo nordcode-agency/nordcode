@@ -1,7 +1,7 @@
 <script>
-import { EMAIL } from '$lib/content/contact';
-import { Navigation } from '$lib/content/navigation';
-import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
+	import { EMAIL } from '$lib/content/contact';
+	import { Navigation } from '$lib/content/navigation';
+	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 </script>
 
 <div class="container nc-center nc-card | finalCTA">
@@ -9,8 +9,8 @@ import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 		<h2 class="font-size-display">Bereit für dein Projekt?</h2>
 		<p>
 			Wir würden gerne mehr über dein Vorhaben erfahren. Egal ob mit einer konkreten Idee,
-			einer vagen Vorstellung, kleinem oder großen Budget. Erzähl uns mehr, unverbindlich
-			und ohne doppelten Boden.
+			einer vagen Vorstellung, kleinem oder großen Budget. Erzähl uns mehr, unverbindlich und
+			ohne doppelten Boden.
 		</p>
 		<div class="actions">
 			<a class="nc-button -brand" href={ensureTrailingSlash(Navigation.start.url)}

@@ -1,17 +1,17 @@
 <script lang="ts">
-import type { MediaImage } from '$lib/types/index';
-import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
+	import type { MediaImage } from '$lib/types/index';
+	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 
-interface Props {
-    heading: string;
-    subheading?: string | undefined;
-    cover: MediaImage;
-    slug: string;
-    /** Used to perform view transitions */
-    id?: string | undefined;
-}
+	interface Props {
+		heading: string;
+		subheading?: string | undefined;
+		cover: MediaImage;
+		slug: string;
+		/** Used to perform view transitions */
+		id?: string | undefined;
+	}
 
-let { heading, subheading = undefined, cover, slug, id = undefined }: Props = $props();
+	let { heading, subheading = undefined, cover, slug, id = undefined }: Props = $props();
 </script>
 
 <div class="container">
@@ -113,7 +113,7 @@ let { heading, subheading = undefined, cover, slug, id = undefined }: Props = $p
 	}
 
 	.heading {
-	   line-height: 2.8ex;
+		line-height: 2.8ex;
 	}
 
 	.headings {

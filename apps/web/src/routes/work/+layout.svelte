@@ -1,33 +1,33 @@
 <script lang="ts">
-import { page } from '$app/stores';
-import Breadcrumbs from '$lib/modules/common/components/Breadcrumbs.svelte';
-import ColorPalette from '$lib/modules/common/components/ColorPalette.svelte';
-import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
-import Header from '$lib/modules/common/components/Header.svelte';
-import type { Breadcrumb } from '$lib/types/Breadcrumb';
+	import { page } from '$app/stores';
+	import Breadcrumbs from '$lib/modules/common/components/Breadcrumbs.svelte';
+	import ColorPalette from '$lib/modules/common/components/ColorPalette.svelte';
+	import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
+	import Header from '$lib/modules/common/components/Header.svelte';
+	import type { Breadcrumb } from '$lib/types/Breadcrumb';
 
-let { children } = $props();
+	let { children } = $props();
 
-const breadcrumbItems: Breadcrumb[] = [
-    {
-        name: 'Work',
-        url: '/#work',
-    },
-    {
-        name: $page.data?.heading,
-        url: $page.data?.url?.toString() ?? '',
-    },
-];
+	const breadcrumbItems: Breadcrumb[] = [
+		{
+			name: 'Work',
+			url: '/#work'
+		},
+		{
+			name: $page.data?.heading,
+			url: $page.data?.url?.toString() ?? ''
+		}
+	];
 
-$effect(() => {
-    document.documentElement.style.setProperty('--h-brand-primary', $page.data.hue[0]);
-    document.documentElement.style.setProperty('--h-brand-secondary', $page.data.hue[1]);
+	$effect(() => {
+		document.documentElement.style.setProperty('--h-brand-primary', $page.data.hue[0]);
+		document.documentElement.style.setProperty('--h-brand-secondary', $page.data.hue[1]);
 
-    return () => {
-        document.documentElement.style.removeProperty('--h-brand-primary');
-        document.documentElement.style.removeProperty('--h-brand-secondary');
-    };
-});
+		return () => {
+			document.documentElement.style.removeProperty('--h-brand-primary');
+			document.documentElement.style.removeProperty('--h-brand-secondary');
+		};
+	});
 </script>
 
 <Header />
@@ -62,38 +62,37 @@ $effect(() => {
 		</div>
 		<div class="main slide-up-from">
 			<div class="side">
-			<div class="nc-stack overview">
-				<p class="font-size-large">
-					<strong>
-						{$page.data.goal}
-					</strong>
-				</p>
-				{#if $page.data.tags}
-					<ul class="tags">
-						{#each $page.data.tags as tag}
-							<li class="nc-slub tag">{tag}</li>
-						{/each}
-					</ul>
-				{/if}
-				{#if $page.data.url}
-					<div class="actions">
-						<a href={$page.data.url} target="_blank" class="nc-button -outline info"
-							>Webseite besuchen</a
-						>
-					</div>
-				{/if}
+				<div class="nc-stack overview">
+					<p class="font-size-large">
+						<strong>
+							{$page.data.goal}
+						</strong>
+					</p>
+					{#if $page.data.tags}
+						<ul class="tags">
+							{#each $page.data.tags as tag}
+								<li class="nc-slub tag">{tag}</li>
+							{/each}
+						</ul>
+					{/if}
+					{#if $page.data.url}
+						<div class="actions">
+							<a href={$page.data.url} target="_blank" class="nc-button -outline info"
+								>Webseite besuchen</a
+							>
+						</div>
+					{/if}
 				</div>
 			</div>
 			<div class="body nc-flow text-base">
-			{#if $page.data.colorPalette}
-				<ColorPalette palette={$page.data.colorPalette}></ColorPalette>
-			{/if}
-			{@render children?.()}
-			<section class="nc-region">
-				<FinalCTA />
+				{#if $page.data.colorPalette}
+					<ColorPalette palette={$page.data.colorPalette}></ColorPalette>
+				{/if}
+				{@render children?.()}
+				<section class="nc-region">
+					<FinalCTA />
 				</section>
 			</div>
-
 		</div>
 	</div>
 </article>
@@ -127,8 +126,7 @@ $effect(() => {
 			font-size: calc(var(--font-size-display) * 0.8);
 			text-wrap: pretty;
 			max-inline-size: min(100%, 24ch);
-            hyphens: auto;
-
+			hyphens: auto;
 
 			@media (--md-n-above) {
 				font-size: var(--font-size-display);
@@ -218,17 +216,17 @@ $effect(() => {
 	}
 
 	.tags {
-	   padding-inline-start: 0;
+		padding-inline-start: 0;
 	}
 
 	.tag {
-	    padding-inline-start: 0;
+		padding-inline-start: 0;
 		display: flex;
 		line-height: var(--line-height-small);
 
 		&::before {
-    	    content: "—";
-            margin-inline-end: 1ch;
+			content: '—';
+			margin-inline-end: 1ch;
 		}
 	}
 </style>
