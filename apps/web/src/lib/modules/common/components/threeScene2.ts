@@ -54,7 +54,7 @@ export function main() {
 	 * Water
 	 */
 	// Geometry
-	const waterGeometry = new THREE.PlaneGeometry(1, 4, 128, 128);
+	const waterGeometry = new THREE.PlaneGeometry(2, 4, 128, 128);
 	// const waterGeometry = new THREE.IcosahedronGeometry(1, 64);
 	// const waterGeometry = new THREE.BoxGeometry(2, 2, 0.25, 512);;
 
