@@ -60,8 +60,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="main slide-up-from">
-			<div class="side">
+		<div class="nc-with-sidebar -farthest | main slide-up-from">
+			<div class="side" data-aside>
 				<div class="nc-stack overview">
 					<p class="font-size-large">
 						<strong>
@@ -84,7 +84,7 @@
 					{/if}
 				</div>
 			</div>
-			<div class="body nc-flow text-base">
+			<div class="body nc-flow text-base" data-grow>
 				{#if $page.data.colorPalette}
 					<ColorPalette palette={$page.data.colorPalette}></ColorPalette>
 				{/if}
@@ -127,6 +127,7 @@
 			text-wrap: pretty;
 			max-inline-size: min(100%, 24ch);
 			hyphens: auto;
+			line-height: var(--line-height-small);
 
 			@media (--md-n-above) {
 				font-size: var(--font-size-display);
@@ -148,30 +149,12 @@
 		@media (--md-n-above) {
 			--stack-gap: var(--spacing-far);
 		}
-
-		@media (--lg-n-above) {
-			padding-block-end: calc(var(--spacing-farthest) * 2);
-		}
 	}
 
 	.main {
 		animation: var(--animation-slide-up) 0.4s;
-		display: grid;
-		grid:
-			'side' auto
-			'main' auto
-			/ 1fr;
-		align-items: start;
-		justify-items: start;
-		gap: var(--spacing-farthest);
-
-		@media (--lg-n-above) {
-			grid:
-				'side main' auto
-				'side main' auto
-				'.    main' auto
-				/ 2fr 5fr;
-		}
+		--with-sidebar-target-width: 32ch;
+		--with-sidebar-min-size: 60%;
 	}
 
 	article {
@@ -180,17 +163,15 @@
 	}
 
 	.body {
-		grid-area: main;
 		max-inline-size: min(100%, var(--measure-base));
 	}
-
 	.side {
-		grid-area: side;
+		align-self: stretch;
+	}
 
-		@media (--lg-n-above) {
-			position: sticky;
-			top: calc(var(--spacing-adaptive) / 2);
-		}
+	.overview {
+    	position: sticky;
+    	top: calc(var(--spacing-adaptive) / 2);
 	}
 
 	.actions {
