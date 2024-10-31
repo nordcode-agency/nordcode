@@ -33,7 +33,8 @@
 <Header />
 
 <svelte:head>
-	<title>{$page.data.heading} - nordcode</title>
+    <title>{$page.data.heading} - nordcode</title>
+    <meta name="description" content={$page.data.goal} />
 </svelte:head>
 
 <article class="nc-box" style="--h-brand-primary: {$page.data.hue.light}">
