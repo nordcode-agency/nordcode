@@ -29,4 +29,6 @@ createModelViewer(container, {
 });
 ```
 
+A full example with a base model can be found in the `index.html` file.
+
 ### Enjoy!

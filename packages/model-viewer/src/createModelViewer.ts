@@ -1,3 +1,8 @@
+/**
+ * Creates a model viewer with zoom and rotation capabilities.
+ * @module
+ */
+
 type Options = {
     /**
      * Speed factor for the rotation of the model. The higher the value, the faster the rotation.
@@ -59,6 +64,13 @@ const clamp = (value: number, min: number, max: number): number => {
     return Math.min(Math.max(value, min), max);
 };
 
+/**
+ * Creates a model viewer with zoom and rotation capabilities.
+ * Adds base styles and event listeners to the target element, so you can interact with the model.
+ *
+ * @param target - The container element that holds the model.
+ * @param options - An object with optional configuration.
+ */
 export const createModelViewer = (target: HTMLElement, options?: Options): void => {
     const { rotateSpeedFactor, perspective, defaultZoom, preventBaseStyles } = {
         ...defaultOptions,
