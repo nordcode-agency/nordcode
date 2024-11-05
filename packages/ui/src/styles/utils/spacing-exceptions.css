@@ -1,5 +1,5 @@
 .mt-base {
-    margin-top: var(--spacing-base);
+    margin-block-start: var(--spacing-base);
 }
 
 .mt-auto {

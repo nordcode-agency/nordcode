@@ -86,15 +86,15 @@
         border-radius: var(--border-radius-medium);
         border: var(--border-width-thin) solid var(--color-border-base);
 
-        & > * {
+        &>* {
             padding-inline: var(--p-x-details);
         }
 
-        & > *:last-child {
+        &>*:last-child {
             padding-block-end: var(--p-y-details);
         }
 
-        & > summary {
+        &>summary {
             cursor: pointer;
             color: var(--color-text-base);
             inline-size: 100%;
@@ -134,11 +134,9 @@
             margin-block-start: var(--spacing-near);
             font-size: var(--font-size-base);
             max-inline-size: max-content;
-            color: color-mix(
-                in oklch,
-                currentColor calc(var(--transparency-weaker) * 100%),
-                transparent
-            );
+            color: color-mix(in oklch,
+                    currentColor calc(var(--transparency-weaker) * 100%),
+                    transparent);
         }
 
         & cite:before {
@@ -193,7 +191,8 @@
         color: var(--color-brand-primary-base);
     }
 
-    ::selection {
+    :where(::selection,
+        ::target-text) {
         background-color: var(--color-brand-primary-base);
         color: var(--color-surface-base);
     }
