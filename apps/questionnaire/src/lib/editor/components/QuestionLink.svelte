@@ -1,126 +1,125 @@
 <script lang="ts">
-    import type { Question } from '@nordcode/questionnaire-renderer';
-    import { Navigation } from '../../common/config/Navigation';
-    import { removeQuestion, moveQuestion } from '../editorStore';
+import type { Question } from '@nordcode/questionnaire-renderer';
+import { Navigation } from '../../common/config/Navigation';
+import { moveQuestion, removeQuestion } from '../editorStore';
 
-    type Position = 'below' | 'above';
-    interface QuestionLinkProps {
-        question: Question;
-        questionOrderIdx: number;
+type Position = 'below' | 'above';
+interface QuestionLinkProps {
+    question: Question;
+    questionOrderIdx: number;
+}
+
+let { question, questionOrderIdx }: QuestionLinkProps = $props();
+
+const questionLink = Navigation.question.url.replace(':id', question.id);
+
+let isGrabbing = $state(false);
+let isDraggedOver = $state(false);
+let position = $state<Position | undefined>(undefined);
+
+const onDragStart = (event: DragEvent) => {
+    const target = event.target as HTMLElement;
+    isGrabbing = true;
+    const dragImage = target?.parentElement?.parentElement;
+    if (!dragImage || !event.dataTransfer) {
+        return;
     }
 
-    let { question, questionOrderIdx }: QuestionLinkProps = $props();
+    event.dataTransfer.setData('application/question-id', question.id);
+    event.dataTransfer.setDragImage(dragImage, 0, 0);
+    event.dataTransfer.effectAllowed = 'move';
+};
 
-    const questionLink = Navigation.question.url.replace(':id', question.id);
+const onDragEnd = (event: DragEvent) => {
+    isGrabbing = false;
+};
 
-    let isGrabbing = $state(false);
-    let isDraggedOver = $state(false);
-    let position = $state<Position | undefined>(undefined);
+const shouldHandleDragEvent = (event: DragEvent): boolean => {
+    const target = event.target as HTMLElement;
+    if (!target || !event.dataTransfer) {
+        return false;
+    }
 
-    const onDragStart = (event: DragEvent) => {
-        const target = event.target as HTMLElement;
-        isGrabbing = true;
-        const dragImage = target?.parentElement?.parentElement;
-        if (!dragImage || !event.dataTransfer) {
-            return;
-        }
+    if (!event.dataTransfer.types.includes('application/question-id')) {
+        return false;
+    }
 
-        event.dataTransfer.setData('application/question-id', question.id);
-        event.dataTransfer.setDragImage(dragImage, 0, 0);
-        event.dataTransfer.effectAllowed = 'move';
-    };
+    const questionsId = event.dataTransfer.getData('application/question-id');
+    const closestTR = target.closest('tr');
 
-    const onDragEnd = (event: DragEvent) => {
-        isGrabbing = false;
-    };
+    if (questionsId === closestTR?.id) {
+        return false;
+    }
 
-    const shouldHandleDragEvent = (event: DragEvent): boolean => {
-        const target = event.target as HTMLElement;
-        if (!target || !event.dataTransfer) {
-            return false;
-        }
+    return true;
+};
 
-        if (!event.dataTransfer.types.includes('application/question-id')) {
-            return false;
-        }
+const onDragEnter = (event: DragEvent) => {
+    if (!shouldHandleDragEvent(event)) {
+        return;
+    }
 
-        const questionsId = event.dataTransfer.getData('application/question-id');
-        const closestTR = target.closest('tr');
+    event.preventDefault();
+    isDraggedOver = true;
+};
 
-        if (questionsId === closestTR?.id) {
-            return false;
-        }
+const onDragOver = (event: DragEvent) => {
+    if (!shouldHandleDragEvent(event)) {
+        return;
+    }
 
-        return true;
-    };
+    event.preventDefault();
+    isDraggedOver = true;
 
-    const onDragEnter = (event: DragEvent) => {
-        if (!shouldHandleDragEvent(event)) {
-            return;
-        }
+    const target = event.target as HTMLElement;
+    const closestTR = target.closest('tr');
+    const bounds = closestTR?.getBoundingClientRect();
 
-        event.preventDefault();
-        isDraggedOver = true;
-    };
+    if (!bounds) {
+        return;
+    }
 
-    const onDragOver = (event: DragEvent) => {
-        if (!shouldHandleDragEvent(event)) {
-            return;
-        }
+    const y = event.clientY;
+    const top = bounds.top;
+    const bottom = bounds.bottom;
+    const height = bounds.height;
 
-        event.preventDefault();
-        isDraggedOver = true;
-
-        const target = event.target as HTMLElement;
-        const closestTR = target.closest('tr');
-        const bounds = closestTR?.getBoundingClientRect();
-
-        if (!bounds) {
-            return;
-        }
-
-        const y = event.clientY;
-        const top = bounds.top;
-        const bottom = bounds.bottom;
-        const height = bounds.height;
-
-        // in upper third
-        if (y < top + height / 3) {
-            position = 'above';
-        } else if (y > bottom - height / 3) {
-            position = 'below';
-        } else {
-            position = undefined;
-        }
-    };
-
-    const onDragLeave = (event: DragEvent) => {
-        if (!event.dataTransfer?.types.includes('application/question-id')) {
-            return;
-        }
-
-        event.preventDefault();
-        isDraggedOver = false;
+    // in upper third
+    if (y < top + height / 3) {
+        position = 'above';
+    } else if (y > bottom - height / 3) {
+        position = 'below';
+    } else {
         position = undefined;
-    };
+    }
+};
 
-    const onDrop = (event: DragEvent) => {
-        if (!shouldHandleDragEvent(event)) {
-            return;
-        }
+const onDragLeave = (event: DragEvent) => {
+    if (!event.dataTransfer?.types.includes('application/question-id')) {
+        return;
+    }
 
-        const target = event.target as HTMLElement;
-        const closestTR = target.closest('tr');
-        const questionsId = event.dataTransfer!.getData('application/question-id');
+    event.preventDefault();
+    isDraggedOver = false;
+    position = undefined;
+};
 
-        const newIndex =
-            position === 'above' ? Math.max(questionOrderIdx - 1, 0) : questionOrderIdx;
+const onDrop = (event: DragEvent) => {
+    if (!shouldHandleDragEvent(event)) {
+        return;
+    }
 
-        moveQuestion(questionsId, newIndex);
+    const target = event.target as HTMLElement;
+    const closestTR = target.closest('tr');
+    const questionsId = event.dataTransfer!.getData('application/question-id');
 
-        isDraggedOver = false;
-        position = undefined;
-    };
+    const newIndex = position === 'above' ? Math.max(questionOrderIdx - 1, 0) : questionOrderIdx;
+
+    moveQuestion(questionsId, newIndex);
+
+    isDraggedOver = false;
+    position = undefined;
+};
 </script>
 
 <tr
@@ -169,7 +168,7 @@
     <td>{question.type}</td>
     <td>
         <button
-            class="nc-button -small -destructive"
+            class="nc-button -small -outline -danger"
             type="button"
             onclick={() => removeQuestion(question.id)}
             >Frage löschen

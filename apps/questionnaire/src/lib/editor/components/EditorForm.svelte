@@ -41,7 +41,7 @@ const orderedQuestions = $derived.by(() => {
 
 {#if $currentQuestionnaire}
     <form class="nc-card nc-form" onsubmit={createQuestionnaire}>
-        <h1 class="nc-form-title">Fragenbogen erstellen</h1>
+        <h1 class="nc-form-title">Erstelle einen Fragebogen</h1>
 
         <p class="nc-form-hint">
             Zuerst erstellen wir eine grobe Beschreibung. Diese wird den Ausfüller:innen zum Start
@@ -67,34 +67,40 @@ const orderedQuestions = $derived.by(() => {
                 bind:value={$currentQuestionnaire.questionnaire.description}
             />
 
-            <fieldset style="inline-size: 100%;">
-                <legend>Fragen</legend>
+            <fieldset class="nc-fieldset" style="inline-size: 100%;">
+                <legend class="nc-legend">Fragen</legend>
                 <div class="nc-stack">
                     <div class="nc-table questionsTable" role="group">
                         <table>
                             <thead>
-                                <tr>
+                                <tr class="questionsTable-row">
                                     <th></th>
                                     <th>Titel</th>
                                     <th>Typ</th>
                                     <th>Aktionen</th>
                                 </tr>
                             </thead>
+                            <tfoot>
+                                <tr class="questionsTable-row">
+                                    <th colspan="2"><button class="nc-button -outline -primary -small" type="button" onclick={createNewQuestion}>
+                                        Frage hinzufügen
+                                    </button></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+
+                            </tfoot>
                             <tbody>
                                 {#each orderedQuestions as question, idx}
                                     <QuestionLink {question} questionOrderIdx={idx}></QuestionLink>
                                 {/each}
+
                             </tbody>
+
                         </table>
                     </div>
-
-                    <button class="nc-button -outline" type="button" onclick={createNewQuestion}>
-                        Frage hinzufügen
-                    </button>
                 </div>
             </fieldset>
-
-            <hr />
 
 
             <button class="nc-button" type="submit">Fragebogen erstellen</button>
@@ -109,7 +115,7 @@ const orderedQuestions = $derived.by(() => {
 {/if}
 
 <style>
-    .questionsTable thead > tr {
+    .questionsTable-row {
         &:before,
         &:after {
             content: '';

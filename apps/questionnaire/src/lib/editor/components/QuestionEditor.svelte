@@ -3,7 +3,7 @@ import { Input, MarkdownEditor, Select, TextArea } from '@nordcode/forms-svelte'
 import { type Question, QuestionType } from '@nordcode/questionnaire-renderer';
 import { questionHasOptions } from '@nordcode/questionnaire-renderer';
 import { Navigation } from '../../common/config/Navigation';
-import { createOrUpdateQuestion } from '../editorStore';
+import { NEW_QUESTION_ID, createOrUpdateQuestion } from '../editorStore';
 import NextQuestionEditor from './NextQuestionEditor.svelte';
 import OptionsEditor from './OptionsEditor.svelte';
 
@@ -48,9 +48,9 @@ $effect(() => {
 </script>
 
 <form class="nc-card nc-form" onsubmit={createQuestion}>
-    <h1 class="nc-form-title">Frage bearbeiten</h1>
-    <p class="nc-form-hint">Zuerst erstellen wir eine grobe Beschreibung. Diese wird den Ausfüller:innen zum Start angezeigt. Idealerweise beschreibt sie den Zweck des Fragebogens.</p>
-    <div class="nc-stack">
+    <h1 class="nc-form-title">{question.id === NEW_QUESTION_ID ? `Neue Frage erstellen` : `Frage bearbeiten`}</h1>
+    <p class="nc-form-hint">Gib deinen Ausfüller:innen so viele Infos, wie nötig, um die besten Ergebnisse zu erziehlen.</p>
+    <div class="nc-stack -far">
     <Input
             name={`question-${questionUpdate.id}-title`}
             label="Titel"
@@ -84,18 +84,14 @@ $effect(() => {
         >
         </TextArea>
         {#if questionHasOptions(questionUpdate)}
-            <div class="nc-region">
-                <OptionsEditor bind:options={questionUpdate.options}></OptionsEditor>
-            </div>
+            <OptionsEditor bind:options={questionUpdate.options}></OptionsEditor>
         {/if}
 
-        <div class="nc-region">
             <NextQuestionEditor
                 bind:nextQuestionConfig={questionUpdate.next}
                 questionId={questionUpdate.id}
                 options={questionHasOptions(questionUpdate) ? questionUpdate.options : undefined}
                 ></NextQuestionEditor>
-        </div>
 
 
         <button class="nc-button" type="submit">

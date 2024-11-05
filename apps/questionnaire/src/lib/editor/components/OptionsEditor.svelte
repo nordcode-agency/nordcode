@@ -21,15 +21,15 @@ const removeOption = (optionId: string) => {
 };
 </script>
 
-<fieldset class="nc-fieldset">
+<fieldset class="nc-fieldset" style="inline-size: 100%">
 <legend class="nc-legend">
     <h2>Optionen</h2>
 </legend>
 <p class="nc-hint">Füge Optionen für die Frage hinzu.</p>
-<div class="nc-stack">
+<div class="nc-stack -stretched -contained">
     {#each options as option (option.id)}
     <div class="nc-cluster -between nc-box -bordered | options-row">
-    <div class="options-inputs">
+    <div class="nc-stack">
     <Input
         name={`option-${option.id}-title`}
         label="Titel"
@@ -57,13 +57,10 @@ const removeOption = (optionId: string) => {
     </button>
     </div>
     {/each}
-    <button class="nc-button -outline" type="button" onclick={addOption}>
+    <button class="nc-button -outline -primary -small" type="button" onclick={addOption}>
         Option hinzufügen
     </button>
 </div>
-
-
-
 </fieldset>
 
 <style>
@@ -72,13 +69,7 @@ const removeOption = (optionId: string) => {
         border-style: dashed;
     }
 
-    .options-inputs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--spacing-base);
-    }
-
-    .options-desc {
+   .options-desc {
         grid-column: 1 / 3;
         --input-field-max-inline-size: calc(40ch * 2 + var(--spacing-base));
     }

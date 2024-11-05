@@ -21,7 +21,7 @@ const question = $derived(
 
 {#key id}
     {#if question}
-    <section class="nc-center page-center-layout">
+    <section class="nc-center page-center-layout nc-pile nc-region">
         <QuestionEditor question={question}></QuestionEditor>
     </section>
     {:else}
