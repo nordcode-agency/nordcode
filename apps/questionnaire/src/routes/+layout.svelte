@@ -2,8 +2,8 @@
 import '../global.css';
 
 import { page } from '$app/stores';
-import Header from '$lib/common/components/Header.svelte';
 import Footer from '$lib/common/components/Footer.svelte';
+import Header from '$lib/common/components/Header.svelte';
 import type { WithChildren } from '$lib/common/types/WithChildren';
 
 let { children }: WithChildren = $props();
@@ -14,7 +14,7 @@ let { children }: WithChildren = $props();
     <meta name="description" content={$page.data.description} />
 </svelte:head>
 
-<Header></Header>
+<!-- <Header></Header> -->
 <main>
 {@render children?.()}
 </main>

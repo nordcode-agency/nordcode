@@ -1,9 +1,10 @@
 <script lang="ts">
 import { Input, MarkdownEditor, Select, TextArea } from '@nordcode/forms-svelte';
-import { Navigation } from '../../common/config/Navigation';
 import { type Question, QuestionType } from '@nordcode/questionnaire-renderer';
 import { questionHasOptions } from '@nordcode/questionnaire-renderer';
+import { Navigation } from '../../common/config/Navigation';
 import { createOrUpdateQuestion } from '../editorStore';
+import NextQuestionEditor from './NextQuestionEditor.svelte';
 import OptionsEditor from './OptionsEditor.svelte';
 
 interface QuestionEditorProps {
@@ -12,7 +13,7 @@ interface QuestionEditorProps {
 
 let { question }: QuestionEditorProps = $props();
 
-let questionUpdate = $state({ ...question });
+let questionUpdate = $state({ ...question, next: question.next ? [...question.next] : [] });
 
 export const availableTypesRecord: Record<QuestionType, string> = {
     [QuestionType.text]: 'Text',
@@ -83,11 +84,22 @@ $effect(() => {
         >
         </TextArea>
         {#if questionHasOptions(questionUpdate)}
-            <OptionsEditor bind:options={questionUpdate.options}></OptionsEditor>
+            <div class="nc-region">
+                <OptionsEditor bind:options={questionUpdate.options}></OptionsEditor>
+            </div>
         {/if}
+
+        <div class="nc-region">
+            <NextQuestionEditor
+                bind:nextQuestionConfig={questionUpdate.next}
+                questionId={questionUpdate.id}
+                options={questionHasOptions(questionUpdate) ? questionUpdate.options : undefined}
+                ></NextQuestionEditor>
+        </div>
+
+
         <button class="nc-button" type="submit">
             Frage speichern
         </button>
         </div>
-
 </form>

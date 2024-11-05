@@ -1,10 +1,10 @@
-import {
-    QuestionType,
-    type Question,
-    type Questionnaire,
-    type Option,
-} from '@nordcode/questionnaire-renderer';
 import { localStore } from '@nordcode/forms-svelte';
+import {
+    type Option,
+    type Question,
+    QuestionType,
+    type Questionnaire,
+} from '@nordcode/questionnaire-renderer';
 import { nanoid } from 'nanoid';
 
 const STORE_KEY = 'CURRENT_QUESTIONNAIRE';
@@ -20,7 +20,8 @@ export const initialQuestionnaireState: Questionnaire = {
     id: generateId('questionnaire'),
     title: 'Neuer Fragebogen',
     description: '',
-    questions: [],
+    questions: {},
+    questionsOrder: [],
 };
 
 export const currentQuestionnaire =
@@ -52,7 +53,6 @@ export const createNewQuestion = (): Question => ({
     title: 'Neue Frage',
     type: QuestionType.text,
     description: '',
-    renderedDescription: '',
 });
 
 export const createOrUpdateQuestion = (question: Question) => {
@@ -61,10 +61,14 @@ export const createOrUpdateQuestion = (question: Question) => {
 
         if (question.id === NEW_QUESTION_ID) {
             question.id = generateId('question');
-            updatedQuestions.push(question);
-        } else {
-            const questionIndex = updatedQuestions.findIndex(({ id }) => id === question.id);
-            updatedQuestions[questionIndex] = question;
+        }
+
+        updatedQuestions[question.id] = question;
+
+        const currentOrderIdx = currentState.questionnaire.questionsOrder.indexOf(question.id);
+
+        if (currentOrderIdx === -1) {
+            currentState.questionnaire.questionsOrder.push(question.id);
         }
 
         return {
@@ -73,21 +77,43 @@ export const createOrUpdateQuestion = (question: Question) => {
                 ...currentState.questionnaire,
                 questions: updatedQuestions,
             },
+            questionsOrder: currentState.questionnaire.questionsOrder,
         };
     });
 };
 
 export const removeQuestion = (questionToDelete: string) => {
     currentQuestionnaire?.update((currentState) => {
-        const updatedQuestions = currentState.questionnaire.questions.filter(
-            ({ id, description }) => id !== questionToDelete,
-        );
+        const updatedQuestions = currentState.questionnaire.questions;
+        delete updatedQuestions[questionToDelete];
+        currentState.questionnaire.questionsOrder =
+            currentState.questionnaire.questionsOrder.filter(
+                (questionId) => questionId !== questionToDelete,
+            );
 
         return {
             errors: currentState.errors,
             questionnaire: {
                 ...currentState.questionnaire,
                 questions: updatedQuestions,
+            },
+            questionsOrder: currentState.questionnaire.questionsOrder,
+        };
+    });
+};
+
+export const moveQuestion = (questionId: string, toIdx: number): void => {
+    currentQuestionnaire?.update((currentState) => {
+        const fromIdx = currentState.questionnaire.questionsOrder.indexOf(questionId);
+        const updatedOrder = [...currentState.questionnaire.questionsOrder];
+        updatedOrder.splice(fromIdx, 1);
+        updatedOrder.splice(toIdx, 0, questionId);
+
+        return {
+            errors: currentState.errors,
+            questionnaire: {
+                ...currentState.questionnaire,
+                questionsOrder: updatedOrder,
             },
         };
     });

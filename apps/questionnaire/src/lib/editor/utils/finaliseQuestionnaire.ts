@@ -1,9 +1,9 @@
-import type { Question, Questionnaire } from '@nordcode/questionnaire-renderer';
-import { questionHasOptions, QuestionType } from '@nordcode/questionnaire-renderer';
 import { convertToHtml } from '@nordcode/forms-svelte';
+import type { Question, Questionnaire } from '@nordcode/questionnaire-renderer';
+import { QuestionType, questionHasOptions } from '@nordcode/questionnaire-renderer';
 
-const cleanupQuestions = (questions: Question[]): Question[] => {
-    return questions.map((question) => {
+const cleanupQuestions = (questions: Record<string, Question>): Record<string, Question> => {
+    for (const [questionId, question] of Object.entries(questions)) {
         if (!questionHasOptions(question) && 'options' in question) {
             question.options = undefined;
         }
@@ -11,8 +11,10 @@ const cleanupQuestions = (questions: Question[]): Question[] => {
         // @todo: to save for later reuse, skip this step
         question.description = convertToHtml(question.description ?? '');
 
-        return question;
-    });
+        questions[questionId] = question;
+    }
+
+    return questions;
 };
 
 export const finaliseQuestionnaire = async (questionnaire: Questionnaire) => {

@@ -1,9 +1,9 @@
 <script lang="ts">
-import { Input } from '@nordcode/forms-svelte';
+import { Input, TextArea } from '@nordcode/forms-svelte';
 import type { Option } from '@nordcode/questionnaire-renderer';
-import TextArea from '../../../../../../packages/forms-svelte/src/lib/components/InputFields/TextArea.svelte';
-import { createNewOption } from '../editorStore';
+
 import Trash from '../../common/components/icons/Trash.svelte';
+import { createNewOption } from '../editorStore';
 
 interface OptionEditorProps {
     options: Option[];
@@ -25,6 +25,7 @@ const removeOption = (optionId: string) => {
 <legend class="nc-legend">
     <h2>Optionen</h2>
 </legend>
+<p class="nc-hint">Füge Optionen für die Frage hinzu.</p>
 <div class="nc-stack">
     {#each options as option (option.id)}
     <div class="nc-cluster -between nc-box -bordered | options-row">
@@ -45,6 +46,7 @@ const removeOption = (optionId: string) => {
         name={`option-${option.id}-description`}
         label="Beschreibung"
         id={`option-${option.id}-description`}
+        optional
         bind:value={option.description}
         />
     </div>
@@ -55,7 +57,7 @@ const removeOption = (optionId: string) => {
     </button>
     </div>
     {/each}
-    <button class="nc-button" type="button" onclick={addOption}>
+    <button class="nc-button -outline" type="button" onclick={addOption}>
         Option hinzufügen
     </button>
 </div>
@@ -65,8 +67,6 @@ const removeOption = (optionId: string) => {
 </fieldset>
 
 <style>
-
-
     .options-row {
         inline-size: 100%;
         border-style: dashed;

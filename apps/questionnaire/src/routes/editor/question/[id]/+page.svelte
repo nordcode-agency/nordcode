@@ -1,7 +1,7 @@
 <script lang="ts">
 import QuestionEditor from '$lib/editor/components/QuestionEditor.svelte';
 import { currentQuestionnaire } from '$lib/editor/editorStore';
-import { createNewQuestion, NEW_QUESTION_ID } from '../../../../lib/editor/editorStore';
+import { NEW_QUESTION_ID, createNewQuestion } from '../../../../lib/editor/editorStore';
 
 interface PageData {
     data: {
@@ -11,16 +11,20 @@ interface PageData {
 
 let { data }: PageData = $props();
 
-const question =
+const id = $derived(data.questionId);
+const question = $derived(
     data.questionId === NEW_QUESTION_ID
         ? createNewQuestion()
-        : $currentQuestionnaire?.questionnaire.questions.find((q) => q.id === data.questionId);
+        : $currentQuestionnaire?.questionnaire.questions[id],
+);
 </script>
 
-{#if question}
-<section class="nc-center page-center-layout">
-    <QuestionEditor question={question}></QuestionEditor>
-</section>
-{:else}
-LOADING...
-{/if}
+{#key id}
+    {#if question}
+    <section class="nc-center page-center-layout">
+        <QuestionEditor question={question}></QuestionEditor>
+    </section>
+    {:else}
+    LOADING...
+    {/if}
+{/key}
