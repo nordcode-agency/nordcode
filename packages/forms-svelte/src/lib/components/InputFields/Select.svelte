@@ -1,8 +1,8 @@
 <script lang="ts">
+import type { FormEventHandler } from 'svelte/elements';
+import type { Option } from '../../shared/models/Option.ts';
 import InputWrapper from './InputWrapper.svelte';
 import type { GenericInputProps } from './types/GenericInputProps.ts';
-import type { Option } from '../../shared/models/Option.ts';
-import type { FormEventHandler } from 'svelte/elements';
 
 interface SelectProps extends Omit<GenericInputProps, 'type'> {
     options: Option[];
@@ -18,9 +18,11 @@ let {
     value = $bindable(),
     children,
     options,
+    oninput,
 }: SelectProps = $props();
 
 const handleInput: FormEventHandler<HTMLSelectElement> = (event) => {
+    oninput?.(event);
     const target = event.target as HTMLInputElement;
 
     value = target.value;
