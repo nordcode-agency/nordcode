@@ -10,12 +10,25 @@ export enum QuestionType {
     // score = 'score',
 }
 
+export type Condition = {
+    key: 'value';
+    operator: 'EQ' | 'NE' | 'GT' | 'LT' | 'GTE' | 'LTE' | 'CONTAINS' | 'STARTS_WITH' | 'ENDS_WITH';
+    compareValue: string | number | boolean;
+    chain?: 'AND' | 'OR';
+};
+
+export type NextQuestionConfig = {
+    questionId: string;
+    when: Condition[];
+};
+
 export type QuestionBase = {
     id: string;
     title: string;
     description?: string;
     hint?: string;
     required?: boolean;
+    next?: NextQuestionConfig[];
 };
 
 export type Option = {
@@ -60,5 +73,6 @@ export type Questionnaire = {
     id: string;
     title: string;
     description?: string;
-    questions: Question[];
+    questions: Record<string, Question>;
+    questionsOrder: string[];
 };

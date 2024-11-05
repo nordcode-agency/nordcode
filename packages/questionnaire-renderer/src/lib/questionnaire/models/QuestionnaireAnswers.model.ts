@@ -1,7 +1,6 @@
-import type { Question } from './Questionnaire.model.ts';
-
 export type AnswerValue = string | number | boolean | undefined | AnswerValue[];
 
-export type QuestionnaireAnswer = Question & {
+export type QuestionnaireAnswer = {
+    questionId: string;
     answer: AnswerValue;
 };
