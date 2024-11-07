@@ -1,7 +1,5 @@
-@import '@nordcode/ui/media';
 @import '@nordcode/ui/complete';
 @import '@nordcode/ui/fonts';
-@import '@nordcode/ui/base';
 
 @keyframes slide-up {
 	to {
