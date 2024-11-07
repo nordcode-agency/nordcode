@@ -1,17 +1,16 @@
 @layer components.gallery {
-
     /**
- * A horizontal stacked gallery that is scrollable when it overflows.
- *
- * @example ```html
- *  <ul class="nc-gallery">
- *    <li>First</li>
- *    <li>Second</li>
- *    <li>Third</li>
- *  </ul>
- * ```
- */
-    .nc-gallery {
+     * A horizontal stacked gallery that is scrollable when it overflows.
+     *
+     * @example ```html
+     *  <ul class="nc-gallery">
+     *    <li>First</li>
+     *    <li>Second</li>
+     *    <li>Third</li>
+     *  </ul>
+     * ```
+     */
+    :where(.nc-gallery) {
         display: flex;
         flex-direction: row;
         gap: var(--gallery-gap, var(--spacing-base));
@@ -30,14 +29,15 @@
             scroll-behavior: smooth;
         }
 
-        &>* {
+        & > * {
             display: inline-block;
             scroll-snap-align: start;
             flex: 0 0 var(--gallery-item-size, auto);
         }
 
         &.-custom-scrollbar {
-            scrollbar-color: var(--gallery-scrollbar-fg, var(--color-text-on-emphasis)) var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
+            scrollbar-color: var(--gallery-scrollbar-fg, var(--color-text-on-emphasis))
+                var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
 
             &::-webkit-scrollbar {
                 block-size: var(--gallery-scrollbar-height, var(--spacing-base));
@@ -49,11 +49,17 @@
 
             &::-webkit-scrollbar-thumb {
                 background-color: var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
-                background-image: linear-gradient(var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) 0,
-                        var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25),
-                        var(--gallery-scrollbar-fg, var(--color-text-on-emphasis)) calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25),
-                        var(--gallery-scrollbar-fg, var(--color-text-on-emphasis)) calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75),
-                        var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75));
+                background-image: linear-gradient(
+                    var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) 0,
+                    var(--gallery-scrollbar-bg, var(--color-surface-emphasis))
+                        calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25),
+                    var(--gallery-scrollbar-fg, var(--color-text-on-emphasis))
+                        calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25),
+                    var(--gallery-scrollbar-fg, var(--color-text-on-emphasis))
+                        calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75),
+                    var(--gallery-scrollbar-bg, var(--color-surface-emphasis))
+                        calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75)
+                );
             }
         }
     }

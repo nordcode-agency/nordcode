@@ -20,14 +20,8 @@
         background-repeat: no-repeat;
     }
 
-    @media (--motionOK) {
-        :where(:focus-visible) {
-            transition: outline-offset 145ms var(--ease-2);
-        }
-
-        :where(:not(:active):focus-visible) {
-            transition-duration: 0.25s;
-        }
+    :where(:focus-visible) {
+        transition: outline-offset var(--transition-duration-short) var(--ease-2);
     }
 
     :where(:focus-visible, :focus) {

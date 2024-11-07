@@ -1,5 +1,5 @@
 @layer components.cards {
-    .nc-card {
+    :where(.nc-card) {
         --_card-background-color: var(--card-background-color, var(--color-surface-base));
         --_card-color: var(--card-color, var(--color-text-base));
         --_card-border-color: var(--card-border-color, var(--color-border-base));
@@ -36,11 +36,11 @@
 
         transition: border-color var(--transition-duration-base) var(--ease-2);
 
-        @media (--sm-n-above) {
+        @media (width >= 480px) {
             --_card-padding-inline: var(--card-padding-inline, var(--spacing-far));
         }
 
-        @media (--lg-n-above) {
+        @media (width >= 1024px) {
             --_card-padding-inline: var(--card-padding-inline, var(--spacing-farthest));
         }
 

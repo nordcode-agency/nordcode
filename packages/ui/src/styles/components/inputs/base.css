@@ -1,0 +1,258 @@
+@layer components.inputs {
+    :where(label:not([class]), .nc-input-label) {
+        font-family: var(--font-family-default);
+        letter-spacing: var(--tracking-tight);
+        font-weight: var(--font-weight-active);
+        color: var(--color-text-base);
+        display: inline-flex;
+        font-size: inherit;
+        cursor: pointer;
+        gap: 0.15lh;
+        align-items: center;
+    }
+
+    :where(
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="number"],
+            input[type="url"],
+            input[type="search"],
+            input[type="date"],
+            input[type="month"],
+            input[type="week"],
+            input[type="text"],
+            input[type="datetime"],
+            input[type="datetime-local"],
+            input[type="time"],
+            input[type="tel"],
+            input[type="color"],
+            input[type="file"],
+            input[type="checkbox"],
+            input[type="radio"],
+            textarea,
+            select,
+            .nc-input,
+            .nc-select,
+            .nc-textarea,
+            .nc-input-checkbox,
+            .nc-input-radio,
+            .nc-input-label,
+            .nc-input-color,
+            .nc-input-field,
+            .nc-input-error,
+            .nc-checkbox-wrapper,
+            .nc-input-switch,
+            .nc-radio-field,
+            .nc-checkbox-field
+        ) {
+        --_input-background: var(--input-background, var(--color-surface-subtle));
+        --_input-background-active: var(--input-background-active, var(--color-surface-base));
+        --_input-color: var(--input-color, var(--color-text-base));
+        --_input-border: var(
+            --input-border,
+            var(--border-width-thin) solid var(--color-border-base)
+        );
+        --_input-border-radius: var(--input-border-radius, var(--border-radius-medium));
+
+        --_input-box-shadow: var(--input-box-shadow, var(--shadow-inset));
+        --_input-outline: var(
+            --input-outline,
+            var(--border-width-thick) solid var(--color-brand-primary-base)
+        );
+        --_input-disabled-filter: var(--input-disabled-filter, contrast(0.72) opacity(0.72));
+
+        --_input-padding-block: var(--input-padding-block, 0.125lh);
+        --_input-padding-inline: var(--input-padding-inline, 1ch);
+        --_input-hover-background: var(--input-hover-background, var(--color-brand-primary-hover));
+    }
+
+    :where(
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="number"],
+            input[type="url"],
+            input[type="search"],
+            input[type="date"],
+            input[type="month"],
+            input[type="week"],
+            input[type="text"],
+            input[type="datetime"],
+            input[type="datetime-local"],
+            input[type="time"],
+            input[type="tel"],
+            input[type="color"],
+            input[type="file"],
+            textarea,
+            select,
+            .nc-input
+        ) {
+        font: inherit;
+        letter-spacing: inherit;
+        word-spacing: inherit;
+        appearance: none;
+
+        color: var(--_input-color);
+        background-color: var(--_input-background);
+        border: var(--_input-border);
+        border-radius: var(--_input-border-radius);
+        block-size: var(--button-height-base);
+        padding-inline: var(--_input-padding-inline);
+        box-shadow: var(--_input-box-shadow);
+        inline-size: var(--input-inline-size, auto);
+        line-height: var(--line-height-base);
+
+        &:focus,
+        &:hover:focus {
+            --current-background: var(--_input-background-active);
+            outline: var(--_input-outline);
+            outline-offset: 0;
+            background-color: var(--_input-background-active);
+        }
+
+        &:disabled {
+            filter: var(--_input-disabled-filter);
+            cursor: not-allowed;
+        }
+
+        &:hover {
+            --current-background: var(--_input-hover-background);
+            background-color: var(--_input-hover-background);
+        }
+
+        &[required] {
+            border-inline-start-width: var(--border-width-thick);
+        }
+
+        &::placeholder {
+            color: var(--color-text-subtle);
+        }
+    }
+
+    :where(select:not([class]), .nc-select) {
+        padding-inline-end: 3.5ch;
+        background-image: var(--triangle-down-url);
+        background-position: right 1ch top 50%;
+        background-size: 1.5ch 1.25ch;
+    }
+
+    :where(textarea:not([class]), .nc-textarea) {
+        min-block-size: calc(5lh + 2 * var(--_input-padding-block));
+        min-inline-size: var(--input-inline-size, 100%);
+        max-inline-size: 100%;
+        padding-block: var(--_input-padding-block);
+    }
+
+    :where(
+            input[type="checkbox"]:not([class]),
+            input[type="radio"]:not([class]),
+            .nc-input-checkbox,
+            .nc-input-radio,
+            .nc-input-switch
+        ) {
+        inline-size: 1lh;
+        block-size: 1lh;
+        margin: 0;
+        padding: 0;
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: var(--_input-border);
+        --current-background: var(--_input-background);
+        background: var(--current-background);
+        cursor: pointer;
+        transition: var(--transition-duration-short) background var(--ease-2);
+        box-shadow: var(--_input-box-shadow);
+    }
+
+    :where(input[type="checkbox"]:not([class]), .nc-input-checkbox) {
+        --_transition-duration: 0ms;
+        overflow: hidden;
+        border-radius: var(--_input-border-radius);
+
+        &:before {
+            content: "";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            inline-size: 0.75lh;
+            block-size: 0.75lh;
+            background-color: var(--color-brand-primary-contrast);
+            transform: scale(0.8) translateY(2em);
+            transition: transform var(--ease-out-2) var(--transition-duration-short);
+            font-family: var(--font-family-sans);
+            --font-weight: var(--font-weight-active);
+            line-height: 1;
+            color: var(--_input-background);
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+
+        &:checked {
+            --current-background: var(--color-brand-primary-base);
+
+            &:before {
+                transform: scale(1) translateY(0%);
+            }
+        }
+    }
+
+    :where(input[type="radio"], .nc-input-radio) {
+        border-radius: var(--border-radius-round);
+        overflow: hidden;
+
+        &:before {
+            content: "";
+            display: inline-flex;
+            block-size: 50%;
+            inline-size: 50%;
+            border-radius: var(--border-radius-round);
+            transform: scale(0.8) translateY(2em);
+            background-color: var(--color-brand-primary-contrast);
+            transition: transform var(--ease-out-2) var(--transition-duration-short);
+        }
+
+        &:checked {
+            --current-background: var(--color-brand-primary-base);
+
+            &:before {
+                transform: scale(1) translateY(0%);
+            }
+        }
+    }
+
+    :where(input[type="color"], .nc-input-color) {
+        aspect-ratio: 1;
+        inline-size: auto;
+        padding: calc(var(--button-height-base) / 12);
+    }
+
+    :where(input[type="date"], .nc-input-date) {
+        flex-flow: row nowrap;
+    }
+
+    :where(input[type="range"], .nc-input-range) {
+        & > .nc-hint {
+            margin-inline-start: auto;
+        }
+
+        &::-webkit-slider-thumb,
+        &::-moz-range-thumb {
+            appearance: none;
+            inline-size: 1lh;
+            block-size: 1lh;
+            border-radius: var(--_input-border-radius);
+            border: var(--_input-border);
+            border-color: var(--color-text-base);
+            background-color: var(--color-text-base);
+            box-shadow: var(--shadow-near);
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--color-brand-primary-base);
+                border-color: var(--color-brand-primary-base);
+            }
+        }
+    }
+}

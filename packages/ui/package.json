@@ -1,37 +1,74 @@
 {
     "name": "@nordcode/ui",
-    "version": "2.3.0",
-    "license": "MIT",
+    "description": "Nordcode UI Design System",
+    "keywords": ["nordcode", "CSS", "Design System", "Boneless UI"],
+    "license": "AGPL-3.0-or-later",
+    "version": "1.0.0",
     "publishConfig": {
         "access": "public"
     },
     "type": "module",
     "exports": {
         "./bundle": "./src/styles/bundle.css",
+        "./bundle-configless": "./src/styles/bundle_configless.css",
         "./complete": "./src/styles/complete.css",
+        "./complete-configless": "./src/styles/complete_configless.css",
         "./compiled/bundle": "./out/bundle.css",
+        "./compiled/bundle-configless": "./out/bundle-configless.css",
         "./compiled/complete": "./out/complete.css",
-        "./base": "./src/styles/utils/base.css",
-        "./media": "./src/styles/utils/media.css",
-        "./fonts": "./src/assets/fonts/fonts.css",
-        "./inputs": "./src/styles/components/inputs.css",
-        "./buttons": "./src/styles/components/buttons.css",
-        "./badges": "./src/styles/components/badges.css",
-        "./dialogs": "./src/styles/components/dialogs.css",
+        "./compiled/complete-configless": "./out/complete_configless.css",
+        "./compiled/colors": "./out/colors.css",
+
+        "./utils": "./src/styles/utils/bundle.css",
+        "./utils/reset": "./src/styles/utils/reset.css",
+        "./utils/base": "./src/styles/utils/base.css",
+        "./utils/media": "./src/styles/utils/media.css",
+        "./utils/easings": "./src/styles/utils/easings.css",
+        "./utils/layouts": "./src/styles/utils/layouts.css",
+        "./utils/theme": "./src/styles/utils/theme.css",
+
         "./components": "./src/styles/components/bundle.css",
+        "./components/badges": "./src/styles/components/badges.css",
+        "./components/breadcrumbs": "./src/styles/components/breadcrumbs.css",
+        "./components/buttons": "./src/styles/components/buttons.css",
+        "./components/card": "./src/styles/components/card.css",
+        "./components/dialogs": "./src/styles/components/dialogs.css",
+        "./components/forms": "./src/styles/components/forms.css",
+        "./components/gallery": "./src/styles/components/gallery.css",
+        "./components/icons": "./src/styles/components/icons.css",
+        "./components/lists": "./src/styles/components/lists.css",
+        "./components/notifications": "./src/styles/components/notifications.css",
+        "./components/tables": "./src/styles/components/tables.css",
+
+        "./components/inputs": "./src/styles/components/inputs/bundle.css",
+        "./components/inputs/base": "./src/styles/components/inputs/base.css",
+        "./components/inputs/fields": "./src/styles/components/inputs/fields.css",
+        "./components/inputs/segmented": "./src/styles/components/inputs/segmented.css",
+        "./components/inputs/switch": "./src/styles/components/inputs/switch.css",
+        "./components/inputs/tag-select": "./src/styles/components/inputs/tag-select.css",
+
+        "./exceptions": "./src/styles/exceptions/bundle.css",
+        "./exceptions/spacings": "./src/styles/exceptions/spacings.css",
+        "./exceptions/typography": "./src/styles/exceptions/typography.css",
+        "./exceptions/misc": "./src/styles/exceptions/misc.css",
+
+        "./colors": "./src/styles/theme/colors.css",
+        "./config": "./src/styles/config.css",
+
         "./logo": "./src/assets/logos/nordcode-logo.svg",
         "./ArrowRightSolid": "./src/assets/icons/ArrowRightSolid.svelte",
         "./src/modules/dialogs/": "./src/modules/dialogs/",
         "./src/modules/copyButtons/": "./src/modules/copyButtons/",
         "./src/modules/notifications/": "./src/modules/notifications/",
-        "./src/modules/sectionObserver/": "./src/modules/sectionObserver/"
+        "./src/modules/sectionObserver/": "./src/modules/sectionObserver/",
+        "./fonts": "./src/assets/fonts/fonts.css"
     },
     "scripts": {
         "lib:transform": "node transform.js",
         "build": "pnpm run '/^lib:.*/'"
     },
-    "dependencies": {
+    "devDependencies": {
         "browserslist": "^4.24.2",
-        "lightningcss": "^1.27.0"
+        "lightningcss": "^1.28.1"
     }
 }

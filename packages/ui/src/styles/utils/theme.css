@@ -1,4 +1,4 @@
-@layer helpers.colors {
+@layer helpers.theme {
     * {
         --text: var(--color-text-muted);
         --color: var(--color-text-muted);

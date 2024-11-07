@@ -1,7 +1,5 @@
 @layer config, theme, reset, base, utils, components, helpers;
 
-@import "./config/bundle.css";
 @import "./theme/colors.css";
-
 @import "./utils/bundle.css";
 @import "./exceptions/bundle.css";

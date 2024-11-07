@@ -3,12 +3,13 @@
         --_notification-max-width: var(--notifications-max-width, 20rem);
         --_notification-gap: var(--notification-gap, var(--spacing-base));
         --_notification-border-color: var(--notification-border-color, var(--color-border-base));
-        --_notification-center-background: var(--notification-center-background,
-                oklch(var(--color-surface-subtle) / 0.05));
+        --_notification-center-background: var(
+            --notification-center-background,
+            oklch(var(--color-surface-subtle) / 0.05)
+        );
     }
 
-    .nc-notification-center,
-    .nc-notification-output {
+    :where(.nc-notification-center, .nc-notification-output) {
         position: fixed;
         inset-block-start: 0;
         inset-block-end: 0;
@@ -28,8 +29,7 @@
         transition: transform var(--transition-duration-base) ease-in-out;
     }
 
-    .nc-notification-output,
-    .nc-notification-center-container {
+    :where(.nc-notification-output, .nc-notification-center-container) {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -43,17 +43,17 @@
         flex-grow: 1;
     }
 
-    .nc-notification-center.-open {
+    :where(.nc-notification-center.-open) {
         pointer-events: all;
         transform: translate(0, 0);
     }
 
-    .nc-notification-center.-open:has(+ .nc-notification-output > .nc-notification) {
+    :where(.nc-notification-center.-open:has(+ .nc-notification-output > .nc-notification)) {
         opacity: 0.5;
         filter: contrast(0.5);
     }
 
-    .nc-notification-center-header {
+    :where(.nc-notification-center-header) {
         display: flex;
         align-items: center;
         gap: var(--_notification-gap);
@@ -61,7 +61,7 @@
         margin-block-end: var(--_notification-gap);
     }
 
-    .nc-notification {
+    :where(.nc-notification) {
         padding: 0.5lh 2ch;
         background: var(--color-surface-base);
         border: var(--border-width-thin) solid var(--_notification-border-color);
@@ -75,26 +75,26 @@
         pointer-events: all;
     }
 
-    .nc-notification p {
+    :where(.nc-notification) p {
         margin: 0;
         padding: 0;
     }
 
-    .nc-notification-title {
+    :where(.nc-notification-title) {
         font-size: var(--font-size-base);
         font-weight: var(--font-weight-heading);
     }
 
-    .nc-notification-description {
+    :where(.nc-notification-description) {
         font-size: var(--font-size-small);
     }
 
-    .nc-notification-time {
+    :where(.nc-notification-time) {
         font-size: var(--font-size-small);
         color: var(--color-text-subtle);
     }
 
-    .nc-notification-footer {
+    :where(.nc-notification-footer) {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
@@ -102,14 +102,14 @@
         margin-block-start: 0.5ch;
     }
 
-    .nc-notification .nc-button,
-    .nc-notification-center .nc-button {
+    :where(.nc-notification .nc-button, .nc-notification-center .nc-button) {
         --button-height-base: 1em;
         font-size: var(--font-size-small);
     }
 
-    .nc-notification.-closing {
-        animation: remove-notification var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1) forwards;
+    :where(.nc-notification.-closing) {
+        animation: remove-notification var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1)
+            forwards;
     }
 
     @keyframes pop-in {

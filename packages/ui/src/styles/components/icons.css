@@ -1,5 +1,5 @@
 @layer components.icons {
-    .nc-icon {
+    :where(.nc-icon) {
         --icon-size: 2ex;
 
         display: block;
@@ -44,7 +44,7 @@
         }
     }
 
-    :where(button, .nc-button)>.nc-icon {
+    :where(button, .nc-button) > .nc-icon {
         --icon-size: 2ex;
     }
 

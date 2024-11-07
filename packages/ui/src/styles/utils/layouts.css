@@ -1,6 +1,6 @@
 @layer utils {
     /* Layout classes that handle 80% of the layout*/
-    .nc-box {
+    :where(.nc-box) {
         padding: var(--spacing-base);
 
         &.-bordered {
@@ -33,7 +33,7 @@
         }
     }
 
-    .nc-stack {
+    :where(.nc-stack) {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-base);
@@ -56,41 +56,43 @@
         }
     }
 
-    .nc-flow > * + * {
-        margin-block-start: var(--flow-gap, 0.6lh);
-    }
+    :where(.nc-flow) {
+        > * + * {
+            margin-block-start: var(--flow-gap, 0.6lh);
+        }
 
-    .nc-flow > * {
-        max-inline-size: var(--flow-base-meassure, 72ch);
-    }
+        > * {
+            max-inline-size: var(--flow-base-meassure, 72ch);
+        }
 
-    .nc-flow > *:is(h1, h2, h3, h4, h5, h6) {
-        max-inline-size: var(--flow-headline-meassure, 32ch);
-        --flow-gap: 1.3lh;
-    }
+        > *:is(h1, h2, h3, h4, h5, h6) {
+            max-inline-size: var(--flow-headline-meassure, 32ch);
+            --flow-gap: 1.3lh;
+        }
 
-    .nc-flow > *:is(h1, h2, h3, h4, h5, h6) + p {
-        --flow-gap: 0.5lh;
-    }
+        > *:is(h1, h2, h3, h4, h5, h6) + p {
+            --flow-gap: 0.5lh;
+        }
 
-    .nc-flow > p + p {
-        --flow-gap: 0.8lh;
-    }
+        > p + p {
+            --flow-gap: 0.8lh;
+        }
 
-    .nc-flow > figure {
-        margin-inline: 0;
-        margin-block: 1lh;
-    }
+        > figure {
+            margin-inline: 0;
+            margin-block: 1lh;
+        }
 
-    .nc-flow .breakAfter {
-        margin-block-end: auto;
+        .breakAfter {
+            margin-block-end: auto;
+        }
     }
 
     /**
      * Center your content.
      * Can be used as a layout wrapper.
      */
-    .nc-center {
+    :where(.nc-center) {
         box-sizing: content-box;
         margin-inline: auto;
         max-inline-size: var(--center-measure, max-content);
@@ -101,11 +103,11 @@
     /**
       A consistently spaced section to bring some white space to your blocks.
      */
-    .nc-region {
+    :where(.nc-region) {
         padding-block: var(--region-space, var(--spacing-farthest));
     }
 
-    .nc-cluster {
+    :where(.nc-cluster) {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -129,7 +131,7 @@
         }
     }
 
-    .nc-with-sidebar {
+    :where(.nc-with-sidebar) {
         inline-size: 100%;
         display: flex;
         flex-wrap: wrap;
@@ -173,7 +175,7 @@
     --grid-placement (auto-fill): Set either auto-fit or auto-fill
     to change how empty grid tracks are handled
     */
-    .nc-grid {
+    :where(.nc-grid) {
         display: grid;
         grid-template-columns: repeat(
                 var(--grid-placement, auto-fill),
@@ -212,7 +214,7 @@
     --switcher-vertical-alignment How items should align vertically.
     Can be any acceptable flexbox alignment value.
     */
-    .nc-switcher {
+    :where(.nc-switcher) {
         display: flex;
         flex-wrap: wrap;
         gap: var(--switcher-gap, var(--spacing-base));
@@ -234,7 +236,7 @@
     /* PILE
      * Pile items on top of each other Prefer this over position absolute.
      */
-    .nc-pile {
+    :where(.nc-pile) {
         display: grid;
         place-items: center;
         grid: [pile] 1fr / [pile] 1fr;
@@ -278,7 +280,19 @@
         }
     }
 
-    .full-width {
-        inline-size: 100%;
+    :where(.nc-ram-grid) {
+        --_nc-ram-grid-gap-row: var(--nc-ram-grid-gap-row, var(--_nc-ram-grid-gap));
+        --_nc-ram-grid-gap-column: var(--nc-ram-grid-gap-column, var(--_nc-ram-grid-gap));
+        --_nc-ram-grid-gap: var(--nc-ram-grid-gap, var(--spacing-near));
+        --_nc-ram-grid-min-width: var(--nc-ram-grid-min-width, 150px);
+        --_nc-ram-grid-repeat-count: var(--nc-ram-grid-repeat-count, auto-fit);
+
+        display: grid;
+        row-gap: var(--_nc-ram-grid-gap-row);
+        column-gap: var(--_nc-ram-grid-gap-column);
+        grid-template-columns: repeat(
+                var(--_nc-ram-grid-repeat-count),
+                minmax(min(var(--_nc-ram-grid-min-width), 100%), 1fr)
+            );
     }
 }

@@ -1,14 +1,5 @@
 @layer config, theme, reset, base, utils, components, helpers;
 
-@import './utils/media.css';
+@import "./bundle_configless.css";
 
-@import './utils/easings.css';
-@import './utils/reset.css';
-@import './utils/base.css';
-@import './utils/layouts.css';
-@import './utils/spacing-exceptions.css';
-@import './utils/color-helpers.css';
-@import './utils/extra-exceptions.css';
-@import './utils/typo-exceptions.css';
-
-@import './components/bundle.css';
+@import "./components/bundle.css";

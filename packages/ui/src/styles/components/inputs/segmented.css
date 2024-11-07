@@ -1,0 +1,123 @@
+@layer components.inputs-segmented {
+    :where(.nc-segmented-control-group) {
+        container: segmented-control / inline-size;
+    }
+
+    :where(.nc-segmented-control) {
+        --_segmented-control-border-radius: var(
+            --segmented-control-border-radius,
+            var(--_input-border-radius)
+        );
+        --_segmented-control-checked-text-color: var(
+            --segmented-control-checked-text-color,
+            var(--color-brand-primary-contrast)
+        );
+        --_segmented-control-checked-surface-color: var(
+            --segmented-control-checked-surface-color,
+            var(--color-brand-primary-base)
+        );
+        display: grid;
+        grid-auto-rows: 1fr;
+        grid-auto-flow: row;
+        padding: 0;
+        margin: 0;
+        border: none;
+        box-shadow: var(--_input-box-shadow);
+        border-radius: var(--_segmented-control-border-radius);
+        background: var(--_input-background);
+        block-size: auto;
+        inline-size: 100%;
+
+        & input {
+            opacity: 0;
+            position: absolute;
+        }
+
+        &:focus-within {
+            outline: var(--_input-outline);
+            outline-offset: 0;
+        }
+
+        & label {
+            display: flex;
+            padding-inline: var(--_input-padding-inline);
+            padding-block: var(--_input-padding-block);
+            min-block-size: var(--segmented-control-min-height, var(--button-height-base));
+            color: var(--_input-color);
+            border: var(--_input-border);
+            align-items: center;
+            justify-content: center;
+
+            > .nc-input-label {
+                color: inherit;
+            }
+
+            &:hover {
+                --current-background: var(--_input-hover-background);
+                background-color: var(--_input-hover-background);
+            }
+
+            &:first-child {
+                border-radius: var(--_segmented-control-border-radius)
+                    var(--_segmented-control-border-radius) 0 0;
+            }
+
+            &:last-child {
+                border-radius: 0 0 var(--_segmented-control-border-radius)
+                    var(--_segmented-control-border-radius);
+            }
+
+            &:not(:last-child) {
+                border-block-end: var(--border-width-thin) solid var(--color-border-muted);
+            }
+
+            &:not(:first-child) {
+                border-block-start: none;
+            }
+
+            &:has(input:checked) {
+                background: var(--_segmented-control-checked-surface-color);
+                color: var(--_segmented-control-checked-text-color);
+                box-shadow: var(--shadow-near);
+            }
+
+            &:focus-within {
+                outline: none;
+            }
+
+            &:has(input:disabled) {
+                filter: var(--_input-disabled-filter);
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    @container segmented-control (min-width: 32rem) {
+        :where(.nc-segmented-control) {
+            grid-auto-columns: 1fr;
+            grid-auto-flow: column;
+
+            > label {
+                &:first-child {
+                    border-radius: var(--_segmented-control-border-radius) 0 0
+                        var(--_segmented-control-border-radius);
+                }
+
+                &:last-child {
+                    border-radius: 0 var(--_segmented-control-border-radius)
+                        var(--_segmented-control-border-radius) 0;
+                }
+
+                &:not(:last-child) {
+                    border-block-end: var(--_input-border);
+                    border-inline-end: var(--border-width-thin) solid var(--color-border-muted);
+                }
+
+                &:not(:first-child) {
+                    border-block-start: var(--_input-border);
+                    border-inline-start: none;
+                }
+            }
+        }
+    }
+}

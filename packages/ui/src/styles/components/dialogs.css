@@ -1,14 +1,29 @@
 @layer components.dialogs {
-    dialog {
-        --_dialog-transition-duration: var(--dialog-transition-duration,
-                var(--transition-duration-base));
+    :where(.nc-dialog) {
+        --_dialog-radius: var(--dialog-radius, var(--border-radius-medium));
+        --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
+        --_dialog-close-size: var(--dialog-close-size, var(--button-height-base));
+        --_dialog-transition-duration: var(
+            --dialog-transition-duration,
+            var(--transition-duration-base)
+        );
 
         display: block;
         z-index: var(--layer-important);
-        animation: close-dialog var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1) forwards;
+        animation: close-dialog var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1)
+            forwards;
         transition: opacity var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1);
         position: fixed;
         inset: 0;
+        border: var(--border-width-thin) solid var(--color-border-base);
+        inline-size: calc(100dvw - 2 * var(--spacing-base));
+        block-size: 90dvh;
+        max-inline-size: 28rem;
+        background: var(--color-surface-base);
+        box-shadow: var(--shadow-medium);
+        margin-block: 5dvh;
+        padding: 0;
+        border-radius: var(--_dialog-radius);
 
         &[open] {
             animation: open-dialog var(--_dialog-transition-duration) cubic-bezier(0, 0.6, 0.58, 1);
@@ -22,77 +37,61 @@
             background: rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(3px);
         }
-    }
 
-    .nc-dialog {
-        --_dialog-radius: var(--dialog-radius, var(--border-radius-medium));
-        --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
-        --_dialog-close-size: var(--dialog-close-size, var(--button-height-base));
+        :where(.dialog-container) {
+            display: grid;
+            grid-template:
+                "header header" auto
+                "content content" 1fr
+                "footer footer" auto / 1fr 1fr;
+            inline-size: 100%;
+            block-size: 100%;
+        }
 
-        border: var(--border-width-thin) solid var(--color-border-base);
-        inline-size: calc(100dvw - 2 * var(--spacing-base));
-        block-size: 90dvh;
-        max-inline-size: 28rem;
-        background: var(--color-surface-base);
-        box-shadow: var(--shadow-medium);
-        margin-block: 5dvh;
-        padding: 0;
-        border-radius: var(--_dialog-radius);
-    }
+        :where(.dialog-header) {
+            grid-area: header;
+            border-block-end: var(--border-width-thin) solid var(--color-border-muted);
+            background-color: var(--color-surface-subtle);
+            padding-inline: var(--_dialog-padding-inline);
+            border-radius: var(--_dialog-radius) var(--_dialog-radius) 0 0;
+            display: grid;
+            grid-template: "title close" / 1fr var(--_dialog-close-size);
+            align-items: flex-start;
+            padding-block: var(--spacing-near);
+            min-inline-size: calc(2 * var(--spacing-near) + var(--_dialog-close-size));
+        }
 
-    .dialog-container {
-        display: grid;
-        grid-template:
-            "header header" auto
-            "content content" 1fr
-            "footer footer" auto / 1fr 1fr;
-        inline-size: 100%;
-        block-size: 100%;
-    }
+        :where(.dialog-header) > button[data-closes-dialog] {
+            grid-area: close;
+            inline-size: var(--_dialog-close-size);
+            block-size: var(--_dialog-close-size);
+        }
 
-    .dialog-header {
-        grid-area: header;
-        border-block-end: var(--border-width-thin) solid var(--color-border-muted);
-        background-color: var(--color-surface-subtle);
-        padding-inline: var(--_dialog-padding-inline);
-        border-radius: var(--_dialog-radius) var(--_dialog-radius) 0 0;
-        display: grid;
-        grid-template: "title close" / 1fr var(--_dialog-close-size);
-        align-items: flex-start;
-        padding-block: var(--spacing-near);
-        min-inline-size: calc(2 * var(--spacing-near) + var(--_dialog-close-size));
-    }
+        :where(.dialog-title) {
+            font-size: var(--font-size-large);
+            margin: 0;
+            padding: 0;
+            line-height: var(--_dialog-close-size);
+            overflow-wrap: anywhere;
+        }
 
-    .dialog-header>button[data-closes-dialog] {
-        grid-area: close;
-        inline-size: var(--_dialog-close-size);
-        block-size: var(--_dialog-close-size);
-    }
+        :where(.dialog-content) {
+            grid-area: content;
+            padding-inline: var(--_dialog-padding-inline);
+            padding-block: var(--spacing-near);
+            overflow: auto;
+        }
 
-    .dialog-title {
-        font-size: var(--font-size-large);
-        margin: 0;
-        padding: 0;
-        line-height: var(--_dialog-close-size);
-        overflow-wrap: anywhere;
-    }
-
-    .dialog-content {
-        grid-area: content;
-        padding-inline: var(--_dialog-padding-inline);
-        padding-block: var(--spacing-near);
-        overflow: auto;
-    }
-
-    .dialog-actions {
-        grid-area: footer;
-        padding-inline: var(--_dialog-padding-inline);
-        padding-block: var(--spacing-near);
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-start;
-        border-block-start: var(--border-width-thin) solid var(--color-border-muted);
-        background-color: var(--color-surface-subtle);
+        :where(.dialog-actions) {
+            grid-area: footer;
+            padding-inline: var(--_dialog-padding-inline);
+            padding-block: var(--spacing-near);
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            border-block-start: var(--border-width-thin) solid var(--color-border-muted);
+            background-color: var(--color-surface-subtle);
+        }
     }
 
     @keyframes open-dialog {

@@ -1,0 +1,44 @@
+@layer components.inputs {
+    :where(.nc-tag-select-field) {
+        --_tag-select-checked-text-color: var(
+            --tag-select-checked-text-color,
+            var(--color-brand-primary-contrast)
+        );
+        --_tag-select-checked-surface-color: var(
+            --tag-select-checked-surface-color,
+            var(--color-brand-primary-base)
+        );
+        --_tag-select-border-radius: var(--tag-select-border-radius, var(--_input-border-radius));
+
+        &:focus-within:has(:focus-visible) {
+            outline-offset: 1ch;
+            outline: var(--_input-outline);
+            border-radius: var(--_tag-select-border-radius);
+        }
+
+        & input {
+            opacity: 0;
+            position: absolute;
+        }
+
+        & label {
+            display: grid;
+
+            &:hover,
+            &:focus-within {
+                background-color: var(--_input-hover-background);
+            }
+
+            &:has(input:checked) {
+                background: var(--_tag-select-checked-surface-color);
+                color: var(--_tag-select-checked-text-color);
+                box-shadow: var(--shadow-near);
+            }
+
+            &:has(input:disabled) {
+                filter: var(--_input-disabled-filter);
+                cursor: not-allowed;
+            }
+        }
+    }
+}

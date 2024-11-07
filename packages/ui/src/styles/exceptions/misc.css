@@ -1,5 +1,4 @@
-.text-assistive,
-.sr-only {
+:where(.text-assistive, .sr-only) {
     border: 0;
     clip: rect(0 0 0 0);
     height: 0;
@@ -11,8 +10,12 @@
     white-space: nowrap;
 }
 
-.break-word {
+:where(.break-word) {
     overflow-wrap: break-word;
     max-inline-size: 100%;
     hyphens: auto;
+}
+
+.full-width {
+    inline-size: 100%;
 }

@@ -1,17 +1,17 @@
-import { browserslistToTargets, bundle } from 'lightningcss';
-import browserslist from 'browserslist';
 import fs from 'node:fs';
+import browserslist from 'browserslist';
+import { browserslistToTargets, bundle } from 'lightningcss';
 
 const browserlistTargtsWidelyAvailable = [
-    "Chrome > 0 and last 2.5 years",
-    "ChromeAndroid > 0 and last 2.5 years",
-    "Edge > 0 and last 2.5 years",
-    "Firefox > 0 and last 2.5 years",
-    "FirefoxAndroid > 0 and last 2.5 years",
-    "Safari > 0 and last 2.5 years",
-    "iOS > 0 and last 2.5 years",
-    "not dead"
-]
+    'Chrome > 0 and last 2.5 years',
+    'ChromeAndroid > 0 and last 2.5 years',
+    'Edge > 0 and last 2.5 years',
+    'Firefox > 0 and last 2.5 years',
+    'FirefoxAndroid > 0 and last 2.5 years',
+    'Safari > 0 and last 2.5 years',
+    'iOS > 0 and last 2.5 years',
+    'not dead',
+];
 
 const targets = browserslistToTargets(browserslist(browserlistTargtsWidelyAvailable));
 
@@ -21,10 +21,10 @@ const { code: colors } = bundle({
     drafts: {
         customMedia: true,
     },
-    filename: 'src/styles/theme/colors_raw.css',
+    filename: 'src/styles/theme/colors.css',
 });
 
-fs.writeFileSync('src/styles/theme/colors_processed.css', colors);
+fs.writeFileSync('out/colors.css', colors);
 
 const { code } = bundle({
     // ...
@@ -36,6 +36,17 @@ const { code } = bundle({
 });
 
 fs.writeFileSync('out/bundle.css', code);
+
+const { code: bundleConfigless } = bundle({
+    // ...
+    targets,
+    drafts: {
+        customMedia: true,
+    },
+    filename: 'src/styles/bundle_configless.css',
+});
+
+fs.writeFileSync('out/bundle_configless.css', bundleConfigless);
 
 const { code: codeComplete } = bundle({
     // ...
