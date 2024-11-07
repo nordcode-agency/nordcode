@@ -25,12 +25,14 @@ const onDragStart = (event: DragEvent) => {
         return;
     }
 
+    document.documentElement.style.cursor = 'grabbing';
     event.dataTransfer.setData('application/question-id', question.id);
     event.dataTransfer.setDragImage(dragImage, 0, 0);
-    event.dataTransfer.effectAllowed = 'move';
+    // event.dataTransfer.effectAllowed = 'move';
 };
 
 const onDragEnd = (event: DragEvent) => {
+    document.documentElement.style.cursor = 'inherit';
     isGrabbing = false;
 };
 
@@ -110,12 +112,18 @@ const onDrop = (event: DragEvent) => {
     }
 
     const target = event.target as HTMLElement;
-    const closestTR = target.closest('tr');
-    const questionsId = event.dataTransfer!.getData('application/question-id');
 
+    if (!event.dataTransfer || !position) {
+        return;
+    }
+    const questionsId = event.dataTransfer.getData('application/question-id');
     const newIndex = position === 'above' ? Math.max(questionOrderIdx - 1, 0) : questionOrderIdx;
 
-    moveQuestion(questionsId, newIndex);
+    if (document.startViewTransition) {
+        document.startViewTransition(() => moveQuestion(questionsId, newIndex));
+    } else {
+        moveQuestion(questionsId, newIndex);
+    }
 
     isDraggedOver = false;
     position = undefined;
@@ -125,6 +133,7 @@ const onDrop = (event: DragEvent) => {
 <tr
     id={question.id}
     class="questionLink"
+    style={ `view-transition-name: question-item-${ question.id }` }
     data-dragging={isGrabbing}
     data-draggedover={isDraggedOver}
     data-position={position}
@@ -189,6 +198,7 @@ const onDrop = (event: DragEvent) => {
             block-size: 2px;
             inset-inline: 0;
             background-color: var(--drag-target-color);
+
         }
 
         &:before {
@@ -200,10 +210,14 @@ const onDrop = (event: DragEvent) => {
         }
 
         &[data-dragging='true'] {
-            opacity: 1;
+            opacity: .4;
         }
 
         &[data-draggedover='true'] {
+            & *:not(td) {
+                pointer-events: none;
+            }
+
             &[data-position='above']:before {
                 --drag-target-color: var(--color-brand-primary-base);
             }
@@ -222,6 +236,7 @@ const onDrop = (event: DragEvent) => {
         block-size: var(--button-height-base);
         cursor: grab;
         color: var(--color-text-base);
+        user-select: none;
 
         &[data-grabbing='true'] {
             cursor: grabbing;

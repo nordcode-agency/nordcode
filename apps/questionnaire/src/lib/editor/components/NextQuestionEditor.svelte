@@ -98,9 +98,9 @@ const createNewQuestion = () => {
 {#if nextQuestion}
     <p class="nc-hint">Die aktuelle nächste Frage ist <a href={nextQuestionLink}>{nextQuestion.title}</a></p>
 {:else}
-    <div class="nc-stack">
+    <div class="nc-cluster -centered">
         <p class="nc-hint">Es gibt noch keine nächste Frage.</p>
-        <button class="nc-button -outline" type="button">Frage hinzufügen</button>
+        <button class="nc-button -stealth -primary -small" type="button" onclick={createNewQuestion}>Frage hinzufügen</button>
     </div>
 {/if}
 
@@ -109,7 +109,9 @@ const createNewQuestion = () => {
     <SwitchInput
         label="Gesonderte Reihenfolge festlegen?"
         hint="Hier kannst du pro Option eine gezielte Folgefrage festlegen"
-        bind:checked={enableCustomOrder}>
+        bind:checked={enableCustomOrder}
+        optional
+        >
         </SwitchInput>
     {#if enableCustomOrder}
 {#each options as option}

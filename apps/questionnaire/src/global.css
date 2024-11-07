@@ -71,3 +71,16 @@ form {
 .nc-button {
     max-inline-size: fit-content;
 }
+
+html::view-transition-group(*) {
+    animation-duration: var(--transition-duration-base);
+    overflow: hidden;
+}
+
+html::view-transition-old(*),
+html::view-transition-new(*) {
+    animation-name: none;
+    mix-blend-mode: normal;
+    inline-size: auto;
+    animation-timing-function: var(--ease-in-out-2);
+}
