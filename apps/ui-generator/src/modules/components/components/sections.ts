@@ -1,75 +1,76 @@
+import buttonAll from '../examples/button/buttonAll.html?raw';
 import buttonBase from '../examples/button/buttonBase.html?raw';
 import buttonIcon from '../examples/button/buttonIcon.html?raw';
-import buttonAll from '../examples/button/buttonAll.html?raw';
 import buttonWithIcon from '../examples/button/buttonWithIcon.html?raw';
-import inputBase from '../examples/input/inputBase.html?raw';
-import inputDate from '../examples/input/inputDate.html?raw';
-import inputRange from '../examples/input/inputRange.html?raw';
-import inputSelect from '../examples/input/inputSelect.html?raw';
-import inputTextarea from '../examples/input/inputTextarea.html?raw';
-import inputSegmentedControl from '../examples/input/inputSegmentedControl.html?raw';
-import inputCheckbox from '../examples/input/inputCheckbox.html?raw';
-import inputSwitch from '../examples/input/inputSwitch.html?raw';
-import inputRadioField from '../examples/input/inputRadioField.html?raw';
-import inputCheckboxField from '../examples/input/inputCheckboxField.html?raw';
-import inputTagSelect from '../examples/input/inputTagSelect.html?raw';
 import fieldsetBase from '../examples/fieldset/fieldsetBase.html?raw';
 import fieldsetStandard from '../examples/fieldset/fieldsetStandard.html?raw';
 import fieldsetWithH1 from '../examples/fieldset/fieldsetWithH1.html?raw';
-import formSmall from '../examples/form/formSmall.html?raw';
 import formFull from '../examples/form/formFull.html?raw';
 import formPage from '../examples/form/formPage.html?raw';
-import tableStandard from '../examples/table/tableStandard.html?raw';
-import metaList from '../examples/lists/metalist.html?raw';
-import descriptionList from '../examples/lists/descriptionlist.html?raw';
-import tableHorizontal from '../examples/table/tableHorizontal.html?raw';
-import breadcrumbs from '../examples/navigation/breadcrumbs.html?raw';
+import formSmall from '../examples/form/formSmall.html?raw';
+import inputBase from '../examples/input/inputBase.html?raw';
+import inputCheckbox from '../examples/input/inputCheckbox.html?raw';
+import inputCheckboxField from '../examples/input/inputCheckboxField.html?raw';
+import inputDate from '../examples/input/inputDate.html?raw';
+import inputRadioField from '../examples/input/inputRadioField.html?raw';
+import inputRange from '../examples/input/inputRange.html?raw';
+import inputSegmentedControl from '../examples/input/inputSegmentedControl.html?raw';
+import inputSelect from '../examples/input/inputSelect.html?raw';
+import inputSwitch from '../examples/input/inputSwitch.html?raw';
+import inputTagSelect from '../examples/input/inputTagSelect.html?raw';
+import inputTextarea from '../examples/input/inputTextarea.html?raw';
 import box from '../examples/layouts/box.html?raw';
-import stack from '../examples/layouts/stack.html?raw';
-import cluster from '../examples/layouts/cluster.html?raw';
 import center from '../examples/layouts/center.html?raw';
-import withSidebar from '../examples/layouts/withSidebar.html?raw';
-import grid from '../examples/layouts/grid.html?raw';
-import switcher from '../examples/layouts/switcher.html?raw';
-import gallery from '../examples/layouts/gallery.html?raw';
+import cluster from '../examples/layouts/cluster.html?raw';
 import flow from '../examples/layouts/flow.html?raw';
-import region from '../examples/layouts/region.html?raw';
+import gallery from '../examples/layouts/gallery.html?raw';
+import grid from '../examples/layouts/grid.html?raw';
 import pile from '../examples/layouts/pile.html?raw';
+import region from '../examples/layouts/region.html?raw';
+import stack from '../examples/layouts/stack.html?raw';
+import switcher from '../examples/layouts/switcher.html?raw';
+import withSidebar from '../examples/layouts/withSidebar.html?raw';
+import descriptionList from '../examples/lists/descriptionlist.html?raw';
+import metaList from '../examples/lists/metalist.html?raw';
+import breadcrumbs from '../examples/navigation/breadcrumbs.html?raw';
+import tableHorizontal from '../examples/table/tableHorizontal.html?raw';
+import tableStandard from '../examples/table/tableStandard.html?raw';
 
 import { slugify } from '../../common/utils/slugify';
-import { colorUtilModifiers } from '../modifiers/colorUtilModifiers';
-import { buttonModifiers } from '../modifiers/buttonModifiers';
 import { buttonVariables } from '../cssVariables/buttonVariables';
+import { buttonModifiers } from '../modifiers/buttonModifiers';
+import { colorUtilModifiers } from '../modifiers/colorUtilModifiers';
 import { spacingModifiers } from '../modifiers/spacingModifiers';
 
-import buttonPreview from '../cardPreviews/Button.svg?raw';
-import iconButtonPreview from '../cardPreviews/IconButton.svg?raw';
-import formPreview from '../cardPreviews/Form.svg?raw';
-import fieldsetPreview from '../cardPreviews/Fieldset.svg?raw';
-import inputBasePreview from '../cardPreviews/Input.svg?raw';
-import checkboxPreview from '../cardPreviews/Checkbox.svg?raw';
-import dateInputPreview from '../cardPreviews/DateInput.svg?raw';
-import rangeInputPreview from '../cardPreviews/RangeInput.svg?raw';
-import selectPreview from '../cardPreviews/Select.svg?raw';
-import textareaPreview from '../cardPreviews/TextArea.svg?raw';
-import segmentedPreview from '../cardPreviews/SegmentedControl.svg?raw';
-import radioGroupPreview from '../cardPreviews/RadioGroup.svg?raw';
-import checkboxGroupPreview from '../cardPreviews/CheckboxGroup.svg?raw';
-import tagSelectPreview from '../cardPreviews/TagSelect.svg?raw';
-import metaListPreview from '../cardPreviews/MetaList.svg?raw';
-import descriptionListPreview from '../cardPreviews/DescriptionList.svg?raw';
-import tablePreview from '../cardPreviews/Table.svg?raw';
-import breadcrumbsPreview from '../cardPreviews/Breadcrumbs.svg?raw';
 import boxPreview from '../cardPreviews/Box.svg?raw';
+import breadcrumbsPreview from '../cardPreviews/Breadcrumbs.svg?raw';
+import buttonPreview from '../cardPreviews/Button.svg?raw';
 import centerPreview from '../cardPreviews/Center.svg?raw';
+import checkboxPreview from '../cardPreviews/Checkbox.svg?raw';
+import checkboxGroupPreview from '../cardPreviews/CheckboxGroup.svg?raw';
 import clusterPreview from '../cardPreviews/Cluster.svg?raw';
+import dateInputPreview from '../cardPreviews/DateInput.svg?raw';
+import descriptionListPreview from '../cardPreviews/DescriptionList.svg?raw';
+import fieldsetPreview from '../cardPreviews/Fieldset.svg?raw';
 import flowPreview from '../cardPreviews/Flow.svg?raw';
+import formPreview from '../cardPreviews/Form.svg?raw';
 import galleryPreview from '../cardPreviews/Gallery.svg?raw';
 import gridPreview from '../cardPreviews/Grid.svg?raw';
+import iconButtonPreview from '../cardPreviews/IconButton.svg?raw';
+import inputBasePreview from '../cardPreviews/Input.svg?raw';
+import metaListPreview from '../cardPreviews/MetaList.svg?raw';
 import pilePreview from '../cardPreviews/Pile.svg?raw';
+import radioGroupPreview from '../cardPreviews/RadioGroup.svg?raw';
+import rangeInputPreview from '../cardPreviews/RangeInput.svg?raw';
 import regionPreview from '../cardPreviews/Region.svg?raw';
+import segmentedPreview from '../cardPreviews/SegmentedControl.svg?raw';
+import selectPreview from '../cardPreviews/Select.svg?raw';
 import stackPreview from '../cardPreviews/Stack.svg?raw';
+import switchPreview from '../cardPreviews/Switch.svg?raw';
 import switcherPreview from '../cardPreviews/Switcher.svg?raw';
+import tablePreview from '../cardPreviews/Table.svg?raw';
+import tagSelectPreview from '../cardPreviews/TagSelect.svg?raw';
+import textareaPreview from '../cardPreviews/TextArea.svg?raw';
 import withSidebarPreview from '../cardPreviews/WithSidebar.svg?raw';
 
 interface Component {
@@ -218,7 +219,7 @@ const sections: Array<Section> = [
                 title: 'Switch Input',
                 description: 'Basically a checkbox, but designed in a typical on/off way',
                 component: inputSwitch,
-                preview: checkboxPreview,
+                preview: switchPreview,
             },
             {
                 title: 'Date Input',
