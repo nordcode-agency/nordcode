@@ -1,13 +1,14 @@
 <script lang="ts">
 import { Input } from '@nordcode/forms-svelte';
+import { CheckboxInput } from '@nordcode/forms-svelte';
+import SettingsInput from '../../common/components/SettingsInput.svelte';
 import {
     configStore,
+    updateBorderRadius,
     updateBorderRadiusScale,
     updateBorderWidthScale,
     updateBorderWidths,
-    updateBorderRadius,
 } from '../../store/configStore';
-import SettingsInput from '../../common/components/SettingsInput.svelte';
 import BorderPreviewEntry from './BorderPreviewEntry.svelte';
 
 const widths = [
@@ -58,7 +59,7 @@ const radius = [
                     step="0.1"
                     min="0"
                     max="4"
-                    on:input={evt => {
+                    oninput={evt => {
                         updateBorderWidths(evt.detail.value);
                     }}
                 ></SettingsInput>
@@ -68,7 +69,7 @@ const radius = [
                     step="0.1"
                     min="0"
                     max="4"
-                    on:input={evt => {
+                    oninput={evt => {
                         updateBorderWidthScale(evt.detail.value);
                     }}
                 ></SettingsInput>
@@ -113,7 +114,7 @@ const radius = [
                     step="0.1"
                     min="0"
                     max="8"
-                    on:input={evt => {
+                    oninput={evt => {
                         updateBorderRadius(evt.detail.value);
                     }}
                 ></SettingsInput>
@@ -123,7 +124,7 @@ const radius = [
                     step="0.1"
                     min="0"
                     max="4"
-                    on:input={evt => {
+                    oninput={evt => {
                         updateBorderRadiusScale(evt.detail.value);
                     }}
                 ></SettingsInput>

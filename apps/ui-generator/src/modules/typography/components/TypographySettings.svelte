@@ -1,5 +1,6 @@
 <script lang="ts">
-import { Input, Select, InputWrapper } from '@nordcode/forms-svelte';
+import { Input, InputWrapper, Select } from '@nordcode/forms-svelte';
+import { CheckboxInput } from '@nordcode/forms-svelte';
 import { configStore, updateFontScale } from '../../store/configStore';
 </script>
 
@@ -69,9 +70,9 @@ import { configStore, updateFontScale } from '../../store/configStore';
           <summary>Use custom font sizes?</summary>
           <fieldset class="nc-fieldset nc-stack">
             <legend>Custom Font Sizes</legend>
-            <Input type="checkbox" name="useCustomFontsizes" label="Use custom font sizes?"
+            <CheckboxInput type="checkbox" name="useCustomFontsizes" label="Use custom font sizes?"
                    id="useCustomFontsizes"
-                   bind:value={$configStore.useCustomFontSizes} />
+                   bind:checked={$configStore.useCustomFontSizes} />
             <Input
               name="fontSizeDisplay"
               label="Font Size Display"
