@@ -29,7 +29,16 @@ export default defineConfig({
                 drafts: {
                     customMedia: true,
                 },
-                targets: browserslistToTargets(browserslist('>= 0.25%')),
+                targets: browserslistToTargets(browserslist([
+                    'Chrome > 0 and last 2.5 years',
+                    'ChromeAndroid > 0 and last 2.5 years',
+                    'Edge > 0 and last 2.5 years',
+                    'Firefox > 0 and last 2.5 years',
+                    'FirefoxAndroid > 0 and last 2.5 years',
+                    'Safari > 0 and last 2.5 years',
+                    'iOS > 0 and last 2.5 years',
+                    'not dead',
+                ])),
             },
         },
         build: {
