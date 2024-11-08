@@ -1,9 +1,14 @@
 {
     "name": "@nordcode/ui",
     "description": "Nordcode UI Design System",
-    "keywords": ["nordcode", "CSS", "Design System", "Boneless UI"],
+    "keywords": [
+        "nordcode",
+        "CSS",
+        "Design System",
+        "Boneless UI"
+    ],
     "license": "AGPL-3.0-or-later",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -18,7 +23,6 @@
         "./compiled/complete": "./out/complete.css",
         "./compiled/complete-configless": "./out/complete_configless.css",
         "./compiled/colors": "./out/colors.css",
-
         "./utils": "./src/styles/utils/bundle.css",
         "./utils/reset": "./src/styles/utils/reset.css",
         "./utils/base": "./src/styles/utils/base.css",
@@ -26,7 +30,6 @@
         "./utils/easings": "./src/styles/utils/easings.css",
         "./utils/layouts": "./src/styles/utils/layouts.css",
         "./utils/theme": "./src/styles/utils/theme.css",
-
         "./components": "./src/styles/components/bundle.css",
         "./components/badges": "./src/styles/components/badges.css",
         "./components/breadcrumbs": "./src/styles/components/breadcrumbs.css",
@@ -39,22 +42,18 @@
         "./components/lists": "./src/styles/components/lists.css",
         "./components/notifications": "./src/styles/components/notifications.css",
         "./components/tables": "./src/styles/components/tables.css",
-
         "./components/inputs": "./src/styles/components/inputs/bundle.css",
         "./components/inputs/base": "./src/styles/components/inputs/base.css",
         "./components/inputs/fields": "./src/styles/components/inputs/fields.css",
         "./components/inputs/segmented": "./src/styles/components/inputs/segmented.css",
         "./components/inputs/switch": "./src/styles/components/inputs/switch.css",
         "./components/inputs/tag-select": "./src/styles/components/inputs/tag-select.css",
-
         "./exceptions": "./src/styles/exceptions/bundle.css",
         "./exceptions/spacings": "./src/styles/exceptions/spacings.css",
         "./exceptions/typography": "./src/styles/exceptions/typography.css",
         "./exceptions/misc": "./src/styles/exceptions/misc.css",
-
         "./colors": "./src/styles/theme/colors.css",
         "./config": "./src/styles/config.css",
-
         "./logo": "./src/assets/logos/nordcode-logo.svg",
         "./ArrowRightSolid": "./src/assets/icons/ArrowRightSolid.svelte",
         "./src/modules/dialogs/": "./src/modules/dialogs/",
