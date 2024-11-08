@@ -3,10 +3,9 @@
         --_notification-max-width: var(--notifications-max-width, 20rem);
         --_notification-gap: var(--notification-gap, var(--spacing-base));
         --_notification-border-color: var(--notification-border-color, var(--color-border-base));
-        --_notification-center-background: var(
-            --notification-center-background,
-            oklch(var(--color-surface-subtle) / 0.05)
-        );
+        --_notification-center-background: var(--notification-center-background,
+                color-mix(in oklch, var(---color-surface-subtle), transparent 95%);
+            );
     }
 
     :where(.nc-notification-center, .nc-notification-output) {
@@ -21,7 +20,7 @@
         pointer-events: none;
     }
 
-    .nc-notification-center {
+    :where(.nc-notification-center) {
         block-size: 100%;
         backdrop-filter: blur(3px);
         background-color: var(--_notification-center-background);
@@ -108,8 +107,7 @@
     }
 
     :where(.nc-notification.-closing) {
-        animation: remove-notification var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1)
-            forwards;
+        animation: remove-notification var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1) forwards;
     }
 
     @keyframes pop-in {
