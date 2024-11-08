@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
 import NotificationCenter from '@nordcode/ui/src/modules/notifications/svelte/NotificationCenter.svelte';
 import NotificationTemplate from '@nordcode/ui/src/modules/notifications/svelte/NotificationTemplate.svelte';
 import Header from '../modules/generator/components/Header.astro';
@@ -20,7 +19,6 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
 </head>
 <body class="live-theme">
 <header>
@@ -38,7 +36,6 @@ const { title } = Astro.props;
 <NotificationCenter />
 <ConfigFromUrl client:only="svelte" />
 <style is:global>
-    @import '@nordcode/ui/utils/media';
     @import '@nordcode/ui/complete';
 
     html {
@@ -205,6 +202,10 @@ const { title } = Astro.props;
         background: var(--color-brand-primary-base);
         inline-size: 12rem;
         block-size: 12rem;
+    }
+
+    .nc-icon {
+        fill: currentColor;
     }
 </style>
 

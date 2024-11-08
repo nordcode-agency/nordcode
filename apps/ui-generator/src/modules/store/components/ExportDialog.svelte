@@ -1,95 +1,68 @@
 <script lang="ts">
-import { configStore } from '../configStore';
-import { getWpTheme } from '../utils/generateWpTheme';
-import { getFigmaTheme } from '../utils/getFigmaTheme';
+    import { configStore } from '../configStore';
 
-interface ExportDialogProps {
-    allStyles: string;
-}
-
-let { allStyles = '' }: ExportDialogProps = $props();
-
-const copyStyleExport = async () => {
-    const exportString = configStore?.exportToString();
-    if (exportString) {
-        await navigator.clipboard.writeText(exportString);
+    interface ExportDialogProps {
+        allStyles: string;
     }
-};
 
-const copyURLToClipboard = async () => {
-    const searchParams = new URLSearchParams({ styles: configStore?.exportToString() ?? '' });
-    const url = new URL(window.location.origin + window.location.pathname);
-    url.search = searchParams.toString();
-    if (url) {
-        await navigator.clipboard.writeText(url.toString());
-    }
-};
+    let { allStyles = '' }: ExportDialogProps = $props();
 
-const copyFigmaColors = async () => {
-    if (!configStore) {
-        return;
-    }
-    const themeColors = getFigmaTheme(configStore?.exportToJson());
-    await navigator.clipboard.writeText(JSON.stringify(themeColors, null, 2));
-};
+    const styleString = $derived(`:root {
+${allStyles.trim()}
+}`);
 
-const copyWPThemeToClipboard = async () => {
-    const theme = getWpTheme(configStore?.exportToJson());
-    await navigator.clipboard.writeText(JSON.stringify(theme, null, 2));
-};
+    const copyStyleExport = async () => {
+        const exportString = configStore?.exportToString();
+        if (exportString) {
+            await navigator.clipboard.writeText(exportString);
+        }
+    };
+
+    const copyURLToClipboard = async () => {
+        const searchParams = new URLSearchParams({ styles: configStore?.exportToString() ?? '' });
+        const url = new URL(window.location.origin + window.location.pathname);
+        url.search = searchParams.toString();
+        if (url) {
+            await navigator.clipboard.writeText(url.toString());
+        }
+    };
 </script>
 
 <dialog class="nc-dialog" id="export-dialog" data-level="1" style="max-inline-size: 50rem">
     <div class="dialog-container">
         <div class="dialog-header">
             <h2 class="dialog-title">Export Theme</h2>
-            <button data-closes-dialog="export-dialog" class="nc-button -round -small -stealth">×
+            <button data-closes-dialog="export-dialog" class="nc-button -round -small -stealth"
+                >×
             </button>
         </div>
         <div class="dialog-content">
-            <pre>
-                <code>
-                    {allStyles}
-                </code>
-            </pre>
+            <pre><code>{styleString}</code></pre>
         </div>
         <footer class="dialog-actions | nc-cluster">
-            <button data-copy-target={allStyles}
-                    data-has-notification
-                    data-notification-title="✓ To clipboard"
-                    data-notification-description="Copied all styles to clipboard"
-                    data-closes-dialog
-            >Copy to clipboard
+            <button
+                data-copy-target={styleString}
+                data-has-notification
+                data-notification-title="✓ To clipboard"
+                data-notification-description="Copied all styles to clipboard"
+                data-closes-dialog
+                >Copy to clipboard
             </button>
-            <button onclick={copyStyleExport}
-                    data-closes-dialog="export-dialog"
-                    data-has-notification
-                    data-notification-title="✓ To clipboard"
-                    data-notification-description="Copied all styles to clipboard"
-            >Export to clipboard
+            <button
+                onclick={copyStyleExport}
+                data-closes-dialog="export-dialog"
+                data-has-notification
+                data-notification-title="✓ To clipboard"
+                data-notification-description="Copied config to clipboard"
+                >Copy Config to clipboard
             </button>
-            <button onclick={copyURLToClipboard}
-                    data-closes-dialog="export-dialog"
-                    data-has-notification
-                    data-notification-title="✓ To clipboard"
-                    data-notification-description="Copied stateful URL to clipboard"
-            >Copy URL
-            </button>
-            <button onclick={copyWPThemeToClipboard}
-                    data-closes-dialog="export-dialog"
-                    data-has-notification
-                    data-notification-title="✓ To clipboard"
-                    data-notification-description="Copied WP theme to clipboard"
-            >
-                Copy WP
-            </button>
-            <button onclick={copyFigmaColors}
-                    data-closes-dialog="export-dialog"
-                    data-has-notification
-                    data-notification-title="✓ To clipboard"
-                    data-notification-description="Copied JSON colors to clipboard"
-            >
-                Copy JSON Colors
+            <button
+                onclick={copyURLToClipboard}
+                data-closes-dialog="export-dialog"
+                data-has-notification
+                data-notification-title="✓ To clipboard"
+                data-notification-description="Copied stateful URL to clipboard"
+                >Copy URL
             </button>
         </footer>
     </div>
