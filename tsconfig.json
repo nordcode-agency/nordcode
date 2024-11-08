@@ -1,13 +1,13 @@
 {
     "exclude": [
-        "**/node_modules/**",
-        "**/.svelte-kit/**",
+        "**/node_modules/*",
+        "**/.svelte-kit/*",
         "**/dist/**",
         "**/build/**",
         "**/.svelte/**",
-        "**/.vercel_build_output/**",
+        "**/.vercel_build_output/*",
         "**/.vercel/**",
-        "**/coverage/**",
+        "**/coverage/*",
         "**/_/**"
     ]
 }

@@ -2,7 +2,15 @@
     "extends": "astro/tsconfigs/strict",
     "compilerOptions": {
         "paths": {
-            "@nordcode/forms-svelte": ["../../packages/forms-svelte"]
+            "@nordcode/forms-svelte": [
+                "../../packages/forms-svelte"
+            ]
         }
-    }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules/"
+    ]
 }
