@@ -1,43 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 200">
-  <rect width="223" height="120" x="38.5" y="40.5" stroke="#CBD4E9" rx="3.5"/>
+  <rect width="223" height="120" x="38.5" y="40.5" stroke="var(--color-border-base)" rx="3.5"/>
   <mask id="table__a" fill="#fff">
     <path d="M39 44a3 3 0 0 1 3-3h216a3 3 0 0 1 3 3v17H39V44Z"/>
   </mask>
-  <path fill="#E5EFFF" d="M39 44a3 3 0 0 1 3-3h216a3 3 0 0 1 3 3v17H39V44Z"/>
-  <path fill="#CBD4E9" d="M39 41h222H39Zm222 21H39v-2h222v2ZM39 61V41v20Zm222-20v20-20Z" mask="url(#table__a)"/>
+  <path fill="var(--color-surface-muted)" d="M39 44a3 3 0 0 1 3-3h216a3 3 0 0 1 3 3v17H39V44Z"/>
+  <path fill="var(--color-border-base)" d="M39 41h222H39Zm222 21H39v-2h222v2ZM39 61V41v20Zm222-20v20-20Z" mask="url(#table__a)"/>
   <mask id="table__b" fill="#fff">
     <path d="M39 101h222v20H39v-20Z"/>
   </mask>
-  <path fill="#CBD4E9" d="M261 120H39v2h222v-2Z" mask="url(#table__b)"/>
+  <path fill="var(--color-border-base)" d="M261 120H39v2h222v-2Z" mask="url(#table__b)"/>
   <mask id="table__c" fill="#fff">
     <path d="M39 121h222v20H39v-20Z"/>
   </mask>
-  <path fill="#E5EFFF" fill-opacity=".2" d="M39 121h222v20H39v-20Z"/>
-  <path fill="#CBD4E9" d="M261 140H39v2h222v-2Z" mask="url(#table__c)"/>
+  <path fill="var(--color-surface-muted)" fill-opacity=".2" d="M39 121h222v20H39v-20Z"/>
+  <path fill="var(--color-border-base)" d="M261 140H39v2h222v-2Z" mask="url(#table__c)"/>
   <mask id="table__d" fill="#fff">
     <path d="M39 61h222v20H39V61Z"/>
   </mask>
-  <path fill="#CBD4E9" d="M261 80H39v2h222v-2Z" mask="url(#table__d)"/>
+  <path fill="var(--color-border-base)" d="M261 80H39v2h222v-2Z" mask="url(#table__d)"/>
   <mask id="table__e" fill="#fff">
     <path d="M39 81h222v20H39V81Z"/>
   </mask>
-  <path fill="#E5EFFF" fill-opacity=".2" d="M39 81h222v20H39V81Z"/>
-  <path fill="#CBD4E9" d="M261 100H39v2h222v-2Z" mask="url(#table__e)"/>
-  <rect width="80" height="6" x="43" y="48" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="39" height="6" x="150" y="48" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="6" height="6" x="250" y="68" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="6" height="6" x="250" y="88" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="6" height="6" x="250" y="108" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="6" height="6" x="250" y="128" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="6" height="6" x="250" y="148" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="39" height="6" x="150" y="68" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="16" height="6" x="150" y="88" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="39" height="6" x="150" y="108" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="16" height="6" x="150" y="128" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="39" height="6" x="150" y="148" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="80" height="6" x="43" y="128" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="48" height="6" x="43" y="148" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="80" height="6" x="43" y="68" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="48" height="6" x="43" y="108" fill="#222938" fill-opacity=".3" rx="2"/>
-  <rect width="80" height="6" x="43" y="88" fill="#222938" fill-opacity=".3" rx="2"/>
+  <path fill="var(--color-surface-muted)" fill-opacity=".2" d="M39 81h222v20H39V81Z"/>
+  <path fill="var(--color-border-base)" d="M261 100H39v2h222v-2Z" mask="url(#table__e)"/>
+  <rect width="80" height="6" x="43" y="48" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="39" height="6" x="150" y="48" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="6" height="6" x="250" y="68" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="6" height="6" x="250" y="88" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="6" height="6" x="250" y="108" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="6" height="6" x="250" y="128" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="6" height="6" x="250" y="148" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="39" height="6" x="150" y="68" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="16" height="6" x="150" y="88" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="39" height="6" x="150" y="108" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="16" height="6" x="150" y="128" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="39" height="6" x="150" y="148" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="80" height="6" x="43" y="128" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="48" height="6" x="43" y="148" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="80" height="6" x="43" y="68" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="48" height="6" x="43" y="108" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
+  <rect width="80" height="6" x="43" y="88" fill="var(--color-text-base)" fill-opacity=".3" rx="2"/>
 </svg>

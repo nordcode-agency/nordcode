@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 200">
   <g filter="url(#fieldset__a)">
-    <path fill="#F2FCFF" d="M72 13h156v173H72z"/>
-    <path stroke="#CBD4E9" d="M72.5 13.5h155v172h-155z"/>
+    <path fill="var(--color-surface-base)" d="M72 13h156v173H72z"/>
+    <path stroke="var(--color-border-base)" d="M72.5 13.5h155v172h-155z"/>
   </g>
   <g opacity=".3">
-    <rect width="134" height="10" x="83" y="44" fill="#474E5C" opacity=".3" rx="2"/>
-    <rect width="109" height="10" x="83" y="58" fill="#474E5C" opacity=".3" rx="2"/>
-    <rect width="67" height="12" x="83" y="26" fill="#222938" fill-opacity=".3" opacity=".3" rx="2"/>
-    <rect width="54" height="16" x="83" y="157" fill="#1B4FFF" opacity=".3" rx="4"/>
+    <rect width="134" height="10" x="83" y="44" fill="var(--color-text-muted)" opacity=".3" rx="2"/>
+    <rect width="109" height="10" x="83" y="58" fill="var(--color-text-muted)" opacity=".3" rx="2"/>
+    <rect width="67" height="12" x="83" y="26" fill="var(--color-text-base)" fill-opacity=".3" opacity=".3" rx="2"/>
+    <rect width="54" height="16" x="83" y="157" fill="var(--color-brand-primary-base)" opacity=".3" rx="4"/>
   </g>
-  <rect width="46" height="7" x="83" y="85" fill="#222938" fill-opacity=".5" rx="2"/>
-  <rect width="65" height="7" x="100" y="99" fill="#222938" fill-opacity=".5" rx="2"/>
-  <rect width="65" height="7" x="100" y="114" fill="#222938" fill-opacity=".5" rx="2"/>
-  <rect width="12" height="12" x="83" y="99" fill="#E5EFFF" rx="4"/>
-  <rect width="12" height="12" x="83" y="114" fill="#E5EFFF" rx="4"/>
-  <rect width="65" height="7" x="100" y="129" fill="#222938" fill-opacity=".5" rx="2"/>
-  <rect width="12" height="12" x="83" y="129" fill="#E5EFFF" rx="4"/>
+  <rect width="46" height="7" x="83" y="85" fill="var(--color-text-base)" fill-opacity=".5" rx="2"/>
+  <rect width="65" height="7" x="100" y="99" fill="var(--color-text-base)" fill-opacity=".5" rx="2"/>
+  <rect width="65" height="7" x="100" y="114" fill="var(--color-text-base)" fill-opacity=".5" rx="2"/>
+  <rect width="12" height="12" x="83" y="99" fill="var(--color-surface-muted)" rx="4"/>
+  <rect width="12" height="12" x="83" y="114" fill="var(--color-surface-muted)" rx="4"/>
+  <rect width="65" height="7" x="100" y="129" fill="var(--color-text-base)" fill-opacity=".5" rx="2"/>
+  <rect width="12" height="12" x="83" y="129" fill="var(--color-surface-muted)" rx="4"/>
   <defs>
     <filter id="fieldset__a" width="172" height="189" x="66" y="7" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
       <feFlood flood-opacity="0" result="BackgroundImageFix"/>
