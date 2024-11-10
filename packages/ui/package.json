@@ -9,7 +9,7 @@
     ],
     "license": "AGPL-3.0-or-later",
     "homepage": "https://github.com/nordcode-agency/nordcode/tree/main/packages/ui",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "publishConfig": {
         "access": "public"
     },
