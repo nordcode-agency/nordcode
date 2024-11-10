@@ -8,7 +8,10 @@
         "Boneless UI"
     ],
     "license": "AGPL-3.0-or-later",
-    "homepage": "https://github.com/nordcode-agency/nordcode/tree/main/packages/ui",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nordcode-agency/nordcode/tree/main/packages/ui"
+    },
     "version": "1.0.2",
     "publishConfig": {
         "access": "public"
