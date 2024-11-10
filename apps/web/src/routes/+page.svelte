@@ -35,7 +35,7 @@
 		</span>
 	</p>
 </section>
-<section id="work" class="nc-box nc-stack -inherit -stretched work">
+<section id="work" class="nc-box nc-stack -stretched work">
 	<div>
 		<ProjectCard
 			heading={data.projects[4].heading}
@@ -137,12 +137,11 @@
 	}
 
 	.work {
-		--stack-gap: var(--spacing-adaptive);
+		gap: var(--spacing-adaptive);
 	}
 
 	.more-work {
 		--nc-ram-grid-min-width: calc(25 * var(--spacing-base));
-		--nc-ram-grid-gap: var(--stack-gap);
 
 		inline-size: 100%;
 	}
