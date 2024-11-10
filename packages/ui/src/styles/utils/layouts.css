@@ -1,4 +1,5 @@
 @layer utils {
+
     /* Layout classes that handle 80% of the layout*/
     :where(.nc-box) {
         padding: var(--spacing-base);
@@ -39,46 +40,42 @@
         gap: var(--spacing-base);
         align-items: flex-start;
 
-        &.-inherit {
-            gap: var(--stack-gap, var(--spacing-base));
-        }
-
         &.-stretched {
             inline-size: 100%;
 
-            & > * {
+            &>* {
                 inline-size: 100%;
             }
         }
 
-        &.-contained > * {
+        &.-contained>* {
             max-inline-size: 100%;
         }
     }
 
     :where(.nc-flow) {
-        > * + * {
+        >*+* {
             margin-block-start: var(--flow-gap, 0.6lh);
         }
 
-        > * {
+        >* {
             max-inline-size: var(--flow-base-meassure, 72ch);
         }
 
-        > *:is(h1, h2, h3, h4, h5, h6) {
+        >*:is(h1, h2, h3, h4, h5, h6) {
             max-inline-size: var(--flow-headline-meassure, 32ch);
             --flow-gap: 1.3lh;
         }
 
-        > *:is(h1, h2, h3, h4, h5, h6) + p {
+        >*:is(h1, h2, h3, h4, h5, h6)+p {
             --flow-gap: 0.5lh;
         }
 
-        > p + p {
+        >p+p {
             --flow-gap: 0.8lh;
         }
 
-        > figure {
+        >figure {
             margin-inline: 0;
             margin-block: 1lh;
         }
@@ -114,10 +111,6 @@
         gap: var(--spacing-base);
         align-items: flex-start;
 
-        &.-inherit {
-            gap: var(--cluster-gap, var(--spacing-base));
-        }
-
         &.-centered {
             align-items: center;
         }
@@ -138,13 +131,13 @@
         align-items: flex-start;
         gap: var(--with-sidebar-gap, var(--spacing-far));
 
-        & > [data-aside] {
+        &>[data-aside] {
             flex-grow: 1;
             min-width: min-content;
             flex-basis: var(--with-sidebar-target-width, 20rem);
         }
 
-        & > [data-grow] {
+        &>[data-grow] {
             flex-basis: 0;
             flex-grow: 999;
             min-width: var(--with-sidebar-min-size, 50%);
@@ -177,10 +170,8 @@
     */
     :where(.nc-grid) {
         display: grid;
-        grid-template-columns: repeat(
-                var(--grid-placement, auto-fill),
-                minmax(var(--grid-min-item-size, 16rem), 1fr)
-            );
+        grid-template-columns: repeat(var(--grid-placement, auto-fill),
+                minmax(var(--grid-min-item-size, 16rem), 1fr));
         gap: var(--grid-gap, var(--spacing-base));
 
         /* A split 50/50 layout */
@@ -220,7 +211,7 @@
         gap: var(--switcher-gap, var(--spacing-base));
         align-items: var(--switcher-vertical-alignment, flex-start);
 
-        & > * {
+        &>* {
             flex-grow: 1;
             flex-basis: calc((var(--switcher-target-container-width, 40rem) - 100%) * 999);
         }
@@ -228,7 +219,7 @@
         /* Max 2 items,
         so anything greater than 2 is ful width */
 
-        & > :nth-child(n + 4) {
+        &> :nth-child(n + 4) {
             flex-basis: 100%;
         }
     }
@@ -241,12 +232,25 @@
         place-items: center;
         grid: [pile] 1fr / [pile] 1fr;
 
-        & > * {
+        &>* {
             grid-area: pile;
         }
     }
 
-    :where(.nc-stack, .nc-cluster, .nc-with-sidebar, .nc-grid, .nc-gallery, .nc-switcher) {
+    :where(.nc-ram-grid) {
+        --_nc-ram-grid-gap-row: var(--nc-ram-grid-gap-row, var(--_nc-ram-grid-gap));
+        --_nc-ram-grid-gap-column: var(--nc-ram-grid-gap-column, var(--_nc-ram-grid-gap));
+        --_nc-ram-grid-gap: var(--nc-ram-grid-gap, var(--spacing-near));
+        --_nc-ram-grid-min-width: var(--nc-ram-grid-min-width, 150px);
+        --_nc-ram-grid-repeat-count: var(--nc-ram-grid-repeat-count, auto-fit);
+
+        display: grid;
+        gap: var(--_nc-ram-grid-gap-column) var(--_nc-ram-grid-gap-row);
+        grid-template-columns: repeat(var(--_nc-ram-grid-repeat-count),
+                minmax(min(var(--_nc-ram-grid-min-width), 100%), 1fr));
+    }
+
+    :where(.nc-stack, .nc-cluster, .nc-with-sidebar, .nc-grid, .nc-gallery, .nc-switcher, .nc-ram-grid) {
         &.-inherit {
             gap: inherit;
         }
@@ -278,21 +282,5 @@
         &.-nogap {
             gap: 0;
         }
-    }
-
-    :where(.nc-ram-grid) {
-        --_nc-ram-grid-gap-row: var(--nc-ram-grid-gap-row, var(--_nc-ram-grid-gap));
-        --_nc-ram-grid-gap-column: var(--nc-ram-grid-gap-column, var(--_nc-ram-grid-gap));
-        --_nc-ram-grid-gap: var(--nc-ram-grid-gap, var(--spacing-near));
-        --_nc-ram-grid-min-width: var(--nc-ram-grid-min-width, 150px);
-        --_nc-ram-grid-repeat-count: var(--nc-ram-grid-repeat-count, auto-fit);
-
-        display: grid;
-        row-gap: var(--_nc-ram-grid-gap-row);
-        column-gap: var(--_nc-ram-grid-gap-column);
-        grid-template-columns: repeat(
-                var(--_nc-ram-grid-repeat-count),
-                minmax(min(var(--_nc-ram-grid-min-width), 100%), 1fr)
-            );
     }
 }
