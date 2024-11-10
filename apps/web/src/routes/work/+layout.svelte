@@ -20,9 +20,6 @@
 	];
 
 	$effect(() => {
-		document.documentElement.style.setProperty('--h-brand-primary', $page.data.hue[0]);
-		document.documentElement.style.setProperty('--h-brand-secondary', $page.data.hue[1]);
-
 		return () => {
 			document.documentElement.style.removeProperty('--h-brand-primary');
 			document.documentElement.style.removeProperty('--h-brand-secondary');
@@ -33,8 +30,8 @@
 <Header />
 
 <svelte:head>
-    <title>{$page.data.heading} - nordcode</title>
-    <meta name="description" content={$page.data.goal} />
+	<title>{$page.data.heading} - nordcode</title>
+	<meta name="description" content={$page.data.goal} />
 </svelte:head>
 
 <article class="nc-box" style="--h-brand-primary: {$page.data.hue.light}">
@@ -87,7 +84,8 @@
 			</div>
 			<div class="body nc-flow text-base" data-grow>
 				{#if $page.data.colorPalette}
-					<ColorPalette palette={$page.data.colorPalette}></ColorPalette>
+					<ColorPalette palette={$page.data.colorPalette} hue={$page.data.hue}
+					></ColorPalette>
 				{/if}
 				{@render children?.()}
 				<section class="nc-region">
@@ -171,8 +169,8 @@
 	}
 
 	.overview {
-    	position: sticky;
-    	top: calc(var(--spacing-adaptive) / 2);
+		position: sticky;
+		top: calc(var(--spacing-adaptive) / 2);
 	}
 
 	.actions {
