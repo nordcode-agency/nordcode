@@ -1,4 +1,5 @@
 @layer reset {
+
     *,
     :after,
     :before {
@@ -50,6 +51,7 @@
         font-family: var(--font-family-default);
         line-height: var(--line-height-base);
         font-style: normal;
+        min-block-size: 100%;
     }
 
     /* Remove default margin in favour of better control in authored CSS */
@@ -88,17 +90,15 @@
         place-items: center;
     }
 
-    :where(
-            a[href],
-            area,
-            button,
-            input,
-            label[for],
-            select,
-            summary,
-            textarea,
-            [tabindex]:not([tabindex*="-"])
-        ) {
+    :where(a[href],
+        area,
+        button,
+        input,
+        label[for],
+        select,
+        summary,
+        textarea,
+        [tabindex]:not([tabindex*="-"])) {
         cursor: pointer;
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
