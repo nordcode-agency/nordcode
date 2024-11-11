@@ -1,6 +1,5 @@
 ![Nordcode Logo](./nordcode-preview.png)
 
-
 # nordcode
 
 Moin! Welcome to our small WIP agency.

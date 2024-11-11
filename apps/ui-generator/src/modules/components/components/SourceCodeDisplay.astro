@@ -3,10 +3,14 @@ import { Code } from 'astro:components';
 interface Props {
     code: string;
     title: string;
+    requirements?: string[];
+    codepenUrl: string;
     lang?: string;
 }
 
-const { code, title, lang = 'html' } = Astro.props;
+const { code, title, lang = 'html', codepenUrl, requirements } = Astro.props;
+
+const requirementsCode = requirements ? requirements.map(req => `@import "${req}"`).join(';\n') : ""
 ---
 
 <div class="source-code">
@@ -16,16 +20,30 @@ const { code, title, lang = 'html' } = Astro.props;
             <span> - </span>
             <span class="nc-slub">{lang}</span>
         </div>
+        <div class="nc-cluster -centered">
+
+        {codepenUrl ? <a href={codepenUrl} target="_blank" rel="noreferrer noopener" class="nc-button -outline">Open in CodePen</a> : null}
+
+        {requirementsCode ?
+        <button class="nc-button -outline"
+        data-copy-target={requirementsCode}
+        data-has-notification
+        data-notification-title="✓ To clipboard"
+        data-notification-description={`Copied ${title}'s requirements to your clipboard.`}
+        >Copy requirements</button>
+        : null}
+
         <button
-            type="button"
-            class="nc-button -outline"
-            data-copy-target={code}
-            data-has-notification
-            data-notification-title="✓ To clipboard"
-            data-notification-description={`Copied ${title}'s code to your clipboard.`}
-        >
-            Copy code
-        </button>
+                type="button"
+                class="nc-button -outline"
+                data-copy-target={code}
+                data-has-notification
+                data-notification-title="✓ To clipboard"
+                data-notification-description={`Copied ${title}'s code to your clipboard.`}
+            >
+                Copy code
+            </button>
+        </div>
     </header>
     <Code
         code={code}
@@ -36,7 +54,21 @@ const { code, title, lang = 'html' } = Astro.props;
         }}
         defaultColor={'light'}
         id="code-preview"
+        class={"code-preview"}
     />
+    {requirementsCode ? (
+<Code
+    code={`/* Minimum CSS for ${title} */
+${requirementsCode}`}
+    lang="css"
+    themes={{
+        light: 'vitesse-light',
+        dark: 'vitesse-dark',
+    }}
+    defaultColor={'light'}
+    class={"code-preview"}
+/>
+    ) : null}
 </div>
 
 <style is:global>
@@ -44,6 +76,11 @@ const { code, title, lang = 'html' } = Astro.props;
         position: relative;
         inline-size: 100%;
     }
+
+    .source-code > * {
+        border-radius: 0;
+    }
+
 
     .sc-header {
         border: var(--border-width-medium) solid var(--color-border-base);
@@ -54,15 +91,16 @@ const { code, title, lang = 'html' } = Astro.props;
         border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0;
     }
 
-    #code-preview {
+
+    .source-code > *:last-child {
         border-block-start: none;
         border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
     }
 
     @media (prefers-color-scheme: dark) {
         html:not([data-theme='light']) {
-            #code-preview,
-            #code-preview span {
+            .code-preview,
+            .code-preview span {
                 color: var(--shiki-dark) !important;
                 background-color: var(--shiki-dark-bg) !important;
                 /* Optional, if you also want font styles */
@@ -74,8 +112,8 @@ const { code, title, lang = 'html' } = Astro.props;
     }
 
     html[data-theme='dark'] {
-        #code-preview,
-        #code-preview span {
+        .code-preview,
+        .code-preview span {
             color: var(--shiki-dark) !important;
             background-color: var(--shiki-dark-bg) !important;
             /* Optional, if you also want font styles */

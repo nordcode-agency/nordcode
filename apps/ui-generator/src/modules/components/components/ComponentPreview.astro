@@ -23,6 +23,8 @@ const {
     component: componentPreview,
     modifiers,
     cssVariables,
+    codepenUrl,
+    requirements
 } = component;
 ---
 
@@ -33,7 +35,12 @@ const {
         <div class="nc-box -bordered preview-box">
             <Fragment set:html={componentPreview} />
         </div>
-        <SourceCodeDisplay code={componentPreview} title={title} />
+        <SourceCodeDisplay
+            code={componentPreview}
+            title={title}
+            codepenUrl={codepenUrl}
+            requirements={requirements}
+        />
     </div>
     </div>
     {
@@ -54,13 +61,13 @@ const {
     <div class="nc-stack">
         <SectionTitle sectionId="modifiers" title="Modifiers"></SectionTitle>
         <ModifierList modifiers={modifiers}></ModifierList>
-        </div>
+    </div>
     ) : null }
     { cssVariables ? (
     <div class="nc-stack">
         <SectionTitle sectionId="cssVariables" title="CSS Variables"></SectionTitle>
         <ModifierList modifiers={cssVariables}></ModifierList>
-        </div>
+    </div>
     ) : null }
     {
         examples ? (
