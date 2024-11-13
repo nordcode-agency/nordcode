@@ -4,11 +4,25 @@ interface Props {
     code: string;
     title: string;
     requirements?: string[];
-    codepenUrl: string;
     lang?: string;
 }
 
-const { code, title, lang = 'html', codepenUrl, requirements } = Astro.props;
+const { code, title, lang = 'html', requirements } = Astro.props;
+
+
+const payload = {
+    title: `nordcode | ${title}`,
+    editors: "110",
+    html: code,
+    css: `body {
+    display: grid;
+    place-content: center;
+    padding: var(--spacing-base);
+}`,
+    css_external: "https://unpkg.com/@nordcode/ui/out/complete.css"
+};
+const escapedPayload = JSON.stringify(payload)
+
 
 const requirementsCode = requirements ? requirements.map(req => `@import "${req}"`).join(';\n') : ""
 ---
@@ -22,7 +36,10 @@ const requirementsCode = requirements ? requirements.map(req => `@import "${req}
         </div>
         <div class="nc-cluster -centered">
 
-        {codepenUrl ? <a href={codepenUrl} target="_blank" rel="noreferrer noopener" class="nc-button -outline">Open in CodePen</a> : null}
+        <form action="https://codepen.io/pen/define/" method="POST" target="_blank">
+            <input type="hidden" name="data" value={escapedPayload} />
+            <button class="nc-button -outline">Open in CodePen</button>
+        </form>
 
         {requirementsCode ?
         <button class="nc-button -outline"
@@ -123,3 +140,47 @@ ${requirementsCode}`}
         }
     }
 </style>
+
+<script>
+
+const codepenButtons = document.querySelectorAll('[data-codepen]');
+
+codepenButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        const target = e.target as HTMLButtonElement;
+
+        const title = target.getAttribute('data-title');
+        const code = target.getAttribute('data-code');
+
+        if (!title || !code) {
+            return;
+        }
+
+        openInCodepen(title, code);
+    });
+});
+
+
+const openInCodepen = (title: string, code: string) => {
+    const payload = {
+        title: `nordcode | ${title}`,
+        editors: "110",
+        html: code,
+        css: `body {
+            display: grid;
+            place-content: center;
+            padding: var(--spacing-base);
+        }`,
+        css_external: "https://unpkg.com/@nordcode/ui/out/complete.css"
+    };
+
+    fetch('https://codepen.io/pen/define/', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        mode: "cors"
+    })
+}
+</script>

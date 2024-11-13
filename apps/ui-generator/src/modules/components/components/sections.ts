@@ -77,7 +77,6 @@ interface Component {
     title: string;
     description: string;
     preview?: string;
-    codepenUrl?: string;
     requirements?: Array<string>;
     component: string;
     notes?: Array<string>;
@@ -110,7 +109,6 @@ const sections: Array<Section> = [
                 preview: buttonPreview,
                 description:
                     'Primarily used for interface interactions. Has a lot of variations and semantic power.',
-                codepenUrl: "https://codepen.io/JSHSJ/pen/yLmGvbJ",
                 requirements: ["@nordcode/ui/colors", "@nordcode/ui/utils/theme", "@nordcode/ui/components/button"],
                 component: buttonBase,
                 modifiers: [...buttonModifiers, ...colorUtilModifiers],
@@ -139,7 +137,6 @@ const sections: Array<Section> = [
                 preview: iconButtonPreview,
                 description:
                     'Icon only button for minimalistic interfaces or when you have little room with lots of actions.',
-                codepenUrl: "https://codepen.io/JSHSJ/pen/poMqaMP",
                 requirements: ["@nordcode/ui/colors", "@nordcode/ui/utils/theme", "@nordcode/ui/components/button", "@nordcode/ui/components/icons"],
                 component: buttonIcon,
                 modifiers: [...buttonModifiers, ...colorUtilModifiers],
