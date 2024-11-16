@@ -1,10 +1,11 @@
 <script lang="ts">
+    import SettingsInput from '../../common/components/SettingsInput.svelte';
     import { Input, InputWrapper, Select } from '@nordcode/forms-svelte';
     import { CheckboxInput } from '@nordcode/forms-svelte';
     import { configStore, updateFontScale } from '../../store/configStore';
 </script>
 
-{#if configStore}
+{#if $configStore}
     <div>
         <form class="nc-region nc-stack -farthest full-width -stretched content-block">
             <div class="settings-container">
@@ -48,23 +49,15 @@
                 <fieldset class="nc-fieldset nc-stack">
                     <legend>Font Sizes</legend>
 
-                    <InputWrapper
+                    <SettingsInput
                         label="Font Scale"
-                        id="fontScale"
                         hint="Harmoniously update your font sizes based on this scale"
-                    >
-                        <input
-                            class="nc-input"
-                            id="fontScale"
-                            name="fontScale"
-                            aria-required="true"
-                            autocomplete="off"
-                            type="number"
-                            step="0.05"
-                            value={$configStore.fontSizeScale}
-                            on:input={evt => updateFontScale(evt.target.value)}
-                        />
-                    </InputWrapper>
+                        bind:value={$configStore.fontSizeScale}
+                        max="5"
+                        min="0"
+                        step="0.05"
+                        oninput={evt => updateFontScale(evt.target.value)}
+                    ></SettingsInput>
 
                     <details class="full-width">
                         <summary>Use custom font sizes?</summary>
@@ -77,55 +70,60 @@
                                 id="useCustomFontsizes"
                                 bind:checked={$configStore.useCustomFontSizes}
                             />
-                            <Input
-                                name="fontSizeDisplay"
-                                label="Font Size Display"
-                                id="fontSizeDisplay"
-                                type="number"
-                                disabled={$configStore.useCustomFontSizes === false}
-                                bind:value={$configStore.fontSizeDisplay}
-                            />
 
-                            <Input
-                                name="fontSizeLargest"
+                            <SettingsInput
+                                label="Font Size Display"
+                                bind:value={$configStore.fontSizeDisplay}
+                                max="10"
+                                min="0"
+                                step="0.005"
+                                disabled={$configStore.useCustomFontSizes === false}
+                            ></SettingsInput>
+
+                            <SettingsInput
                                 label="Font Size Largest"
-                                id="fontSizeLargest"
-                                type="number"
-                                disabled={$configStore.useCustomFontSizes === false}
                                 bind:value={$configStore.fontSizeLargest}
-                            />
-                            <Input
-                                name="fontSizeLarge"
+                                max="10"
+                                min="0"
+                                step="0.005"
+                                disabled={$configStore.useCustomFontSizes === false}
+                            ></SettingsInput>
+
+                            <SettingsInput
                                 label="Font Size Large"
-                                id="fontSizeLarge"
-                                type="number"
-                                disabled={$configStore.useCustomFontSizes === false}
                                 bind:value={$configStore.fontSizeLarge}
-                            />
-                            <Input
-                                name="fontSizeBase"
+                                max="10"
+                                min="0"
+                                step="0.005"
+                                disabled={$configStore.useCustomFontSizes === false}
+                            ></SettingsInput>
+
+                            <SettingsInput
                                 label="Font Size Base"
-                                id="fontSizeBase"
-                                type="number"
-                                disabled={$configStore.useCustomFontSizes === false}
                                 bind:value={$configStore.fontSizeBase}
-                            />
-                            <Input
-                                name="fontSizeSmall"
+                                max="10"
+                                min="0"
+                                step="0.005"
+                                disabled={$configStore.useCustomFontSizes === false}
+                            ></SettingsInput>
+
+                            <SettingsInput
                                 label="Font Size Small"
-                                id="fontSizeSmall"
-                                type="number"
-                                disabled={$configStore.useCustomFontSizes === false}
                                 bind:value={$configStore.fontSizeSmall}
-                            />
-                            <Input
-                                name="fontSizeSmallest"
-                                label="Font Size Smallest"
-                                id="fontSizeSmallest"
-                                type="number"
+                                max="10"
+                                min="0"
+                                step="0.005"
                                 disabled={$configStore.useCustomFontSizes === false}
+                            ></SettingsInput>
+
+                            <SettingsInput
+                                label="Font Size Smallest"
                                 bind:value={$configStore.fontSizeSmallest}
-                            />
+                                max="10"
+                                min="0"
+                                step="0.005"
+                                disabled={$configStore.useCustomFontSizes === false}
+                            ></SettingsInput>
                         </fieldset>
                     </details>
                 </fieldset>
@@ -133,123 +131,117 @@
             <div class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
                     <legend>Line Heights</legend>
-                    <Input
-                        name="line-height-large"
+                    <SettingsInput
                         label="Line Height Large"
-                        id="line-height-large"
-                        type="number"
                         bind:value={$configStore.lineHeightLarge}
-                    />
-                    <Input
-                        name="line-height-base"
+                        max="10"
+                        min="0"
+                        step="0.05"
+                    ></SettingsInput>
+
+                    <SettingsInput
                         label="Line Height Base"
-                        id="line-height-base"
-                        type="number"
                         bind:value={$configStore.lineHeightBase}
-                    />
-                    <Input
-                        name="line-height-small"
+                        max="10"
+                        min="0"
+                        step="0.05"
+                    ></SettingsInput>
+
+                    <SettingsInput
                         label="Line Height Small"
-                        id="line-height-small"
-                        type="number"
                         bind:value={$configStore.lineHeightSmall}
-                    />
+                        max="10"
+                        min="0"
+                        step="0.05"
+                    ></SettingsInput>
                 </fieldset>
             </div>
             <div class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
                     <legend>Font Weights</legend>
-                    <Input
-                        name="fontWeightDefault"
-                        label="Default"
-                        id="fontWeightDefault"
-                        type="number"
-                        step="1"
+                    <SettingsInput
+                        label="Font Weight Default"
                         bind:value={$configStore.fontWeightDefault}
-                    />
-                    <Input
-                        name="fontWeightHeading"
-                        label="Heading"
-                        id="fontWeightHeading"
-                        type="number"
+                        max="1000"
+                        min="0"
                         step="1"
+                    ></SettingsInput>
+                    <SettingsInput
+                        label="Font Weight Heading"
                         bind:value={$configStore.fontWeightHeading}
-                    />
-                    <Input
-                        name="fontWeightActive"
-                        label="Active"
-                        id="fontWeightActive"
-                        type="number"
+                        max="1000"
+                        min="0"
                         step="1"
-                        bind:value={$configStore.fontWeightActive}
-                    />
-                    <Input
-                        name="fontWeightStrong"
-                        label="Strong"
-                        id="fontWeightStrong"
-                        type="number"
-                        step="1"
+                    ></SettingsInput>
+                    <SettingsInput
+                        label="Font Weight Strong"
                         bind:value={$configStore.fontWeightStrong}
-                    />
+                        max="1000"
+                        min="0"
+                        step="1"
+                    ></SettingsInput>
+                    <SettingsInput
+                        label="Font Weight Active"
+                        bind:value={$configStore.fontWeightActive}
+                        max="1000"
+                        min="0"
+                        step="1"
+                    ></SettingsInput>
                 </fieldset>
             </div>
 
             <div class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
                     <legend>Tracking</legend>
-                    <Input
-                        name="tracking-wide"
+                    <SettingsInput
                         label="Tracking Wide"
-                        id="tracking-wide"
-                        type="number"
-                        step="0.01"
                         bind:value={$configStore.trackingWide}
-                    />
-                    <Input
-                        name="tracking-base"
+                        max="1"
+                        min="0"
+                        step="0.01"
+                    ></SettingsInput>
+                    <SettingsInput
                         label="Tracking Base"
-                        id="tracking-base"
-                        type="number"
-                        step="0.01"
                         bind:value={$configStore.trackingStandard}
-                    />
-                    <Input
-                        name="tracking-narrow"
-                        label="Tracking Narrow"
-                        id="tracking-narrow"
-                        type="number"
+                        max="1"
+                        min="0"
                         step="0.01"
+                    ></SettingsInput>
+                    <SettingsInput
+                        label="Tracking Tight"
                         bind:value={$configStore.trackingTight}
-                    />
+                        max="1"
+                        min="0"
+                        step="0.01"
+                    ></SettingsInput>
                 </fieldset>
             </div>
             <div class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
                     <legend>Measure</legend>
-                    <Input
-                        name="measure-large"
+                    <SettingsInput
                         label="Measure Large"
-                        id="measure-large"
-                        type="number"
-                        step="0.01"
                         bind:value={$configStore.measureLarge}
-                    />
-                    <Input
-                        name="measure-base"
+                        max="200"
+                        min="0"
+                        step="1"
+                    ></SettingsInput>
+
+                    <SettingsInput
                         label="Measure Base"
-                        id="measure-base"
-                        type="number"
-                        step="0.01"
                         bind:value={$configStore.measureBase}
-                    />
-                    <Input
-                        name="measure-small"
+                        max="200"
+                        min="0"
+                        step="1"
+                    ></SettingsInput>
+
+                    <SettingsInput
                         label="Measure Small"
-                        id="measure-small"
-                        type="number"
-                        step="0.01"
                         bind:value={$configStore.measureSmall}
-                    />
+                        max="200"
+                        min="0"
+                        step="1"
+                    ></SettingsInput>
                 </fieldset>
             </div>
         </form>

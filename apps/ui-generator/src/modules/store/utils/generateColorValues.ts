@@ -73,7 +73,6 @@ export const generateColorValues = (
     tokenName: string,
     colorDef: ColorDefinition,
 ): Record<string, string> => {
-    const lTokenName = `--l-${tokenName}`;
     const cTokenName = `--c-${tokenName}`;
     const hTokenName = `--h-${tokenName}`;
 
