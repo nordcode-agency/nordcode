@@ -35,6 +35,8 @@ import metaList from '../examples/lists/metalist.html?raw';
 import breadcrumbs from '../examples/navigation/breadcrumbs.html?raw';
 import tableHorizontal from '../examples/table/tableHorizontal.html?raw';
 import tableStandard from '../examples/table/tableStandard.html?raw';
+import alertsBase from '../examples/alerts/alertsBase.html?raw';
+import alertsAllBase from '../examples/alerts/alertsAllBase.html?raw';
 
 import { slugify } from '../../common/utils/slugify';
 import { buttonVariables } from '../cssVariables/buttonVariables';
@@ -42,6 +44,7 @@ import { buttonModifiers } from '../modifiers/buttonModifiers';
 import { colorUtilModifiers } from '../modifiers/colorUtilModifiers';
 import { spacingModifiers } from '../modifiers/spacingModifiers';
 
+import alertsPreview from '../cardPreviews/Alerts.svg?raw';
 import boxPreview from '../cardPreviews/Box.svg?raw';
 import breadcrumbsPreview from '../cardPreviews/Breadcrumbs.svg?raw';
 import buttonPreview from '../cardPreviews/Button.svg?raw';
@@ -340,6 +343,28 @@ const sections: Array<Section> = [
                 ],
             },
         ],
+    },
+    {
+        title: "Feedback",
+        components: [
+            {
+                title: "Alerts",
+                component: alertsBase,
+                preview: alertsPreview,
+                description: "Inform your users about changes, important updates or provide feedback to their recent actions. This stands out, so use it accordingly.",
+                examples: [
+                    {
+                        title: "All base alerts",
+                        description: "An overview over all alerts variants and their modifiers",
+                        code: alertsAllBase
+                    }
+                ],
+                modifiers: [...colorUtilModifiers, {
+                    name: "--filled",
+                    description: "A more prominent version of the alert"
+                }],
+            }
+        ]
     },
     {
         title: 'Layouts',

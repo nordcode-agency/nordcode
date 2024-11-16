@@ -35,6 +35,7 @@
         "./utils/layouts": "./src/styles/utils/layouts.css",
         "./utils/theme": "./src/styles/utils/theme.css",
         "./components": "./src/styles/components/bundle.css",
+        "./components/alerts": "./src/styles/components/alerts.css",
         "./components/badges": "./src/styles/components/badges.css",
         "./components/breadcrumbs": "./src/styles/components/breadcrumbs.css",
         "./components/buttons": "./src/styles/components/buttons.css",

@@ -1,0 +1,20 @@
+@layer components.alerts {
+    :where(.nc-alert) {
+        background: var(--surface);
+        color: var(--text);
+        gap: 1ch;
+    }
+
+    :where(.nc-alert)>.nc-icon {
+        margin-block: calc((var(--line-height-base) - var(--icon-size)) / 2);
+    }
+
+    :where(.nc-alert-title) {
+        font-weight: var(--font-weight-heading);
+    }
+
+    :where(.nc-alert.-filled) {
+        background: var(--surface-hover);
+        color: var(--text-hover);
+    }
+}
