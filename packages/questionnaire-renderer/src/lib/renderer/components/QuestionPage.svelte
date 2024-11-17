@@ -1,76 +1,79 @@
 <script lang="ts">
-import RendererLayout from './RendererLayout.svelte';
-import QuestionRenderer from './QuestionRenderer.svelte';
-import { goToNextQuestion, answerQuestion, rendererStore } from '../store/rendererStore.ts';
-import type {
-    AnswerValue,
-    QuestionnaireAnswer,
-} from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
-import type { Question } from '$lib/index.ts';
-import type { FormEventHandler } from 'svelte/elements';
+    import RendererLayout from './RendererLayout.svelte';
+    import QuestionRenderer from './QuestionRenderer.svelte';
+    import { goToNextQuestion, answerQuestion, rendererStore } from '../store/rendererStore.ts';
+    import type {
+        AnswerValue,
+        QuestionnaireAnswer,
+    } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
+    import type { Question } from '$lib/index.ts';
+    import type { FormEventHandler } from 'svelte/elements';
 
-let currentQuestion: Question = $derived(
-    $rendererStore.questionnaire.questions[$rendererStore.currentQuestion],
-);
+    let currentQuestion: Question = $derived(
+        $rendererStore.questionnaire.questions[$rendererStore.currentQuestionId],
+    );
 
-let currentAnswer: QuestionnaireAnswer = $derived(
-    $rendererStore.answers[$rendererStore.currentQuestion],
-);
+    let currentAnswer: QuestionnaireAnswer = $derived(
+        $rendererStore.answers[$rendererStore.currentQuestion] ?? {
+            questionId: $rendererStore.currentQuestion,
+            answer: undefined,
+        },
+    );
 
-const modifierKey = navigator.userAgent.includes('Mac') ? '⌘' : 'Strg';
+    const modifierKey = navigator.userAgent.includes('Mac') ? '⌘' : 'Strg';
 
-const answerCurrentQuestion = (form: HTMLFormElement) => {
-    const formData = new FormData(form as HTMLFormElement);
-    const answer = formData.get(currentQuestion.id);
+    const answerCurrentQuestion = (form: HTMLFormElement) => {
+        const formData = new FormData(form as HTMLFormElement);
+        const answer = formData.get(currentQuestion.id);
 
-    if (!form.checkValidity()) {
-        // @todo: show errors
-        return;
-    }
+        if (!form.checkValidity()) {
+            // @todo: show errors
+            return;
+        }
 
-    if (answer === '' || answer === undefined || answer === null) {
-        skipQuestion();
-        return;
-    }
-    answerQuestion(answer as AnswerValue);
-    goToNextQuestion();
-};
+        if (answer === '' || answer === undefined || answer === null) {
+            skipQuestion();
+            return;
+        }
+        answerQuestion(answer as AnswerValue);
+        goToNextQuestion();
+    };
 
-const skipQuestion = () => {
-    answerQuestion('(nicht beantwortet)');
-    goToNextQuestion();
-};
+    const skipQuestion = () => {
+        answerQuestion('(nicht beantwortet)');
+        goToNextQuestion();
+    };
 
-const onFormSubmit: FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    answerCurrentQuestion(event.currentTarget);
-};
-
-const submitForm = () => {
-    const form = document.getElementById(`${currentQuestion.id}-form`) as HTMLFormElement;
-    if (!form) {
-        return;
-    }
-    answerCurrentQuestion(form);
-};
-
-const handleKeyboardSubmit = (event: KeyboardEvent) => {
-    if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) {
+    const onFormSubmit: FormEventHandler<HTMLFormElement> = event => {
         event.preventDefault();
         event.stopPropagation();
-        submitForm();
-    }
-};
 
-$effect(() => {
-    document.addEventListener('keydown', handleKeyboardSubmit);
-
-    return () => {
-        document.removeEventListener('keydown', handleKeyboardSubmit);
+        answerCurrentQuestion(event.currentTarget);
     };
-});
+
+    const submitForm = () => {
+        const form = document.getElementById(`${currentQuestion.id}-form`) as HTMLFormElement;
+        if (!form) {
+            return;
+        }
+        answerCurrentQuestion(form);
+    };
+
+    const handleKeyboardSubmit = (event: KeyboardEvent) => {
+        if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) {
+            event.preventDefault();
+            event.stopPropagation();
+            submitForm();
+        }
+    };
+
+    $effect(() => {
+        document.addEventListener('keydown', handleKeyboardSubmit);
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyboardSubmit);
+        };
+    });
 </script>
 
 <RendererLayout>
@@ -80,24 +83,25 @@ $effect(() => {
             id={`${currentQuestion.id}-form`}
             onsubmit={onFormSubmit}
         >
-        <div class="nc-stack -nogap">
-            <span class="nc-slub -muted" >{$rendererStore.questionnaire.title}</span>
-            <h1>{currentQuestion.title}</h1>
-        </div>
-        {#if currentQuestion.description}
-            {@html currentQuestion.description}
-        {/if}
-        <QuestionRenderer question={currentQuestion} answer={currentAnswer} />
+            <div class="nc-stack -nogap">
+                <span class="nc-slub -muted">{$rendererStore.questionnaire.title}</span>
+                <h1>{currentQuestion.title}</h1>
+            </div>
+            {#if currentQuestion.description}
+                {@html currentQuestion.description}
+            {/if}
+            <QuestionRenderer question={currentQuestion} answer={currentAnswer} />
         </form>
     {/snippet}
     {#snippet controls()}
-    <div class="nc-cluster -centered">
-    <button class="nc-button" type="button" onclick={submitForm}>
-        <span>Weiter</span>
-    </button>
-        <small>
-            oder <strong>{modifierKey} + Enter</strong> drücken <kbd>{modifierKey}</kbd> + <kbd>⏎</kbd>
-        </small>
-    </div>
+        <div class="nc-cluster -centered -near">
+            <button class="nc-button -primary" type="button" onclick={submitForm}>
+                <span>Weiter</span>
+            </button>
+            <small>
+                oder <kbd>{modifierKey}</kbd> +
+                <kbd>⏎</kbd> drücken
+            </small>
+        </div>
     {/snippet}
 </RendererLayout>

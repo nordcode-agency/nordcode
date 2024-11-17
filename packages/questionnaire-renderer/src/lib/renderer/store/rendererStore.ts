@@ -12,7 +12,8 @@ export type QuestionnaireState = 'idle' | 'loading' | 'error' | 'start' | 'finis
 
 export type CurrentQuestionnaireStore = {
     questionnaire: Questionnaire | null;
-    currentQuestion: number;
+    currentQuestionId: string;
+    currentQuestionIdx: number;
     currentState: QuestionnaireState;
     answers: QuestionnaireAnswer[];
     errors: Partial<{ [name in keyof Questionnaire]: string[] }>;
@@ -20,7 +21,8 @@ export type CurrentQuestionnaireStore = {
 
 export const rendererStore = localStore<CurrentQuestionnaireStore>(STORE_KEY, {
     questionnaire: null,
-    currentQuestion: 0,
+    currentQuestionIdx: 0,
+    currentQuestionId: '',
     currentState: 'idle',
     answers: [],
     errors: {},
@@ -30,12 +32,10 @@ export const setQuestionnaire = (questionnaire: Questionnaire) => {
     rendererStore.set({
         questionnaire,
         errors: {},
-        currentQuestion: 0,
+        currentQuestionIdx: 0,
+        currentQuestionId: questionnaire.questionsOrder[0],
         currentState: 'start',
-        answers: questionnaire.questions.map((question) => ({
-            question,
-            answer: undefined,
-        })),
+        answers: [],
     });
 };
 
@@ -65,12 +65,10 @@ export const resetQuestionnaire = () => {
         return {
             ...store,
             errors: {},
-            currentQuestion: 0,
+            currentQuestionIdx: 0,
+            currentQuestionId: store.questionnaire?.questionsOrder[0] ?? '',
             currentState: 'start',
-            answers: store?.questionnaire?.questions.map((question) => ({
-                question,
-                answer: undefined,
-            })),
+            answers: [],
         };
     });
 };
@@ -81,18 +79,23 @@ export const goBack = () => {
             return;
         }
 
-        if (store.currentQuestion === 0) {
+        if (store.currentQuestionIdx === 0) {
             return {
                 ...store,
                 currentState: 'start',
             };
         }
 
-        // handle final overview
+
+        // @todo: handle final overview
+
+        const prevIdx = Math.max(store.currentQuestionIdx - 1, 0);
+        // prev question by answer to not confuse the user
 
         return {
             ...store,
-            currentQuestion: Math.max(store.currentQuestion - 1, 0),
+            currentQuestionIdx: prevIdx,
+            currentQuestionId: store.answers[prevIdx]?.question.id ?? ''
         };
     });
 };
@@ -106,7 +109,36 @@ export const goToNextQuestion = () => {
         if (store.currentState === 'start') {
             return;
         }
-        if (store.currentQuestion === store.questionnaire.questions.length - 1) {
+
+        const customNextConfig = store.questionnaire.questions[store.currentQuestionId].next;
+
+        if (customNextConfig && customNextConfig.length > 0) {
+            const currentAnswer = store.answers[store.currentQuestionIdx].answer;
+
+            // this is a very simplistic implementation that regards most options
+            // @todo: implement correctly and move elsewhere
+            const nextQuestion = customNextConfig.find((config) => {
+                return config.when.every((condition) => {
+                    return condition.compareValue === currentAnswer;
+                });
+            })
+
+            if (nextQuestion) {
+                return {
+                    ...store,
+                    currentQuestionIdx: Math.min(
+                        store.currentQuestionIdx + 1,
+                        store.questionnaire.questionsOrder.length - 1,
+                    ),
+                    currentQuestionId: nextQuestion.questionId,
+                };
+            }
+        }
+
+        // we already rule out a custom next question, so we can go by order
+        const isFinalQuestion = store.currentQuestionIdx === store.questionnaire.questionsOrder.length - 1;
+
+        if (isFinalQuestion) {
             return {
                 ...store,
                 currentState: 'finished',
@@ -115,10 +147,11 @@ export const goToNextQuestion = () => {
 
         return {
             ...store,
-            currentQuestion: Math.min(
-                store.currentQuestion + 1,
-                store.questionnaire.questions.length - 1,
+            currentQuestionIdx: Math.min(
+                store.currentQuestionIdx + 1,
+                store.questionnaire.questionsOrder.length - 1,
             ),
+            currentQuestionId: store.questionnaire.questionsOrder[store.currentQuestionIdx + 1],
         };
     });
 };
@@ -127,7 +160,8 @@ export const goToQuestion = (questionNumber: number) => {
     rendererStore.update((store: CurrentQuestionnaireStore) => {
         return {
             ...store,
-            currentQuestion: questionNumber,
+            currentQuestionIdx: questionNumber,
+            currentQuestionId: store.answers[questionNumber]?.question.id ?? '',
             currentState: 'questions',
         };
     });
@@ -138,9 +172,17 @@ export const answerQuestion = (answer: AnswerValue) => {
         if (!store.questionnaire) {
             return;
         }
-        store.answers[store.currentQuestion].answer = answer;
+
+        if (!store.answers[store.currentQuestionIdx]) {
+            store.answers[store.currentQuestionIdx] = {
+                question: store.questionnaire.questions[store.currentQuestionId],
+                answer: undefined,
+            };
+        }
+
+        store.answers[store.currentQuestionIdx].answer = answer;
         return store;
     });
 };
 
-export const finishQuestionnaire = () => {};
+export const finishQuestionnaire = () => { };
