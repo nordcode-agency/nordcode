@@ -1,6 +1,5 @@
-@import "@nordcode/ui/media";
 @import "@nordcode/ui/complete";
-@import "@nordcode/ui/base";
+
 
 :where(:root) {
     --layout-max-width: 72em;
@@ -21,12 +20,7 @@
     --triangle-down-url-light: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 84L12.7609 19.5L87.2391 19.5L50 84Z' fill='%231a0004'/%3E%3C/svg%3E");
     --triangle-up-url-light: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 16L87.2391 80.5H12.7609L50 16Z' fill='%231a0004'/%3E%3C/svg%3E%0A");
 
-    --header-offset: calc(
-        var(--spacing-base) +
-        2 *
-        var(--spacing-nearest) +
-        var(--button-height-base)
-    );
+    --header-offset: calc(var(--spacing-base) + 2 * var(--spacing-nearest) + var(--button-height-base));
 
     @media (prefers-reduced-motion: no-preference) {
         scroll-behavior: smooth;
