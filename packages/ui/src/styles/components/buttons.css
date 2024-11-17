@@ -212,6 +212,10 @@
         &.-icon.-small {
             padding: 0;
         }
+
+        &.-nopadding {
+            padding-inline: 0;
+        }
     }
 
     :where(input[type='file']:not([class])) {
