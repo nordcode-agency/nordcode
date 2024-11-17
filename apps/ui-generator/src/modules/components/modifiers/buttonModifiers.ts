@@ -33,7 +33,7 @@ export const buttonModifiers = [
         description: 'Disable the button using the standard disabled attribute',
     },
     {
-        name: '-nopadding',
-        description: 'Remove padding from the button. Useful for stealth buttons at the start or end',
+        name: '-aligned',
+        description: 'Add negative margin to align the button like it had no padding.',
     }
 ];
