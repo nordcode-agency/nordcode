@@ -115,4 +115,7 @@
     };
 </script>
 
-<QuestionnaireRenderer questionnaire={json as Questionnaire}></QuestionnaireRenderer>
+<QuestionnaireRenderer
+    questionnaire={json as Questionnaire}
+    onFinish={answers => console.table(answers)}
+></QuestionnaireRenderer>

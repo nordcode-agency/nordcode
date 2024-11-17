@@ -1,8 +1,14 @@
 // taken from: https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_stores#implementing_our_custom_to-dos_store
-import { writable, get } from 'svelte/store';
+import { writable, get, Writable } from 'svelte/store';
 import { BROWSER } from 'esm-env';
 
-export const localStore = <T>(key: string, initial: T) => {
+export const localStore = <T>(key: string, initial: T): Writable<T> & {
+    hasStoredValue: boolean;
+    exportToString: () => string;
+    exportToJson: () => T;
+    import: (valueString: string) => void;
+    reset: () => void;
+} => {
     const serialize = (value: T) => JSON.stringify(value, null, 2);
     const deserialize = (stringValue: string): T => JSON.parse(stringValue);
 

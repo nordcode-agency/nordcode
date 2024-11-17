@@ -4,7 +4,7 @@ import type {
     AnswerValue,
     QuestionnaireAnswer,
 } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
-import { get } from 'svelte/store';
+import { get, type Writable } from 'svelte/store';
 
 const STORE_KEY = 'RENDERER_QUESTIONNAIRE';
 
@@ -19,7 +19,13 @@ export type CurrentQuestionnaireStore = {
     errors: Partial<{ [name in keyof Questionnaire]: string[] }>;
 };
 
-export const rendererStore = localStore<CurrentQuestionnaireStore>(STORE_KEY, {
+export const rendererStore: Writable<CurrentQuestionnaireStore> & {
+    hasStoredValue: boolean;
+    exportToString: () => string;
+    exportToJson: () => CurrentQuestionnaireStore;
+    import: (valueString: string) => void;
+    reset: () => void;
+} = localStore<CurrentQuestionnaireStore>(STORE_KEY, {
     questionnaire: null,
     currentQuestionIdx: 0,
     currentQuestionId: '',
@@ -41,7 +47,7 @@ export const setQuestionnaire = (questionnaire: Questionnaire) => {
 
 export const initialiseQuestionnaire = (questionnaire: Questionnaire) => {
     if (rendererStore.hasStoredValue) {
-        const oldValue = get(rendererStore) as CurrentQuestionnaireStore;
+        const oldValue = get(rendererStore);
         if (oldValue?.questionnaire?.id === questionnaire.id) {
             // do nothing and let the old version take over
             return;
@@ -52,7 +58,7 @@ export const initialiseQuestionnaire = (questionnaire: Questionnaire) => {
 };
 
 export const startQuestionnaire = () => {
-    rendererStore.update((store: CurrentQuestionnaireStore) => {
+    rendererStore.update((store) => {
         return {
             ...store,
             currentState: 'questions',
@@ -61,7 +67,7 @@ export const startQuestionnaire = () => {
 };
 
 export const resetQuestionnaire = () => {
-    rendererStore.update((store: CurrentQuestionnaireStore) => {
+    rendererStore.update((store) => {
         return {
             ...store,
             errors: {},
@@ -74,9 +80,9 @@ export const resetQuestionnaire = () => {
 };
 
 export const goBack = () => {
-    rendererStore.update((store: CurrentQuestionnaireStore) => {
+    rendererStore.update((store) => {
         if (store.currentState === 'start') {
-            return;
+            return store;
         }
 
         if (store.currentQuestionIdx === 0) {
@@ -86,8 +92,6 @@ export const goBack = () => {
             };
         }
 
-
-        // @todo: handle final overview
 
         const prevIdx = Math.max(store.currentQuestionIdx - 1, 0);
         // prev question by answer to not confuse the user
@@ -101,13 +105,13 @@ export const goBack = () => {
 };
 
 export const goToNextQuestion = () => {
-    rendererStore.update((store: CurrentQuestionnaireStore) => {
+    rendererStore.update(store => {
         if (!store.questionnaire) {
-            return;
+            return store;
         }
 
         if (store.currentState === 'start') {
-            return;
+            return store;
         }
 
         const customNextConfig = store.questionnaire.questions[store.currentQuestionId].next;
@@ -157,7 +161,7 @@ export const goToNextQuestion = () => {
 };
 
 export const goToQuestion = (questionNumber: number) => {
-    rendererStore.update((store: CurrentQuestionnaireStore) => {
+    rendererStore.update((store) => {
         return {
             ...store,
             currentQuestionIdx: questionNumber,
@@ -168,9 +172,9 @@ export const goToQuestion = (questionNumber: number) => {
 };
 
 export const answerQuestion = (answer: AnswerValue) => {
-    rendererStore.update((store: CurrentQuestionnaireStore) => {
+    rendererStore.update((store) => {
         if (!store.questionnaire) {
-            return;
+            return store;
         }
 
         if (!store.answers[store.currentQuestionIdx]) {
@@ -184,5 +188,3 @@ export const answerQuestion = (answer: AnswerValue) => {
         return store;
     });
 };
-
-export const finishQuestionnaire = () => { };

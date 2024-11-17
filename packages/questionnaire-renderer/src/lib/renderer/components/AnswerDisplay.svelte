@@ -11,7 +11,7 @@
             <dd class="nc-cluster -between">
                 <span style="max-inline-size: var(--measure-base);">
                     {#if answer.question.type === QuestionType.long_text}
-                        {@html convertToHtml(answer.answer)}
+                        {@html convertToHtml(answer.answer as string)}
                     {:else}
                         {answer.answer}
                     {/if}
