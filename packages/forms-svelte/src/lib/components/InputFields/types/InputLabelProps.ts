@@ -1,10 +1,11 @@
 import type { Snippet } from 'svelte';
 
 export interface InputLabelProps {
-    id: string;
     label: string;
+    id?: string;
+    name?: string;
     errors?: string[];
     hint?: string;
-    optional?: boolean;
+    required?: boolean;
     children?: Snippet;
 }

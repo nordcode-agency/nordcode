@@ -1,12 +1,11 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { HTMLInputAttributes } from 'svelte/elements';
 import type { InputLabelProps } from './InputLabelProps.ts';
 
 export interface GenericInputProps
-    extends Omit<InputLabelProps, 'id'>,
-        Omit<HTMLAttributes<HTMLInputElement>, 'id' | 'checked'> {
+    extends InputLabelProps,
+    Omit<HTMLInputAttributes, 'id' | 'checked' | "required"> {
     id?: string;
     name?: string;
-    autocomplete?: string;
     type?: string;
     value?: unknown;
 }
