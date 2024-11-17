@@ -5,7 +5,7 @@
 
     interface CheckboxInputFieldProps extends GenericInputProps {
         options: Option[];
-        value?: number | string | boolean;
+        value?: (number | string | boolean)[];
     }
 
     let {
@@ -23,7 +23,15 @@
     const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
         const target = event.target as HTMLInputElement;
 
-        value = +target.value;
+        if (!value) {
+            value = [];
+        }
+
+        if (target.checked) {
+            value.push(+target.value);
+        } else {
+            value = value.filter(v => v !== +target.value);
+        }
     };
 </script>
 
@@ -61,6 +69,7 @@
                     class="nc-input-checkbox"
                     type="checkbox"
                     value={option.value}
+                    checked={value?.includes(option.value)}
                     {name}
                     {required}
                     {...restProps}

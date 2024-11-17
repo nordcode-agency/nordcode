@@ -65,6 +65,7 @@
                     value={option.value}
                     {name}
                     {required}
+                    checked={value === option.value}
                 />
             </div>
         {/each}
