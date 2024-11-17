@@ -360,7 +360,7 @@ const sections: Array<Section> = [
                     }
                 ],
                 modifiers: [...colorUtilModifiers, {
-                    name: "--filled",
+                    name: "-filled",
                     description: "A more prominent version of the alert"
                 }],
             }
