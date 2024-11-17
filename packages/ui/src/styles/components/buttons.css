@@ -213,8 +213,8 @@
             padding: 0;
         }
 
-        &.-nopadding {
-            padding-inline: 0;
+        &.-aligned {
+            margin-inline: calc(-1 * var(--_button-padding-inline));
         }
     }
 

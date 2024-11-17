@@ -48,8 +48,7 @@
                         <h3>Deine Antworten</h3>
                         <button
                             onclick={resetQuestionnaire}
-                            class="nc-button -primary -stealth -nopadding"
-                            >Von vorne beginnen</button
+                            class="nc-button -primary -stealth -aligned">Von vorne beginnen</button
                         >
                         <AnswerDisplay></AnswerDisplay>
                     </section>

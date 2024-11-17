@@ -17,7 +17,7 @@
                     {/if}
                 </span>
                 <button
-                    class="nc-button -primary -stealth -nopadding"
+                    class="nc-button -primary -stealth -aligned"
                     onclick={() => goToQuestion(idx)}>Bearbeiten</button
                 >
             </dd>
