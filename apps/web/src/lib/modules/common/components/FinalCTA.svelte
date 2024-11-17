@@ -28,7 +28,7 @@
 
 		& p {
 			color: var(--color-text-muted);
-			max-inline-size: 40ch;
+			max-inline-size: var(--measure-base);
 		}
 	}
 

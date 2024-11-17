@@ -36,8 +36,9 @@
 		<div style="inline-size: min(240px, 100%)">
 			<ActionCard heading="Lass uns schauen, wie wir dich unterstützen können">
 				{#snippet action()}
-					<a href={ensureTrailingSlash(Navigation.start.url)} class="nc-button -brand"
-						>{Navigation.start.name}</a
+					<a
+						href={ensureTrailingSlash(Navigation.start.url)}
+						class="nc-button -brand -big">{Navigation.start.name}</a
 					>
 				{/snippet}
 			</ActionCard>
@@ -80,5 +81,11 @@
 				display: initial;
 			}
 		}
+	}
+
+	.-big {
+		--button-height-base: 4rem;
+		inline-size: 100%;
+		font-size: var(--font-size-large);
 	}
 </style>

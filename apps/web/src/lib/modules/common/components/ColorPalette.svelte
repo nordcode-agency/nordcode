@@ -3,26 +3,14 @@
 
 	interface Props {
 		palette: ColorPalette;
-		hue: [string, string];
+		hue?: [string, string];
 	}
 
-	let { palette, hue }: Props = $props();
-
-	const tryColorPalette = () => {
-		if (document.startViewTransition) {
-			document.startViewTransition(() => {
-				document.documentElement.style.setProperty('--h-brand-primary', hue[0]);
-				document.documentElement.style.setProperty('--h-brand-secondary', hue[1]);
-			});
-		} else {
-			document.documentElement.style.setProperty('--h-brand-primary', hue[0]);
-			document.documentElement.style.setProperty('--h-brand-secondary', hue[1]);
-		}
-	};
+	let { palette }: Props = $props();
 </script>
 
 <div class="nc-stack -contained | colorPalette-wrapper">
-	<h2>Farbpalette</h2>
+	<p class="nc-slub">Farbpalette</p>
 	<div class="nc-grid colorPalette">
 		<div class="nc-stack -near">
 			<p class="nc-slub">Hell</p>
@@ -49,16 +37,12 @@
 			</div>
 		</div>
 	</div>
-	<button class="nc-button -outline -small -primary" onclick={tryColorPalette}
+	<!-- <button class="nc-button -outline -small -primary" onclick={tryColorPalette}
 		>Farbpalette ausprobieren</button
-	>
+	> -->
 </div>
 
 <style>
-	.colorPalette-wrapper {
-		margin-block-end: var(--spacing-farthest);
-	}
-
 	.colorPalette {
 		--grid-min-item-size: 16rem;
 		max-inline-size: 100%;
