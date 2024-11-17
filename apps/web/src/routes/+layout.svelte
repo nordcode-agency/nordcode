@@ -25,7 +25,6 @@
 	});
 
 	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
@@ -36,11 +35,6 @@
 		await import('@nordcode/ui/src/modules/dialogs/ts/dialogs');
 	});
 </script>
-
-<svelte:head>
-	<title>{$page.data.title}</title>
-	<meta name="description" content={$page.data.description} />
-</svelte:head>
 
 <main>
 	{@render children?.()}
@@ -56,6 +50,6 @@
 
 		max-inline-size: 120rem;
 		margin-inline: auto;
-		overflow: visible
+		overflow: visible;
 	}
 </style>

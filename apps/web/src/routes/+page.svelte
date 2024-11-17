@@ -7,6 +7,7 @@
 	import ProjectCard from '$lib/modules/common/components/ProjectCard.svelte';
 	import Services from '$lib/modules/common/components/Services.svelte';
 	import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
+	import Meta from '$lib/modules/common/components/Meta.svelte';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -16,9 +17,10 @@
 	let { data }: Props = $props();
 </script>
 
-<svelte:head>
-	<title>{data.title}</title>
-</svelte:head>
+<Meta
+	title="Willkommen bei nordcode | nordcode"
+	description="Du bist auf der Suche nach einer kleinen, lokalen Agentur, die dir hilft, deine Onlinepräsenz zu verbessern? Dann bist du bei uns genau richtig."
+></Meta>
 
 <div class="nc-stack fullscreen">
 	<Header />

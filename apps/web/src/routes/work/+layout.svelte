@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import Breadcrumbs from '$lib/modules/common/components/Breadcrumbs.svelte';
-	import ColorPalette from '$lib/modules/common/components/ColorPalette.svelte';
 	import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
 	import Header from '$lib/modules/common/components/Header.svelte';
 	import type { Breadcrumb } from '$lib/types/Breadcrumb';
+	import Meta from '$lib/modules/common/components/Meta.svelte';
 
 	let { children } = $props();
 
@@ -27,12 +27,9 @@
 	});
 </script>
 
-<Header />
+<Meta title={`${$page.data.heading} | nordcode`} description={$page.data.goal}></Meta>
 
-<svelte:head>
-	<title>{$page.data.heading} - nordcode</title>
-	<meta name="description" content={$page.data.goal} />
-</svelte:head>
+<Header />
 
 <article class="nc-box" style="--h-brand-primary: {$page.data.hue.light}">
 	<div class="nc-stack">
@@ -75,18 +72,12 @@
 					{/if}
 					{#if $page.data.url}
 						<div class="actions">
-							<a href={$page.data.url} target="_blank" class="nc-button -outline info"
-								>Webseite besuchen</a
-							>
+							<a href={$page.data.url} target="_blank">{$page.data.url}</a>
 						</div>
 					{/if}
 				</div>
 			</div>
-			<div class="body nc-flow text-base" data-grow>
-				{#if $page.data.colorPalette}
-					<ColorPalette palette={$page.data.colorPalette} hue={$page.data.hue}
-					></ColorPalette>
-				{/if}
+			<div class="body nc-flow styled-base-text" data-grow>
 				{@render children?.()}
 				<section class="nc-region">
 					<FinalCTA />
@@ -164,6 +155,7 @@
 	.body {
 		max-inline-size: min(100%, var(--measure-base));
 	}
+
 	.side {
 		align-self: stretch;
 	}

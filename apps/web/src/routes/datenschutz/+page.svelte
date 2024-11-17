@@ -1,10 +1,12 @@
 <script>
 	import Header from '$lib/modules/common/components/Header.svelte';
+	import Meta from '$lib/modules/common/components/Meta.svelte';
 </script>
 
-<svelte:head>
-	<title>Impressum - nordcode</title>
-</svelte:head>
+<Meta
+	title="Datenschutzerklärung | nordcode"
+	description="Wir schätzen Deine Daten. Hier findest du alles, was du wissen musst."
+></Meta>
 
 <div class="nc-stack fullscreen">
 	<Header />
@@ -20,7 +22,7 @@
 				gilt für alle von uns durchgeführten Verarbeitungen personenbezogener Daten, sowohl
 				im Rahmen der Erbringung unserer Leistungen als auch insbesondere auf unseren
 				Webseiten, in mobilen Applikationen sowie innerhalb externer Onlinepräsenzen, wie
-				z. B. unserer Social-Media-Profile (nachfolgend zusammenfassend bezeichnet als
+				z.B. unserer Social-Media-Profile (nachfolgend zusammenfassend bezeichnet als
 				"Onlineangebot").
 			</p>
 			<p>Die verwendeten Begriffe sind nicht geschlechtsspezifisch.</p>

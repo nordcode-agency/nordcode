@@ -1,10 +1,9 @@
 <script>
 	import Header from '$lib/modules/common/components/Header.svelte';
+	import Meta from '$lib/modules/common/components/Meta.svelte';
 </script>
 
-<svelte:head>
-	<title>Impressum - nordcode</title>
-</svelte:head>
+<Meta title="Impressum | nordcode" description="Hier lebt das Impressum von nordcode"></Meta>
 
 <div class="nc-stack fullscreen">
 	<Header />
@@ -44,8 +43,8 @@
 				Haftungsausschluss: Die Inhalte dieses Onlineangebotes wurden sorgfältig und nach
 				unserem aktuellen Kenntnisstand erstellt, dienen jedoch nur der Information und
 				entfalten keine rechtlich bindende Wirkung, sofern es sich nicht um gesetzlich
-				verpflichtende Informationen (z. B. das Impressum, die Datenschutzerklärung, AGB
-				oder verpflichtende Belehrungen von Verbrauchern) handelt. Wir behalten uns vor, die
+				verpflichtende Informationen (z.B. das Impressum, die Datenschutzerklärung, AGB oder
+				verpflichtende Belehrungen von Verbrauchern) handelt. Wir behalten uns vor, die
 				Inhalte vollständig oder teilweise zu ändern oder zu löschen, soweit vertragliche
 				Verpflichtungen unberührt bleiben. Alle Angebote sind freibleibend und
 				unverbindlich.
