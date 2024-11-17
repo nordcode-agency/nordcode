@@ -14,8 +14,8 @@
     );
 
     let currentAnswer: QuestionnaireAnswer = $derived(
-        $rendererStore.answers[$rendererStore.currentQuestion] ?? {
-            questionId: $rendererStore.currentQuestion,
+        $rendererStore.answers[$rendererStore.currentQuestionIdx] ?? {
+            question: $rendererStore.questionnaire.questions[$rendererStore.currentQuestionId],
             answer: undefined,
         },
     );
