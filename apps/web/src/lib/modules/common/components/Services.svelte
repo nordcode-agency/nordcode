@@ -126,7 +126,7 @@
 
 			&::before {
 				display: block;
-				transform: translateY(-20%);
+				transform: translateY(32%);
 			}
 		}
 	}

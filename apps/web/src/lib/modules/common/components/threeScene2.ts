@@ -89,6 +89,32 @@ export function main() {
 		// side: THREE.DoubleSide,
 	});
 
+	const attributeObserver = new MutationObserver(function (mutationList) {
+		for (const mutation of mutationList) {
+			if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+				const dataThemeValue = (mutation.target as HTMLElement).getAttribute('data-theme');
+				if (dataThemeValue === 'light' || dataThemeValue === 'dark') {
+					setUniformColors(dataThemeValue as 'light' | 'dark', waterMaterial);
+				} else if (dataThemeValue === 'system') {
+					setUniformColors(
+						window.matchMedia('(prefers-color-scheme: dark)').matches
+							? 'dark'
+							: 'light',
+						waterMaterial
+					);
+				}
+			}
+		}
+	});
+	const htmlEl = document.querySelector('html');
+
+	if (htmlEl) {
+		attributeObserver.observe(htmlEl, {
+			attributes: true //configure it to listen to attribute changes
+		});
+	} else {
+		console.warn('Expected to find an html element in the document');
+	}
 	setUniformColors(
 		window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
 		waterMaterial
@@ -180,7 +206,12 @@ export function main() {
 	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
 		// const dataTheme = document.querySelector('html')?.getAttribute("data-theme") as "light" | "dark" | "system" | null;
 		const newColorScheme = event.matches ? 'dark' : 'light';
-		setUniformColors(newColorScheme, waterMaterial);
+		if (
+			htmlEl?.getAttribute('data-theme') !== 'light' &&
+			htmlEl?.getAttribute('data-theme') !== 'dark'
+		) {
+			setUniformColors(newColorScheme, waterMaterial);
+		}
 	});
 
 	/**
