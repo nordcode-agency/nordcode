@@ -10,7 +10,7 @@
 
 <style lang="postcss">
 	.webgl {
-		position: absolute;
+        grid-area: 1 / 1;
 		z-index: -1;
 		content: '';
 		top: 0;

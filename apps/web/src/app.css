@@ -30,6 +30,15 @@ html {
     scroll-timeline: --bodyTimeline vertical;
 }
 
+.wrapper {
+    inline-size: 100%;
+}
+
+.section {
+    max-inline-size: 120rem;
+    margin-inline: auto;
+}
+
 .section-title {
     font-weight: 700;
     font-size: 3rem;

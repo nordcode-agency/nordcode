@@ -50,23 +50,34 @@
 	];
 </script>
 
-<section id="services" class="nc-box section">
-	<h2 class="section-title">Was wir gut können</h2>
-	<div class="container">
-		{#each services as { title, description, cta }}
-			<div class="nc-stack item">
-				<div class="nc-stack">
-					<h3>{title}</h3>
-					<p>{description}</p>
+<section class="section">
+	<div id="services" class="nc-box inner-section">
+		<h2 class="section-title">Was wir gut können</h2>
+		<div class="container">
+			{#each services as { title, description, cta }}
+				<div class="nc-stack item">
+					<div class="nc-stack">
+						<h3>{title}</h3>
+						<p>{description}</p>
+					</div>
+					<SecondaryCtaButton href={cta.href}>{cta.label}</SecondaryCtaButton>
 				</div>
-				<SecondaryCtaButton href={cta.href}>{cta.label}</SecondaryCtaButton>
-			</div>
-		{/each}
+			{/each}
+		</div>
 	</div>
 </section>
 
 <style lang="postcss">
-	.section {
+    .inner-section {
+		display: flex;
+		column-gap: var(--spacing-adaptive);
+		row-gap: max(calc(var(--spacing-adaptive) * 1.5), var(--spacing-far));
+		flex-wrap: wrap;
+		justify-content: space-between;
+		inline-size: 100%;
+	}
+
+	.container {
 		display: flex;
 		column-gap: var(--spacing-adaptive);
 		row-gap: max(calc(var(--spacing-adaptive) * 1.5), var(--spacing-far));

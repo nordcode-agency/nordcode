@@ -3,32 +3,35 @@
 	import imgPerson2 from '$lib/assets/person2.jpg';
 </script>
 
-<section id="about" class="container nc-box nc-stack">
-	<div
-		class="nc-ram-grid"
-		style="--nc-ram-grid-gap: var(--spacing-adaptive); --nc-ram-grid-min-width: 32ch;"
-	>
-		<div class="images">
-			<figure>
-				<img src={imgPerson1} alt="Joshua" />
-			</figure>
-			<figure>
-				<img src={imgPerson2} alt="Lukas" />
-			</figure>
-		</div>
-		<div class="content">
-			<div class="nc-flow">
-				<h2 class="section-title heading-bg">Wer ist nordcode?</h2>
-				<p>
-					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-					tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-					vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-					no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-					amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-					labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-					et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-					sanctus est Lorem ipsum dolor sit amet.
-				</p>
+<section class="section">
+	<div id="about" class="container nc-box nc-stack">
+		<div
+			class="nc-ram-grid"
+			style="--nc-ram-grid-gap: var(--spacing-adaptive); --nc-ram-grid-min-width: 32ch;"
+		>
+			<div class="images">
+				<figure>
+					<img src={imgPerson1} alt="Joshua" />
+				</figure>
+				<figure>
+					<img src={imgPerson2} alt="Lukas" />
+				</figure>
+			</div>
+			<div class="content">
+				<div class="nc-flow">
+					<h2 class="section-title heading-bg">Wer ist nordcode?</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+						eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+						voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+						clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+						amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+						nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+						diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+						clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+						amet.
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
