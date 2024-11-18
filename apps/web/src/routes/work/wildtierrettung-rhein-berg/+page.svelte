@@ -6,26 +6,22 @@
 </script>
 
 <h2>Was war das Ziel?</h2>
-<blockquote>
-	<div class="nc-flow">
-		<p>
-			Bitte erstellt eine Webseite, mit der wir uns sehen lassen können. Dazu soll die Seite
-			folgende Funktionene erfüllen:
-		</p>
-		<ol>
-			<li>Unser Verein, seine Aufgaben und Akitvitäten sollen vorsgestellt werden</li>
-			<li>Wir wollen zeigen, wie man helfen kann (Spenden und Freiwilligenarbeit)</li>
-			<li>
-				Landwirt:innen sollen über die Vorteile informiert werden und es soll ihnen einfach
-				gemacht werden, die Wildtierrettung zu beauftragen
-			</li>
-			<li>Wir brauchen eine neue E-Mail-Adresse (und unsere Domain zurück)</li>
-			<li>
-				Wir wollen ein Kontaktformular, weil das den Großteil unserer Kontaktaufnahmen war
-			</li>
-		</ol>
-	</div>
-</blockquote>
+<div class="nc-flow nc-box -bordered -muted -filled nc-alert">
+	<p>
+		Bitte erstellt eine Webseite, mit der wir uns sehen lassen können. Dazu soll die Seite
+		folgende Funktionene erfüllen:
+	</p>
+	<ol>
+		<li>Unser Verein, seine Aufgaben und Akitvitäten sollen vorsgestellt werden</li>
+		<li>Wir wollen zeigen, wie man helfen kann (Spenden und Freiwilligenarbeit)</li>
+		<li>
+			Landwirt:innen sollen über die Vorteile informiert werden und es soll ihnen einfach
+			gemacht werden, die Wildtierrettung zu beauftragen
+		</li>
+		<li>Wir brauchen eine neue E-Mail-Adresse (und unsere Domain zurück)</li>
+		<li>Wir wollen ein Kontaktformular, weil das den Großteil unserer Kontaktaufnahmen war</li>
+	</ol>
+</div>
 <p>
 	Dazu mussten wir die Inhalte weitestgehend selber schreiben. Sie sollten natürlich auch ein
 	Stück weit SEO-optimiert sein, damit man die Seite auch findet. Konkretes dazu unter <a
@@ -46,9 +42,8 @@
 	glücklicherweise glimpflich.
 </p>
 <p>
-	Das wichtigste natürlich zuerst: <strong
-		>die Webseite gefällt und der Verein kann sie mit Stolz vorzeigen</strong
-	>.
+	Das wichtigste natürlich zuerst: <strong>die Webseite gefällt</strong> und der Verein kann sie mit
+	Stolz vorzeigen.
 </p>
 
 <p>
@@ -67,17 +62,18 @@
 </figure>
 
 <p>
-	Auch <strong>auf dem Handy ist die Webseite sehr einfach zu bedienen</strong>.
+	Auch auf dem Handy ist die Webseite <strong>sehr einfach zu bedienen</strong>.
 </p>
 <p>
-	Durch <strong>keyword-recherche-basierte und ansprechend geschriebene Inhalte</strong> ist die Seite
-	sowohl leicht auf Google und co zu finden und auch nett zu lesen. Zur Unterstüzung haben wir den
-	Verein noch auf Google my Business angemeldet auf diversen Wildtierrettungs-Registern eingetragen.
-	So findet jeder, der regionale Wildtierrettung sucht den Verein schnell und treffsicher.
+	Durch <strong>keyword-recherche-basierte</strong> und
+	<strong>ansprechend geschriebene Inhalte</strong> ist die Seite sowohl leicht auf Google und co zu
+	finden und auch nett zu lesen. Zur Unterstüzung haben wir den Verein noch auf Google my Business
+	angemeldet auf diversen Wildtierrettungs-Registern eingetragen. So findet jeder, der regionale Wildtierrettung
+	sucht den Verein schnell und treffsicher.
 </p>
 
 <h2 id="design">Designumsetzung</h2>
-<blockquote class="nc-flow">
+<div class="nc-flow nc-box -bordered -muted -filled nc-alert">
 	<p>
 		Das Design soll <strong>aufgeräumt, modern und klar</strong> sein. Nicht zu verspielt, aber auch
 		nicht langweilig, klinisch oder trocken.
@@ -86,7 +82,7 @@
 		Die Webseite richtet sich dabei an alle Altersgruppen und unteranderem auch an Menschen, die
 		nicht so viel im Internet unterwegs sind.
 	</p>
-</blockquote>
+</div>
 <p>Klarer Brief, schauen wir mal, was wir daraus machen können.</p>
 <h3>Farben</h3>
 <p>
@@ -115,10 +111,9 @@
 	sind. Das ist freundlich und einladend und passt zum Thema.
 </p>
 <p>
-	<strong
-		>Dabei haben wir natürlich stets wert darauf gelegt, dass die Farben barrierefrei sind und
-		eine gute Lesbarkeit gewährleisten.</strong
-	>
+	Dabei haben wir natürlich stets wert darauf gelegt, dass die <strong
+		>Farben barrierefrei sind</strong
+	> und eine gute Lesbarkeit gewährleisten.
 </p>
 
 <h3>Struktur</h3>
@@ -128,12 +123,9 @@
 	ausreichend Abstand und klaren Blöcken ist die Seite gut scanbar und lesbar.
 </p>
 <p>
-	Durch <strong
-		>viele exzellente Bilder<strong
-			>, die wir vom Verein bekommen haben, schaffen wir eine persönliche Note und vermitteln
-			einen Eindruck über die freundlichen Mitglieder und die Arbeit des Vereins.</strong
-		></strong
-	>
+	Durch <strong>viele exzellente Bilder</strong>, die wir vom Verein bekommen haben, schaffen wir
+	eine persönliche Note und vermitteln einen Eindruck über die freundlichen Mitglieder und die
+	Arbeit des Vereins.
 </p>
 <p>
 	Dazu kommen Zahlenblöcken für eine gute Übersicht über die Arbeit des Vereins und Zitaten der
@@ -146,6 +138,16 @@
 	class="nc-box -bordered nc-cluster nc-alert -neutral -filled"
 	style="padding: var(--spacing-base);"
 >
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 24 24"
+		fill="currentColor"
+		class="nc-icon"
+		data-size="lg"
+		><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
+			d="M19 2a3 3 0 0 1 2.995 2.824l.005 .176v14a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005h14zm-7 9h-1l-.117 .007a1 1 0 0 0 0 1.986l.117 .007v3l.007 .117a1 1 0 0 0 .876 .876l.117 .007h1l.117 -.007a1 1 0 0 0 .876 -.876l.007 -.117l-.007 -.117a1 1 0 0 0 -.764 -.857l-.112 -.02l-.117 -.006v-3l-.007 -.117a1 1 0 0 0 -.876 -.876l-.117 -.007zm.01 -3l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007z"
+		/></svg
+	>
 	<p>Beides hat die exzellente SEO-Managerin Marthe Schubert für uns gemacht.</p>
 </div>
 <p>
