@@ -94,7 +94,12 @@
             padding-block-end: var(--p-y-details);
         }
 
+        &>summary::-webkit-details-marker {
+            display: none;
+        }
+
         &>summary {
+            list-style: none;
             cursor: pointer;
             color: var(--color-text-base);
             inline-size: 100%;
