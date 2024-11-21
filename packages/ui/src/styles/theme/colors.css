@@ -157,22 +157,9 @@
 
         --color-status-danger-contrast: light-dark(var(--color-status-danger-contrast-light),
                 var(--color-status-danger-contrast-dark));
-
         --shadow-color: light-dark(var(--shadow-color-light), var(--shadow-color-dark));
-
-        --shadow-inset: light-dark(var(--shadow-inset-light), var(--shadow-inset-dark));
-
-        --shadow-nearest: light-dark(var(--shadow-nearest-light), var(--shadow-nearest-dark));
-
-        --shadow-near: light-dark(var(--shadow-near-light), var(--shadow-near-dark));
-
-        --shadow-medium: light-dark(var(--shadow-medium-light), var(--shadow-medium-dark));
-
-        --shadow-far: light-dark(var(--shadow-far-light), var(--shadow-far-dark));
-
         --triangle-down-url: light-dark(var(--triangle-down-url-light),
                 var(--triangle-down-url-dark));
-
         --triangle-up-url: light-dark(var(--triangle-up-url-light), var(--triangle-up-url-dark));
     }
 }
