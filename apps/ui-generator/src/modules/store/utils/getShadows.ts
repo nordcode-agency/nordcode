@@ -27,68 +27,39 @@ export const getShadows = (store: ConfigStore) => {
 
     return `
             /* SHADOWS */
+
+
+            --shadow-inset: ${generateShadow(
+        AmountOfShadows.nearest,
+        shadowConfig,
+        true,
+    )};
+
+            --shadow-nearest: ${generateShadow(
+        AmountOfShadows.nearest,
+        shadowConfig,
+    )};
+            --shadow-near: ${generateShadow(
+        AmountOfShadows.near,
+
+        shadowConfig,
+    )};
+            --shadow-medium: ${generateShadow(
+        AmountOfShadows.medium,
+
+        shadowConfig,
+    )};
+            --shadow-far: ${generateShadow(
+        AmountOfShadows.far,
+        shadowConfig,
+    )};
             /* Light Theme */
-            
-            
-            --shadow-inset-light: ${generateShadow(
-                shadowColorLight,
-                AmountOfShadows.nearest,
-                shadowConfig,
-                true,
-            )};
-            
-            --shadow-nearest-light: ${generateShadow(
-                shadowColorLight,
-                AmountOfShadows.nearest,
-                shadowConfig,
-            )};
-            --shadow-near-light: ${generateShadow(
-                shadowColorLight,
-                AmountOfShadows.near,
 
-                shadowConfig,
-            )};
-            --shadow-medium-light: ${generateShadow(
-                shadowColorLight,
-                AmountOfShadows.medium,
-
-                shadowConfig,
-            )};
-            --shadow-far-light: ${generateShadow(
-                shadowColorLight,
-                AmountOfShadows.far,
-                shadowConfig,
-            )};
-            
             --shadow-color-light: ${shadowColorLight};
             --shadow-color-light-lch: ${shadowColorLightLch};
-            
+
             /* Dark Theme */
-            
-            --shadow-inset-dark: ${generateShadow(
-                shadowColorDark,
-                AmountOfShadows.nearest,
-                shadowConfig,
-                true,
-            )};
-            
-            --shadow-nearest-dark: ${generateShadow(
-                shadowColorDark,
-                AmountOfShadows.nearest,
-                shadowConfig,
-            )};
-            --shadow-near-dark: ${generateShadow(
-                shadowColorDark,
-                AmountOfShadows.near,
-                shadowConfig,
-            )};
-            --shadow-medium-dark: ${generateShadow(
-                shadowColorDark,
-                AmountOfShadows.medium,
-                shadowConfig,
-            )};
-            --shadow-far-dark: ${generateShadow(shadowColorDark, AmountOfShadows.far, shadowConfig)};
-            
+
             --shadow-color-dark: ${shadowColorDark};
             --shadow-color-dark-lch: ${shadowColorDarkLch};
         `;
@@ -97,8 +68,8 @@ export const getShadows = (store: ConfigStore) => {
 // ideas from: https://shadows.brumm.af/ and material design and https://www.joshwcomeau.com/shadow-palette/
 // const amountOfExtraShadows = 4;
 const round = (num: number) => Math.round(num * 100) / 100;
-const getLchColorWithTransparency = (color: string, transparency: number) =>
-    `${color.slice(0, -1)} / ${round(transparency * 100)}%)`;
+const getShadowColor = (transparency: number) =>
+    `color-mix(in oklch, var(--shadow-color), transparent ${100 - round(transparency * 100)}%)`;
 
 const getSpread = (min: number, max: number, totalSteps: number, step: number) => {
     const spread = min + ((max - min) / totalSteps) * step;
@@ -114,7 +85,6 @@ const scaleSpread = (target: number, totalSteps: number, currentStep: number): n
 
 // use color for creating the correct one
 const generateShadow = (
-    color: string,
     amountOfShadows: number,
     config: {
         baseDistance: number;
@@ -142,8 +112,7 @@ const generateShadow = (
     for (let i = 0; i <= amountOfShadows; i++) {
         const d = round(baseDistance * scaleFactor ** i);
         const blur = round(d * blurFactor);
-        const shadowColor = getLchColorWithTransparency(
-            color,
+        const shadowColor = getShadowColor(
             startTransparency * transparencyScale ** i,
         );
 
