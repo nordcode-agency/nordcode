@@ -186,19 +186,96 @@ section.nc-box {
 
 }
 
-.img-card {
-    --card-padding-inline: 0px;
-    --card-padding-block: 0px;
+.case-img-container {
+    position: relative;
+    max-inline-size: 100%;
 
-    background: linear-gradient(45deg, color-mix(in oklch, var(--color-border-base), transparent 97%), color-mix(in oklch, var(--color-surface-base), transparent 20%));
-    backdrop-filter: blur(var(--spacing-base));
-    box-shadow:
-        var(--_card-shadow),
-        inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) color-mix(in oklch, var(--color-border-base), transparent 20%);
 
     &>figcaption {
-        background: none;
-        color: var(--color-text-base);
+        background: linear-gradient(45deg, color-mix(in oklch, var(--color-border-base), transparent 97%), color-mix(in oklch, var(--color-surface-base), transparent 20%));
+        backdrop-filter: blur(var(--spacing-base));
+        box-shadow:
+            var(--_card-shadow),
+            inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) color-mix(in oklch, var(--color-border-base), transparent 20%);
+
+        color: var(--color-text-muted);
         padding: var(--spacing-base);
+        border: var(--border-width-thin) solid var(--color-border-base);
+        border-radius: var(--border-width-medium);
+        margin-block-start: var(--spacing-base);
+    }
+}
+
+.case-img-wrapper {
+    --case-color: black;
+
+    border: var(--border-width-thick) solid var(--case-color);
+    box-shadow: var(--shadow-medium);
+    background: var(--case-color);
+    overflow: clip;
+
+    display: grid;
+    grid-template:
+        "header" auto
+        "content" 1fr
+        "footer" auto
+        / 1fr;
+
+    &.-desktop:before {
+        content: "";
+        display: block;
+        inline-size: 100%;
+        block-size: var(--spacing-base);
+        background: var(--case-color);
+        grid-area: header;
+    }
+
+
+    & picture {
+        grid-area: content;
+        max-inline-size: 100%;
+        max-block-size: 50dvh;
+        object-fit: contain;
+        border-radius: var(--border-radius-medium);
+    }
+
+    & .case-img {
+        border-radius: var(--border-radius-medium);
+    }
+
+    &.-desktop {
+        border-radius: var(--border-radius-medium);
+    }
+
+    &.-mobile {
+        border-radius: var(--border-radius-large);
+        border-width: var(--spacing-near);
+    }
+
+    &.-mobile picture {
+        aspect-ratio: 0.46;
+    }
+
+    &.-desktop picture {
+        aspect-ratio: 16 / 9;
+    }
+
+
+    &.-mobile:before {
+        content: "";
+        display: block;
+        inline-size: 100%;
+        block-size: var(--spacing-base);
+        background: var(--case-color);
+        grid-area: header;
+    }
+
+    &.-mobile:after {
+        content: "";
+        display: block;
+        inline-size: 100%;
+        block-size: var(--spacing-base);
+        background: var(--case-color);
+        grid-area: footer;
     }
 }

@@ -9,3 +9,4 @@
 ### Fixes
 
 - Fixed Webkit `<detail>` style
+- Shadows not working using `light-dark`

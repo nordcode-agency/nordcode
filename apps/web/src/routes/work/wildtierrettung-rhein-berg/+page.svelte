@@ -54,8 +54,10 @@
 	>.
 </p>
 
-<figure class="nc-card img-card">
-	<enhanced:img class="img" src={header} />
+<figure class="case-img-container">
+	<div class="case-img-wrapper -desktop">
+		<enhanced:img class="case-img" src={header} />
+	</div>
 	<figcaption>
 		Klare Strukturen, einfache Navigation ein CTA, um direkt zur Anmeldung zu kommen.
 	</figcaption>
@@ -98,8 +100,10 @@
 	}}
 ></ColorPalette>
 
-<figure class="nc-card img-card">
-	<enhanced:img class="img" src={verteiler} />
+<figure class="case-img-container">
+	<div class="case-img-wrapper -mobile">
+		<enhanced:img class="case-img" src={verteiler} />
+	</div>
 	<figcaption>
 		Durch die Farben haben wir die Bereiche getrennt. Auf den Detailseiten findet man sie direkt
 		wieder und weiß, dass man richtig ist.
@@ -155,8 +159,10 @@
 	verbundenen Keywords hat sie die Webseite strukturiert und betextet, damit mit sowohl
 	Besucher:innen als auch Suchmaschinen zufrieden sind.
 </p>
-<figure class="nc-card img-card">
-	<enhanced:img class="img" src={start} />
+<figure class="case-img-container">
+	<div class="case-img-wrapper -mobile">
+		<enhanced:img class="case-img" src={start} />
+	</div>
 	<figcaption>
 		Schon der Start erklärt das Problem und wie der Verein es löst. Zudem bieten wir einen
 		direkten Link für Landwirt:innen an, damit sie schnell handeln können, wenn sie wissen,
