@@ -37,3 +37,4 @@ jobs:
                     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                     accountId: 805cfd16784a171042a2d06b47886d50
                     command: pages deploy apps/ui-generator/dist --project-name=ui
+                    packageManager: pnpm
