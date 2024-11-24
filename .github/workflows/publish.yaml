@@ -10,18 +10,18 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: [ 20 ]
+                node-version: [ 23 ]
         permissions:
             contents: read
             deployments: write
         name: Publish to Cloudflare Pages
         steps:
             -   name: Checkout
-                uses: actions/checkout@v3
+                uses: actions/checkout@v4
 
-            -   uses: pnpm/action-setup@v2
+            -   uses: pnpm/action-setup@v4
                 with:
-                    version: 8
+                    version: 9
 
             -   name: Use Node.js ${{ matrix.node-version }}
                 uses: actions/setup-node@v3
@@ -36,19 +36,14 @@ jobs:
             -   name: Build UI Generator
                 run: pnpm --filter "ui-generator" build
 
-            -   name: Publish to Cloudflare Pages
-                uses: cloudflare/pages-action@v1
+            -   name: Deploy
+                uses: cloudflare/wrangler-action@v3
                 with:
                     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                     accountId: 805cfd16784a171042a2d06b47886d50
-                    projectName: design-ui
-                    directory: dist
+                    command: pages deploy apps/ui-generator/dist --project-name=ui
                     # Optional: Enable this if you want to have GitHub Deployments triggered
                     gitHubToken: ${{ secrets.GITHUB_TOKEN }}
                     # Optional: Switch what branch you are publishing to.
                     # By default this will be the branch which triggered this workflow
                     branch: main
-                    # Optional: Change the working directory
-                    workingDirectory: apps/ui-generator
-                    # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
-                    wranglerVersion: '3'
