@@ -40,8 +40,3 @@ jobs:
                     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                     accountId: 805cfd16784a171042a2d06b47886d50
                     command: pages deploy apps/ui-generator/dist --project-name=ui
-                    # Optional: Enable this if you want to have GitHub Deployments triggered
-                    gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-                    # Optional: Switch what branch you are publishing to.
-                    # By default this will be the branch which triggered this workflow
-                    branch: main
