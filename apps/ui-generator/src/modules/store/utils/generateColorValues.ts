@@ -55,7 +55,7 @@ const generateDarkColorValues = (
             var(--color-${tokenName}-white) 15%)`,
         [`--color-${tokenName}-surface-${themeSuffix}`]: `color-mix(
             in oklch,
-            oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName})), var(--color-${tokenName}-black) 65%)`,
+            oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName})), var(--color-${tokenName}-black) 70%)`,
         [`--color-${tokenName}-contrast-lightness-${themeSuffix}`]: `calc(
   var(--lightness-max) -
   (var(--lightness-diff) * min(max((var(${lTokenName}) - var(--lightness-contrast-cutoff)) * 1000000, 0), 1))
