@@ -10,3 +10,15 @@
 
 - Fixed Webkit `<detail>` style
 - Shadows not working using `light-dark`
+
+## v1.0.5 (2024-11-28)
+
+### Fixes
+
+Make fieldset-based inputs more accessible by adding legends. This affects:
+- `nc-tag-select`
+- `nc-segmented-control`
+- `nc-radio-field`
+- `nc-checkbox-field`
+
+Be sure to checkout the updated markup for these components in the documentation.
