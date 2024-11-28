@@ -34,10 +34,8 @@
         }
     }
 
-    :where( :is(fieldset:not([class]), .nc-fieldset):has( :is(.nc-legend + .nc-hint, legend:not([class]) + .nc-hint)) > :is(legend:not([class]), .nc-legend)) {
-        &+.nc-hint {
-            --nc-legend-spacing: 0;
-            margin-block-end: 0.6lh;
-        }
+    :where(:is(fieldset:not([class]), .nc-fieldset):has( :is(.nc-legend + .nc-hint, legend:not([class]) + .nc-hint)) > :is(legend:not([class]), .nc-legend) + .nc-hint) {
+        --nc-legend-spacing: 0;
+        margin-block-end: 0.6lh;
     }
 }
