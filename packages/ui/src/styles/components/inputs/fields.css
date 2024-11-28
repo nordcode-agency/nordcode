@@ -8,13 +8,13 @@
         max-inline-size: var(--input-field-max-inline-size);
         place-items: start;
 
-        & > label,
-        & > .nc-stack {
+        &>label,
+        &>.nc-stack {
             gap: 0.125lh;
             line-height: var(--line-height-small);
         }
 
-        & > .nc-cluster {
+        &>.nc-cluster {
             gap: 1ch;
         }
     }
@@ -49,7 +49,7 @@
         place-items: start;
         gap: 0;
 
-        & > [data-label] {
+        &>[data-label] {
             grid-area: label;
             padding-inline-start: 1ch;
         }
@@ -58,7 +58,7 @@
             min-block-size: var(--line-height-base);
         }
 
-        & > [data-input] {
+        &>[data-input] {
             grid-area: checkbox;
         }
 
@@ -68,12 +68,9 @@
     }
 
     :where(.nc-radio-field, .nc-checkbox-field) {
-        & fieldset {
-            margin-block-start: 0.6lh;
-        }
+        gap: 0;
 
-        & fieldset > *:not(:first-child) {
+        >*:not(:first-child) {
             margin-block-start: 0.6lh;
         }
     }
-}

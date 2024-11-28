@@ -1,14 +1,13 @@
 <!-- COMPONENT-START: nc-radio-field -->
-<div class="nc-input-field nc-radio-field">
-    <p class="nc-stack">
-        <span class="nc-input-label" id="input">Label</span>
-        <span class="nc-hint" id="input-hint"
+<fieldset class="nc-fieldset nc-input-field nc-radio-field">
+    <legend class="nc-legend nc-stack">
+        <span class="nc-input-label">Label</span>
+        <span class="nc-hint"
             >Hint is an accessible way to provide additional information that might help the
             user</span
         >
         <span class="nc-input-error">Render errors here if there is an issue with the input.</span>
-    </p>
-    <fieldset class="nc-fieldset" aria-labelledby="input" aria-describedby="input-hint">
+    </legend>
         <!-- Options can be multiple -->
         <div class="nc-checkbox-wrapper nc-input-field">
             <label for="radio-option-1" class="nc-stack" data-label>
@@ -46,5 +45,4 @@
         </div>
         <!-- End Options -->
     </fieldset>
-</div>
 <!-- COMPONENT-END: nc-input-field -->

@@ -1,26 +1,27 @@
 <!-- COMPONENT-START: nc-segmented-control -->
-<div class="nc-input-field nc-segmented-control-group">
-    <p class="nc-stack" id="segmented-control-label">
-        <span class="nc-input-label">Label</span>
-        <span class="nc-hint"
-            >Hint is an accessible way to provide additional information that might help the
-            user</span
-        >
-        <span class="nc-input-error">Render errors here if there is an issue with the input.</span>
-    </p>
-    <fieldset class="nc-segmented-control" aria-labelledby="segmented-control-label">
-        <label>
-            <input type="radio" name="test" value="Value 1" checked />
-            <span class="nc-input-label">Value 1</span>
-        </label>
-        <label>
-            <input type="radio" name="test" value="Value 2" />
-            <span class="nc-input-label">Value 2</span>
-        </label>
-        <label>
-            <input type="radio" name="test" value="Value 3" />
-            <span class="nc-input-label">Value 3</span>
-        </label>
+    <fieldset class="nc-fieldset nc-input-field nc-segmented-control-group">
+        <legend class="nc-legend nc-stack">
+            <span class="nc-input-label">Label</span>
+            <span class="nc-hint"
+                >Hint is an accessible way to provide additional information that might help the
+                user</span
+            >
+            <span class="nc-input-error">Render errors here if there is an issue with the input.</span>
+        </legend>
+
+        <div class="nc-segmented-control">
+            <label>
+                <input type="radio" name="test" value="Value 1" checked />
+                <span class="nc-input-label">Value 1</span>
+            </label>
+            <label>
+                <input type="radio" name="test" value="Value 2" />
+                <span class="nc-input-label">Value 2</span>
+            </label>
+            <label>
+                <input type="radio" name="test" value="Value 3" />
+                <span class="nc-input-label">Value 3</span>
+            </label>
+        </div>
     </fieldset>
-</div>
 <!-- COMPONENT-END: nc-segmented-control -->

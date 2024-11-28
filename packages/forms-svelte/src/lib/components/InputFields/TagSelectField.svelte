@@ -25,8 +25,8 @@
     };
 </script>
 
-<div class="nc-input-field nc-tag-select-field">
-    <p class="nc-stack">
+<fieldset class="nc-fieldset nc-input-field nc-tag-select-field" onchange={handleChange}>
+    <legend class="nc-stack">
         <span class="nc-input-label" {id}
             >{label}
             {#if !required}
@@ -41,25 +41,18 @@
                 <span class="nc-input-error">{error}</span>
             {/each}
         {/if}
-    </p>
-    <fieldset
-        class="nc-fieldset"
-        aria-labelledby={id}
-        aria-describedby={`${id}-hint`}
-        onchange={handleChange}
-    >
-        {#each options as option}
-            <label for="tag-select-1" class="nc-pile badge">
-                <input
-                    id="tag-select-{option.label}"
-                    class="nc-tag-input"
-                    type="radio"
-                    value={option.value}
-                    {name}
-                    {required}
-                />
-                <span>{option.label}</span>
-            </label>
-        {/each}
-    </fieldset>
-</div>
+    </legend>
+    {#each options as option}
+        <label for="tag-select-1" class="nc-pile badge">
+            <input
+                id="tag-select-{option.label}"
+                class="nc-tag-input"
+                type="radio"
+                value={option.value}
+                {name}
+                {required}
+            />
+            <span>{option.label}</span>
+        </label>
+    {/each}
+</fieldset>

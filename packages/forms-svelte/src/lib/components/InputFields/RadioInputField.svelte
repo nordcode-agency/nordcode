@@ -26,8 +26,8 @@
     };
 </script>
 
-<div class="nc-input-field nc-radio-field">
-    <p class="nc-stack">
+<fieldset class="nc-fieldset nc-input-field nc-radio-field" onchange={handleChange}>
+    <legend class="nc-legend nc-stack">
         <span class="nc-input-label" {id}
             >{label}
             {#if !required}
@@ -42,32 +42,25 @@
                 <span class="nc-input-error">{error}</span>
             {/each}
         {/if}
-    </p>
-    <fieldset
-        class="nc-fieldset"
-        aria-labelledby={id}
-        aria-describedby={`${id}-hint`}
-        onchange={handleChange}
-    >
-        {#each options as option}
-            <div class="nc-checkbox-wrapper nc-input-field">
-                <label for={option.label} class="nc-stack" data-label>
-                    <span class="nc-input-label">{option.label}</span>
-                    {#if option.hint}
-                        <span class="nc-hint">{option.hint}</span>
-                    {/if}
-                </label>
-                <input
-                    data-input
-                    id={option.label}
-                    class="nc-input-radio"
-                    type="radio"
-                    value={option.value}
-                    {name}
-                    {required}
-                    checked={value === option.value}
-                />
-            </div>
-        {/each}
-    </fieldset>
-</div>
+    </legend>
+    {#each options as option}
+        <div class="nc-checkbox-wrapper nc-input-field">
+            <label for={option.label} class="nc-stack" data-label>
+                <span class="nc-input-label">{option.label}</span>
+                {#if option.hint}
+                    <span class="nc-hint">{option.hint}</span>
+                {/if}
+            </label>
+            <input
+                data-input
+                id={option.label}
+                class="nc-input-radio"
+                type="radio"
+                value={option.value}
+                {name}
+                {required}
+                checked={value === option.value}
+            />
+        </div>
+    {/each}
+</fieldset>

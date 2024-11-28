@@ -1,14 +1,16 @@
 <!-- COMPONENT-START: nc-tag-select-field -->
-<div class="nc-input-field nc-tag-select-field">
-    <p class="nc-stack">
-        <span class="nc-input-label" id="input">Label</span>
-        <span class="nc-hint" id="input-hint"
+<fieldset class="nc-fieldset nc-input-field nc-tag-select-field">
+
+    <legend class="nc-legend nc-stack">
+        <span class="nc-input-label">Label</span>
+        <span class="nc-hint"
             >Hint is an accessible way to provide additional information that might help the
             user</span
         >
         <span class="nc-input-error">Render errors here if there is an issue with the input.</span>
-    </p>
-    <fieldset class="nc-cluster | nc-fieldset" aria-labelledby="input" aria-describedby="input-hint">
+    </legend>
+
+    <div class="nc-cluster">
         <!-- Options can be multiple -->
         <!-- An all items can be useful -->
         <label for="tag-select-all" class="nc-pile badge">
@@ -53,6 +55,6 @@
             <span>Option 3</span>
         </label>
         <!-- End Options -->
-    </fieldset>
-</div>
+    </div>
+</fieldset>
 <!-- COMPONENT-END: nc-tag-select-field -->

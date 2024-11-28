@@ -1,50 +1,48 @@
 <!-- COMPONENT-START: nc-checkbox-field -->
-<div class="nc-input-field nc-checkbox-field">
-    <p class="nc-stack">
-        <span class="nc-input-label" id="input">Label</span>
-        <span class="nc-hint" id="input-hint"
+<fieldset class="nc-fieldset nc-input-field nc-checkbox-field">
+    <legend class="nc-legend nc-stack">
+        <span class="nc-input-label">Label</span>
+        <span class="nc-hint"
             >Hint is an accessible way to provide additional information that might help the
             user</span
         >
         <span class="nc-input-error">Render errors here if there is an issue with the input.</span>
-    </p>
-    <fieldset class="nc-fieldset" aria-labelledby="input" aria-describedby="input-hint">
+    </legend>
         <!-- Options can be multiple -->
-        <div class="nc-checkbox-wrapper nc-input-field">
-            <label for="checkbox-option-1" class="nc-stack" data-label>
-                <span class="nc-input-label">Label</span>
-                <span class="nc-hint"
-                    >Hint is an accessible way to provide additional information that might help the
-                    user</span
-                >
-            </label>
-            <input
-                data-input
-                id="checkbox-option-1"
-                class="nc-input-checkbox"
-                type="checkbox"
-                value="value-1"
-                name="checkbox"
-            />
-        </div>
-        <div class="nc-checkbox-wrapper nc-input-field">
-            <label for="checkbox-option-2" class="nc-stack" data-label>
-                <span class="nc-input-label">Label 2</span>
-                <span class="nc-hint"
-                    >Hint is an accessible way to provide additional information that might help the
-                    user</span
-                >
-            </label>
-            <input
-                data-input
-                id="checkbox-option-2"
-                class="nc-input-checkbox"
-                type="checkbox"
-                value="value-2"
-                name="checkbox"
-            />
-        </div>
-        <!-- End Options -->
-    </fieldset>
-</div>
+    <div class="nc-checkbox-wrapper nc-input-field">
+        <label for="checkbox-option-1" class="nc-stack" data-label>
+            <span class="nc-input-label">Label</span>
+            <span class="nc-hint"
+                >Hint is an accessible way to provide additional information that might help the
+                user</span
+            >
+        </label>
+        <input
+            data-input
+            id="checkbox-option-1"
+            class="nc-input-checkbox"
+            type="checkbox"
+            value="value-1"
+            name="checkbox"
+        />
+    </div>
+    <div class="nc-checkbox-wrapper nc-input-field">
+        <label for="checkbox-option-2" class="nc-stack" data-label>
+            <span class="nc-input-label">Label 2</span>
+            <span class="nc-hint"
+                >Hint is an accessible way to provide additional information that might help the
+                user</span
+            >
+        </label>
+        <input
+            data-input
+            id="checkbox-option-2"
+            class="nc-input-checkbox"
+            type="checkbox"
+            value="value-2"
+            name="checkbox"
+        />
+    </div>
+    <!-- End Options -->
+</fieldset>
 <!-- COMPONENT-END: nc-input-field -->
