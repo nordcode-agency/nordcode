@@ -13,7 +13,7 @@
 
 ## v1.0.5 (2024-11-28)
 
-### Fixes
+### Features
 
 Make fieldset-based inputs more accessible by adding legends. This affects:
 - `nc-tag-select`
@@ -22,3 +22,9 @@ Make fieldset-based inputs more accessible by adding legends. This affects:
 - `nc-checkbox-field`
 
 Be sure to checkout the updated markup for these components in the documentation.
+
+## v1.0.5 (2024-11-28)
+
+### Fixes
+
+- Fix fields not compiling
