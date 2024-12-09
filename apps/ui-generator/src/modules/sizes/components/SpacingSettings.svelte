@@ -44,8 +44,8 @@
                         step="0.1"
                         min="0.1"
                         max="3"
-                        on:input={evt => {
-                            updateSpacingBase(evt.detail.value);
+                        oninput={evt => {
+                            updateSpacingBase(evt.target.value);
                         }}
                     ></SettingsInput>
 
@@ -55,7 +55,7 @@
                         step="0.1"
                         min="0.1"
                         max="3"
-                        on:input={evt => updateSpacingScale(evt.detail.value)}
+                        oninput={evt => updateSpacingScale(evt.target.value)}
                     ></SettingsInput>
                 </fieldset>
             </form>
