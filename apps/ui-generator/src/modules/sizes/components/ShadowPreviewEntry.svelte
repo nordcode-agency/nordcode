@@ -42,13 +42,13 @@
     <div class="nc-box lightpreview nc-cluster">
         <div
             class="nc-box preview-box"
-            style="box-shadow: var({lightShadow}); border-color: var(--color-border-base-light);"
+            style="--shadow-color: var(--shadow-color-light); box-shadow: var({token}); border-color: var(--color-border-base-light);"
         ></div>
     </div>
     <div class="nc-box darkpreview nc-cluster">
         <div
             class="nc-box preview-box"
-            style="box-shadow: var({darkShadow}); border-color: var(--color-border-base-dark);"
+            style="--shadow-color: var(--shadow-color-dark); box-shadow: var({token}); border-color: var(--color-border-base-dark);"
         ></div>
     </div>
 </div>
