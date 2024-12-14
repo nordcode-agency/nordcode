@@ -17,6 +17,7 @@
         required = true,
         options,
         value = $bindable(),
+        class: className,
         ...rest
     }: RadioInputFieldProps = $props();
 
@@ -55,7 +56,7 @@
             <input
                 data-input
                 id={option.label}
-                class={`nc-input-radio | ${rest.class}`}
+                class={`nc-input-radio | ${className}`}
                 type="radio"
                 value={option.value}
                 {name}

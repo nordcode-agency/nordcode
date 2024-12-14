@@ -13,6 +13,7 @@
         autocomplete,
         required = true,
         value = $bindable(),
+        class: className,
         ...rest
     }: DateInputProps = $props();
 
@@ -37,7 +38,7 @@
 
 <div class="nc-cluster full-width nc-input-date">
     <input
-        class={`nc-input | ${rest.class}`}
+        class={`nc-input | ${className}`}
         {id}
         {name}
         type={'date'}

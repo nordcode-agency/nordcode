@@ -23,6 +23,7 @@
         splitLines = false,
         value = $bindable(),
         children,
+        class: className,
         ...rest
     }: TextAreaProps = $props();
 
@@ -41,7 +42,7 @@
 
 <InputWrapper {id} {label} {required} {errors} {hint}>
     <textarea
-        class={`nc-input nc-textarea | ${rest.class}`}
+        class={`nc-input nc-textarea | ${className}`}
         {id}
         {name}
         value={splitLines && Array.isArray(value) ? value?.join('\n') : value}

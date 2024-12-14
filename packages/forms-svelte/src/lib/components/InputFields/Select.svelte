@@ -21,6 +21,7 @@
         children,
         options,
         oninput,
+        class: className,
         ...rest
     }: SelectProps = $props();
 
@@ -34,7 +35,7 @@
 
 <InputWrapper {id} {label} {required} {errors} {hint}>
     <select
-        class={`nc-select | ${rest.class}`}
+        class={`nc-select | ${className}`}
         {id}
         {name}
         {required}

@@ -12,6 +12,7 @@
         autocomplete = 'off',
         type,
         value = $bindable(),
+        class: className,
         ...rest
     }: GenericInputProps = $props();
 
@@ -29,7 +30,7 @@
 
 <div class="nc-stack -nogap full-width | nc-input-range">
     <input
-        class={`nc-input | ${rest.class}`}
+        class={`nc-input | ${className}`}
         {id}
         {name}
         {required}

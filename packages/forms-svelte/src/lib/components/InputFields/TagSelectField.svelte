@@ -15,6 +15,7 @@
         hint = '',
         required = true,
         value = $bindable(),
+        class: className,
         options,
     }: TagSelectProps = $props();
 
@@ -25,7 +26,10 @@
     };
 </script>
 
-<fieldset class="nc-fieldset nc-input-field nc-tag-select-field" onchange={handleChange}>
+<fieldset
+    class={`nc-fieldset nc-input-field nc-tag-select-field | ${className}`}
+    onchange={handleChange}
+>
     <legend class="nc-stack">
         <span class="nc-input-label" {id}
             >{label}

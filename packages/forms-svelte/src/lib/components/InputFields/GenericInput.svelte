@@ -11,6 +11,7 @@
         required = true,
         type = 'text',
         value = $bindable(),
+        class: className,
         ...rest
     }: GenericInputProps = $props();
 
@@ -27,7 +28,7 @@
 </script>
 
 <input
-    class={`nc-input | ${rest.class}`}
+    class={`nc-input | ${className}`}
     {id}
     {name}
     {required}

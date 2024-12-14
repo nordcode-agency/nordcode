@@ -15,6 +15,7 @@
         required = true,
         checked = $bindable(),
         value,
+        class: className,
         ...rest
     }: CheckboxInputProps = $props();
 </script>
@@ -34,7 +35,7 @@
     </label>
     <input
         data-input
-        class={`nc-input-checkbox | ${rest.class}`}
+        class={`nc-input-checkbox | ${className}`}
         {id}
         {name}
         {required}

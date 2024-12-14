@@ -15,6 +15,7 @@
         autocomplete = '',
         required = true,
         checked = $bindable(),
+        class: className,
         value,
         ...rest
     }: CheckboxInputProps = $props();
@@ -37,7 +38,7 @@
     </label>
     <input
         data-input
-        class={`nc-input-switch | ${rest.class}`}
+        class={`nc-input-switch | ${className}`}
         {id}
         {name}
         {autocomplete}
