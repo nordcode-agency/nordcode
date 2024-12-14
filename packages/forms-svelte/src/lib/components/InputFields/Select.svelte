@@ -21,7 +21,7 @@
         children,
         options,
         oninput,
-        ...restProps
+        ...rest
     }: SelectProps = $props();
 
     const handleInput: FormEventHandler<HTMLSelectElement> = event => {
@@ -33,7 +33,14 @@
 </script>
 
 <InputWrapper {id} {label} {required} {errors} {hint}>
-    <select class="nc-select" {id} {name} {required} oninput={handleInput} {...restProps}>
+    <select
+        class={`nc-select | ${rest.class}`}
+        {id}
+        {name}
+        {required}
+        oninput={handleInput}
+        {...rest}
+    >
         {#each options as option}
             <option value={option.value} selected={value === option.value}>{option.label}</option>
         {/each}

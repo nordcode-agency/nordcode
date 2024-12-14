@@ -26,4 +26,13 @@
     };
 </script>
 
-<input class="nc-input" {id} {name} {required} {type} {value} oninput={handleInput} {...rest} />
+<input
+    class={`nc-input | ${rest.class}`}
+    {id}
+    {name}
+    {required}
+    {type}
+    {value}
+    oninput={handleInput}
+    {...rest}
+/>

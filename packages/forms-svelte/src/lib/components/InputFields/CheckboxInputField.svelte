@@ -17,7 +17,7 @@
         required = true,
         options,
         value = $bindable(),
-        ...restProps
+        ...rest
     }: CheckboxInputFieldProps = $props();
 
     const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
@@ -61,13 +61,13 @@
             <input
                 data-input
                 id={option.label}
-                class="nc-input-checkbox"
+                class={`nc-input-checkbox | ${rest.class}`}
                 type="checkbox"
                 value={option.value}
                 checked={value?.includes(option.value)}
                 {name}
                 {required}
-                {...restProps}
+                {...rest}
             />
         </div>
     {/each}

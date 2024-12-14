@@ -37,7 +37,7 @@
     </label>
     <input
         data-input
-        class="nc-input-switch"
+        class={`nc-input-switch | ${rest.class}`}
         {id}
         {name}
         {autocomplete}

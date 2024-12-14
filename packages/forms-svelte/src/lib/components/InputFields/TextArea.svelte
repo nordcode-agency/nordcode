@@ -41,7 +41,7 @@
 
 <InputWrapper {id} {label} {required} {errors} {hint}>
     <textarea
-        class="nc-input nc-textarea"
+        class={`nc-input nc-textarea | ${rest.class}`}
         {id}
         {name}
         value={splitLines && Array.isArray(value) ? value?.join('\n') : value}

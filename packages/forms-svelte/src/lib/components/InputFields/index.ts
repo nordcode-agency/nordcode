@@ -8,6 +8,4 @@ export { default as Select } from './Select.svelte';
 export { default as TextArea } from './TextArea.svelte';
 export { default as RadioInputField } from './RadioInputField.svelte';
 export { default as CheckboxInputField } from './CheckboxInputField.svelte';
-export { default as MarkdownInput } from './MarkdownInput.svelte';
-export { default as MarkdownEditor } from './MarkdownEditor.svelte';
 export { default as SwitchInput } from './SwitchInput.svelte';

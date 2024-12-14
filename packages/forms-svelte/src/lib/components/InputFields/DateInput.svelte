@@ -13,7 +13,7 @@
         autocomplete,
         required = true,
         value = $bindable(),
-        ...restProps
+        ...rest
     }: DateInputProps = $props();
 
     const handleInput: FormEventHandler<HTMLInputElement> = event => {
@@ -37,14 +37,14 @@
 
 <div class="nc-cluster full-width nc-input-date">
     <input
-        class="nc-input"
+        class={`nc-input | ${rest.class}`}
         {id}
         {name}
         type={'date'}
         value={internalValue}
         oninput={handleInput}
         {required}
-        {...restProps}
+        {...rest}
     />
     <button type="button" class="nc-button" onclick={setToday}>Heute</button>
 </div>

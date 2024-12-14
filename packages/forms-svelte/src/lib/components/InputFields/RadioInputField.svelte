@@ -17,6 +17,7 @@
         required = true,
         options,
         value = $bindable(),
+        ...rest
     }: RadioInputFieldProps = $props();
 
     const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
@@ -54,12 +55,13 @@
             <input
                 data-input
                 id={option.label}
-                class="nc-input-radio"
+                class={`nc-input-radio | ${rest.class}`}
                 type="radio"
                 value={option.value}
                 {name}
                 {required}
                 checked={value === option.value}
+                {...rest}
             />
         </div>
     {/each}

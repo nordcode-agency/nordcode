@@ -1,9 +1,19 @@
 <script lang="ts">
-import MarkdownInput from './MarkdownInput.svelte';
-import type { MarkdownInputProps } from './types/MarkdownInputProps.ts';
+    import type { MarkdownInputProps } from './types/MarkdownInputProps.ts';
+    import MarkdownInput from './MarkdownInput.svelte';
 
-let { htmlOutput = $bindable(), value = $bindable(), ...rest }: MarkdownInputProps = $props();
+    let { htmlOutput = $bindable(), value = $bindable(), ...rest }: MarkdownInputProps = $props();
 </script>
+
+<div class="nc-markdown-editor">
+    <MarkdownInput {...rest} bind:value bind:htmlOutput>
+        <div class="nc-box -bordered nc-markdown-preview">
+            {#if htmlOutput}
+                {@html htmlOutput}
+            {/if}
+        </div>
+    </MarkdownInput>
+</div>
 
 <style>
     .nc-markdown-editor {
@@ -24,7 +34,6 @@ let { htmlOutput = $bindable(), value = $bindable(), ...rest }: MarkdownInputPro
             border-start-end-radius: 0;
             border-end-end-radius: 0;
             padding: var(--spacing-base);
-
         }
     }
 
@@ -38,21 +47,4 @@ let { htmlOutput = $bindable(), value = $bindable(), ...rest }: MarkdownInputPro
         border-end-start-radius: 0;
         z-index: -1;
     }
-
 </style>
-
-<div class="nc-markdown-editor">
-    <MarkdownInput
-        {...rest}
-        bind:value={value}
-        bind:htmlOutput={htmlOutput}
-    >
-    <div class="nc-box -bordered nc-markdown-preview">
-        {#if htmlOutput}
-            {@html htmlOutput}
-        {/if}
-
-    </div>
-    </MarkdownInput>
-
-</div>

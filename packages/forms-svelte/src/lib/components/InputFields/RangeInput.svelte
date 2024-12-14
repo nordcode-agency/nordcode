@@ -29,7 +29,7 @@
 
 <div class="nc-stack -nogap full-width | nc-input-range">
     <input
-        class="nc-input"
+        class={`nc-input | ${rest.class}`}
         {id}
         {name}
         {required}

@@ -1,9 +1,8 @@
 <script lang="ts">
-    import Markdoc from '@markdoc/markdoc';
-    import InputWrapper from './InputWrapper.svelte';
-    import { convertToHtml } from '../../markdoc/convertToHtml.ts';
+    import { convertToHtml } from './markdoc/convertToHtml.ts';
     import type { FormEventHandler } from 'svelte/elements';
     import type { MarkdownInputProps } from './types/MarkdownInputProps.ts';
+    import { InputWrapper } from '../components/InputFields/index.ts';
 
     let {
         label,

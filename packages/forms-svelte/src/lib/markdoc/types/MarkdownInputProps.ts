@@ -1,5 +1,5 @@
 import type { FormEventHandler, HTMLTextareaAttributes } from 'svelte/elements';
-import type { InputLabelProps } from './InputLabelProps.ts';
+import { InputLabelProps } from '../../components/InputFields/types/InputLabelProps.ts';
 
 export interface MarkdownInputProps
     extends InputLabelProps, Omit<HTMLTextareaAttributes, "id" | "name" | "required"> {
