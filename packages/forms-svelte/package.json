@@ -1,8 +1,13 @@
 {
     "name": "@nordcode/forms-svelte",
     "description": "Nordcode UI Inputs and forms in svelte.",
-    "keywords": ["nordcode", "forms", "svelte"],
-    "version": "1.0.0",
+    "license": "AGPL-3.0-or-later",
+    "keywords": [
+        "nordcode",
+        "forms",
+        "svelte"
+    ],
+    "version": "1.0.1",
     "scripts": {
         "dev": "vite dev",
         "build": "vite build && npm run package",
@@ -16,12 +21,18 @@
         ".": {
             "types": "./src/lib/index.ts",
             "svelte": "./src/lib/index.ts"
+        },
+        "./markdown": {
+            "types": "./src/lib/markdown.ts",
+            "svelte": "./src/lib/markdown.ts"
         }
     },
     "publishConfig": {
         "access": "public"
     },
-    "files": ["src"],
+    "files": [
+        "src"
+    ],
     "dependencies": {
         "esm-env": "^1.0.0"
     },
