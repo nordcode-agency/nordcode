@@ -89,20 +89,23 @@ export function main() {
 		// side: THREE.DoubleSide,
 	});
 
+    const setThemeAwareUniformColors = (htmlElement: HTMLElement) => {
+        const dataThemeValue = htmlElement.getAttribute('data-theme');
+        if (dataThemeValue === 'light' || dataThemeValue === 'dark') {
+            setUniformColors(dataThemeValue as 'light' | 'dark', waterMaterial);
+        } else if (dataThemeValue === 'system') {
+            setUniformColors(
+                window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+                waterMaterial
+            );
+        }
+    };
+
 	const attributeObserver = new MutationObserver(function (mutationList) {
 		for (const mutation of mutationList) {
 			if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
-				const dataThemeValue = (mutation.target as HTMLElement).getAttribute('data-theme');
-				if (dataThemeValue === 'light' || dataThemeValue === 'dark') {
-					setUniformColors(dataThemeValue as 'light' | 'dark', waterMaterial);
-				} else if (dataThemeValue === 'system') {
-					setUniformColors(
-						window.matchMedia('(prefers-color-scheme: dark)').matches
-							? 'dark'
-							: 'light',
-						waterMaterial
-					);
-				}
+				const htmlElement = (mutation.target as HTMLElement);
+				setThemeAwareUniformColors(htmlElement);
 			}
 		}
 	});
@@ -112,13 +115,14 @@ export function main() {
 		attributeObserver.observe(htmlEl, {
 			attributes: true //configure it to listen to attribute changes
 		});
+        setThemeAwareUniformColors(htmlEl);
 	} else {
 		console.warn('Expected to find an html element in the document');
+		setUniformColors(
+			window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+			waterMaterial
+		);
 	}
-	setUniformColors(
-		window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
-		waterMaterial
-	);
 
 	// Mesh
 	const water = new THREE.Mesh(waterGeometry, waterMaterial);

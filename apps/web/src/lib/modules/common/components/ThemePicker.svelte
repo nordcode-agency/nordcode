@@ -5,7 +5,7 @@
 		Dark: 'dark'
 	} as const;
 
-	let currentTheme: string = $state(Theme.Light);
+	let currentTheme: string = $state(Theme.System);
 
 	const setToSystem = () => {
 		document.documentElement.setAttribute('data-theme', 'system');

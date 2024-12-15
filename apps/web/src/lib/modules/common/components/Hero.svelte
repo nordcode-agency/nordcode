@@ -19,18 +19,18 @@
 	<div class="footer nc-box">
 		<div class="featured-project">
 			<ProjectCard
-				heading={projects[1].heading}
-				cover={projects[1].cover}
-				slug={projects[1].slug}
-				name={projects[1].name}
+				heading={projects[0].heading}
+				cover={projects[0].cover}
+				slug={projects[0].slug}
+				name={projects[0].name}
 			/>
 		</div>
 		<div class="featured-project">
 			<ProjectCard
-				heading={projects[5].heading}
-				cover={projects[5].cover}
-				slug={projects[5].slug}
-				name={projects[5].name}
+				heading={projects[1].heading}
+				cover={projects[1].cover}
+				slug={projects[1].slug}
+				name={projects[1].name}
 			/>
 		</div>
 		<div style="inline-size: min(240px, 100%)">
