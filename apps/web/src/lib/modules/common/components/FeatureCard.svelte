@@ -15,7 +15,7 @@
 </script>
 
 <div class="container">
-	<a href={ensureTrailingSlash(slug)} class="nc-card card">
+	<a href={ensureTrailingSlash(slug)} class="nc-card card card-bg">
 		<figure class="figure" style={`view-transition-name: ${id}`}>
 			<enhanced:img class="img" src={cover.src} alt={cover.alt} />
 		</figure>
@@ -48,12 +48,6 @@
 			1fr
 			[header-end full-end]
 			/ 1fr;
-		background: linear-gradient(
-			45deg,
-			color-mix(in oklch, var(--color-border-base), transparent 97%),
-			color-mix(in oklch, var(--color-surface-base), transparent 20%)
-		);
-		backdrop-filter: blur(var(--spacing-base));
 		block-size: 100%;
 
 		@container (min-inline-size: 360px) {

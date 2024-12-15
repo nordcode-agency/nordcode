@@ -31,15 +31,14 @@
 
 <Header />
 
-<article class="nc-box" style="--h-brand-primary: {$page.data.hue.light}">
+<article class="section nc-box" style="--h-brand-primary: {$page.data.hue.light}">
 	<div class="nc-stack">
 		<div class="nc-box nc-stack -inherit hero">
 			<Breadcrumbs items={breadcrumbItems} />
-			<div class="nc-with-sidebar">
+			<header class="header">
 				<figure
 					class="thumbnail"
 					style={`view-transition-name: ${$page.data.name}`}
-					data-aside
 				>
 					<enhanced:img
 						class="img"
@@ -47,16 +46,16 @@
 						alt={$page.data.cover?.alt}
 					/>
 				</figure>
-				<div class="nc-stack" data-grow>
+				<div class="nc-stack">
 					<div class="headings">
 						<span class="subheading slide-up-from">{$page.data.subheading}</span>
 						<h1 class="gradient-text slide-up-from">{$page.data.heading}</h1>
 					</div>
 				</div>
-			</div>
+			</header>
 		</div>
-		<div class="nc-with-sidebar -farthest | main slide-up-from">
-			<div class="side" data-aside>
+		<div class="nc-center main slide-up-from">
+			<aside class="side">
 				<div class="nc-stack overview">
 					<p class="font-size-large">
 						<strong>
@@ -76,8 +75,8 @@
 						</div>
 					{/if}
 				</div>
-			</div>
-			<div class="body nc-flow styled-base-text" data-grow>
+			</aside>
+			<div class="body nc-flow styled-base-text">
 				{@render children?.()}
 				<section class="nc-region">
 					<FinalCTA />
@@ -88,16 +87,25 @@
 </article>
 
 <style lang="postcss">
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-far);
+
+        @media (--md-n-above) {
+            flex-direction: row;
+        }
+    }
 	.thumbnail {
 		view-transition-name: work-figure;
-		inline-size: 100%;
-		aspect-ratio: 3/2;
+        flex-basis: min(28ch, 40vw);
+        aspect-ratio: 5/4;
 		margin: 0;
 
-		@media (--md-n-above) {
-			flex-basis: 20ch;
-			aspect-ratio: 1/1;
-		}
+        & > * {
+            inline-size: 100%;
+            block-size: 100%;
+        }
 	}
 
 	@keyframes slide-up {
@@ -142,9 +150,18 @@
 	}
 
 	.main {
-		animation: var(--animation-slide-up) 0.4s;
 		--with-sidebar-target-width: 32ch;
 		--with-sidebar-min-size: 60%;
+
+        padding-inline: 0;
+        margin-inline-start: 0;
+		animation: var(--animation-slide-up) 0.4s;
+        display: flex;
+        gap: var(--spacing-farthest);
+
+        @media (--xl-n-above) {
+            margin-inline-start: auto;
+        }
 	}
 
 	article {
@@ -153,11 +170,11 @@
 	}
 
 	.body {
-		max-inline-size: min(100%, var(--measure-base));
+		flex: 3;
 	}
 
 	.side {
-		align-self: stretch;
+		flex: 1;
 	}
 
 	.overview {
@@ -177,8 +194,7 @@
 		overflow: hidden;
 	}
 
-	.img,
-	picture {
+	.img {
 		/* aspect-ratio: 16/9; */
 		inline-size: 100%;
 		block-size: 100%;
