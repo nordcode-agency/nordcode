@@ -60,6 +60,7 @@ Learn more about the power of Turborepo:
 - <https://www.asc-csa.gc.ca/eng/multimedia/search/image/14713> earth
 - https://www.andy.works/ playful
 - https://www.getpliant.com/de/ * clean
+- https://www.klimate.co/ * clean, techie
 
 ### Icons
 
