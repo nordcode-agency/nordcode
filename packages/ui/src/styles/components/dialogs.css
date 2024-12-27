@@ -1,6 +1,5 @@
 @layer components.dialogs {
     :where(.nc-dialog) {
-        --_dialog-radius: var(--dialog-radius, var(--border-radius-medium));
         --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
         --_dialog-layout-padding: var(--layout-padding, var(--spacing-base));
         --_dialog-close-size: var(--dialog-close-size, var(--button-height-base));
@@ -9,7 +8,7 @@
         --_dialog-max-block-size: var(--dialog-max-block-size, 90dvh);
         --_dialog-max-inline-size: var(--dialog-max-inline-size, 28rem);
 
-        --dialog-radius: 0;
+        --_dialog-radius: 0;
         display: block;
         z-index: var(--layer-important);
         animation: close-dialog var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1) forwards;
@@ -24,13 +23,13 @@
         background: var(--color-surface-base);
         margin: auto 0;
         padding: 0;
-        border-radius: 0;
+        border-radius: var(--_dialog-radius);
         overflow: clip;
         overflow-clip-margin: 1rem;
         pointer-events: all;
 
         @media (min-width: 36rem) {
-            border-radius: var(--_dialog-radius);
+            --_dialog-radius: var(--dialog-radius, var(--border-radius-medium));
             inline-size: calc(100dvw - 2 * var(--_dialog-layout-padding));
             max-block-size: var(--_dialog-max-block-size);
             margin-inline: auto;
