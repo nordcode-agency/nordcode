@@ -39,3 +39,9 @@ Be sure to checkout the updated markup for these components in the documentation
 ### Fixes
 
 - Fix user selection styles
+
+## 1.0.9 (2024-12-27)
+
+### Improvements
+
+- Tweak Dialog Radius and mobile styles
