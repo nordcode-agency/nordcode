@@ -45,3 +45,9 @@ Be sure to checkout the updated markup for these components in the documentation
 ### Improvements
 
 - Tweak Dialog Radius and mobile styles
+
+## 1.0.10 (2024-12-27)
+
+### Fixes
+
+- Fix radius for real
