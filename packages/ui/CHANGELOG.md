@@ -28,3 +28,14 @@ Be sure to checkout the updated markup for these components in the documentation
 ### Fixes
 
 - Fix fields not compiling
+
+## 1.0.8 (2024-12-27)
+
+### Improvements
+
+- Tweak Dialog Styles
+- Disable scroll when modal dialog is open
+
+### Fixes
+
+- Fix user selection styles
