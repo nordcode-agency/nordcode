@@ -1,140 +1,163 @@
 <script lang="ts">
+    import preview from "$lib/assets/projects/readii/readii-app-preview.png?enhanced";
+    import typographyGeorgia from "$lib/assets/projects/readii/readii-typography-text-font-family-georgia.png?enhanced";
+    import typographyDM from "$lib/assets/projects/readii/readii-typography-titles-font-family-dm-serif-display.png?enhanced";
+    import sampleArticles from "$lib/assets/projects/readii/sample-articles.png?enhanced";
 </script>
 
 <h2>Was war das Ziel?</h2>
 <div class="nc-flow nc-box -bordered -muted -filled nc-alert">
 	<p>
-		Bitte erstellt eine Webseite, mit der wir uns sehen lassen können. Dazu soll die Seite
-		folgende Funktionene erfüllen:
+		Eine einfache, moderne Browser-Erweiterung für Chrome, die es ermöglicht RSS-Feeds zu
+		abonnieren und zu lesen. Außerdem soll die Anwendung den Nutzer durch lokalen KI-Modelle
+		unterstützen.
 	</p>
-	<ol>
-		<li>Unser Verein, seine Aufgaben und Akitvitäten sollen vorsgestellt werden</li>
-		<li>Wir wollen zeigen, wie man helfen kann (Spenden und Freiwilligenarbeit)</li>
-		<li>
-			Landwirt:innen sollen über die Vorteile informiert werden und es soll ihnen einfach
-			gemacht werden, die Wildtierrettung zu beauftragen
-		</li>
-		<li>Wir brauchen eine neue E-Mail-Adresse (und unsere Domain zurück)</li>
-		<li>Wir wollen ein Kontaktformular, weil das den Großteil unserer Kontaktaufnahmen war</li>
-	</ol>
 </div>
 <p>
-	Dazu mussten wir die Inhalte weitestgehend selber schreiben. Sie sollten natürlich auch ein
-	Stück weit SEO-optimiert sein, damit man die Seite auch findet. Konkretes dazu unter <a
-		href="#seo">SEO und Content</a
-	>.
-</p>
-<p>
-	Beim Design hatten wir freie Hand. Es gibt ein Logo und einen Instagram Account, woran wir uns
-	orientiert haben, um in der Brand Sprache zu bleiben. Mehr Details dazu unter <a href="#design"
-		>Design</a
-	>.
+	Der Fokus lag auf einem klaren, einfachen Design, welches das Folgen der eigenen RSS-Feeds
+	möglichst unkompliziert gestaltet. Die Anwendung rückt die neusten Artikel in den Vordergrund.
+	Farben und Typographie sollen die Lesbarkeit und Übersichtlichkeit unterstützen.
 </p>
 
-<h2>Was habt ihr erreicht?</h2>
+<h2>Was ist RSS?</h2>
 
 <p>
-	Zuerst haben wir die alte Domain wiederbekommen. Das war eine kleine Aufregung, aber lief
-	glücklicherweise glimpflich.
+	RSS steht für Really Simple Syndication. Es ist ein Web-Feed-Format, das verwendet wird, um
+	regelmäßig aktualisierte Inhalte wie Blog-Posts, Nachrichtenartikel oder Podcasts in einem
+	standardisierten Format zu liefern. Mit einem RSS-Feed können Nutzer Inhalte von verschiedenen
+	Websites an einem Ort abonnieren und lesen, ohne jede Website einzeln besuchen zu müssen
 </p>
+
+<h2>Was ist KI (Künstliche Intelligenz)</h2>
+
 <p>
-	Das wichtigste natürlich zuerst: <strong>die Webseite gefällt</strong> und der Verein kann sie mit
-	Stolz vorzeigen.
+	Künstliche Intelligenz (KI) oder Artifical Intelligence (AI) bezieht sich auf die Fähigkeit von
+	Maschinen, menschenähnliche Intelligenz zu zeigen. Dies umfasst das Lernen aus Erfahrungen, das
+	Verstehen natürlicher Sprache, das Erkennen von Mustern und das Treffen von Entscheidungen. KI
+	wird in vielen Bereichen eingesetzt, von Sprachassistenten wie mir bis hin zu selbstfahrenden
+	Autos und medizinischen Diagnosen. Populär wurden Sprachmodelle vor allem durch das von OpenAI
+	entwickelte ChatGPT.
+</p>
+
+<figure class="case-img-container card-bg">
+    <enhanced:img class="case-img" src={preview} />
+	<figcaption>
+		Die Optimierung für Light Theme und Dark ermöglichst bessere Lesbarkeit, je nach Umgebung oder Nutzerpräferenzen
+	</figcaption>
+</figure>
+
+<h2>Herausforderungen</h2>
+
+<p>
+	Unsere App ist ein RSS-Reader, der vor allem Daten von anderen Websites bzw. Blogs verarbeitet.
+	Wir haben uns sehr bemüht, dass alle Inhalte, egal aus welcher Quelle, immer gleich angezeigt
+	werden. Die Herausforderung bestand also darin, RSS-Feeds mit unterschiedlichen Formaten zu
+	vereinheitlichen.Dafür haben wir ein Programm entwickelt, welches die RSS-Feeds analysiert und
+	in eine strukturierte Form umwandelt.Dabei kann die Vollständigkeit der RSS-Feeds, die der
+	Nutzer abonniert hat, stark schwanken. Wir haben uns deshalb viele Gedanken gemacht um
+	sicherzustellen, dass man auch dann einen Mehrwert hat, wenn ein Feed mal nicht vollständig
+	ist.Wenn ein RSS-Feed jedoch viele Daten bereitstellt, dann sorgt zum Beispiel eine
+	Vorschaufunktion für eine noch bessere Nutzererfahrung.
 </p>
 
 <p>
-	Wir haben den Besucher:innen möglichst viel Übersicht durch Gliederung, Verteilerpunkte und
-	Links gegeben, sodass sie schnell an den richtigen Ort gelangen. Den Abschluss machen dann
-	<strong
-		>sinnvoll positionierte CTAs, das Kontaktformular und weitere Kontaktmöglichkeiten</strong
-	>.
-</p>
-
-<p>
-	Auch auf dem Handy ist die Webseite <strong>sehr einfach zu bedienen</strong>.
+	Eine weitere Herausforderung bestand in der Bereitstellung der KI, die im RSS-Reader genutzt
+	wird. Dieser ist in modernen Chrome Browsern verfügbar und bietet dadurch einige Vorteile. So
+	ist für die Nutzung der KI Funktion zum Zusammenfassen der Artikel keine Internetverbindung
+	nötig. Die Zusammenfassung kann dadurch recht schnell und ohne den Verbrauch von Datenvolumen
+	erfolgen. Dadurch besteht auch nicht die Notwendigkeit Anfragen an einen Server zu senden, was
+	die <a href="#privacy">Privatsphäre der Nutzer schützt</a>.
 </p>
 <p>
-	Durch <strong>keyword-recherche-basierte</strong> und
-	<strong>ansprechend geschriebene Inhalte</strong> ist die Seite sowohl leicht auf Google und co zu
-	finden und auch nett zu lesen. Zur Unterstüzung haben wir den Verein noch auf Google my Business
-	angemeldet auf diversen Wildtierrettungs-Registern eingetragen. So findet jeder, der regionale Wildtierrettung
-	sucht den Verein schnell und treffsicher.
+	Durch den frühen Einsatz der In-Browser-KI Gemini Nano gab es anfänglich jedoch einige
+	Schwierigkeiten, die notwendige Geschwindigkeit und fehlerfreie Verarbeitung der Artikel
+	sicherzustellen. Zeitweise stellen bestimmte Artikel weiterhin eine Herausforderung für die
+	lokale künstliche Intelligenz dar. Wir sind jedoch zuversichtlich, dass sich diese
+	Einschränkungen mit der Weiterentwicklung von Google&apos;s Gemini Nano im Laufe der Zeit auflösen
+	werden.
 </p>
 
 <h2 id="design">Designumsetzung</h2>
-<div class="nc-flow nc-box -bordered -muted -filled nc-alert">
-	<p>
-		Das Design soll <strong>aufgeräumt, modern und klar</strong> sein. Nicht zu verspielt, aber auch
-		nicht langweilig, klinisch oder trocken.
-	</p>
-	<p>
-		Die Webseite richtet sich dabei an alle Altersgruppen und unteranderem auch an Menschen, die
-		nicht so viel im Internet unterwegs sind.
-	</p>
-</div>
-<p>Klarer Brief, schauen wir mal, was wir daraus machen können.</p>
+
 <h3>Farben</h3>
 <p>
-	Für die Farben haben wir uns am Logo orientiert und daraus abgeleitet Varianten entworfen. Da
-	wir verschiedene Zielgruppen auf der Seite bedienen, konnten wir mit den Farben unterstützen und
-	die Navigation und Wiedererkennung etwas erleichtern.
+	Um ein angenehmes Lesen zu ermöglichen, setzt das Design vor allem auf wärme Orange- und
+	Brauntöne. Diese ähnelt damit auch einigen klassisch designten analogen Notizbüchern unter
+	Verwendung von naturnahen Stoffen wie Leder für den Einband oder recyceltem Papier.
 </p>
 
 <p>
-	Die Farben siedeln sich in den naturnahen Wald- und Wiesenfarben an, die auch im Logo zu finden
-	sind. Das ist freundlich und einladend und passt zum Thema.
-</p>
-<p>
-	Dabei haben wir natürlich stets wert darauf gelegt, dass die <strong
-		>Farben barrierefrei sind</strong
-	> und eine gute Lesbarkeit gewährleisten.
+	Für Textinhalte haben wir auf ausreichenden Kontrast in den Farben geachtet. Satte,
+	kontrastreiche Farben kommen hingegen für Buttons und das Logo zum Einsatz.
 </p>
 
-<h3>Struktur</h3>
+<figure class="case-img-container card-bg">
+    <enhanced:img class="case-img" src={sampleArticles} />
+	<figcaption>
+		Ausreichend Kontrast zwischen Artikelüberschrift und ausreichender Textgröße legen den Fokus auf den Inhalt
+	</figcaption>
+</figure>
 
 <p>
-	Auch hier gilt klar: <strong>Fokus auf Klarheit</strong>. Mit einer gut lesbaren Schriftgröße,
-	ausreichend Abstand und klaren Blöcken ist die Seite gut scanbar und lesbar.
-</p>
-<p>
-	Durch <strong>viele exzellente Bilder</strong>, die wir vom Verein bekommen haben, schaffen wir
-	eine persönliche Note und vermitteln einen Eindruck über die freundlichen Mitglieder und die
-	Arbeit des Vereins.
-</p>
-<p>
-	Dazu kommen Zahlenblöcken für eine gute Übersicht über die Arbeit des Vereins und Zitaten der
-	Mitglieder:innen für mehr Persönlichkeit.
+	Das Theming der Anwendung passt sich den Nutzerpräferenzen, bzw den OS-Einstellungen des Nutzers
+	an. Verwendet das Betriebssystem, zum Beispiel weil es dunkel ist, das Dark Theme, so verwendet
+	auch der RSS-Reader dunkle Hintergründe aus der Farbpalette. Ebenso verhält es sich für helle
+	Farben beim Light Theme. Dieser unterstützt zusätzlich die Lesbarkeit bei Verwendung der App im
+	Freien bei hohen Umgebungslicht.
 </p>
 
-<h2 id="seo">SEO und Content</h2>
-
-<div
-	class="nc-box -bordered nc-cluster nc-alert -neutral -filled"
-	style="padding: var(--spacing-base);"
->
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 24 24"
-		fill="currentColor"
-		class="nc-icon"
-		data-size="lg"
-		><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
-			d="M19 2a3 3 0 0 1 2.995 2.824l.005 .176v14a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005h14zm-7 9h-1l-.117 .007a1 1 0 0 0 0 1.986l.117 .007v3l.007 .117a1 1 0 0 0 .876 .876l.117 .007h1l.117 -.007a1 1 0 0 0 .876 -.876l.007 -.117l-.007 -.117a1 1 0 0 0 -.764 -.857l-.112 -.02l-.117 -.006v-3l-.007 -.117a1 1 0 0 0 -.876 -.876l-.117 -.007zm.01 -3l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007z"
-		/></svg
-	>
-	<p>Beides hat die exzellente SEO-Managerin Marthe Schubert für uns gemacht.</p>
-</div>
-<p>
-	Nach zwei Interviews mit dem Vortand und viel Recherche zur Arbeit des Vereins und den damit
-	verbundenen Keywords hat sie die Webseite strukturiert und betextet, damit mit sowohl
-	Besucher:innen als auch Suchmaschinen zufrieden sind.
-</p>
+<h3>Typographie</h3>
 
 <p>
-	Der Stil reflektiert die freundliche Nahbarkeit des Vereins und ist leicht zu lesen:
-	Besucher:innen werden geduzt und direkt angesprochen, es bleibt aber informativ und ohne
-	moralische Aufladung.
+	Für Textinhalte verwendet der RSS-Reader Schriftarten mit Serifen. Für Überschriften ist dies
+	"DM Serif Display". Sie ist vor allem stilistisch schön und verleiht der App eine gewisse
+	Eleganz. Für Fließtexte wird die weit verbreitete Schriftart "Georgia" verwendet. Inhalte mit
+	informativen Charakter oder mit einen Call-to-Action (CTA) wie buttons wird eine serifenlose
+	Schrift verwendet. Dabei wird nur die Schriftart "DM Serif Display" geladen. Die verbleibenden
+	Schriftarten sind systemeigene Schriftarten. Sie sind somit auf fast allen Gerät bereits
+	installiert und müssen nicht extra geladen werden.
 </p>
 
-<style>
-</style>
+<figure class="case-img-container card-bg">
+    <enhanced:img class="case-img" src={typographyDM} />
+	<figcaption>
+		Durch die Wahl einer separaten Schriftart für Überschriften werden diese stilistisch hervorgehoben.
+	</figcaption>
+</figure>
+
+<figure class="case-img-container card-bg">
+    <enhanced:img class="case-img" src={typographyGeorgia} />
+	<figcaption>
+		Fließtexte verwenden die Schriftart "Georgia".
+	</figcaption>
+</figure>
+
+<h2 id="privacy">Privatsphäre & Datenschutz</h2>
+
+<p>
+	Die Nutzung des RSS-Readers ist ohne die Angabe von personenbezogenen Daten möglich. Zudem ist
+	die offline nutzbar und benötigt keine Verbindung zu einem fremden Server. Dies vereinfacht
+	nicht nur die Nutzererfahrung, sondern schützt und respektiert auch die Privatsphäre jedes
+	Nutzers. Des Weiteren werden keine Analytics Tools eingesetzt oder Cookies gesetzt, die
+	Nutzerverhalten tracken.
+</p>
+
+<h2 id="security">Sicherheit</h2>
+
+<p>
+	Die App ist auf die Inhalte von RSS-Feeds angewiesen. Die über den Feed bereitgestellten Daten
+	liegen nicht in der Kontrolle der App. Um sicherzustellen, dass der Abruf von Inhalten der
+	selbstgewählten RSS-Feeds nicht schädlich ist, wird der Inhalt for dem Anzeigen im Reader
+	gereinigt ("sanitized"). Zudem erlaubt die App nur das Hinzufügen von RSS-Feeds, die auf
+	sicheren Verbindungen (HTTPS) bereitgestellt werden.
+</p>
+
+<h2 id="next-steps">Ausblick</h2>
+
+<p>
+	Der RSS-Reader ist ein Projekt, das stetig weiterentwickelt wird. In Zukunft sind weitere
+	Funktionen geplant, die die Nutzererfahrung verbessern sollen. Dazu gehören unter anderem
+	Erweiterungen der KI-Funktionen, die eine bessere Strukturierung und Suche von Artikel
+	ermöglichen soll. Außerdem soll es einfacher werden, vollständige Artikel von Websites zu lesen,
+	die keinen RSS-Feed anbieten, oder die nur eine Vorschau des Artikels bereitstellen.
+</p>
