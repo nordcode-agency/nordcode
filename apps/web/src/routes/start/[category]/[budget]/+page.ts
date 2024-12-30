@@ -1,7 +1,9 @@
-import type { PageLoad } from '../$types';
+import type { PageLoad } from "./$types";
 
-export const load = (async () => {
-	return {
-		title: 'nordcode – Lass uns starten.'
-	};
-}) satisfies PageLoad;
+export const load: PageLoad = (async ({ params }) => {
+    return {
+        title: 'nordcode – Lass uns starten.',
+        category: params.category,
+        budget: params.budget,
+    };
+});

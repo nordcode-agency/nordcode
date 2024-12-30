@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Header from '$lib/modules/common/components/Header.svelte';
-	import type { PageData } from '../$types';
+	import Meta from '$lib/modules/common/components/Meta.svelte';
+	import type { PageData } from './$types';
 
 	interface Props {
 		data: PageData;
@@ -10,9 +11,7 @@
 	let showMessage = $state(false);
 </script>
 
-<svelte:head>
-	<title>{data.title}</title>
-</svelte:head>
+<Meta noIndex title="Projektanfrage" description=""></Meta>
 
 <div class="nc-stack">
 	<Header />
@@ -26,7 +25,7 @@
 				deinem Budget passt.
 			</p>
 		</div>
-		<form class="nc-stack -far">
+		<form class="nc-stack -far" method="post" action="https://mailings.whats-this.org/nordcode">
 			<!-- COMPONENT-START: nc-input-field -->
 			<div class="nc-input-field">
 				<label for="email" class="nc-stack">
@@ -35,6 +34,7 @@
 				</label>
 				<input
 					id="email"
+					name="email"
 					class="nc-input"
 					aria-required="true"
 					autocomplete="email"
@@ -51,12 +51,24 @@
 					</label>
 					<textarea
 						id="message"
+						name="message"
 						class="nc-input nc-textarea"
 						aria-required="true"
 						required
 					></textarea>
 				</div>
 			{/if}
+
+			<input type="text" name="budget" hidden value={data.budget} />
+			<input type="text" name="category" hidden value={data.category} />
+			<input
+				type="checkbox"
+				name="contactMe"
+				value="Yes please"
+				tabindex="-1"
+				autocomplete="off"
+				style="display:none !important"
+			/>
 			<!-- COMPONENT-END: nc-input-field: Textarea -->
 			<div class="actions">
 				<button
