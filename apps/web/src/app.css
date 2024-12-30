@@ -150,6 +150,14 @@ section.nc-box {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    &::selection {
+        background-color: var(--color-brand-primary-base);
+        color: var(--color-surface-base);
+        -webkit-background-clip: initial;
+        background-clip: initial;
+        -webkit-text-fill-color: initial;
+    }
 }
 
 @keyframes char-fade-in {
