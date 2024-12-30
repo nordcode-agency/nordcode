@@ -43,6 +43,7 @@
 						<h3 class="gradient-text">
 							{getFormattedStr(option.label, option.displayNumbers)}
 						</h3>
+                        <p class="nc-hint">{option.desc}</p>
 					</div>
 				</a>
 			{/each}

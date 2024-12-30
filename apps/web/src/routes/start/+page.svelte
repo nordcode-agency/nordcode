@@ -8,7 +8,7 @@
 
 	let { data }: Props = $props();
 
-	const { questions } = data;
+	const { questions, desc } = data;
 </script>
 
 <svelte:head>
@@ -19,7 +19,7 @@
 	<Header />
 	<section class="nc-stack -farthest nc-center">
 		<div class="nc-stack">
-			<h1>Wähle die Option, die am besten für dich passt.</h1>
+			<h1>Wähle, was am besten für dich passt.</h1>
 		</div>
 		<div class="nc-ram-grid -base grid">
 			{#each questions as question}
@@ -31,6 +31,10 @@
 				</a>
 			{/each}
 		</div>
+        <details>
+            <summary>Weitere Informationen</summary>
+            <p>{desc}</p>
+        </details>
 	</section>
 </div>
 
@@ -38,10 +42,6 @@
 	h1 {
 		view-transition-name: title;
 		font-size: var(--font-size-display);
-	}
-
-	p {
-		font-size: var(--font-size-base);
 	}
 
 	.grid {
