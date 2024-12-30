@@ -19,7 +19,7 @@
         inline-size: 100dvw;
         block-size: max-content;
         max-inline-size: var(--_dialog-max-inline-size);
-        max-block-size: 100dvw;
+        max-block-size: 100dvh;
         background: var(--color-surface-base);
         margin: auto 0;
         padding: 0;
