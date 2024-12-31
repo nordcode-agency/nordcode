@@ -19,7 +19,7 @@
 
 			<h2 id="m56">Kontaktmöglichkeiten</h2>
 			<p>E-Mail-Adresse: <a href="mailto:moin@nordcode.agency">moin@nordcode.agency</a></p>
-			<p>Telefon: Telefonummer</p>
+			<p>Telefon: <a href="tel:+4915563134234">+49 155 63 134 234</a></p>
 
 			<h2 id="m58">Angaben zum Unternehmen</h2>
 			<p>Umsatzsteuer Identifikationsnummer (USt-ID): UstID</p>

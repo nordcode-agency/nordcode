@@ -30,7 +30,7 @@
 		<!-- <a class="gradient-text contact-links" href="https://signal.me/#p/+490000"> Signal </a> -->
 		<div class="nc-stack contact-item">
 			<span class="nc-input-label">Telefon</span>
-			<a class="gradient-text contact-links" href="tel:+490000">+49 155 63 134 234</a>
+			<a class="gradient-text contact-links" href="tel:+4915563134234">+49 155 63 134 234</a>
 		</div>
 	</div>
 </footer>
