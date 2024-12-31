@@ -25,12 +25,12 @@
 		</div>
 		<div class="nc-stack contact-item">
 			<span class="nc-input-label">Schreib uns auf</span>
-			<a class="gradient-text contact-links" href="https://wa.me/490000">Whatsapp</a>
+			<a class="gradient-text contact-links" href="https://wa.me/message/6D6KQFSIQQ6EG1">Whatsapp</a>
 		</div>
 		<!-- <a class="gradient-text contact-links" href="https://signal.me/#p/+490000"> Signal </a> -->
 		<div class="nc-stack contact-item">
 			<span class="nc-input-label">Telefon</span>
-			<a class="gradient-text contact-links" href="tel:+490000">+49 40 228 680 000</a>
+			<a class="gradient-text contact-links" href="tel:+490000">+49 155 63 134 234</a>
 		</div>
 	</div>
 </footer>
