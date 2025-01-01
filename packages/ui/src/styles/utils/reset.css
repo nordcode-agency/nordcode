@@ -35,23 +35,20 @@
     }
 
     :where(html) {
-        inline-size: 100%;
         -moz-text-size-adjust: none;
         -webkit-text-size-adjust: none;
         text-size-adjust: none;
-        text-rendering: optimizeSpeed;
-        min-block-size: 100vh;
         block-size: 100%;
     }
 
     :where(body) {
+        font-family: var(--font-family-default);
         font-weight: var(--font-weight-default);
+        font-size-adjust: from-font;
+        line-height: var(--line-height-base);
         color: var(--color-text-base);
         background-color: var(--color-surface-muted);
-        font-family: var(--font-family-default);
-        line-height: var(--line-height-base);
-        font-style: normal;
-        min-block-size: 100%;
+        min-block-size: 100vh;
     }
 
     /* Remove default margin in favour of better control in authored CSS */
