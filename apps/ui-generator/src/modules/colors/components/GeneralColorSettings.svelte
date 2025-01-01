@@ -53,14 +53,15 @@
             <dl>
                 <dt>Minimum & Maximum Lightness</dt>
                 <dd>
-                    Used to calculate a scale for generating each color. <br />
-                    The <b>higher the maximum lightness</b>, the <b>lighter</b> all colors will be.
-                    The <b>lower the minimum lightness</b>, the <b>darker</b> all colors will be.
+                    Used as guidelines for minimal and maximal lightness.<br />
+                    The <b>higher the maximum lightness</b>, the <b>lighter</b> can a color be. The
+                    <b>lower the minimum lightness</b>, the <b>darker</b> can a color be.
                 </dd>
                 <dt>Neutral Chroma Multiplier</dt>
                 <dd>
-                    Also used to calculate a scale for generating each color. <br />
-                    The <b>higher</b> the multiplier, the <b>more saturated</b> all colors will be.
+                    Used in calculation for the chroma of neutral colors. <br />
+                    A multipler of 1 will result in all neutral color shades having the same chroma.
+                    A <b>value below 1</b> will result in a more desaturated color.
                 </dd>
                 <dt>Transparency Weaker</dt>
                 <dd>
