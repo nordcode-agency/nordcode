@@ -45,6 +45,6 @@ export const generateDarkSurfaceColorValues = (
         [`--color-${tokenName}-base-${themeSuffix}`]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-muted-${themeSuffix}`]: `oklch(calc(var(${lTokenName}) * var(${scaleTokenName})) calc(var(${cTokenName}) * var(--neutral-chroma-scale)) var(${hTokenName}))`,
         [`--color-${tokenName}-subtle-${themeSuffix}`]: `oklch(calc(var(${lTokenName}) * var(${scaleTokenName}) * var(${scaleTokenName})) calc(var(${cTokenName}) * var(--neutral-chroma-scale) * var(--neutral-chroma-scale)) var(${hTokenName}))`,
-        [`--color-${tokenName}-emphasis-${themeSuffix}`]: `oklch(var(--lightness-max) var(${cTokenName}) var(${hTokenName}))`,
+        [`--color-${tokenName}-emphasis-${themeSuffix}`]: `oklch(var(--lightness-max) calc(var(${cTokenName}) * 0.1) var(${hTokenName}))`,
     };
 };
