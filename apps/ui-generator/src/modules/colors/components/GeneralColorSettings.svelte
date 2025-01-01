@@ -29,7 +29,7 @@
                         label="Neutral Chroma Multiplier"
                         bind:value={$configStore!.neutralChromaScale}
                         token="--neutral-chroma-scale"
-                        max="1"
+                        max="3"
                         min="0"
                         step="0.001"
                     ></SettingsInput>
@@ -61,7 +61,8 @@
                 <dd>
                     Used in calculation for the chroma of neutral colors. <br />
                     A multipler of 1 will result in all neutral color shades having the same chroma.
-                    A <b>value below 1</b> will result in a more desaturated color.
+                    A <b>value below 1</b> will result in a more desaturated color. A
+                    <b>value above 1</b> will result more saturated colors for subtler colors.
                 </dd>
                 <dt>Transparency Weaker</dt>
                 <dd>
