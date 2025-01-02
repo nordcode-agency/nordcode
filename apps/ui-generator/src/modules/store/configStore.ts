@@ -196,7 +196,7 @@ const defaultStore: ConfigStore = {
     //basics
     lightnessMax: 0.99,
     lightnessMin: 0.03,
-    neutralChromaScale: 0.25,
+    neutralChromaScale: 0.95,
     transparencyWeaker: 0.8,
 
     primaryHue: 265,
@@ -217,9 +217,9 @@ const defaultStore: ConfigStore = {
     lightNeutralTextLightness: 28,
     lightNeutralSurfaceLightness: 99,
     lightNeutralBorderLightness: 87,
-    lightTextLightnessScaleFactor: 0.1,
-    lightSurfaceLightnessScaleFactor: 0.02,
-    lightBorderLightnessScaleFactor: 0.1,
+    lightTextLightnessScaleFactor: 1.25,
+    lightSurfaceLightnessScaleFactor: 0.98,
+    lightBorderLightnessScaleFactor: 1.025,
 
     darkNeutralChromaFG: 0.05,
     darkNeutralChromaBG: 0.05,
@@ -227,9 +227,9 @@ const defaultStore: ConfigStore = {
     darkNeutralTextLightness: 88,
     darkNeutralSurfaceLightness: 15,
     darkNeutralBorderLightness: 30,
-    darkTextLightnessScaleFactor: 0.12,
-    darkSurfaceLightnessScaleFactor: 0.06,
-    darkBorderLightnessScaleFactor: 0.12,
+    darkTextLightnessScaleFactor: 0.88,
+    darkSurfaceLightnessScaleFactor: 1.3,
+    darkBorderLightnessScaleFactor: 0.98,
 };
 
 const round = (num: number) => Math.round(num * 1000) / 1000;

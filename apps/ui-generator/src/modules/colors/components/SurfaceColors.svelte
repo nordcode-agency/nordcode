@@ -59,8 +59,8 @@
                             label="Scale Factor Light"
                             bind:value={$configStore.lightSurfaceLightnessScaleFactor}
                             token="--scale-surface-light"
-                            max="0.2"
-                            min="0"
+                            max="1.5"
+                            min="0.25"
                             step="0.001"
                         ></SettingsInput>
                     </fieldset>
@@ -87,8 +87,8 @@
                             label="Scale Factor Dark"
                             bind:value={$configStore.darkSurfaceLightnessScaleFactor}
                             token="--scale-surface-dark"
-                            max="0.2"
-                            min="0"
+                            max="2"
+                            min="0.5"
                             step="0.001"
                         ></SettingsInput>
                     </fieldset>

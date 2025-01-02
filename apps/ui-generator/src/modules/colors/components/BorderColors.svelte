@@ -65,8 +65,8 @@
                             label="Scale Factor Light"
                             bind:value={$configStore.lightBorderLightnessScaleFactor}
                             token="--scale-border-light"
-                            max="1"
-                            min="0"
+                            max="2"
+                            min="0.5"
                             step="0.001"
                         ></SettingsInput>
                     </fieldset>
@@ -93,8 +93,8 @@
                             label="Scale Factor Dark"
                             bind:value={$configStore.darkBorderLightnessScaleFactor}
                             token="--scale-border-dark"
-                            max="0.2"
-                            min="0"
+                            max="1.5"
+                            min="0.25"
                             step="0.001"
                         ></SettingsInput>
                     </fieldset>
