@@ -1,6 +1,6 @@
 @layer components.input-switch {
     :where(.nc-input-switch) {
-        --_switch-width: var(--switch-width, calc(var(--line-height-base) * 2));
+        --_switch-width: var(--switch-width, calc(var(--line-height-base) * 2rem));
         --_switch-height: var(--switch-height, calc(var(--_switch-width) / 2));
         --_switch-color: var(--switch-color, var(--_input-background));
         --_switch-color-checked: var(--switch-color-checked, var(--color-brand-primary-base));

@@ -67,3 +67,9 @@ Lots of spring cleaning
 ### Fixes
 
 - Made details full width again
+
+## 1.1.2 (2025-01-03)
+
+### Fixes
+
+- Fix switch component not working
