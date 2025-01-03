@@ -51,3 +51,13 @@ Be sure to checkout the updated markup for these components in the documentation
 ### Fixes
 
 - Fix radius for real
+
+## 1.0.13 (2025-01-03)
+
+Lots of spring cleaning
+
+### Improvements
+
+- Line height tokens now use unitless values to allow proper inheritance
+- Changed default styling for details
+- Cleanup unused styles
