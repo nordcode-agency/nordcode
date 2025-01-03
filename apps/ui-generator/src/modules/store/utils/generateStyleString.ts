@@ -16,11 +16,11 @@ export const generateStyleString = (store: ConfigStore): string => {
         --font-weight-active: ${store.fontWeightActive};
         --font-weight-strong: ${store.fontWeightStrong};
 
-        --line-height-large: ${store.lineHeightLarge}ex;
-        --line-height-base: ${store.lineHeightBase}ex;
-        --line-height-small: ${store.lineHeightSmall}ex;
+        --line-height-large: ${store.lineHeightLarge};
+        --line-height-base: ${store.lineHeightBase};
+        --line-height-small: ${store.lineHeightSmall};
 
-        --tracking-base: ${store.trackingStandard}ch;
+        --tracking-base: ${store.trackingStandard === 0 ? 'normal' : `${store.trackingStandard}ch`};
         --tracking-tight: ${store.trackingTight}ch;
         --tracking-wide: ${store.trackingWide}ch;
 
@@ -34,7 +34,7 @@ export const generateStyleString = (store: ConfigStore): string => {
         --font-size-large: ${store.fontSizeLarge}${store.fontSizeUnit};
         --font-size-largest: ${store.fontSizeLargest}${store.fontSizeUnit};
         --font-size-display: ${store.fontSizeDisplay}${store.fontSizeUnit};
-        
+
         /* Transparency */
         --transparency-weaker:  ${store.transparencyWeaker};
 
