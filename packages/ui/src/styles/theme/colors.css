@@ -11,7 +11,7 @@
         color-scheme: dark;
     }
 
-    :where(*) {
+    :where(:root) {
         --l-brand-primary: light-dark(var(--l-brand-primary-light), var(--l-brand-primary-dark));
 
         --color-brand-primary-emphasis: light-dark(var(--color-brand-primary-emphasis-light),

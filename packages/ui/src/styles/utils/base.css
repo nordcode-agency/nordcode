@@ -1,4 +1,10 @@
 @layer base {
+    :where(:root) {
+        accent-color: var(--color-brand-primary-base);
+        caret-color: var(--color-brand-primary-base);
+        scrollbar-color: var(--color-text-subtle) transparent;
+    }
+
     :where(dt) {
         font-weight: var(--font-weight-active);
         color: var(--color-text-base);
@@ -69,9 +75,6 @@
 
     :where(figcaption) {
         display: block;
-        font-family: var(--font-family-sans);
-        font-weight: var(--font-weight-default);
-        line-height: var(--line-height-base);
         color: var(--color-surface-subtle);
         background-color: var(--color-text-base);
         padding: 0.3lh 1ch;
@@ -79,33 +82,26 @@
 
     :where(details) {
         --p-x-details: 2ch;
-        --p-y-details: 0.75lh;
+        --p-y-details: 0.8lh;
 
-        inline-size: 100%;
-        background-color: var(--color-surface-subtle);
+        background-color: var(--color-surface-muted);
         border-radius: var(--border-radius-medium);
         border: var(--border-width-thin) solid var(--color-border-base);
-
-        &>* {
-            padding-inline: var(--p-x-details);
-        }
-
-        &>*:last-child {
-            padding-block-end: var(--p-y-details);
-        }
-
-        &>summary::-webkit-details-marker {
-            display: none;
-        }
+        padding: var(--p-y-details) var(--p-x-details);
 
         &>summary {
-            list-style: none;
-            cursor: pointer;
             color: var(--color-text-base);
-            inline-size: 100%;
-            font-weight: var(--font-weight-strong);
-            padding-inline: var(--p-x-details);
-            padding-block: var(--p-y-details);
+            background: var(--color-surface-subtle);
+            border-radius: var(--border-radius-medium);
+            font-weight: var(--font-weight-heading);
+            padding: var(--p-y-details) var(--p-x-details);
+            margin: calc(-1 * var(--p-y-details)) calc(-1 * var(--p-x-details) + var(--border-width-thin));
+        }
+
+        &[open]>summary {
+            border-end-start-radius: 0;
+            border-end-end-radius: 0;
+            margin-block-end: var(--p-y-details);
         }
     }
 
@@ -157,8 +153,9 @@
 
     :where(hr) {
         inline-size: 100%;
-        block-size: 0;
-        border-top: var(--border-width-medium) solid var(--color-border-base);
+        block-size: var(--border-width-medium);
+        background: var(--color-border-base);
+        border-block-start: 0;
     }
 
     :where(h1, h2, h3, h4, h5, h6) {
@@ -234,6 +231,10 @@
         font-family: var(--font-family-mono);
         letter-spacing: var(--tracking-tight);
         font-weight: var(--font-weight-default);
+    }
+
+    :where(abbr) {
+        text-decoration-color: var(--color-brand-primary-base);
     }
 
     :where([aria-disabled="true"], .disabled, :disabled) {
@@ -402,10 +403,10 @@
     }
 
     :where(li + li) {
-        margin-top: 0.5lh;
+        margin-block-start: 0.5lh;
     }
 
     :where(li > :is(ul, ol)) {
-        margin-top: 0.5lh;
+        margin-block-start: 0.3lh;
     }
 }

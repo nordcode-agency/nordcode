@@ -1,13 +1,8 @@
 @layer reset {
-
     *,
     :after,
     :before {
         box-sizing: border-box;
-        accent-color: var(--color-brand-primary-base);
-        font-kerning: normal;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
     }
 
     :where(:not(dialog)) {
@@ -21,11 +16,17 @@
         background-repeat: no-repeat;
     }
 
-    :where(:focus-visible) {
-        transition: outline-offset var(--transition-duration-short) var(--ease-2);
+    @media (prefers-reduced-motion: no-preference) {
+        :where(:focus-visible) {
+            transition: outline-offset var(--transition-duration-short) var(--ease-2);
+        }
+
+        :where(:not(:active):focus-visible) {
+            transition-duration: var(--transition-duration-base);
+        }
     }
 
-    :where(:focus-visible, :focus) {
+    :where(:not(:active):focus-visible) {
         outline: var(--border-width-medium) solid var(--color-brand-primary-base);
         outline-offset: 1ch;
     }
@@ -34,26 +35,27 @@
         outline: none;
     }
 
-    :where(html) {
+    :where(:root) {
         -moz-text-size-adjust: none;
         -webkit-text-size-adjust: none;
         text-size-adjust: none;
         block-size: 100%;
+        color: var(--color-text-base);
+        background-color: var(--color-surface-muted);
+        font-family: var(--font-family-default);
+        line-height: var(--line-height-base);
+        font-weight: var(--font-weight-default);
+        font-size-adjust: from-font;
+
+        interpolate-size: allow-keywords;
+
+        font-kerning: normal;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
     }
 
     :where(body) {
-        font-family: var(--font-family-default);
-        font-weight: var(--font-weight-default);
-        font-size-adjust: from-font;
-        line-height: var(--line-height-base);
-        color: var(--color-text-base);
-        background-color: var(--color-surface-muted);
         min-block-size: 100vh;
-    }
-
-    /* Remove default margin in favour of better control in authored CSS */
-    :where(body, h1, h2, h3, h4, p, figure, blockquote, dl, dd) {
-        margin: 0;
     }
 
     /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -82,21 +84,44 @@
     }
 
     :where(figure) {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        place-content: center;
+        grid-template-rows: 1fr auto;
         gap: 0;
     }
 
-    :where(a[href],
-        area,
-        button,
-        input,
-        label[for],
-        select,
-        summary,
-        textarea,
-        [tabindex]:not([tabindex*="-"])) {
+    :where(
+            a[href],
+            area,
+            button,
+            input:not(
+                    [type="text"],
+                    [type="email"],
+                    [type="number"],
+                    [type="password"],
+                    [type=""],
+                    [type="tel"],
+                    [type="url"]
+                ),
+            label[for],
+            select,
+            summary,
+            [tabindex]:not([tabindex*="-"], pre)
+        ) {
         cursor: pointer;
+    }
+
+    :where(
+            a[href],
+            area,
+            button,
+            input,
+            label[for],
+            select,
+            summary,
+            textarea,
+            [tabindex]:not([tabindex*="-"])
+        ) {
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
     }
@@ -108,19 +133,10 @@
         letter-spacing: inherit;
     }
 
-    :where(label:not(class) + input, label:not(class) + select, label:not(class) + textarea) {
-        display: block;
-    }
-
-    :where(p, summary) {
-        max-inline-size: var(--measure-base);
-        font-size: inherit;
-        line-height: var(--line-height-base);
-        margin: 0;
-    }
-
     :where(p) {
+        text-wrap: balance;
         text-wrap: pretty;
+        max-inline-size: var(--measure-base);
     }
 
     :where(html):has(dialog:modal) {

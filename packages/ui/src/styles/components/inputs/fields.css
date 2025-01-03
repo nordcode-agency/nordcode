@@ -1,7 +1,7 @@
 @layer components.input-fields {
     :where(.nc-input-field) {
         display: grid;
-        gap: 0.25lh;
+        gap: 0.3lh;
         grid-template-columns: minmax(0, 1fr);
         inline-size: 100%;
         min-inline-size: var(--input-field-min-inline-size);
@@ -10,8 +10,7 @@
 
         &>label,
         &>.nc-stack {
-            gap: 0.125lh;
-            line-height: var(--line-height-small);
+            gap: 0.15lh;
         }
 
         &>.nc-cluster {

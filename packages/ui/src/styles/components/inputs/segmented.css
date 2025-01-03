@@ -9,7 +9,7 @@
 
         container: segmented-control / inline-size;
 
-        --nc-legend-spacing: 0.25lh;
+        --nc-legend-spacing: 0.3lh;
     }
 
     :where(.nc-segmented-control) {
