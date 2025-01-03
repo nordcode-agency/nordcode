@@ -1,17 +1,16 @@
 <script lang="ts">
+import { onMount } from 'svelte';
 import { writable } from 'svelte/store';
-import ContextPreview from './ContextPreview.svelte';
-import ExportDialog from './ExportDialog.svelte';
 import type { ConfigStore } from '../configStore';
 import { configStore } from '../configStore';
-import ImportDialog from './ImportDialog.svelte';
 import { generateStyleString } from '../utils/generateStyleString';
+import { getStringTheme } from '../utils/getStringTheme';
+import ContextPreview from './ContextPreview.svelte';
+import ExportDialog from './ExportDialog.svelte';
+import ImportDialog from './ImportDialog.svelte';
 
-interface ConfigLoaderProps {
-    allStyles: string;
-}
-
-let { allStyles = '' }: ConfigLoaderProps = $props();
+let allStyles = $state('');
+let classesSetup = $state(false);
 
 const previewContainer = typeof document !== 'undefined' ? document?.body : undefined;
 
@@ -20,7 +19,28 @@ const updateStyles = (store: ConfigStore) => {
     previewContainer?.setAttribute('style', allStyles);
 };
 
+const setupClassesOnce = (store: ConfigStore) => {
+    if (classesSetup) {
+        return;
+    }
+
+    const styleString = getStringTheme(store);
+    const classes = styleString
+        .split(';\n')
+        .map((line) => line.split(':')[0])
+        .map((c) => `.${c} { background: var(${c});\ncolor: var(${c}); }`)
+        .join('\n');
+    console.log(classes);
+
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = classes;
+    document.head.appendChild(styleElement);
+
+    classesSetup = true;
+};
+
 configStore?.subscribe(updateStyles);
+configStore?.subscribe(setupClassesOnce);
 
 const previewShown = writable(false);
 const togglePreview = () => {
