@@ -88,17 +88,19 @@
         border-radius: var(--border-radius-medium);
         border: var(--border-width-thin) solid var(--color-border-base);
         padding: var(--p-y-details) var(--p-x-details);
+        inline-size: 100%;
 
-        &>summary {
+        & > summary {
             color: var(--color-text-base);
             background: var(--color-surface-subtle);
             border-radius: var(--border-radius-medium);
             font-weight: var(--font-weight-heading);
             padding: var(--p-y-details) var(--p-x-details);
-            margin: calc(-1 * var(--p-y-details)) calc(-1 * var(--p-x-details) + var(--border-width-thin));
+            margin: calc(-1 * var(--p-y-details))
+                calc(-1 * var(--p-x-details) + var(--border-width-thin));
         }
 
-        &[open]>summary {
+        &[open] > summary {
             border-end-start-radius: 0;
             border-end-end-radius: 0;
             margin-block-end: var(--p-y-details);
@@ -135,9 +137,11 @@
             margin-block-start: var(--spacing-near);
             font-size: var(--font-size-base);
             max-inline-size: max-content;
-            color: color-mix(in oklch,
-                    currentColor calc(var(--transparency-weaker) * 100%),
-                    transparent);
+            color: color-mix(
+                in oklch,
+                currentColor calc(var(--transparency-weaker) * 100%),
+                transparent
+            );
         }
 
         & cite:before {

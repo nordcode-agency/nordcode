@@ -52,7 +52,7 @@ Be sure to checkout the updated markup for these components in the documentation
 
 - Fix radius for real
 
-## 1.0.13 (2025-01-03)
+## 1.1.0 (2025-01-03)
 
 Lots of spring cleaning
 
@@ -61,3 +61,9 @@ Lots of spring cleaning
 - Line height tokens now use unitless values to allow proper inheritance
 - Changed default styling for details
 - Cleanup unused styles
+
+## 1.1.1 (2025-01-03)
+
+### Fixes
+
+- Made details full width again
