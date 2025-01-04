@@ -70,6 +70,7 @@
         & :where(figcaption) {
             border-end-start-radius: inherit;
             border-end-end-radius: inherit;
+            text-align: center;
         }
     }
 
@@ -93,7 +94,7 @@
         & > summary {
             color: var(--color-text-base);
             background: var(--color-surface-subtle);
-            border-radius: var(--border-radius-medium);
+            border-radius: inherit;
             font-weight: var(--font-weight-heading);
             padding: var(--p-y-details) var(--p-x-details);
             margin: calc(-1 * var(--p-y-details))

@@ -44,7 +44,7 @@
         }
     }
 
-    :where(button, .nc-button)>.nc-icon {
+    :where(button, .nc-button) > .nc-icon {
         --icon-size: 2ex;
     }
 

@@ -134,7 +134,6 @@
     }
 
     :where(p) {
-        text-wrap: balance;
         text-wrap: pretty;
         max-inline-size: var(--measure-base);
     }
