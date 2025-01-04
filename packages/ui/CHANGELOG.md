@@ -73,3 +73,9 @@ Lots of spring cleaning
 ### Fixes
 
 - Fix switch component not working
+
+## 1.1.3 (2025-01-04)
+
+### Fixes
+
+- Small design fixes and improvements
