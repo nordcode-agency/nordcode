@@ -17,7 +17,7 @@
 <div class="container">
 	<a href={ensureTrailingSlash(slug)} class="nc-card card card-bg">
 		<figure class="figure" style={`view-transition-name: ${id}`}>
-			<enhanced:img class="img" src={cover.src} alt={cover.alt} />
+			<enhanced:img class="img" src={cover.src} alt={cover.alt} sizes="min(400px, 100vw)" />
 		</figure>
 		<div class="header">
 			<div class="headings">
@@ -60,7 +60,7 @@
 			& {
 				aspect-ratio: 16 / 9;
 
-				& :is(.figure, .img-placeholder) {
+				& .figure {
 					grid-area: full;
 				}
 
@@ -93,9 +93,7 @@
 		overflow: hidden;
 	}
 
-	.img,
-	picture {
-		inline-size: 100%;
+	.img {
 		aspect-ratio: 3 / 2;
 		object-fit: cover;
 		border-radius: var(--border-radius-small);

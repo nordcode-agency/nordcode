@@ -1,6 +1,6 @@
 <script lang="ts">
-	import imgPerson1 from '$lib/assets/person1.jpg';
-	import imgPerson2 from '$lib/assets/person2.jpg';
+	import imgPerson1 from '$lib/assets/person1.jpg?enhanced';
+	import imgPerson2 from '$lib/assets/person2.jpg?enhanced';
 </script>
 
 <section class="section">
@@ -11,10 +11,10 @@
 		>
 			<div class="images">
 				<figure>
-					<img src={imgPerson1} alt="Joshua" />
+					<enhanced:img src={imgPerson1} alt="Joshua" sizes="min(32ch, 100vw)" />
 				</figure>
 				<figure>
-					<img src={imgPerson2} alt="Lukas" />
+					<enhanced:img src={imgPerson2} alt="Lukas" sizes="min(32ch, 100vw)" />
 				</figure>
 			</div>
 			<div class="content">
@@ -77,12 +77,6 @@
 			&:last-of-type {
 				transform: translateY(var(--spacing-farthest));
 			}
-		}
-
-		& img {
-			object-fit: cover;
-			inline-size: 100%;
-			block-size: 100%;
 		}
 	}
 
