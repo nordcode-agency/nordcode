@@ -79,3 +79,9 @@ Lots of spring cleaning
 ### Fixes
 
 - Small design fixes and improvements
+
+## 1.1.4 (2025-01-04)
+
+### Fixes
+
+- Fix summary border-radius by using a border-radius token
