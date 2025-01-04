@@ -17,7 +17,8 @@
 		<h1 class="text section-title">Wir erschaffen digitale Erlebnisse.</h1>
 	</div>
 	<div class="footer nc-box">
-		<div class="featured-project">
+        <!-- @todo Activate, when there are enough projects -->
+		<!-- <div class="featured-project">
 			<ProjectCard
 				heading={projects[0].heading}
 				cover={projects[0].cover}
@@ -32,7 +33,7 @@
 				slug={projects[1].slug}
 				name={projects[1].name}
 			/>
-		</div>
+		</div> -->
 		<div style="inline-size: min(240px, 100%)">
 			<ActionCard heading="Lass uns schauen, wie wir dich unterstützen können">
 				{#snippet action()}
