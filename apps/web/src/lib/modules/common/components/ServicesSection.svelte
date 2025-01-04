@@ -52,7 +52,7 @@
 
 <section class="section">
 	<div id="services" class="nc-box inner-section">
-		<h2 class="section-title">Was wir gut können</h2>
+		<h2 class="section-title">Das können wir sehr gut</h2>
 		<div class="container">
 			{#each services as { title, description, cta }}
 				<div class="nc-stack item">
@@ -68,10 +68,10 @@
 </section>
 
 <style lang="postcss">
-    .inner-section {
+	.inner-section {
 		display: flex;
 		column-gap: var(--spacing-adaptive);
-		row-gap: max(calc(var(--spacing-adaptive) * 1.5), var(--spacing-far));
+		row-gap: var(--spacing-far);
 		flex-wrap: wrap;
 		justify-content: space-between;
 		inline-size: 100%;
@@ -87,7 +87,7 @@
 	}
 
 	h2 {
-		max-inline-size: 8ch;
+		max-inline-size: 9ch;
 	}
 
 	.container {
@@ -127,6 +127,7 @@
 			color: var(--color-surface-subtle);
 			inset: 0;
 			z-index: -1;
+			line-height: 1;
 		}
 
 		@media (--sm-n-above) {
@@ -137,7 +138,7 @@
 
 			&::before {
 				display: block;
-				transform: translateY(32%);
+				transform: translateY(-10%);
 			}
 		}
 	}

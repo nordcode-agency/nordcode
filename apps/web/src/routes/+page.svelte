@@ -29,9 +29,9 @@
 	</div>
 	<ThreeScene />
 </div>
+<ServicesSection />
 <IntroSection />
 <WorkSection projects={data.projects} />
-<ServicesSection />
 <About />
 <section class="section">
 	<div class="nc-box">
@@ -41,17 +41,30 @@
 
 <style lang="postcss">
 	.hero-wrapper {
-        display: grid;
-		overflow: hidden;
-        inline-size: 100%;
-        min-block-size: 100vh;
-		background: linear-gradient(transparent 60%, var(--color-surface-muted));
+		display: grid;
+		position: relative;
+		overflow-x: clip;
+		inline-size: 100%;
+		min-block-size: 100vh;
+		background: linear-gradient(transparent 60%, var(--color-surface-muted), var(--color-surface-muted) 99%);
+
+		&:after {
+    		content: "";
+            display: block;
+            inline-size: 100%;
+            block-size: 4rem;
+            position: absolute;
+            inset-block-end: 0;
+            transform: translateY(50%);
+            background: var(--color-surface-muted);
+            z-index: -1;
+		}
 	}
 
 	.fullscreen {
 		position: relative;
-        inline-size: 100%;
-        block-size: 100%;
-        grid-area: 1 / 1;
+		inline-size: 100%;
+		block-size: 100%;
+		grid-area: 1 / 1;
 	}
 </style>

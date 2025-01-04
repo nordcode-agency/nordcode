@@ -5,7 +5,8 @@
 	import ThemePicker from './ThemePicker.svelte';
 </script>
 
-<footer class="nc-box nc-center footer">
+<footer class="footer-outer">
+    <div class="footer nc-box nc-center">
 	<div class="misc nc-stack -farthest">
 		<span class="greeting">Liebe Grüße aus<br />Zeetze & Hamburg</span>
 		<div class="nc-stack -near">
@@ -33,9 +34,16 @@
 			<a class="gradient-text contact-links" href="tel:+4915563134234">+49 155 63 134 234</a>
 		</div>
 	</div>
+	</div>
 </footer>
 
 <style>
+    .footer-outer {
+        background: linear-gradient(165deg,
+                  var(--color-surface-muted) 40%,
+                  color-mix(in oklch, var(--color-surface-base), transparent 20%));
+    }
+
 	.footer {
 		display: flex;
 		flex-wrap: wrap;
