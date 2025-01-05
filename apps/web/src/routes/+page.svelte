@@ -46,19 +46,7 @@
 		overflow-x: clip;
 		inline-size: 100%;
 		min-block-size: 100vh;
-		background: linear-gradient(transparent 60%, var(--color-surface-muted), var(--color-surface-muted) 99%);
-
-		&:after {
-    		content: "";
-            display: block;
-            inline-size: 100%;
-            block-size: 4rem;
-            position: absolute;
-            inset-block-end: 0;
-            transform: translateY(50%);
-            background: var(--color-surface-muted);
-            z-index: -1;
-		}
+		background: linear-gradient(transparent 60%, var(--color-surface-muted));
 	}
 
 	.fullscreen {

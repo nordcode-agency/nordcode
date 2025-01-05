@@ -17,7 +17,7 @@
 		right: 0;
 		display: block;
 		inline-size: 60%;
-		block-size: 100%;
+		block-size: calc(100% - 5px);
 		outline: none;
 		background-color: var(--surface-color-default);
 		filter: blur(3px);
