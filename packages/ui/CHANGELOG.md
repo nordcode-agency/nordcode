@@ -85,3 +85,13 @@ Lots of spring cleaning
 ### Fixes
 
 - Fix summary border-radius by using a border-radius token
+
+## 1.1.5 (2025-01-09)
+
+### Improvements
+
+- Add `themed` class to apply `var(--text)` and `var(--surface)` colors
+
+### Fixes
+
+- Fix text colors for `<ins>` and `<del>`
