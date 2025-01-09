@@ -38,7 +38,7 @@ const requirementsCode = requirements ? requirements.map(req => `@import "${req}
 
         <form action="https://codepen.io/pen/define/" method="POST" target="_blank">
             <input type="hidden" name="data" value={escapedPayload} />
-            <button class="nc-button -outline">Open in CodePen</button>
+            <button class="nc-button -outline" type="button">Open in CodePen</button>
         </form>
 
         {requirementsCode ?
