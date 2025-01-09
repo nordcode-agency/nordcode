@@ -117,4 +117,9 @@
         --surface-hover: var(--color-status-success-base);
         --border-hover: var(--color-status-success-base);
     }
+
+    .themed {
+        background: var(--surface);
+        color: var(--text);
+    }
 }

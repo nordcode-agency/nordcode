@@ -92,17 +92,16 @@
         padding: var(--p-y-details) var(--p-x-details);
         inline-size: 100%;
 
-        & > summary {
+        &>summary {
             color: var(--color-text-base);
             background: var(--color-surface-subtle);
             font-weight: var(--font-weight-heading);
             border-radius: var(--b-r-details);
             padding: var(--p-y-details) var(--p-x-details);
-            margin: calc(-1 * var(--p-y-details))
-                calc(-1 * var(--p-x-details) + var(--border-width-thin));
+            margin: calc(-1 * var(--p-y-details)) calc(-1 * var(--p-x-details) + var(--border-width-thin));
         }
 
-        &[open] > summary {
+        &[open]>summary {
             border-end-start-radius: 0;
             border-end-end-radius: 0;
             margin-block-end: var(--p-y-details);
@@ -139,11 +138,9 @@
             margin-block-start: var(--spacing-near);
             font-size: var(--font-size-base);
             max-inline-size: max-content;
-            color: color-mix(
-                in oklch,
-                currentColor calc(var(--transparency-weaker) * 100%),
-                transparent
-            );
+            color: color-mix(in oklch,
+                    currentColor calc(var(--transparency-weaker) * 100%),
+                    transparent);
         }
 
         & cite:before {
@@ -388,14 +385,14 @@
     }
 
     :where(del) {
-        color: var(--color-status-danger-text);
-        text-decoration-color: var(--color-status-danger-text);
+        color: var(--color-status-danger-emphasis);
+        text-decoration-color: var(--color-status-danger-emphasis);
         background: var(--color-status-danger-surface);
     }
 
     :where(ins) {
-        color: var(--color-status-success-text);
-        text-decoration-color: var(--color-status-success-text);
+        color: var(--color-status-success-emphasis);
+        text-decoration-color: var(--color-status-success-emphasis);
         background: var(--color-status-success-surface);
     }
 
