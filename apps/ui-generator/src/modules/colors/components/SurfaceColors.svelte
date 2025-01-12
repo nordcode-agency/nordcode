@@ -2,6 +2,7 @@
     import CheckboxInput from '../../../../../../packages/forms-svelte/src/lib/components/InputFields/CheckboxInput.svelte';
     import SettingsInput from '../../common/components/SettingsInput.svelte';
     import { configStore } from '../../store/configStore.ts';
+    import ColorPreviewEntry from './ColorPreviewEntry.svelte';
     import SurfaceColorPreviewEntry from './SurfaceColorPreviewEntry.svelte';
 
     const baseColors = [
@@ -96,18 +97,17 @@
             </div>
             <div class="nc-stack -nogap -stretched -contained">
                 {#each baseColors as color}
-                    <SurfaceColorPreviewEntry
+                    <ColorPreviewEntry
                         {color}
-                        textColor="--color-text-base"
+                        surfaceColor="--color-text-base"
                         baseToken="--color-surface"
-                    ></SurfaceColorPreviewEntry>
+                    ></ColorPreviewEntry>
                 {/each}
-                <SurfaceColorPreviewEntry
+                <ColorPreviewEntry
                     color={emphasisColor}
-                    textColor="--color-text-on-emphasis"
+                    surfaceColor="--color-text-on-emphasis"
                     baseToken="--color-surface"
-                    protectedString="on-emphasis"
-                ></SurfaceColorPreviewEntry>
+                ></ColorPreviewEntry>
             </div>
         {/if}
     </div>
