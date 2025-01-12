@@ -95,3 +95,9 @@ Lots of spring cleaning
 ### Fixes
 
 - Fix text colors for `<ins>` and `<del>`
+
+## 1.1.6 (2025-01-09)
+
+### Improvements
+
+- Small changes to spacings.
