@@ -55,7 +55,7 @@
 
     :where(.nc-flow) {
         >*+* {
-            margin-block-start: var(--flow-gap, 0.8lh);
+            margin-block-start: var(--flow-gap, 1lh);
         }
 
         >* {
@@ -64,11 +64,11 @@
 
         >*:is(h1, h2, h3, h4, h5, h6) {
             max-inline-size: var(--flow-headline-meassure, 32ch);
-            --flow-gap: 1.3lh;
+            --flow-gap: 1.5lh;
         }
 
         >*:is(h1, h2, h3, h4, h5, h6)+ :not([class]) {
-            --flow-gap: 0.3lh;
+            --flow-gap: 0.5lh;
         }
 
         >figure {

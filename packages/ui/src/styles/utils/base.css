@@ -78,12 +78,12 @@
         display: block;
         color: var(--color-surface-subtle);
         background-color: var(--color-text-base);
-        padding: 0.3lh 1ch;
+        padding: 0.25lh 1ch;
     }
 
     :where(details) {
         --p-x-details: 2ch;
-        --p-y-details: 0.8lh;
+        --p-y-details: 0.75lh;
         --b-r-details: var(--border-radius-medium);
 
         background-color: var(--color-surface-muted);
@@ -410,6 +410,6 @@
     }
 
     :where(li > :is(ul, ol)) {
-        margin-block-start: 0.3lh;
+        margin-block-start: 0.25lh;
     }
 }

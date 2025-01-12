@@ -32,7 +32,7 @@
         }
 
         &[data-size="inline"] {
-            --icon-size: 0.8lh;
+            --icon-size: 0.75lh;
         }
 
         &[data-size="button"] {
@@ -44,7 +44,7 @@
         }
     }
 
-    :where(button, .nc-button) > .nc-icon {
+    :where(button, .nc-button)>.nc-icon {
         --icon-size: 2ex;
     }
 

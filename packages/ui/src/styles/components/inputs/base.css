@@ -6,7 +6,7 @@
         color: var(--color-text-base);
         display: inline-flex;
         font-size: inherit;
-        gap: 0.15lh;
+        gap: 0;
         align-items: center;
     }
 
