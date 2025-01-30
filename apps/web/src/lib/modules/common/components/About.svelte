@@ -38,6 +38,9 @@
 </section>
 
 <style lang="postcss">
+    @custom-media --md-n-above (width >= 768px);
+    @custom-media --lg-n-above (width >= 1024px);
+
 	.container {
 		inline-size: 100%;
 		min-block-size: 100dvh;

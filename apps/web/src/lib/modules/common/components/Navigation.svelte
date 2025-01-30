@@ -11,6 +11,8 @@
 </nav>
 
 <style lang="postcss">
+    @custom-media --md-n-above (width >= 768px);
+
 	nav {
 		display: flex;
 		justify-content: flex-end;

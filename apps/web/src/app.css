@@ -1,6 +1,10 @@
 @import '@nordcode/ui/complete';
 @import '@nordcode/ui/fonts';
 
+@custom-media --sm-n-above (width >= 480px);
+@custom-media --md-n-above (width >= 768px);
+@custom-media --OSdark (prefers-color-scheme: dark);
+
 @keyframes slide-up {
     to {
         transform: translateY(0%);

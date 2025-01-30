@@ -48,6 +48,8 @@
 </div>
 
 <style lang="postcss">
+    @custom-media --md-n-above (width >= 768px);
+
 	.container {
 		inline-size: 100%;
 		flex-grow: 1;

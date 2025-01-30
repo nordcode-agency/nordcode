@@ -14,6 +14,10 @@
 </section>
 
 <style lang="postcss">
+    @custom-media --sm-n-above (width >= 480px);
+    @custom-media --md-n-above (width >= 768px);
+    @custom-media --lg-n-above (width >= 1024px);
+
 	.intro-icon {
 		display: block;
 		inline-size: 100vw;

@@ -13,6 +13,10 @@
 </header>
 
 <style>
+    @custom-media --sm-n-above (width >= 480px);
+    @custom-media --md-n-above (width >= 768px);
+    @custom-media --lg-n-above (width >= 1024px);
+
 	header {
 		pointer-events: none;
 		isolation: isolate;

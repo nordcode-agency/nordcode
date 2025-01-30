@@ -71,6 +71,8 @@
 </li>
 
 <style lang="postcss">
+    @custom-media --md-n-above (width >= 768px);
+
 	li {
 		inline-size: 100%;
 		block-size: 100%;

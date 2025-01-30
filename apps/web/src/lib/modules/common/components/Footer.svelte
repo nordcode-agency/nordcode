@@ -38,6 +38,8 @@
 </footer>
 
 <style>
+    @custom-media --md-n-above (width >= 768px);
+
     .footer-outer {
         background: linear-gradient(165deg,
                   var(--color-surface-muted) 40%,

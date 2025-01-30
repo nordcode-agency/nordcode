@@ -68,6 +68,9 @@
 </section>
 
 <style lang="postcss">
+    @custom-media --sm-n-above (width >= 480px);
+    @custom-media --md-n-above (width >= 768px);
+
 	.inner-section {
 		display: flex;
 		column-gap: var(--spacing-adaptive);

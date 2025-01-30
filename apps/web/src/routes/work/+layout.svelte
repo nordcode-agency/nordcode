@@ -87,6 +87,9 @@
 </article>
 
 <style lang="postcss">
+    @custom-media --md-n-above (width >= 768px);
+    @custom-media --xl-n-above (width >= 1440px);
+
     .header {
         display: flex;
         flex-direction: column;
