@@ -17,7 +17,7 @@
 <div class="container">
 	<a href={ensureTrailingSlash(slug)} class="nc-card card card-bg">
 		<figure class="figure" style={`view-transition-name: ${id}`}>
-			<enhanced:img class="img" src={cover.src} alt={cover.alt} sizes="min(400px, 100vw)" />
+			<enhanced:img class="img" src={cover.src} alt={cover.alt} sizes="(min-width:1680px) 1400px, (min-width:768px) 948px" />
 		</figure>
 		<div class="header">
 			<div class="headings">

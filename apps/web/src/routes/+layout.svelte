@@ -23,17 +23,12 @@
 			});
 		});
 	});
-
-	import { onMount } from 'svelte';
-	interface Props {
+	
+    interface Props {
 		children?: import('svelte').Snippet;
 	}
 
 	let { children }: Props = $props();
-
-	onMount(async () => {
-		await import('@nordcode/ui/src/modules/dialogs/ts/dialogs');
-	});
 </script>
 
 <main>
