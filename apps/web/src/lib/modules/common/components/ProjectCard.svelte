@@ -1,4 +1,4 @@
-<script lang="ts" async>
+<script lang="ts">
 	import { beforeNavigate, afterNavigate } from '$app/navigation';
 	import type { MediaImage } from '$lib/types/index';
 	import FeatureCard from './FeatureCard.svelte';

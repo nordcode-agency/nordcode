@@ -1,15 +1,15 @@
 <script lang="ts">
-	import type { TProjects } from '$lib/content';
+	// import type { TProjects } from '$lib/content';
 	import { Navigation } from '$lib/content/navigation';
 	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 	import ActionCard from './ActionCard.svelte';
-	import ProjectCard from './ProjectCard.svelte';
+	// import ProjectCard from './ProjectCard.svelte';
 
-	interface Props {
-		projects: TProjects;
-	}
+	// interface Props {
+	// 	projects: TProjects;
+	// }
 
-	let { projects }: Props = $props();
+	// let { projects }: Props = $props();
 </script>
 
 <div class="nc-stack container">
@@ -72,18 +72,6 @@
 		align-items: stretch;
 		gap: var(--spacing-far);
 		padding-block: var(--spacing-far);
-	}
-
-	.featured-project {
-		inline-size: min(240px, 100%);
-
-		&:first-child {
-			display: none;
-
-			@media (--md-n-above) {
-				display: initial;
-			}
-		}
 	}
 
 	.-big {
