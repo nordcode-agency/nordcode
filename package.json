@@ -1,15 +1,11 @@
 {
     "private": true,
     "scripts": {
-        "build": "turbo run build",
-        "dev": "turbo run dev",
         "web": "pnpm --filter \"@nordcode/web\" dev",
         "invoice": "pnpm --filter \"@nordcode/invoice\" dev",
         "ui-generator": "pnpm --filter \"@nordcode/ui-generator\" dev",
         "questionnaire-generator": "pnpm --filter \"@nordcode/questionnaire-generator\" dev",
-        "lint": "turbo run lint",
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-        "gen": "turbo gen workspace",
         "changeset:status": "changeset status",
         "changeset:add": "changeset",
         "changeset:version": "changeset version",
@@ -19,8 +15,7 @@
     "devDependencies": {
         "@biomejs/biome": "1.9.4",
         "@changesets/cli": "2.27.9",
-        "prettier": "3.3.3",
-        "turbo": "^2.3.3"
+        "prettier": "3.3.3"
     },
     "packageManager": "pnpm@9.12.3",
     "name": "nordcode",
