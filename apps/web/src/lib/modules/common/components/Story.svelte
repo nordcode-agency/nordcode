@@ -38,7 +38,7 @@
 	</div>
 </dialog>
 
-<style lang="postcss">
+<style>
 	dialog {
 		display: grid;
 		grid-template: [gallery-start controls-start] auto [controls-end] 1fr [gallery-end] / [controls-start gallery-start] 1fr [controls-end gallery-end];

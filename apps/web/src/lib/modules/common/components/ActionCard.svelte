@@ -26,7 +26,7 @@
 	</div>
 </div>
 
-<style lang="postcss">
+<style>
 	.container {
 		/* container-type: inline-size; */
 		inline-size: 100%;

@@ -39,13 +39,13 @@
 	</div>
 </section>
 
-<style lang="postcss">
+<style>
 	@custom-media --md-n-above (width >= 768px);
 	@custom-media --lg-n-above (width >= 1024px);
 
 	.container {
 		inline-size: 100%;
-		min-block-size: 100dvh;
+		min-block-size: 100vh;
 		display: grid;
 		place-items: center;
 		align-items: center;

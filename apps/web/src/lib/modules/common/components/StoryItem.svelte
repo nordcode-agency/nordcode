@@ -70,7 +70,7 @@
 	</figure>
 </li>
 
-<style lang="postcss">
+<style>
     @custom-media --md-n-above (width >= 768px);
 
 	li {

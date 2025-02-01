@@ -67,7 +67,7 @@
 	</div>
 </section>
 
-<style lang="postcss">
+<style>
     @custom-media --sm-n-above (width >= 480px);
     @custom-media --md-n-above (width >= 768px);
 

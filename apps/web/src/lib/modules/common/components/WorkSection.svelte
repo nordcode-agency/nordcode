@@ -32,7 +32,7 @@
 	</div>
 </section>
 
-<style lang="postcss">
+<style>
 	.more-work {
 		--nc-ram-grid-min-width: calc(25 * var(--spacing-base));
 

@@ -15,7 +15,7 @@
 	<h3>{heading}</h3>
 </div>
 
-<style lang="postcss">
+<style>
 	.action {
 		align-self: end;
 	}

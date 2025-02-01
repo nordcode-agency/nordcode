@@ -257,7 +257,7 @@ section.nc-box {
     & picture {
         grid-area: content;
         max-inline-size: 100%;
-        max-block-size: 50dvh;
+        max-block-size: 50vh;
         object-fit: contain;
         border-radius: var(--border-radius-medium);
     }

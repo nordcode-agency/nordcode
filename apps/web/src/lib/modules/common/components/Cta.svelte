@@ -20,7 +20,7 @@
 	</div>
 </section>
 
-<style lang="postcss">
+<style>
 	section.nc-box {
 		--shadow-blur: 7vh;
 		--shadow-vertical-offset: -8px;

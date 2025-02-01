@@ -17,7 +17,7 @@
 		<h1 class="text section-title">Wir erschaffen digitale Erlebnisse.</h1>
 	</div>
 	<div class="footer nc-box">
-        <!-- @todo Activate, when there are enough projects -->
+		<!-- @todo Activate, when there are enough projects -->
 		<!-- <div class="featured-project">
 			<ProjectCard
 				heading={projects[0].heading}
@@ -47,8 +47,8 @@
 	</div>
 </div>
 
-<style lang="postcss">
-    @custom-media --md-n-above (width >= 768px);
+<style>
+    @custom-media --sm-n-above (width >= 480px);
 
 	.container {
 		inline-size: 100%;
@@ -75,8 +75,12 @@
 	}
 
 	.-big {
-		--button-height-base: 4rem;
-		inline-size: 100%;
-		font-size: var(--font-size-large);
+        inline-size: 100%;
+
+		@media (--sm-n-above) {
+			--button-height-base: 4rem;
+
+			font-size: var(--font-size-large);
+		}
 	}
 </style>

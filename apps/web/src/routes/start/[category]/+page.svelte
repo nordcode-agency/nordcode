@@ -51,7 +51,7 @@
 	</section>
 </div>
 
-<style lang="postcss">
+<style>
 	h1 {
 		view-transition-name: title;
 		font-size: var(--font-size-display);

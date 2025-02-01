@@ -8,7 +8,7 @@
 
 <canvas class="webgl" use:init></canvas>
 
-<style lang="postcss">
+<style>
 	.webgl {
         grid-area: 1 / 1;
 		z-index: -1;
@@ -18,8 +18,9 @@
 		display: block;
 		inline-size: 60%;
 		block-size: calc(100% - 5px);
+        max-block-size: 100svh;
 		outline: none;
 		background-color: var(--surface-color-default);
-		filter: blur(3px);
+		filter: blur(2px);
 	}
 </style>

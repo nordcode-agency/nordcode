@@ -30,11 +30,10 @@
 	</a>
 </div>
 
-<style lang="postcss">
+<style>
 	.container {
 		container-type: inline-size;
 		inline-size: 100%;
-		block-size: 100%;
 	}
 	.card {
 		--card-padding-inline: 0px;

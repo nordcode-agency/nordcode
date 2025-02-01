@@ -228,7 +228,7 @@ export function main() {
     window.addEventListener('resize', () => {
         // Update sizes
         sizes.width = window.innerWidth;
-        sizes.height = window.innerHeight - 5;
+        sizes.height = window.screen.availHeight - 5;
 
         // Update camera
         camera.aspect = sizes.width / sizes.height;
@@ -243,7 +243,7 @@ export function main() {
      * Camera
      */
     // Base camera
-    const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+    const camera = new THREE.PerspectiveCamera(65, sizes.width / sizes.height, 0.1, 100);
     camera.position.set(0.6924198050961325, 0.717913837087474, 1.1226317501039604);
     camera.rotation.set(-1.0066190542664037, 0.6757842914804814, 0.7796168753682582);
     scene.add(camera);

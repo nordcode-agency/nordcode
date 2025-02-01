@@ -13,7 +13,7 @@
 	</p>
 </section>
 
-<style lang="postcss">
+<style>
     @custom-media --sm-n-above (width >= 480px);
     @custom-media --md-n-above (width >= 768px);
     @custom-media --lg-n-above (width >= 1024px);
@@ -51,7 +51,7 @@
 	}
 
 	.intro {
-		min-block-size: 50dvh;
+		min-block-size: 50vh;
 		display: flex;
 		align-items: center;
 

@@ -10,7 +10,7 @@
 	</ul>
 </nav>
 
-<style lang="postcss">
+<style>
     @custom-media --md-n-above (width >= 768px);
 
 	nav {

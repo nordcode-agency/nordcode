@@ -22,13 +22,15 @@
 	description="Du bist auf der Suche nach einer kleinen, lokalen Agentur, die dir hilft, deine Onlinepräsenz zu verbessern? Dann bist du bei uns genau richtig."
 ></Meta>
 
-<div class="wrapper hero-wrapper">
-	<div class="section nc-stack fullscreen">
-		<Header />
-		<Hero projects={data.projects} />
-	</div>
-	<ThreeScene />
-</div>
+
+    <div class="wrapper hero-wrapper">
+        <div class="section nc-stack fullscreen">
+            <Header />
+            <Hero projects={data.projects} />
+        </div>
+        <ThreeScene />
+    </div>
+
 <ServicesSection />
 <IntroSection />
 <WorkSection projects={data.projects} />
@@ -39,13 +41,13 @@
 	</div>
 </section>
 
-<style lang="postcss">
+<style>
 	.hero-wrapper {
 		display: grid;
 		position: relative;
 		overflow-x: clip;
 		inline-size: 100%;
-		min-block-size: 100vh;
+		block-size: 100svh;
 		background: linear-gradient(transparent 60%, var(--color-surface-muted));
 	}
 

@@ -29,7 +29,7 @@
 	</svg>
 </a>
 
-<style lang="postcss">
+<style>
 	a {
 		padding-inline-start: 0;
 

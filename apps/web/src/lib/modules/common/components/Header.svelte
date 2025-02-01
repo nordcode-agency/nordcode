@@ -70,7 +70,7 @@
 		color: var(--color-brand-primary-base);
 		padding-inline: var(--spacing-base);
 		/* padding-block: var(--spacing-nearest); */
-		text-align: center;
+		text-align: end;
 
 		@media (--md-n-above) {
 			padding-block: var(--spacing-base);
