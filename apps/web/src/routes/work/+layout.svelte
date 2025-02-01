@@ -29,10 +29,7 @@
 		<div class="nc-box nc-stack -inherit hero">
 			<Breadcrumbs items={breadcrumbItems} />
 			<header class="header">
-				<figure
-					class="thumbnail"
-					style={`view-transition-name: ${$page.data.name}`}
-				>
+				<figure class="thumbnail" style={`view-transition-name: ${$page.data.name}`}>
 					<enhanced:img
 						class="img"
 						src={$page.data.cover?.src}
@@ -80,22 +77,22 @@
 </article>
 
 <style>
-    @custom-media --md-n-above (width >= 768px);
-    @custom-media --xl-n-above (width >= 1440px);
+	@custom-media --md-n-above (width >= 768px);
+	@custom-media --xl-n-above (width >= 1440px);
 
-    .work-page {
-        --center-measure: 120ch;
-    }
+	.work-page {
+		--center-measure: 120ch;
+	}
 
-    .header {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-far);
+	.header {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-far);
 
-        @media (width >= 768px) {
-            flex-direction: row;
-        }
-    }
+		@media (width >= 768px) {
+			flex-direction: row;
+		}
+	}
 
 	.thumbnail {
 		view-transition-name: work-figure;
@@ -104,9 +101,9 @@
 		margin: 0;
 
 		& * {
-		inline-size: 100%;
-		block-size: 100%;
-		border-radius: inherit;
+			inline-size: 100%;
+			block-size: 100%;
+			border-radius: inherit;
 		}
 	}
 
@@ -155,14 +152,14 @@
 		--with-sidebar-target-width: 32ch;
 		--with-sidebar-min-size: 60%;
 
-        padding-inline: 0;
-        margin-inline-start: 0;
+		padding-inline: 0;
+		margin-inline-start: 0;
 		animation: var(--animation-slide-up) 0.4s;
-        gap: var(--spacing-farthest);
+		gap: var(--spacing-farthest);
 
-        @media (--xl-n-above) {
-            margin-inline-start: auto;
-        }
+		@media (--xl-n-above) {
+			margin-inline-start: auto;
+		}
 	}
 
 	article {
@@ -173,13 +170,24 @@
 	.overview {
 		position: sticky;
 		top: calc(var(--spacing-adaptive) / 2);
+		flex-wrap: wrap;
+		flex-direction: row;
+
+		@media (--md-n-above) {
+			gap: var(--spacing-far);
+		}
+
+		& > * {
+			flex-basis: 32ch;
+		}
 	}
 
 	.actions {
 		padding-block: var(--spacing-base);
+		@media (--md-n-above) {
+			font-size: var(--font-size-large);
+		}
 	}
-
-
 
 	.img {
 		inline-size: 100%;
@@ -195,6 +203,7 @@
 		padding-inline-start: 0;
 		display: flex;
 		line-height: var(--line-height-small);
+		font-size: var(--font-size-base);
 
 		&::before {
 			content: '—';
