@@ -21,6 +21,14 @@
 			slug={projects[1].slug}
 			name={projects[1].name}
 		/>
+		<ProjectCard
+			heading={projects[2].heading}
+			subheading={projects[2].subheading}
+			cover={projects[2].cover}
+			slug={projects[2].slug}
+			name={projects[2].name}
+		/>
+
 	</div>
 </section>
 

@@ -21,16 +21,10 @@
 				<div class="nc-flow">
 					<h2 class="section-title heading-bg">Wer ist nordcode?</h2>
 					<p>
-						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-						eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-						voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-						clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-						amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-						nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-						diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-						clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-						amet.
+					   Hi, wir sind <strong>Lukas</strong> und <strong>Joshua</strong>, zwei Frontend-Entwickler mit zusammen <strong>über 15 Jahren Erfahrung</strong>.
 					</p>
+					<p>Wir leben irgendwo im Norden von Deutschland und sind leidenschaftliche Webentwickler, mit verschiedenen Stärken und Schwächen und großer Lust, coole Projekte zu bauen.</p>
+					<p>Unser Fokus liegt auf <strong>Web, das funktioniert</strong>. Barrierefrei, schnell und sicher muss es immer sein. Alles andere entscheidet das Projekt.</p>
 				</div>
 			</div>
 		</div>

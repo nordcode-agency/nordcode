@@ -14,7 +14,7 @@
 		{
 			title: 'Websites',
 			description:
-				'Wir entwickeln Webseiten und Webanwendungen, die auf modernen Technologien basieren und auf allen Geräten gut aussehen.',
+				'Wir bauen Dir moderne Webseiten und Webanwendungen, die SEO-optimiert und barrierefrei sind und natürlich auf allen Geräten gut aussehen.',
 			cta: {
 				href: '/start/website',
 				label: 'Website erstellen'
@@ -23,16 +23,16 @@
 		{
 			title: 'E-Commerce',
 			description:
-				'Wir erstellen Online-Shops, die einfach zu bedienen sind und die Kunden begeistern.',
+				'Wir erstellen Online-Shops, die Kunden lieben. Leicht zu bedienen, sicher und schnell, damit Dein Projekt ein Erfolg wird.',
 			cta: {
 				href: '/start/shop',
 				label: 'Shop eröffnen'
 			}
 		},
 		{
-			title: 'Apps',
+			title: 'Web-Apps & Software',
 			description:
-				'Wir optimieren Webseiten für Suchmaschinen, damit sie besser gefunden werden und mehr Besucher anziehen. Oder Design Systeme.',
+				'Du hast größere Pläne? Super! Wir beraten oder entwickeln Deine individuelle Softwarelösung mit modernen Frameworks, wie Svelte oder React.',
 			cta: {
 				href: '/start/app',
 				label: 'App erstellen'
@@ -41,7 +41,7 @@
 		{
 			title: 'Individuell',
 			description:
-				'Wir erstellen Inhalte, die Ihre Zielgruppe ansprechen und überzeugen, sei es Text, Bild oder Video.',
+				'Du hast ein ganz besonderes Projekt im Kopf und möchtest unsere Hilfe? Wir stehen dir gerne mit Rat & Tat zur Seite!',
 			cta: {
 				href: '/start/custom',
 				label: 'Anfragen'
