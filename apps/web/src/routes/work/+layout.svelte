@@ -99,8 +99,8 @@
 
 	.thumbnail {
 		view-transition-name: work-figure;
-        flex-basis: min(28ch, 40vw);
-        aspect-ratio: 5/4;
+		flex-basis: min(48ch, 40vw, 100%);
+		aspect-ratio: 3/2;
 		margin: 0;
 
 		& * {
@@ -123,7 +123,7 @@
 
 		& h1 {
 			animation: var(--animation-slide-up) 0.2s;
-			font-size: calc(var(--font-size-display) * 0.8);
+			font-size: calc(var(--font-size-display) * 0.6);
 			text-wrap: pretty;
 			max-inline-size: min(100%, 24ch);
 			hyphens: auto;
