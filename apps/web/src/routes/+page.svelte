@@ -45,7 +45,7 @@
 	.hero-wrapper {
 		display: grid;
 		position: relative;
-		overflow-x: clip;
+		overflow: clip;
 		inline-size: 100%;
 		block-size: 100svh;
 		background: linear-gradient(transparent 60%, var(--color-surface-muted));

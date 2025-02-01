@@ -222,13 +222,13 @@ export function main() {
     const sizes = {
         width: window.innerWidth,
         // safe height to prevent overflow
-        height: window.innerHeight - 5
+        height: window.screen.availHeight
     };
 
     window.addEventListener('resize', () => {
         // Update sizes
         sizes.width = window.innerWidth;
-        sizes.height = window.screen.availHeight - 5;
+        sizes.height = window.screen.availHeight;
 
         // Update camera
         camera.aspect = sizes.width / sizes.height;

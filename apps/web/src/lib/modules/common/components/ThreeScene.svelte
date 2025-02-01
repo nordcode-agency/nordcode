@@ -17,7 +17,6 @@
 		right: 0;
 		display: block;
 		inline-size: 60%;
-		block-size: calc(100% - 5px);
         max-block-size: 100svh;
 		outline: none;
 		background-color: var(--surface-color-default);

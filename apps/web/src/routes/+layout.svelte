@@ -39,7 +39,7 @@
 <style>
 	main {
 		/* padding-block-start: 90px; equals <Navigation> block-size */
-		/* min-block-size: 100vh; */
+		min-block-size: 100vh;
 		block-size: 100%;
 		position: relative;
 		overflow: visible;
