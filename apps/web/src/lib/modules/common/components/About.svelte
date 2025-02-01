@@ -7,7 +7,7 @@
 	<div id="about" class="container nc-box nc-stack">
 		<div
 			class="nc-ram-grid"
-			style="--nc-ram-grid-gap: var(--spacing-adaptive); --nc-ram-grid-min-width: 32ch;"
+			style="--nc-ram-grid-gap: var(--spacing-adaptive); --nc-ram-grid-min-width: 44ch;"
 		>
 			<div class="images">
 				<figure>
@@ -21,10 +21,18 @@
 				<div class="nc-flow">
 					<h2 class="section-title heading-bg">Wer ist nordcode?</h2>
 					<p>
-					   Hi, wir sind <strong>Lukas</strong> und <strong>Joshua</strong>, zwei Frontend-Entwickler mit zusammen <strong>über 15 Jahren Erfahrung</strong>.
+						Hi, wir sind <strong>Lukas</strong> und <strong>Joshua</strong>, zwei
+						Frontend-Entwickler mit zusammen <strong>über 15 Jahren Erfahrung</strong>.
 					</p>
-					<p>Wir leben irgendwo im Norden von Deutschland und sind leidenschaftliche Webentwickler, mit verschiedenen Stärken und Schwächen und großer Lust, coole Projekte zu bauen.</p>
-					<p>Unser Fokus liegt auf <strong>Web, das funktioniert</strong>. Barrierefrei, schnell und sicher muss es immer sein. Alles andere entscheidet das Projekt.</p>
+					<p>
+						Wir leben irgendwo im Norden von Deutschland und sind leidenschaftliche
+						Webentwickler, mit verschiedenen Stärken und Schwächen und großer Lust,
+						coole Projekte zu bauen.
+					</p>
+					<p>
+						Unser Fokus liegt auf <strong>Web, das funktioniert</strong>. Barrierefrei,
+						schnell und sicher muss es immer sein. Alles andere entscheidet das Projekt.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -32,14 +40,15 @@
 </section>
 
 <style lang="postcss">
-    @custom-media --md-n-above (width >= 768px);
-    @custom-media --lg-n-above (width >= 1024px);
+	@custom-media --md-n-above (width >= 768px);
+	@custom-media --lg-n-above (width >= 1024px);
 
 	.container {
 		inline-size: 100%;
 		min-block-size: 100dvh;
 		display: grid;
 		place-items: center;
+		align-items: center;
 	}
 
 	.nc-flow,
@@ -56,25 +65,29 @@
 	}
 
 	figure {
+        --img-offset: var(--spacing-farthest);
+
 		flex-basis: 32ch;
 		display: grid;
 		place-items: center;
-		aspect-ratio: 4/5;
 		inline-size: min(calc(var(--spacing-farthest) * 4), 100%);
-		border-radius: calc(var(--border-radius-large) * 1);
 		overflow: hidden;
 
-		@media (--md-n-above) {
+		& img {
+			aspect-ratio: 4/6;
 			border-radius: calc(var(--border-radius-large) * 2);
-		}
+			object-fit: cover;
 
-		@media (--lg-n-above) {
-			margin-block-end: var(--spacing-farthest);
-
-			&:last-of-type {
-				transform: translateY(var(--spacing-farthest));
+			@media (--md-n-above) {
+				border-radius: calc(var(--border-radius-large) * 2);
 			}
 		}
+
+		&:last-of-type {
+			transform: translateY(var(--img-offset));
+		}
+
+        margin-block-end: var(--spacing-farthest);
 	}
 
 	.content {

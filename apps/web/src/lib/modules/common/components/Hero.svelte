@@ -1,15 +1,15 @@
 <script lang="ts">
-	// import type { TProjects } from '$lib/content';
+	import type { TProjects } from '$lib/content';
 	import { Navigation } from '$lib/content/navigation';
 	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 	import ActionCard from './ActionCard.svelte';
 	// import ProjectCard from './ProjectCard.svelte';
 
-	// interface Props {
-	// 	projects: TProjects;
-	// }
+	interface Props {
+		projects?: TProjects;
+	}
 
-	// let { projects }: Props = $props();
+	let { projects }: Props = $props();
 </script>
 
 <div class="nc-stack container">

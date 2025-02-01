@@ -89,12 +89,12 @@
 	}
 
 	form {
-		flex: 0 1 40ch;
+        inline-size: 100%;
 
 		& :is(input, textarea) {
 			--input-padding-block: 1lh;
 
-			min-inline-size: 32ch;
+			min-inline-size: min(32ch, 100%);
 			font-size: var(--font-size-largest);
 		}
 	}
