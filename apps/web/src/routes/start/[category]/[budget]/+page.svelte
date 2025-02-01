@@ -83,13 +83,19 @@
 </div>
 
 <style>
+	@custom-media --md-n-above (width >= 768px);
+
 	h1 {
-		view-transition-name: title;
-		font-size: var(--font-size-display);
+		font-size: calc(var(--font-size-display) * 0.6);
+
+		@media (--md-n-above) {
+            view-transition-name: title;
+			font-size: var(--font-size-display);
+		}
 	}
 
 	form {
-        inline-size: 100%;
+		inline-size: 100%;
 
 		& :is(input, textarea) {
 			--input-padding-block: 1lh;

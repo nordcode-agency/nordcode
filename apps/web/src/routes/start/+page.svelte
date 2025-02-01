@@ -31,17 +31,23 @@
 				</a>
 			{/each}
 		</div>
-        <details>
-            <summary>Weitere Informationen</summary>
-            <p>{desc}</p>
-        </details>
+		<details>
+			<summary>Weitere Informationen</summary>
+			<p>{desc}</p>
+		</details>
 	</section>
 </div>
 
 <style>
+	@custom-media --md-n-above (width >= 768px);
+
 	h1 {
-		view-transition-name: title;
-		font-size: var(--font-size-display);
+		font-size: calc(var(--font-size-display) * 0.6);
+
+		@media (--md-n-above) {
+			view-transition-name: title;
+			font-size: var(--font-size-display);
+		}
 	}
 
 	.grid {
