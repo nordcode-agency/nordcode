@@ -18,20 +18,13 @@
 			url: $page.data?.url?.toString() ?? ''
 		}
 	];
-
-	$effect(() => {
-		return () => {
-			document.documentElement.style.removeProperty('--h-brand-primary');
-			document.documentElement.style.removeProperty('--h-brand-secondary');
-		};
-	});
 </script>
 
 <Meta title={`${$page.data.heading} | nordcode`} description={$page.data.goal}></Meta>
 
 <Header />
 
-<article class="section nc-box" style="--h-brand-primary: {$page.data.hue.light}">
+<article class="section nc-center work-page">
 	<div class="nc-stack">
 		<div class="nc-box nc-stack -inherit hero">
 			<Breadcrumbs items={breadcrumbItems} />
@@ -54,8 +47,8 @@
 				</div>
 			</header>
 		</div>
-		<div class="nc-center main slide-up-from">
-			<aside class="side">
+		<div class="main slide-up-from nc-with-sidebar">
+			<aside data-aside>
 				<div class="nc-stack overview">
 					<p class="font-size-large">
 						<strong>
@@ -76,7 +69,7 @@
 					{/if}
 				</div>
 			</aside>
-			<div class="body nc-flow styled-base-text">
+			<div class="body nc-flow styled-base-text" data-grow>
 				{@render children?.()}
 				<section class="nc-region">
 					<FinalCTA />
@@ -86,29 +79,35 @@
 	</div>
 </article>
 
-<style lang="postcss">
+<style>
     @custom-media --md-n-above (width >= 768px);
     @custom-media --xl-n-above (width >= 1440px);
+
+    .work-page {
+        --center-measure: 120ch;
+    }
 
     .header {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-far);
 
-        @media (--md-n-above) {
+        @media (width >= 768px) {
             flex-direction: row;
         }
     }
+
 	.thumbnail {
 		view-transition-name: work-figure;
         flex-basis: min(28ch, 40vw);
         aspect-ratio: 5/4;
 		margin: 0;
 
-        & > * {
-            inline-size: 100%;
-            block-size: 100%;
-        }
+		& * {
+		inline-size: 100%;
+		block-size: 100%;
+		border-radius: inherit;
+		}
 	}
 
 	@keyframes slide-up {
@@ -159,7 +158,6 @@
         padding-inline: 0;
         margin-inline-start: 0;
 		animation: var(--animation-slide-up) 0.4s;
-        display: flex;
         gap: var(--spacing-farthest);
 
         @media (--xl-n-above) {
@@ -172,14 +170,6 @@
 		color: var(--color-text-muted);
 	}
 
-	.body {
-		flex: 3;
-	}
-
-	.side {
-		flex: 1;
-	}
-
 	.overview {
 		position: sticky;
 		top: calc(var(--spacing-adaptive) / 2);
@@ -189,21 +179,12 @@
 		padding-block: var(--spacing-base);
 	}
 
-	figure {
-		--flow-gap: var(--spacing-far);
 
-		margin-block: var(--flow-gap);
-		min-block-size: 0;
-		overflow: hidden;
-	}
 
 	.img {
-		/* aspect-ratio: 16/9; */
 		inline-size: 100%;
 		block-size: 100%;
 		object-fit: cover;
-		border-radius: var(--border-radius-large);
-		overflow: hidden;
 	}
 
 	.tags {

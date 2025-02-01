@@ -3,6 +3,7 @@
 	import start from '$lib/assets/projects/wildtierrettung/start.jpg?enhanced';
 	import verteiler from '$lib/assets/projects/wildtierrettung/verteiler.jpg?enhanced';
 	import ColorPalette from '$lib/modules/common/components/ColorPalette.svelte';
+	import BlogImagePreview from '$lib/modules/common/components/BlogImagePreview.svelte';
 </script>
 
 <h2>Was war das Ziel?</h2>
@@ -54,12 +55,9 @@
 	>.
 </p>
 
-<figure class="case-img-container card-bg">
-    <enhanced:img class="case-img" src={header} />
-	<figcaption>
+<BlogImagePreview image={header}>
 		Klare Strukturen, einfache Navigation ein CTA, um direkt zur Anmeldung zu kommen.
-	</figcaption>
-</figure>
+</BlogImagePreview>
 
 <p>
 	Auch auf dem Handy ist die Webseite <strong>sehr einfach zu bedienen</strong>.
@@ -98,14 +96,10 @@
 	}}
 ></ColorPalette>
 
-<figure class="case-img-container card-bg">
-    <enhanced:img class="case-img" src={verteiler} />
-	<figcaption class="column-2">
+<BlogImagePreview image={verteiler}>
 		Durch die Farben haben wir die Bereiche getrennt. Auf den Detailseiten findet man sie direkt
 		wieder und weiß, dass man richtig ist.
-	</figcaption>
-</figure>
-
+</BlogImagePreview>
 <p>
 	Die Farben siedeln sich in den naturnahen Wald- und Wiesenfarben an, die auch im Logo zu finden
 	sind. Das ist freundlich und einladend und passt zum Thema.
@@ -155,14 +149,11 @@
 	verbundenen Keywords hat sie die Webseite strukturiert und betextet, damit mit sowohl
 	Besucher:innen als auch Suchmaschinen zufrieden sind.
 </p>
-<figure class="case-img-container card-bg">
-    <enhanced:img class="case-img" src={start} />
-	<figcaption class="column-2">
+<BlogImagePreview image={start}>
 		Schon der Start erklärt das Problem und wie der Verein es löst. Zudem bieten wir einen
 		direkten Link für Landwirt:innen an, damit sie schnell handeln können, wenn sie wissen,
 		warum sie gekommen sind.
-	</figcaption>
-</figure>
+</BlogImagePreview>
 
 <p>
 	Der Stil reflektiert die freundliche Nahbarkeit des Vereins und ist leicht zu lesen:

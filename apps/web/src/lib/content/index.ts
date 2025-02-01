@@ -1,5 +1,6 @@
 import WildtierrettungCover from '$lib/assets/projects/wildtierrettung/cover.webp?enhanced';
 import ReadiiCover from '$lib/assets/projects/readii/cover.png?enhanced';
+import StahlmannCover from '$lib/assets/projects/stahlmann/stahlmann-cover.jpeg?enhanced';
 import type { WorkProject } from '$lib/types';
 
 export const projects = [
@@ -34,6 +35,20 @@ export const projects = [
 		goal: 'Ein einfacher RSS-Reader, der die Möglichkeiten von lokalen KI-Modellen (Gemini Nano) nutzt um Artikel zusammenzufassen.',
 		tags: ['Design', 'Entwicklung', 'KI'],
         hue: [83, 83]
+	},
+	{
+		heading: 'Fitnessprogramm mit vielen Videos',
+		subheading: 'Stahlmann',
+		cover: {
+			src: StahlmannCover,
+			alt: 'Fitnessprogramme von Linda Dahlmann'
+		},
+		slug: '/work/stahlmann',
+		name: 'stahlmann',
+		url: 'https://www.stahlmannlinda.com/',
+		goal: 'Eine Fitnessprogramm-Webseite, mit Fokus auf Videos und intuitiver Bedienung',
+		tags: ['Design', 'Entwicklung', 'Beratung', 'CMS'],
+        hue: [25, 25]
 	},
 ] as const satisfies readonly WorkProject[];
 
