@@ -1,6 +1,7 @@
 import WildtierrettungCover from '$lib/assets/projects/wildtierrettung/cover.webp?enhanced';
 import ReadiiCover from '$lib/assets/projects/readii/cover.png?enhanced';
 import StahlmannCover from '$lib/assets/projects/stahlmann/stahlmann-cover.jpeg?enhanced';
+import VeganHamburgCover from '$lib/assets/projects/vegan-hamburg/vegan-hamburg-titlecard.webp?enhanced';
 import type { WorkProject } from '$lib/types';
 
 export const projects = [
@@ -50,6 +51,20 @@ export const projects = [
 		tags: ['Design', 'Entwicklung', 'Beratung', 'CMS'],
         hue: [25, 25]
 	},
+	{
+    	heading: 'Verzeichniswebseite für veganes Essen in Hamburg',
+    	subheading: 'Vegan Hamburg',
+    	cover: {
+    		src: VeganHamburgCover,
+    		alt: 'Logo und Titel von Vegan Hamburg'
+    	},
+    	slug: '/work/vegan-hamburg',
+    	name: 'vegan-hamburg',
+    	url: 'https://vegan-hamburg.com',
+    	goal: 'Eine SEO- und Performance-optimierte Webseite mit allen veganen Orten in Hamburg',
+    	tags: ['Design', 'Entwicklung', 'Performance'],
+        hue: [25, 25]
+	}
 ] as const satisfies readonly WorkProject[];
 
 export type TProjects = typeof projects;
