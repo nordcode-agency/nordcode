@@ -47,6 +47,7 @@ html {
     font-weight: 700;
     font-size: 3rem;
     line-height: var(--line-height-small);
+    max-inline-size: 12ch;
 
     @media (--sm-n-above) {
         font-size: 5rem;

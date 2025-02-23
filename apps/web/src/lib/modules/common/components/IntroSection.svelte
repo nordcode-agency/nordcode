@@ -3,7 +3,7 @@
 </script>
 
 <section class="section nc-box intro">
-	<p class="heading-bg">
+	<p class="heading-bg prose">
 		Wir haben eine Leidenschaft für <span class="gradient-text">schönes Design</span> und eine
 		<span class="gradient-text">tolle User Experience</span>. Diese Leidenschaft nutzen wir, um
 		ein Erlebnis für deine Nutzer zu schaffen, dass funktioniert.

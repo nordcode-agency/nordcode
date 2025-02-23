@@ -5,7 +5,7 @@
 </script>
 
 <div class="container nc-center nc-card | finalCTA">
-	<div class="nc-stack -far">
+	<div class="nc-stack -far prose">
 		<h2 class="font-size-display">Bereit für dein Projekt?</h2>
 		<p>
 			Wir würden gerne mehr über dein Vorhaben erfahren. Egal ob mit einer konkreten Idee,

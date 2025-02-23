@@ -14,7 +14,11 @@
 
 <div class="nc-stack container">
 	<div class="headings">
-		<h1 class="text section-title">Wir erschaffen digitale Erlebnisse.</h1>
+		<h1 class="section-title nc-stack -near">
+		<span class="maintitle">Webseiten, die begeistern</span>
+		<span class="subtitle"> — <strong>
+		Deine</strong> Webagentur für gute digitale Projekte</span>
+		</h1>
 	</div>
 	<div class="footer nc-box">
 		<!-- @todo Activate, when there are enough projects -->
@@ -35,7 +39,7 @@
 			/>
 		</div> -->
 		<div style="inline-size: min(240px, 100%)">
-			<ActionCard heading="Lass uns schauen, wie wir dich unterstützen können">
+			<ActionCard heading="Lass uns schauen, wie wir dir helfen können">
 				{#snippet action()}
 					<a
 						href={ensureTrailingSlash(Navigation.start.url)}
@@ -50,6 +54,12 @@
 <style>
     @custom-media --sm-n-above (width >= 480px);
 
+    .subtitle {
+        font-weight: var(--font-weight-default);
+        font-size: 1.125rem;
+        background-filter: blur(2px);
+    }
+
 	.container {
 		inline-size: 100%;
 		flex-grow: 1;
@@ -60,7 +70,6 @@
 		padding-inline: var(--spacing-adaptive);
 		flex-grow: 1;
 		display: flex;
-		gap: var(--spacing-far);
 		align-items: center;
 	}
 

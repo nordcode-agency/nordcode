@@ -66,7 +66,7 @@
 					{/if}
 				</div>
 			</aside>
-			<div class="body nc-flow styled-base-text" data-grow>
+			<div class="body nc-flow styled-base-text prose" data-grow>
 				{@render children?.()}
 				<section class="nc-region">
 					<FinalCTA />

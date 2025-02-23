@@ -89,10 +89,6 @@
 		inline-size: 100%;
 	}
 
-	h2 {
-		max-inline-size: 9ch;
-	}
-
 	.container {
 		flex: 1 1 calc(42ch * 2 + var(--spacing-far));
 		max-inline-size: calc(52ch * 2 + var(--spacing-far));

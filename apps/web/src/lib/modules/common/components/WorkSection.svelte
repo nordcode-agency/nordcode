@@ -6,6 +6,7 @@
 </script>
 
 <section id="work" class="section nc-box nc-stack -stretched work">
+    <h2 class="section-title heading-bg">Das haben wir gemacht</h2>
 	<div class="more-work nc-ram-grid -inherit">
 		<ProjectCard
 			heading={projects[0].heading}
@@ -28,13 +29,20 @@
 			slug={projects[2].slug}
 			name={projects[2].name}
 		/>
+		<ProjectCard
+			heading={projects[3].heading}
+			subheading={projects[3].subheading}
+			cover={projects[3].cover}
+			slug={projects[3].slug}
+			name={projects[3].name}
+		/>
 
 	</div>
 </section>
 
 <style>
 	.more-work {
-		--nc-ram-grid-min-width: calc(25 * var(--spacing-base));
+		--nc-ram-grid-min-width: calc(30 * var(--spacing-base));
 
 		inline-size: 100%;
 	}

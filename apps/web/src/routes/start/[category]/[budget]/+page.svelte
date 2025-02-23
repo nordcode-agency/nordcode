@@ -16,7 +16,7 @@
 <div class="nc-stack">
 	<Header />
 	<section class="nc-stack -farthest nc-center">
-		<div class="nc-stack">
+		<div class="nc-stack prose">
 			<h1>Wir melden uns bei dir.</h1>
 			<p>
 				Mit der Angabe deiner E-Mail bekommen wir einen guten ersten Einblick, was dir
@@ -74,8 +74,13 @@
 				<button
 					type="button"
 					class="nc-button -outline"
-					onclick={() => (showMessage = !showMessage)}>Nachricht hinzufügen</button
-				>
+					onclick={() => (showMessage = !showMessage)}>
+					{#if showMessage}
+						Nachricht entfernen
+					{:else}
+						Nachricht hinzufügen
+					{/if}
+				</button>
 				<button type="submit" class="nc-button">Abschicken</button>
 			</div>
 		</form>

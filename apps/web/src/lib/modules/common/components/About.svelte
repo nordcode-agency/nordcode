@@ -18,8 +18,8 @@
 				</figure>
 			</div>
 			<div class="content">
-				<div class="nc-flow">
-					<h2 class="section-title heading-bg">Wer ist nordcode?</h2>
+				<div class="nc-flow prose">
+					<h2 class="section-title heading-bg">Das sind wir</h2>
 					<p>
 						Hi, wir sind <strong>Lukas</strong> und <strong>Joshua</strong>, zwei
 						Frontend-Entwickler mit zusammen <strong>über 15 Jahren Erfahrung</strong>.

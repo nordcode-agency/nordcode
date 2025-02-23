@@ -31,9 +31,9 @@
 				</a>
 			{/each}
 		</div>
-		<details>
+		<details class="prose">
 			<summary>Weitere Informationen</summary>
-			<p>{desc}</p>
+			<p>{@html desc}</p>
 		</details>
 	</section>
 </div>

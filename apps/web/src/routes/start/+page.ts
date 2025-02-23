@@ -3,7 +3,7 @@ import type { PageLoad } from './$types';
 export const load = (async () => {
 	return {
 		title: 'nordcode – Lass uns starten.',
-        desc: 'Bei der Umsetzung von Projekten legen wir besonderen Wert auf die Entwicklung maßgeschneiderter Lösungen, die exakt Ihren Anforderungen und Wünschen entsprechen.Ein weiterer Schwerpunkt liegt auf einer umfassenden Suchmaschinenoptimierung (SEO) sowie der Optimierung für verschiedene Endgeräte wie Smartphones, Tablets und Desktops.Ein attraktives Design (UI) und eine hohe Benutzerfreundlichkeit (UX) sind für uns ebenso selbstverständlich wie die Fokussierung auf Performance und Sicherheit. Zu diesem Zweck setzen wir moderne Technologien ein, wie React, Vue, Svelte, Typescript, PHP, Laravel, React Native für iOS und Android und Node.js / Deno.',
+        desc: 'Bei der Umsetzung von Projekten legen wir besonderen Wert auf die Entwicklung maßgeschneiderter Lösungen, die exakt Ihren Anforderungen und Wünschen entsprechen.<br>Ein weiterer Schwerpunkt liegt auf einer umfassenden Suchmaschinenoptimierung (<abbr class="smallcaps" title="Search Engine Optimization">SEO</abbr>) sowie der Optimierung für verschiedene Endgeräte wie Smartphones, Tablets und Desktops. Ein attraktives Design (<abbr title="User Interface">UI</abbr>) und eine hohe Benutzerfreundlichkeit (<abbr title="User Experience">UX</abbr>) sind für uns ebenso selbstverständlich wie die Fokussierung auf Performance und Sicherheit.<br>Zu diesem Zweck setzen wir moderne Technologien ein, wie React, Vue, Svelte, Typescript, PHP, Laravel, React Native für iOS und Android und Node.js / Deno.',
 		questions: [
 			{
 				heading: 'Website',
