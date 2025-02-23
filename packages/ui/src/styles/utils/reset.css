@@ -56,6 +56,10 @@
 
     :where(body) {
         min-block-size: 100vh;
+
+        text-decoration-skip-ink: auto;
+        font-optical-sizing: auto;
+        font-kerning: normal;
     }
 
     /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -70,7 +74,6 @@
 
     /* A elements that don't have a class get default styles */
     :where(a:not([class])) {
-        text-decoration-skip-ink: auto;
         color: currentColor;
     }
 
@@ -131,11 +134,6 @@
         font: inherit;
         color: inherit;
         letter-spacing: inherit;
-    }
-
-    :where(p) {
-        text-wrap: pretty;
-        max-inline-size: var(--measure-base);
     }
 
     :where(html):has(dialog:modal) {

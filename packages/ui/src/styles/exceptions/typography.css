@@ -16,6 +16,21 @@
     text-transform: capitalize;
 }
 
+.centered {
+    text-align: center;
+    text-wrap: balance;
+}
+
+.uppercase {
+    text-transform: uppercase;
+    --opentype-case: on;
+}
+
+.smallcaps {
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;
+}
+
 .strong {
     font-weight: var(--font-weight-strong);
 }

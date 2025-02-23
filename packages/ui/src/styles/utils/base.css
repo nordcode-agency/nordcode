@@ -92,16 +92,17 @@
         padding: var(--p-y-details) var(--p-x-details);
         inline-size: 100%;
 
-        &>summary {
+        & > summary {
             color: var(--color-text-base);
             background: var(--color-surface-subtle);
             font-weight: var(--font-weight-heading);
             border-radius: var(--b-r-details);
             padding: var(--p-y-details) var(--p-x-details);
-            margin: calc(-1 * var(--p-y-details)) calc(-1 * var(--p-x-details) + var(--border-width-thin));
+            margin: calc(-1 * var(--p-y-details))
+                calc(-1 * var(--p-x-details) + var(--border-width-thin));
         }
 
-        &[open]>summary {
+        &[open] > summary {
             border-end-start-radius: 0;
             border-end-end-radius: 0;
             margin-block-end: var(--p-y-details);
@@ -138,9 +139,11 @@
             margin-block-start: var(--spacing-near);
             font-size: var(--font-size-base);
             max-inline-size: max-content;
-            color: color-mix(in oklch,
-                    currentColor calc(var(--transparency-weaker) * 100%),
-                    transparent);
+            color: color-mix(
+                in oklch,
+                currentColor calc(var(--transparency-weaker) * 100%),
+                transparent
+            );
         }
 
         & cite:before {
@@ -238,6 +241,9 @@
 
     :where(abbr) {
         text-decoration-color: var(--color-brand-primary-base);
+        font-variant-caps: all-small-caps;
+        font-variant-numeric: oldstyle-nums;
+        font-size: 110%;
     }
 
     :where([aria-disabled="true"], .disabled, :disabled) {
@@ -380,6 +386,10 @@
         background-color: var(--color-surface-muted);
     }
 
+    :where(td, math, time[datetime*=":"]) {
+        font-variant-numeric: tabular-nums lining-nums slashed-zero;
+    }
+
     :target {
         scroll-margin-block-start: 2ex;
     }
@@ -411,5 +421,90 @@
 
     :where(li > :is(ul, ol)) {
         margin-block-start: 0.25lh;
+    }
+
+    @supports (font-variant-position: sub) {
+        :where(sub) {
+            vertical-align: baseline;
+            font-size: 100%;
+            line-height: inherit;
+            font-variant-position: sub;
+        }
+    }
+    @supports (font-variant-position: super) {
+        :where(sup) {
+            vertical-align: baseline;
+            font-size: 100%;
+            line-height: inherit;
+            font-variant-position: super;
+        }
+    }
+
+    /*
+    11. Quotes
+    */
+
+    :lang(en) > * {
+        quotes: "“" "”" "‘" "’";
+    }
+    :lang(de) > * {
+        quotes: "„" "“" "‚" "‘";
+    }
+
+    :where(q::before) {
+        content: open-quote;
+    }
+    :where(q::after) {
+        content: close-quote;
+    }
+
+    :where(.quoted p:first-of-type::before) {
+        content: "“";
+    }
+    :where(.quoted p:last-of-type::after) {
+        content: "”";
+    }
+
+    :where(.quoted p:first-of-type::before) {
+        margin-inline-start: -0.87ch;
+    }
+    :where(.quoted p) {
+        hanging-punctuation: first last;
+    }
+    @supports (hanging-punctuation: first last) {
+        :where(.quoted p:first-of-type::before) {
+            margin-inline-start: 0;
+        }
+    }
+
+    :where(.prose) {
+        hyphens: auto;
+        hyphenate-limit-chars: 7 4 3;
+        hyphenate-limit-lines: 2;
+        hyphenate-limit-zone: 8%;
+        hyphenate-limit-last: always;
+        text-wrap: pretty;
+    }
+
+    :where(.prose p) {
+        text-wrap: pretty;
+        font-variant-numeric: oldstyle-nums proportional-nums;
+        max-inline-size: var(--measure-base);
+    }
+
+    :where(
+            .prose pre,
+            .prose code,
+            .prose var,
+            .prose samp,
+            .prose kbd,
+            .prose h1,
+            .prose h2,
+            .prose h3,
+            .prose h4,
+            .prose h5,
+            .prose h6
+        ) {
+        hyphens: manual;
     }
 }
