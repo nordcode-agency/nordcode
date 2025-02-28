@@ -1,5 +1,5 @@
 <script lang="ts">
-	import imgPerson1 from '$lib/assets/person1.jpg?enhanced';
+	import imgLukas from '$lib/assets/lukas-nordcode.jpg?enhanced';
 	import imgPerson2 from '$lib/assets/person2.jpg?enhanced';
 </script>
 
@@ -11,10 +11,10 @@
 		>
 			<div class="images">
 				<figure>
-					<enhanced:img src={imgPerson1} alt="Joshua" sizes="min(32ch, 100vw)" />
+					<enhanced:img src={imgLukas} alt="Lukas von nordcode" sizes="min(32ch, 100vw)" />
 				</figure>
 				<figure>
-					<enhanced:img src={imgPerson2} alt="Lukas" sizes="min(32ch, 100vw)" />
+					<enhanced:img src={imgPerson2} alt="Joshua von nordcode" sizes="min(32ch, 100vw)" />
 				</figure>
 			</div>
 			<div class="content">
