@@ -14,7 +14,7 @@
 
 <div class="nc-stack container">
 	<div class="headings">
-		<h1 class="section-title nc-stack -near">
+		<h1 class="section-title nc-stack">
 		<span class="maintitle">Webseiten, die begeistern</span>
 		<span class="subtitle"> — <strong>
 		Deine</strong> Webagentur für gute digitale Projekte</span>
