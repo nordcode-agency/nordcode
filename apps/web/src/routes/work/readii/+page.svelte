@@ -34,13 +34,13 @@
 	Künstliche Intelligenz (KI) oder Artifical Intelligence (AI) bezieht sich auf die Fähigkeit von
 	Maschinen, menschenähnliche Intelligenz zu zeigen. Dies umfasst das Lernen aus Erfahrungen, das
 	Verstehen natürlicher Sprache, das Erkennen von Mustern und das Treffen von Entscheidungen. KI
-	wird in vielen Bereichen eingesetzt, von Sprachassistenten wie mir bis hin zu selbstfahrenden
+	wird in vielen Bereichen eingesetzt, von Sprachassistenten bis hin zu selbstfahrenden
 	Autos und medizinischen Diagnosen. Populär wurden Sprachmodelle vor allem durch das von OpenAI
 	entwickelte ChatGPT.
 </p>
 
 <figure class="case-img-container card-bg">
-    <enhanced:img class="case-img" src={preview} />
+    <enhanced:img class="case-img" src={preview} alt="readii mit light und dark theme" />
 	<figcaption>
 		Die Optimierung für Light Theme und Dark ermöglichst bessere Lesbarkeit, je nach Umgebung oder Nutzerpräferenzen
 	</figcaption>
@@ -92,7 +92,7 @@
 </p>
 
 <figure class="case-img-container card-bg">
-    <enhanced:img class="case-img" src={sampleArticles} />
+    <enhanced:img class="case-img" src={sampleArticles} alt="Die readii App liegt durch ausreichenden Farbkontrast und Textgröße den Fokus auf den Inhalt" />
 	<figcaption>
 		Ausreichend Kontrast zwischen Artikelüberschrift und ausreichender Textgröße legen den Fokus auf den Inhalt
 	</figcaption>
@@ -119,14 +119,14 @@
 </p>
 
 <figure class="case-img-container card-bg">
-    <enhanced:img class="case-img" src={typographyDM} />
+    <enhanced:img class="case-img" src={typographyDM} alt="Die readii App setzt auf eine separate Schriftart für Überschriften" />
 	<figcaption>
 		Durch die Wahl einer separaten Schriftart für Überschriften werden diese stilistisch hervorgehoben.
 	</figcaption>
 </figure>
 
 <figure class="case-img-container card-bg">
-    <enhanced:img class="case-img" src={typographyGeorgia} />
+    <enhanced:img class="case-img" src={typographyGeorgia} alt="Die readii App setzt für Fließtexte auf die Schriftart Georgia" />
 	<figcaption>
 		Fließtexte verwenden die Schriftart "Georgia".
 	</figcaption>
