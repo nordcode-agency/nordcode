@@ -1,6 +1,6 @@
 <script lang="ts">
 	import imgLukas from '$lib/assets/lukas-nordcode.jpg?enhanced';
-	import imgPerson2 from '$lib/assets/person2.jpg?enhanced';
+	import imgJoshua from '$lib/assets/joshua-nordcode.jpg?enhanced';
 </script>
 
 <section class="section">
@@ -14,7 +14,7 @@
 					<enhanced:img src={imgLukas} alt="Lukas von nordcode" sizes="min(32ch, 100vw)" />
 				</figure>
 				<figure>
-					<enhanced:img src={imgPerson2} alt="Joshua von nordcode" sizes="min(32ch, 100vw)" />
+					<enhanced:img src={imgJoshua} alt="Joshua von nordcode" sizes="min(32ch, 100vw)" />
 				</figure>
 			</div>
 			<div class="content">
@@ -31,7 +31,7 @@
 					</p>
 					<p>
 						Unser Fokus liegt auf <strong>Web, das funktioniert</strong>. Barrierefrei,
-						schnell und sicher muss es immer sein. Alles andere entscheidet das Projekt.
+						schnell und sicher muss es immer sein. Ein bisschen Freude soll es machen. Alles andere entscheidet das Projekt.
 					</p>
 				</div>
 			</div>
