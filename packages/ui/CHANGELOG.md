@@ -101,3 +101,9 @@ Lots of spring cleaning
 ### Improvements
 
 - Small changes to spacings.
+
+## 1.2.0 (2025-04-03)
+
+### Improvements
+
+- Add clickable card class
