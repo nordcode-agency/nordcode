@@ -52,4 +52,33 @@
             }
         }
     }
+
+    :where(.nc-clickable-card) {
+        cursor: pointer;
+        position: relative;
+
+        &:focus-within,
+        &:hover {
+            outline: var(--border-width-medium) solid var(--color-brand-primary-base);
+        }
+
+        & a[data-link="main"] {
+            text-decoration: none;
+
+            &:focus-within:focus-visible,
+            &:hover {
+                outline: none;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                inset: 0;
+            }
+        }
+
+        & a[data-link="extra"] {
+            position: relative;
+        }
+    }
 }

@@ -1,3 +1,5 @@
+import alertsAllBase from '../examples/alerts/alertsAllBase.html?raw';
+import alertsBase from '../examples/alerts/alertsBase.html?raw';
 import buttonAll from '../examples/button/buttonAll.html?raw';
 import buttonBase from '../examples/button/buttonBase.html?raw';
 import buttonIcon from '../examples/button/buttonIcon.html?raw';
@@ -33,10 +35,10 @@ import withSidebar from '../examples/layouts/withSidebar.html?raw';
 import descriptionList from '../examples/lists/descriptionlist.html?raw';
 import metaList from '../examples/lists/metalist.html?raw';
 import breadcrumbs from '../examples/navigation/breadcrumbs.html?raw';
+import clickableCard from '../examples/navigation/clickableCard.html?raw';
+import clickableCardWithReadMore from '../examples/navigation/clickableCardWithReadMore.html?raw';
 import tableHorizontal from '../examples/table/tableHorizontal.html?raw';
 import tableStandard from '../examples/table/tableStandard.html?raw';
-import alertsBase from '../examples/alerts/alertsBase.html?raw';
-import alertsAllBase from '../examples/alerts/alertsAllBase.html?raw';
 
 import { slugify } from '../../common/utils/slugify';
 import { buttonVariables } from '../cssVariables/buttonVariables';
@@ -51,6 +53,7 @@ import buttonPreview from '../cardPreviews/Button.svg?raw';
 import centerPreview from '../cardPreviews/Center.svg?raw';
 import checkboxPreview from '../cardPreviews/Checkbox.svg?raw';
 import checkboxGroupPreview from '../cardPreviews/CheckboxGroup.svg?raw';
+import clickableCardPreview from '../cardPreviews/ClickableCard.svg?raw';
 import clusterPreview from '../cardPreviews/Cluster.svg?raw';
 import dateInputPreview from '../cardPreviews/DateInput.svg?raw';
 import descriptionListPreview from '../cardPreviews/DescriptionList.svg?raw';
@@ -112,7 +115,11 @@ const sections: Array<Section> = [
                 preview: buttonPreview,
                 description:
                     'Primarily used for interface interactions. Has a lot of variations and semantic power.',
-                requirements: ["@nordcode/ui/colors", "@nordcode/ui/utils/theme", "@nordcode/ui/components/button"],
+                requirements: [
+                    '@nordcode/ui/colors',
+                    '@nordcode/ui/utils/theme',
+                    '@nordcode/ui/components/button',
+                ],
                 component: buttonBase,
                 modifiers: [...buttonModifiers, ...colorUtilModifiers],
                 cssVariables: [...buttonVariables],
@@ -140,7 +147,12 @@ const sections: Array<Section> = [
                 preview: iconButtonPreview,
                 description:
                     'Icon only button for minimalistic interfaces or when you have little room with lots of actions.',
-                requirements: ["@nordcode/ui/colors", "@nordcode/ui/utils/theme", "@nordcode/ui/components/button", "@nordcode/ui/components/icons"],
+                requirements: [
+                    '@nordcode/ui/colors',
+                    '@nordcode/ui/utils/theme',
+                    '@nordcode/ui/components/button',
+                    '@nordcode/ui/components/icons',
+                ],
                 component: buttonIcon,
                 modifiers: [...buttonModifiers, ...colorUtilModifiers],
                 cssVariables: [...buttonVariables],
@@ -342,29 +354,61 @@ const sections: Array<Section> = [
                     'Pay attention to detail here to get the styling just right and the list accessible.',
                 ],
             },
+            {
+                title: 'Clickable Card',
+                component: clickableCard,
+                preview: clickableCardPreview,
+                requirements: [
+                    '@nordcode/ui/colors',
+                    '@nordcode/ui/utils/theme',
+                    '@nordcode/ui/components/cards',
+                ],
+                description:
+                    'Clickable cards are a common way to display article links or products. They are oftentimes used wrongly, so this should guide you well.',
+                notes: [
+                    'By wrapping only the actual link text in an anchor tag, we ensure screen readers can easily announce the link.',
+                    'We also make sure, not to duplicate a link target, because that confuses screen reader users.',
+                ],
+                examples: [
+                    {
+                        title: 'With Read more and extra link',
+                        description:
+                            'Sometimes you want a "Read more" button and a link to an author',
+                        code: clickableCardWithReadMore,
+                        notes: [
+                            'The Read More button is not an actual button nor should it be. It should be hidden from screen readers.',
+                            'The extra link works by using position:relative, so it does not fire the link below.',
+                        ],
+                    },
+                ],
+            },
         ],
     },
     {
-        title: "Feedback",
+        title: 'Feedback',
         components: [
             {
-                title: "Alerts",
+                title: 'Alerts',
                 component: alertsBase,
                 preview: alertsPreview,
-                description: "Inform your users about changes, important updates or provide feedback to their recent actions. This stands out, so use it accordingly.",
+                description:
+                    'Inform your users about changes, important updates or provide feedback to their recent actions. This stands out, so use it accordingly.',
                 examples: [
                     {
-                        title: "All base alerts",
-                        description: "An overview over all alerts variants and their modifiers",
-                        code: alertsAllBase
-                    }
+                        title: 'All base alerts',
+                        description: 'An overview over all alerts variants and their modifiers',
+                        code: alertsAllBase,
+                    },
                 ],
-                modifiers: [...colorUtilModifiers, {
-                    name: "-filled",
-                    description: "A more prominent version of the alert"
-                }],
-            }
-        ]
+                modifiers: [
+                    ...colorUtilModifiers,
+                    {
+                        name: '-filled',
+                        description: 'A more prominent version of the alert',
+                    },
+                ],
+            },
+        ],
     },
     {
         title: 'Layouts',
