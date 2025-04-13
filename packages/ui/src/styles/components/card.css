@@ -64,6 +64,7 @@
 
         & a[data-link="main"] {
             text-decoration: none;
+            font: inherit;
 
             &:focus-within:focus-visible,
             &:hover {
