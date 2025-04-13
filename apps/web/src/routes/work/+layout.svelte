@@ -33,8 +33,9 @@
 					<enhanced:img
 						class="img"
 						src={$page.data.cover?.src}
-						alt={$page.data.cover?.alt}
+						alt={""}
 					/>
+					<figcaption class="sr-only">{$page.data.cover?.alt}</figcaption>
 				</figure>
 				<div class="nc-stack">
 					<div class="headings">

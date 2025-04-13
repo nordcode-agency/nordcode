@@ -54,9 +54,10 @@
 	<div id="services" class="nc-box inner-section">
 		<h2 class="section-title">Das können wir sehr gut</h2>
 		<div class="container">
-			{#each services as { title, description, cta }}
+			{#each services as { title, description, cta }, idx }
 				<div class="nc-stack item">
 					<div class="nc-stack">
+					    <span aria-hidden="true" role="presentation" class="item-counter">0{idx + 1}</span>
 						<h3>{title}</h3>
 						<p>{description}</p>
 					</div>
@@ -112,33 +113,33 @@
 		--size: 6rem;
 
 		position: relative;
-
 		justify-content: space-between;
-		counter-increment: steps;
+	}
 
-		&::before {
-			content: '0' counter(steps);
-			display: none;
-			position: absolute;
-			font-size: var(--size);
-			block-size: var(--size);
-			font-weight: bold;
-			color: var(--color-surface-subtle);
-			inset: 0;
-			z-index: -1;
-			line-height: 1;
-		}
+	.item-counter {
+    	display: none;
+    	position: absolute;
+    	font-size: var(--size);
+    	block-size: var(--size);
+    	font-weight: bold;
+    	color: var(--color-surface-subtle);
+    	inset: 0;
+    	z-index: -1;
+    	line-height: 1;
+	}
 
-		@media (--sm-n-above) {
-			--size: 10rem;
+	@media (--sm-n-above) {
+	.item {
+    	--size: 10rem;
 
-			padding-block-start: calc(var(--size) * 0.36);
-			padding-inline-start: calc(var(--size) * 0.42);
+    	padding-block-start: calc(var(--size) * 0.36);
+    	padding-inline-start: calc(var(--size) * 0.42);
 
-			&::before {
-				display: block;
-				transform: translateY(-10%);
-			}
+	}
+
+	.item-counter {
+			display: block;
+			transform: translateY(-10%);
 		}
 	}
 </style>

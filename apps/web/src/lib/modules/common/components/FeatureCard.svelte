@@ -15,19 +15,22 @@
 </script>
 
 <div class="container">
-	<a href={ensureTrailingSlash(slug)} class="nc-card card card-bg">
+	<article class="nc-card card card-bg nc-clickable-card">
 		<figure class="figure" style={`view-transition-name: ${id}`}>
-			<enhanced:img class="img" src={cover.src} alt={cover.alt} sizes="min(886px, 100vw)" />
+			<enhanced:img class="img" src={cover.src} alt="" sizes="min(886px, 100vw)" />
+			<figcaption class="sr-only">{cover.alt}</figcaption>
 		</figure>
 		<div class="header">
 			<div class="headings">
 				{#if subheading}
 					<span>{subheading}</span>
 				{/if}
-				<h2 class="font-size-base | heading">{heading}</h2>
+				<h2 class="font-size-base | heading">
+    				<a href={ensureTrailingSlash(slug)} data-link="main">{heading}</a>
+				</h2>
 			</div>
 		</div>
-	</a>
+	</article>
 </div>
 
 <style>
@@ -70,8 +73,7 @@
 				}
 
 				& .headings {
-					background: color-mix(in oklch, var(--color-surface-subtle), transparent 10%);
-					backdrop-filter: blur(var(--spacing-base));
+					background: color-mix(in oklch, var(--color-surface-subtle), transparent 3%);
 					padding-block: var(--spacing-base);
 					padding-inline: var(--spacing-far);
 					border-radius: var(--border-radius-large);

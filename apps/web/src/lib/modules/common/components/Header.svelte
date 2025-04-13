@@ -3,8 +3,8 @@
 </script>
 
 <header class="nc-box">
-	<nav>
-		<a href={"/"} aria-label="Startseite">
+	<nav aria-label="Hauptnavigation">
+		<a href={"/"} aria-label="Startseite" class="home">
 			<Logo />
 		</a>
 		<a class="gradient-text work" href="/#work">Projekte</a>
@@ -37,9 +37,11 @@
 			/ 1fr 1fr auto;
 		align-items: center;
 		border-radius: var(--border-radius-large);
-		/* background: oklch(var(--color-surface-subtle-lch) / 0.8); */
-		/* backdrop-filter: blur(16px); */
-		overflow: hidden;
+
+		& a:focus-visible {
+		   outline-offset: 0.1lh;
+
+		}
 
 		@media (--sm-n-above) {
 			grid:
@@ -48,7 +50,7 @@
 		}
 	}
 
-	a[href='/'] {
+	.home {
 		max-inline-size: 14rem;
 		grid-area: home;
 	}
@@ -69,12 +71,10 @@
 		text-decoration: none;
 		color: var(--color-brand-primary-base);
 		padding-inline: var(--spacing-base);
-		/* padding-block: var(--spacing-nearest); */
 		text-align: end;
 
 		@media (--md-n-above) {
 			padding-block: var(--spacing-base);
-			/* font-size: var(--font-size-largest); */
 		}
 	}
 </style>

@@ -212,6 +212,7 @@ section.nc-box {
         font-size: var(--font-size-small);
         color: var(--color-text-muted);
         margin-block-start: var(--spacing-base);
+        text-wrap: pretty;
     }
 
     &>a {

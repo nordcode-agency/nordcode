@@ -11,10 +11,12 @@
 		>
 			<div class="images">
 				<figure>
-					<enhanced:img src={imgLukas} alt="Lukas von nordcode" sizes="min(32ch, 100vw)" />
+					<enhanced:img src={imgLukas} alt="" sizes="min(32ch, 100vw)" />
+					<figcaption class="sr-only">Lukas von nordcode</figcaption>
 				</figure>
 				<figure>
-					<enhanced:img src={imgJoshua} alt="Joshua von nordcode" sizes="min(32ch, 100vw)" />
+					<enhanced:img src={imgJoshua} alt="" sizes="min(32ch, 100vw)" />
+					<figcaption class="sr-only">Joshua von nordcode</figcaption>
 				</figure>
 			</div>
 			<div class="content">

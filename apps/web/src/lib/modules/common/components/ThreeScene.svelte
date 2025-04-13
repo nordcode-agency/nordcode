@@ -6,7 +6,7 @@
 	};
 </script>
 
-<canvas class="webgl" use:init></canvas>
+<canvas class="webgl" aria-hidden="true" use:init></canvas>
 
 <style>
 	.webgl {

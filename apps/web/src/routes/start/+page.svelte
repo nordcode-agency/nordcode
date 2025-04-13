@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Header from '$lib/modules/common/components/Header.svelte';
+	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 	import type { PageData } from '../$types';
 
 	interface Props {
@@ -21,16 +22,18 @@
 		<div class="nc-stack">
 			<h1>Wähle, was am besten für dich passt.</h1>
 		</div>
-		<div class="nc-ram-grid -base grid">
+		<ul class="nc-list-reset nc-ram-grid -base grid">
 			{#each questions as question}
-				<a href={question.slug} class="nc-card card">
+				<li class="nc-card card nc-clickable-card">
 					<div class="nc-stack">
-						<h3 class="gradient-text">{question.heading}</h3>
+						<h3 class="gradient-text">
+							<a href={ensureTrailingSlash(question.slug)} data-link="main">{question.heading}</a>
+						</h3>
 						<p class="nc-hint">{question.desc}</p>
 					</div>
-				</a>
+				</li>
 			{/each}
-		</div>
+		</ul>
 		<details class="prose">
 			<summary>Weitere Informationen</summary>
 			<p>{@html desc}</p>
@@ -55,6 +58,10 @@
 		--nc-ram-grid-min-width: 40ch;
 
 		inline-size: 100%;
+
+		& > li {
+		   block-size: 100%;
+		}
 	}
 
 	section {

@@ -16,7 +16,7 @@
 			<a class="nc-button -brand" href={ensureTrailingSlash(Navigation.start.url)}
 				>{Navigation.start.name}</a
 			>
-			<a class="nc-button -outline -secondary" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+			<a class="nc-button -stealth" href={`mailto:${EMAIL}`}>{EMAIL}</a>
 		</div>
 	</div>
 </div>
@@ -57,5 +57,9 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--spacing-near);
+
+		& > a {
+		  font-size: var(--font-size-large);
+		}
 	}
 </style>

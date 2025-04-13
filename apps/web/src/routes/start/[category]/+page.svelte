@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Header from '$lib/modules/common/components/Header.svelte';
+	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 	import type { PageData } from '../$types';
 
 	interface Props {
@@ -36,18 +37,18 @@
 		<div class="nc-stack">
 			<h1>Was ist dein Budget?</h1>
 		</div>
-		<div class="nc-ram-grid -base grid">
+		<ul class="nc-list-reset nc-ram-grid -base grid">
 			{#each options as option}
-				<a href={option.slug} class="nc-card card">
+			<li class="nc-card card nc-clickable-card">
 					<div class="nc-stack">
 						<h3 class="gradient-text">
-							{getFormattedStr(option.label, option.displayNumbers)}
+							<a href={ensureTrailingSlash(option.slug)} data-link="main">{getFormattedStr(option.label, option.displayNumbers)}</a>
 						</h3>
 						<p class="nc-hint">{option.desc}</p>
 					</div>
-				</a>
+			</li>
 			{/each}
-		</div>
+		</ul>
 	</section>
 </div>
 

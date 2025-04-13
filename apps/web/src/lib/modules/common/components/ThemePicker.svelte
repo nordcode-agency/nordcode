@@ -138,6 +138,11 @@
 		flex-shrink: 0;
 		background: var(--color-surface-emphasis);
 		border-radius: var(--border-radius-round);
+
+		&:focus-within {
+		  outline: var(--border-width-thin) solid var(--color-brand-primary-base);
+		  outline-offset: 6px;
+		}
 	}
 
 	.theme-icon {
