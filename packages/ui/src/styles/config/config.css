@@ -20,9 +20,9 @@
         --tracking-tight: -0.02em;
         --tracking-wide: 0.03em;
 
-        --measure-large: 44em;
-        --measure-base: 36em;
-        --measure-small: 22em;
+        --measure-large: 56em;
+        --measure-base: 44em;
+        --measure-small: 28em;
 
         --font-size-smallest: max(0.75rem, 12px);
         --font-size-small: max(0.875rem, 14px);

@@ -151,9 +151,9 @@ const defaultStore: ConfigStore = {
     fontWeightActive: 600,
     fontWeightStrong: 600,
 
-    measureLarge: 44,
-    measureBase: 36,
-    measureSmall: 22,
+    measureLarge: 56,
+    measureBase: 44,
+    measureSmall: 28,
 
     // SIZES
     spacingTiny: 0.125,

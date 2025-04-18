@@ -1,3 +1,9 @@
+## 1.3.1 (2025-04-18)
+
+### improvements
+
+- Tweak measure to better resemble old ch measurements
+
 ## 1.3.0 (2025-04-18)
 
 ### improvements
