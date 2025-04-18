@@ -10,49 +10,55 @@
         align-items: center;
     }
 
-    :where(input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        input[type="url"],
-        input[type="search"],
-        input[type="date"],
-        input[type="month"],
-        input[type="week"],
-        input[type="text"],
-        input[type="datetime"],
-        input[type="datetime-local"],
-        input[type="time"],
-        input[type="tel"],
-        input[type="color"],
-        input[type="file"],
-        input[type="checkbox"],
-        input[type="radio"],
-        textarea,
-        select,
-        .nc-input,
-        .nc-select,
-        .nc-textarea,
-        .nc-input-checkbox,
-        .nc-input-radio,
-        .nc-input-label,
-        .nc-input-color,
-        .nc-input-field,
-        .nc-input-error,
-        .nc-checkbox-wrapper,
-        .nc-input-switch,
-        .nc-radio-field,
-        .nc-checkbox-field) {
+    :where(
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="number"],
+            input[type="url"],
+            input[type="search"],
+            input[type="date"],
+            input[type="month"],
+            input[type="week"],
+            input[type="text"],
+            input[type="datetime"],
+            input[type="datetime-local"],
+            input[type="time"],
+            input[type="tel"],
+            input[type="color"],
+            input[type="file"],
+            input[type="checkbox"],
+            input[type="radio"],
+            textarea,
+            select,
+            .nc-input,
+            .nc-select,
+            .nc-textarea,
+            .nc-input-checkbox,
+            .nc-input-radio,
+            .nc-input-label,
+            .nc-input-color,
+            .nc-input-field,
+            .nc-input-error,
+            .nc-checkbox-wrapper,
+            .nc-input-switch,
+            .nc-radio-field,
+            .nc-checkbox-field
+        ) {
         --_input-background: var(--input-background, var(--color-surface-subtle));
         --_input-background-active: var(--input-background-active, var(--color-surface-base));
         --_input-color: var(--input-color, var(--color-text-base));
-        --_input-border: var(--input-border,
-                var(--border-width-thin) solid var(--color-border-base));
+        --_input-border: var(
+            --input-border,
+            var(--border-width-thin) solid var(--color-border-base)
+        );
         --_input-border-radius: var(--input-border-radius, var(--border-radius-medium));
 
         --_input-box-shadow: var(--input-box-shadow, var(--shadow-inset));
-        --_input-outline: var(--input-outline,
-                var(--border-width-medium) solid var(--color-brand-primary-base));
+        --_input-outline: var(
+            --input-outline,
+            var(--border-width-medium) solid var(--color-brand-primary-base)
+        );
         --_input-disabled-filter: var(--input-disabled-filter, contrast(0.72) opacity(0.72));
 
         --_input-padding-block: var(--input-padding-block, 0.125lh);
@@ -60,25 +66,27 @@
         --_input-hover-background: var(--input-hover-background, var(--color-brand-primary-hover));
     }
 
-    :where(input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        input[type="url"],
-        input[type="search"],
-        input[type="date"],
-        input[type="month"],
-        input[type="week"],
-        input[type="text"],
-        input[type="datetime"],
-        input[type="datetime-local"],
-        input[type="time"],
-        input[type="tel"],
-        input[type="color"],
-        input[type="file"],
-        textarea,
-        select,
-        .nc-input) {
+    :where(
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="number"],
+            input[type="url"],
+            input[type="search"],
+            input[type="date"],
+            input[type="month"],
+            input[type="week"],
+            input[type="text"],
+            input[type="datetime"],
+            input[type="datetime-local"],
+            input[type="time"],
+            input[type="tel"],
+            input[type="color"],
+            input[type="file"],
+            textarea,
+            select,
+            .nc-input
+        ) {
         font: inherit;
         letter-spacing: inherit;
         word-spacing: inherit;
@@ -122,10 +130,10 @@
     }
 
     :where(select:not([class]), .nc-select) {
-        padding-inline-end: 3.5ch;
+        padding-inline-end: 1.75em;
         background-image: var(--triangle-down-url);
-        background-position: right 1ch top 50%;
-        background-size: 1.5ch 1.25ch;
+        background-position: right 0.5em top 50%;
+        background-size: 1em 0.75em;
     }
 
     :where(textarea:not([class]), .nc-textarea) {
@@ -139,11 +147,13 @@
         field-sizing: content;
     }
 
-    :where(input[type="checkbox"]:not([class]),
-        input[type="radio"]:not([class]),
-        .nc-input-checkbox,
-        .nc-input-radio,
-        .nc-input-switch) {
+    :where(
+            input[type="checkbox"]:not([class]),
+            input[type="radio"]:not([class]),
+            .nc-input-checkbox,
+            .nc-input-radio,
+            .nc-input-switch
+        ) {
         inline-size: 1lh;
         block-size: 1lh;
         padding: 0;
@@ -224,7 +234,7 @@
     }
 
     :where(input[type="range"], .nc-input-range) {
-        &>.nc-hint {
+        & > .nc-hint {
             margin-inline-start: auto;
         }
 

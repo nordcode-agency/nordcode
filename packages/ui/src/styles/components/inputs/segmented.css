@@ -1,15 +1,21 @@
 @layer components.inputs-segmented {
     :where(.nc-segmented-control-group) {
-        --_segmented-control-border-radius: var(--segmented-control-border-radius,
-                var(--_input-border-radius));
-        --_segmented-control-checked-text-color: var(--segmented-control-checked-text-color,
-                var(--color-brand-primary-contrast));
-        --_segmented-control-checked-surface-color: var(--segmented-control-checked-surface-color,
-                var(--color-brand-primary-base));
+        --_segmented-control-border-radius: var(
+            --segmented-control-border-radius,
+            var(--_input-border-radius)
+        );
+        --_segmented-control-checked-text-color: var(
+            --segmented-control-checked-text-color,
+            var(--color-brand-primary-contrast)
+        );
+        --_segmented-control-checked-surface-color: var(
+            --segmented-control-checked-surface-color,
+            var(--color-brand-primary-base)
+        );
 
         container: segmented-control / inline-size;
 
-        --nc-legend-spacing: 0.25lh;
+        --nc-legend-spacing: 0.35em;
     }
 
     :where(.nc-segmented-control) {
@@ -43,7 +49,7 @@
             align-items: center;
             justify-content: center;
 
-            >.nc-input-label {
+            > .nc-input-label {
                 color: inherit;
             }
 
@@ -53,11 +59,13 @@
             }
 
             &:first-child {
-                border-radius: var(--_segmented-control-border-radius) var(--_segmented-control-border-radius) 0 0;
+                border-radius: var(--_segmented-control-border-radius)
+                    var(--_segmented-control-border-radius) 0 0;
             }
 
             &:last-child {
-                border-radius: 0 0 var(--_segmented-control-border-radius) var(--_segmented-control-border-radius);
+                border-radius: 0 0 var(--_segmented-control-border-radius)
+                    var(--_segmented-control-border-radius);
             }
 
             &:not(:last-child) {
@@ -90,13 +98,15 @@
             grid-auto-columns: 1fr;
             grid-auto-flow: column;
 
-            >label {
+            > label {
                 &:first-child {
-                    border-radius: var(--_segmented-control-border-radius) 0 0 var(--_segmented-control-border-radius);
+                    border-radius: var(--_segmented-control-border-radius) 0 0
+                        var(--_segmented-control-border-radius);
                 }
 
                 &:last-child {
-                    border-radius: 0 var(--_segmented-control-border-radius) var(--_segmented-control-border-radius) 0;
+                    border-radius: 0 var(--_segmented-control-border-radius)
+                        var(--_segmented-control-border-radius) 0;
                 }
 
                 &:not(:last-child) {

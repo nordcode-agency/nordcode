@@ -28,7 +28,7 @@
 
     :where(:not(:active):focus-visible) {
         outline: var(--border-width-medium) solid var(--color-brand-primary-base);
-        outline-offset: 1ch;
+        outline-offset: 0.5em;
     }
 
     :where(:focus:not(:focus-visible)) {

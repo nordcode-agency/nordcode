@@ -5,28 +5,29 @@
         background: none;
     }
 
-    :where(button:not([class]),
-        button[type]:not([class]),
-        input[type='button']:not([class]),
-        input[type='submit']:not([class]),
-        input[type='reset']:not([class]),
-        input[type='file']:not([class]),
-        input[type='file']:not([class])::-webkit-file-upload-button,
-        input[type='file']:not([class])::file-selector-button,
-        .nc-button) {
+    :where(
+            button:not([class]),
+            button[type]:not([class]),
+            input[type="button"]:not([class]),
+            input[type="submit"]:not([class]),
+            input[type="reset"]:not([class]),
+            input[type="file"]:not([class]),
+            input[type="file"]:not([class])::-webkit-file-upload-button,
+            input[type="file"]:not([class])::file-selector-button,
+            .nc-button
+        ) {
         --_button-background: var(--button-background, var(--surface-hover));
         --_button-color: var(--button-color, var(--text-hover));
         --_button-border-color: var(--button-border-color, var(--surface-hover));
         --_button-border-radius: var(--button-border-radius, var(--border-radius-medium));
 
         --_button-background-hover: var(--button-background-hover, var(--surface));
-        --_button-background-hover-light: var(--button-background-hover-light,
-                color-mix(in oklch,
-                    currentColor calc(var(--transparency-weaker) * 10%),
-                    transparent));
+        --_button-background-hover-light: var(
+            --button-background-hover-light,
+            color-mix(in oklch, currentColor calc(var(--transparency-weaker) * 10%), transparent)
+        );
         --_button-color-hover: var(--button-color-hover, var(--text));
-        --_button-border-color-hover: var(--button-border-color-hover,
-                var(--border));
+        --_button-border-color-hover: var(--button-border-color-hover, var(--border));
 
         --_button-box-shadow: var(--button-box-shadow, var(--shadow-near));
         --_button-hover-shadow: var(--button-hover-shadow, var(--shadow-nearest));
@@ -62,12 +63,14 @@
         line-height: var(--line-height-base);
     }
 
-    :where(button:not([class]),
-        button[type]:not([class]),
-        input[type='button']:not([class]),
-        input[type='submit']:not([class]),
-        input[type='reset']:not([class]),
-        .nc-button) {
+    :where(
+            button:not([class]),
+            button[type]:not([class]),
+            input[type="button"]:not([class]),
+            input[type="submit"]:not([class]),
+            input[type="reset"]:not([class]),
+            .nc-button
+        ) {
         &:hover {
             background: var(--_button-background-hover);
             color: var(--_button-color-hover);
@@ -75,7 +78,7 @@
             box-shadow: var(--_button-hover-shadow);
         }
 
-        &[aria-pressed='true'] {
+        &[aria-pressed="true"] {
             box-shadow: none;
             transform: none;
             font-weight: var(--font-weight-active);
@@ -137,7 +140,7 @@
         }
 
         &.-small {
-            --_button-padding-inline: 1ch;
+            --_button-padding-inline: 0.5em;
             min-block-size: var(--button-height-small);
         }
 
@@ -146,20 +149,30 @@
         }
 
         &.-offset {
-            --_button-offset-distance: var(--button-offset-distance, -0.1lh);
-            --_button-offset-distance-hover: var(--button-offset-distance-hover, -0.05lh);
+            --_button-offset-distance: var(--button-offset-distance, -0.15em);
+            --_button-offset-distance-hover: var(--button-offset-distance-hover, -0.075em);
 
-            --_button-transform: translate(var(--_button-offset-distance),
-                    var(--_button-offset-distance));
-            --_button-hover-transform: translate(var(--_button-offset-distance-hover),
-                    var(--_button-offset-distance-hover));
+            --_button-transform: translate(
+                var(--_button-offset-distance),
+                var(--_button-offset-distance)
+            );
+            --_button-hover-transform: translate(
+                var(--_button-offset-distance-hover),
+                var(--_button-offset-distance-hover)
+            );
 
-            --button-box-shadow: calc(var(--_button-offset-distance) / -2) calc(var(--_button-offset-distance) / -2) 0 0 var(--shadow-color),
-                calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) 0 0 var(--shadow-color),
-                calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -2) 0 var(--shadow-color);
+            --button-box-shadow: calc(var(--_button-offset-distance) / -2)
+                calc(var(--_button-offset-distance) / -2) 0 0 var(--shadow-color),
+                calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -1)
+                0 0 var(--shadow-color), calc(var(--_button-offset-distance) * -1)
+                calc(var(--_button-offset-distance) * -1) calc(var(--_button-offset-distance) * -2)
+                0 var(--shadow-color);
 
-            --button-hover-shadow: calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--shadow-color),
-                calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) * -1) calc(var(--_button-offset-distance-hover) / -2) 0 var(--shadow-color);
+            --button-hover-shadow: calc(var(--_button-offset-distance-hover) * -1)
+                calc(var(--_button-offset-distance-hover) * -1) 0 0 var(--shadow-color),
+                calc(var(--_button-offset-distance-hover) * -1)
+                calc(var(--_button-offset-distance-hover) * -1)
+                calc(var(--_button-offset-distance-hover) / -2) 0 var(--shadow-color);
 
             inset-block-start: calc(var(--_button-offset-distance) * -1);
             inset-inline-start: calc(var(--_button-offset-distance) * -1);
@@ -175,7 +188,7 @@
          */
 
         &:has(svg) {
-            gap: 0.5ch;
+            gap: 0.25em;
         }
 
         /*
@@ -192,7 +205,7 @@
             fill: currentColor;
 
             &:after {
-                content: '';
+                content: "";
                 inline-size: max(var(--button-height-base), 100%);
                 block-size: max(var(--button-height-base), 100%);
                 aspect-ratio: 1;
@@ -204,7 +217,7 @@
                 pointer-events: all;
             }
 
-            &>svg {
+            & > svg {
                 pointer-events: none;
             }
         }
@@ -218,22 +231,22 @@
         }
     }
 
-    :where(input[type='file']:not([class])) {
+    :where(input[type="file"]:not([class])) {
         color: var(--_input-color);
         background-color: var(--_input-background);
         border: var(--_input-border);
         min-block-size: var(--button-height-base);
-        padding-inline-end: 1ch;
+        padding-inline-end: 0.5em;
         padding-inline-start: 0;
         border-radius: var(--_input-border-radius);
     }
 
-    :where(input[type='file']:not([class]))::-webkit-file-upload-button,
-    :where(input[type='file']:not([class]))::file-selector-button {
+    :where(input[type="file"]:not([class]))::-webkit-file-upload-button,
+    :where(input[type="file"]:not([class]))::file-selector-button {
         background-color: var(--_button-background);
         color: var(--_button-color);
         padding-inline: var(--_button-padding-inline);
-        margin-inline-end: 1ch;
+        margin-inline-end: 0.5em;
         cursor: pointer;
         box-shadow: none;
         min-block-size: calc(var(--button-height-base) - var(--border-width-thin));
@@ -246,7 +259,7 @@
         border-end-end-radius: 0;
     }
 
-    :where(button[type='reset']:not([class]), .nc-button.-destructive) {
+    :where(button[type="reset"]:not([class]), .nc-button.-destructive) {
         --text: var(--color-status-danger-emphasis);
         --color: var(--color-status-danger-base);
         --surface: var(--color-status-danger-surface);

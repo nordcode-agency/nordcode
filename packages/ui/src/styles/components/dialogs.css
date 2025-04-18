@@ -3,15 +3,18 @@
         --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
         --_dialog-layout-padding: var(--layout-padding, var(--spacing-base));
         --_dialog-close-size: var(--dialog-close-size, var(--button-height-base));
-        --_dialog-transition-duration: var(--dialog-transition-duration,
-                var(--transition-duration-base));
+        --_dialog-transition-duration: var(
+            --dialog-transition-duration,
+            var(--transition-duration-base)
+        );
         --_dialog-max-block-size: var(--dialog-max-block-size, 90dvh);
         --_dialog-max-inline-size: var(--dialog-max-inline-size, 28rem);
 
         --_dialog-radius: 0;
         display: block;
         z-index: var(--layer-important);
-        animation: close-dialog var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1) forwards;
+        animation: close-dialog var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1)
+            forwards;
         transition: opacity var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1);
         position: fixed;
         inset: 0;
@@ -25,7 +28,7 @@
         padding: 0;
         border-radius: var(--_dialog-radius);
         overflow: clip;
-        overflow-clip-margin: 1rem;
+        overflow-clip-margin: 1em;
         pointer-events: all;
 
         @media (min-width: 36rem) {
@@ -60,13 +63,13 @@
             block-size: max-content;
             max-block-size: var(--_dialog-max-block-size);
             overflow: clip;
-            overflow-clip-margin: 1rem;
+            overflow-clip-margin: 1em;
 
-            &>*:first-child {
+            & > *:first-child {
                 border-radius: var(--_dialog-radius) var(--_dialog-radius) 0 0;
             }
 
-            &>*:last-child {
+            & > *:last-child {
                 border-radius: 0 0 var(--_dialog-radius) var(--_dialog-radius);
             }
         }
@@ -83,7 +86,7 @@
             min-inline-size: calc(2 * var(--spacing-near) + var(--_dialog-close-size));
         }
 
-        :where(.dialog-header)>button[data-closes-dialog] {
+        :where(.dialog-header) > button[data-closes-dialog] {
             grid-area: close;
             inline-size: var(--_dialog-close-size);
             block-size: var(--_dialog-close-size);

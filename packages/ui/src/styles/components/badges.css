@@ -7,7 +7,7 @@
         border: var(--border-width-thin) solid var(--text, var(--color-text-base));
         border-radius: var(--border-radius-small);
         background: var(--surface, transparent);
-        padding: 0.5lh 1ch;
+        padding: 0.5em;
         inline-size: max-content;
         line-height: 1;
     }

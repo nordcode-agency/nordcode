@@ -28,7 +28,7 @@
         overflow: hidden;
 
         appearance: none;
-        border: 1px solid var(--_card-border-color);
+        border: var(--border-width-thin) solid var(--_card-border-color);
 
         background-color: var(--_card-background-color);
         border-radius: var(--_card-border-radius);

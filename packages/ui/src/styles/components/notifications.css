@@ -3,9 +3,10 @@
         --_notification-max-width: var(--notifications-max-width, 20rem);
         --_notification-gap: var(--notification-gap, var(--spacing-base));
         --_notification-border-color: var(--notification-border-color, var(--color-border-base));
-        --_notification-center-background: var(--notification-center-background,
-                color-mix(in oklch, var(---color-surface-subtle), transparent 95%);
-            );
+        --_notification-center-background: var(
+            --notification-center-background,
+            color-mix(in oklch, var(---color-surface-subtle), transparent 95%)
+        );
     }
 
     :where(.nc-notification-center, .nc-notification-output) {
@@ -61,7 +62,7 @@
     }
 
     :where(.nc-notification) {
-        padding: 0.5lh 2ch;
+        padding: 0.5em 1em;
         background: var(--color-surface-base);
         border: var(--border-width-thin) solid var(--_notification-border-color);
         display: flex;
@@ -98,7 +99,7 @@
         justify-content: space-between;
         align-items: flex-end;
         inline-size: 100%;
-        margin-block-start: 0.5ch;
+        margin-block-start: 0.25em;
     }
 
     :where(.nc-notification .nc-button, .nc-notification-center .nc-button) {
@@ -107,7 +108,8 @@
     }
 
     :where(.nc-notification.-closing) {
-        animation: remove-notification var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1) forwards;
+        animation: remove-notification var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1)
+            forwards;
     }
 
     @keyframes pop-in {

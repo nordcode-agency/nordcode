@@ -1,20 +1,20 @@
 @layer components.input-fields {
     :where(.nc-input-field) {
         display: grid;
-        gap: 0.25lh;
+        gap: 0.35em;
         grid-template-columns: minmax(0, 1fr);
         inline-size: 100%;
         min-inline-size: var(--input-field-min-inline-size);
         max-inline-size: var(--input-field-max-inline-size);
         place-items: start;
 
-        &>label,
-        &>.nc-stack {
+        & > label,
+        & > .nc-stack {
             gap: 0;
         }
 
-        &>.nc-cluster {
-            gap: 1ch;
+        & > .nc-cluster {
+            gap: 0.5em;
         }
     }
 
@@ -33,7 +33,7 @@
             justify-content: center;
             background-color: var(--color-base);
             color: var(--color-surface-subtle);
-            margin-inline-end: 1ch;
+            margin-inline-end: 0.5em;
             inline-size: 1em;
             block-size: 1em;
             flex-shrink: 0;
@@ -48,16 +48,16 @@
         place-items: start;
         gap: 0;
 
-        &>[data-label] {
+        & > [data-label] {
             grid-area: label;
-            padding-inline-start: 1ch;
+            padding-inline-start: 0.5em;
         }
 
         & .nc-input-label {
             min-block-size: var(--line-height-base);
         }
 
-        &>[data-input] {
+        & > [data-input] {
             grid-area: checkbox;
         }
 
@@ -69,8 +69,8 @@
     :where(.nc-radio-field, .nc-checkbox-field) {
         gap: 0;
 
-        >*:not(:first-child) {
-            margin-block-start: 0.6lh;
+        > *:not(:first-child) {
+            margin-block-start: 0.75em;
         }
     }
 }

@@ -2,10 +2,10 @@
     :where(.nc-alert) {
         background: var(--surface);
         color: var(--text);
-        gap: 1ch;
+        gap: 0.75em;
     }
 
-    :where(.nc-alert)>.nc-icon {
+    :where(.nc-alert) > .nc-icon {
         margin-block: calc((var(--line-height-base) - var(--icon-size)) / 2);
     }
 
