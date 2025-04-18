@@ -1,8 +1,8 @@
 <script lang="ts">
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
-    import { Input, InputWrapper, Select } from '@nordcode/forms-svelte';
-    import { CheckboxInput } from '@nordcode/forms-svelte';
-    import { configStore, updateFontScale } from '../../store/configStore';
+import { Input, InputWrapper, Select } from '@nordcode/forms-svelte';
+import { CheckboxInput } from '@nordcode/forms-svelte';
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import { configStore, updateFontScale } from '../../store/configStore';
 </script>
 
 {#if $configStore}
@@ -92,6 +92,15 @@
                             <SettingsInput
                                 label="Font Size Large"
                                 bind:value={$configStore.fontSizeLarge}
+                                max="10"
+                                min="0"
+                                step="0.005"
+                                disabled={$configStore.useCustomFontSizes === false}
+                            ></SettingsInput>
+
+                            <SettingsInput
+                                label="Font Size Medium"
+                                bind:value={$configStore.fontSizeMedium}
                                 max="10"
                                 min="0"
                                 step="0.005"
@@ -192,7 +201,7 @@
 
             <div class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
-                    <legend>Tracking</legend>
+                    <legend>Tracking (in em)</legend>
                     <SettingsInput
                         label="Tracking Wide"
                         bind:value={$configStore.trackingWide}
@@ -218,7 +227,7 @@
             </div>
             <div class="settings-container">
                 <fieldset class="nc-fieldset nc-stack">
-                    <legend>Measure</legend>
+                    <legend>Measure (in em)</legend>
                     <SettingsInput
                         label="Measure Large"
                         bind:value={$configStore.measureLarge}

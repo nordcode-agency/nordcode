@@ -16,6 +16,7 @@ export type ConfigStore = {
     fontSizeSmallest: number;
     fontSizeSmall: number;
     fontSizeBase: number;
+    fontSizeMedium: number;
     fontSizeLarge: number;
     fontSizeLargest: number;
     fontSizeDisplay: number;
@@ -131,6 +132,7 @@ const defaultStore: ConfigStore = {
     fontSizeSmallest: 0.75,
     fontSizeSmall: 0.875,
     fontSizeBase: 1,
+    fontSizeMedium: 1.125,
     fontSizeLarge: 1.25,
     fontSizeLargest: 1.5,
     fontSizeDisplay: 2.25,
@@ -140,18 +142,18 @@ const defaultStore: ConfigStore = {
     lineHeightBase: 1.55,
     lineHeightSmall: 1.1,
 
-    trackingTight: -0.04,
+    trackingTight: -0.02,
     trackingStandard: 0,
-    trackingWide: 0.06,
+    trackingWide: 0.03,
 
     fontWeightHeading: 600,
     fontWeightDefault: 400,
     fontWeightActive: 600,
     fontWeightStrong: 600,
 
-    measureLarge: 88,
-    measureBase: 72,
-    measureSmall: 44,
+    measureLarge: 44,
+    measureBase: 36,
+    measureSmall: 22,
 
     // SIZES
     spacingTiny: 0.125,
@@ -312,6 +314,7 @@ export const updateFontScale = (newScale: number) => {
             ...store,
             fontSizeScale: newScale,
             fontSizeLarge: round(store.fontSizeBase * newScale),
+            fontSizeMedium: round(store.fontSizeBase * newScale ** 1.5),
             fontSizeLargest: round(store.fontSizeBase * newScale ** 2),
             fontSizeDisplay: round(store.fontSizeBase * newScale ** 3),
             fontSizeSmall: round(store.fontSizeBase / newScale),
