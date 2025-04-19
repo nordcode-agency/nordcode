@@ -1,4 +1,5 @@
 import { localStore } from '@nordcode/forms-svelte';
+import { type DensityPresetName, DensityPresets } from '../presets/DensityPresets';
 import type { PresetName } from '../presets/Presets';
 import { Presets } from '../presets/Presets';
 
@@ -49,6 +50,14 @@ export type ConfigStore = {
     spacingFarthest: number;
 
     spacingScale: number;
+
+    controlSpacingMinimal: number;
+    controlSpacingTiny: number;
+    controlSpacingNearest: number;
+    controlSpacingNear: number;
+    controlSpacingBase: number;
+    controlSpacingFar: number;
+    controlSpacingFarthest: number;
 
     borderRadiusNone: number;
     borderWidthThin: number;
@@ -118,6 +127,9 @@ export type ConfigStore = {
     darkNeutralBorderLightness: number;
 
     transparencyWeaker: number;
+
+    controlHeightBase: number;
+    controlHeightSmall: number;
 };
 
 const defaultStore: ConfigStore = {
@@ -164,6 +176,14 @@ const defaultStore: ConfigStore = {
     spacingFarthest: 4,
 
     spacingScale: 2,
+
+    controlSpacingMinimal: 0.125,
+    controlSpacingTiny: 0.25,
+    controlSpacingNearest: 0.375,
+    controlSpacingNear: 0.5,
+    controlSpacingBase: 0.75,
+    controlSpacingFar: 1,
+    controlSpacingFarthest: 1.5,
 
     borderRadiusNone: 0,
     borderWidthThin: 1,
@@ -232,6 +252,9 @@ const defaultStore: ConfigStore = {
     darkTextLightnessScaleFactor: 0.88,
     darkSurfaceLightnessScaleFactor: 1.3,
     darkBorderLightnessScaleFactor: 0.98,
+
+    controlHeightBase: 2.5,
+    controlHeightSmall: 2,
 };
 
 const round = (num: number) => Math.round(num * 1000) / 1000;
@@ -328,6 +351,15 @@ export const setPreset = (preset: PresetName) => {
         return {
             ...store,
             ...Presets[preset],
+        };
+    });
+};
+
+export const setDensityPreset = (preset: DensityPresetName) => {
+    configStore?.update((store) => {
+        return {
+            ...store,
+            ...DensityPresets[preset],
         };
     });
 };

@@ -36,7 +36,7 @@
         }
 
         &[data-size="button"] {
-            --icon-size: var(--button-height-base);
+            --icon-size: var(--control-height-base);
         }
 
         &[data-animation="spinning"] {
@@ -44,7 +44,7 @@
         }
     }
 
-    :where(button, .nc-button)>.nc-icon {
+    :where(button, .nc-button) > .nc-icon {
         --icon-size: 2ex;
     }
 

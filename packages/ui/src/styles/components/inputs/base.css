@@ -61,8 +61,8 @@
         );
         --_input-disabled-filter: var(--input-disabled-filter, contrast(0.72) opacity(0.72));
 
-        --_input-padding-block: var(--input-padding-block, 0.25em);
-        --_input-padding-inline: var(--input-padding-inline, 0.5em);
+        --_input-padding-block: var(--input-padding-block, var(--control-spacing-tiny, 0.25em));
+        --_input-padding-inline: var(--input-padding-inline, var(--control-spacing-base, 0.75em));
         --_input-hover-background: var(--input-hover-background, var(--color-brand-primary-hover));
     }
 
@@ -96,7 +96,7 @@
         background-color: var(--_input-background);
         border: var(--_input-border);
         border-radius: var(--_input-border-radius);
-        block-size: var(--button-height-base);
+        block-size: var(--control-height-base);
         padding-inline: var(--_input-padding-inline);
         box-shadow: var(--_input-box-shadow);
         inline-size: var(--input-inline-size, auto);
@@ -226,7 +226,7 @@
     :where(input[type="color"], .nc-input-color) {
         aspect-ratio: 1;
         inline-size: auto;
-        padding: calc(var(--button-height-base) / 12);
+        padding: var(--control-spacing-minimal, 0.125em);
     }
 
     :where(input[type="date"], .nc-input-date) {
@@ -241,8 +241,8 @@
         &::-webkit-slider-thumb,
         &::-moz-range-thumb {
             appearance: none;
-            inline-size: calc(var(--button-height-base) * 0.7);
-            block-size: calc(var(--button-height-base) * 0.7);
+            inline-size: calc(var(--control-height-base) * 0.625);
+            block-size: calc(var(--control-height-base) * 0.625);
             border-radius: var(--_input-border-radius);
             border: var(--_input-border);
             border-color: var(--color-text-base);

@@ -44,8 +44,7 @@
 	}
 
 	.box {
-		--button-height-base: 3.5rem;
-		--button-padding-inline: 3ch;
+		--control-height-base: 3.5rem;
 
 		z-index: 2;
 		grid-area: cta;

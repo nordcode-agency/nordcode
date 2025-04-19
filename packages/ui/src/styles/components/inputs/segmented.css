@@ -15,7 +15,7 @@
 
         container: segmented-control / inline-size;
 
-        --nc-legend-spacing: 0.35em;
+        --nc-legend-spacing: var(--control-spacing-near, 0.5em);
     }
 
     :where(.nc-segmented-control) {
@@ -43,7 +43,7 @@
             display: flex;
             padding-inline: var(--_input-padding-inline);
             padding-block: var(--_input-padding-block);
-            min-block-size: var(--segmented-control-min-height, var(--button-height-base));
+            min-block-size: var(--segmented-control-min-height, var(--control-height-base));
             color: var(--_input-color);
             border: var(--_input-border);
             align-items: center;
