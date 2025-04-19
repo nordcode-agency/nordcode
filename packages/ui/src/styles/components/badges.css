@@ -7,7 +7,7 @@
         border: var(--border-width-thin) solid var(--text, var(--color-text-base));
         border-radius: var(--border-radius-small);
         background: var(--surface, transparent);
-        padding: var(--control-spacing-minimal, 0.125em) var(--control-spacing-nearest, 0.375em);
+        padding: var(--control-spacing-minimal, 0.125em) var(--control-spacing-near, 0.5em);
         inline-size: max-content;
     }
 }

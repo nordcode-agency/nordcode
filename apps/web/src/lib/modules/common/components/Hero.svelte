@@ -87,7 +87,7 @@
         inline-size: 100%;
 
 		@media (--sm-n-above) {
-			--button-height-base: 4rem;
+			--control-height-base: 4rem;
 
 			font-size: var(--font-size-large);
 		}
