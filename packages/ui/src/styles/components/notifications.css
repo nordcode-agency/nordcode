@@ -62,7 +62,7 @@
     }
 
     :where(.nc-notification) {
-        padding: 0.5em 1em;
+        padding: var(--control-spacing-near, 0.5em) var(--control-spacing-base, 0.75em);
         background: var(--color-surface-base);
         border: var(--border-width-thin) solid var(--_notification-border-color);
         display: flex;
@@ -99,7 +99,7 @@
         justify-content: space-between;
         align-items: flex-end;
         inline-size: 100%;
-        margin-block-start: 0.25em;
+        margin-block-start: var(--control-spacing-tiny, 0.25em);
     }
 
     :where(.nc-notification .nc-button, .nc-notification-center .nc-button) {

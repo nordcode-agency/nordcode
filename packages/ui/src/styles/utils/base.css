@@ -15,7 +15,7 @@
         color: var(--color-text-base);
 
         &:not(:last-of-type) {
-            padding-block-end: 0.5lh;
+            padding-block-end: var(--control-spacing-base, 0.75em);
             border-bottom: var(--border-width-thin) solid var(--color-border-muted);
         }
     }
@@ -28,7 +28,7 @@
         align-items: flex-start;
         overflow-wrap: anywhere;
         container: description-list / inline-size;
-        row-gap: 0.5lh;
+        row-gap: var(--control-spacing-base, 0.75em);
     }
 
     :where(dd, dt) {
@@ -44,7 +44,7 @@
             min-block-size: 100%;
 
             &:not(:last-of-type) {
-                padding-block-end: 0.5lh;
+                padding-block-end: var(--control-spacing-base, 0.75em);
                 border-bottom: var(--border-width-thin) solid var(--color-border-muted);
             }
         }
@@ -78,12 +78,12 @@
         display: block;
         color: var(--color-surface-subtle);
         background-color: var(--color-text-base);
-        padding: 0.35em 0.5em;
+        padding: var(--control-spacing-nearest, 0.375em) var(--control-spacing-base, 0.75em);
     }
 
     :where(details) {
-        --p-x-details: 1em;
-        --p-y-details: 1em;
+        --p-x-details: var(--control-spacing-far, 1em);
+        --p-y-details: var(--control-spacing-far, 1em);
         --b-r-details: var(--border-radius-medium);
 
         background-color: var(--color-surface-muted);
@@ -112,7 +112,7 @@
     .note,
     blockquote {
         padding: 0;
-        padding-inline-start: 1em;
+        padding-inline-start: var(--control-spacing-far, 1em);
         inline-size: 100%;
         color: var(--color-text-base);
         position: relative;
@@ -148,7 +148,7 @@
 
         & cite:before {
             content: "—";
-            margin-inline-end: 0.5em;
+            margin-inline-end: var(--control-spacing-near, 0.5em);
         }
     }
 
@@ -209,7 +209,7 @@
         color: inherit;
         font-family: var(--font-family-link);
         text-decoration: underline;
-        text-underline-offset: 0.35em;
+        text-underline-offset: var(--control-spacing-nearest, 0.375em);
         text-decoration-thickness: from-font;
         font-weight: var(--font-weight-default);
         text-decoration-color: currentColor;
@@ -254,7 +254,7 @@
     }
 
     :where(del, ins, mark, code, kbd, var) {
-        padding-inline: 0.25em;
+        padding-inline: var(--control-spacing-tiny, 0.25em);
         border-radius: var(--border-radius-small);
         line-height: inherit;
         box-decoration-break: clone;
@@ -265,7 +265,7 @@
         font-family: var(--font-family-mono);
         letter-spacing: 0;
         font-weight: var(--font-weight-default);
-        padding-block: 0.2em;
+        padding-block: var(--control-spacing-minimal, 0.125em);
         max-inline-size: fit-content;
         hyphens: none;
         tab-size: 4;
@@ -292,7 +292,7 @@
     }
 
     :where(pre) {
-        padding: 1em;
+        padding: var(--control-spacing-far, 1em);
         inline-size: 100%;
         overflow-x: auto;
         color: var(--color-text-base);
@@ -336,7 +336,7 @@
     }
 
     :where(td, th) {
-        padding: 0.5em;
+        padding: var(--control-spacing-near, 0.5em);
         line-height: var(--line-height-small);
         white-space: nowrap;
         font-variant-numeric: tabular-nums;
@@ -411,15 +411,15 @@
     }
 
     :where(ul, ol) {
-        padding-inline-start: 1em;
+        padding-inline-start: var(--control-spacing-farthest, 1.5em);
     }
 
     :where(li + li) {
-        margin-block-start: 0.5em;
+        margin-block-start: var(--control-spacing-near, 0.5em);
     }
 
     :where(li > :is(ul, ol)) {
-        margin-block-start: 0.5em;
+        margin-block-start: var(--control-spacing-near, 0.5em);
     }
 
     @supports (font-variant-position: sub) {
@@ -465,7 +465,7 @@
     }
 
     :where(.quoted p:first-of-type::before) {
-        margin-inline-start: -0.5em;
+        margin-inline-start: calc(-1 * var(--control-spacing-near, 0.5em));
     }
     :where(.quoted p) {
         hanging-punctuation: first last;

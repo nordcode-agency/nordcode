@@ -11,7 +11,7 @@
     }
 
     :where(.nc-form-hint) {
-        margin-block: 0.75em;
+        margin-block: var(--control-spacing-base, 0.75em);
         font-size: var(--font-size-large);
         color: var(--color-text-muted);
     }
@@ -30,7 +30,7 @@
         inline-size: 100%;
 
         & + * {
-            margin-block-start: var(--nc-legend-spacing, 1em);
+            margin-block-start: var(--nc-legend-spacing, var(--control-spacing-far, 1em));
         }
     }
 
@@ -41,7 +41,7 @@
                 > :is(legend:not([class]), .nc-legend)
                 + .nc-hint
         ) {
-        --nc-legend-spacing: .2em;
-        margin-block-end: 0.75em;
+        --nc-legend-spacing: var(--control-spacing-tiny, 0.25em);
+        margin-block: var(--control-spacing-base, 0.75em);
     }
 }

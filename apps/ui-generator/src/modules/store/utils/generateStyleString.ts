@@ -48,6 +48,12 @@ export const generateStyleString = (store: ConfigStore): string => {
         --spacing-far: ${store.spacingFar}rem;
         --spacing-farthest: ${store.spacingFarthest}rem;
 
+        --spacing-tiny: ${store.spacingTiny}rem;
+        --spacing-nearest: ${store.spacingNearest}rem;
+        --spacing-near: ${store.spacingNear}rem;
+        --spacing-base: ${store.spacingBase}rem;
+        --spacing-far: ${store.spacingFar}rem;
+        --spacing-farthest: ${store.spacingFarthest}rem;
 
         /* Borders */
 
@@ -60,6 +66,19 @@ export const generateStyleString = (store: ConfigStore): string => {
         --border-radius-medium: ${store.borderRadiusMedium}px;
         --border-radius-large: ${store.borderRadiusLarge}px;
         --border-radius-round: 1e5px;
+
+        /* UI Density Elements */
+
+        --control-height-base: ${store.controlHeightBase}em;
+        --control-height-small: ${store.controlHeightSmall}em;
+
+        --control-spacing-minimal: ${store.controlSpacingMinimal}em;
+        --control-spacing-tiny: ${store.controlSpacingTiny}em;
+        --control-spacing-nearest: ${store.controlSpacingNearest}em;
+        --control-spacing-near: ${store.controlSpacingNear}em;
+        --control-spacing-base: ${store.controlSpacingBase}em;
+        --control-spacing-far: ${store.controlSpacingFar}em;
+        --control-spacing-farthest: ${store.controlSpacingFarthest}em;
 
         ${getShadows(store)}
 
