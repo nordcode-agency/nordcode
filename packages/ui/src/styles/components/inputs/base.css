@@ -61,8 +61,8 @@
         );
         --_input-disabled-filter: var(--input-disabled-filter, contrast(0.72) opacity(0.72));
 
-        --_input-padding-block: var(--input-padding-block, 0.125lh);
-        --_input-padding-inline: var(--input-padding-inline, 1ch);
+        --_input-padding-block: var(--input-padding-block, 0.25em);
+        --_input-padding-inline: var(--input-padding-inline, 0.5em);
         --_input-hover-background: var(--input-hover-background, var(--color-brand-primary-hover));
     }
 

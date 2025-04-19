@@ -32,7 +32,7 @@
         --_button-box-shadow: var(--button-box-shadow, var(--shadow-near));
         --_button-hover-shadow: var(--button-hover-shadow, var(--shadow-nearest));
 
-        --_button-padding-inline: var(--button-padding-inline, 1ch);
+        --_button-padding-inline: var(--button-padding-inline, 0.5em);
 
         background-color: var(--_button-background);
         color: var(--_button-color);

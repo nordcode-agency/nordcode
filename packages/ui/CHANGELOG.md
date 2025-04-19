@@ -1,3 +1,9 @@
+## 1.3.2 (2025-04-18)
+
+### improvements
+
+- Tweak measure to better resemble old ch measurements in `.nc-flow`
+
 ## 1.3.1 (2025-04-18)
 
 ### improvements
