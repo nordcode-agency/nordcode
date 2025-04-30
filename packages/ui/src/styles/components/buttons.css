@@ -32,14 +32,14 @@
         --_button-box-shadow: var(--button-box-shadow, var(--shadow-near));
         --_button-hover-shadow: var(--button-hover-shadow, var(--shadow-nearest));
 
-        --_button-padding-inline: var(--button-padding-inline, 0.5em);
+        --_button-padding-inline: var(--button-padding-inline, var(--control-spacing-base, 0.75em));
 
         background-color: var(--_button-background);
         color: var(--_button-color);
         border: var(--border-width-thin) solid var(--_button-border-color);
         border-radius: var(--_button-border-radius);
         padding-inline: var(--_button-padding-inline);
-        min-block-size: var(--button-height-base);
+        min-block-size: var(--control-height-base);
         padding-block: 0;
         font-family: var(--font-family-button);
         letter-spacing: var(--tracking-tight);
@@ -140,8 +140,8 @@
         }
 
         &.-small {
-            --_button-padding-inline: 0.5em;
-            min-block-size: var(--button-height-small);
+            --_button-padding-inline: var(--control-spacing-near, 0.5em);
+            min-block-size: var(--control-height-small);
         }
 
         &.-round {
@@ -149,8 +149,14 @@
         }
 
         &.-offset {
-            --_button-offset-distance: var(--button-offset-distance, -0.15em);
-            --_button-offset-distance-hover: var(--button-offset-distance-hover, -0.075em);
+            --_button-offset-distance: var(
+                --button-offset-distance,
+                calc(-1 * var(--control-spacing-minimal))
+            );
+            --_button-offset-distance-hover: var(
+                --button-offset-distance-hover,
+                calc(-0.5 * var(--control-spacing-minimal))
+            );
 
             --_button-transform: translate(
                 var(--_button-offset-distance),
@@ -188,7 +194,7 @@
          */
 
         &:has(svg) {
-            gap: 0.25em;
+            gap: var(--control-spacing-tiny, 0.25em);
         }
 
         /*
@@ -206,12 +212,12 @@
 
             &:after {
                 content: "";
-                inline-size: max(var(--button-height-base), 100%);
-                block-size: max(var(--button-height-base), 100%);
+                inline-size: max(var(--control-height-base), 100%);
+                block-size: max(var(--control-height-base), 100%);
                 aspect-ratio: 1;
                 border-radius: 100%;
-                inset-inline-start: calc(-0.5 * (var(--button-height-base) - 100%));
-                inset-block-start: calc(-0.5 * (var(--button-height-base) - 100%));
+                inset-inline-start: calc(-0.5 * (var(--control-height-base) - 100%));
+                inset-block-start: calc(-0.5 * (var(--control-height-base) - 100%));
                 position: absolute;
                 z-index: -1;
                 pointer-events: all;
@@ -235,8 +241,8 @@
         color: var(--_input-color);
         background-color: var(--_input-background);
         border: var(--_input-border);
-        min-block-size: var(--button-height-base);
-        padding-inline-end: 0.5em;
+        min-block-size: var(--control-height-base);
+        padding-inline-end: var(--contol-spacing-near, 0.5em);
         padding-inline-start: 0;
         border-radius: var(--_input-border-radius);
     }
@@ -246,10 +252,10 @@
         background-color: var(--_button-background);
         color: var(--_button-color);
         padding-inline: var(--_button-padding-inline);
-        margin-inline-end: 0.5em;
+        margin-inline-end: var(--contol-spacing-near, 0.5em);
         cursor: pointer;
         box-shadow: none;
-        min-block-size: calc(var(--button-height-base) - var(--border-width-thin));
+        min-block-size: calc(var(--control-height-base) - var(--border-width-thin));
         border: none;
         border-inline-end: var(--border-width-thin) solid var(--color-border-base);
         transform: none;

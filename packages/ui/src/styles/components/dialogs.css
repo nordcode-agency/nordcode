@@ -2,7 +2,7 @@
     :where(.nc-dialog) {
         --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
         --_dialog-layout-padding: var(--layout-padding, var(--spacing-base));
-        --_dialog-close-size: var(--dialog-close-size, var(--button-height-base));
+        --_dialog-close-size: var(--dialog-close-size, var(--control-height-base));
         --_dialog-transition-duration: var(
             --dialog-transition-duration,
             var(--transition-duration-base)
@@ -28,7 +28,7 @@
         padding: 0;
         border-radius: var(--_dialog-radius);
         overflow: clip;
-        overflow-clip-margin: 1em;
+        overflow-clip-margin: var(--control-spacing-far, 1em);
         pointer-events: all;
 
         @media (min-width: 36rem) {
@@ -63,7 +63,7 @@
             block-size: max-content;
             max-block-size: var(--_dialog-max-block-size);
             overflow: clip;
-            overflow-clip-margin: 1em;
+            overflow-clip-margin: var(--control-spacing-far, 1em);
 
             & > *:first-child {
                 border-radius: var(--_dialog-radius) var(--_dialog-radius) 0 0;

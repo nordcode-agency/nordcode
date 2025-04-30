@@ -9,10 +9,11 @@
             var(--color-brand-primary-base)
         );
         --_tag-select-border-radius: var(--tag-select-border-radius, var(--_input-border-radius));
-        --nc-legend-spacing: 0.35em;
+
+        --nc-legend-spacing: var(--control-spacing-near, 0.5em);
 
         &:focus-within:has(:focus-visible) {
-            outline-offset: 0.5em;
+            outline-offset: var(--controls-spacing-near, 0.5em);
             outline: var(--_input-outline);
             border-radius: var(--_tag-select-border-radius);
         }

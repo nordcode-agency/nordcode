@@ -45,7 +45,7 @@ export const buttonVariables = [
         description: 'Set default button inline padding. Default: <var>1ch</var>.',
     },
     {
-        name: '--button-height-base',
+        name: '--control-height-base',
         description: 'Set the min button height. Default: <not set>',
     },
 ];

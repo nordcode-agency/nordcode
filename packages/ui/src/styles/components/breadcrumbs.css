@@ -14,7 +14,7 @@
         }
 
         &:not(:last-child):after {
-            padding-inline: 0.5em;
+            padding-inline: var(--control-spacing-near, 0.5em);
             color: inherit;
             content: "›";
             font-size: inherit;

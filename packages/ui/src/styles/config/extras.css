@@ -1,12 +1,9 @@
 @layer config {
     :where(html) {
-        --button-height-base: 2.5rem;
-        --button-height-small: 2rem;
+        --control-height-base: var(--button-height-base);
+        --control-height-small: var(--button-height-small);
 
         --font-family-link: var(--font-family-default);
         --font-family-button: var(--font-family-default);
-
-        --input-height-base: 2.5rem;
-        --input-height-small: 2rem;
     }
 }
