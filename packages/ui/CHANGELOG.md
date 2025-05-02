@@ -1,3 +1,24 @@
+## 2.0.0 (2025-05-02)
+
+### BREAKING CHANGES
+
+Rename tokens:
+
+--control-height-base: Used to be --button-height-base. Renamed for clarity, because it also affects inputs.
+--control-height-small: Used to be --button-height-small. Renamed for clarity, because it also affects inputs.
+
+Add new design tokens:
+
+--control-spacing-minimal
+--control-spacing-tiny
+--control-spacing-nearest
+--control-spacing-near
+--control-spacing-base
+--control-spacing-far
+--control-spacing-farthest
+
+These tokens are `em` based and are used to style the control elements, mostly inputs and buttons, but also other styled elements like your lists and details. Changing the spacings can be used for a more dense or more spacious layout.
+
 ## 1.3.2 (2025-04-18)
 
 ### improvements
