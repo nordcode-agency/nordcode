@@ -1,5 +1,5 @@
-@import '@nordcode/ui/complete';
-@import '@nordcode/ui/fonts';
+@import "@nordcode/ui/complete";
+@import "@nordcode/ui/fonts";
 
 @custom-media --sm-n-above (width >= 480px);
 @custom-media --md-n-above (width >= 768px);
@@ -26,6 +26,8 @@
 
     --center-measure: 110ch;
     --center-padding: var(--spacing-adaptive);
+    --control-height-base: 2.5rem;
+    --control-height-small: 2rem;
 }
 
 html {
@@ -74,15 +76,19 @@ p {
 
     &.-brand {
         border: 0;
-        background: radial-gradient(circle at center left,
-                var(--color-brand-primary-base),
-                var(--color-brand-secondary-base));
+        background: radial-gradient(
+            circle at center left,
+            var(--color-brand-primary-base),
+            var(--color-brand-secondary-base)
+        );
 
         &:hover {
             color: var(--text-hover);
-            background: radial-gradient(circle at center left,
-                    var(--color-brand-primary-base) -50%,
-                    var(--color-brand-secondary-base));
+            background: radial-gradient(
+                circle at center left,
+                var(--color-brand-primary-base) -50%,
+                var(--color-brand-secondary-base)
+            );
         }
     }
 }
@@ -93,20 +99,19 @@ p {
 }
 
 :is([href], button).nc-card {
-    box-shadow:
-        var(--_card-shadow),
-        inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) color-mix(in oklch, var(--color-border-base) 80%, transparent);
+    box-shadow: var(--_card-shadow), inset 0px 0px var(--spacing-base)
+        calc(var(--spacing-near) * -1)
+        color-mix(in oklch, var(--color-border-base) 80%, transparent);
 
     @media (--OSdark) {
-        box-shadow:
-            var(--_card-shadow),
-            inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) var(--color-border-base);
+        box-shadow: var(--_card-shadow), inset 0px 0px var(--spacing-base)
+            calc(var(--spacing-near) * -1) var(--color-border-base);
     }
 
     &:hover {
-        box-shadow:
-            var(--_card-shadow),
-            inset 0px calc(var(--spacing-near) * -1) var(--spacing-base) calc(var(--spacing-near) * -1) color-mix(in oklch, var(--color-brand-primary-base), transparent 90%);
+        box-shadow: var(--_card-shadow), inset 0px calc(var(--spacing-near) * -1)
+            var(--spacing-base) calc(var(--spacing-near) * -1)
+            color-mix(in oklch, var(--color-brand-primary-base), transparent 90%);
     }
 }
 
@@ -149,9 +154,11 @@ section.nc-box {
 }
 
 :is(.styled-base-text strong, .gradient-text) {
-    background: linear-gradient(to left,
-            var(--color-brand-secondary-base),
-            var(--color-brand-primary-base));
+    background: linear-gradient(
+        to left,
+        var(--color-brand-secondary-base),
+        var(--color-brand-primary-base)
+    );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -207,7 +214,7 @@ section.nc-box {
     padding: var(--spacing-base);
     overflow: clip;
 
-    &>figcaption {
+    & > figcaption {
         background: none;
         font-size: var(--font-size-small);
         color: var(--color-text-muted);
@@ -215,14 +222,15 @@ section.nc-box {
         text-wrap: pretty;
     }
 
-    &>a {
+    & > a {
         display: grid;
         place-items: center;
         min-block-size: 0;
         max-block-size: 100%;
     }
 
-    & img, & picture {
+    & img,
+    & picture {
         overflow: hidden;
         inline-size: 100%;
         block-size: 100%;
@@ -242,13 +250,13 @@ section.nc-box {
 
     display: grid;
     grid-template:
-        'header' auto
-        'content' 1fr
-        'footer' auto
+        "header" auto
+        "content" 1fr
+        "footer" auto
         / 1fr;
 
     &.-desktop:before {
-        content: '';
+        content: "";
         display: block;
         inline-size: 100%;
         block-size: var(--spacing-base);
@@ -286,7 +294,7 @@ section.nc-box {
     }
 
     &.-mobile:before {
-        content: '';
+        content: "";
         display: block;
         inline-size: 100%;
         block-size: var(--spacing-base);
@@ -295,7 +303,7 @@ section.nc-box {
     }
 
     &.-mobile:after {
-        content: '';
+        content: "";
         display: block;
         inline-size: 100%;
         block-size: var(--spacing-base);
@@ -305,8 +313,10 @@ section.nc-box {
 }
 
 .card-bg {
-    background: linear-gradient(45deg,
-            color-mix(in oklch, var(--color-border-base), transparent 97%),
-            color-mix(in oklch, var(--color-surface-base), transparent 20%));
+    background: linear-gradient(
+        45deg,
+        color-mix(in oklch, var(--color-border-base), transparent 97%),
+        color-mix(in oklch, var(--color-surface-base), transparent 20%)
+    );
     backdrop-filter: blur(var(--spacing-base));
 }

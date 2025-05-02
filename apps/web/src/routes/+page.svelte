@@ -1,20 +1,20 @@
 <script lang="ts">
-	import About from '$lib/modules/common/components/About.svelte';
-	import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
-	import Header from '$lib/modules/common/components/Header.svelte';
-	import Hero from '$lib/modules/common/components/Hero.svelte';
-	import ServicesSection from '$lib/modules/common/components/ServicesSection.svelte';
-	import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
-	import Meta from '$lib/modules/common/components/Meta.svelte';
-	import type { PageData } from './$types';
-	import IntroSection from '$lib/modules/common/components/IntroSection.svelte';
-	import WorkSection from '$lib/modules/common/components/WorkSection.svelte';
+import About from '$lib/modules/common/components/About.svelte';
+import FinalCTA from '$lib/modules/common/components/FinalCTA.svelte';
+import Header from '$lib/modules/common/components/Header.svelte';
+import Hero from '$lib/modules/common/components/Hero.svelte';
+import IntroSection from '$lib/modules/common/components/IntroSection.svelte';
+import Meta from '$lib/modules/common/components/Meta.svelte';
+import ServicesSection from '$lib/modules/common/components/ServicesSection.svelte';
+import ThreeScene from '$lib/modules/common/components/ThreeScene.svelte';
+import WorkSection from '$lib/modules/common/components/WorkSection.svelte';
+import type { PageData } from './$types';
 
-	interface Props {
-		data: PageData;
-	}
+interface Props {
+    data: PageData;
+}
 
-	let { data }: Props = $props();
+let { data }: Props = $props();
 </script>
 
 <Meta
