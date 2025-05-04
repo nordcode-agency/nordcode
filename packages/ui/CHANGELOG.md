@@ -1,3 +1,9 @@
+## 2.0.1 (2025-05-04)
+
+### improvements
+
+- change theme default surface to --color-surface-base instead of transparent to fix contrast issue over colored backgrounds
+
 ## 2.0.0 (2025-05-02)
 
 ### BREAKING CHANGES

@@ -2,7 +2,7 @@
     * {
         --text: var(--color-text-muted);
         --color: var(--color-text-muted);
-        --surface: transparent;
+        --surface: var(--color-surface-base);
         --border: var(--color-border-muted);
 
         --text-hover: var(--color-text-on-emphasis);
@@ -38,7 +38,7 @@
     .-neutral {
         --text: var(--color-text-muted);
         --color: var(--color-text-muted);
-        --surface: transparent;
+        --surface: var(--color-surface-base);
         --border: var(--color-border-muted);
 
         --text-hover: var(--color-text-on-emphasis);
