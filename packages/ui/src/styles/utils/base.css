@@ -210,7 +210,7 @@
         font-family: var(--font-family-link);
         text-decoration: underline;
         text-underline-offset: var(--control-spacing-nearest, 0.375em);
-        text-decoration-thickness: from-font;
+        text-decoration-thickness: 0.1em;
         font-weight: var(--font-weight-default);
         text-decoration-color: currentColor;
         cursor: pointer;

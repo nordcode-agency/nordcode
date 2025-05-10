@@ -27,8 +27,9 @@
     }
 
     :where(:not(:active):focus-visible) {
-        outline: var(--border-width-medium) solid var(--color-brand-primary-base);
-        outline-offset: var(--control-spacing-near, 0.5em);
+        outline: 2px solid var(--color-brand-primary-base);
+        box-shadow: 0 0 0 2px var(--color-surface-base);
+        outline-offset: 2px;
     }
 
     :where(:focus:not(:focus-visible)) {
@@ -79,6 +80,10 @@
 
     :where(img, svg, video, canvas, audio, iframe, embed, object) {
         display: block;
+    }
+
+    :where(svg) {
+        flex: none;
     }
 
     :where(img, svg, video) {

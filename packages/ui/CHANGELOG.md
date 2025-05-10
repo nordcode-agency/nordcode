@@ -1,3 +1,10 @@
+## 2.0.2 (2025-05-10)
+
+### improvements
+
+- increase focus-visible visibility
+- small utility tweaks
+
 ## 2.0.1 (2025-05-04)
 
 ### improvements
