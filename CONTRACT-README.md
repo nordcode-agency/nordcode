@@ -27,7 +27,26 @@ Die Geheimhaltungsverpflichtung gilt auch über die Beendigung des Vertrags hina
 
 Überschreitet die Dauer der Störung einen Zeitraum von [z.B. 60 Tagen], ist jede Partei berechtigt, den Vertrag außerordentlich zu kündigen.
 
+Die Abrechnung erfolgt in angefangenen Zeiteinheiten von [z.B. 15 Minuten].
+
+Form einen Urhebervermerk (z.B. "Erstellt von [Name des Auftragnehmers]" mit Verlinkung)
+
 ## Todos
 
-* Fill all gaps wrapped in []
-* Add Attachments (Anlagen)
+* Alle Lücken markiert durch eckige Klammern [] ausfüllen.
+* Erforderliche Anlage erstellen und beilegen
+* Erstellung von Designentwürfen (z.B. Wireframes, Mockups, Prototypen, Styleguides) gemäß **Anlage 1**.
+* Optimierung für die in **Anlage 1** spezifizierten Endgeräte, Betriebssysteme und Browser (Responsive Design), aktuelle Versionen gängiger Browser (Chrome, Firefox, Safari, Edge) bis vor einem Jahr zum Zeitpunkt der Abnahme.
+* Durchführung von Funktionstests und Qualitätssicherungsmaßnahmen (mindestens orientiert an ISO 25010, sofern nicht anders in **Anlage 1** spezifiziert).
+* Erstellung, Beschaffung, Bearbeitung oder Migration von Inhalten (Texte, Bilder, Videos, Audiodateien, Datenbanken etc.), sofern nicht explizit in **Anlage 1** vereinbart.
+* Barrierefreie Gestaltung nach BITV (Barrierefreie-Informationstechnik-Verordnung), WCAG (Web Content Accessibility Guidelines) oder BFSG (Barrierefreiheitsstärkungsgesetz), sofern nicht explizit in **Anlage 1** vereinbart.
+* Editierbare Originaldateien (z.B. Quelldateien von Designs, unkompilierter Quellcode) werden dem Auftraggeber nur nach vollständiger Vergütung und sofern dies in **Anlage 1** oder schriftlich gesondert vereinbart wurde, gegen eine zusätzliche, zu vereinbarende Vergütung zur Verfügung gestellt.
+* Das Projekt wird üblicherweise in die in **Anlage 2 (Meilensteinplan)** definierten Phasen unterteilt (z.B. Konzeptphase, Designphase, Entwicklungsphase, Testphase, Abnahme/Go-Live).
+* Die Entwicklung kann nach agilen Methoden (z.B. Sprints) oder klassischen Methoden erfolgen, wie in **Anlage 1** spezifiziert.
+* **Zahlungsplan (Beispiel für Pauschalpreis):** Sofern in **Anlage 1** kein abweichender Zahlungsplan vereinbart
+
+* Der Auftragnehmer wird den Auftraggeber vor Beginn der Arbeiten darauf hinweisen, wenn es sich um eine kostenpflichtige Zusatzleistung handelt.
+* Die Nutzungsrechte an Standardsoftware, Drittkomponenten oder Open-Source-Software, die im Projekt eingesetzt werden, richten sich nach den jeweiligen Lizenzbestimmungen der Hersteller bzw. Rechteinhaber. Der Auftragnehmer wird den Auftraggeber auf solche Komponenten und deren Lizenzbedingungen hinweisen.
+* Entscheidungen und wesentliche Absprachen sollen schriftlich (E-Mail ausreichend) oder in protokollierten Besprechungen festgehalten werden.
+* Der Auftragnehmer wird den Auftraggeber auf lizenzkostenpflichtige Komponenten vor deren Einsatz hinweisen, sofern die Kosten vom Auftraggeber zu tragen sind.
+* **Fiktive Abnahme**: Der Auftragnehmer wird den Auftraggeber bei Beginn der Frist auf diese Rechtsfolgen gesondert hinweisen.

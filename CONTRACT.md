@@ -82,7 +82,6 @@ wird folgender Vertrag geschlossen:
     * Rechtliche Prüfung der vom Auftraggeber bereitgestellten Inhalte auf Vereinbarkeit mit Rechten Dritter (Urheberrecht, Markenrecht, Wettbewerbsrecht etc.) oder gesetzlichen Vorschriften.
     * Anpassungen oder Kompatibilitätsgarantien für zukünftige Versionen von Browsern, Betriebssystemen oder Drittanbietersoftware, die nach der Abnahme veröffentlicht werden.
     * Schulungen, die über die vereinbarte Ersteinweisung hinausgehen.
-    * Der Auftragnehmer leistet keine Rechtsberatung. Der Auftragnehmer empfhielt eine externe anwaltliche Prüfung des Projekts auf Rechtskonformität.
 5.  **Technische Rahmenbedingungen:**
     * Editierbare Originaldateien (z.B. Quelldateien von Designs, unkompilierter Quellcode) werden dem Auftraggeber nur nach vollständiger Vergütung und sofern dies in **Anlage 1** oder schriftlich gesondert vereinbart wurde, gegen eine zusätzliche, zu vereinbarende Vergütung zur Verfügung gestellt. Andernfalls erhält der Auftraggeber die für den Betrieb des Projekts notwendigen, kompilierten bzw. lauffähigen Versionen.
     * Werden im Rahmen des Projekts Softwarekomponenten von Drittanbietern (inkl. Open-Source-Software) eingesetzt, gelten für diese Komponenten primär deren jeweilige Lizenzbedingungen. Der Auftragnehmer wird den Auftraggeber auf lizenzkostenpflichtige Komponenten vor deren Einsatz hinweisen, sofern die Kosten vom Auftraggeber zu tragen sind.
