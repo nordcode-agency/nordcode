@@ -1,172 +1,269 @@
-# Vertrag zur Erstellung einer Website/App
+Ich werde nun eine umfassende rechtliche Prüfung der beiden Verträge durchführen, ihre Schwächen identifizieren und sie zu einem optimierten Vertragstext zusammenführen. Dabei werde ich besonders darauf achten, keine wichtigen Passagen einfach zu entfernen, sondern sie gegebenenfalls anzupassen oder in eine passendere Struktur zu überführen.
 
-Dieser Vertrag dient als rechtlich fundierte Basis für die Entwicklung von digitalen Produkten (Websites, Webanwendungen oder Apps). Er berücksichtigt die Interessen beider Vertragsparteien und schafft Rechtssicherheit bei der Projektabwicklung.
+Im Anschluss an den zusammengeführten Vertrag werde ich eine detaillierte Zusammenfassung der wesentlichen Änderungen und deren Begründung liefern.
 
-## § 1 Vertragsparteien
+-----
 
-Zwischen
+**Rechtliche Prüfung, Zusammenführung und Optimierung der Verträge zur Erstellung einer Website, App oder Webanwendung**
 
-**[Name/Firma der Webagentur]**
-**[Anschrift]**
-**[Kontaktdaten]**
-(nachfolgend "Auftragnehmer" genannt)
+**Vorwort zur Vorgehensweise:**
 
-und
+Die beiden vorliegenden Vertragsentwürfe (CONTRACT5.md und CONTRACT6.md) sind bereits in weiten Teilen gut strukturiert und enthalten wichtige Klauseln für den Schutz sowohl des Auftragnehmers als auch des Auftraggebers. CONTRACT6.md ist dabei in vielen Aspekten detaillierter und juristisch präziser formuliert, insbesondere in Bezug auf Definitionen, Leistungsumfang, Haftungsbegrenzung und die Regelungen zu Datenschutz und Inhalten.
 
-**[Name/Firma des Kunden]**
-**[Anschrift]**
-**[Kontaktdaten]**
-(nachfolgend "Auftraggeber" genannt)
+Mein Ziel ist es, die Stärken beider Verträge zu kombinieren und einen umfassenden, rechtssicheren und ausgewogenen Vertrag zu schaffen, der die Interessen einer Webagentur (Auftragnehmer) bestmöglich schützt, ohne den Vertrag unbillig zugunsten einer Partei zu gestalten. Schwächen werden korrigiert, Unklarheiten beseitigt und wichtige Ergänzungen vorgenommen.
+
+-----
+
+**Zusammengeführter und optimierter Vertrag zur Erstellung einer Website, App oder Webanwendung**
+
+-----
+
+# Vertrag zur Erstellung einer Website, App oder Webanwendung
+
+## Präambel
+
+Dieser Vertrag regelt die Erstellung einer [Website/App/Webanwendung] (nachfolgend „Projekt“) durch den Auftragnehmer für den Auftraggeber. Beide Parteien streben eine partnerschaftliche und transparente Zusammenarbeit an, um das Projekt erfolgreich umzusetzen.
+
+## § 1 Vertragsparteien und Geltungsbereich
+
+**Zwischen**
+
+**[Name/Firma des Auftragnehmers]**
+[Straße, Hausnummer]
+[PLZ, Ort]
+Handelsregister: [falls vorhanden, z.B. Amtsgericht Musterstadt, HRB 12345]
+USt-IdNr.: [DE123456789]
+Telefon: [Telefonnummer]
+E-Mail: [E-Mail-Adresse]
+(nachfolgend „Auftragnehmer“ genannt)
+
+**und**
+
+**[Name/Firma des Auftraggebers]**
+[Straße, Hausnummer]
+[PLZ, Ort]
+Handelsregister: [falls vorhanden, z.B. Amtsgericht Musterstadt, HRB 54321]
+USt-IdNr.: [falls vorhanden]
+Telefon: [Telefonnummer]
+E-Mail: [E-Mail-Adresse]
+(nachfolgend „Auftraggeber“ genannt)
 
 wird folgender Vertrag geschlossen:
 
-## § 2 Vertragsgegenstand
+1.  **Geltungsbereich:** Dieser Vertrag und seine Anlagen regeln abschließend die Rechte und Pflichten der Vertragsparteien bezüglich des Projekts. Entgegenstehende oder abweichende Allgemeine Geschäftsbedingungen des Auftraggebers finden keine Anwendung, auch wenn der Auftragnehmer ihnen nicht ausdrücklich widerspricht.
+2.  **Unternehmerische Tätigkeit:** Dieser Vertrag gilt ausschließlich zwischen Unternehmern im Sinne des § 14 BGB. Der Auftraggeber bestätigt mit Unterzeichnung, dass er als Unternehmer handelt. Verbraucher sind ausgeschlossen.
 
-1. Gegenstand dieses Vertrages ist die Konzeption und Erstellung einer [Website/Webanwendung/App] (im Folgenden "digitales Produkt" genannt) gemäß der in Anlage 1 näher beschriebenen Leistungsbeschreibung.
-2. Das digitale Produkt wird nach den aktuellen technischen Standards und den Vorgaben des Auftraggebers entwickelt und umgesetzt.
-3. Nicht Gegenstand dieses Vertrages sind, soweit nicht ausdrücklich vereinbart:
-    - Wartungs- und Update-Leistungen nach Fertigstellung
-    - Schulungen zur Bedienung des digitalen Produkts
-    - Rechtliche Prüfung der Inhalte
-    - Suchmaschinenoptimierung über die Grundeinstellungen hinaus
-    - Webhosting und Serverdienste[^1]
+-----
 
-## § 3 Leistungsumfang
+## § 2 Vertragsgegenstand und Leistungsumfang
 
-1. Der Auftragnehmer erbringt folgende Leistungen:
+1.  **Definitionen:**
+    * „Projekt“: Bezeichnet die detailliert in **Anlage 1 (Leistungsbeschreibung)** spezifizierte Website, App oder Webanwendung.
+    * „Abnahme“: Meint die förmliche oder konkludente Bestätigung der vertragsgemäßen Leistungserbringung durch den Auftraggeber.
+    * „Werktage“: Montag bis Freitag, ausgenommen gesetzliche Feiertage am Sitz des Auftragnehmers.
+2.  **Gegenstand:** Der Auftragnehmer verpflichtet sich, für den Auftraggeber das in **Anlage 1 (Leistungsbeschreibung)** definierte Projekt zu konzipieren, zu gestalten, technisch zu entwickeln, zu testen und zur Abnahme bereitzustellen. Der Auftragnehmer schuldet ein Werk im Sinne des § 631 BGB.
+3.  **Leistungsumfang:** Der detaillierte Leistungsumfang ergibt sich abschließend aus **Anlage 1 (Leistungsbeschreibung)** und umfasst typischerweise, aber nicht ausschließlich:
+    * Beratung, Konzeption und detaillierte Projektplanung.
+    * Erstellung von Designentwürfen (z.B. Wireframes, Mockups, Prototypen, Styleguides) gemäß **Anlage 1**.
+    * Programmierung und technische Implementierung (Frontend/Backend) der vereinbarten Funktionen und Schnittstellen.
+    * Optimierung für die in **Anlage 1** spezifizierten Endgeräte, Betriebssysteme und Browser (Responsive Design), aktuelle Versionen gängiger Browser (Chrome, Firefox, Safari, Edge) bis vor einem Jahr zum Zeitpunkt der Abnahme.
+    * Durchführung von Funktionstests und Qualitätssicherungsmaßnahmen (mindestens orientiert an ISO 25010, sofern nicht anders in **Anlage 1** spezifiziert).
+    * Technische Dokumentation im vereinbarten Umfang.
+    * Einweisung des Auftraggebers oder benannter Mitarbeiter in die Bedienung des Projekts im vereinbarten Umfang.
+    * Bereitstellung des Projekts zur Abnahme.
+4.  **Nicht im Leistungsumfang enthaltene Leistungen (ohne ausdrückliche, schriftliche Vereinbarung in Anlage 1 oder einem Nachtrag):**
+    * Laufende Wartung, Pflege, Support und Updates des Projekts nach der Abnahme (hierfür ist ggf. ein separater Wartungs- und Servicevertrag abzuschließen).
+    * Hosting-Dienstleistungen, Domainregistrierung, E-Mail-Services und SSL-Zertifikate.
+    * Erstellung, Beschaffung, Bearbeitung oder Migration von Inhalten (Texte, Bilder, Videos, Audiodateien, Datenbanken etc.), sofern nicht explizit in **Anlage 1** vereinbart.
+    * Suchmaschinenoptimierung (SEO) über technische Basismaßnahmen hinaus (z.B. On-Page-Optimierung, technische SEO-Grundlagen).
+    * Barrierefreie Gestaltung nach BITV (Barrierefreie-Informationstechnik-Verordnung), WCAG (Web Content Accessibility Guidelines) oder BFSG (Barrierefreiheitsstärkungsgesetz), sofern nicht explizit in **Anlage 1** vereinbart.
+    * Marketingmaßnahmen, Social-Media-Integration über reine Verlinkung hinaus.
+    * Rechtliche Beratung, insbesondere Erstellung oder Prüfung von Impressum, Datenschutzerklärung, AGB, Cookie-Hinweisen oder sonstigen rechtlichen Texten.
+    * Rechtliche Prüfung der vom Auftraggeber bereitgestellten Inhalte auf Vereinbarkeit mit Rechten Dritter (Urheberrecht, Markenrecht, Wettbewerbsrecht etc.) oder gesetzlichen Vorschriften.
+    * Anpassungen oder Kompatibilitätsgarantien für zukünftige Versionen von Browsern, Betriebssystemen oder Drittanbietersoftware, die nach der Abnahme veröffentlicht werden.
+    * Schulungen, die über die vereinbarte Ersteinweisung hinausgehen.
+    * Der Auftragnehmer leistet keine Rechtsberatung. Der Auftragnehmer empfhielt eine externe anwaltliche Prüfung des Projekts auf Rechtskonformität.
+5.  **Technische Rahmenbedingungen:**
+    * Editierbare Originaldateien (z.B. Quelldateien von Designs, unkompilierter Quellcode) werden dem Auftraggeber nur nach vollständiger Vergütung und sofern dies in **Anlage 1** oder schriftlich gesondert vereinbart wurde, gegen eine zusätzliche, zu vereinbarende Vergütung zur Verfügung gestellt. Andernfalls erhält der Auftraggeber die für den Betrieb des Projekts notwendigen, kompilierten bzw. lauffähigen Versionen.
+    * Werden im Rahmen des Projekts Softwarekomponenten von Drittanbietern (inkl. Open-Source-Software) eingesetzt, gelten für diese Komponenten primär deren jeweilige Lizenzbedingungen. Der Auftragnehmer wird den Auftraggeber auf lizenzkostenpflichtige Komponenten vor deren Einsatz hinweisen, sofern die Kosten vom Auftraggeber zu tragen sind.
 
-a) Konzeption des digitalen Produkts nach den Vorgaben des Auftraggebers
-b) Erstellung eines Projektplans mit Meilensteinen
-c) Design und Gestaltung der Benutzeroberfläche
-d) Programmierung und technische Umsetzung
-e) Implementierung der vereinbarten Funktionen
-f) Responsive Design/Cross-Platform-Kompatibilität gemäß Leistungsbeschreibung
-g) Test auf gängigen Browsern/Betriebssystemen gemäß Leistungsbeschreibung
-h) Einweisung in die Grundfunktionen
-2. Änderungen und Erweiterungen des Leistungsumfangs bedürfen einer schriftlichen Vereinbarung der Vertragsparteien. Sie werden, sofern nicht anders vereinbart, nach Aufwand zum vereinbarten Stundensatz abgerechnet.
-3. Der Auftragnehmer ist berechtigt, für die Erbringung seiner Leistungen Dritte als Erfüllungsgehilfen einzusetzen[^1].
+-----
+
+## § 3 Projektmanagement, Ablauf und Leistungsänderungen
+
+1.  **Projektphasen und Meilensteine:** Das Projekt wird üblicherweise in die in **Anlage 2 (Meilensteinplan)** definierten Phasen unterteilt (z.B. Konzeptphase, Designphase, Entwicklungsphase, Testphase, Abnahme/Go-Live). Für jede Phase können spezifische Meilensteine, Lieferobjekte und Fristen in **Anlage 2** festgelegt werden. Die Entwicklung kann nach agilen Methoden (z.B. Sprints) oder klassischen Methoden erfolgen, wie in **Anlage 1** spezifiziert.
+2.  **Kommunikation und Ansprechpartner:** Beide Parteien benennen jeweils einen verantwortlichen Projektleiter als primären Ansprechpartner. Entscheidungen und wesentliche Absprachen sollen schriftlich (E-Mail ausreichend) oder in protokollierten Besprechungen festgehalten werden. Protokolle des Auftragnehmers gelten als genehmigt, wenn der Auftraggeber nicht binnen drei (3) Werktagen nach Erhalt schriftlich widerspricht.
+3.  **Leistungsänderungen (Change Requests):**
+    * Wünscht der Auftraggeber eine Änderung oder Erweiterung des in **Anlage 1** vereinbarten Leistungsumfangs, wird er dies dem Auftragnehmer schriftlich mitteilen (Change Request).
+    * Der Auftragnehmer prüft die Auswirkungen des Change Requests auf Leistungsumfang, Zeitplan und Vergütung und unterbreitet dem Auftraggeber ein entsprechendes Angebot.
+    * Die Umsetzung des Change Requests erfolgt erst nach schriftlicher Annahme des Angebots durch den Auftraggeber. Bis dahin setzt der Auftragnehmer die Arbeiten auf Basis des ursprünglich vereinbarten Leistungsumfangs fort.
+    * Vom Auftraggeber geforderte Zusatzleistungen, die nicht im ursprünglichen Leistungsumfang enthalten sind, werden, sofern keine gesonderte Pauschalpreisvereinbarung getroffen wird, nach dem im Vertrag oder in **Anlage 1** vereinbarten Stundensatz (§ 7 Ziff. 4) abgerechnet. Der Auftragnehmer wird den Auftraggeber vor Beginn der Arbeiten darauf hinweisen, wenn es sich um eine kostenpflichtige Zusatzleistung handelt.
+    * Der Auftragnehmer kann geringfügige Änderungen vorschlagen, die der Qualitätsverbesserung dienen oder aus technischen Gründen sinnvoll sind, sofern diese den vereinbarten Leistungsumfang und die Funktionalität nicht negativ beeinträchtigen. Solche Änderungen bedürfen der Zustimmung des Auftraggebers, wenn sie Auswirkungen auf Design, wesentliche Funktionen oder Kosten haben.
+
+-----
 
 ## § 4 Mitwirkungspflichten des Auftraggebers
 
-1. Der Auftraggeber stellt alle für die Durchführung des Projekts erforderlichen Informationen, Zugangsdaten, Inhalte und Materialien (Texte, Bilder, Logos, Datenbanken etc.) in einem gängigen, unmittelbar verwertbaren digitalen Format zur Verfügung.
-2. Der Auftraggeber benennt einen verantwortlichen Ansprechpartner, der befugt ist, alle für die Vertragsdurchführung notwendigen Entscheidungen zu treffen.
-3. Der Auftraggeber verpflichtet sich, Feedback und Freigaben zu den Meilensteinen innerhalb von [X] Werktagen zu erteilen. Bei Überschreitung dieser Frist ohne Rückmeldung des Auftraggebers gilt der jeweilige Meilenstein als freigegeben.
-4. Der Auftraggeber ist verpflichtet, die zur Verfügung gestellte Testversion des digitalen Produkts umgehend zu prüfen und etwaige Mängel mitzuteilen.
-5. Verzögerungen, die durch verspätete Mitwirkungshandlungen des Auftraggebers entstehen, gehen nicht zu Lasten des Auftragnehmers und führen zu einer entsprechenden Verschiebung der vereinbarten Termine[^1].
+1.  **Bereitstellung von Informationen und Materialien:** Der Auftraggeber stellt dem Auftragnehmer alle für die Vertragsdurchführung erforderlichen Informationen, Daten, Zugänge (z.B. zu Servern, Systemen Dritter) und Inhalte (Texte, Bilder, Logos, Videos etc.) rechtzeitig, vollständig, in dem vereinbarten Format und in der erforderlichen Qualität unentgeltlich zur Verfügung. Der Auftraggeber ist für die Klärung der hierfür erforderlichen Rechte verantwortlich (siehe § 5).
+2.  **Ansprechpartner und Entscheidungen:** Der Auftraggeber benennt einen fachlich kompetenten Ansprechpartner, der bevollmächtigt ist, alle das Projekt betreffenden Entscheidungen zu treffen oder unverzüglich herbeizuführen.
+3.  **Freigaben und Feedback:** Der Auftraggeber ist verpflichtet, Entwürfe, Konzepte, Testversionen und sonstige Teilleistungen zeitnah, spätestens jedoch innerhalb der in § 6 Ziff. 2 genannten Frist oder einer anderweitig vereinbarten Frist, sorgfältig zu prüfen und schriftlich freizugeben oder konkrete Änderungswünsche bzw. Mängel mitzuteilen.
+4.  **Einhaltung von Fristen:** Kommt der Auftraggeber seinen Mitwirkungspflichten nicht, nicht rechtzeitig oder nicht vollständig nach, so verlängern sich vereinbarte Fristen und Termine entsprechend. Entstehende Mehrkosten oder Schäden durch die Verzögerung trägt der Auftraggeber, es sei denn, er hat die Verzögerung nicht zu vertreten. Der Auftragnehmer wird den Auftraggeber auf die Folgen einer verspäteten Mitwirkung hinweisen.
+5.  **Sicherungskopien:** Der Auftraggeber ist für die Sicherung seiner eigenen Daten und der von ihm bereitgestellten Inhalte verantwortlich, sofern nicht ausdrücklich etwas anderes vereinbart ist.
 
-## § 5 Verantwortlichkeit für Inhalte und Rechte Dritter
+-----
 
-1. Der Auftraggeber trägt die alleinige Verantwortung dafür, dass die dem Auftragnehmer zur Verfügung gestellten Inhalte, Materialien, Daten und sonstigen Elemente (im Folgenden "Inhalte") frei von Rechten Dritter sind und keine gesetzlichen Bestimmungen verletzen. Dies umfasst insbesondere Urheberrechte, Markenrechte, Persönlichkeitsrechte, Wettbewerbsrechte und sonstige Schutzrechte. Der Auftraggeber sichert zu, über alle erforderlichen Nutzungsrechte an den Inhalten zu verfügen und diese dem Auftragnehmer im für die Vertragserfüllung erforderlichen Umfang einzuräumen.
-2. Der Auftragnehmer weist ausdrücklich darauf hin, dass er keine rechtliche Prüfung der vom Auftraggeber bereitgestellten Inhalte oder der erteilten Anweisungen vornimmt und keine Rechtsberatung in diesem Zusammenhang erbringt. Es obliegt dem Auftraggeber, eigenständig oder durch Hinzuziehung von Rechtsberatern sicherzustellen, dass die geplanten und umgesetzten Inhalte und Funktionalitäten keine Rechte Dritter verletzen und allen relevanten rechtlichen Anforderungen genügen. Dies beinhaltet insbesondere die Durchführung von Markenrecherchen und die Einholung erforderlicher Zustimmungen oder Lizenzen.
-3. Der Auftraggeber stellt den Auftragnehmer hiermit von sämtlichen Ansprüchen Dritter frei, die aufgrund der Verletzung von Rechten Dritter durch die vom Auftraggeber bereitgestellten Inhalte oder aufgrund der Umsetzung von Anweisungen des Auftraggebers entstehen. Dies umfasst auch die Kosten einer angemessenen Rechtsverteidigung. Der Auftraggeber verpflichtet sich, den Auftragnehmer unverzüglich schriftlich zu informieren, falls Dritte Ansprüche wegen derartiger Rechtsverletzungen geltend machen.
-4. Der Auftragnehmer schuldet die Erbringung der vertraglich vereinbarten Leistungen auf Basis der vom Auftraggeber bereitgestellten Inhalte und Anweisungen. Eine über die technische und gestalterische Umsetzung hinausgehende Prüfungspflicht hinsichtlich der rechtlichen Zulässigkeit der Inhalte oder der Anweisungen ist nicht Bestandteil des Leistungsumfangs des Auftragnehmers[^1].
+## § 5 Verantwortung für Inhalte und Rechte Dritter
 
-## § 6 Webhosting und Domain
+1.  **Verantwortlichkeit des Auftraggebers:** Der Auftraggeber trägt die alleinige Verantwortung für die von ihm bereitgestellten oder auf seine Veranlassung genutzten Inhalte (z.B. Texte, Bilder, Marken, Designs, Daten). Er sichert zu, dass diese Inhalte frei von Rechten Dritter sind (insbesondere Urheber-, Marken-, Persönlichkeits-, Wettbewerbsrechte) und nicht gegen geltendes Recht (z.B. Datenschutz, Jugendschutz, Strafrecht) verstoßen.
+2.  **Keine Prüfungspflicht des Auftragnehmers:** Der Auftragnehmer ist nicht verpflichtet, die vom Auftraggeber bereitgestellten Inhalte auf mögliche Rechtsverstöße oder die Verletzung von Rechten Dritter zu überprüfen. Dies gilt auch für die Einhaltung von Lizenzbedingungen für vom Auftraggeber beigesteuerte Software oder Medien.
+3.  **Freistellung:** Der Auftraggeber stellt den Auftragnehmer von sämtlichen Ansprüchen Dritter frei, die diese aufgrund einer Rechtsverletzung durch die vom Auftraggeber bereitgestellten oder auf seine Veranlassung genutzten Inhalte gegen den Auftragnehmer geltend machen. Die Freistellung umfasst auch die angemessenen Kosten einer eventuell notwendigen Rechtsverteidigung des Auftragnehmers (inkl. Gerichts- und Anwaltskosten). Der Auftraggeber wird den Auftragnehmer unverzüglich informieren, wenn ihm entsprechende Rechtsverletzungen bekannt werden oder drohen.
 
-1. Im Bereich Webhosting und Domain tritt der Auftragnehmer als Vermittler zwischen dem Auftraggeber und dem Hosting-Anbieter (Provider) auf. Die Registrierung der Domain kann vom Auftraggeber selbst oder nach Bevollmächtigung vom Auftragnehmer im Wege des Providers veranlasst werden.
-2. Der Auftragnehmer hat keinen Einfluss darauf, dass die Wunschdomain von der zuständigen Registrierungsstelle dem Auftraggeber tatsächlich zugeteilt wird. Bei erfolgreicher Registrierung der Domain wird der Auftraggeber mit allen Rechten und Pflichten als Domaininhaber eingetragen. Der Domaininhaber ist für die bereitgestellten Informationen auf dem vom Provider zur Verfügung gestellten Hostingprodukt vollumfänglich verantwortlich.
-3. Bezüglich Webhosting und der Domain gelten die AGB des Drittanbieters (Provider, Domain-Registrierungsstelle). Jede Haftung durch den Auftragnehmer ist in diesem Zusammenhang ausgeschlossen.
-4. Sofern nichts anderes schriftlich vereinbart wurde, erfolgt die Verrechnung des Webhosting und der Domain direkt über den Hosting-Anbieter.
-5. Eine Kündigung des Webhosting und der Domain hat nach Inkrafttreten dieser die Löschung aller Daten zur Folge. Für etwaige Sicherung der Daten ist der Auftraggeber selbst verantwortlich, ausgenommen der Auftragnehmer wird dazu beauftragt. Ein solcher Auftrag wird vom Auftragnehmer gesondert verrechnet[^1].
+-----
 
-## § 7 Abnahme und Verantwortungsübergang
+## § 6 Abnahme, Übergabe
 
-1. **Prüfpflicht und Abnahme:**
-Der Auftraggeber verpflichtet sich, das erstellte digitale Produkt innerhalb von 14 Tagen nach Übergabe zu prüfen und abzunehmen. Etwaige Mängel sind dem Auftragnehmer unverzüglich schriftlich mitzuteilen. Nach Ablauf dieser Frist oder bei produktiver Nutzung gilt das digitale Produkt als abgenommen.
-2. **Updates und Wartung:**
-Sofern nicht ausdrücklich ein Wartungsvertrag geschlossen wird, beschränkt sich die Leistungspflicht des Auftragnehmers auf die einmalige Erstellung des digitalen Produkts. Für spätere technische oder rechtliche Anpassungen ist ausschließlich der Auftraggeber verantwortlich.
-3. **Betrieb und Sicherheit:**
-Der Auftraggeber ist nach Übergabe für den sicheren Betrieb, regelmäßige Backups und die Aktualisierung aller Komponenten verantwortlich. Der Auftragnehmer haftet nicht für Schäden, die durch mangelnde Wartung oder verspätete Updates entstehen[^1].
+1.  **Abnahmebereitschaft:** Der Auftragnehmer zeigt dem Auftraggeber die Fertigstellung des Projekts bzw. abnahmefähiger Teilleistungen schriftlich an und stellt diese zur Prüfung und Abnahme zur Verfügung (z.B. auf einer Testumgebung).
+2.  **Prüfung und Abnahmefrist:** Der Auftraggeber ist verpflichtet, das Projekt bzw. die Teilleistung innerhalb von zehn (10) Werktagen nach Anzeige der Abnahmebereitschaft und Zurverfügungstellung sorgfältig zu prüfen und die Abnahme schriftlich zu erklären oder festgestellte Mängel schriftlich und detailliert zu rügen. Werden bei der Prüfung wesentliche Mängel festgestellt, die den vertragsgemäßen Gebrauch erheblich beeinträchtigen, kann die Abnahme bis zur Behebung dieser Mängel verweigert werden.
+3.  **Fiktive Abnahme:** Erfolgt innerhalb der Frist von zehn (10) Werktagen keine schriftliche Abnahmeerklärung und keine schriftliche Rüge wesentlicher Mängel durch den Auftraggeber, obwohl das Projekt bzw. die Teilleistung im Wesentlichen vertragsgemäß ist, gilt das Projekt bzw. die Teilleistung als abgenommen. Gleiches gilt, wenn der Auftraggeber das Projekt produktiv nutzt (Go-Live) oder Dritten zur Nutzung überlässt, ohne zuvor wesentliche Mängel gerügt zu haben. Der Auftragnehmer wird den Auftraggeber bei Beginn der Frist auf diese Rechtsfolgen gesondert hinweisen.
+4.  **Unwesentliche Mängel:** Unwesentliche Mängel, die den vertragsgemäßen Gebrauch nicht oder nur unerheblich beeinträchtigen, stehen der Abnahme nicht entgegen. Diese Mängel werden vom Auftragnehmer im Rahmen der Gewährleistung (§ 9) behoben.
+5.  **Abnahmeprotokoll:** Die Parteien können die Durchführung der Abnahme und deren Ergebnis in einem gemeinsamen Abnahmeprotokoll festhalten.
+6.  **Übergabe:** Mit erfolgreicher Abnahme (oder Eintritt der Abnahmefiktion) erfolgt die Übergabe des Projekts an den Auftraggeber. Sofern nicht anders vereinbart, erhält der Auftraggeber die für den Betrieb des Projekts notwendigen Dateien und Zugänge.
 
-## § 8 Vergütung und Zahlungsbedingungen
+-----
 
-1. Die Vergütung für die vertraglich vereinbarten Leistungen beträgt [Betrag] Euro zzgl. der gesetzlichen Mehrwertsteuer.
-2. Die Zahlung erfolgt wie folgt:
-    - 30% bei Vertragsschluss (Anzahlung)
-    - 30% nach Fertigstellung des Designs und Freigabe durch den Auftraggeber
-    - 40% nach Fertigstellung und Abnahme des digitalen Produkts
-3. Rechnungen sind innerhalb von 14 Tagen nach Rechnungsstellung ohne Abzug zahlbar.
-4. Bei verspäteter Zahlung ist der Auftragnehmer berechtigt, Verzugszinsen in Höhe von 9 Prozentpunkten über dem Basiszinssatz zu berechnen. Die Geltendmachung eines weiteren Verzugsschadens bleibt vorbehalten.
-5. Zusätzliche Leistungen, die nicht im vereinbarten Leistungsumfang enthalten sind, werden nach Aufwand zum Stundensatz von [Betrag] Euro zzgl. der gesetzlichen Mehrwertsteuer berechnet. Solche Leistungen werden nur nach vorheriger schriftlicher Beauftragung durch den Auftraggeber erbracht[^1].
+## § 7 Vergütung und Zahlungsbedingungen
 
-## § 9 Nutzungsrechte und geistiges Eigentum
+1.  **Pauschalvergütung/Aufwandsvergütung:** Die Vergütung für die vertragsgegenständlichen Leistungen des Auftragnehmers ist in **Anlage 1 (Leistungsbeschreibung)** festgelegt. Sie kann als Pauschalpreis oder auf Stundenbasis (Time & Material) vereinbart werden. Sofern nicht anders vereinbart, verstehen sich alle Preise zuzüglich der jeweils geltenden gesetzlichen Umsatzsteuer.
+2.  **Zahlungsplan (Beispiel für Pauschalpreis):** Sofern in **Anlage 1** kein abweichender Zahlungsplan vereinbart ist, gilt folgender Zahlungsplan:
+    * 30% der Gesamtvergütung bei Auftragserteilung.
+    * 30% der Gesamtvergütung nach Freigabe des Designs.
+    * Restliche Vergütung nach erfolgter Abnahme des Gesamtprojekts.
+3.  **Rechnungsstellung und Zahlungsziel:** Rechnungen werden gemäß Zahlungsplan bzw. bei stundenbasierter Abrechnung monatlich oder nach Abschluss von Leistungsabschnitten gestellt. Rechnungen sind ohne Abzug innerhalb von vierzehn (14) Kalendertagen ab Rechnungsdatum zur Zahlung fällig.
+4.  **Vergütung von Zusatzleistungen und Stundensätze:** Zusatzleistungen, die nicht von der Pauschalvergütung oder dem ursprünglichen Leistungsumfang gemäß **Anlage 1** erfasst sind (z.B. Change Requests, Mehraufwand durch verspätete Mitwirkung des Auftraggebers), werden, sofern nicht anders vereinbart, nach Aufwand zu einem Stundensatz von **[Betrag] €** zzgl. USt. abgerechnet. Die Abrechnung erfolgt in angefangenen Zeiteinheiten von [z.B. 15 Minuten]. Der Auftragnehmer wird den Auftraggeber vor Erbringung kostenpflichtiger Zusatzleistungen darauf hinweisen.
+5.  **Reisekosten und Auslagen:** Erforderliche Reisekosten und sonstige Auslagen (z.B. Lizenzgebühren für Stockmaterial, kostenpflichtige Plugins, die vom Auftraggeber gewünscht und freigegeben wurden) werden nach vorheriger Abstimmung mit dem Auftraggeber und gegen Nachweis gesondert in Rechnung gestellt.
+6.  **Zahlungsverzug:** Bei Zahlungsverzug ist der Auftragnehmer berechtigt, Verzugszinsen in Höhe von 9 Prozentpunkten über dem jeweiligen Basiszinssatz p.a. zu fordern. Die Geltendmachung eines weitergehenden Verzugsschadens bleibt unberührt. Gerät der Auftraggeber mit einer Zahlung in Verzug, kann der Auftragnehmer die weitere Leistungserbringung bis zur vollständigen Zahlung zurückhalten.
 
-1. Der Auftragnehmer räumt dem Auftraggeber mit vollständiger Bezahlung der vereinbarten Vergütung ein räumlich und zeitlich unbeschränktes, nicht-exklusives Nutzungsrecht an dem erstellten digitalen Produkt ein. Bis zur vollständigen Bezahlung verbleiben sämtliche Nutzungsrechte beim Auftragnehmer.
-2. Das Recht zur Bearbeitung wird nur insoweit eingeräumt, als dies für die bestimmungsgemäße Nutzung erforderlich ist. Der Quellcode verbleibt im Eigentum des Auftragnehmers, sofern nicht ausdrücklich anders vereinbart.
-3. Der Auftragnehmer ist berechtigt, an geeigneter Stelle einen Hinweis auf die Urheberschaft einzufügen. Dieser Hinweis darf vom Auftraggeber nicht entfernt werden, es sei denn, es wurde eine gesonderte Vereinbarung getroffen.
-4. Der Auftragnehmer ist berechtigt, das erstellte digitale Produkt als Referenz zu nutzen und in seinem Portfolio zu präsentieren, sofern keine berechtigten Geheimhaltungsinteressen des Auftraggebers entgegenstehen.
-5. Der Auftragnehmer übernimmt keine Gewähr dafür, dass die im Rahmen dieses Vertrags entwickelte Software frei von Rechten Dritter ist, sofern er die Verwendung dieser Software nicht ausdrücklich empfohlen hat[^1].
+-----
+
+## § 8 Nutzungsrechte und geistiges Eigentum
+
+1.  **Rechteübertragung:** Mit vollständiger Bezahlung der vereinbarten Gesamtvergütung gemäß § 7 erwirbt der Auftraggeber, sofern nicht anders in **Anlage 1** oder schriftlich vereinbart, das ausschließliche, zeitlich und räumlich unbeschränkte Nutzungsrecht an den für ihn individuell erstellten Arbeitsergebnissen (Projekt) für den vertraglich vereinbarten Zweck (z.B. Betrieb als eigene Unternehmenswebsite). Dies umfasst das Recht zur Vervielfältigung, Verbreitung, öffentlichen Zugänglichmachung und Bearbeitung, soweit dies zur vertragsgemäßen Nutzung erforderlich ist.
+2.  **Vorbehalt der Rechte:** Bis zur vollständigen Bezahlung verbleiben sämtliche Nutzungsrechte beim Auftragnehmer. Der Auftragnehmer ist berechtigt, dem Auftraggeber die Nutzung des Projekts zu untersagen, wenn dieser mit der Zahlung fälliger Beträge in Verzug ist.
+3.  **Quellcode:** Sofern nicht ausdrücklich anders in **Anlage 1** vereinbart, ist die Herausgabe des unkompilierten Quellcodes nicht geschuldet oder bedarf einer gesonderten Vergütungsvereinbarung (siehe § 2 Ziff. 5). Werden dem Auftraggeber Quellcodes überlassen, ist er berechtigt, diese für eigene Zwecke zu nutzen und weiterzuentwickeln oder durch Dritte weiterentwickeln zu lassen.
+4.  **Drittkomponenten und Open Source:** Die Nutzungsrechte an Standardsoftware, Drittkomponenten oder Open-Source-Software, die im Projekt eingesetzt werden, richten sich nach den jeweiligen Lizenzbestimmungen der Hersteller bzw. Rechteinhaber. Der Auftragnehmer wird den Auftraggeber auf solche Komponenten und deren Lizenzbedingungen hinweisen. Der Auftraggeber ist für die Einhaltung dieser Lizenzbedingungen selbst verantwortlich.
+5.  **Urheberbenennung und Referenznennung:** Der Auftragnehmer ist berechtigt, in dezenter Form einen Urhebervermerk (z.B. "Erstellt von [Name des Auftragnehmers]" mit Verlinkung) im Impressum oder Fußbereich des Projekts zu platzieren. Der Auftragnehmer ist ferner berechtigt, das Projekt nach dessen Veröffentlichung als Referenz in seinen eigenen Werbematerialien (Website, Portfolio etc.) zu nennen und abzubilden, sofern keine berechtigten Geheimhaltungsinteressen des Auftraggebers entgegenstehen. Der Auftraggeber wird einer solchen Nennung nicht ohne wichtigen Grund widersprechen.
+6.  **Vorhandene Schutzrechte:** An Konzeptionen, Entwürfen und Software, die der Auftragnehmer bereits vor Vertragsbeginn entwickelt hat oder die allgemeine Werkzeuge oder Bibliotheken des Auftragnehmers darstellen, behält der Auftragnehmer alle Rechte. Soweit solche Elemente in das Projekt einfließen, erhält der Auftraggeber daran die für die vertragsgemäße Nutzung des Projekts erforderlichen (ggf. nicht-ausschließlichen) Nutzungsrechte.
+
+-----
+
+## § 9 Gewährleistung
+
+1.  **Gewährleistungsumfang:** Der Auftragnehmer gewährleistet, dass das Projekt bei Abnahme die in **Anlage 1 (Leistungsbeschreibung)** vereinbarten Funktionen und Spezifikationen im Wesentlichen erfüllt und nicht mit Mängeln behaftet ist, die den Wert oder die Tauglichkeit zum vertragsgemäßen Gebrauch aufheben oder erheblich mindern. Eine Gewähr für die Erreichung bestimmter wirtschaftlicher Ziele oder für die vollständige Fehlerfreiheit komplexer Software kann nicht übernommen werden.
+2.  **Gewährleistungsfrist:** Die Gewährleistungsfrist beträgt zwölf (12) Monate ab Abnahme des Projekts.
+3.  **Mängelrüge:** Der Auftraggeber hat auftretende Mängel unverzüglich nach Entdeckung schriftlich und unter detaillierter Beschreibung des Problems (ggf. mit Screenshots, Fehlerprotokollen) dem Auftragnehmer anzuzeigen.
+4.  **Nacherfüllung:** Bei berechtigten Mängelrügen hat der Auftragnehmer das Recht und die Pflicht zur Nacherfüllung. Die Nacherfüllung erfolgt nach Wahl des Auftragnehmers durch Mängelbeseitigung (Nachbesserung) oder durch Lieferung einer mangelfreien Sache (Neulieferung). Dem Auftragnehmer sind hierfür mindestens zwei Nacherfüllungsversuche innerhalb einer angemessenen Frist einzuräumen.
+5.  **Fehlschlagen der Nacherfüllung:** Schlägt die Nacherfüllung endgültig fehl, verweigert der Auftragnehmer die Nacherfüllung oder ist sie dem Auftraggeber unzumutbar, so kann der Auftraggeber nach seiner Wahl Herabsetzung der Vergütung (Minderung) oder Rückgängigmachung des Vertrags (Rücktritt) für den mangelhaften Teil der Leistung verlangen. Schadensersatzansprüche bleiben im Rahmen von § 10 (Haftung) unberührt.
+6.  **Ausschluss der Gewährleistung:** Gewährleistungsansprüche sind ausgeschlossen, wenn der Mangel zurückzuführen ist auf:
+    * Unsachgemäße Bedienung, Nutzung oder Eingriffe durch den Auftraggeber oder Dritte.
+    * Veränderungen am Projekt (insbesondere am Quellcode) durch den Auftraggeber oder Dritte ohne vorherige schriftliche Zustimmung des Auftragnehmers.
+    * Fehlerhafte oder unvollständige Mitwirkung des Auftraggebers.
+    * Einflüsse von nicht vom Auftragnehmer zu vertretender Hard- oder Softwareumgebungen, Inkompatibilitäten mit nach Abnahme aktualisierten Drittsystemen oder Browsern, sofern keine Kompatibilitätszusicherung für diese spezifischen Versionen vereinbart war.
+    * Höhere Gewalt.
+
+-----
 
 ## § 10 Haftung
 
-1. Der Auftragnehmer haftet unbeschränkt für Vorsatz und grobe Fahrlässigkeit.
-2. Für einfache Fahrlässigkeit haftet der Auftragnehmer – außer im Falle der Verletzung des Lebens, des Körpers oder der Gesundheit – nur, sofern wesentliche Vertragspflichten (Kardinalpflichten) verletzt werden. Die Haftung ist begrenzt auf den vertragstypischen und vorhersehbaren Schaden, maximal jedoch bis zu einem Betrag in Höhe der vereinbarten Vergütung.
-3. Die Haftung für mittelbare und unvorhersehbare Schäden, Produktions- und Nutzungsausfall, entgangenen Gewinn, ausgebliebene Einsparungen und Vermögensschäden wegen Ansprüchen Dritter ist im Falle einfacher Fahrlässigkeit – außer im Falle der Verletzung des Lebens, des Körpers oder der Gesundheit – ausgeschlossen.
-4. Eine weitergehende Haftung als in diesem Vertrag ist – ohne Rücksicht auf die Rechtsnatur des geltend gemachten Anspruchs – ausgeschlossen. Vorstehende Haftungsbeschränkungen bzw. -ausschlüsse gelten jedoch nicht für eine gesetzlich zwingend vorgeschriebene verschuldensunabhängige Haftung (z.B. gemäß Produkthaftungsgesetz) oder die Haftung aus einer verschuldensunabhängigen Garantie.
-5. Soweit die Haftung nach Ziffern 2 und 3 ausgeschlossen oder beschränkt ist, gilt dies auch für die persönliche Haftung der Angestellten, Arbeitnehmer, Vertreter, Organe und Erfüllungsgehilfen des Auftragnehmers[^1].
+1.  **Unbeschränkte Haftung:** Der Auftragnehmer haftet unbeschränkt für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit, die auf einer vorsätzlichen oder fahrlässigen Pflichtverletzung des Auftragnehmers oder einer vorsätzlichen oder fahrlässigen Pflichtverletzung eines gesetzlichen Vertreters oder Erfüllungsgehilfen des Auftragnehmers beruhen. Ebenso haftet der Auftragnehmer unbeschränkt für sonstige Schäden, die auf einer vorsätzlichen oder grob fahrlässigen Pflichtverletzung des Auftragnehmers oder auf Vorsatz oder grober Fahrlässigkeit eines gesetzlichen Vertreters oder Erfüllungsgehilfen beruhen, sowie für Schäden, die von der Haftung nach zwingenden gesetzlichen Vorschriften (z.B. Produkthaftungsgesetz) umfasst werden oder bei Übernahme einer Garantie.
+2.  **Haftung für einfache Fahrlässigkeit:** Bei einfacher Fahrlässigkeit haftet der Auftragnehmer, soweit es sich nicht um eine Verletzung von Leben, Körper oder Gesundheit handelt, nur bei Verletzung wesentlicher Vertragspflichten (sog. Kardinalpflichten). Kardinalpflichten sind solche Pflichten, deren Erfüllung die ordnungsgemäße Durchführung des Vertrags überhaupt erst ermöglicht und auf deren Einhaltung der Vertragspartner regelmäßig vertrauen darf. In diesen Fällen ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden begrenzt.
+3.  **Begrenzung des vorhersehbaren Schadens:** Der vertragstypische, vorhersehbare Schaden ist im Falle der Verletzung von Kardinalpflichten durch einfache Fahrlässigkeit auf die Höhe der vereinbarten Gesamtvergütung für das Projekt, maximal jedoch auf [Betrag, z.B. 50.000 € oder das Doppelte der Auftragssumme] pro Schadensfall begrenzt.
+4.  **Ausschluss weitergehender Haftung:** Eine weitergehende Haftung des Auftragnehmers, insbesondere für mittelbare Schäden, Mangelfolgeschäden, entgangenen Gewinn, Datenverlust oder Betriebsunterbrechungen, ist – außer in den Fällen von § 10 Ziff. 1 – ausgeschlossen.
+5.  **Haftung für Datenverlust:** Für den Verlust von Daten haftet der Auftragnehmer im Rahmen der vorstehenden Bestimmungen nur insoweit, als der Auftraggeber seine Daten in anwendungsadäquaten Intervallen gesichert hat, sodass sie mit vertretbarem Aufwand wiederhergestellt werden können.
+6.  Die vorstehenden Haftungsbeschränkungen gelten auch zugunsten der gesetzlichen Vertreter und Erfüllungsgehilfen des Auftragnehmers.
+
+-----
 
 ## § 11 Datenschutz und rechtliche Anforderungen
 
-1. **Grundlegende Compliance:**
-Der Auftragnehmer erstellt das digitale Produkt nach den zum Zeitpunkt der Erstellung geltenden gesetzlichen Vorgaben zum Datenschutz. Der Auftragnehmer berät den Auftraggeber über die grundlegenden rechtlichen Anforderungen, übernimmt jedoch keine Rechtsberatung im Sinne des Rechtsdienstleistungsgesetzes.
-2. **Verantwortlichkeit nach Übergabe:**
-Mit Abnahme des digitalen Produkts übernimmt der Auftraggeber die volle datenschutzrechtliche Verantwortung als Betreiber. Der Auftraggeber ist ab diesem Zeitpunkt für die laufende Aktualisierung aller rechtlichen Dokumente (Datenschutzerklärung, Impressum, Informationspflichten) verantwortlich.
-3. **Technische Implementierung:**
-Der Auftragnehmer implementiert nach bestem Wissen und Gewissen datenschutzkonforme technische Lösungen (z.B. Cookie-Banner, Einwilligungsmanagement). Die rechtliche Bewertung der konkreten Ausgestaltung obliegt dem Auftraggeber.
-4. **Externe Dienste:**
-Werden externe Dienste (z.B. Google Analytics, Social Media Plugins) verwendet, erfolgt deren Einbindung nach aktuellem technischen Stand. Der Auftraggeber ist für die Rechtmäßigkeit des Einsatzes dieser Dienste im konkreten Nutzungskontext verantwortlich und hat die erforderlichen Vereinbarungen (z.B. Auftragsverarbeitungsverträge) selbst abzuschließen[^1].
+1.  **Datenschutzkonforme technische Umsetzung (Privacy by Design/Default):** Der Auftragnehmer verpflichtet sich, das Projekt unter Beachtung der geltenden Datenschutzbestimmungen, insbesondere der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG), **technisch** so zu gestalten und umzusetzen, dass es dem Auftraggeber eine datenschutzkonforme Nutzung **grundsätzlich ermöglicht** (Privacy by Design/Default), soweit dies im Rahmen des beauftragten Leistungsumfangs liegt und technisch möglich ist. Die technische Konfiguration erfolgt in Abstimmung mit den vom Auftraggeber bereitgestellten Informationen und rechtlichen Vorgaben. Der Auftragnehmer haftet nicht für die inhaltliche und rechtliche Richtigkeit oder Vollständigkeit der vom Auftraggeber gelieferten Vorgaben oder Texte.
+2.  **Verantwortlichkeit des Auftraggebers für Rechtskonformität:** Der Auftraggeber ist als Verantwortlicher im Sinne der DSGVO für die datenschutzrechtliche Zulässigkeit der Datenerhebung, -verarbeitung und -nutzung im Zusammenhang mit dem Projekt **allein verantwortlich**. Dies umfasst insbesondere die Erstellung und Pflege einer rechtssicheren Datenschutzerklärung, eines Impressums, die Einholung erforderlicher Einwilligungen (z.B. für Cookies, Tracking-Tools, Newsletter) und den Abschluss notwendiger Auftragsverarbeitungsverträge (AVV) mit Dritten (z.B. Hosting-Provider, Analyse-Dienste). Der Auftraggeber stellt sicher, dass alle vom Auftragnehmer zur Umsetzung des Projekts benötigten Inhalte und Informationen den geltenden rechtlichen Bestimmungen entsprechen.
+3.  **Auftragsverarbeitung:** Sofern der Auftragnehmer im Rahmen der Leistungserbringung personenbezogene Daten im Auftrag des Auftraggebers verarbeitet (z.B. bei Wartungsarbeiten mit Zugriff auf Datenbanken), schließen die Parteien hierfür einen separaten Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO. Ein Muster-AVV wird bei Bedarf vom Auftragnehmer zur Verfügung gestellt.
+4.  **Hinweis auf Rechtsberatung:** Der Auftragnehmer erbringt keine Rechtsberatung. Der Auftraggeber wird ausdrücklich darauf hingewiesen, dass er für die Klärung aller rechtlichen Fragen (Datenschutz, Urheberrecht, Wettbewerbsrecht, Markenrecht etc.) im Zusammenhang mit dem Projekt und dessen Inhalten selbst verantwortlich ist und bei Bedarf externen Rechtsrat (z.B. durch einen spezialisierten Rechtsanwalt) einholen sollte.
+
+-----
 
 ## § 12 Vertragslaufzeit und Kündigung
 
-1. Der Vertrag beginnt mit Unterzeichnung und endet mit der vollständigen Erbringung der vereinbarten Leistungen und deren Abnahme durch den Auftraggeber.
-2. Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt. Ein wichtiger Grund liegt insbesondere vor, wenn:
-    - der Auftraggeber mit fälliger Zahlung mehr als 30 Tage in Verzug ist
-    - der Auftraggeber seine Mitwirkungspflichten trotz Aufforderung nicht erfüllt
-    - über das Vermögen einer Vertragspartei ein Insolvenzverfahren eröffnet wird oder die Eröffnung mangels Masse abgelehnt wird
-3. Im Falle der Kündigung hat der Auftragnehmer Anspruch auf Vergütung der bis dahin erbrachten Leistungen. Bei außerordentlicher Kündigung durch den Auftragnehmer aufgrund eines Verschuldens des Auftraggebers behält der Auftragnehmer seinen Anspruch auf die volle vereinbarte Vergütung abzüglich ersparter Aufwendungen[^1].
+1.  **Beginn und Ende:** Der Vertrag tritt mit Unterzeichnung durch beide Parteien in Kraft und endet mit der vollständigen Erbringung und Abnahme aller Leistungen sowie der vollständigen Bezahlung der vereinbarten Vergütung, sofern er nicht zuvor ordnungsgemäß gekündigt wird.
+2.  **Ordentliche Kündigung:** Eine ordentliche Kündigung des Vertrags vor vollständiger Leistungserbringung ist für beide Parteien ausgeschlossen, sofern nicht im Einzelfall abweichend vereinbart (z.B. bei agilen Projekten mit definierten Kündigungsmöglichkeiten nach Sprints).
+3.  **Außerordentliche Kündigung:** Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt. Ein wichtiger Grund liegt insbesondere vor, wenn:
+    * die andere Partei ihre vertraglichen Pflichten trotz schriftlicher Abmahnung und Fristsetzung nachhaltig und schwerwiegend verletzt.
+    * der Auftraggeber mit einer fälligen Zahlung gemäß § 7 um mehr als dreißig (30) Kalendertage in Verzug ist.
+    * der Auftraggeber seinen wesentlichen Mitwirkungspflichten gemäß § 4 trotz schriftlicher Aufforderung und angemessener Fristsetzung nicht nachkommt und dadurch die Projektdurchführung erheblich gefährdet oder unmöglich macht.
+    * über das Vermögen einer Vertragspartei ein Insolvenzverfahren eröffnet oder die Eröffnung mangels Masse abgelehnt wird.
+4.  **Rechtsfolgen der Kündigung:** Im Falle einer Kündigung (gleich aus welchem Grund) hat der Auftragnehmer Anspruch auf Vergütung der bis zum Wirksamwerden der Kündigung erbrachten und abnahmefähigen Teilleistungen. Soweit die bisher erbrachten Leistungen für den Auftraggeber nicht oder nur eingeschränkt nutzbar sind, kann sich die Vergütung entsprechend mindern. Darüber hinaus hat der Auftragnehmer Anspruch auf Ersatz der bis dahin entstandenen und nachweisbaren Aufwendungen sowie ggf. des entgangenen Gewinns, sofern die Kündigung vom Auftraggeber zu vertreten ist. Bereits überlassene Arbeitsergebnisse sind nach Wahl des Auftragnehmers zurückzugeben oder deren Nutzung ist einzustellen, sofern die Vergütung hierfür nicht vollständig geleistet wurde.
+5.  **Höhere Gewalt:** Kann eine Partei ihre vertraglichen Pflichten aufgrund von Ereignissen höherer Gewalt (z.B. Naturkatastrophen, Pandemien, Krieg, Streik, unvorhersehbare behördliche Maßnahmen), die sie nicht zu vertreten hat und die auch mit zumutbarer Sorgfalt nicht abgewendet werden konnten, vorübergehend nicht erfüllen, so ruhen die Leistungspflichten für die Dauer und im Umfang der Störung. Die betroffene Partei wird die andere Partei unverzüglich über Eintritt und voraussichtliche Dauer der höheren Gewalt informieren. Die Parteien werden sich bemühen, eine einvernehmliche Regelung für die Dauer der Störung zu finden. Überschreitet die Dauer der Störung einen Zeitraum von [z.B. 60 Tagen], ist jede Partei berechtigt, den Vertrag außerordentlich zu kündigen.
+
+-----
 
 ## § 13 Geheimhaltung und Vertraulichkeit
 
-1. Die Vertragsparteien verpflichten sich, alle im Rahmen der Vertragsanbahnung und -durchführung erlangten Kenntnisse von vertraulichen Informationen und Betriebsgeheimnissen der jeweils anderen Vertragspartei vertraulich zu behandeln und nur für Zwecke der Durchführung dieses Vertrages zu verwenden.
-2. Diese Verpflichtung gilt über die Beendigung des Vertrages hinaus.
-3. Die Geheimhaltungsverpflichtung gilt nicht für Informationen, die
-    - öffentlich bekannt sind oder werden, ohne dass dies von der zur Geheimhaltung verpflichteten Partei zu vertreten ist
-    - der zur Geheimhaltung verpflichteten Partei bereits vor Erhalt der Informationen ohne Verpflichtung zur Geheimhaltung bekannt waren
-    - rechtmäßig von einem Dritten erlangt wurden, der keiner Verpflichtung zur Geheimhaltung unterliegt
-    - aufgrund gesetzlicher oder behördlicher Anordnung offengelegt werden müssen[^1]
+1.  **Vertrauliche Informationen:** Beide Parteien verpflichten sich, alle ihnen im Rahmen der Vertragsanbahnung und -durchführung bekannt werdenden Informationen und Unterlagen der jeweils anderen Partei, die als vertraulich gekennzeichnet sind oder deren Vertraulichkeit sich aus den Umständen ergibt (insbesondere Geschäfts- und Betriebsgeheimnisse, Konzepte, Quellcodes, Kundendaten), streng vertraulich zu behandeln.
+2.  **Verwendungszweck:** Diese Informationen dürfen ausschließlich zum Zweck der Vertragserfüllung verwendet und Dritten nur zugänglich gemacht werden, soweit dies zur Erfüllung des Vertrags unbedingt erforderlich ist (z.B. Subunternehmer, die einer entsprechenden Geheimhaltungspflicht unterliegen) oder eine gesetzliche Verpflichtung zur Offenlegung besteht.
+3.  **Dauer der Verpflichtung:** Die Geheimhaltungsverpflichtung gilt auch über die Beendigung des Vertrags hinaus für einen Zeitraum von [z.B. 3 Jahren], solange und soweit die Informationen nicht offenkundig geworden sind oder ein berechtigtes Interesse an der Geheimhaltung fortbesteht.
+4.  **Ausnahmen:** Ausgenommen von dieser Verpflichtung sind Informationen, die:
+    * der empfangenden Partei bei Vertragsabschluss bereits bekannt waren oder danach von dritter Seite ohne Verletzung einer Geheimhaltungspflicht bekannt werden.
+    * öffentlich bekannt sind oder werden, ohne dass dies von der empfangenden Partei zu vertreten ist.
+    * aufgrund gesetzlicher Anordnung, gerichtlicher oder behördlicher Verfügung offengelegt werden müssen. Die empfangende Partei wird die offenlegende Partei hierüber, soweit rechtlich zulässig, vorab informieren.
+
+-----
 
 ## § 14 Schlussbestimmungen
 
-1. **Salvatorische Klausel:**
-Sollten einzelne Bestimmungen dieses Vertrages unwirksam oder undurchführbar sein oder nach Vertragsschluss unwirksam oder undurchführbar werden, bleibt davon die Wirksamkeit des Vertrages im Übrigen unberührt. An die Stelle der unwirksamen oder undurchführbaren Bestimmung soll diejenige wirksame und durchführbare Regelung treten, deren Wirkungen der wirtschaftlichen Zielsetzung am nächsten kommen, die die Vertragsparteien mit der unwirksamen bzw. undurchführbaren Bestimmung verfolgt haben.
-2. **Schriftform:**
-Änderungen und Ergänzungen dieses Vertrages bedürfen der Schriftform. Dies gilt auch für die Änderung dieser Schriftformklausel.
-3. **Anwendbares Recht:**
-Auf diesen Vertrag findet ausschließlich deutsches Recht unter Ausschluss des UN-Kaufrechts Anwendung.
-4. **Gerichtsstand:**
-Ausschließlicher Gerichtsstand für alle Streitigkeiten aus diesem Vertrag ist, soweit gesetzlich zulässig, der Sitz des Auftragnehmers[^1].
+1.  **Schriftform:** Änderungen und Ergänzungen dieses Vertrages sowie seiner Anlagen bedürfen zu ihrer Wirksamkeit der Schriftform (E-Mail ist nicht ausreichend, sofern nicht explizit im Vertrag anders geregelt). Dies gilt auch für die Aufhebung dieses Schriftformerfordernisses selbst. Mündliche Nebenabreden bestehen nicht.
+2.  **Salvatorische Klausel:** Sollten einzelne Bestimmungen dieses Vertrages ganz oder teilweise unwirksam oder undurchführbar sein oder werden, so wird hierdurch die Gültigkeit der übrigen Bestimmungen nicht berührt. Anstelle der unwirksamen oder undurchführbaren Bestimmung verpflichten sich die Parteien, eine wirksame Regelung zu treffen, die dem wirtschaftlichen Zweck der unwirksamen oder undurchführbaren Bestimmung am nächsten kommt. Entsprechendes gilt für etwaige Vertragslücken.
+3.  **Rechtswahl:** Auf diesen Vertrag findet ausschließlich das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG) Anwendung.
+4.  **Gerichtsstand:** Ausschließlicher Gerichtsstand für alle Streitigkeiten aus oder im Zusammenhang mit diesem Vertrag ist, soweit gesetzlich zulässig, der Sitz des Auftragnehmers.
+5.  **Streitschlichtung (optional):** Die Parteien verpflichten sich, bei Meinungsverschiedenheiten oder Streitigkeiten aus diesem Vertrag zunächst eine gütliche Einigung anzustreben. Sie können hierzu ein Mediationsverfahren oder ein anderes Verfahren der außergerichtlichen Streitbeilegung einleiten, bevor gerichtliche Schritte unternommen werden. Die Einleitung eines gerichtlichen Mahnverfahrens oder eines Verfahrens des einstweiligen Rechtsschutzes bleibt hiervon unberührt.
+6.  **Anlagen:** Die Anlagen zu diesem Vertrag sind dessen wesentlicher Bestandteil. Bei Widersprüchen zwischen dem Vertragstext und den Anlagen haben die Regelungen des Vertragstextes Vorrang, es sei denn, die Anlage sieht ausdrücklich eine abweichende Regelung vor.
+
+-----
 
 ## § 15 Unterschriften
 
-<table width="100%">
-<tr>
-<td width="50%">
+\<table width="100%"\>
+\<tr\>
+\<td width="50%"\>
 Ort, Datum
-<br><br>
-_____________________________
-<br>
+\<br\>\<br\>
+
+-----
+
+\<br\>
 Unterschrift Auftragnehmer
-</td>
-<td width="50%">
+\<br\>
+(Name und Funktion in Druckbuchstaben)
+\</td\>
+\<td width="50%"\>
 Ort, Datum
-<br><br>
-_____________________________
-<br>
+\<br\>\<br\>
+
+-----
+
+\<br\>
 Unterschrift Auftraggeber
-</td>
-</tr>
-</table>
+\<br\>
+(Name und Funktion in Druckbuchstaben)
+\</td\>
+\</tr\>
+\</table\>
 
-## Anlage 1: Leistungsbeschreibung
+-----
 
-[Detaillierte Beschreibung des Leistungsumfangs, technische Spezifikationen, Design-Vorgaben, Funktionalitäten, Zeitplan, Meilensteine etc.]
+## Anlagenverzeichnis:
+
+  * **Anlage 1:** Leistungsbeschreibung (inkl. Spezifikationen, Technologien, Designvorgaben, ggf. Stundensätze für Zusatzleistungen, Browserkompatibilitätsmatrix etc.)
+  * **Anlage 2:** Meilenstein- und Zeitplan
+  * **Anlage 3:** Change-Request-Formular (Muster)
+  * **(Optional) Anlage 4:** Weitere spezifische Vereinbarungen (z.B. Service Level Agreement für Testphase, detaillierte Abnahmekriterien)
+  * **(Optional bei Bedarf) Anlage 5:** Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO
