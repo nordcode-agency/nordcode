@@ -44,6 +44,7 @@ Form einen Urhebervermerk (z.B. "Erstellt von [Name des Auftragnehmers]" mit Ver
 * Das Projekt wird üblicherweise in die in **Anlage 2 (Meilensteinplan)** definierten Phasen unterteilt (z.B. Konzeptphase, Designphase, Entwicklungsphase, Testphase, Abnahme/Go-Live).
 * Die Entwicklung kann nach agilen Methoden (z.B. Sprints) oder klassischen Methoden erfolgen, wie in **Anlage 1** spezifiziert.
 * **Zahlungsplan (Beispiel für Pauschalpreis):** Sofern in **Anlage 1** kein abweichender Zahlungsplan vereinbart
+* Für **Anlage 1**: https://www.exovia.de/webdesign-preise/
 
 * Der Auftragnehmer wird den Auftraggeber vor Beginn der Arbeiten darauf hinweisen, wenn es sich um eine kostenpflichtige Zusatzleistung handelt.
 * Die Nutzungsrechte an Standardsoftware, Drittkomponenten oder Open-Source-Software, die im Projekt eingesetzt werden, richten sich nach den jeweiligen Lizenzbestimmungen der Hersteller bzw. Rechteinhaber. Der Auftragnehmer wird den Auftraggeber auf solche Komponenten und deren Lizenzbedingungen hinweisen.
