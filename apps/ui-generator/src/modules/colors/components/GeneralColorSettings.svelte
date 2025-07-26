@@ -12,15 +12,15 @@
                     <SettingsInput
                         label="Minimum Lightness"
                         bind:value={$configStore.lightnessMin}
-                        token="--lightness-max"
+                        token="--lightness-min"
                         max="1"
                         min="0"
                         step="0.01"
                     ></SettingsInput>
                     <SettingsInput
                         label="Maximum Lightness"
-                        bind:value={$configStore!.lightnessMax}
-                        token="--lightness-min"
+                        bind:value={$configStore.lightnessMax}
+                        token="--lightness-max"
                         max="1"
                         min="0"
                         step="0.01"
