@@ -48,13 +48,6 @@ export const generateStyleString = (store: ConfigStore): string => {
         --spacing-far: ${store.spacingFar}rem;
         --spacing-farthest: ${store.spacingFarthest}rem;
 
-        --spacing-tiny: ${store.spacingTiny}rem;
-        --spacing-nearest: ${store.spacingNearest}rem;
-        --spacing-near: ${store.spacingNear}rem;
-        --spacing-base: ${store.spacingBase}rem;
-        --spacing-far: ${store.spacingFar}rem;
-        --spacing-farthest: ${store.spacingFarthest}rem;
-
         /* Borders */
 
         --border-width-thin: ${store.borderWidthThin}px;
