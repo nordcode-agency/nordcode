@@ -10,7 +10,7 @@ Dieser Gesellschaftsvertrag wird geschlossen zwischen
 ---
 ### § 1 Name und Sitz der Gesellschaft
 
-1.  Die Gesellschaft führt den Namen **„nordcode S. Köller GbR“**.
+1.  Die Gesellschaft führt den Namen **„nordcode Stübner Köller GbR“**.
 2.  Die Gesellschaft hat ihren Sitz in Hamburg.
 
 ---

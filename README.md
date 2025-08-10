@@ -50,6 +50,7 @@ Feel free to check them out or use them, if they're useful to you.
 - https://www.andy.works/ playful
 - https://www.getpliant.com/de/ * clean
 - https://www.klimate.co/ * clean, techie
+- https://kraa.io/kraa/examples/echolibrary * clean, black/white
 
 ### Icons
 
