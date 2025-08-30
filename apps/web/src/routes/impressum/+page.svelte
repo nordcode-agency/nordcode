@@ -3,7 +3,7 @@
 	import Meta from '$lib/modules/common/components/Meta.svelte';
 </script>
 
-<Meta title="Impressum | nordcode" description="Hier lebt das Impressum von nordcode"></Meta>
+<Meta title="Impressum | nordcode" description="Schau dir das Impressum von nordcode an"></Meta>
 
 <div class="nc-stack fullscreen">
 	<Header />
@@ -12,18 +12,22 @@
 		<div class="nc-flow">
 			<h1>Impressum</h1>
 			<h2 id="m46">Diensteanbieter</h2>
-			<p>Luki und Joshi GbR</p>
-			<p>Hamburger Straße 123</p>
-			<p>21000 Haumburg</p>
-			<p>Deutschland</p>
+			<p>
+				nordcode Stübner Köller GbR<br />
+				Eduardstr. 43 b<br />
+				20257 Hamburg<br />
+				Deutschland
+			</p>
 
 			<h2 id="m56">Kontaktmöglichkeiten</h2>
 			<p>E-Mail-Adresse: <a href="mailto:moin@nordcode.agency">moin@nordcode.agency</a></p>
 			<p>Telefon: <a href="tel:+4915563134234">+49 155 63 134 234</a></p>
 
 			<h2 id="m58">Angaben zum Unternehmen</h2>
-			<p>Umsatzsteuer Identifikationsnummer (USt-ID): UstID</p>
-			<p>AGB: AGB LINK</p>
+			<!-- <p>Umsatzsteuer Identifikationsnummer (USt-ID): UstID</p> -->
+			<!-- <p>AGB: AGB LINK</p> -->
+
+            <p>Gesellschafter sind Lukas Köller und Joshua Stübner</p>
 
 			<h2 id="m5234">Vorbehalt der Nutzung für Text und Data Mining</h2>
 			<p>

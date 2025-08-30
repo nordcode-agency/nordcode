@@ -35,7 +35,7 @@
 				<input
 					id="email"
 					name="email"
-					class="nc-input"
+					class="nc-input input"
 					aria-required="true"
 					autocomplete="email"
 					type="email"
@@ -52,7 +52,7 @@
 					<textarea
 						id="message"
 						name="message"
-						class="nc-input nc-textarea"
+						class="nc-input nc-textarea textarea"
 						aria-required="true"
 						required
 					></textarea>
@@ -110,10 +110,17 @@
 		}
 	}
 
-	textarea {
+    .input {
+        min-inline-size: min(420px, 100%);
+    }
+
+	.textarea {
+        min-inline-size: min(420px, 100%);
 		min-block-size: 4rlh;
 		min-block-size: 4lh;
 		max-block-size: 80svh;
+        padding-block: var(--spacing-near);
+        font-size: var(--font-size-base);
 
 		@supports (field-sizing: content) {
 			field-sizing: content;

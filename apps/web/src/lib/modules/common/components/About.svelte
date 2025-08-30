@@ -5,10 +5,7 @@
 
 <section class="section">
 	<div id="about" class="container nc-box nc-stack">
-		<div
-			class="nc-ram-grid"
-			style="--nc-ram-grid-gap: var(--spacing-adaptive); --nc-ram-grid-min-width: 44ch;"
-		>
+		<div class="nc-ram-grid grid">
 			<div class="images">
 				<figure>
 					<enhanced:img src={imgLukas} alt="" sizes="min(32ch, 100vw)" />
@@ -33,7 +30,8 @@
 					</p>
 					<p>
 						Unser Fokus liegt auf <strong>Web, das funktioniert</strong>. Barrierefrei,
-						schnell und sicher muss es immer sein. Ein bisschen Freude soll es machen. Alles andere entscheidet das Projekt.
+						schnell und sicher muss es immer sein. Ein bisschen Freude soll es machen.
+						Alles andere entscheidet das Projekt.
 					</p>
 				</div>
 			</div>
@@ -53,6 +51,13 @@
 		align-items: center;
 	}
 
+    .grid {
+        --nc-ram-grid-gap: var(--spacing-adaptive);
+        --nc-ram-grid-min-width: 44ch;
+
+        inline-size: 100%;
+    }
+
 	.nc-flow,
 	figure {
 		@media (--md-n-above) {
@@ -67,7 +72,7 @@
 	}
 
 	figure {
-        --img-offset: var(--spacing-farthest);
+		--img-offset: var(--spacing-farthest);
 
 		flex-basis: 32ch;
 		display: grid;
@@ -89,7 +94,7 @@
 			transform: translateY(var(--img-offset));
 		}
 
-        margin-block-end: var(--spacing-farthest);
+		margin-block-end: var(--spacing-farthest);
 	}
 
 	.content {
