@@ -62,12 +62,10 @@
 				<li><a class="index-link" href="#m42">Begriffsdefinitionen</a></li>
 			</ul>
 			<h2 id="m3">Verantwortlicher</h2>
-			<p>Luki und Joshi GBR<br />Hamburgerstraße 123<br />21000 Hamburg</p>
+			<p>nordcode Stübner Köller GbR<br />Eduardstr. 43 b<br />20257 Hamburg</p>
 			<p>E-Mail-Adresse: <a href="mailto:moin@nordcode.agency">moin@nordcode.agency</a></p>
 			<p>
-				Impressum: <a href="https://nordcode.agency/impressum/" target="_blank"
-					>https://nordcode.agency/impressum/</a
-				>
+				<a href="/impressum/" target="_blank">Zum Impressum</a>
 			</p>
 
 			<h2 id="mOverview">Übersicht der Verarbeitungen</h2>

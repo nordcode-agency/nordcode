@@ -14,6 +14,7 @@
 				Wir melden uns umgehend bei dir, nachdem wir alles geprüft haben. Normalerweise
 				binnen der nächsten 2-3 Tage.
 			</p>
+            <a href="/" class="nc-button -primary">Zurück zur Startseite</a>
 		</div>
 	</section>
 </div>
