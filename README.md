@@ -55,3 +55,7 @@ Feel free to check them out or use them, if they're useful to you.
 ### Icons
 
 - https://remixicon.com/
+
+## Resources
+
+![landing-page-cheat-sheet](./landing-page-cheat-sheet.png)
