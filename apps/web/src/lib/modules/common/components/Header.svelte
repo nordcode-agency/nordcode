@@ -7,8 +7,8 @@
 		<a href={"/"} aria-label="Startseite" class="home">
 			<Logo />
 		</a>
-		<a class="gradient-text work" href="/#work">Projekte</a>
-		<a class="gradient-text about" href="/#about">Team</a>
+		<a class="gradient-text work" href="/#work">Unsere Projekte</a>
+		<a class="gradient-text about" href="/#about">Das Team</a>
 	</nav>
 </header>
 
@@ -28,25 +28,25 @@
 
 	nav {
 		pointer-events: auto;
-		/* inline-size: min(100%, 60ch); */
 		inline-size: 100%;
 		display: grid;
 		grid:
-			'home home work' auto
-			'home home about' auto
-			/ 1fr 1fr auto;
+			'home home' auto
+			'work about' auto
+			/ auto 1fr ;
 		align-items: center;
 		border-radius: var(--border-radius-large);
+		gap: var(--spacing-base);
 
 		& a:focus-visible {
 		   outline-offset: 0.1lh;
-
 		}
 
 		@media (--sm-n-above) {
 			grid:
 				'home . work about' auto
 				/ auto 1fr auto auto;
+			gap: var(--spacing-far);
 		}
 	}
 
@@ -67,14 +67,13 @@
 	.about {
 		display: block;
 		inline-size: 100%;
-		font-size: calc(var(--font-size-base) * 1.5);
+		font-size: calc(var(--font-size-base) * 1.25);
 		text-decoration: none;
-		color: var(--color-brand-primary-base);
-		padding-inline: var(--spacing-base);
-		text-align: end;
 
 		@media (--md-n-above) {
+			font-size: calc(var(--font-size-base) * 1.35);
 			padding-block: var(--spacing-base);
+			text-align: end;
 		}
 	}
 </style>

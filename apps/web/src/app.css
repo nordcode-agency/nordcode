@@ -90,8 +90,36 @@ p {
                 var(--color-brand-secondary-base)
             );
         }
+
+		&:active {
+            color: var(--text-hover);
+            background: radial-gradient(
+                circle at center left,
+                var(--color-brand-primary-emphasis) -50%,
+                var(--color-brand-primary-base)
+            );
+        }
     }
+
+	&.-muted-brand {
+		border: 0;
+		background: color-mix(in oklch, var(--color-text-base), transparent 92%);
+		color: var(--color-text-base);
+		backdrop-filter: blur(2px);
+		box-shadow: none;
+
+		&:hover {
+			background: color-mix(in oklch, var(--color-surface-base), transparent 30%);
+			color: var(--color-text-base);
+        }
+
+		&:active {
+            background: var(--color-surface-base);
+			color: var(--color-text-base);
+        }
+	}
 }
+
 
 .nc-box {
     padding-block: var(--spacing-adaptive);
@@ -162,6 +190,9 @@ section.nc-box {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+	transition: background-color;
+	transition-duration: var(--transition-duration-short);
+	transition-timing-function: var(--ease-2);
 
     &::selection {
         background-color: var(--color-brand-primary-base);
@@ -170,6 +201,13 @@ section.nc-box {
         background-clip: initial;
         -webkit-text-fill-color: initial;
     }
+
+	&:is(a, button):hover, &:is(a, button):focus-visible {
+		background: linear-gradient(to left, var(--color-brand-primary-base), var(--color-brand-primary-emphasis));
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
+		background-clip: text;
+	}
 }
 
 @keyframes char-fade-in {

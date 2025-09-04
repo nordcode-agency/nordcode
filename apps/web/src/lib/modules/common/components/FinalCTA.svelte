@@ -6,7 +6,7 @@
 
 <div class="container nc-center nc-card | finalCTA">
 	<div class="nc-stack -far prose">
-		<h2 class="font-size-display">Bereit für dein Projekt?</h2>
+		<h2 class="finalCTA-headline">Bereit für dein Projekt?</h2>
 		<p>
 			Wir würden gerne mehr über dein Vorhaben erfahren. Egal ob mit einer konkreten Idee,
 			einer vagen Vorstellung, kleinem oder großen Budget. Erzähl uns mehr, unverbindlich und
@@ -14,9 +14,10 @@
 		</p>
 		<div class="actions">
 			<a class="nc-button -brand" href={ensureTrailingSlash(Navigation.start.url)}
-				>{Navigation.start.name}</a
+				>Starte dein Projekt</a
 			>
-			<a class="nc-button -stealth" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+			<a class="nc-button -muted-brand" href={`mailto:${EMAIL}`}>Schreib uns per Mail</a>
+			<a class="nc-button -muted-brand" href={`https://wa.me/message/6D6KQFSIQQ6EG1`}>Schreib uns per Whatsapp</a>
 		</div>
 	</div>
 </div>
@@ -32,6 +33,11 @@
 		}
 	}
 
+	.finalCTA-headline {
+		font-size: 2.5rem;
+		font-weight: 700;
+	}
+
 	.container {
 		/* --center-measure: 140ch; */
 		--bg-top: light-dark(var(--color-surface-subtle), var(--color-surface-subtle));
@@ -39,7 +45,7 @@
 
 		display: flex;
 		align-items: center;
-		padding: var(--spacing-adaptive);
+		padding: var(--spacing-far) var(--spacing-adaptive);
 		background: radial-gradient(
 				ellipse at top right in oklch,
 				var(--color-brand-primary-base) -40%,
@@ -56,10 +62,15 @@
 	.actions {
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--spacing-near);
+		align-items: center;
+		gap: var(--spacing-base);
 
-		& > a {
+		& a {
 		  font-size: var(--font-size-large);
+
+			&:not(.nc-button) {
+				font-weight: var(--font-weight-active);
+			}
 		}
 	}
 </style>

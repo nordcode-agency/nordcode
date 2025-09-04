@@ -16,7 +16,7 @@
 	<div class="headings">
 		<h1 class="section-title nc-stack">
 		<span class="maintitle">Webseiten, die begeistern</span>
-		<span class="subtitle"> — <strong>
+		<span class="subtitle"><strong>
 		Deine</strong> Webagentur für gute digitale Projekte</span>
 		</h1>
 	</div>
@@ -43,7 +43,7 @@
 				{#snippet action()}
 					<a
 						href={ensureTrailingSlash(Navigation.start.url)}
-						class="nc-button -brand -big">{Navigation.start.name}</a
+						class="nc-button -brand -big">Starte dein Projekt</a
 					>
 				{/snippet}
 			</ActionCard>
