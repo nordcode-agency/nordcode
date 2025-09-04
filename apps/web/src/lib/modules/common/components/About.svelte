@@ -1,6 +1,6 @@
 <script lang="ts">
-	import imgLukas from '$lib/assets/lukas-nordcode.jpg?enhanced&w=360;240';
-	import imgJoshua from '$lib/assets/joshua-nordcode.jpg?enhanced&w=360;240';
+	import imgLukas from '$lib/assets/lukas-nordcode.jpg?enhanced';
+	import imgJoshua from '$lib/assets/joshua-nordcode.jpg?enhanced';
 </script>
 
 <section class="section">
