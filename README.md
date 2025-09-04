@@ -55,6 +55,7 @@ Feel free to check them out or use them, if they're useful to you.
 ### Icons
 
 - https://remixicon.com/
+- https://tabler-icons.io/
 
 ## Resources
 
