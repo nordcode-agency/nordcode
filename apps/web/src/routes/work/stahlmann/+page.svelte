@@ -68,7 +68,7 @@
 
 <h2 id="cms">CMS, Userdaten und Techstack</h2>
 
-<p>Unsere Kundinnen hatten sich schon auf <strong>Wix</strong> festgelegt. Unsere Aufgabe war es also, die Daten dort sinnvoll zu strukturieren und per API sicher abzurufen.<p>
+<p>Unsere Kundinnen hatten sich schon auf <strong>Wix</strong> festgelegt. Unsere Aufgabe war es also, die Daten dort sinnvoll zu strukturieren und per API sicher abzurufen.</p>
 <p>Wix stellt dazu eine ganz vernünftige SDK zur Verfügung, die serverseitig von uns benutazt werden, damit wir keine sensiblen Daten öffentlich machen müssen.</p>
 <p>Dazu haben wir Wix' Anmeldung und Preisplan Funktionen genutzt, damit wirklich nur Kund:innen auf die Inhalte zugreifen können, die den Plan auch gekauft haben.</p>
 <p>Leider bietet Wix keine gute Möglichkeit an, um Nutzerdaten zu speichern. Dafür sind wir dann auch <strong>Cloudflare Worker</strong> ausgewichen, die ganz hervorragend mit unserem Framework der Wahl, <strong>SvelteKit</strong>, zusammenarbeiten.</p>
