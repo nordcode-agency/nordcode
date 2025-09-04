@@ -1,6 +1,6 @@
 <script lang="ts">
-	import imgLukas from '$lib/assets/lukas-nordcode.jpg?enhanced';
-	import imgJoshua from '$lib/assets/joshua-nordcode.jpg?enhanced';
+	import imgLukas from '$lib/assets/lukas-nordcode.jpg?enhanced&w=360;240';
+	import imgJoshua from '$lib/assets/joshua-nordcode.jpg?enhanced&w=360;240';
 </script>
 
 <section class="section">
@@ -8,11 +8,19 @@
 		<div class="nc-ram-grid grid">
 			<div class="images">
 				<figure>
-					<enhanced:img src={imgLukas} alt="" sizes="min(32ch, 100vw)" />
+					<enhanced:img
+                        src={imgLukas}
+                        alt="Lukas von nordcode"
+                        sizes="(min-width: 560px) 360px, 240px"
+                    />
 					<figcaption class="sr-only">Lukas von nordcode</figcaption>
 				</figure>
 				<figure>
-					<enhanced:img src={imgJoshua} alt="" sizes="min(32ch, 100vw)" />
+					<enhanced:img
+                        src={imgJoshua}
+                        alt="Joshua von nordcode"
+                        sizes="(min-width: 560px) 360px, 240px"
+                    />
 					<figcaption class="sr-only">Joshua von nordcode</figcaption>
 				</figure>
 			</div>

@@ -1,7 +1,7 @@
-import WildtierrettungCover from '$lib/assets/projects/wildtierrettung/cover.webp?enhanced';
-import ReadiiCover from '$lib/assets/projects/readii/cover.png?enhanced';
-import StahlmannCover from '$lib/assets/projects/stahlmann/stahlmann-cover.jpeg?enhanced';
-import VeganHamburgCover from '$lib/assets/projects/vegan-hamburg/vegan-hamburg-titlecard.webp?enhanced';
+import WildtierrettungCover from '$lib/assets/projects/wildtierrettung/cover.webp?enhanced&w=980;585;480;360';
+import ReadiiCover from '$lib/assets/projects/readii/cover1.png?enhanced&w=980;585;480;360';
+import StahlmannCover from '$lib/assets/projects/stahlmann/stahlmann-cover.jpeg?enhanced&w=980;585;480;360';
+import VeganHamburgCover from '$lib/assets/projects/vegan-hamburg/vegan-hamburg-titlecard.webp?enhanced&w=980;585;480;360';
 import type { WorkProject } from '$lib/types';
 
 export const projects = [
