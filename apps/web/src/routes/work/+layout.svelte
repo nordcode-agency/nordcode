@@ -34,6 +34,9 @@
 						class="img"
 						src={$page.data.cover?.src}
 						alt={""}
+						loading="eager"
+						decoding="async"
+						fetch-priority="high"
 					/>
 					<figcaption class="sr-only">{$page.data.cover?.alt}</figcaption>
 				</figure>

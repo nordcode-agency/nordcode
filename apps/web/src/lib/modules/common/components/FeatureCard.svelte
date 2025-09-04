@@ -21,6 +21,9 @@
 				class="img"
 				src={cover.src}
 				alt=""
+				loading="lazy"
+				decoding="async"
+				fetch-priority="auto"
 				sizes="
                     (min-width: 1100px) 585px,
                     (min-width: 585px) 980px,

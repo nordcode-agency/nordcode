@@ -1,6 +1,6 @@
 <script lang="ts">
-	import imgLukas from '$lib/assets/lukas-nordcode.jpg?enhanced';
-	import imgJoshua from '$lib/assets/joshua-nordcode.jpg?enhanced';
+	import imgLukas from '$lib/assets/lukas-nordcode.jpg?enhanced&w=720;480;360;240';
+	import imgJoshua from '$lib/assets/joshua-nordcode.jpg?enhanced&w=720;480;360;240';
 </script>
 
 <section class="section">
@@ -12,6 +12,9 @@
                         src={imgLukas}
                         alt="Lukas von nordcode"
                         sizes="(min-width: 560px) 360px, 240px"
+						loading="lazy"
+						decoding="async"
+						fetch-priority="auto"
                     />
 					<figcaption class="sr-only">Lukas von nordcode</figcaption>
 				</figure>
@@ -20,6 +23,9 @@
                         src={imgJoshua}
                         alt="Joshua von nordcode"
                         sizes="(min-width: 560px) 360px, 240px"
+						loading="lazy"
+						decoding="async"
+						fetch-priority="auto"
                     />
 					<figcaption class="sr-only">Joshua von nordcode</figcaption>
 				</figure>
