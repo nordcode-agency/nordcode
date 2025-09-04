@@ -2,6 +2,7 @@
 	import Header from '$lib/modules/common/components/Header.svelte';
 	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 	import type { PageData } from '../$types';
+	import Meta from '$lib/modules/common/components/Meta.svelte';
 
 	interface Props {
 		data: PageData;
@@ -12,9 +13,7 @@
 	const { questions, desc } = data;
 </script>
 
-<svelte:head>
-	<title>{data.title}</title>
-</svelte:head>
+<Meta noIndex title={data.title} description="Wähle aus, welches Projekt deinem am nächsten kommt."></Meta>
 
 <div class="nc-stack fullscreen">
 	<Header />

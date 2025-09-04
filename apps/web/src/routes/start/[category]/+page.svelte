@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Header from '$lib/modules/common/components/Header.svelte';
+	import Meta from '$lib/modules/common/components/Meta.svelte';
 	import { ensureTrailingSlash } from '$lib/utils/ensureTrailingSlash';
 	import type { PageData } from '../$types';
 
@@ -27,9 +28,7 @@
 	};
 </script>
 
-<svelte:head>
-	<title>{data.title}</title>
-</svelte:head>
+<Meta noIndex title={data.title} description="Was ist dein Budget?"></Meta>
 
 <div class="nc-stack fullscreen">
 	<Header />

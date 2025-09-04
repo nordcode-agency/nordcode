@@ -32,8 +32,8 @@ let { data }: Props = $props();
     </div>
 
 <ServicesSection />
-<IntroSection />
 <WorkSection projects={data.projects} />
+<IntroSection />
 <About />
 <section class="section">
 	<div class="nc-box">
