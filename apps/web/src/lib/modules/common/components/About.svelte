@@ -39,7 +39,7 @@
 					</p>
 					<p>
 						Wir leben irgendwo im Norden von Deutschland und sind leidenschaftliche
-						Webentwickler, mit verschiedenen Stärken und Schwächen und großer Lust,
+						Webentwickler mit verschiedenen Stärken und Schwächen und großer Lust,
 						coole Projekte zu bauen.
 					</p>
 					<p>

@@ -14,7 +14,7 @@
 		{
 			title: 'Websites',
 			description:
-				'Wir bauen Dir moderne Webseiten und Webanwendungen, die SEO-optimiert und barrierefrei sind und natürlich auf allen Geräten gut aussehen.',
+				'Wir bauen dir moderne Webseiten und Webanwendungen, die SEO-optimiert und barrierefrei sind und natürlich auf allen Geräten gut aussehen.',
 			cta: {
 				href: '/start/website',
 				label: 'Website erstellen'
@@ -23,7 +23,7 @@
 		{
 			title: 'E-Commerce',
 			description:
-				'Wir erstellen Online-Shops, die Kunden lieben. Leicht zu bedienen, sicher und schnell, damit Dein Projekt ein Erfolg wird.',
+				'Wir erstellen Online-Shops, die Kunden lieben. Leicht zu bedienen, sicher und schnell, damit dein Projekt ein Erfolg wird.',
 			cta: {
 				href: '/start/shop',
 				label: 'Shop eröffnen'

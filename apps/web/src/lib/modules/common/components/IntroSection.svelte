@@ -6,7 +6,7 @@
 	<p class="heading-bg prose">
 		Wir haben eine Leidenschaft für <span class="gradient-text">schönes Design</span> und eine
 		<span class="gradient-text">tolle User Experience</span>. Diese Leidenschaft nutzen wir, um
-		ein Erlebnis für deine Nutzer zu schaffen, dass funktioniert.
+		ein Erlebnis für deine Nutzer zu schaffen, das funktioniert.
 		<span aria-hidden="true" role="presentation" class="intro-icon">
 			<LogoClipPath />
 		</span>
