@@ -1,3 +1,14 @@
+## 2.0.3 (2025-09-11)
+
+### improvements
+
+- add :active state to buttons
+- use more accessbile emhpasis color for selections
+
+### removals
+
+- remove unused .buttonReset class
+
 ## 2.0.2 (2025-05-10)
 
 ### improvements

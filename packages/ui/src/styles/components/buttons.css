@@ -1,10 +1,4 @@
 @layer components.buttons {
-    .buttonReset {
-        padding: 0;
-        border: none;
-        background: none;
-    }
-
     :where(
             button:not([class]),
             button[type]:not([class]),
@@ -57,6 +51,7 @@
         text-decoration: unset;
         box-shadow: var(--_button-box-shadow);
         user-select: none;
+        text-box: cap alphabetic;
         -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none;
 
@@ -71,6 +66,7 @@
             input[type="reset"]:not([class]),
             .nc-button
         ) {
+
         &:hover {
             background: var(--_button-background-hover);
             color: var(--_button-color-hover);
@@ -84,9 +80,15 @@
             font-weight: var(--font-weight-active);
         }
 
-        &:active {
+        &:is(:active, .-active) {
+            background-color: var(--_button-background-hover);
+            color: var(--_button-color-hover);
+            border-color: var(--_button-border-color-hover);
+
             box-shadow: none;
             transform: none;
+            filter: contrast(1.2) saturate(1.1);
+            backdrop-filter: contrast(2);
         }
 
         &[disabled] {
@@ -101,15 +103,6 @@
             transform: none !important;
             filter: contrast(0.72) opacity(0.72);
             cursor: not-allowed;
-        }
-
-        &.-active {
-            background-color: var(--_button-background-hover);
-            color: var(--_button-color-hover);
-            border-color: var(--_button-border-color-hover);
-
-            box-shadow: none;
-            transform: none;
         }
 
         &.-outline {
