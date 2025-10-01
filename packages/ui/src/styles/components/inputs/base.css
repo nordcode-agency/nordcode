@@ -137,7 +137,7 @@
     }
 
     :where(textarea:not([class]), .nc-textarea) {
-        min-block-size: calc(5lh + 2 * var(--_input-padding-block));
+        min-block-size: calc(8lh + 2 * var(--_input-padding-block));
         max-block-size: 80svh;
         min-inline-size: var(--input-inline-size, 100%);
         max-inline-size: 100%;

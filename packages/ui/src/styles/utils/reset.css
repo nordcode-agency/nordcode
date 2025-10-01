@@ -53,6 +53,9 @@
         font-kerning: normal;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
+
+        hanging-punctuation: first allow-end last;
+        word-break: break-word;
     }
 
     :where(body) {
@@ -141,8 +144,18 @@
         letter-spacing: inherit;
     }
 
-    :where(html):has(dialog:modal) {
-        scrollbar-gutter: stable;
-        overflow: hidden;
+    :where(html) {
+        overflow-y: scroll;
+    }
+
+    @supports (scrollbar-gutter: stable) {
+        :where(html) {
+            overflow-y: auto;
+            scrollbar-gutter: stable;
+        }
+    }
+
+    :where(pre) {
+      white-space: pre-wrap;
     }
 }
