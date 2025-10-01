@@ -4,8 +4,8 @@ import SectionTitle from './SectionTitle.astro';
 import type { SmarterSection } from './sections';
 import PageHeader from '../../common/components/PageHeader.astro';
 import SecondaryNav from '../../common/components/SecondaryNav.astro';
-import SparkLine from '../../customComponents/SparkLine/SparkLine.astro';
-import SparkLineSvelte from '../../customComponents/SparkLine/SparkLine.svelte';
+import Sparkline from '../../customComponents/SparkLine/Sparkline.astro';
+import SparklineSvelte from '../../customComponents/SparkLine/Sparkline.svelte';
 
 interface Props {
     sections: SmarterSection[];
@@ -63,22 +63,22 @@ const entries = sections.map((section) => ({
                 <div class="nc-card nc-flow">
                     <h3>Sparkline</h3>
                     <div class="nc-stack -near">
-                        <p>This is an inline Sparkline:<SparkLine data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]} label="Example SparkLine" appearance="gradient" /> </p>
+                        <p>This is an inline Sparkline:<Sparkline data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]} label="Example SparkLine" appearance="gradient" /> </p>
                     </div>
 
                     <div class="nc-stack -near">
                         <p>This is an large Sparkline:</p>
-                        <SparkLine data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]} label="Example SparkLine" appearance="gradient" style="width: min(400px, 100%); height: auto;" />
+                        <Sparkline data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]} label="Example SparkLine" appearance="gradient" style="width: min(400px, 100%); height: auto;" />
                     </div>
 
                     <div class="nc-stack -near">
                         <p>This is an large Sparkline as line only:</p>
-                        <SparkLine data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]} label="Example SparkLine" appearance="line" style="width: min(400px, 100%); height: auto;" />
+                        <Sparkline data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]} label="Example SparkLine" appearance="line" style="width: min(400px, 100%); height: auto;" />
                     </div>
 
                     <div class="nc-stack -near">
                         <p>This is an inline Sparkline in svelte:
-                            <SparkLineSvelte
+                            <SparklineSvelte
                             data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]}
                             label="Example SparkLine"
                             appearance="gradient"
