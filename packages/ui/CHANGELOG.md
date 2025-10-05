@@ -1,3 +1,9 @@
+## 2.0.4 (2025-10-05)
+
+### improvements
+
+-tweaks to css reset
+
 ## 2.0.3 (2025-09-11)
 
 ### improvements
