@@ -51,7 +51,6 @@
         text-decoration: unset;
         box-shadow: var(--_button-box-shadow);
         user-select: none;
-        text-box: cap alphabetic;
         -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none;
 

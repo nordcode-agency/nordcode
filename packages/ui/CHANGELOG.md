@@ -1,3 +1,9 @@
+## 2.0.5 (2025-10-11)
+
+### fixes 
+
+-fix input type=file buttons not being aligned
+
 ## 2.0.4 (2025-10-05)
 
 ### improvements
