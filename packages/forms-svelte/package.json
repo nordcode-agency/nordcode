@@ -40,7 +40,6 @@
         "svelte": "^5"
     },
     "devDependencies": {
-        "@biomejs/biome": "1.9.4",
         "@markdoc/markdoc": "^0.4.0",
         "@sveltejs/adapter-auto": "^3.3.1",
         "@sveltejs/kit": "^2.7.3",

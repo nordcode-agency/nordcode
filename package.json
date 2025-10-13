@@ -5,16 +5,15 @@
         "invoice": "pnpm --filter \"@nordcode/invoice\" dev",
         "ui-generator": "pnpm --filter \"@nordcode/ui-generator\" dev",
         "questionnaire-generator": "pnpm --filter \"@nordcode/questionnaire-generator\" dev",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "format": "dprint fmt",
         "changeset:status": "changeset status",
         "changeset:add": "changeset",
         "changeset:version": "changeset version",
-        "changeset:publish": "changeset publish",
-        "biome:ui-generator": "biome format apps/ui-generator --write && biome lint apps/ui-generator --apply"
+        "changeset:publish": "changeset publish"
     },
     "devDependencies": {
-        "@biomejs/biome": "1.9.4",
         "@changesets/cli": "2.27.9",
+        "dprint": "^0.50.2",
         "prettier": "3.3.3"
     },
     "packageManager": "pnpm@9.12.3",
