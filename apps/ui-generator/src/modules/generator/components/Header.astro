@@ -1,7 +1,7 @@
 ---
-import Themepicker from './Themepicker.astro';
-import ConfigLoader from '../../store/components/ConfigLoader.svelte';
 import ResetButton from '../../common/components/ResetButton.svelte';
+import ConfigLoader from '../../store/components/ConfigLoader.svelte';
+import Themepicker from './Themepicker.astro';
 
 const currentPage = Astro.url.pathname;
 
@@ -29,7 +29,9 @@ const links = [
                     fill-rule="evenodd"
                     clip-rule="evenodd"
                     d="M500 0C500 112.561 462.806 216.434 400.037 300H800V500V500.164C638.944 505.438 510 637.661 510 800H300C300 687.439 337.194 583.566 399.963 500H0V300V299.836C3.31997 299.945 6.65359 300 10 300C175.685 300 310 165.685 310 0H500Z"
-                    fill="black"></path>
+                    fill="black"
+                >
+                </path>
             </svg>
         </span>UI Generator
     </h1>
@@ -52,15 +54,14 @@ const links = [
             <span class="text-assistive">Import theme</span>
             <svg
                 class="nc-icon"
-                style="transform: rotate(225deg);"
+                style="transform: rotate(225deg)"
                 aria-hidden="true"
                 focusable="false"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
             >
-                <path
-                    d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20ZM13 12V16H11V12H8L12 8L16 12H13Z"
-                ></path>
+                <path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20ZM13 12V16H11V12H8L12 8L16 12H13Z">
+                </path>
             </svg>
         </button>
         <button
@@ -73,13 +74,12 @@ const links = [
                 class="nc-icon"
                 aria-hidden="true"
                 focusable="false"
-                style="transform: rotate(45deg);"
+                style="transform: rotate(45deg)"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
             >
-                <path
-                    d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20ZM13 12V16H11V12H8L12 8L16 12H13Z"
-                ></path>
+                <path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20ZM13 12V16H11V12H8L12 8L16 12H13Z">
+                </path>
             </svg>
         </button>
         <ResetButton client:only="svelte" />
@@ -92,9 +92,8 @@ const links = [
                 aria-hidden="true"
                 focusable="false"
             >
-                <path
-                    d="M22 20H2V18H3V11.0314C3 6.04348 7.02944 2 12 2C16.9706 2 21 6.04348 21 11.0314V18H22V20ZM5 18H19V11.0314C19 7.14806 15.866 4 12 4C8.13401 4 5 7.14806 5 11.0314V18ZM9.5 21H14.5C14.5 22.3807 13.3807 23.5 12 23.5C10.6193 23.5 9.5 22.3807 9.5 21Z"
-                ></path>
+                <path d="M22 20H2V18H3V11.0314C3 6.04348 7.02944 2 12 2C16.9706 2 21 6.04348 21 11.0314V18H22V20ZM5 18H19V11.0314C19 7.14806 15.866 4 12 4C8.13401 4 5 7.14806 5 11.0314V18ZM9.5 21H14.5C14.5 22.3807 13.3807 23.5 12 23.5C10.6193 23.5 9.5 22.3807 9.5 21Z">
+                </path>
             </svg>
         </button>
         <Themepicker />
@@ -102,33 +101,33 @@ const links = [
 </div>
 
 <style>
-    .header {
-        background: var(--color-surface-base);
-        padding-block: var(--spacing-near);
-        padding-inline: var(--spacing-base);
-        border-bottom: var(--border-width-thin) solid var(--color-border-base);
-        inline-size: 100%;
-        max-inline-size: 100%;
-        position: sticky;
-        inset-block-start: 0;
-        z-index: 1;
+.header {
+    background: var(--color-surface-base);
+    padding-block: var(--spacing-near);
+    padding-inline: var(--spacing-base);
+    border-bottom: var(--border-width-thin) solid var(--color-border-base);
+    inline-size: 100%;
+    max-inline-size: 100%;
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 1;
+}
+
+nav a {
+    text-decoration: none;
+    text-underline-offset: 0.2em;
+    color: var(--color-text-muted);
+
+    &:hover {
+        text-decoration: underline;
     }
 
-    nav a {
-        text-decoration: none;
-        text-underline-offset: 0.2em;
-        color: var(--color-text-muted);
-
-        &:hover {
-            text-decoration: underline;
-        }
-
-        &[aria-current='page'] {
-            font-weight: var(--font-weight-active);
-        }
+    &[aria-current="page"] {
+        font-weight: var(--font-weight-active);
     }
+}
 
-    h1 {
-        font-size: var(--font-size-base);
-    }
+h1 {
+    font-size: var(--font-size-base);
+}
 </style>

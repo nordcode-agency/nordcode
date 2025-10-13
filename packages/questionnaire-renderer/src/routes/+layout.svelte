@@ -17,12 +17,12 @@ const {
 </svelte:head>
 
 <main>
-{@render children?.()}
+    {@render children?.()}
 </main>
 
 <style>
-    main {
-        /* padding-block-start: 90px; equals <Navigation> block-size */
-        min-block-size: 100dvh;
-    }
+main {
+    /* padding-block-start: 90px; equals <Navigation> block-size */
+    min-block-size: 100dvh;
+}
 </style>

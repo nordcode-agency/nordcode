@@ -5,15 +5,16 @@ Inspired by https://proportio.app/
 ## Design
 
 Like proportio:
+
 - Left side settings, right side preview
 - Settings are grouped by category
 - Different major categories:
-    - [x] Typography
-    - [x] Spacing
-    - [x] Colors
-    - [x] Shadows
-    - [x] Borders
-    - [ ] Extras
+  - [x] Typography
+  - [x] Spacing
+  - [x] Colors
+  - [x] Shadows
+  - [x] Borders
+  - [ ] Extras
 
 See ui package config.
 
@@ -21,4 +22,3 @@ See ui package config.
 
 - [x] Preview like the HTML5 Design or and components
 - [x] Export and Import settings
-

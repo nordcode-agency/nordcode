@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 200">
-  <rect width="160" height="160" x="70" y="20" fill="var(--color-brand-primary-surface)" rx="4"/>
-  <rect width="160" height="40" x="70" y="20" fill="var(--color-brand-primary-base)" rx="4"/>
-  <rect width="160" height="40" x="70" y="80" fill="var(--color-brand-primary-base)" rx="4"/>
-  <rect width="160" height="40" x="70" y="140" fill="var(--color-brand-primary-base)" rx="4"/>
+    <rect width="160" height="160" x="70" y="20" fill="var(--color-brand-primary-surface)" rx="4" />
+    <rect width="160" height="40" x="70" y="20" fill="var(--color-brand-primary-base)" rx="4" />
+    <rect width="160" height="40" x="70" y="80" fill="var(--color-brand-primary-base)" rx="4" />
+    <rect width="160" height="40" x="70" y="140" fill="var(--color-brand-primary-base)" rx="4" />
 </svg>

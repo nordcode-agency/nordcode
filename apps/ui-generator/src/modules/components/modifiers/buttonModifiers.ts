@@ -9,8 +9,7 @@ export const buttonModifiers = [
     },
     {
         name: '-active',
-        description:
-            'Set the button to an active style. Use it for tag filter buttons that selected.',
+        description: 'Set the button to an active style. Use it for tag filter buttons that selected.',
     },
     {
         name: '-small',
@@ -35,5 +34,5 @@ export const buttonModifiers = [
     {
         name: '-aligned',
         description: 'Add negative margin to align the button like it had no padding.',
-    }
+    },
 ];

@@ -215,7 +215,7 @@ const defaultStore: ConfigStore = {
 
     // COLORS
 
-    //basics
+    // basics
     lightnessMax: 0.99,
     lightnessMin: 0.03,
     neutralChromaScale: 0.95,
@@ -364,7 +364,6 @@ export const setDensityPreset = (preset: DensityPresetName) => {
     });
 };
 
-export const configStore =
-    typeof localStorage === 'undefined'
-        ? undefined
-        : localStore<ConfigStore>(STORE_KEY, defaultStore);
+export const configStore = typeof localStorage === 'undefined'
+    ? undefined
+    : localStore<ConfigStore>(STORE_KEY, defaultStore);

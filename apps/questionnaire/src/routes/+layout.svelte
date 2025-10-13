@@ -16,13 +16,13 @@ let { children }: WithChildren = $props();
 
 <!-- <Header></Header> -->
 <main>
-{@render children?.()}
+    {@render children?.()}
 </main>
 <Footer></Footer>
 
 <style>
-    main {
-        /* padding-block-start: 90px; equals <Navigation> block-size */
-        min-block-size: 100dvh;
-    }
+main {
+    /* padding-block-start: 90px; equals <Navigation> block-size */
+    min-block-size: 100dvh;
+}
 </style>

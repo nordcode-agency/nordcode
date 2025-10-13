@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 200">
-  <rect width="160" height="8" x="70" y="150" fill="var(--color-text-base)" rx="2"/>
-  <rect width="102" height="8" x="70" y="163" fill="var(--color-text-base)" rx="2"/>
-  <rect width="80" height="12" x="70" y="24" fill="var(--color-text-base)" rx="2"/>
-  <rect width="80" height="12" x="70" y="133" fill="var(--color-text-base)" rx="2"/>
-  <rect width="160" height="37" x="70" y="84" fill="var(--color-text-base)" rx="2"/>
-  <rect width="160" height="8" x="70" y="41" fill="var(--color-text-base)" rx="2"/>
-  <rect width="114" height="8" x="70" y="67" fill="var(--color-text-base)" rx="2"/>
-  <rect width="143" height="8" x="70" y="54" fill="var(--color-text-base)" rx="2"/>
+    <rect width="160" height="8" x="70" y="150" fill="var(--color-text-base)" rx="2" />
+    <rect width="102" height="8" x="70" y="163" fill="var(--color-text-base)" rx="2" />
+    <rect width="80" height="12" x="70" y="24" fill="var(--color-text-base)" rx="2" />
+    <rect width="80" height="12" x="70" y="133" fill="var(--color-text-base)" rx="2" />
+    <rect width="160" height="37" x="70" y="84" fill="var(--color-text-base)" rx="2" />
+    <rect width="160" height="8" x="70" y="41" fill="var(--color-text-base)" rx="2" />
+    <rect width="114" height="8" x="70" y="67" fill="var(--color-text-base)" rx="2" />
+    <rect width="143" height="8" x="70" y="54" fill="var(--color-text-base)" rx="2" />
 </svg>

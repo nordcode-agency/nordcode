@@ -1,6 +1,6 @@
-import fs from 'node:fs/promises';
 import { InvoicePath } from '$lib/db/config/FilePaths';
 import type { Invoice } from '$lib/invoice/models/Invoice.model';
+import fs from 'node:fs/promises';
 
 export async function loadInvoices(): Promise<Invoice[]> {
     try {

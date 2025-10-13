@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 200">
-  <rect width="160" height="100" x="70" y="50" fill="var(--color-brand-primary-surface)" rx="4"/>
-  <rect width="60" height="60" x="82" y="65" fill="var(--color-brand-primary-base)" rx="4"/>
-  <rect width="60" height="60" x="150" y="65" fill="var(--color-brand-primary-base)" rx="4"/>
-  <path fill="var(--color-brand-primary-base)" d="M218 69a4 4 0 0 1 4-4h8v60h-8a4 4 0 0 1-4-4V69Z"/>
-  <rect width="154" height="8" fill="var(--color-text-base)" rx="4" transform="matrix(1 0 0 -1 73 148)"/>
-  <rect width="68" height="6" x="74" y="141" fill="#fff" rx="3"/>
+    <rect width="160" height="100" x="70" y="50" fill="var(--color-brand-primary-surface)" rx="4" />
+    <rect width="60" height="60" x="82" y="65" fill="var(--color-brand-primary-base)" rx="4" />
+    <rect width="60" height="60" x="150" y="65" fill="var(--color-brand-primary-base)" rx="4" />
+    <path fill="var(--color-brand-primary-base)" d="M218 69a4 4 0 0 1 4-4h8v60h-8a4 4 0 0 1-4-4V69Z" />
+    <rect width="154" height="8" fill="var(--color-text-base)" rx="4" transform="matrix(1 0 0 -1 73 148)" />
+    <rect width="68" height="6" x="74" y="141" fill="#fff" rx="3" />
 </svg>

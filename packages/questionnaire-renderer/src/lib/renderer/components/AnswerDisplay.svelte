@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { QuestionType } from '@nordcode/questionnaire-renderer';
-    import { convertToHtml } from '@nordcode/forms-svelte';
-    import { rendererStore, goToQuestion } from '../store/rendererStore.ts';
+import { convertToHtml } from '@nordcode/forms-svelte';
+import { QuestionType } from '@nordcode/questionnaire-renderer';
+import { goToQuestion, rendererStore } from '../store/rendererStore.ts';
 </script>
 
 <dl>
@@ -9,7 +9,7 @@
         {#if answer.answer}
             <dt>{answer.question.title}</dt>
             <dd class="nc-cluster -between">
-                <span style="max-inline-size: var(--measure-base);">
+                <span style="max-inline-size: var(--measure-base)">
                     {#if answer.question.type === QuestionType.long_text}
                         {@html convertToHtml(answer.answer as string)}
                     {:else}
@@ -18,8 +18,10 @@
                 </span>
                 <button
                     class="nc-button -primary -stealth -aligned"
-                    onclick={() => goToQuestion(idx)}>Bearbeiten</button
+                    onclick={() => goToQuestion(idx)}
                 >
+                    Bearbeiten
+                </button>
             </dd>
         {/if}
     {/each}

@@ -1,7 +1,5 @@
 <script>
-
 </script>
-
 
 <template id="nc-notification">
     <div class="nc-notification">

@@ -1,6 +1,6 @@
+import { deleteBankdetail, updateOrCreateBankdetail } from '$lib/db/api/bankDetails';
 import type { BankingDetails } from '$lib/invoice/models/Invoice.model';
-import { type RequestHandler, json } from '@sveltejs/kit';
-import { updateOrCreateBankdetail, deleteBankdetail } from '$lib/db/api/bankDetails';
+import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const POST: RequestHandler = async ({ request }) => {
     const bankDetails = (await request.json()) as BankingDetails;

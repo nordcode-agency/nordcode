@@ -50,20 +50,20 @@ $effect(() => {
 </div>
 
 <style>
-    .nc-grid {
-        grid-template-columns: 1fr 1fr;
-        inline-size: 100%;
-    }
+.nc-grid {
+    grid-template-columns: 1fr 1fr;
+    inline-size: 100%;
+}
 
-    .preview-box {
-        background: var(--color-surface-subtle);
-    }
+.preview-box {
+    background: var(--color-surface-subtle);
+}
 
-    .spacings div {
-        inline-size: 6rem;
-        block-size: 6rem;
-        border-radius: var(--border-radius-medium);
-        box-shadow: var(--shadow-near);
-        background: var(--color-surface-base);
-    }
+.spacings div {
+    inline-size: 6rem;
+    block-size: 6rem;
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-near);
+    background: var(--color-surface-base);
+}
 </style>

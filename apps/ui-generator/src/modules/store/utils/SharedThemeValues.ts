@@ -1,7 +1,6 @@
 import Color from 'colorjs.io';
 
-export const getWarningLightness = (lightness: number) =>
-    Math.min(Math.max(lightness + 25, 80), 92);
+export const getWarningLightness = (lightness: number) => Math.min(Math.max(lightness + 25, 80), 92);
 
 export const getInfoLightness = (lightness: number) => Math.min(Math.max(lightness, 55), 74);
 export const getDangerLightness = (lightness: number) => Math.min(Math.max(lightness, 58), 68);
@@ -41,8 +40,7 @@ const getHueRotation = (
     distance: number,
 ): number => {
     const maxHueRotation = 20;
-    const hueRotation =
-        Math.abs(currentLightness - targetLightness) * (distance / 100) * maxHueRotation;
+    const hueRotation = Math.abs(currentLightness - targetLightness) * (distance / 100) * maxHueRotation;
     return hueRotation;
 };
 /*
@@ -256,11 +254,10 @@ export const getLightColorValues = (
 
     const [contrastLight, contrastDark] = [whiteScale(1), blackScale(1)];
 
-    const contrast =
-        Math.abs(contrastLight.contrast(whiteScale(0), 'APCA')) >
-        Math.abs(contrastDark.contrast(whiteScale(0), 'APCA'))
-            ? contrastLight.oklch
-            : contrastDark.oklch;
+    const contrast = Math.abs(contrastLight.contrast(whiteScale(0), 'APCA')) >
+            Math.abs(contrastDark.contrast(whiteScale(0), 'APCA'))
+        ? contrastLight.oklch
+        : contrastDark.oklch;
 
     return {
         emphasis: generateValueString(emphasis[0], emphasis[1], emphasis[2]),
@@ -285,11 +282,10 @@ export const getDarkColorValues = (
 
     const [contrastLight, contrastDark] = [whiteScale(1), blackScale(1)];
 
-    const contrast =
-        Math.abs(contrastLight.contrast(whiteScale(0), 'APCA')) >
-        Math.abs(contrastDark.contrast(whiteScale(0), 'APCA'))
-            ? contrastLight.oklch
-            : contrastDark.oklch;
+    const contrast = Math.abs(contrastLight.contrast(whiteScale(0), 'APCA')) >
+            Math.abs(contrastDark.contrast(whiteScale(0), 'APCA'))
+        ? contrastLight.oklch
+        : contrastDark.oklch;
 
     return {
         emphasis: generateValueString(emphasis[0], emphasis[1], emphasis[2]),

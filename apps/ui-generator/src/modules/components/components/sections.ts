@@ -113,8 +113,7 @@ const sections: Array<Section> = [
             {
                 title: 'Button Base',
                 preview: buttonPreview,
-                description:
-                    'Primarily used for interface interactions. Has a lot of variations and semantic power.',
+                description: 'Primarily used for interface interactions. Has a lot of variations and semantic power.',
                 requirements: [
                     '@nordcode/ui/colors',
                     '@nordcode/ui/utils/theme',
@@ -175,8 +174,7 @@ const sections: Array<Section> = [
                 examples: [
                     {
                         title: 'Standard Fieldset',
-                        description:
-                            'A more practical example with inputs and a box around it for design purposes.',
+                        description: 'A more practical example with inputs and a box around it for design purposes.',
                         code: fieldsetStandard,
                     },
                     {
@@ -255,8 +253,7 @@ const sections: Array<Section> = [
             },
             {
                 title: 'Select',
-                description:
-                    'Selects are useful for when you have more than 5 items, but still a managable amount.',
+                description: 'Selects are useful for when you have more than 5 items, but still a managable amount.',
                 component: inputSelect,
                 preview: selectPreview,
             },
@@ -333,8 +330,7 @@ const sections: Array<Section> = [
                 examples: [
                     {
                         title: 'Horizontal Table',
-                        description:
-                            'Sometimes tables make more sense to be horizontal. This is how you do it.',
+                        description: 'Sometimes tables make more sense to be horizontal. This is how you do it.',
                         code: tableHorizontal,
                     },
                 ],
@@ -372,8 +368,7 @@ const sections: Array<Section> = [
                 examples: [
                     {
                         title: 'With Read more and extra link',
-                        description:
-                            'Sometimes you want a "Read more" button and a link to an author',
+                        description: 'Sometimes you want a "Read more" button and a link to an author',
                         code: clickableCardWithReadMore,
                         notes: [
                             'The Read More button is not an actual button nor should it be. It should be hidden from screen readers.',
@@ -467,8 +462,7 @@ const sections: Array<Section> = [
                     },
                     {
                         name: '-contained',
-                        description:
-                            'Contains the stack to the width of the parent. Prevents overflow.',
+                        description: 'Contains the stack to the width of the parent. Prevents overflow.',
                     },
 
                     ...spacingModifiers,
@@ -523,13 +517,11 @@ const sections: Array<Section> = [
                 cssVariables: [
                     {
                         name: '--center-measure',
-                        description:
-                            'Set the max width of the container. Defaults to <code>max-content</code>.',
+                        description: 'Set the max width of the container. Defaults to <code>max-content</code>.',
                     },
                     {
                         name: '--center-padding',
-                        description:
-                            'Set the padding of the container. Defaults to <code>0</code>.',
+                        description: 'Set the padding of the container. Defaults to <code>0</code>.',
                     },
                 ],
                 notes: [
@@ -555,13 +547,11 @@ const sections: Array<Section> = [
                     },
                     {
                         name: '--with-sidebar-target-width',
-                        description:
-                            'Control the target size of the aside. Defaults to <code>20rem</code>',
+                        description: 'Control the target size of the aside. Defaults to <code>20rem</code>',
                     },
                     {
                         name: '--with-sidebar-min-size',
-                        description:
-                            'Control the min size of the main. Defaults to <code>50%</code>',
+                        description: 'Control the min size of the main. Defaults to <code>50%</code>',
                     },
                 ],
                 notes: ['Use it for standard image text sections or sidebar navigations.'],
@@ -591,8 +581,7 @@ const sections: Array<Section> = [
                     },
                     {
                         name: '--grid-min-item-size',
-                        description:
-                            'Set the minimum size for the grid items. Defaults to <code>16rem</code>.',
+                        description: 'Set the minimum size for the grid items. Defaults to <code>16rem</code>.',
                     },
                     {
                         name: '--grid-gap',
@@ -610,8 +599,7 @@ const sections: Array<Section> = [
                 cssVariables: [
                     {
                         name: '--switcher-vertical-alignment',
-                        description:
-                            'Sets the vertical alignment of th items. Defaults to <code>flex-start</code>.',
+                        description: 'Sets the vertical alignment of th items. Defaults to <code>flex-start</code>.',
                     },
                     {
                         name: '--switcher-target-container-width',
@@ -628,8 +616,7 @@ const sections: Array<Section> = [
                 title: 'Pile',
                 component: pile,
                 preview: pilePreview,
-                description:
-                    'Pile items on top of each other. Prefer this over position: absolute.',
+                description: 'Pile items on top of each other. Prefer this over position: absolute.',
             },
             {
                 title: 'Region',
@@ -654,8 +641,7 @@ const sections: Array<Section> = [
                 cssVariables: [
                     {
                         name: '--flow-base-measure',
-                        description:
-                            'Set the max size of any non-headline content. Defaults to <code>72ch</code>.',
+                        description: 'Set the max size of any non-headline content. Defaults to <code>72ch</code>.',
                     },
                     {
                         name: '--flow-headline-measure',
@@ -672,8 +658,7 @@ const sections: Array<Section> = [
                 modifiers: [
                     {
                         name: '-custom-scrollbar',
-                        description:
-                            'Enable a styled custom scrollbar. See CSS Variables for customization.',
+                        description: 'Enable a styled custom scrollbar. See CSS Variables for customization.',
                     },
                     ...spacingModifiers,
                 ],
@@ -710,13 +695,11 @@ const sections: Array<Section> = [
                     },
                     {
                         name: '--gallery-scrollbar-height',
-                        description:
-                            'Set the scrollbar height. Defaults to <var>--spacing-base</var>.',
+                        description: 'Set the scrollbar height. Defaults to <var>--spacing-base</var>.',
                     },
                     {
                         name: '--gallery-gap',
-                        description:
-                            'Set the gap bwteen th children. Defaults to <var>--spacing-base</var>.',
+                        description: 'Set the gap bwteen th children. Defaults to <var>--spacing-base</var>.',
                     },
                 ],
             },

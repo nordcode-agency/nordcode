@@ -1,46 +1,44 @@
 <script lang="ts">
-    import type { FormEventHandler } from 'svelte/elements';
-    import type { Option } from '../../shared/models/Option.ts';
-    import type { GenericInputProps } from './types/GenericInputProps.ts';
+import type { FormEventHandler } from 'svelte/elements';
+import type { Option } from '../../shared/models/Option.ts';
+import type { GenericInputProps } from './types/GenericInputProps.ts';
 
-    interface CheckboxInputFieldProps extends GenericInputProps {
-        options: Option[];
-        value?: (number | string | boolean)[];
+interface CheckboxInputFieldProps extends GenericInputProps {
+    options: Option[];
+    value?: (number | string | boolean)[];
+}
+
+let {
+    label,
+    name = label.split(' ').join('').toLowerCase(),
+    id = `${name}-label`,
+    errors = [],
+    hint = '',
+    required = true,
+    options,
+    value = $bindable(),
+    class: className,
+    ...rest
+}: CheckboxInputFieldProps = $props();
+
+const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
+    const target = event.target as HTMLInputElement;
+
+    if (!value) {
+        value = [];
     }
 
-    let {
-        label,
-        name = label.split(' ').join('').toLowerCase(),
-        id = `${name}-label`,
-        errors = [],
-        hint = '',
-        required = true,
-        options,
-        value = $bindable(),
-        class: className,
-        ...rest
-    }: CheckboxInputFieldProps = $props();
-
-    const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
-        const target = event.target as HTMLInputElement;
-
-        if (!value) {
-            value = [];
-        }
-
-        if (target.checked) {
-            value.push(+target.value);
-        } else {
-            value = value.filter(v => v !== +target.value);
-        }
-    };
+    if (target.checked) {
+        value.push(+target.value);
+    } else {
+        value = value.filter(v => v !== +target.value);
+    }
+};
 </script>
 
 <fieldset class="nc-fieldset nc-input-field nc-checkbox-field" onchange={handleChange}>
     <legend class="nc-legend nc-stack">
-        <span class="nc-input-label" {id}
-            >{label}{#if !required}(optional){/if}</span
-        >
+        <span class="nc-input-label" {id}>{label}{#if !required}(optional){/if}</span>
         {#if hint}
             <span class="nc-hint" id={`${id}-hint`}>{hint}</span>
         {/if}

@@ -14,13 +14,17 @@ const { breadcrumbs } = Astro.props;
 <!-- COMPONENT-START: nc-breadcrumbs -->
 <nav>
     <ol class="nc-list-reset nc-cluster -nogap nc-breadcrumbs">
-        { breadcrumbs.map((bc, index) => (
-                <li class="nc-breadcrumb-item"><a
+        {
+            breadcrumbs.map((bc, index) => (
+                <li class="nc-breadcrumb-item">
+                    <a
                         class="nc-breadcrumb-link nc-slub"
-                        href={ bc.url }
-                        aria-current={ index === breadcrumbs.length - 1 ? "page" : undefined }>{ bc.name }</a>
+                        href={bc.url}
+                        aria-current={index === breadcrumbs.length - 1 ? 'page' : undefined}
+                    >{bc.name}</a>
                 </li>
-        )) }
+            ))
+        }
     </ol>
 </nav>
 <!-- COMPONENT-END: nc-breadcrumbs -->

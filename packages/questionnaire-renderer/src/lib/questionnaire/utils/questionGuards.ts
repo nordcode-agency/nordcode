@@ -1,5 +1,4 @@
-import { QuestionType, type Question, type QuestionWithOption } from "../models/Questionnaire.model.ts";
-
+import { type Question, QuestionType, type QuestionWithOption } from '../models/Questionnaire.model.ts';
 
 export const questionHasOptions = (question: Question): question is QuestionWithOption => {
     return (

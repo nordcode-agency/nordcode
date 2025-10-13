@@ -10,26 +10,26 @@ const { entries } = Astro.props;
 ---
 
 <style>
-    nav {
-        position: sticky;
-        inset-block-start: 0;
-        inset-inline: 0;
-        inline-size: 100%;
-        padding-block: var(--spacing-near);
-        background: var(--color-surface-muted);
-        box-shadow: var(--shadow-near);
-        padding-inline: var(--nav-padding-inline, var(--spacing-base));
-        border-block-end: var(--border-width-thin) solid var(--color-border-muted);
-        z-index: 2;
-    }
+nav {
+    position: sticky;
+    inset-block-start: 0;
+    inset-inline: 0;
+    inline-size: 100%;
+    padding-block: var(--spacing-near);
+    background: var(--color-surface-muted);
+    box-shadow: var(--shadow-near);
+    padding-inline: var(--nav-padding-inline, var(--spacing-base));
+    border-block-end: var(--border-width-thin) solid var(--color-border-muted);
+    z-index: 2;
+}
 
-    a {
-        text-decoration: none;
+a {
+    text-decoration: none;
 
-        &:hover {
-            text-decoration: underline;
-        }
+    &:hover {
+        text-decoration: underline;
     }
+}
 </style>
 
 <nav>

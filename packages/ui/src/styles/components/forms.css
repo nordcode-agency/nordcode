@@ -34,13 +34,9 @@
         }
     }
 
-    :where(
-            :is(fieldset:not([class]), .nc-fieldset):has(
-                    :is(.nc-legend + .nc-hint, legend:not([class]) + .nc-hint)
-                )
-                > :is(legend:not([class]), .nc-legend)
-                + .nc-hint
-        ) {
+    :where(:is(fieldset:not([class]), .nc-fieldset):has(:is(.nc-legend + .nc-hint, legend:not([class]) + .nc-hint))
+        > :is(legend:not([class]), .nc-legend)
+        + .nc-hint) {
         --nc-legend-spacing: var(--control-spacing-tiny, 0.25em);
         margin-block: var(--control-spacing-base, 0.75em);
     }

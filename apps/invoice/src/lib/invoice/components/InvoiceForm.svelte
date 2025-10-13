@@ -1,40 +1,40 @@
 <script lang="ts">
-    import { addJobDescription, currentInvoice, removeJobDescription } from '../invoiceStore';
-    import { Input, TextArea, CheckboxInput } from '@nordcode/forms-svelte';
-    import { MarkdownEditor } from '@nordcode/forms-svelte/markdown';
-    import type { Issuer, BankingDetails, Recipient } from '$lib/invoice/models/Invoice.model';
-    import IssuerSelect from '$lib/invoice/components/IssuerSelect.svelte';
-    import BankDetailsSelect from '$lib/invoice/components/BankDetailsSelect.svelte';
-    import RecipientSelect from '$lib/invoice/components/RecipientSelect.svelte';
+import BankDetailsSelect from '$lib/invoice/components/BankDetailsSelect.svelte';
+import IssuerSelect from '$lib/invoice/components/IssuerSelect.svelte';
+import RecipientSelect from '$lib/invoice/components/RecipientSelect.svelte';
+import type { BankingDetails, Issuer, Recipient } from '$lib/invoice/models/Invoice.model';
+import { CheckboxInput, Input, TextArea } from '@nordcode/forms-svelte';
+import { MarkdownEditor } from '@nordcode/forms-svelte/markdown';
+import { addJobDescription, currentInvoice, removeJobDescription } from '../invoiceStore';
 
-    interface InvoiceFormProps {
-        availableIssuers: Issuer[];
-        availableRecipients: Recipient[];
-        availableBankingDetails: BankingDetails[];
+interface InvoiceFormProps {
+    availableIssuers: Issuer[];
+    availableRecipients: Recipient[];
+    availableBankingDetails: BankingDetails[];
+}
+
+export const {
+    availableIssuers = [],
+    availableRecipients = [],
+    availableBankingDetails = [],
+}: InvoiceFormProps = $props();
+
+const createInvoice = async (event: SubmitEvent) => {
+    event.preventDefault();
+
+    const res = await fetch('/invoices', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify($currentInvoice.invoice),
+    });
+
+    if (res.status === 201) {
+        const { invoiceNumber } = await res.json();
+        location.href = `/view/${invoiceNumber}`;
     }
-
-    export const {
-        availableIssuers = [],
-        availableRecipients = [],
-        availableBankingDetails = [],
-    }: InvoiceFormProps = $props();
-
-    const createInvoice = async (event: SubmitEvent) => {
-        event.preventDefault();
-
-        const res = await fetch('/invoices', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify($currentInvoice.invoice),
-        });
-
-        if (res.status === 201) {
-            const { invoiceNumber } = await res.json();
-            location.href = `/view/${invoiceNumber}`;
-        }
-    };
+};
 </script>
 
 <form class="nc-stack -farthest full-width -contained -stretched" onsubmit={createInvoice}>
@@ -55,12 +55,11 @@
                             aria-hidden="true"
                             class="nc-icon"
                             data-size="inline"
-                            ><path fill="none" d="M0 0h24v24H0z" /><path
-                                d="M6 4v16a1 1 0 0 0 1.524.852l13-8a1 1 0 0 0 0-1.704l-13-8A1 1 0 0 0 6 4z"
-                            /></svg
                         >
-                        <span>Rechnungs Generieren</span></a
-                    >
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path d="M6 4v16a1 1 0 0 0 1.524.852l13-8a1 1 0 0 0 0-1.704l-13-8A1 1 0 0 0 6 4z" />
+                        </svg>
+                        <span>Rechnungs Generieren</span></a>
                 </li>
             </ul>
         </nav>
@@ -180,7 +179,8 @@
                             class="nc-button -small -destructive"
                             type="button"
                             onclick={() => removeJobDescription(job.id)}
-                            >Leistung "{index + 1}" löschen
+                        >
+                            Leistung "{index + 1}" löschen
                         </button>
                     </fieldset>
                 </div>
@@ -315,44 +315,44 @@
 </form>
 
 <style>
-    header {
-        position: sticky;
-        inset-block-start: 0;
-        inset-inline: 0;
-        inline-size: 100%;
-        padding-block: var(--spacing-near);
-        background: var(--color-surface-muted);
-        box-shadow: var(--shadow-near);
-        padding-inline: var(--spacing-base);
-        border-block-end: var(--border-width-thin) solid var(--color-border-muted);
-        z-index: 2;
-    }
+header {
+    position: sticky;
+    inset-block-start: 0;
+    inset-inline: 0;
+    inline-size: 100%;
+    padding-block: var(--spacing-near);
+    background: var(--color-surface-muted);
+    box-shadow: var(--shadow-near);
+    padding-inline: var(--spacing-base);
+    border-block-end: var(--border-width-thin) solid var(--color-border-muted);
+    z-index: 2;
+}
 
-    a {
-        text-decoration: none;
+a {
+    text-decoration: none;
 
-        &:hover {
-            text-decoration: underline;
-        }
+    &:hover {
+        text-decoration: underline;
     }
+}
 
-    .generate {
-        margin-inline-start: auto;
-    }
+.generate {
+    margin-inline-start: auto;
+}
 
-    form {
-        --input-field-max-inline-size: 40ch;
-    }
+form {
+    --input-field-max-inline-size: 40ch;
+}
 
-    .job-entry {
-        border-block-start: var(--border-width-medium) dashed var(--color-border-muted);
-    }
+.job-entry {
+    border-block-start: var(--border-width-medium) dashed var(--color-border-muted);
+}
 
-    .nc-button {
-        max-inline-size: fit-content;
-    }
+.nc-button {
+    max-inline-size: fit-content;
+}
 
-    :target {
-        scroll-margin-block-start: 7ex;
-    }
+:target {
+    scroll-margin-block-start: 7ex;
+}
 </style>

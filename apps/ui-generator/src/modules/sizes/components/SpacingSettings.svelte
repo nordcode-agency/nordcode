@@ -1,35 +1,34 @@
 <script lang="ts">
-    import SpacingPreview from './SpacingPreview.svelte';
-    import { configStore, updateSpacingBase, updateSpacingScale } from '../../store/configStore';
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import { configStore, updateSpacingBase, updateSpacingScale } from '../../store/configStore';
+import SpacingPreview from './SpacingPreview.svelte';
 
-    const spacings = [
-        {
-            name: 'Tiny',
-            description: 'For the smallest gaps, usually when things belong tightly together.',
-        },
-        {
-            name: 'Nearest',
-            description: 'Small gaps, like icons from text.',
-        },
-        {
-            name: 'Near',
-            description: 'Display a relationship, like a label from an input field.',
-        },
-        {
-            name: 'Base',
-            description: 'The Base value for most things, like boxes or cards or other elements.',
-        },
-        {
-            name: 'Far',
-            description:
-                'When elements need more room or to display, that they do not belong together.',
-        },
-        {
-            name: 'Farthest',
-            description: 'For the largest gaps, like sections or regions.',
-        },
-    ];
+const spacings = [
+    {
+        name: 'Tiny',
+        description: 'For the smallest gaps, usually when things belong tightly together.',
+    },
+    {
+        name: 'Nearest',
+        description: 'Small gaps, like icons from text.',
+    },
+    {
+        name: 'Near',
+        description: 'Display a relationship, like a label from an input field.',
+    },
+    {
+        name: 'Base',
+        description: 'The Base value for most things, like boxes or cards or other elements.',
+    },
+    {
+        name: 'Far',
+        description: 'When elements need more room or to display, that they do not belong together.',
+    },
+    {
+        name: 'Farthest',
+        description: 'For the largest gaps, like sections or regions.',
+    },
+];
 </script>
 
 <section class="nc-region content-block">

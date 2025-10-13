@@ -1,8 +1,8 @@
 <script lang="ts">
-import { currentInvoice, setBankDetails } from '../invoiceStore';
-import { Select } from '@nordcode/forms-svelte';
-import type { BankingDetails } from '$lib/invoice/models/Invoice.model';
 import { invalidate } from '$app/navigation';
+import type { BankingDetails } from '$lib/invoice/models/Invoice.model';
+import { Select } from '@nordcode/forms-svelte';
+import { currentInvoice, setBankDetails } from '../invoiceStore';
 
 interface BankDetailsSelectProps {
     availableBankingDetails: BankingDetails[];
@@ -41,7 +41,10 @@ $effect(() => {
         label="Bankverbindung wählen"
         id="selectBankDetails"
         name="selectBankDetails"
-        options={availableBankingDetails.map(details => ({ value: details.iban, label: `${details.bankName} - ${details.iban}` }))}
+        options={availableBankingDetails.map(details => ({
+            value: details.iban,
+            label: `${details.bankName} - ${details.iban}`,
+        }))}
         bind:value={selectedBankIban}
     ></Select>
     <button class="nc-button" type="button" onclick={createBankDetails}>
@@ -50,7 +53,7 @@ $effect(() => {
 </div>
 
 <style>
-    .bankDetails {
-        align-items: flex-end;
-    }
+.bankDetails {
+    align-items: flex-end;
+}
 </style>

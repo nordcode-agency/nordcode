@@ -1,12 +1,17 @@
 <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd"
-          d="M500 0C500 112.561 462.806 216.434 400.037 300H800V500V500.164C638.944 505.438 510 637.661 510 800H300C300 687.439 337.194 583.566 399.963 500H0V300V299.836C3.31997 299.945 6.65359 300 10 300C175.685 300 310 165.685 310 0H500Z"
+    <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M500 0C500 112.561 462.806 216.434 400.037 300H800V500V500.164C638.944 505.438 510 637.661 510 800H300C300 687.439 337.194 583.566 399.963 500H0V300V299.836C3.31997 299.945 6.65359 300 10 300C175.685 300 310 165.685 310 0H500Z"
     />
     <style>
-        path { fill: #000; }
-        @media (prefers-color-scheme: dark) {
-        path { fill: #FFF; }
+    path {
+        fill: #000;
+    }
+    @media (prefers-color-scheme: dark) {
+        path {
+            fill: #fff;
         }
+    }
     </style>
-
 </svg>

@@ -1,7 +1,8 @@
 import type { ConfigStore } from '../configStore';
 
 export const getShadows = (store: ConfigStore) => {
-    const shadowColorLightLch = `${store.lightShadowColorLightness}% ${store.lightShadowColorChroma} ${store.primaryHue}`;
+    const shadowColorLightLch =
+        `${store.lightShadowColorLightness}% ${store.lightShadowColorChroma} ${store.primaryHue}`;
     const shadowColorLight = `oklch(${shadowColorLightLch})`;
 
     const shadowColorDarkLch = `${store.darkShadowColorLightness}% ${store.darkShadowColorChroma} ${store.primaryHue}`;
@@ -29,30 +30,38 @@ export const getShadows = (store: ConfigStore) => {
             /* SHADOWS */
 
 
-            --shadow-inset: ${generateShadow(
-        AmountOfShadows.nearest,
-        shadowConfig,
-        true,
-    )};
+            --shadow-inset: ${
+        generateShadow(
+            AmountOfShadows.nearest,
+            shadowConfig,
+            true,
+        )
+    };
 
-            --shadow-nearest: ${generateShadow(
-        AmountOfShadows.nearest,
-        shadowConfig,
-    )};
-            --shadow-near: ${generateShadow(
-        AmountOfShadows.near,
-
-        shadowConfig,
-    )};
-            --shadow-medium: ${generateShadow(
-        AmountOfShadows.medium,
-
-        shadowConfig,
-    )};
-            --shadow-far: ${generateShadow(
-        AmountOfShadows.far,
-        shadowConfig,
-    )};
+            --shadow-nearest: ${
+        generateShadow(
+            AmountOfShadows.nearest,
+            shadowConfig,
+        )
+    };
+            --shadow-near: ${
+        generateShadow(
+            AmountOfShadows.near,
+            shadowConfig,
+        )
+    };
+            --shadow-medium: ${
+        generateShadow(
+            AmountOfShadows.medium,
+            shadowConfig,
+        )
+    };
+            --shadow-far: ${
+        generateShadow(
+            AmountOfShadows.far,
+            shadowConfig,
+        )
+    };
             /* Light Theme */
 
             --shadow-color-light: ${shadowColorLight};
@@ -118,9 +127,11 @@ const generateShadow = (
 
         const spread = round(scaleSpread(+spreadMax, amountOfShadows, i));
 
-        const newShadow = `${inset ? 'inset ' : ''}${round(
-            d * xOffsetFactor,
-        )}px ${d}px ${blur}px ${spread}px ${shadowColor}`;
+        const newShadow = `${inset ? 'inset ' : ''}${
+            round(
+                d * xOffsetFactor,
+            )
+        }px ${d}px ${blur}px ${spread}px ${shadowColor}`;
 
         const isFlat = blurFactor === 0;
         // it's a flat theme, so we dont need extra shadows

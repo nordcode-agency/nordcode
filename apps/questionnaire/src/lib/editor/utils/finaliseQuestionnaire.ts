@@ -9,7 +9,7 @@ const cleanupQuestions = (questions: Record<string, Question>): Record<string, Q
         }
 
         // @todo: to save for later reuse, skip this step
-        question.description = question.description ? convertToHtml(question.description) : "";
+        question.description = question.description ? convertToHtml(question.description) : '';
 
         questions[questionId] = question;
     }

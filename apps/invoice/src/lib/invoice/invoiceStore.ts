@@ -18,8 +18,7 @@ export const initialInvoiceState: Invoice = {
         {
             id: generateJobId(),
             title: '',
-            description:
-                'Online-Marketing, Verwaltung der sozialen Medien, Erstellen von Blogbeiträgen',
+            description: 'Online-Marketing, Verwaltung der sozialen Medien, Erstellen von Blogbeiträgen',
         },
     ],
     jobDuration: '01.03.2022 - 31.03.2022',

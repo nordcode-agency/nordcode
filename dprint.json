@@ -27,7 +27,9 @@
     },
     "excludes": [
         "**/node_modules",
-        "**/*-lock.json"
+        "**/*-lock.json",
+        "apps/ui-generator/src/modules/store/components/ContextPreview.svelte",
+        "packages/ui/index.html"
     ],
     "plugins": [
         "https://plugins.dprint.dev/typescript-0.95.11.wasm",

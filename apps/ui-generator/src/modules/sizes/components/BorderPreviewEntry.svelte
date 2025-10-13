@@ -43,20 +43,20 @@ $effect(() => {
 </div>
 
 <style>
-    .nc-grid {
-        grid-template-columns: 1fr 1fr;
-        inline-size: 100%;
-    }
+.nc-grid {
+    grid-template-columns: 1fr 1fr;
+    inline-size: 100%;
+}
 
-    .preview-box {
-        background: var(--color-surface-subtle);
-    }
+.preview-box {
+    background: var(--color-surface-subtle);
+}
 
-    .preview {
-        border: var(--border-width-thin) solid var(--color-border-base);
-        inline-size: 6rem;
-        block-size: 6rem;
-        background: var(--color-surface-base);
-        box-shadow: var(--shadow-near);
-    }
+.preview {
+    border: var(--border-width-thin) solid var(--color-border-base);
+    inline-size: 6rem;
+    block-size: 6rem;
+    background: var(--color-surface-base);
+    box-shadow: var(--shadow-near);
+}
 </style>

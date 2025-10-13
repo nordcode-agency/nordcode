@@ -1,13 +1,13 @@
 <script lang="ts">
-    import DateInput from './DateInput.svelte';
-    import GenericInput from './GenericInput.svelte';
-    import InputWrapper from './InputWrapper.svelte';
-    import RangeInput from './RangeInput.svelte';
-    import type { GenericInputProps } from './types/GenericInputProps.ts';
+import DateInput from './DateInput.svelte';
+import GenericInput from './GenericInput.svelte';
+import InputWrapper from './InputWrapper.svelte';
+import RangeInput from './RangeInput.svelte';
+import type { GenericInputProps } from './types/GenericInputProps.ts';
 
-    let { value = $bindable(), ...props }: GenericInputProps = $props();
+let { value = $bindable(), ...props }: GenericInputProps = $props();
 
-    const { id, label, required, errors, hint, type = 'text', children, name } = props;
+const { id, label, required, errors, hint, type = 'text', children, name } = props;
 </script>
 
 <InputWrapper {id} {label} {name} {required} {errors} {hint}>

@@ -1,6 +1,6 @@
 <script>
-    import Logo from '$lib/common/components/Logo.svelte';
-    import ThemePicker from '$lib/common/components/ThemePicker.svelte';
+import Logo from '$lib/common/components/Logo.svelte';
+import ThemePicker from '$lib/common/components/ThemePicker.svelte';
 </script>
 
 <header class="nc-center page-center-layout">
@@ -9,9 +9,9 @@
 </header>
 
 <style>
-    header {
-        display: grid;
-        place-items: center;
-        padding-block: var(--spacing-far);
-    }
+header {
+    display: grid;
+    place-items: center;
+    padding-block: var(--spacing-far);
+}
 </style>

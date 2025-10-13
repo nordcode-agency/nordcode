@@ -1,10 +1,5 @@
 import { localStore } from '@nordcode/forms-svelte';
-import {
-    type Option,
-    type Question,
-    QuestionType,
-    type Questionnaire,
-} from '@nordcode/questionnaire-renderer';
+import { type Option, type Question, type Questionnaire, QuestionType } from '@nordcode/questionnaire-renderer';
 import { nanoid } from 'nanoid';
 
 const STORE_KEY = 'CURRENT_QUESTIONNAIRE';
@@ -24,13 +19,12 @@ export const initialQuestionnaireState: Questionnaire = {
     questionsOrder: [],
 };
 
-export const currentQuestionnaire =
-    typeof localStorage === 'undefined'
-        ? null
-        : localStore<CurrentQuestionnaireStore>(STORE_KEY, {
-              questionnaire: initialQuestionnaireState,
-              errors: {},
-          });
+export const currentQuestionnaire = typeof localStorage === 'undefined'
+    ? null
+    : localStore<CurrentQuestionnaireStore>(STORE_KEY, {
+        questionnaire: initialQuestionnaireState,
+        errors: {},
+    });
 
 export const setQuestionnaire = (questionnaire: Questionnaire) => {
     currentQuestionnaire?.set({
@@ -86,10 +80,9 @@ export const removeQuestion = (questionToDelete: string) => {
     currentQuestionnaire?.update((currentState) => {
         const updatedQuestions = currentState.questionnaire.questions;
         delete updatedQuestions[questionToDelete];
-        currentState.questionnaire.questionsOrder =
-            currentState.questionnaire.questionsOrder.filter(
-                (questionId) => questionId !== questionToDelete,
-            );
+        currentState.questionnaire.questionsOrder = currentState.questionnaire.questionsOrder.filter(
+            (questionId) => questionId !== questionToDelete,
+        );
 
         return {
             errors: currentState.errors,

@@ -1,19 +1,14 @@
 <script lang="ts">
-    import type { QuestionnaireAnswer } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
-    import { type Question, QuestionType } from '../../questionnaire/models/Questionnaire.model.ts';
-    import {
-        RadioInputField,
-        CheckboxInputField,
-        Input,
-        MarkdownEditor,
-    } from '@nordcode/forms-svelte';
+import type { QuestionnaireAnswer } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
+import { CheckboxInputField, Input, MarkdownEditor, RadioInputField } from '@nordcode/forms-svelte';
+import { type Question, QuestionType } from '../../questionnaire/models/Questionnaire.model.ts';
 
-    interface QuestionRendererProps {
-        question: Question;
-        answer?: QuestionnaireAnswer;
-    }
+interface QuestionRendererProps {
+    question: Question;
+    answer?: QuestionnaireAnswer;
+}
 
-    let { question, answer }: QuestionRendererProps = $props();
+let { question, answer }: QuestionRendererProps = $props();
 </script>
 
 <fieldset>

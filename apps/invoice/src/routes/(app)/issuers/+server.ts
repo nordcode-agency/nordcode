@@ -1,6 +1,6 @@
+import { deleteIssuer, updateOrCreateIssuer } from '$lib/db/api/issuers';
 import type { Issuer } from '$lib/invoice/models/Invoice.model';
-import { type RequestHandler, json } from '@sveltejs/kit';
-import { updateOrCreateIssuer, deleteIssuer } from '$lib/db/api/issuers';
+import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const POST: RequestHandler = async ({ request }) => {
     const issuer = (await request.json()) as Issuer;

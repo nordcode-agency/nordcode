@@ -1,6 +1,6 @@
 <script lang="ts">
-import Header from '$lib/common/components/Header.svelte';
 import Footer from '$lib/common/components/Footer.svelte';
+import Header from '$lib/common/components/Header.svelte';
 import type { WithChildren } from '$lib/common/types/WithChildren';
 
 export const { children }: WithChildren = $props();
@@ -13,8 +13,8 @@ export const { children }: WithChildren = $props();
 <Footer></Footer>
 
 <style>
-    main {
-        /* padding-block-start: 90px; equals <Navigation> block-size */
-        min-block-size: 100dvh;
-    }
+main {
+    /* padding-block-start: 90px; equals <Navigation> block-size */
+    min-block-size: 100dvh;
+}
 </style>

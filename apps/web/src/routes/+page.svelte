@@ -18,43 +18,42 @@ let { data }: Props = $props();
 </script>
 
 <Meta
-	title="Willkommen bei nordcode | nordcode"
-	description="Du bist auf der Suche nach einer kleinen, lokalen Agentur, die dir hilft, deine Onlinepräsenz zu verbessern? Dann bist du bei uns genau richtig."
+    title="Willkommen bei nordcode | nordcode"
+    description="Du bist auf der Suche nach einer kleinen, lokalen Agentur, die dir hilft, deine Onlinepräsenz zu verbessern? Dann bist du bei uns genau richtig."
 ></Meta>
 
-
-    <div class="wrapper hero-wrapper">
-        <div class="section nc-stack fullscreen">
-            <Header />
-            <Hero projects={data.projects} />
-        </div>
-        <ThreeScene />
+<div class="wrapper hero-wrapper">
+    <div class="section nc-stack fullscreen">
+        <Header />
+        <Hero projects={data.projects} />
     </div>
+    <ThreeScene />
+</div>
 
 <ServicesSection />
 <WorkSection projects={data.projects} />
 <IntroSection />
 <About />
 <section class="section">
-	<div class="nc-box">
-		<FinalCTA />
-	</div>
+    <div class="nc-box">
+        <FinalCTA />
+    </div>
 </section>
 
 <style>
-	.hero-wrapper {
-		display: grid;
-		position: relative;
-		overflow: clip;
-		inline-size: 100%;
-		block-size: 100svh;
-		background: linear-gradient(transparent 60%, var(--color-surface-muted));
-	}
+.hero-wrapper {
+    display: grid;
+    position: relative;
+    overflow: clip;
+    inline-size: 100%;
+    block-size: 100svh;
+    background: linear-gradient(transparent 60%, var(--color-surface-muted));
+}
 
-	.fullscreen {
-		position: relative;
-		inline-size: 100%;
-		block-size: 100%;
-		grid-area: 1 / 1;
-	}
+.fullscreen {
+    position: relative;
+    inline-size: 100%;
+    block-size: 100%;
+    grid-area: 1 / 1;
+}
 </style>

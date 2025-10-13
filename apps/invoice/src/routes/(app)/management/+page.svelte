@@ -1,7 +1,7 @@
 <script lang="ts">
+import BankingDetailsList from '$lib/invoice/components/BankingDetailsList.svelte';
 import IssuerList from '$lib/invoice/components/IssuerList.svelte';
 import RecipientList from '$lib/invoice/components/RecipientList.svelte';
-import BankingDetailsList from '$lib/invoice/components/BankingDetailsList.svelte';
 import type { BankingDetails, ContactDetails, Issuer } from '$lib/invoice/models/Invoice.model.js';
 
 interface PageData {

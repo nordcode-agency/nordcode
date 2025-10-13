@@ -1,51 +1,51 @@
 <script lang="ts">
-    import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
-    import {
-        type ThemeMutationObserverListener,
-        getThemeMutationObserver,
-    } from '../../common/utils/ThemeMutationObserver.ts';
+import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
+import {
+    getThemeMutationObserver,
+    type ThemeMutationObserverListener,
+} from '../../common/utils/ThemeMutationObserver.ts';
 
-    interface ColorPreviewProps {
-        color: {
-            name: string;
-            description: string;
-        };
-        surfaceColor: string;
-        baseToken: string;
+interface ColorPreviewProps {
+    color: {
+        name: string;
+        description: string;
+    };
+    surfaceColor: string;
+    baseToken: string;
+}
+
+let { color, surfaceColor, baseToken }: ColorPreviewProps = $props();
+
+const token = `${baseToken}-${color.name.toLowerCase()}`;
+const previewId = `color-preview-${token}`;
+
+const isSurface = token === surfaceColor;
+
+let resolvedColor = $state('');
+
+const getComputedColor = (variant: 'light' | 'dark') => {
+    const el = document.getElementById(`${previewId}-${variant}`);
+
+    if (!el) {
+        return '';
     }
+    return window.getComputedStyle(el).getPropertyValue('background-color').trim();
+};
 
-    let { color, surfaceColor, baseToken }: ColorPreviewProps = $props();
+const updateResolvedColor: ThemeMutationObserverListener = style => {
+    if (!style) {
+        return;
+    }
+    resolvedColor = `${getComputedColor('light')} / ${getComputedColor('dark')}`;
+};
 
-    const token = `${baseToken}-${color.name.toLowerCase()}`;
-    const previewId = `color-preview-${token}`;
-
-    const isSurface = token === surfaceColor;
-
-    let resolvedColor = $state('');
-
-    const getComputedColor = (variant: 'light' | 'dark') => {
-        const el = document.getElementById(`${previewId}-${variant}`);
-
-        if (!el) {
-            return '';
-        }
-        return window.getComputedStyle(el).getPropertyValue('background-color').trim();
-    };
-
-    const updateResolvedColor: ThemeMutationObserverListener = style => {
-        if (!style) {
-            return;
-        }
-        resolvedColor = `${getComputedColor('light')} / ${getComputedColor('dark')}`;
-    };
-
-    $effect(() => {
-        getThemeMutationObserver().subscribe(style => {
-            updateResolvedColor(style);
-        });
-
-        updateResolvedColor(getThemeMutationObserver().getStyle());
+$effect(() => {
+    getThemeMutationObserver().subscribe(style => {
+        updateResolvedColor(style);
     });
+
+    updateResolvedColor(getThemeMutationObserver().getStyle());
+});
 </script>
 
 <div class="nc-grid">
@@ -76,38 +76,38 @@
 </div>
 
 <style>
-    .nc-grid {
-        grid-template-columns: 2fr 1fr 1fr;
-        inline-size: 100%;
+.nc-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    inline-size: 100%;
 
-        &:first-of-type > .nc-box {
-            border-start-start-radius: var(--border-radius-medium);
-            border-start-end-radius: var(--border-radius-medium);
-        }
-
-        &:last-of-type > .nc-box {
-            border-end-start-radius: var(--border-radius-medium);
-            border-end-end-radius: var(--border-radius-medium);
-        }
+    &:first-of-type > .nc-box {
+        border-start-start-radius: var(--border-radius-medium);
+        border-start-end-radius: var(--border-radius-medium);
     }
 
-    .preview-text {
-        font-size: 3.5rem;
-        line-height: 1;
-        background: transparent !important;
+    &:last-of-type > .nc-box {
+        border-end-start-radius: var(--border-radius-medium);
+        border-end-end-radius: var(--border-radius-medium);
     }
+}
 
-    .lightpreview .current {
-        color: var(--color-text-base-light);
-        cursor: unset;
-    }
+.preview-text {
+    font-size: 3.5rem;
+    line-height: 1;
+    background: transparent !important;
+}
 
-    .darkpreview .current {
-        color: var(--color-text-base-dark);
-        cursor: unset;
-    }
+.lightpreview .current {
+    color: var(--color-text-base-light);
+    cursor: unset;
+}
 
-    .current + .nc-cluster > .color-preview {
-        box-shadow: none;
-    }
+.darkpreview .current {
+    color: var(--color-text-base-dark);
+    cursor: unset;
+}
+
+.current + .nc-cluster > .color-preview {
+    box-shadow: none;
+}
 </style>

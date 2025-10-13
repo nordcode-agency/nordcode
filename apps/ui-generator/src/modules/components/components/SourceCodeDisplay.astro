@@ -9,22 +9,22 @@ interface Props {
 
 const { code, title, lang = 'html', requirements } = Astro.props;
 
-
 const payload = {
     title: `nordcode | ${title}`,
-    editors: "110",
+    editors: '110',
     html: code,
     css: `body {
     display: grid;
     place-content: center;
     padding: var(--spacing-base);
 }`,
-    css_external: "https://unpkg.com/@nordcode/ui/out/complete.css"
+    css_external: 'https://unpkg.com/@nordcode/ui/out/complete.css',
 };
-const escapedPayload = JSON.stringify(payload)
+const escapedPayload = JSON.stringify(payload);
 
-
-const requirementsCode = requirements ? requirements.map(req => `@import "${req}"`).join(';\n') : ""
+const requirementsCode = requirements ? requirements.map(req => `@import "${req}"`).join(';\n') : '';
+const requireCodeSnippet = `/* Minimum CSS for ${title} */
+${requirementsCode}`;
 ---
 
 <div class="source-code">
@@ -35,22 +35,28 @@ const requirementsCode = requirements ? requirements.map(req => `@import "${req}
             <span class="nc-slub">{lang}</span>
         </div>
         <div class="nc-cluster -centered">
+            <form action="https://codepen.io/pen/define/" method="POST" target="_blank">
+                <input type="hidden" name="data" value={escapedPayload} />
+                <button class="nc-button -outline" type="button">Open in CodePen</button>
+            </form>
 
-        <form action="https://codepen.io/pen/define/" method="POST" target="_blank">
-            <input type="hidden" name="data" value={escapedPayload} />
-            <button class="nc-button -outline" type="button">Open in CodePen</button>
-        </form>
+            {
+                requirementsCode
+                    ? (
+                    <button
+                        class="nc-button -outline"
+                        data-copy-target={requirementsCode}
+                        data-has-notification
+                        data-notification-title="✓ To clipboard"
+                        data-notification-description={`Copied ${title}'s requirements to your clipboard.`}
+                    >
+                        Copy requirements
+                    </button>
+                )
+                : null
+            }
 
-        {requirementsCode ?
-        <button class="nc-button -outline"
-        data-copy-target={requirementsCode}
-        data-has-notification
-        data-notification-title="✓ To clipboard"
-        data-notification-description={`Copied ${title}'s requirements to your clipboard.`}
-        >Copy requirements</button>
-        : null}
-
-        <button
+            <button
                 type="button"
                 class="nc-button -outline"
                 data-copy-target={code}
@@ -71,64 +77,50 @@ const requirementsCode = requirements ? requirements.map(req => `@import "${req}
         }}
         defaultColor={'light'}
         id="code-preview"
-        class={"code-preview"}
+        class={'code-preview'}
     />
-    {requirementsCode ? (
-<Code
-    code={`/* Minimum CSS for ${title} */
-${requirementsCode}`}
-    lang="css"
-    themes={{
-        light: 'vitesse-light',
-        dark: 'vitesse-dark',
-    }}
-    defaultColor={'light'}
-    class={"code-preview"}
-/>
-    ) : null}
+    {
+        requirementsCode ? (
+            <Code
+                code={requireCodeSnippet}
+                lang="css"
+                themes={{
+                    light: 'vitesse-light',
+                    dark: 'vitesse-dark',
+                }}
+                defaultColor={'light'}
+                class={'code-preview'}
+            />
+        ) : null
+    }
 </div>
 
 <style is:global>
-    .source-code {
-        position: relative;
-        inline-size: 100%;
-    }
+.source-code {
+    position: relative;
+    inline-size: 100%;
+}
 
-    .source-code > * {
-        border-radius: 0;
-    }
+.source-code > * {
+    border-radius: 0;
+}
 
+.sc-header {
+    border: var(--border-width-medium) solid var(--color-border-base);
+    border-radius: var(--border-radius-medium);
+    background: var(--color-surface-subtle);
+    padding: 0.5lh 2ch;
+    border-block-end: none;
+    border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0;
+}
 
-    .sc-header {
-        border: var(--border-width-medium) solid var(--color-border-base);
-        border-radius: var(--border-radius-medium);
-        background: var(--color-surface-subtle);
-        padding: 0.5lh 2ch;
-        border-block-end: none;
-        border-radius: var(--border-radius-medium) var(--border-radius-medium) 0 0;
-    }
+.source-code > *:last-child {
+    border-block-start: none;
+    border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
+}
 
-
-    .source-code > *:last-child {
-        border-block-start: none;
-        border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
-    }
-
-    @media (prefers-color-scheme: dark) {
-        html:not([data-theme='light']) {
-            .code-preview,
-            .code-preview span {
-                color: var(--shiki-dark) !important;
-                background-color: var(--shiki-dark-bg) !important;
-                /* Optional, if you also want font styles */
-                font-style: var(--shiki-dark-font-style) !important;
-                font-weight: var(--shiki-dark-font-weight) !important;
-                text-decoration: var(--shiki-dark-text-decoration) !important;
-            }
-        }
-    }
-
-    html[data-theme='dark'] {
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) {
         .code-preview,
         .code-preview span {
             color: var(--shiki-dark) !important;
@@ -139,10 +131,22 @@ ${requirementsCode}`}
             text-decoration: var(--shiki-dark-text-decoration) !important;
         }
     }
+}
+
+html[data-theme="dark"] {
+    .code-preview,
+    .code-preview span {
+        color: var(--shiki-dark) !important;
+        background-color: var(--shiki-dark-bg) !important;
+        /* Optional, if you also want font styles */
+        font-style: var(--shiki-dark-font-style) !important;
+        font-weight: var(--shiki-dark-font-weight) !important;
+        text-decoration: var(--shiki-dark-text-decoration) !important;
+    }
+}
 </style>
 
 <script>
-
 const codepenButtons = document.querySelectorAll('[data-codepen]');
 
 codepenButtons.forEach(button => {
@@ -160,18 +164,17 @@ codepenButtons.forEach(button => {
     });
 });
 
-
 const openInCodepen = (title: string, code: string) => {
     const payload = {
         title: `nordcode | ${title}`,
-        editors: "110",
+        editors: '110',
         html: code,
         css: `body {
             display: grid;
             place-content: center;
             padding: var(--spacing-base);
         }`,
-        css_external: "https://unpkg.com/@nordcode/ui/out/complete.css"
+        css_external: 'https://unpkg.com/@nordcode/ui/out/complete.css',
     };
 
     fetch('https://codepen.io/pen/define/', {
@@ -180,7 +183,7 @@ const openInCodepen = (title: string, code: string) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        mode: "cors"
-    })
-}
+        mode: 'cors',
+    });
+};
 </script>

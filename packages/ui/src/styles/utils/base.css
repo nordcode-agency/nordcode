@@ -491,19 +491,8 @@
         max-inline-size: var(--measure-base);
     }
 
-    :where(
-            .prose pre,
-            .prose code,
-            .prose var,
-            .prose samp,
-            .prose kbd,
-            .prose h1,
-            .prose h2,
-            .prose h3,
-            .prose h4,
-            .prose h5,
-            .prose h6
-        ) {
+    :where(.prose pre, .prose code, .prose var, .prose samp, .prose kbd, .prose h1, .prose h2, .prose h3, .prose
+        h4, .prose h5, .prose h6) {
         hyphens: manual;
     }
 }

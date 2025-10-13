@@ -1,11 +1,11 @@
 ---
-import ComponentCard from './ComponentCard.astro';
-import SectionTitle from './SectionTitle.astro';
-import type { SmarterSection } from './sections';
 import PageHeader from '../../common/components/PageHeader.astro';
 import SecondaryNav from '../../common/components/SecondaryNav.astro';
 import Sparkline from '../../customComponents/SparkLine/Sparkline.astro';
 import SparklineSvelte from '../../customComponents/SparkLine/Sparkline.svelte';
+import ComponentCard from './ComponentCard.astro';
+import type { SmarterSection } from './sections';
+import SectionTitle from './SectionTitle.astro';
 
 interface Props {
     sections: SmarterSection[];
@@ -17,11 +17,10 @@ const entries = sections.map((section) => ({
     title: section.title,
     url: `#${section.sectionId}`,
 })).concat({
-    title: "Custom components",
+    title: 'Custom components',
     url: '#custom-components',
-})
+});
 ---
-
 
 <style>
 .components {
@@ -33,7 +32,8 @@ const entries = sections.map((section) => ({
 }
 
 .nc-grid {
-    grid-template-columns: repeat(
+    grid-template-columns:
+        repeat(
         var(--grid-placement, auto-fill),
         minmax(20rem, 1fr)
     );
@@ -41,55 +41,77 @@ const entries = sections.map((section) => ({
 </style>
 
 <div class="components">
-<PageHeader title="Components" description="User interface components with their markup and applied classes. All of these are pre-styled in our theme."></PageHeader>
-<SecondaryNav entries={entries} />
-{sections.map(section => (
-    <section class="comp-section nc-region" id={section.sectionId}>
-        <SectionTitle title={section.title} sectionId={section.sectionId} />
-        <ul class="nc-list-reset nc-grid -far">
-        {section.components.map(comp => (
-            <li>
-                <ComponentCard component={comp} />
-            </li>
-        ))}
-        </ul>
-    </section>
-    ))}
+    <PageHeader
+        title="Components"
+        description="User interface components with their markup and applied classes. All of these are pre-styled in our theme."
+    ></PageHeader>
+    <SecondaryNav entries={entries} />
+    {
+        sections.map(section => (
+            <section class="comp-section nc-region" id={section.sectionId}>
+                <SectionTitle title={section.title} sectionId={section.sectionId} />
+                <ul class="nc-list-reset nc-grid -far">
+                    {
+                        section.components.map(comp => (
+                            <li>
+                                <ComponentCard component={comp} />
+                            </li>
+                        ))
+                    }
+                </ul>
+            </section>
+        ))
+    }
     <hr>
     <section class="comp-section nc-region" id="custom-components">
-    <SectionTitle title="Custom Components" sectionId="#custom-components" />
+        <SectionTitle title="Custom Components" sectionId="#custom-components" />
         <ul class="nc-list-reset nc-grid -far">
             <li>
                 <div class="nc-card nc-flow">
                     <h3>Sparkline</h3>
                     <div class="nc-stack -near">
-                        <p>This is an inline Sparkline:<Sparkline data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]} label="Example SparkLine" appearance="gradient" /> </p>
+                        <p>
+                            This is an inline Sparkline:<Sparkline
+                                data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]}
+                                label="Example SparkLine"
+                                appearance="gradient"
+                            />
+                        </p>
                     </div>
 
                     <div class="nc-stack -near">
                         <p>This is an large Sparkline:</p>
-                        <Sparkline data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]} label="Example SparkLine" appearance="gradient" style="width: min(400px, 100%); height: auto;" />
+                        <Sparkline
+                            data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]}
+                            label="Example SparkLine"
+                            appearance="gradient"
+                            style="width: min(400px, 100%); height: auto"
+                        />
                     </div>
 
                     <div class="nc-stack -near">
                         <p>This is an large Sparkline as line only:</p>
-                        <Sparkline data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]} label="Example SparkLine" appearance="line" style="width: min(400px, 100%); height: auto;" />
+                        <Sparkline
+                            data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]}
+                            label="Example SparkLine"
+                            appearance="line"
+                            style="width: min(400px, 100%); height: auto"
+                        />
                     </div>
 
                     <div class="nc-stack -near">
-                        <p>This is an inline Sparkline in svelte:
+                        <p>
+                            This is an inline Sparkline in svelte:
                             <SparklineSvelte
-                            data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]}
-                            label="Example SparkLine"
-                            appearance="gradient"
-                            client:load="svelte"
+                                data={[5, 10, 8, 12, 7, 14, 10, 15, 9, 18, 12, 20]}
+                                label="Example SparkLine"
+                                appearance="gradient"
+                                client:load="svelte"
                             />
                         </p>
                     </div>
                 </div>
             </li>
-    </ul>
+        </ul>
     </section>
 </div>
-
-

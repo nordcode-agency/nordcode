@@ -8,9 +8,9 @@ Create a `postcss.config.cjs` file in the root of your project. Add the followin
 const config = require('@nordcode/postcss-config');
 
 module.exports = {
-  plugins: [
-    ...config.plugins,
-  ],
+    plugins: [
+        ...config.plugins,
+    ],
 };
 ```
 
@@ -34,13 +34,13 @@ const postcssGlobalData = require('@csstools/postcss-global-data');
 const customMediaUrl = require.resolve('@nordcode/ui/media');
 
 module.exports = {
-  plugins: [
-    postcssGlobalData({
-      files: [
-        customMediaUrl,
-      ],
-    }),
-    ...config.plugins,
-  ],
+    plugins: [
+        postcssGlobalData({
+            files: [
+                customMediaUrl,
+            ],
+        }),
+        ...config.plugins,
+    ],
 };
 ```

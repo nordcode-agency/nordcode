@@ -20,14 +20,12 @@ const handleInput: FormEventHandler<HTMLSelectElement> = (event) => {
 };
 </script>
 
-<div class="nc-input-field" style="inline-size: 100%;">
+<div class="nc-input-field" style="inline-size: 100%">
     <label for={name} id={`${name}-label`}>
         {label}
     </label>
 
-    <select name={name}
-            oninput={handleInput}
-    >
+    <select name={name} oninput={handleInput}>
         {#each Object.entries(options) as optGroup}
             <optgroup label={optGroup[0]}>
                 {#each optGroup[1] as option}

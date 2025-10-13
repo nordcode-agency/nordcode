@@ -61,7 +61,6 @@ All components heavily rely on `@nordcode/ui/colors` for their default styles, b
 - `@norcode/ui/badges.css` depends on `@nordcode/ui/utils/theme.css`.
 - `@norcode/ui/inputs/*.css` all depend on `@nordcode/ui/inputs/base.css`. Be sure to import that first.
 
-
 ## Using Components
 
 For the components, there is recommended markup, previews and usage information here: [https://design-ui.nordcode.agency/components/](https://design-ui.nordcode.agency/components/)
@@ -81,7 +80,6 @@ There are some utility svelte and typescript modules exported under `@nordcode/m
 They are not strictly part of the design system, but can be useful for your projects.
 
 **Note**: They may be removed in the future. Use them at your own risk.
-
 
 ---
 

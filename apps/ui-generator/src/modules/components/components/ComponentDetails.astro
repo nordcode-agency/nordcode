@@ -56,13 +56,12 @@ if (component.examples) {
 .component-details {
     --nav-padding-inline: var(--spacing-far);
 }
-
 </style>
 
 <div class="component-details">
-<PageHeader title={component.title} description={component.description}>
-    <Breadcrumbs breadcrumbs={breadcrumbs} slot="before"/>
-</PageHeader>
-<SecondaryNav entries={entries} />
-<ComponentPreview component={component}></ComponentPreview>
+    <PageHeader title={component.title} description={component.description}>
+        <Breadcrumbs breadcrumbs={breadcrumbs} slot="before" />
+    </PageHeader>
+    <SecondaryNav entries={entries} />
+    <ComponentPreview component={component}></ComponentPreview>
 </div>

@@ -1,29 +1,29 @@
 <script lang="ts">
-    import type { FormEventHandler } from 'svelte/elements';
-    import type { GenericInputProps } from './types/GenericInputProps.ts';
-    import type { Option } from '../../shared/models/Option.ts';
+import type { FormEventHandler } from 'svelte/elements';
+import type { Option } from '../../shared/models/Option.ts';
+import type { GenericInputProps } from './types/GenericInputProps.ts';
 
-    interface TagSelectProps extends GenericInputProps {
-        options: Option[];
-    }
+interface TagSelectProps extends GenericInputProps {
+    options: Option[];
+}
 
-    let {
-        label,
-        name = label.split(' ').join('').toLowerCase(),
-        id = `${name}-label`,
-        errors = [],
-        hint = '',
-        required = true,
-        value = $bindable(),
-        class: className,
-        options,
-    }: TagSelectProps = $props();
+let {
+    label,
+    name = label.split(' ').join('').toLowerCase(),
+    id = `${name}-label`,
+    errors = [],
+    hint = '',
+    required = true,
+    value = $bindable(),
+    class: className,
+    options,
+}: TagSelectProps = $props();
 
-    const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
-        const target = event.target as HTMLInputElement;
+const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
+    const target = event.target as HTMLInputElement;
 
-        value = +target.value;
-    };
+    value = +target.value;
+};
 </script>
 
 <fieldset
@@ -31,8 +31,7 @@
     onchange={handleChange}
 >
     <legend class="nc-stack">
-        <span class="nc-input-label" {id}
-            >{label}
+        <span class="nc-input-label" {id}>{label}
             {#if !required}
                 <span class="nc-hint"> (optional)</span>
             {/if}

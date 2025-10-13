@@ -21,17 +21,17 @@ const importStyles = () => {
         </div>
         <div class="dialog-content">
             <div class="nc-stack">
-            <TextArea
+                <TextArea
                     name="imported Styles"
                     label="Styles to import"
                     id="imported Styles"
                     bind:value={importedStyles}
-            ></TextArea>
+                ></TextArea>
             </div>
         </div>
         <div class="dialog-actions">
-            <button class="nc-button" onclick={importStyles} data-closes-dialog="import-dialog"
-            >Import
+            <button class="nc-button" onclick={importStyles} data-closes-dialog="import-dialog">
+                Import
             </button>
         </div>
     </div>

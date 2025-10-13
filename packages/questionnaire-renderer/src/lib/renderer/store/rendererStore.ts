@@ -1,10 +1,7 @@
+import type { AnswerValue, QuestionnaireAnswer } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
 import { localStore } from '@nordcode/forms-svelte';
-import type { Questionnaire } from '../../questionnaire/models/Questionnaire.model.ts';
-import type {
-    AnswerValue,
-    QuestionnaireAnswer,
-} from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
 import { get, type Writable } from 'svelte/store';
+import type { Questionnaire } from '../../questionnaire/models/Questionnaire.model.ts';
 
 const STORE_KEY = 'RENDERER_QUESTIONNAIRE';
 
@@ -92,14 +89,13 @@ export const goBack = () => {
             };
         }
 
-
         const prevIdx = Math.max(store.currentQuestionIdx - 1, 0);
         // prev question by answer to not confuse the user
 
         return {
             ...store,
             currentQuestionIdx: prevIdx,
-            currentQuestionId: store.answers[prevIdx]?.question.id ?? ''
+            currentQuestionId: store.answers[prevIdx]?.question.id ?? '',
         };
     });
 };
@@ -125,7 +121,7 @@ export const goToNextQuestion = () => {
                 return config.when.every((condition) => {
                     return condition.compareValue === currentAnswer;
                 });
-            })
+            });
 
             if (nextQuestion) {
                 return {

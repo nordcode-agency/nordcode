@@ -1,35 +1,33 @@
 <script lang="ts">
-    import { CheckboxInput } from '@nordcode/forms-svelte';
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
-    import { configStore } from '../../store/configStore.ts';
-    import BorderColorPreviewEntry from './BorderColorPreviewEntry.svelte';
+import { CheckboxInput } from '@nordcode/forms-svelte';
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import { configStore } from '../../store/configStore.ts';
+import BorderColorPreviewEntry from './BorderColorPreviewEntry.svelte';
 
-    const baseColors = [
-        {
-            name: 'Base',
-            description:
-                'Primary color for borders to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout.',
-        },
+const baseColors = [
+    {
+        name: 'Base',
+        description:
+            'Primary color for borders to create bounds around content, for example elements inside a card. Default borders are critical to understanding a page layout.',
+    },
 
-        {
-            name: 'Muted',
-            description:
-                'Use for dividers to emphasize the separation between items, columns or sections.',
-        },
-        {
-            name: 'Subtle',
-            description: 'Used for very subtle separations.',
-        },
-        {
-            name: 'Hover',
-            description:
-                'Can be used for hovering borders. Rarely useful, but it is consistent with text colors.',
-        },
-    ];
-    const emphasisColor = {
-        name: 'On-Emphasis',
-        description: 'Can be used to border emphasis colored elements.',
-    };
+    {
+        name: 'Muted',
+        description: 'Use for dividers to emphasize the separation between items, columns or sections.',
+    },
+    {
+        name: 'Subtle',
+        description: 'Used for very subtle separations.',
+    },
+    {
+        name: 'Hover',
+        description: 'Can be used for hovering borders. Rarely useful, but it is consistent with text colors.',
+    },
+];
+const emphasisColor = {
+    name: 'On-Emphasis',
+    description: 'Can be used to border emphasis colored elements.',
+};
 </script>
 
 <section class="nc-region nc-stack -contained -stretched content-block">

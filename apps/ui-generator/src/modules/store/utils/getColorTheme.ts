@@ -1,38 +1,29 @@
 import type { ConfigStore } from '../configStore';
+import { generateDarkBorderColorValues, generateLightBorderColorValues } from './generateBorderColorValues.ts';
+import { generateColorValues } from './generateColorValues';
+import { generateDarkSurfaceColorValues, generateLightSurfaceColorValues } from './generateSurfaceColorValues.ts';
+import { generateDarkTextColorValues, generateLightTextColorValues } from './generateTextColorValues.ts';
 import {
+    dangerHue,
     getBorderDarkValues,
     getBorderLightValues,
+    getDangerLightness,
+    getDarkColorValues,
+    getInfoLightness,
+    getLightColorValues,
+    getStatusDarkColorValues,
+    getStatusLightColorValues,
+    getSuccessLightness,
     getSurfaceDarkValues,
     getSurfaceLightValues,
     getTextDarkValues,
     getTextLightValues,
-    getLightColorValues,
-    getStatusDarkColorValues,
-    getStatusLightColorValues,
-    getDarkColorValues,
-    infoHue,
-    getInfoLightness,
-    warningHue,
     getWarningLightness,
+    infoHue,
     successHue,
-    getSuccessLightness,
-    dangerHue,
-    getDangerLightness,
+    warningHue,
 } from './SharedThemeValues';
 import type { AdapterMapFn } from './ThemeAdapters';
-import { generateColorValues } from './generateColorValues';
-import {
-    generateLightTextColorValues,
-    generateDarkTextColorValues,
-} from './generateTextColorValues.ts';
-import {
-    generateLightSurfaceColorValues,
-    generateDarkSurfaceColorValues,
-} from './generateSurfaceColorValues.ts';
-import {
-    generateLightBorderColorValues,
-    generateDarkBorderColorValues,
-} from './generateBorderColorValues.ts';
 
 export const getMappedColors = <T>(
     store: ConfigStore,
@@ -65,8 +56,7 @@ export const getColorTheme = (store: ConfigStore): Record<string, string> => {
         '--lightness-diff': 'calc(var(--lightness-max) - var(--lightness-min))',
         // this is tricky, because it's not completely uniform
         // the best contrast seems to be achieved by moving slightly upwards from the middle
-        '--lightness-contrast-cutoff':
-            'calc(var(--lightness-min) + var(--lightness-diff) * 0.5 + 0.05)',
+        '--lightness-contrast-cutoff': 'calc(var(--lightness-min) + var(--lightness-diff) * 0.5 + 0.05)',
         '--neutral-chroma-scale': `${store.neutralChromaScale}`,
         '--transparency-weaker': `${store.transparencyWeaker}`,
 

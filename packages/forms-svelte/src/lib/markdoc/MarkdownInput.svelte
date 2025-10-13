@@ -1,36 +1,36 @@
 <script lang="ts">
-    import { convertToHtml } from './convertToHtml.ts';
-    import type { FormEventHandler } from 'svelte/elements';
-    import type { MarkdownInputProps } from './types/MarkdownInputProps.ts';
-    import { InputWrapper } from '../components/InputFields/index.ts';
+import type { FormEventHandler } from 'svelte/elements';
+import { InputWrapper } from '../components/InputFields/index.ts';
+import { convertToHtml } from './convertToHtml.ts';
+import type { MarkdownInputProps } from './types/MarkdownInputProps.ts';
 
-    let {
-        label,
-        value = $bindable(),
-        name = label.split(' ').join('').toLowerCase(),
-        id = `${name}-label`,
-        errors = [],
-        hint = '',
-        required = true,
-        htmlOutput = $bindable(),
-        children,
-        oninput,
-        ...rest
-    }: MarkdownInputProps = $props();
+let {
+    label,
+    value = $bindable(),
+    name = label.split(' ').join('').toLowerCase(),
+    id = `${name}-label`,
+    errors = [],
+    hint = '',
+    required = true,
+    htmlOutput = $bindable(),
+    children,
+    oninput,
+    ...rest
+}: MarkdownInputProps = $props();
 
-    $effect(() => {
-        if (value) {
-            htmlOutput = convertToHtml(value);
-        }
-    });
+$effect(() => {
+    if (value) {
+        htmlOutput = convertToHtml(value);
+    }
+});
 
-    const handleInput: FormEventHandler<HTMLTextAreaElement> = event => {
-        // in here, you can switch on type and implement
-        // whatever behaviour you need
-        const target = event.target as HTMLInputElement;
-        value = target.value;
-        oninput?.(event);
-    };
+const handleInput: FormEventHandler<HTMLTextAreaElement> = event => {
+    // in here, you can switch on type and implement
+    // whatever behaviour you need
+    const target = event.target as HTMLInputElement;
+    value = target.value;
+    oninput?.(event);
+};
 </script>
 
 <InputWrapper {id} {label} {required} {errors} {hint}>
@@ -46,7 +46,7 @@
 </InputWrapper>
 
 <style>
-    .nc-markdown-input {
-        min-block-size: var(--nc-markdown-min-block-size, 8lh);
-    }
+.nc-markdown-input {
+    min-block-size: var(--nc-markdown-min-block-size, 8lh);
+}
 </style>

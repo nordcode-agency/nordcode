@@ -1,50 +1,50 @@
 <script lang="ts">
-    import { Input, MarkdownEditor, Select, TextArea } from '@nordcode/forms-svelte';
-    import { type Question, QuestionType } from '@nordcode/questionnaire-renderer';
-    import { questionHasOptions } from '@nordcode/questionnaire-renderer';
-    import { Navigation } from '../../common/config/Navigation';
-    import { NEW_QUESTION_ID, createOrUpdateQuestion } from '../editorStore';
-    import NextQuestionEditor from './NextQuestionEditor.svelte';
-    import OptionsEditor from './OptionsEditor.svelte';
+import { Input, MarkdownEditor, Select, TextArea } from '@nordcode/forms-svelte';
+import { type Question, QuestionType } from '@nordcode/questionnaire-renderer';
+import { questionHasOptions } from '@nordcode/questionnaire-renderer';
+import { Navigation } from '../../common/config/Navigation';
+import { createOrUpdateQuestion, NEW_QUESTION_ID } from '../editorStore';
+import NextQuestionEditor from './NextQuestionEditor.svelte';
+import OptionsEditor from './OptionsEditor.svelte';
 
-    interface QuestionEditorProps {
-        question: Question;
+interface QuestionEditorProps {
+    question: Question;
+}
+
+let { question }: QuestionEditorProps = $props();
+
+let questionUpdate = $state({ ...question, next: question.next ? [...question.next] : [] });
+
+export const availableTypesRecord: Record<QuestionType, string> = {
+    [QuestionType.text]: 'Text',
+    [QuestionType.long_text]: 'Langer Text',
+    [QuestionType.multiple_choice]: 'Multiple Choice',
+    [QuestionType.single_choice]: 'Single Choice',
+    [QuestionType.number]: 'Zahl',
+};
+
+export const availableTypes = Object.entries(availableTypesRecord).map(([key, value]) => ({
+    value: key,
+    label: value,
+}));
+
+const createQuestion = async (event: SubmitEvent) => {
+    event.preventDefault();
+
+    // @todo: remove options if question type does not support options
+    createOrUpdateQuestion(questionUpdate);
+    window.location.href = Navigation.editor.url;
+};
+
+const updateQuestionOptions = (q: Question) => {
+    if (questionHasOptions(q) && q.options === undefined) {
+        q.options = [];
     }
+};
 
-    let { question }: QuestionEditorProps = $props();
-
-    let questionUpdate = $state({ ...question, next: question.next ? [...question.next] : [] });
-
-    export const availableTypesRecord: Record<QuestionType, string> = {
-        [QuestionType.text]: 'Text',
-        [QuestionType.long_text]: 'Langer Text',
-        [QuestionType.multiple_choice]: 'Multiple Choice',
-        [QuestionType.single_choice]: 'Single Choice',
-        [QuestionType.number]: 'Zahl',
-    };
-
-    export const availableTypes = Object.entries(availableTypesRecord).map(([key, value]) => ({
-        value: key,
-        label: value,
-    }));
-
-    const createQuestion = async (event: SubmitEvent) => {
-        event.preventDefault();
-
-        // @todo: remove options if question type does not support options
-        createOrUpdateQuestion(questionUpdate);
-        window.location.href = Navigation.editor.url;
-    };
-
-    const updateQuestionOptions = (q: Question) => {
-        if (questionHasOptions(q) && q.options === undefined) {
-            q.options = [];
-        }
-    };
-
-    $effect(() => {
-        updateQuestionOptions(questionUpdate);
-    });
+$effect(() => {
+    updateQuestionOptions(questionUpdate);
+});
 </script>
 
 <form class="nc-card nc-form" onsubmit={createQuestion}>
@@ -96,6 +96,6 @@
             options={questionHasOptions(questionUpdate) ? questionUpdate.options : undefined}
         ></NextQuestionEditor>
 
-        <button class="nc-button" type="submit"> Frage speichern </button>
+        <button class="nc-button" type="submit">Frage speichern</button>
     </div>
 </form>

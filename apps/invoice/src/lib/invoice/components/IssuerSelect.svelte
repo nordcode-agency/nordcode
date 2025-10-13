@@ -1,8 +1,8 @@
 <script lang="ts">
-import { currentInvoice, setIssuer } from '../invoiceStore';
-import { Select } from '@nordcode/forms-svelte';
-import type { Issuer } from '$lib/invoice/models/Invoice.model';
 import { invalidate } from '$app/navigation';
+import type { Issuer } from '$lib/invoice/models/Invoice.model';
+import { Select } from '@nordcode/forms-svelte';
+import { currentInvoice, setIssuer } from '../invoiceStore';
 
 interface InvoiceListProps {
     availableIssuers: Issuer[];
@@ -48,7 +48,7 @@ $effect(() => {
 </div>
 
 <style>
-    .issuers {
-        align-items: flex-end;
-    }
+.issuers {
+    align-items: flex-end;
+}
 </style>

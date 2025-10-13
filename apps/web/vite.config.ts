@@ -1,15 +1,15 @@
-import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vitest/config';
 import { enhancedImages } from '@sveltejs/enhanced-img';
-import { browserslistToTargets } from 'lightningcss';
+import { sveltekit } from '@sveltejs/kit/vite';
 import browserslist from 'browserslist';
+import { browserslistToTargets } from 'lightningcss';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-	plugins: [enhancedImages(), sveltekit()],
-	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
-	},
-	css: {
+    plugins: [enhancedImages(), sveltekit()],
+    test: {
+        include: ['src/**/*.{test,spec}.{js,ts}'],
+    },
+    css: {
         transformer: 'lightningcss',
         lightningcss: {
             drafts: {

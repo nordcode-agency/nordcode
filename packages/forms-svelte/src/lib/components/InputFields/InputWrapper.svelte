@@ -1,21 +1,20 @@
 <script lang="ts">
-    import type { InputLabelProps } from './types/InputLabelProps.ts';
+import type { InputLabelProps } from './types/InputLabelProps.ts';
 
-    let {
-        label,
-        name = label.split(' ').join('').toLowerCase(),
-        id = `${name}-label`,
-        errors = [],
-        hint = '',
-        required = true,
-        children,
-    }: InputLabelProps = $props();
+let {
+    label,
+    name = label.split(' ').join('').toLowerCase(),
+    id = `${name}-label`,
+    errors = [],
+    hint = '',
+    required = true,
+    children,
+}: InputLabelProps = $props();
 </script>
 
 <div class="nc-input-field">
     <label for={id} class="nc-stack">
-        <span class="nc-input-label"
-            >{label}
+        <span class="nc-input-label">{label}
             {#if !required}
                 <span class="nc-hint"> (optional)</span>
             {/if}

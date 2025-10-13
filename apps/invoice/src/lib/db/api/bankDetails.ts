@@ -1,6 +1,6 @@
-import fs from 'node:fs/promises';
 import { BankingDetailsPath } from '$lib/db/config/FilePaths';
 import type { BankingDetails } from '$lib/invoice/models/Invoice.model';
+import fs from 'node:fs/promises';
 
 export async function loadBankdetails(): Promise<BankingDetails[]> {
     try {

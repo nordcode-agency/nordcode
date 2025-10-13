@@ -2,12 +2,12 @@ import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
 export const load = (async () => {
-	const { projects } = await import('$lib/content');
-	const project = projects.find((prj) => prj.name === 'stahlmann');
+    const { projects } = await import('$lib/content');
+    const project = projects.find((prj) => prj.name === 'stahlmann');
 
-	if (!project) {
-    	error(404, `Projekt "Stahlmann" konnte nicht gefunden werden.`);
-	}
+    if (!project) {
+        error(404, `Projekt "Stahlmann" konnte nicht gefunden werden.`);
+    }
 
-	return { ...project };
+    return { ...project };
 }) satisfies PageLoad;

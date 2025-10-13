@@ -49,19 +49,16 @@ const getNotificationTemplate = () => document.querySelector(Selector.notificati
 const getNotificationCenter = () => document.querySelector(Selector.notificationCenter);
 
 /** @type {function(): NodeListOf<HTMLButtonElement>} */
-const getNotificationCenterToggle = () =>
-    document.querySelectorAll(Selector.notificationCenterToggle);
+const getNotificationCenterToggle = () => document.querySelectorAll(Selector.notificationCenterToggle);
 
 /** @type {function(): HTMLOutputElement | null} */
 const getNotificationOutput = () => document.querySelector(Selector.notificationOutput);
 
 /** @type {function(): NodeListOf<HTMLButtonElement>} */
-const getNotificationCenterDismissAll = () =>
-    document.querySelectorAll(Selector.notificationCenterDismissAll);
+const getNotificationCenterDismissAll = () => document.querySelectorAll(Selector.notificationCenterDismissAll);
 
 /** @type {function(): HTMLElement | null} */
-const getNotificationCenterContainer = () =>
-    document.querySelector(Selector.notificationCenterContainer);
+const getNotificationCenterContainer = () => document.querySelector(Selector.notificationCenterContainer);
 
 /**
  * Create a unique id for a notification

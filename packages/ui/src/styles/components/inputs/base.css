@@ -10,41 +10,7 @@
         align-items: center;
     }
 
-    :where(
-            input[type="text"],
-            input[type="email"],
-            input[type="password"],
-            input[type="number"],
-            input[type="url"],
-            input[type="search"],
-            input[type="date"],
-            input[type="month"],
-            input[type="week"],
-            input[type="text"],
-            input[type="datetime"],
-            input[type="datetime-local"],
-            input[type="time"],
-            input[type="tel"],
-            input[type="color"],
-            input[type="file"],
-            input[type="checkbox"],
-            input[type="radio"],
-            textarea,
-            select,
-            .nc-input,
-            .nc-select,
-            .nc-textarea,
-            .nc-input-checkbox,
-            .nc-input-radio,
-            .nc-input-label,
-            .nc-input-color,
-            .nc-input-field,
-            .nc-input-error,
-            .nc-checkbox-wrapper,
-            .nc-input-switch,
-            .nc-radio-field,
-            .nc-checkbox-field
-        ) {
+    :where(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="search"], input[type="date"], input[type="month"], input[type="week"], input[type="text"], input[type="datetime"], input[type="datetime-local"], input[type="time"], input[type="tel"], input[type="color"], input[type="file"], input[type="checkbox"], input[type="radio"], textarea, select, .nc-input, .nc-select, .nc-textarea, .nc-input-checkbox, .nc-input-radio, .nc-input-label, .nc-input-color, .nc-input-field, .nc-input-error, .nc-checkbox-wrapper, .nc-input-switch, .nc-radio-field, .nc-checkbox-field) {
         --_input-background: var(--input-background, var(--color-surface-subtle));
         --_input-background-active: var(--input-background-active, var(--color-surface-base));
         --_input-color: var(--input-color, var(--color-text-base));
@@ -66,27 +32,7 @@
         --_input-hover-background: var(--input-hover-background, var(--color-brand-primary-hover));
     }
 
-    :where(
-            input[type="text"],
-            input[type="email"],
-            input[type="password"],
-            input[type="number"],
-            input[type="url"],
-            input[type="search"],
-            input[type="date"],
-            input[type="month"],
-            input[type="week"],
-            input[type="text"],
-            input[type="datetime"],
-            input[type="datetime-local"],
-            input[type="time"],
-            input[type="tel"],
-            input[type="color"],
-            input[type="file"],
-            textarea,
-            select,
-            .nc-input
-        ) {
+    :where(input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="search"], input[type="date"], input[type="month"], input[type="week"], input[type="text"], input[type="datetime"], input[type="datetime-local"], input[type="time"], input[type="tel"], input[type="color"], input[type="file"], textarea, select, .nc-input) {
         font: inherit;
         letter-spacing: inherit;
         word-spacing: inherit;
@@ -147,13 +93,7 @@
         field-sizing: content;
     }
 
-    :where(
-            input[type="checkbox"]:not([class]),
-            input[type="radio"]:not([class]),
-            .nc-input-checkbox,
-            .nc-input-radio,
-            .nc-input-switch
-        ) {
+    :where(input[type="checkbox"]:not([class]), input[type="radio"]:not([class]), .nc-input-checkbox, .nc-input-radio, .nc-input-switch) {
         inline-size: 1lh;
         block-size: 1lh;
         padding: 0;

@@ -1,48 +1,48 @@
 <script lang="ts">
-    import {
-        getThemeMutationObserver,
-        type ThemeMutationObserverListener,
-    } from '../../common/utils/ThemeMutationObserver.ts';
-    import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
+import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
+import {
+    getThemeMutationObserver,
+    type ThemeMutationObserverListener,
+} from '../../common/utils/ThemeMutationObserver.ts';
 
-    interface ColorPreviewProps {
-        color: {
-            name: string;
-            description: string;
-        };
-        surfaceColor: string;
-        baseToken: string;
+interface ColorPreviewProps {
+    color: {
+        name: string;
+        description: string;
+    };
+    surfaceColor: string;
+    baseToken: string;
+}
+
+let { color, surfaceColor, baseToken }: ColorPreviewProps = $props();
+
+const token = `${baseToken}-${color.name.toLowerCase()}`;
+const previewId = `color-preview-${token}`;
+
+let resolvedColor = $state('');
+
+const getComputedColor = (variant: 'light' | 'dark') => {
+    const el = document.getElementById(`${previewId}-${variant}`);
+    if (!el) {
+        return '';
     }
+    return window.getComputedStyle(el).getPropertyValue('border-color').trim();
+};
 
-    let { color, surfaceColor, baseToken }: ColorPreviewProps = $props();
+const updateResolvedColor: ThemeMutationObserverListener = style => {
+    if (!style) {
+        return;
+    }
+    resolvedColor = `${getComputedColor('light')} / ${getComputedColor('dark')}`;
+};
 
-    const token = `${baseToken}-${color.name.toLowerCase()}`;
-    const previewId = `color-preview-${token}`;
-
-    let resolvedColor = $state('');
-
-    const getComputedColor = (variant: 'light' | 'dark') => {
-        const el = document.getElementById(`${previewId}-${variant}`);
-        if (!el) {
-            return '';
-        }
-        return window.getComputedStyle(el).getPropertyValue('border-color').trim();
-    };
-
-    const updateResolvedColor: ThemeMutationObserverListener = style => {
-        if (!style) {
-            return;
-        }
-        resolvedColor = `${getComputedColor('light')} / ${getComputedColor('dark')}`;
-    };
-
-    $effect(() => {
-        getThemeMutationObserver().subscribe(style => {
-            updateResolvedColor(style);
-        });
-
-        updateResolvedColor(getThemeMutationObserver().getStyle());
+$effect(() => {
+    getThemeMutationObserver().subscribe(style => {
+        updateResolvedColor(style);
     });
+
+    updateResolvedColor(getThemeMutationObserver().getStyle());
+});
 </script>
 
 <div class="nc-grid">
@@ -65,37 +65,37 @@
 </div>
 
 <style>
-    .nc-grid {
-        grid-template-columns: 2fr 1fr 1fr;
-        inline-size: 100%;
+.nc-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    inline-size: 100%;
 
-        &:first-of-type > .nc-box {
-            border-start-start-radius: var(--border-radius-medium);
-            border-start-end-radius: var(--border-radius-medium);
-        }
-
-        &:last-of-type > .nc-box {
-            border-end-start-radius: var(--border-radius-medium);
-            border-end-end-radius: var(--border-radius-medium);
-        }
+    &:first-of-type > .nc-box {
+        border-start-start-radius: var(--border-radius-medium);
+        border-start-end-radius: var(--border-radius-medium);
     }
 
-    .thin {
-        border-width: var(--border-width-thin);
+    &:last-of-type > .nc-box {
+        border-end-start-radius: var(--border-radius-medium);
+        border-end-end-radius: var(--border-radius-medium);
     }
+}
 
-    .medium {
-        border-width: var(--border-width-medium);
-    }
+.thin {
+    border-width: var(--border-width-thin);
+}
 
-    .thick {
-        border-width: var(--border-width-thick);
-    }
+.medium {
+    border-width: var(--border-width-medium);
+}
 
-    .border-preview {
-        inline-size: 2rem;
-        block-size: 2rem;
-        border-color: currentColor;
-        background: none;
-    }
+.thick {
+    border-width: var(--border-width-thick);
+}
+
+.border-preview {
+    inline-size: 2rem;
+    block-size: 2rem;
+    border-color: currentColor;
+    background: none;
+}
 </style>

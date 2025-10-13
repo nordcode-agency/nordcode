@@ -1,6 +1,5 @@
 @import "@nordcode/ui/complete";
 
-
 :where(:root) {
     --layout-max-width: 72em;
     --layout-padding: var(--spacing-base);

@@ -1,15 +1,15 @@
 <script lang="ts">
-    import type { Snippet } from 'svelte';
-    import { goBack, rendererStore, resetQuestionnaire } from '../store/rendererStore.ts';
-    import AnswerDisplay from './AnswerDisplay.svelte';
+import type { Snippet } from 'svelte';
+import { goBack, rendererStore, resetQuestionnaire } from '../store/rendererStore.ts';
+import AnswerDisplay from './AnswerDisplay.svelte';
 
-    let {
-        content,
-        controls,
-    }: {
-        content: Snippet;
-        controls: Snippet;
-    } = $props();
+let {
+    content,
+    controls,
+}: {
+    content: Snippet;
+    controls: Snippet;
+} = $props();
 </script>
 
 <section class="nc-questionnaire-renderer nc-region">
@@ -33,10 +33,10 @@
                         data-size="inline"
                         aria-hidden="true"
                         viewBox="0 0 24 24"
-                        ><path stroke="none" d="M0 0h24v24H0z" /><path
-                            d="M5 12h14M5 12l4 4M5 12l4-4"
-                        /></svg
                     >
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <path d="M5 12h14M5 12l4 4M5 12l4-4" />
+                    </svg>
                     <span>Zurück</span>
                 </button>
                 {@render content?.()}
@@ -48,8 +48,10 @@
                         <h3>Deine Antworten</h3>
                         <button
                             onclick={resetQuestionnaire}
-                            class="nc-button -primary -stealth -aligned">Von vorne beginnen</button
+                            class="nc-button -primary -stealth -aligned"
                         >
+                            Von vorne beginnen
+                        </button>
                         <AnswerDisplay></AnswerDisplay>
                     </section>
                 {/if}

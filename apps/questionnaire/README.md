@@ -1,6 +1,7 @@
 Question
 
 types
+
 - Einfacher Text
 - Langer Text
 - Multiple Choice
@@ -11,6 +12,7 @@ types
 - Score
 
 In der Frage
+
 - Title
 - Description (optional)
 - Required (optional)
@@ -23,8 +25,8 @@ Progressanzeige?
 Ausgabe: MPA, SPA mit Framework?
 Datenbank als SaaS
 
-
 Questionnaire Editor
+
 - Frage hinzufügen
 - Preview anzeigen im Split View
 - Frage löschen

@@ -87,7 +87,6 @@
 }
 
 .qr-code-display {
-
     & img {
         inline-size: 7rem;
         block-size: 7rem;
@@ -97,7 +96,6 @@
         font-size: var(--font-size-smallest);
         text-align: center;
     }
-
 }
 
 @media print {

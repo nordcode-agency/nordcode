@@ -95,33 +95,46 @@ $effect(() => {
     style={`transform: translate3d(${position.x}px, ${position.y}px, 0);`}
     id={questionId}
     data-grabbing={isDragging}
-    >
-    <div class="draghandle" onpointerdown={onPointerDown} style={`cursor: ${isDragging ? "grabbing" : "grab"}`}>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="nc-icon" data-size="lg" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M4 9a1 1 0 1 0 2 0 1 1 0 1 0-2 0M4 15a1 1 0 1 0 2 0 1 1 0 1 0-2 0M11 9a1 1 0 1 0 2 0 1 1 0 1 0-2 0M11 15a1 1 0 1 0 2 0 1 1 0 1 0-2 0M18 9a1 1 0 1 0 2 0 1 1 0 1 0-2 0M18 15a1 1 0 1 0 2 0 1 1 0 1 0-2 0"/></svg>
+>
+    <div class="draghandle" onpointerdown={onPointerDown} style={`cursor: ${isDragging ? 'grabbing' : 'grab'}`}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="nc-icon"
+            data-size="lg"
+            viewBox="0 0 24 24"
+        >
+            <path stroke="none" d="M0 0h24v24H0z" />
+            <path d="M4 9a1 1 0 1 0 2 0 1 1 0 1 0-2 0M4 15a1 1 0 1 0 2 0 1 1 0 1 0-2 0M11 9a1 1 0 1 0 2 0 1 1 0 1 0-2 0M11 15a1 1 0 1 0 2 0 1 1 0 1 0-2 0M18 9a1 1 0 1 0 2 0 1 1 0 1 0-2 0M18 15a1 1 0 1 0 2 0 1 1 0 1 0-2 0" />
+        </svg>
     </div>
     <p>{question.title}</p>
     <p class="nc-hint">{question.type}</p>
 </article>
 
 <style>
-    .arrangeItem {
-        background: var(--color-surface-base);
-        position: relative;
-        box-shadow: var(--shadow-near);
+.arrangeItem {
+    background: var(--color-surface-base);
+    position: relative;
+    box-shadow: var(--shadow-near);
+
+    & .draghandle {
+        cursor: grab;
+    }
+
+    &[data-grabbing="true"] {
+        z-index: 1;
+        border-color: var(--color-brand-primary-emphasis);
+        box-shadow: var(--shadow-medium);
 
         & .draghandle {
-            cursor: grab;
-        }
-
-        &[data-grabbing="true"] {
-            z-index: 1;
-            border-color: var(--color-brand-primary-emphasis);
-            box-shadow: var(--shadow-medium);
-
-            & .draghandle {
-                cursor: grabbing;
-                color: var(--color-brand-primary-emphasis);
-            }
+            cursor: grabbing;
+            color: var(--color-brand-primary-emphasis);
         }
     }
+}
 </style>

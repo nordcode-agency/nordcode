@@ -1,19 +1,19 @@
 {
-  "name": "@nordcode/postcss-config",
-  "version": "1.0.1",
-  "description": "Base postcss config for packages to extend from",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "postcss": "^8.4.23",
-    "postcss-cli": "^10.1.0",
-    "postcss-combine-duplicated-selectors": "^10.0.3",
-    "postcss-import": "^15.1.0",
-    "postcss-preset-env": "^8.3.2"
-  }
+    "name": "@nordcode/postcss-config",
+    "version": "1.0.1",
+    "description": "Base postcss config for packages to extend from",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "postcss": "^8.4.23",
+        "postcss-cli": "^10.1.0",
+        "postcss-combine-duplicated-selectors": "^10.0.3",
+        "postcss-import": "^15.1.0",
+        "postcss-preset-env": "^8.3.2"
+    }
 }

@@ -18,9 +18,9 @@ The container is used to add the basic styles and as a base for the controls.
 ### Create the model viewer with your container
 
 ```javascript
-import { createModelViewer } from "@nordcode/model-viewer";
+import { createModelViewer } from '@nordcode/model-viewer';
 
-const container = document.querySelector(".model-container");
+const container = document.querySelector('.model-container');
 createModelViewer(container, {
     rotateSpeedFactor: 0.4,
     perspective: 720,

@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 import svelte from '@astrojs/svelte';
-import { browserslistToTargets } from 'lightningcss';
 import browserslist from 'browserslist';
+import { browserslistToTargets } from 'lightningcss';
 
 // https://astro.build/config
 // biome-ignore lint/nursery/noDefaultExport: config file works like that

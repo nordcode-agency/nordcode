@@ -1,4 +1,4 @@
-@import '@nordcode/ui/complete';
+@import "@nordcode/ui/complete";
 
 :where(:root) {
     --layout-max-width: 72em;

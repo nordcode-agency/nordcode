@@ -108,8 +108,7 @@
     }
 
     :where(.nc-notification.-closing) {
-        animation: remove-notification var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1)
-            forwards;
+        animation: remove-notification var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1) forwards;
     }
 
     @keyframes pop-in {

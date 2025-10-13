@@ -63,16 +63,15 @@ Rechnung Nr. ${invoice.invoiceNumber}
                         {/each}
                     </div>
                 </div>
-
             </div>
             <div class="nc-box -bordered printOverview num">
                 <span>R.Nr.</span><span class="tl-right">{currentInvoice.invoiceNumber}</span>
                 <span>Datum</span><span class="tl-right">{formatDateString(currentInvoice.date)}</span>
                 <span>Zahlungsziel</span><span class="tl-right">{formatDateString(targetDate)}</span>
-                <span class="-bold mt-base">Gesamt</span><span
-                class="-bold font-mono mt-base tl-right">{formatMoney(currentInvoice.invoiceTotal)}</span>
+                <span class="-bold mt-base">Gesamt</span><span class="-bold font-mono mt-base tl-right">{
+                    formatMoney(currentInvoice.invoiceTotal)
+                }</span>
             </div>
-
         </div>
         <div class="printSection | nc-stack -far">
             <div class="nc-stack">
@@ -85,11 +84,10 @@ Rechnung Nr. ${invoice.invoiceNumber}
                     {#each currentInvoice.jobDescriptions as job}
                         <div class="nc-stack -nearest">
                             {#if job.title}<h3>{job.title}</h3>{/if}
-                            <div class="description" >{@html convertToHtml(job.description)}</div>
+                            <div class="description">{@html convertToHtml(job.description)}</div>
                         </div>
                     {/each}
                 </div>
-
             </div>
 
             <div class="nc-stack -nogap">
@@ -102,13 +100,14 @@ Rechnung Nr. ${invoice.invoiceNumber}
             <div class="printSection | nc-stack -nearest">
                 <h3>Anmerkungen</h3>
                 {#if currentInvoice.jobDateEqualsInvoiceDate}
-                    <p>Sofern nicht anders angegeben, entspricht das Leistungsdatum dem
-                        Rechnungsdatum.
+                    <p>
+                        Sofern nicht anders angegeben, entspricht das Leistungsdatum dem Rechnungsdatum.
                     </p>
                 {/if}
                 {#if currentInvoice.payableUntil}
                     <p>
-                        Zahlbar ohne Abzüge bis zum {formatDateString(targetDate)}.</p>
+                        Zahlbar ohne Abzüge bis zum {formatDateString(targetDate)}.
+                    </p>
                 {/if}
                 {#if currentInvoice.hasUmsatzSteuer}
                     <p>Gemäß §19 UStG enthält der Rechnungsbetrag keine Umsatzsteuer.</p>
@@ -137,7 +136,6 @@ Rechnung Nr. ${invoice.invoiceNumber}
                 <h4>Bitte überweisen an</h4>
 
                 <div class="nc-cluster -far nc-box -bordered">
-
                     <div class="nc-stack -nearest">
                         <div class="nc-stack -nogap mt-auto">
                             <p>{currentInvoice.bankingDetails.bankName}</p>
@@ -150,13 +148,11 @@ Rechnung Nr. ${invoice.invoiceNumber}
                         {#await generateQRCode(currentInvoice)}
                             <p>Lääääääääääääääääääääääääääädt</p>
                         {:then qrCode}
-                            <img src={qrCode} alt="QR-Code" class="qr-code"/>
+                            <img src={qrCode} alt="QR-Code" class="qr-code" />
                         {/await}
                     </div>
                 </div>
-
             </div>
         </div>
-
     </section>
 </div>

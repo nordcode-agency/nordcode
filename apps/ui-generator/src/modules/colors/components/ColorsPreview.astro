@@ -1,14 +1,14 @@
 ---
+import SecondaryNav from '../../common/components/SecondaryNav.astro';
 import PresetPreview from '../../presets/components/PresetPreview.astro';
+import BorderColors from './BorderColors.svelte';
 import ContrastChecker from './ContrastChecker.svelte';
 import GeneralColorSettings from './GeneralColorSettings.svelte';
 import PrimaryColors from './PrimaryColors.svelte';
 import SecondaryColors from './SecondaryColors.svelte';
-import TextColors from './TextColors.svelte';
-import SurfaceColors from './SurfaceColors.svelte';
-import BorderColors from './BorderColors.svelte';
 import StatusColors from './StatusColors.svelte';
-import SecondaryNav from '../../common/components/SecondaryNav.astro';
+import SurfaceColors from './SurfaceColors.svelte';
+import TextColors from './TextColors.svelte';
 
 const entries = [
     {
@@ -50,37 +50,36 @@ const entries = [
 ];
 ---
 
-
 <style>
-    .color-util-preview {
-        color: var(--text);
-        background: var(--surface);
-        border: var(--border-width-thin) solid var(--border);
-        padding: 0.125lh 1ch;
-        position: relative;
+.color-util-preview {
+    color: var(--text);
+    background: var(--surface);
+    border: var(--border-width-thin) solid var(--border);
+    padding: 0.125lh 1ch;
+    position: relative;
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        inset-block-start: -1ch;
+        inset-inline: -1ch;
+        border-radius: var(--border-radius-medium);
+        inline-size: 2ch;
+        block-size: 2ch;
+        background: var(--color);
+    }
+
+    &.-hover {
+        color: var(--text-hover);
+        background: var(--surface-hover);
+        border: var(--border-width-thin) solid var(--border-hover);
 
         &:before {
-            content: "";
-            display: block;
-            position: absolute;
-            inset-block-start: -1ch;
-            inset-inline: -1ch;
-            border-radius: var(--border-radius-medium);
-            inline-size: 2ch;
-            block-size: 2ch;
-            background: var(--color);
-        }
-
-        &.-hover {
-            color: var(--text-hover);
-            background: var(--surface-hover);
-            border: var(--border-width-thin) solid var(--border-hover);
-
-            &:before {
-                background: var(--color-hover);
-            }
+            background: var(--color-hover);
         }
     }
+}
 </style>
 
 <div>
@@ -99,82 +98,81 @@ const entries = [
     <hr />
     <section class="nc-region content-block nc-stack -far">
         <h2 id="preview">Color Previews</h2>
-    <div class="nc-cluster -near">
-        <button class="nc-button">Default</button>
-        <button class="nc-button -primary">Primary</button>
-        <button class="nc-button -secondary">Secondary</button>
-        <button class="nc-button -muted">Muted</button>
-        <button class="nc-button -info">Info</button>
-        <button class="nc-button -warning">Warning</button>
-        <button class="nc-button -danger">Danger</button>
-        <button class="nc-button -success">Success</button>
-        <button class="nc-button -outline">Outline</button>
-        <button class="nc-button -outline -primary">Outline Primary</button>
-        <button class="nc-button -outline -secondary">Outline Secondary</button>
-        <button class="nc-button -outline -muted">Outline Muted</button>
-        <button class="nc-button -outline -info">Outline Info</button>
-        <button class="nc-button -outline -warning">Outline Warning</button>
-        <button class="nc-button -outline -danger">Outline Danger</button>
-        <button class="nc-button -outline -success">Outline Success</button>
+        <div class="nc-cluster -near">
+            <button class="nc-button">Default</button>
+            <button class="nc-button -primary">Primary</button>
+            <button class="nc-button -secondary">Secondary</button>
+            <button class="nc-button -muted">Muted</button>
+            <button class="nc-button -info">Info</button>
+            <button class="nc-button -warning">Warning</button>
+            <button class="nc-button -danger">Danger</button>
+            <button class="nc-button -success">Success</button>
+            <button class="nc-button -outline">Outline</button>
+            <button class="nc-button -outline -primary">Outline Primary</button>
+            <button class="nc-button -outline -secondary">Outline Secondary</button>
+            <button class="nc-button -outline -muted">Outline Muted</button>
+            <button class="nc-button -outline -info">Outline Info</button>
+            <button class="nc-button -outline -warning">Outline Warning</button>
+            <button class="nc-button -outline -danger">Outline Danger</button>
+            <button class="nc-button -outline -success">Outline Success</button>
 
-        <button class="nc-button -stealth">Stealth</button>
-        <button class="nc-button -stealth -muted">Stealth Muted</button>
-        <button class="nc-button -stealth -primary">Stealth Primary</button>
-        <button class="nc-button -stealth -secondary">Stealth Secondary</button>
-        <button class="nc-button -stealth -info">Stealth Info</button>
-        <button class="nc-button -stealth -warning">Stealth Warning</button>
-        <button class="nc-button -stealth -danger">Stealth Danger</button>
-        <button class="nc-button -stealth -success">Stealth Success</button>
-        <button class="nc-button -destructive">Destructive button</button>
-        <button class="nc-button -offset">Offset Button</button>
-    </div>
-    <hr />
-    <div class="nc-cluster -near">
-        <div class="badge">Standard</div>
-        <div class="badge -muted">Muted</div>
-        <div class="badge -primary">Primary</div>
-        <div class="badge -secondary">Secondary</div>
-        <div class="badge -emphasis">Emphasis</div>
-        <div class="badge -info">Info</div>
-        <div class="badge -warning">Warning</div>
-        <div class="badge -danger">Danger</div>
-        <div class="badge -success">Success</div>
-    </div>
+            <button class="nc-button -stealth">Stealth</button>
+            <button class="nc-button -stealth -muted">Stealth Muted</button>
+            <button class="nc-button -stealth -primary">Stealth Primary</button>
+            <button class="nc-button -stealth -secondary">Stealth Secondary</button>
+            <button class="nc-button -stealth -info">Stealth Info</button>
+            <button class="nc-button -stealth -warning">Stealth Warning</button>
+            <button class="nc-button -stealth -danger">Stealth Danger</button>
+            <button class="nc-button -stealth -success">Stealth Success</button>
+            <button class="nc-button -destructive">Destructive button</button>
+            <button class="nc-button -offset">Offset Button</button>
+        </div>
+        <hr />
+        <div class="nc-cluster -near">
+            <div class="badge">Standard</div>
+            <div class="badge -muted">Muted</div>
+            <div class="badge -primary">Primary</div>
+            <div class="badge -secondary">Secondary</div>
+            <div class="badge -emphasis">Emphasis</div>
+            <div class="badge -info">Info</div>
+            <div class="badge -warning">Warning</div>
+            <div class="badge -danger">Danger</div>
+            <div class="badge -success">Success</div>
+        </div>
 
-    <hr />
-    <h2>Color utilities</h2>
-    <div class="nc-cluster -far live-preview">
-        <div class="color-util-preview">Standard</div>
-        <div class="color-util-preview -neutral">Neutral</div>
-        <div class="color-util-preview -muted">Muted</div>
-        <div class="color-util-preview -primary">Primary</div>
-        <div class="color-util-preview -secondary">Secondary</div>
-        <div class="color-util-preview -emphasis">Emphasis</div>
-        <div class="color-util-preview -info">Info</div>
-        <div class="color-util-preview -warning">Warning</div>
-        <div class="color-util-preview -danger">Danger</div>
-        <div class="color-util-preview -success">Success</div>
-    </div>
-    <h3>Color utilities hover</h3>
-    <div class="nc-cluster -far">
-        <div class="color-util-preview -hover">Standard</div>
-        <div class="color-util-preview -hover -neutral">Neutral</div>
-        <div class="color-util-preview -hover -muted">Muted</div>
-        <div class="color-util-preview -hover -primary">Primary</div>
-        <div class="color-util-preview -hover -secondary">Secondary</div>
-        <div class="color-util-preview -hover -emphasis">Emphasis</div>
-        <div class="color-util-preview -hover -info">Info</div>
-        <div class="color-util-preview -hover -warning">Warning</div>
-        <div class="color-util-preview -hover -danger">Danger</div>
-        <div class="color-util-preview -hover -success">Success</div>
-    </div>
-    <div class="nc-flow nc-box -bordered -info">
-        <p>Color Util classes also apply to</p>
+        <hr />
+        <h2>Color utilities</h2>
+        <div class="nc-cluster -far live-preview">
+            <div class="color-util-preview">Standard</div>
+            <div class="color-util-preview -neutral">Neutral</div>
+            <div class="color-util-preview -muted">Muted</div>
+            <div class="color-util-preview -primary">Primary</div>
+            <div class="color-util-preview -secondary">Secondary</div>
+            <div class="color-util-preview -emphasis">Emphasis</div>
+            <div class="color-util-preview -info">Info</div>
+            <div class="color-util-preview -warning">Warning</div>
+            <div class="color-util-preview -danger">Danger</div>
+            <div class="color-util-preview -success">Success</div>
+        </div>
+        <h3>Color utilities hover</h3>
+        <div class="nc-cluster -far">
+            <div class="color-util-preview -hover">Standard</div>
+            <div class="color-util-preview -hover -neutral">Neutral</div>
+            <div class="color-util-preview -hover -muted">Muted</div>
+            <div class="color-util-preview -hover -primary">Primary</div>
+            <div class="color-util-preview -hover -secondary">Secondary</div>
+            <div class="color-util-preview -hover -emphasis">Emphasis</div>
+            <div class="color-util-preview -hover -info">Info</div>
+            <div class="color-util-preview -hover -warning">Warning</div>
+            <div class="color-util-preview -hover -danger">Danger</div>
+            <div class="color-util-preview -hover -success">Success</div>
+        </div>
+        <div class="nc-flow nc-box -bordered -info">
+            <p>Color Util classes also apply to</p>
             <ul>
                 <li><code>-bordered</code> class on <code>.nc-box</code></li>
                 <li><code>.nc-fieldset > legend</code></li>
             </ul>
-    </div>
-        </section>
-
+        </div>
+    </section>
 </div>

@@ -1,50 +1,50 @@
 <script lang="ts">
-    import { Input } from '@nordcode/forms-svelte';
-    import { CheckboxInput } from '@nordcode/forms-svelte';
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
-    import {
-        configStore,
-        updateBorderRadius,
-        updateBorderRadiusScale,
-        updateBorderWidthScale,
-        updateBorderWidths,
-    } from '../../store/configStore';
-    import BorderPreviewEntry from './BorderPreviewEntry.svelte';
+import { Input } from '@nordcode/forms-svelte';
+import { CheckboxInput } from '@nordcode/forms-svelte';
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import {
+    configStore,
+    updateBorderRadius,
+    updateBorderRadiusScale,
+    updateBorderWidths,
+    updateBorderWidthScale,
+} from '../../store/configStore';
+import BorderPreviewEntry from './BorderPreviewEntry.svelte';
 
-    const widths = [
-        {
-            name: 'Thin',
-            description: 'Thin border width. Usually the default for most elements.',
-        },
-        {
-            name: 'Medium',
-            description: 'Medium border width',
-        },
-        {
-            name: 'Thick',
-            description: 'Thick border width',
-        },
-    ];
+const widths = [
+    {
+        name: 'Thin',
+        description: 'Thin border width. Usually the default for most elements.',
+    },
+    {
+        name: 'Medium',
+        description: 'Medium border width',
+    },
+    {
+        name: 'Thick',
+        description: 'Thick border width',
+    },
+];
 
-    const radius = [
-        {
-            name: 'Small',
-            description: 'Small border radius for most smaller elements, like inputs or buttons.',
-        },
-        {
-            name: 'Medium',
-            description: 'Medium border radius for most layout elements, like cards or dialogs.',
-        },
-        {
-            name: 'Large',
-            description:
-                'Largest border radius for large elements or special cases. Can be used for full screen layout containers.',
-        },
-        {
-            name: 'Round',
-            description: "Utility border radius. It's constant and round.",
-        },
-    ];
+const radius = [
+    {
+        name: 'Small',
+        description: 'Small border radius for most smaller elements, like inputs or buttons.',
+    },
+    {
+        name: 'Medium',
+        description: 'Medium border radius for most layout elements, like cards or dialogs.',
+    },
+    {
+        name: 'Large',
+        description:
+            'Largest border radius for large elements or special cases. Can be used for full screen layout containers.',
+    },
+    {
+        name: 'Round',
+        description: "Utility border radius. It's constant and round.",
+    },
+];
 </script>
 
 <section class="nc-region content-block -contained -stretched">

@@ -1,25 +1,25 @@
 import type { ConfigStore } from '../configStore';
-import {
-    getTextLightValues,
-    getSurfaceLightValues,
-    getBorderLightValues,
-    getTextDarkValues,
-    getSurfaceDarkValues,
-    getBorderDarkValues,
-    infoHue,
-    getInfoLightness,
-    warningHue,
-    getWarningLightness,
-    successHue,
-    getSuccessLightness,
-    dangerHue,
-    getDangerLightness,
-    getLightColorValues,
-    getDarkColorValues,
-    getStatusLightColorValues,
-    getStatusDarkColorValues,
-} from './SharedThemeValues';
 import { getColorTheme } from './getColorTheme';
+import {
+    dangerHue,
+    getBorderDarkValues,
+    getBorderLightValues,
+    getDangerLightness,
+    getDarkColorValues,
+    getInfoLightness,
+    getLightColorValues,
+    getStatusDarkColorValues,
+    getStatusLightColorValues,
+    getSuccessLightness,
+    getSurfaceDarkValues,
+    getSurfaceLightValues,
+    getTextDarkValues,
+    getTextLightValues,
+    getWarningLightness,
+    infoHue,
+    successHue,
+    warningHue,
+} from './SharedThemeValues';
 
 type WpColor = {
     name: string;

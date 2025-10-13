@@ -1,6 +1,6 @@
 <script lang="ts">
-import type { Recipient, BankingDetails } from '../models/Invoice.model';
 import { invalidate } from '$app/navigation';
+import type { BankingDetails, Recipient } from '../models/Invoice.model';
 
 interface BankDetailsListProps {
     bankDetails: BankingDetails[];
@@ -23,28 +23,31 @@ async function deleteBankDetails(iban: string) {
 }
 </script>
 
-<div class="nc-table" role="group" style="background: none;">
+<div class="nc-table" role="group" style="background: none">
     <table>
         <caption>Bankverbindungen</caption>
         <thead>
-        <tr>
-            <th>Bank Name</th>
-            <th>IBAN</th>
-            <th>Aktionen</th>
-        </tr>
+            <tr>
+                <th>Bank Name</th>
+                <th>IBAN</th>
+                <th>Aktionen</th>
+            </tr>
         </thead>
         <tbody>
-        {#each bankDetails as bankDetail}
-            <tr>
-                <td>{bankDetail.bankName}</td>
-                <td>{bankDetail.iban}</td>
-                <td>
-                    <button class="nc-button -small -destructive"
-                            onclick={() => deleteBankDetails(bankDetail.iban)}>Löschen
-                    </button>
-                </td>
-            </tr>
-        {/each}
+            {#each bankDetails as bankDetail}
+                <tr>
+                    <td>{bankDetail.bankName}</td>
+                    <td>{bankDetail.iban}</td>
+                    <td>
+                        <button
+                            class="nc-button -small -destructive"
+                            onclick={() => deleteBankDetails(bankDetail.iban)}
+                        >
+                            Löschen
+                        </button>
+                    </td>
+                </tr>
+            {/each}
         </tbody>
     </table>
 </div>

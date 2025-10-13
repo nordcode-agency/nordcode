@@ -1,87 +1,84 @@
 <script lang="ts">
-    import RendererLayout from './RendererLayout.svelte';
-    import QuestionRenderer from './QuestionRenderer.svelte';
-    import { goToNextQuestion, answerQuestion, rendererStore } from '../store/rendererStore.ts';
-    import type {
-        AnswerValue,
-        QuestionnaireAnswer,
-    } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
-    import type { Question } from '$lib/index.ts';
-    import type { FormEventHandler } from 'svelte/elements';
+import type { Question } from '$lib/index.ts';
+import type { AnswerValue, QuestionnaireAnswer } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
+import type { FormEventHandler } from 'svelte/elements';
+import { answerQuestion, goToNextQuestion, rendererStore } from '../store/rendererStore.ts';
+import QuestionRenderer from './QuestionRenderer.svelte';
+import RendererLayout from './RendererLayout.svelte';
 
-    let currentQuestion: Question | undefined = $derived(
-        $rendererStore?.questionnaire?.questions[$rendererStore.currentQuestionId],
-    );
+let currentQuestion: Question | undefined = $derived(
+    $rendererStore?.questionnaire?.questions[$rendererStore.currentQuestionId],
+);
 
-    let currentAnswer: QuestionnaireAnswer | undefined = $derived(
-        $rendererStore.answers[$rendererStore.currentQuestionIdx] ?? {
-            question: $rendererStore?.questionnaire?.questions[$rendererStore.currentQuestionId],
-            answer: undefined,
-        },
-    );
+let currentAnswer: QuestionnaireAnswer | undefined = $derived(
+    $rendererStore.answers[$rendererStore.currentQuestionIdx] ?? {
+        question: $rendererStore?.questionnaire?.questions[$rendererStore.currentQuestionId],
+        answer: undefined,
+    },
+);
 
-    const modifierKey = navigator.userAgent.includes('Mac') ? '⌘' : 'Strg';
+const modifierKey = navigator.userAgent.includes('Mac') ? '⌘' : 'Strg';
 
-    const answerCurrentQuestion = (form: HTMLFormElement) => {
-        if (!currentQuestion) {
-            return;
-        }
+const answerCurrentQuestion = (form: HTMLFormElement) => {
+    if (!currentQuestion) {
+        return;
+    }
 
-        const formData = new FormData(form as HTMLFormElement);
-        const answer = formData.get(currentQuestion.id);
+    const formData = new FormData(form as HTMLFormElement);
+    const answer = formData.get(currentQuestion.id);
 
-        if (!form.checkValidity()) {
-            // @todo: show errors
-            return;
-        }
+    if (!form.checkValidity()) {
+        // @todo: show errors
+        return;
+    }
 
-        if (answer === '' || answer === undefined || answer === null) {
-            skipQuestion();
-            return;
-        }
-        answerQuestion(answer as AnswerValue);
-        goToNextQuestion();
-    };
+    if (answer === '' || answer === undefined || answer === null) {
+        skipQuestion();
+        return;
+    }
+    answerQuestion(answer as AnswerValue);
+    goToNextQuestion();
+};
 
-    const skipQuestion = () => {
-        answerQuestion('(nicht beantwortet)');
-        goToNextQuestion();
-    };
+const skipQuestion = () => {
+    answerQuestion('(nicht beantwortet)');
+    goToNextQuestion();
+};
 
-    const onFormSubmit: FormEventHandler<HTMLFormElement> = event => {
+const onFormSubmit: FormEventHandler<HTMLFormElement> = event => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    answerCurrentQuestion(event.currentTarget);
+};
+
+const submitForm = () => {
+    if (!currentQuestion) {
+        return;
+    }
+
+    const form = document.getElementById(`${currentQuestion.id}-form`) as HTMLFormElement;
+    if (!form) {
+        return;
+    }
+    answerCurrentQuestion(form);
+};
+
+const handleKeyboardSubmit = (event: KeyboardEvent) => {
+    if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
         event.stopPropagation();
+        submitForm();
+    }
+};
 
-        answerCurrentQuestion(event.currentTarget);
+$effect(() => {
+    document.addEventListener('keydown', handleKeyboardSubmit);
+
+    return () => {
+        document.removeEventListener('keydown', handleKeyboardSubmit);
     };
-
-    const submitForm = () => {
-        if (!currentQuestion) {
-            return;
-        }
-
-        const form = document.getElementById(`${currentQuestion.id}-form`) as HTMLFormElement;
-        if (!form) {
-            return;
-        }
-        answerCurrentQuestion(form);
-    };
-
-    const handleKeyboardSubmit = (event: KeyboardEvent) => {
-        if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) {
-            event.preventDefault();
-            event.stopPropagation();
-            submitForm();
-        }
-    };
-
-    $effect(() => {
-        document.addEventListener('keydown', handleKeyboardSubmit);
-
-        return () => {
-            document.removeEventListener('keydown', handleKeyboardSubmit);
-        };
-    });
+});
 </script>
 
 {#if currentQuestion}

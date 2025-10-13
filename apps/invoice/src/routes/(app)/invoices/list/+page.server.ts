@@ -1,5 +1,5 @@
-import { error } from '@sveltejs/kit';
 import { loadInvoices } from '$lib/db/api/invoices';
+import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from '../../../../.svelte-kit/types/src/routes';
 
 export const load: PageServerLoad = async ({ params }) => {

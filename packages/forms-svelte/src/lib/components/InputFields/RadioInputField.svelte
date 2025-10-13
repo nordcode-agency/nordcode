@@ -1,37 +1,36 @@
 <script lang="ts">
-    import type { FormEventHandler } from 'svelte/elements';
-    import type { Option } from '../../shared/models/Option.ts';
-    import type { GenericInputProps } from './types/GenericInputProps.ts';
+import type { FormEventHandler } from 'svelte/elements';
+import type { Option } from '../../shared/models/Option.ts';
+import type { GenericInputProps } from './types/GenericInputProps.ts';
 
-    interface RadioInputFieldProps extends GenericInputProps {
-        options: Option[];
-        value?: number | string | boolean;
-    }
+interface RadioInputFieldProps extends GenericInputProps {
+    options: Option[];
+    value?: number | string | boolean;
+}
 
-    let {
-        label,
-        name = label.split(' ').join('').toLowerCase(),
-        id = `${name}-label`,
-        errors = [],
-        hint = '',
-        required = true,
-        options,
-        value = $bindable(),
-        class: className,
-        ...rest
-    }: RadioInputFieldProps = $props();
+let {
+    label,
+    name = label.split(' ').join('').toLowerCase(),
+    id = `${name}-label`,
+    errors = [],
+    hint = '',
+    required = true,
+    options,
+    value = $bindable(),
+    class: className,
+    ...rest
+}: RadioInputFieldProps = $props();
 
-    const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
-        const target = event.target as HTMLInputElement;
+const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
+    const target = event.target as HTMLInputElement;
 
-        value = +target.value;
-    };
+    value = +target.value;
+};
 </script>
 
 <fieldset class="nc-fieldset nc-input-field nc-radio-field" onchange={handleChange}>
     <legend class="nc-legend nc-stack">
-        <span class="nc-input-label" {id}
-            >{label}
+        <span class="nc-input-label" {id}>{label}
             {#if !required}
                 <span class="nc-hint"> (optional)</span>
             {/if}

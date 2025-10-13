@@ -2,7 +2,6 @@
 
 <small>Credits go to Adam Silver</small>
 
-
 ## Make things obvious
 
 - Use clear and concise language. Keep it simple
@@ -10,7 +9,6 @@
 - Don't make people remember important information
 - Make context easy to see
 - Be consistent
-
 
 ## Put users in control
 
@@ -20,7 +18,6 @@
 - Let users undo and change their actions
 - Warn users about destructive actions
 - Don't update the UI unoless it's the users intend
-
 
 ## Good design is lightweight
 

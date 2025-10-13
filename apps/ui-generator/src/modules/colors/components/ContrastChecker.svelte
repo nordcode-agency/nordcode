@@ -1,12 +1,12 @@
 <script lang="ts">
 import Color from 'colorjs.io';
-import ColorSelect from '../../common/components/ColorSelect.svelte';
-import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
 import ContrastPreview from '../../colors/components/ContrastPreview.svelte';
+import ColorSelect from '../../common/components/ColorSelect.svelte';
 import {
     getThemeMutationObserver,
     type ThemeMutationObserverListener,
 } from '../../common/utils/ThemeMutationObserver.ts';
+import { toSpecificVersion } from '../../common/utils/toSpecificVersion.ts';
 
 const surfaceOptions = {
     Primary: ['--color-brand-primary-surface'],
@@ -93,15 +93,15 @@ $effect(() => {
 </script>
 
 <style>
-    .contrastTool-container {
-        background: var(--color-surface-base);
-        margin-inline: var(--spacing-base);
-        inline-size: calc(100% - 2 * var(--spacing-base));
-    }
-    .contrastTool {
-        grid-template-columns: 2fr 1fr 1fr;
-        inline-size: 100%;
-    }
+.contrastTool-container {
+    background: var(--color-surface-base);
+    margin-inline: var(--spacing-base);
+    inline-size: calc(100% - 2 * var(--spacing-base));
+}
+.contrastTool {
+    grid-template-columns: 2fr 1fr 1fr;
+    inline-size: 100%;
+}
 </style>
 
 <section class="nc-region nc-stack -stretched -contained nc-box -bordered contrastTool-container">
@@ -111,29 +111,26 @@ $effect(() => {
     </p>
     <div class="nc-grid contrastTool -far">
         <form class="nc-stack">
-            <ColorSelect label="Surface Color"
-                         bind:value={surfaceColor}
-                         options={surfaceOptions}></ColorSelect>
-            <ColorSelect label="Foreground Color"
-                         bind:value={textColor}
-                         options={textOptions}></ColorSelect>
+            <ColorSelect label="Surface Color" bind:value={surfaceColor} options={surfaceOptions}></ColorSelect>
+            <ColorSelect label="Foreground Color" bind:value={textColor} options={textOptions}></ColorSelect>
         </form>
         <div class="nc-stack lightpreview">
-            <ContrastPreview textColor={lightText}
-                             surfaceColor={lightSurface}
-                             wcagContrast={lightContrast[0]}
-                             apcaContrast={lightContrast[1]}>
+            <ContrastPreview
+                textColor={lightText}
+                surfaceColor={lightSurface}
+                wcagContrast={lightContrast[0]}
+                apcaContrast={lightContrast[1]}
+            >
             </ContrastPreview>
-
         </div>
         <div class="nc-stack darkreview">
-            <ContrastPreview textColor={darkText}
-                             surfaceColor={darkSurface}
-                             wcagContrast={darkContrast[0]}
-                             apcaContrast={darkContrast[1]}>
+            <ContrastPreview
+                textColor={darkText}
+                surfaceColor={darkSurface}
+                wcagContrast={darkContrast[0]}
+                apcaContrast={darkContrast[1]}
+            >
             </ContrastPreview>
-
         </div>
     </div>
-
 </section>

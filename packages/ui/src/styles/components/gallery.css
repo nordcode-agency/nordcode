@@ -51,14 +51,18 @@
                 background-color: var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
                 background-image: linear-gradient(
                     var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) 0,
-                    var(--gallery-scrollbar-bg, var(--color-surface-emphasis))
-                        calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25),
-                    var(--gallery-scrollbar-fg, var(--color-text-on-emphasis))
-                        calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25),
-                    var(--gallery-scrollbar-fg, var(--color-text-on-emphasis))
-                        calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75),
-                    var(--gallery-scrollbar-bg, var(--color-surface-emphasis))
-                        calc(var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75)
+                    var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) calc(
+                        var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25
+                    ),
+                    var(--gallery-scrollbar-fg, var(--color-text-on-emphasis)) calc(
+                        var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25
+                    ),
+                    var(--gallery-scrollbar-fg, var(--color-text-on-emphasis)) calc(
+                        var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75
+                    ),
+                    var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) calc(
+                        var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75
+                    )
                 );
             }
         }

@@ -1,6 +1,6 @@
 ## 2.0.5 (2025-10-11)
 
-### fixes 
+### fixes
 
 -fix input type=file buttons not being aligned
 
@@ -164,6 +164,7 @@ Lots of spring cleaning
 ### Features
 
 Make fieldset-based inputs more accessible by adding legends. This affects:
+
 - `nc-tag-select`
 - `nc-segmented-control`
 - `nc-radio-field`

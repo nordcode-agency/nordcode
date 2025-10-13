@@ -1,6 +1,6 @@
 <script lang="ts">
-    import RendererLayout from './RendererLayout.svelte';
-    import { startQuestionnaire, rendererStore } from '../store/rendererStore.ts';
+import { rendererStore, startQuestionnaire } from '../store/rendererStore.ts';
+import RendererLayout from './RendererLayout.svelte';
 </script>
 
 <RendererLayout>

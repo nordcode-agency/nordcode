@@ -13,8 +13,7 @@
         --_dialog-radius: 0;
         display: block;
         z-index: var(--layer-important);
-        animation: close-dialog var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1)
-            forwards;
+        animation: close-dialog var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1) forwards;
         transition: opacity var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1);
         position: fixed;
         inset: 0;

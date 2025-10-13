@@ -1,12 +1,11 @@
 <style>
-    figure div {
-        display: grid;
-        place-content: center;
-        inline-size: 5rem;
-        block-size: 5rem;
-        border: var(--border-width-medium) solid var(--color-border-base);
-    }
-
+figure div {
+    display: grid;
+    place-content: center;
+    inline-size: 5rem;
+    block-size: 5rem;
+    border: var(--border-width-medium) solid var(--color-border-base);
+}
 </style>
 
 <div class="nc-region content-block nc-stack -far -stretched -contained">
@@ -16,58 +15,61 @@
         <form class="nc-card nc-form">
             <span class="nc-slub nc-form-tag">Norcode Survey</span>
             <h2 class="nc-form-title">1. What did you think of it?</h2>
-            <p class="nc-form-hint">We would love to get your opinion on this, so we can improve further and continue to provide a great service</p>
+            <p class="nc-form-hint">
+                We would love to get your opinion on this, so we can improve further and continue to provide a great
+                service
+            </p>
             <div class="nc-stack -far">
-            <fieldset class="nc-fieldset">
-                <legend>Who are you</legend>
-                <p class="nc-hint">Help us get to know you</p>
-                <div class="nc-stack">
-                <div class="nc-input-field">
-                    <label for="email" class="nc-stack">
-                        <span class="nc-input-label">Email</span>
-                    </label>
-                    <input
-                        id="email"
-                        class="nc-input"
-                        aria-required="true"
-                        autocomplete=""
-                        type="email"
-                    />
-                </div>
-                <div class="nc-input-field">
-                    <label for="name" class="nc-stack">
-                        <span class="nc-input-label">What's your name?</span>
-                        <span class="nc-hint">Give us your name, so we know would said something wrong</span>
-                    </label>
-                    <input
-                        id="name"
-                        class="nc-input"
-                        aria-required="true"
-                        autocomplete=""
-                        type="text"
-                    />
-                </div>
-                </div>
-            </fieldset>
-            <fieldset class="nc-fieldset">
-                <legend>How did we do?</legend>
-                <p class="nc-hint">Please be nice</p>
-                <div class="nc-stack">
-                <div class="nc-input-field">
-                    <label for="rating" class="nc-stack">
-                        <span class="nc-input-label">Your rating</span>
-                    </label>
-                    <input
-                        id="rating"
-                        class="nc-input"
-                        aria-required="true"
-                        autocomplete=""
-                        type="number"
-                    />
-                </div>
-            </fieldset>
-            <button class="nc-button -primary" type="submit">Send survey</button>
-            </div>
+                <fieldset class="nc-fieldset">
+                    <legend>Who are you</legend>
+                    <p class="nc-hint">Help us get to know you</p>
+                    <div class="nc-stack">
+                        <div class="nc-input-field">
+                            <label for="email" class="nc-stack">
+                                <span class="nc-input-label">Email</span>
+                            </label>
+                            <input
+                                id="email"
+                                class="nc-input"
+                                aria-required="true"
+                                autocomplete=""
+                                type="email"
+                            />
+                        </div>
+                        <div class="nc-input-field">
+                            <label for="name" class="nc-stack">
+                                <span class="nc-input-label">What's your name?</span>
+                                <span class="nc-hint">Give us your name, so we know would said something wrong</span>
+                            </label>
+                            <input
+                                id="name"
+                                class="nc-input"
+                                aria-required="true"
+                                autocomplete=""
+                                type="text"
+                            />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="nc-fieldset">
+                    <legend>How did we do?</legend>
+                    <p class="nc-hint">Please be nice</p>
+                    <div class="nc-stack">
+                        <div class="nc-input-field">
+                            <label for="rating" class="nc-stack">
+                                <span class="nc-input-label">Your rating</span>
+                            </label>
+                            <input
+                                id="rating"
+                                class="nc-input"
+                                aria-required="true"
+                                autocomplete=""
+                                type="number"
+                            />
+                        </div>
+                    </div>
+                </fieldset>
+                <button class="nc-button -primary" type="submit">Send survey</button>
             </div>
         </form>
 
@@ -87,7 +89,8 @@
                             <path
                                 fill="currentColor"
                                 d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm14 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-7 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Z"
-                            ></path>
+                            >
+                            </path>
                         </svg>
                     </button>
                 </div>
@@ -107,23 +110,21 @@
                 </div>
                 <!-- COMPONENT-END: nc-input-field: Checkbox -->
                 <a href="#" class="nc-cluster -near -centered">Hier ist noch ein Link <svg
-                    class="nc-icon"
-                    focusable="false"
-                    data-size="inline"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"
-                    ></path>
-                </svg></a>
+                        class="nc-icon"
+                        focusable="false"
+                        data-size="inline"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                    >
+                        <path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z">
+                        </path>
+                    </svg></a>
             </div>
         </div>
         <p>
-            Let's get started! (z.B. das man bei modern im gegensatz zu brutalist z.B border color
-            haben will der nicht so harte kontraste hat, kann man sicher auch, dadurch das wir oklch
-            haben, die l von lch "presetten" und man selber wählt idealerweise nur noch das h von
-            lch mit der entsprechenden brand color – rot, blau, grün etc.)
+            Let's get started! (z.B. das man bei modern im gegensatz zu brutalist z.B border color haben will der nicht
+            so harte kontraste hat, kann man sicher auch, dadurch das wir oklch haben, die l von lch "presetten" und man
+            selber wählt idealerweise nur noch das h von lch mit der entsprechenden brand color – rot, blau, grün etc.)
         </p>
         <p class="muted">
             Secondary text, der aber immer noch wichtig genug ist, um gelesen zu werden.
@@ -144,9 +145,8 @@
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                     >
-                        <path
-                            d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"
-                        ></path>
+                        <path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z">
+                        </path>
                     </svg>
                 </div>
                 <figcaption>No size</figcaption>
@@ -160,9 +160,8 @@
                         viewBox="0 0 24 24"
                         data-size="xs"
                     >
-                        <path
-                            d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"
-                        ></path>
+                        <path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z">
+                        </path>
                     </svg>
                 </div>
                 <figcaption>xs</figcaption>
@@ -176,9 +175,8 @@
                         viewBox="0 0 24 24"
                         data-size="sm"
                     >
-                        <path
-                            d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"
-                        ></path>
+                        <path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z">
+                        </path>
                     </svg>
                 </div>
                 <figcaption>sm</figcaption>
@@ -192,9 +190,8 @@
                         viewBox="0 0 24 24"
                         data-size="md"
                     >
-                        <path
-                            d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"
-                        ></path>
+                        <path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z">
+                        </path>
                     </svg>
                 </div>
                 <figcaption>md</figcaption>
@@ -208,9 +205,8 @@
                         viewBox="0 0 24 24"
                         data-size="lg"
                     >
-                        <path
-                            d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"
-                        ></path>
+                        <path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z">
+                        </path>
                     </svg>
                 </div>
                 <figcaption>lg</figcaption>
@@ -224,9 +220,8 @@
                         viewBox="0 0 24 24"
                         data-size="xl"
                     >
-                        <path
-                            d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"
-                        ></path>
+                        <path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z">
+                        </path>
                     </svg>
                 </div>
                 <figcaption>xl</figcaption>
@@ -240,9 +235,8 @@
                         viewBox="0 0 24 24"
                         data-size="inline"
                     >
-                        <path
-                            d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"
-                        ></path>
+                        <path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z">
+                        </path>
                     </svg>
                 </div>
                 <figcaption>inline</figcaption>
@@ -252,28 +246,28 @@
 </div>
 
 <style>
-    .muted {
-        color: var(--color-text-muted);
-    }
+.muted {
+    color: var(--color-text-muted);
+}
 
-    .subtle {
-        color: var(--color-text-subtle);
-    }
+.subtle {
+    color: var(--color-text-subtle);
+}
 
-    .inset {
-        background: var(--color-surface-subtle);
-    }
+.inset {
+    background: var(--color-surface-subtle);
+}
 
-    .subtle-bg {
-        border: var(--border-width-thin) solid var(--color-border-muted);
-        border-radius: var(--border-radius-medium);
-    }
+.subtle-bg {
+    border: var(--border-width-thin) solid var(--color-border-muted);
+    border-radius: var(--border-radius-medium);
+}
 
-    footer {
-        padding: var(--spacing-base);
-        inline-size: 100%;
-        background: var(--color-surface-subtle);
-        border: var(--border-width-thin) solid var(--color-border-muted);
-        border-radius: var(--border-radius-medium);
-    }
+footer {
+    padding: var(--spacing-base);
+    inline-size: 100%;
+    background: var(--color-surface-subtle);
+    border: var(--border-width-thin) solid var(--color-border-muted);
+    border-radius: var(--border-radius-medium);
+}
 </style>

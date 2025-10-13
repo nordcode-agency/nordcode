@@ -1,6 +1,6 @@
-import fs from 'node:fs/promises';
 import { IssuerPath } from '$lib/db/config/FilePaths';
 import type { Issuer } from '$lib/invoice/models/Invoice.model';
+import fs from 'node:fs/promises';
 
 export async function loadIssuers(): Promise<Issuer[]> {
     try {

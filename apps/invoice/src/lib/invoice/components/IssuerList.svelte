@@ -1,6 +1,6 @@
 <script lang="ts">
-import type { Issuer } from '../models/Invoice.model';
 import { invalidate } from '$app/navigation';
+import type { Issuer } from '../models/Invoice.model';
 
 interface InvoiceListProps {
     issuers: Issuer[];
@@ -23,28 +23,28 @@ async function deleteIssuer(id: string) {
 }
 </script>
 
-<div class="nc-table" role="group" style="background: none;">
+<div class="nc-table" role="group" style="background: none">
     <table>
         <caption>Austeller:innen</caption>
         <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Aktionen</th>
-        </tr>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Aktionen</th>
+            </tr>
         </thead>
         <tbody>
-        {#each issuers as issuer}
-            <tr>
-                <td>{issuer.id}</td>
-                <td>{issuer.name}</td>
-                <td>
-                    <button class="nc-button -small -destructive"
-                            onclick={() => deleteIssuer(issuer.id)}>Löschen
-                    </button>
-                </td>
-            </tr>
-        {/each}
+            {#each issuers as issuer}
+                <tr>
+                    <td>{issuer.id}</td>
+                    <td>{issuer.name}</td>
+                    <td>
+                        <button class="nc-button -small -destructive" onclick={() => deleteIssuer(issuer.id)}>
+                            Löschen
+                        </button>
+                    </td>
+                </tr>
+            {/each}
         </tbody>
     </table>
 </div>

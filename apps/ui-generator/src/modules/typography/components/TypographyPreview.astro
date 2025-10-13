@@ -58,21 +58,13 @@ const longText =
     <div class="nc-region content-block">
         <h2 class="section-headline">Font Sizes</h2>
         <div class="nc-stack -near">
-            {
-                Object.entries(fontSizes).map(([key, value]) => (
-                    <TextPreviewRow label={key} style={value} text={text} />
-                ))
-            }
+            {Object.entries(fontSizes).map(([key, value]) => <TextPreviewRow label={key} style={value} text={text} />)}
         </div>
     </div>
     <div class="nc-region content-block">
         <h2 class="section-headline">Tracking</h2>
         <div class="nc-stack -near">
-            {
-                Object.entries(tracking).map(([key, value]) => (
-                    <TextPreviewRow label={key} style={value} text={text} />
-                ))
-            }
+            {Object.entries(tracking).map(([key, value]) => <TextPreviewRow label={key} style={value} text={text} />)}
         </div>
     </div>
 

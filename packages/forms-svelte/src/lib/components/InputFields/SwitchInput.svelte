@@ -1,30 +1,29 @@
 <script lang="ts">
-    import type { GenericInputProps } from './types/GenericInputProps.ts';
+import type { GenericInputProps } from './types/GenericInputProps.ts';
 
-    interface CheckboxInputProps extends GenericInputProps {
-        label: string;
-        checked: boolean;
-    }
+interface CheckboxInputProps extends GenericInputProps {
+    label: string;
+    checked: boolean;
+}
 
-    let {
-        label,
-        name = label.split(' ').join('').toLowerCase(),
-        id = `${name}-label`,
-        errors = [],
-        hint = '',
-        autocomplete = '',
-        required = true,
-        checked = $bindable(),
-        class: className,
-        value,
-        ...rest
-    }: CheckboxInputProps = $props();
+let {
+    label,
+    name = label.split(' ').join('').toLowerCase(),
+    id = `${name}-label`,
+    errors = [],
+    hint = '',
+    autocomplete = '',
+    required = true,
+    checked = $bindable(),
+    class: className,
+    value,
+    ...rest
+}: CheckboxInputProps = $props();
 </script>
 
 <div class="nc-cluster | nc-input-field | nc-checkbox-wrapper">
     <label for={id} class="nc-stack" data-label>
-        <span class="nc-input-label"
-            >{label}
+        <span class="nc-input-label">{label}
             {#if !required}
                 <span class="nc-hint"> (optional)</span>
             {/if}

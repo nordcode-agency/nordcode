@@ -44,12 +44,12 @@ const { component } = Astro.props;
                 var(--bg-grid-color) 10px
             ),
             repeating-linear-gradient(
-                to right,
-                transparent,
-                transparent 9px,
-                var(--bg-grid-color) 9px,
-                var(--bg-grid-color) 10px
-            );
+            to right,
+            transparent,
+            transparent 9px,
+            var(--bg-grid-color) 9px,
+            var(--bg-grid-color) 10px
+        );
     }
 
     .card-text {
@@ -59,13 +59,13 @@ const { component } = Astro.props;
 </style>
 
 <a href={`/components/${component.sectionId}`} class="component-card nc-card">
-<article>
-    <div class="card-preview">
-        <Fragment set:html={component.preview}/>
-    </div>
-    <div class="card-text nc-flow">
-        <h3>{component.title}</h3>
-        <p>{component.description}</p>
-    </div>
-</article>
+    <article>
+        <div class="card-preview">
+            <Fragment set:html={component.preview} />
+        </div>
+        <div class="card-text nc-flow">
+            <h3>{component.title}</h3>
+            <p>{component.description}</p>
+        </div>
+    </article>
 </a>

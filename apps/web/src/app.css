@@ -91,7 +91,7 @@ p {
             );
         }
 
-		&:active {
+        &:active {
             color: var(--text-hover);
             background: radial-gradient(
                 circle at center left,
@@ -101,25 +101,24 @@ p {
         }
     }
 
-	&.-muted-brand {
-		border: 0;
-		background: color-mix(in oklch, var(--color-text-base), transparent 92%);
-		color: var(--color-text-base);
-		backdrop-filter: blur(2px);
-		box-shadow: none;
+    &.-muted-brand {
+        border: 0;
+        background: color-mix(in oklch, var(--color-text-base), transparent 92%);
+        color: var(--color-text-base);
+        backdrop-filter: blur(2px);
+        box-shadow: none;
 
-		&:hover {
-			background: color-mix(in oklch, var(--color-surface-base), transparent 30%);
-			color: var(--color-text-base);
+        &:hover {
+            background: color-mix(in oklch, var(--color-surface-base), transparent 30%);
+            color: var(--color-text-base);
         }
 
-		&:active {
+        &:active {
             background: var(--color-surface-base);
-			color: var(--color-text-base);
+            color: var(--color-text-base);
         }
-	}
+    }
 }
-
 
 .nc-box {
     padding-block: var(--spacing-adaptive);
@@ -127,18 +126,21 @@ p {
 }
 
 :is([href], button).nc-card {
-    box-shadow: var(--_card-shadow), inset 0px 0px var(--spacing-base)
-        calc(var(--spacing-near) * -1)
+    box-shadow:
+        var(--_card-shadow),
+        inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1)
         color-mix(in oklch, var(--color-border-base) 80%, transparent);
 
     @media (--OSdark) {
-        box-shadow: var(--_card-shadow), inset 0px 0px var(--spacing-base)
-            calc(var(--spacing-near) * -1) var(--color-border-base);
+        box-shadow:
+            var(--_card-shadow),
+            inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1) var(--color-border-base);
     }
 
     &:hover {
-        box-shadow: var(--_card-shadow), inset 0px calc(var(--spacing-near) * -1)
-            var(--spacing-base) calc(var(--spacing-near) * -1)
+        box-shadow:
+            var(--_card-shadow),
+            inset 0px calc(var(--spacing-near) * -1) var(--spacing-base) calc(var(--spacing-near) * -1)
             color-mix(in oklch, var(--color-brand-primary-base), transparent 90%);
     }
 }
@@ -163,22 +165,22 @@ section.nc-box {
     margin-block-end: var(--spacing-far);
 
     /* &::after {
-		--conic-size: min(60ch, 100vw);
-		position: absolute;
-		z-index: -1;
-		content: '';
-		inset: 0;
-		left: calc(var(--conic-size) / 2 * -1);
-		top: calc(var(--conic-size) / 2 * -1 + 1.1lh);
-		inline-size: var(--conic-size);
-		aspect-ratio: 1;
-		border-radius: 100%;
-		background-image: conic-gradient(
-			from 90deg,
-			oklch(var(--color-surface-subtle-lch) / 0.7),
-			oklch(var(--color-surface-default-lch) / 0.7)
-		);
-	} */
+    	--conic-size: min(60ch, 100vw);
+    	position: absolute;
+    	z-index: -1;
+    	content: '';
+    	inset: 0;
+    	left: calc(var(--conic-size) / 2 * -1);
+    	top: calc(var(--conic-size) / 2 * -1 + 1.1lh);
+    	inline-size: var(--conic-size);
+    	aspect-ratio: 1;
+    	border-radius: 100%;
+    	background-image: conic-gradient(
+    		from 90deg,
+    		oklch(var(--color-surface-subtle-lch) / 0.7),
+    		oklch(var(--color-surface-default-lch) / 0.7)
+    	);
+    } */
 }
 
 :is(.styled-base-text strong, .gradient-text) {
@@ -190,9 +192,9 @@ section.nc-box {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-	transition: background-color;
-	transition-duration: var(--transition-duration-short);
-	transition-timing-function: var(--ease-2);
+    transition: background-color;
+    transition-duration: var(--transition-duration-short);
+    transition-timing-function: var(--ease-2);
 
     &::selection {
         background-color: var(--color-brand-primary-base);
@@ -202,12 +204,12 @@ section.nc-box {
         -webkit-text-fill-color: initial;
     }
 
-	&:is(a, button):hover, &:is(a, button):focus-visible {
-		background: linear-gradient(to left, var(--color-brand-primary-base), var(--color-brand-primary-emphasis));
-		-webkit-text-fill-color: transparent;
-		-webkit-background-clip: text;
-		background-clip: text;
-	}
+    &:is(a, button):hover, &:is(a, button):focus-visible {
+        background: linear-gradient(to left, var(--color-brand-primary-base), var(--color-brand-primary-emphasis));
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
 }
 
 @keyframes char-fade-in {

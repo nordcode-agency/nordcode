@@ -4,7 +4,7 @@
 
 Moin! Welcome to our small WIP agency.
 
-This is the home of  our utility packages, design system and useful projects, that we rely on for our daily work.
+This is the home of our utility packages, design system and useful projects, that we rely on for our daily work.
 Feel free to check them out or use them, if they're useful to you.
 
 ## Useful Links
@@ -19,10 +19,10 @@ Feel free to check them out or use them, if they're useful to you.
 
 - [Awesome Security](https://github.com/sindresorhus/awesome#security)
 - [Awesome AppSec](https://github.com/paragonie/awesome-appsec?tab=readme-ov-file#tools)
-    - [SSL Server Test](https://www.ssllabs.com/ssltest/)
-    - [Security Headers](https://securityheaders.com/)
-    - [CSP Header Analyzer](https://report-uri.com/home/analyse)
-    - [Clickjacker](https://clickjacker.io/)
+  - [SSL Server Test](https://www.ssllabs.com/ssltest/)
+  - [Security Headers](https://securityheaders.com/)
+  - [CSP Header Analyzer](https://report-uri.com/home/analyse)
+  - [Clickjacker](https://clickjacker.io/)
 
 ### Inspiration
 

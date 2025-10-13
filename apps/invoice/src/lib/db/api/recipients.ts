@@ -1,6 +1,6 @@
-import fs from 'node:fs/promises';
 import { RecipientsPath } from '$lib/db/config/FilePaths';
 import type { Recipient } from '$lib/invoice/models/Invoice.model';
+import fs from 'node:fs/promises';
 
 export async function loadRecipients(): Promise<Recipient[]> {
     try {

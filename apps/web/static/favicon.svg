@@ -1,13 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path class="favicon-path" fill-rule="evenodd" d="M20 0c0 4.50242-1.4878 8.65736-3.9985 12H32v8.0065c-6.4422.211-11.6 5.4999-11.6 11.9935H12c0-4.5024 1.4878-8.6574 3.9985-12H0v-8.0065c.132799.0043.266143.0065.4.0065 6.62742 0 12-5.37258 12-12H20Z" clip-rule="evenodd"/>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32">
+    <path
+        class="favicon-path"
+        fill-rule="evenodd"
+        d="M20 0c0 4.50242-1.4878 8.65736-3.9985 12H32v8.0065c-6.4422.211-11.6 5.4999-11.6 11.9935H12c0-4.5024 1.4878-8.6574 3.9985-12H0v-8.0065c.132799.0043.266143.0065.4.0065 6.62742 0 12-5.37258 12-12H20Z"
+        clip-rule="evenodd"
+    />
     <style>
-        .favicon-path {
-            fill: #222938;
-        }
+    .favicon-path {
+        fill: #222938;
+    }
 
-        @media (prefers-color-scheme: dark) {
-            .favicon-path {
-                fill: #c7d8fa;
-            }
+    @media (prefers-color-scheme: dark) {
+        .favicon-path {
+            fill: #c7d8fa;
         }
+    }
     </style>
 </svg>

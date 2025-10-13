@@ -1,13 +1,12 @@
+import GUI from 'lil-gui';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import GUI from 'lil-gui';
-import vertexShader from '../shaders/vertex.glsl?raw';
 import fragmentShader from '../shaders/fragment.glsl?raw';
+import vertexShader from '../shaders/vertex.glsl?raw';
 
 function konami(callback: (args: unknown) => void) {
     let keyboardKeys: string[] = [];
-    const konami =
-        'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,KeyB,KeyA';
+    const konami = 'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,KeyB,KeyA';
     return (event: KeyboardEvent) => {
         keyboardKeys.push(event.code);
         if (keyboardKeys.toString().indexOf(konami) >= 0) {
@@ -38,7 +37,7 @@ export function main() {
         'keydown',
         konami(() => {
             gui.show();
-        })
+        }),
     );
 
     // Canvas
@@ -49,7 +48,7 @@ export function main() {
 
     const debugObject = {
         depthColor: '#000000',
-        surfaceColor: '#006eff'
+        surfaceColor: '#006eff',
     };
 
     /**
@@ -82,8 +81,8 @@ export function main() {
             uDepthColor: { value: new THREE.Color(debugObject.depthColor) },
             uSurfaceColor: { value: new THREE.Color(debugObject.surfaceColor) },
             uColorMultiplier: { value: 20.0 },
-            uColorOffset: { value: 0.0 }
-        }
+            uColorOffset: { value: 0.0 },
+        },
         // side: THREE.DoubleSide,
     });
 
@@ -94,15 +93,15 @@ export function main() {
         } else {
             setUniformColors(
                 window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
-                waterMaterial
+                waterMaterial,
             );
         }
     };
 
-    const attributeObserver = new MutationObserver(function (mutationList) {
+    const attributeObserver = new MutationObserver(function(mutationList) {
         for (const mutation of mutationList) {
             if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
-                const htmlElement = (mutation.target as HTMLElement);
+                const htmlElement = mutation.target as HTMLElement;
                 setThemeAwareUniformColors(htmlElement);
             }
         }
@@ -111,14 +110,14 @@ export function main() {
 
     if (htmlEl) {
         attributeObserver.observe(htmlEl, {
-            attributes: true //configure it to listen to attribute changes
+            attributes: true, // configure it to listen to attribute changes
         });
         setThemeAwareUniformColors(htmlEl);
     } else {
         console.warn('Expected to find an html element in the document');
         setUniformColors(
             window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
-            waterMaterial
+            waterMaterial,
         );
     }
 
@@ -222,7 +221,7 @@ export function main() {
     const sizes = {
         width: window.innerWidth,
         // safe height to prevent overflow
-        height: window.screen.availHeight
+        height: window.screen.availHeight,
     };
 
     window.addEventListener('resize', () => {
@@ -261,7 +260,7 @@ export function main() {
     const renderer = new THREE.WebGLRenderer({
         canvas: canvas,
         alpha: true,
-        premultipliedAlpha: true
+        premultipliedAlpha: true,
     });
     renderer.setSize(sizes.width, sizes.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));

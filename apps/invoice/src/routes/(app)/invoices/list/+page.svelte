@@ -1,13 +1,13 @@
 <script lang="ts">
-import InvoiceList from '$lib/invoice/components/InvoiceList.svelte';
 import { Navigation } from '$lib/common/config/Navigation';
-import { toInvoiceListItem } from '$lib/invoice/utils/toInvoiceListItem';
+import InvoiceList from '$lib/invoice/components/InvoiceList.svelte';
 import {
-    type Issuer,
     type BankingDetails,
     type ContactDetails,
     type Invoice,
+    type Issuer,
 } from '$lib/invoice/models/Invoice.model.js';
+import { toInvoiceListItem } from '$lib/invoice/utils/toInvoiceListItem';
 
 interface PageData {
     data: {

@@ -1,11 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 200">
-  <rect width="80" height="80" x="45" y="60" fill="var(--color-brand-primary-surface)" rx="4"/>
-  <rect width="80" height="20" x="45" y="140" fill="var(--color-brand-primary-base)" rx="4" transform="rotate(-90 45 140)"/>
-  <rect width="80" height="20" x="75" y="140" fill="var(--color-brand-primary-base)" rx="4" transform="rotate(-90 75 140)"/>
-  <rect width="80" height="20" x="105" y="140" fill="var(--color-brand-primary-base)" rx="4" transform="rotate(-90 105 140)"/>
-  <rect width="80" height="80" x="176" y="60" fill="var(--color-brand-primary-surface)" rx="4"/>
-  <rect width="80" height="20" x="176" y="60" fill="var(--color-brand-primary-base)" rx="4"/>
-  <rect width="80" height="20" x="176" y="90" fill="var(--color-brand-primary-base)" rx="4"/>
-  <rect width="80" height="20" x="176" y="120" fill="var(--color-brand-primary-base)" rx="4"/>
-  <path fill="var(--color-brand-primary-base)" d="M167.423 101.914a2 2 0 0 0 0-2.828l-12.728-12.728a2 2 0 1 0-2.828 2.828l11.314 11.314-11.314 11.314a2 2 0 1 0 2.828 2.828l12.728-12.728Zm-29.432.586h28.018v-4h-28.018v4Z"/>
+    <rect width="80" height="80" x="45" y="60" fill="var(--color-brand-primary-surface)" rx="4" />
+    <rect
+        width="80"
+        height="20"
+        x="45"
+        y="140"
+        fill="var(--color-brand-primary-base)"
+        rx="4"
+        transform="rotate(-90 45 140)"
+    />
+    <rect
+        width="80"
+        height="20"
+        x="75"
+        y="140"
+        fill="var(--color-brand-primary-base)"
+        rx="4"
+        transform="rotate(-90 75 140)"
+    />
+    <rect
+        width="80"
+        height="20"
+        x="105"
+        y="140"
+        fill="var(--color-brand-primary-base)"
+        rx="4"
+        transform="rotate(-90 105 140)"
+    />
+    <rect width="80" height="80" x="176" y="60" fill="var(--color-brand-primary-surface)" rx="4" />
+    <rect width="80" height="20" x="176" y="60" fill="var(--color-brand-primary-base)" rx="4" />
+    <rect width="80" height="20" x="176" y="90" fill="var(--color-brand-primary-base)" rx="4" />
+    <rect width="80" height="20" x="176" y="120" fill="var(--color-brand-primary-base)" rx="4" />
+    <path
+        fill="var(--color-brand-primary-base)"
+        d="M167.423 101.914a2 2 0 0 0 0-2.828l-12.728-12.728a2 2 0 1 0-2.828 2.828l11.314 11.314-11.314 11.314a2 2 0 1 0 2.828 2.828l12.728-12.728Zm-29.432.586h28.018v-4h-28.018v4Z"
+    />
 </svg>

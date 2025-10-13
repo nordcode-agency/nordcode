@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Input, MarkdownEditor } from '@nordcode/forms-svelte';
 import { Navigation } from '../../common/config/Navigation';
-import { NEW_QUESTION_ID, currentQuestionnaire } from '../editorStore';
+import { currentQuestionnaire, NEW_QUESTION_ID } from '../editorStore';
 import { createDataUrl } from '../utils/createDataUrl';
 import { finaliseQuestionnaire } from '../utils/finaliseQuestionnaire';
 import QuestionLink from './QuestionLink.svelte';
@@ -44,8 +44,8 @@ const orderedQuestions = $derived.by(() => {
         <h1 class="nc-form-title">Erstelle einen Fragebogen</h1>
 
         <p class="nc-form-hint">
-            Zuerst erstellen wir eine grobe Beschreibung. Diese wird den Ausfüller:innen zum Start
-            angezeigt. Idealerweise beschreibt sie den Zweck des Fragebogens.
+            Zuerst erstellen wir eine grobe Beschreibung. Diese wird den Ausfüller:innen zum Start angezeigt.
+            Idealerweise beschreibt sie den Zweck des Fragebogens.
         </p>
 
         <div class="nc-stack -far">
@@ -67,7 +67,7 @@ const orderedQuestions = $derived.by(() => {
                 bind:value={$currentQuestionnaire.questionnaire.description}
             />
 
-            <fieldset class="nc-fieldset" style="inline-size: 100%;">
+            <fieldset class="nc-fieldset" style="inline-size: 100%">
                 <legend class="nc-legend">Fragen</legend>
                 <div class="nc-stack">
                     <div class="nc-table questionsTable" role="group">
@@ -82,26 +82,28 @@ const orderedQuestions = $derived.by(() => {
                             </thead>
                             <tfoot>
                                 <tr class="questionsTable-row">
-                                    <th colspan="2"><button class="nc-button -outline -primary -small" type="button" onclick={createNewQuestion}>
-                                        Frage hinzufügen
-                                    </button></th>
+                                    <th colspan="2">
+                                        <button
+                                            class="nc-button -outline -primary -small"
+                                            type="button"
+                                            onclick={createNewQuestion}
+                                        >
+                                            Frage hinzufügen
+                                        </button>
+                                    </th>
                                     <th></th>
                                     <th></th>
                                 </tr>
-
                             </tfoot>
                             <tbody>
                                 {#each orderedQuestions as question, idx}
                                     <QuestionLink {question} questionOrderIdx={idx}></QuestionLink>
                                 {/each}
-
                             </tbody>
-
                         </table>
                     </div>
                 </div>
             </fieldset>
-
 
             <button class="nc-button" type="submit">Fragebogen erstellen</button>
 
@@ -115,16 +117,14 @@ const orderedQuestions = $derived.by(() => {
 {/if}
 
 <style>
-    .questionsTable-row {
-        &:before,
-        &:after {
-            content: '';
-            position: absolute;
-            inline-size: 100%;
-            block-size: 2px;
-            inset-inline: 0;
-        }
+.questionsTable-row {
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        inline-size: 100%;
+        block-size: 2px;
+        inset-inline: 0;
     }
-
-
+}
 </style>

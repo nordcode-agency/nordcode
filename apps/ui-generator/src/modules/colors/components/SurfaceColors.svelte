@@ -1,30 +1,29 @@
 <script lang="ts">
-    import CheckboxInput from '../../../../../../packages/forms-svelte/src/lib/components/InputFields/CheckboxInput.svelte';
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
-    import { configStore } from '../../store/configStore.ts';
-    import ColorPreviewEntry from './ColorPreviewEntry.svelte';
-    import SurfaceColorPreviewEntry from './SurfaceColorPreviewEntry.svelte';
+import CheckboxInput from '../../../../../../packages/forms-svelte/src/lib/components/InputFields/CheckboxInput.svelte';
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import { configStore } from '../../store/configStore.ts';
+import ColorPreviewEntry from './ColorPreviewEntry.svelte';
+import SurfaceColorPreviewEntry from './SurfaceColorPreviewEntry.svelte';
 
-    const baseColors = [
-        {
-            name: 'Base',
-            description: 'Primary color for backgrounds in any given interface.',
-        },
-        {
-            name: 'Muted',
-            description: 'Provides visual rest and contrast against the default background.',
-        },
-        {
-            name: 'Subtle',
-            description: 'Provides a little more distinction, but still remains in the background.',
-        },
-    ];
+const baseColors = [
+    {
+        name: 'Base',
+        description: 'Primary color for backgrounds in any given interface.',
+    },
+    {
+        name: 'Muted',
+        description: 'Provides visual rest and contrast against the default background.',
+    },
+    {
+        name: 'Subtle',
+        description: 'Provides a little more distinction, but still remains in the background.',
+    },
+];
 
-    const emphasisColor = {
-        name: 'Emphasis',
-        description:
-            'Use for backgrounds that need to stand out, such as banners, badges, and alerts.',
-    };
+const emphasisColor = {
+    name: 'Emphasis',
+    description: 'Use for backgrounds that need to stand out, such as banners, badges, and alerts.',
+};
 </script>
 
 <section class="nc-region nc-stack -contained -stretched content-block">

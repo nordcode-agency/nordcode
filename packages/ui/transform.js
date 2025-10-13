@@ -1,6 +1,6 @@
-import fs from 'node:fs';
 import browserslist from 'browserslist';
 import { browserslistToTargets, bundle } from 'lightningcss';
+import fs from 'node:fs';
 
 const browserlistTargtsWidelyAvailable = [
     'Chrome > 0 and last 2.5 years',

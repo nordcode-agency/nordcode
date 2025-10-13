@@ -11,202 +11,202 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-</head>
-<body class="live-theme">
-<header>
-    <Header />
-</header>
-<main class="main">
-    <aside class="aside" transition:animate="none">
-        <slot name="aside" />
-    </aside>
-    <section class="content" transition:animate="slide">
-        <slot name="content" />
-    </section>
-</main>
-<NotificationTemplate />
-<NotificationCenter />
-<ConfigFromUrl client:only="svelte" />
-<style is:global>
-    @import '@nordcode/ui/complete';
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body class="live-theme">
+        <header>
+            <Header />
+        </header>
+        <main class="main">
+            <aside class="aside" transition:animate="none">
+                <slot name="aside" />
+            </aside>
+            <section class="content" transition:animate="slide">
+                <slot name="content" />
+            </section>
+        </main>
+        <NotificationTemplate />
+        <NotificationCenter />
+        <ConfigFromUrl client:only="svelte" />
+        <style is:global>
+        @import "@nordcode/ui/complete";
 
-    body {
-        max-block-size: 100%;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        background: var(--color-surface-muted);
-    }
-
-    .main {
-        display: grid;
-        grid-template:
-                    'config content' 1fr
-                    / auto minmax(0, 5fr);
-        background: var(--color-surface-muted);
-        inline-size: 100%;
-        overflow: hidden;
-        max-block-size: 100%;
-        position: relative;
-    }
-
-    .content-block {
-        padding-inline: var(--spacing-base);
-    }
-
-    .aside {
-        grid-area: config;
-        border-inline-end: var(--border-width-thin) solid var(--color-surface-base);
-        max-block-size: 100%;
-        overflow: auto;
-
-        &:has(div, nav) {
-            inline-size: 26rem;
+        body {
+            max-block-size: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: var(--color-surface-muted);
         }
-    }
 
-    .content {
-        grid-area: content;
-        min-inline-size: 0;
-        max-block-size: 100%;
-        overflow: auto;
-    }
-
-    .section-headline {
-        margin-block-end: 0.5lh;
-    }
-
-    .nc-notification-center,
-    .nc-notification-output {
-        z-index: 2;
-    }
-
-    .section-to-observe {
-        scroll-margin-top: var(--spacing-far);
-    }
-
-    details > fieldset {
-        padding-inline: var(--p-x-details);
-        padding-block-end: var(--p-y-details);
-    }
-
-    .preview-grid {
-        grid-template-columns: minmax(min-content, max-content) 3fr;
-        gap: var(--spacing-farthest);
-    }
-
-    .settings-container {
-        background-color: var(--color-surface-base);
-        padding: var(--spacing-base);
-        border-radius: var(--border-radius-medium);
-        box-shadow: var(--shadow-medium);
-        border: var(--border-width-thin) solid var(--color-border-muted);
-
-        &.-sticky {
-            position: sticky;
-            inset-block-start: var(--spacing-farthest);
+        .main {
+            display: grid;
+            grid-template:
+                "config content" 1fr
+                / auto minmax(0, 5fr);
+            background: var(--color-surface-muted);
+            inline-size: 100%;
+            overflow: hidden;
+            max-block-size: 100%;
+            position: relative;
         }
-    }
 
-    :target {
-        scroll-margin-block-start: 6ex;
-    }
+        .content-block {
+            padding-inline: var(--spacing-base);
+        }
 
-    .preview-box {
-        background-color: var(--color-surface-base);
-        resize: inline;
-        max-inline-size: 100%;
-        overflow: hidden;
-        min-inline-size: 32ch;
+        .aside {
+            grid-area: config;
+            border-inline-end: var(--border-width-thin) solid var(--color-surface-base);
+            max-block-size: 100%;
+            overflow: auto;
 
-        --bg-grid-color: color-mix(in oklch, var(--color-brand-primary-base), transparent 98%);
+            &:has(div, nav) {
+                inline-size: 26rem;
+            }
+        }
 
-        background-image:
-            repeating-linear-gradient(
-                to bottom,
-                transparent,
-                transparent 9px,
-                var(--bg-grid-color) 9px,
-                var(--bg-grid-color) 10px
-            ),
-            repeating-linear-gradient(
+        .content {
+            grid-area: content;
+            min-inline-size: 0;
+            max-block-size: 100%;
+            overflow: auto;
+        }
+
+        .section-headline {
+            margin-block-end: 0.5lh;
+        }
+
+        .nc-notification-center,
+        .nc-notification-output {
+            z-index: 2;
+        }
+
+        .section-to-observe {
+            scroll-margin-top: var(--spacing-far);
+        }
+
+        details > fieldset {
+            padding-inline: var(--p-x-details);
+            padding-block-end: var(--p-y-details);
+        }
+
+        .preview-grid {
+            grid-template-columns: minmax(min-content, max-content) 3fr;
+            gap: var(--spacing-farthest);
+        }
+
+        .settings-container {
+            background-color: var(--color-surface-base);
+            padding: var(--spacing-base);
+            border-radius: var(--border-radius-medium);
+            box-shadow: var(--shadow-medium);
+            border: var(--border-width-thin) solid var(--color-border-muted);
+
+            &.-sticky {
+                position: sticky;
+                inset-block-start: var(--spacing-farthest);
+            }
+        }
+
+        :target {
+            scroll-margin-block-start: 6ex;
+        }
+
+        .preview-box {
+            background-color: var(--color-surface-base);
+            resize: inline;
+            max-inline-size: 100%;
+            overflow: hidden;
+            min-inline-size: 32ch;
+
+            --bg-grid-color: color-mix(in oklch, var(--color-brand-primary-base), transparent 98%);
+
+            background-image:
+                repeating-linear-gradient(
+                    to bottom,
+                    transparent,
+                    transparent 9px,
+                    var(--bg-grid-color) 9px,
+                    var(--bg-grid-color) 10px
+                ),
+                repeating-linear-gradient(
                 to right,
                 transparent,
                 transparent 9px,
                 var(--bg-grid-color) 9px,
                 var(--bg-grid-color) 10px
             );
-    }
-
-    .color-preview {
-        inline-size: 6rem;
-        block-size: 6rem;
-        border-radius: var(--border-radius-medium);
-        box-shadow: var(--shadow-near);
-    }
-
-    .preview-sidenav {
-        margin-inline: var(--spacing-base);
-
-        & li > ul {
-            padding-inline-start: 1ch;
         }
 
-        & li > ul > li:first-child {
-            margin-block-start: var(--spacing-near);
+        .color-preview {
+            inline-size: 6rem;
+            block-size: 6rem;
+            border-radius: var(--border-radius-medium);
+            box-shadow: var(--shadow-near);
         }
 
-        & a {
-            position: relative;
-            display: flex;
-            align-items: center;
-            color: var(--color-text-muted);
+        .preview-sidenav {
+            margin-inline: var(--spacing-base);
 
-            &:before {
+            & li > ul {
+                padding-inline-start: 1ch;
+            }
+
+            & li > ul > li:first-child {
+                margin-block-start: var(--spacing-near);
+            }
+
+            & a {
+                position: relative;
+                display: flex;
+                align-items: center;
                 color: var(--color-text-muted);
-                font-size: 0.75rem;
-                right: 100%;
-                content: '►';
-                transform: translate(-0.5rem);
-                opacity: 0;
-                transition: all var(--transition-duration-base) var(--ease-in-2);
-                position: absolute;
+
+                &:before {
+                    color: var(--color-text-muted);
+                    font-size: 0.75rem;
+                    right: 100%;
+                    content: "►";
+                    transform: translate(-0.5rem);
+                    opacity: 0;
+                    transition: all var(--transition-duration-base) var(--ease-in-2);
+                    position: absolute;
+                }
+            }
+
+            & a.-highlight {
+                font-weight: var(--font-weight-active);
+                color: var(--color-text-base);
+
+                &:before {
+                    transform: translate(-0.25rem);
+                    opacity: 1;
+                    transition: all var(--transition-duration-base) var(--ease-out-2);
+                }
             }
         }
 
-        & a.-highlight {
-            font-weight: var(--font-weight-active);
-            color: var(--color-text-base);
-
-            &:before {
-                transform: translate(-0.25rem);
-                opacity: 1;
-                transition: all var(--transition-duration-base) var(--ease-out-2);
-            }
+        .example-block {
+            background: var(--color-brand-primary-base);
+            inline-size: 12rem;
+            block-size: 12rem;
         }
-    }
 
-    .example-block {
-        background: var(--color-brand-primary-base);
-        inline-size: 12rem;
-        block-size: 12rem;
-    }
+        .nc-icon {
+            fill: currentColor;
+        }
+        </style>
 
-    .nc-icon {
-        fill: currentColor;
-    }
-</style>
-
-<script src="@nordcode/ui/src/modules/dialogs/ts/dialogs.ts"></script>
-<script src="@nordcode/ui/src/modules/copyButtons/ts/copyButtons.ts"></script>
-<script src="@nordcode/ui/src/modules/notifications/js/notifications.js"></script>
-</body>
+        <script src="@nordcode/ui/src/modules/dialogs/ts/dialogs.ts"></script>
+        <script src="@nordcode/ui/src/modules/copyButtons/ts/copyButtons.ts"></script>
+        <script src="@nordcode/ui/src/modules/notifications/js/notifications.js"></script>
+    </body>
 </html>

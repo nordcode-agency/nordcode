@@ -1,7 +1,7 @@
-import type { LayoutServerLoad } from './$types';
-import { loadIssuers } from '$lib/db/api/issuers';
 import { loadBankdetails } from '$lib/db/api/bankDetails';
+import { loadIssuers } from '$lib/db/api/issuers';
 import { loadRecipients } from '$lib/db/api/recipients';
+import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ depends }) => {
     const issuers = await loadIssuers();

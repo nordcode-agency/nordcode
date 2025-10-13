@@ -1,4 +1,4 @@
-import type { Question } from "./Questionnaire.model.ts";
+import type { Question } from './Questionnaire.model.ts';
 
 export type AnswerValue = string | number | boolean | undefined | AnswerValue[];
 

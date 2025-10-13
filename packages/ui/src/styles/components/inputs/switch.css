@@ -34,9 +34,7 @@
         }
 
         &:checked:before {
-            transform: translateX(
-                calc(var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin))
-            );
+            transform: translateX(calc(var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin)));
         }
     }
 }

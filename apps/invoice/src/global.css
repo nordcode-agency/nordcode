@@ -1,5 +1,5 @@
-@import '@nordcode/ui/complete';
-@import '@nordcode/ui/utils/base';
+@import "@nordcode/ui/complete";
+@import "@nordcode/ui/utils/base";
 
 :where(:root) {
     --layout-max-width: 72em;

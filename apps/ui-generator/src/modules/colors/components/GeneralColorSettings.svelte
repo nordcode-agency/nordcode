@@ -1,6 +1,6 @@
 <script lang="ts">
-    import SettingsInput from '../../common/components/SettingsInput.svelte';
-    import { configStore } from '../../store/configStore.ts';
+import SettingsInput from '../../common/components/SettingsInput.svelte';
+import { configStore } from '../../store/configStore.ts';
 </script>
 
 <section class="nc-region nc-stack -contained -stretched content-block">
@@ -47,8 +47,7 @@
         <div class="nc-flow">
             <h2>Explanation</h2>
             <p>
-                These values are used throughout our different tokens and components, mostly to
-                modify colors.
+                These values are used throughout our different tokens and components, mostly to modify colors.
             </p>
             <dl>
                 <dt>Minimum & Maximum Lightness</dt>
@@ -60,8 +59,8 @@
                 <dt>Neutral Chroma Multiplier</dt>
                 <dd>
                     Used in calculation for the chroma of neutral colors. <br />
-                    A multipler of 1 will result in all neutral color shades having the same chroma.
-                    A <b>value below 1</b> will result in a more desaturated color. A
+                    A multipler of 1 will result in all neutral color shades having the same chroma. A <b>value below
+                        1</b> will result in a more desaturated color. A
                     <b>value above 1</b> will result more saturated colors for subtler colors.
                 </dd>
                 <dt>Transparency Weaker</dt>

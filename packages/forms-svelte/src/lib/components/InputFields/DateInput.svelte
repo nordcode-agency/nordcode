@@ -1,39 +1,39 @@
 <script lang="ts">
-    import type { FormEventHandler, HTMLInputAttributes } from 'svelte/elements';
+import type { FormEventHandler, HTMLInputAttributes } from 'svelte/elements';
 
-    interface DateInputProps extends Omit<HTMLInputAttributes, 'name' | 'id'> {
-        name: string;
-        id: string;
-        value: Date | undefined;
-    }
+interface DateInputProps extends Omit<HTMLInputAttributes, 'name' | 'id'> {
+    name: string;
+    id: string;
+    value: Date | undefined;
+}
 
-    let {
-        name,
-        id,
-        autocomplete,
-        required = true,
-        value = $bindable(),
-        class: className,
-        ...rest
-    }: DateInputProps = $props();
+let {
+    name,
+    id,
+    autocomplete,
+    required = true,
+    value = $bindable(),
+    class: className,
+    ...rest
+}: DateInputProps = $props();
 
-    const handleInput: FormEventHandler<HTMLInputElement> = event => {
-        // in here, you can switch on type and implement
-        // whatever behaviour you need
-        const target = event.target as HTMLInputElement;
+const handleInput: FormEventHandler<HTMLInputElement> = event => {
+    // in here, you can switch on type and implement
+    // whatever behaviour you need
+    const target = event.target as HTMLInputElement;
 
-        value = new Date(target.value);
-    };
+    value = new Date(target.value);
+};
 
-    const formatDate = (date: Date) => {
-        return new Date(date).toISOString().substring(0, 10);
-    };
+const formatDate = (date: Date) => {
+    return new Date(date).toISOString().substring(0, 10);
+};
 
-    const setToday = () => {
-        value = new Date();
-    };
+const setToday = () => {
+    value = new Date();
+};
 
-    let internalValue = $derived(value ? formatDate(value) : '');
+let internalValue = $derived(value ? formatDate(value) : '');
 </script>
 
 <div class="nc-cluster full-width nc-input-date">

@@ -3,10 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import PageHeader from '../../modules/common/components/PageHeader.astro';
 import ComponentDetails from '../../modules/components/components/ComponentDetails.astro';
 import ComponentsDisplay from '../../modules/components/components/ComponentsDisplay.astro';
-import {
-    smarterSections,
-    type SmarterComponent,
-} from '../../modules/components/components/sections';
+import { type SmarterComponent, smarterSections } from '../../modules/components/components/sections';
 
 export async function getStaticPaths() {
     const allComponents = smarterSections.reduce((acc, sect) => {
@@ -30,6 +27,5 @@ const { component } = Astro.props;
 ---
 
 <Layout title={component.title}>
-
-<ComponentDetails component={component} slot="content" />
+    <ComponentDetails component={component} slot="content" />
 </Layout>

@@ -99,55 +99,54 @@ $effect(() => {
 <section
     class="nc-box nc-cluster -full-width"
     id="arrangeEditor"
-
-    >
-    <div id="arrangeCanvas"
+>
+    <div
+        id="arrangeCanvas"
         style={`transform: translate3d(${position.x}px, ${position.y}px, 0) scale(${zoom})`}
         onresize={resizeListener}
         onwheel={updateZoom}
         onpointerdown={onPointerDown}
     >
-    {#if !questions.length}
-    <p>Es gibt noch keine Fragen.</p>
-    {:else}
-    {#each questions as [questionId, question]}
-        <ArrangeItem questionId={questionId} question={question} bounds={bounds}></ArrangeItem>
-    {/each}
-    {/if}
+        {#if !questions.length}
+            <p>Es gibt noch keine Fragen.</p>
+        {:else}
+            {#each questions as [questionId, question]}
+                <ArrangeItem questionId={questionId} question={question} bounds={bounds}></ArrangeItem>
+            {/each}
+        {/if}
     </div>
 </section>
 
-
 <style>
-    #arrangeEditor {
-        border: 1px solid var(--color-border-base);
-        block-size: 100dvh;
-        inline-size: 100%;
-        position: relative;
-        overflow: hidden;
-    }
+#arrangeEditor {
+    border: 1px solid var(--color-border-base);
+    block-size: 100dvh;
+    inline-size: 100%;
+    position: relative;
+    overflow: hidden;
+}
 
-    #arrangeCanvas {
-        inline-size: 200%;
-        block-size: 200%;
-        position: absolute;
-        inset: -50%;
+#arrangeCanvas {
+    inline-size: 200%;
+    block-size: 200%;
+    position: absolute;
+    inset: -50%;
 
-        --bg-grid-color: color-mix(in oklch, var(--color-brand-primary-base), transparent 92%);
-        background-image:
-            repeating-linear-gradient(
-                to bottom,
-                transparent,
-                transparent 9px,
-                var(--bg-grid-color) 9px,
-                var(--bg-grid-color) 10px
-            ),
-            repeating-linear-gradient(
-                to right,
-                transparent,
-                transparent 9px,
-                var(--bg-grid-color) 9px,
-                var(--bg-grid-color) 10px
-            );
-    }
+    --bg-grid-color: color-mix(in oklch, var(--color-brand-primary-base), transparent 92%);
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 9px,
+            var(--bg-grid-color) 9px,
+            var(--bg-grid-color) 10px
+        ),
+        repeating-linear-gradient(
+        to right,
+        transparent,
+        transparent 9px,
+        var(--bg-grid-color) 9px,
+        var(--bg-grid-color) 10px
+    );
+}
 </style>

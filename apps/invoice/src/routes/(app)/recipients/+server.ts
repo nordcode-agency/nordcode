@@ -1,6 +1,6 @@
+import { deleteRecipient, updateOrCreateRecipient } from '$lib/db/api/recipients';
 import type { Recipient } from '$lib/invoice/models/Invoice.model';
-import { type RequestHandler, json } from '@sveltejs/kit';
-import { updateOrCreateRecipient, deleteRecipient } from '$lib/db/api/recipients';
+import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const POST: RequestHandler = async ({ request }) => {
     const recipient = (await request.json()) as Recipient;
