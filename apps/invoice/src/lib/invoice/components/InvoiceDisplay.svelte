@@ -124,12 +124,12 @@ Rechnung Nr. ${invoice.invoiceNumber}
                 <div class="stack -nogap">
                     <p>{currentInvoice.issuer.name}</p>
                     {#each currentInvoice.issuer.address as address}
-                        <p>{address}</p>
+                        <p class="-small">{address}</p>
                     {/each}
                 </div>
                 <div class="nc-stack -nogap">
-                    <p>{currentInvoice.issuer.phone}</p>
-                    <p>{currentInvoice.issuer.email}</p>
+                    <p class="-small">{currentInvoice.issuer.phone}</p>
+                    <p class="-small">{currentInvoice.issuer.email}</p>
                 </div>
             </div>
             <div class="nc-stack -nearest | printBankDetails">

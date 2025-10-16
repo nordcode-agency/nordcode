@@ -29,6 +29,10 @@
         line-height: var(--line-height-base);
     }
 
+    & .-small {
+        font-size: var(--font-size-smallest);
+    }
+
     & .-big {
         font-size: var(--font-size-base);
     }
