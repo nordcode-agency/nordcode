@@ -48,7 +48,7 @@ const removeOption = (optionId: string) => {
                             name={`option-${option.id}-description`}
                             label="Beschreibung"
                             id={`option-${option.id}-description`}
-                            optional
+                            required={false}
                             bind:value={option.description}
                         />
                     </div>

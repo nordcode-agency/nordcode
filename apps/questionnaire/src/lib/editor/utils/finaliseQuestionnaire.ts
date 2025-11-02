@@ -21,6 +21,6 @@ export const finaliseQuestionnaire = async (questionnaire: Questionnaire) => {
     return {
         ...questionnaire,
         description: questionnaire.description ? convertToHtml(questionnaire.description) : '',
-        questions: cleanupQuestions(questionnaire.questions),
+        questions: cleanupQuestions(structuredClone(questionnaire.questions)),
     };
 };

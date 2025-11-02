@@ -1,5 +1,6 @@
 <script lang="ts">
-import { Input, MarkdownEditor, Select, TextArea } from '@nordcode/forms-svelte';
+import { CheckboxInput, Input, Select, TextArea } from '@nordcode/forms-svelte';
+import { MarkdownEditor } from '@nordcode/forms-svelte/markdown';
 import { type Question, QuestionType } from '@nordcode/questionnaire-renderer';
 import { questionHasOptions } from '@nordcode/questionnaire-renderer';
 import { Navigation } from '../../common/config/Navigation';
@@ -21,6 +22,11 @@ export const availableTypesRecord: Record<QuestionType, string> = {
     [QuestionType.multiple_choice]: 'Multiple Choice',
     [QuestionType.single_choice]: 'Single Choice',
     [QuestionType.number]: 'Zahl',
+    [QuestionType.date_time]: 'Datum & Uhrzeit',
+    [QuestionType.date]: 'Datum',
+    [QuestionType.image]: 'Bild',
+    [QuestionType.email]: 'E-Mail',
+    [QuestionType.phone]: 'Telefon',
 };
 
 export const availableTypes = Object.entries(availableTypesRecord).map(([key, value]) => ({
@@ -68,24 +74,41 @@ $effect(() => {
             bind:value={questionUpdate.type}
             options={availableTypes}
         ></Select>
+
         <MarkdownEditor
             name={`question-${questionUpdate.id}-description`}
             label={'Beschreibung'}
             hint={'Markdown wird unterstützt.'}
             id={`question-${questionUpdate.id}-description`}
-            optional={true}
+            required={false}
             bind:value={questionUpdate.description}
         ></MarkdownEditor>
+
+        <Input
+            name={`question-${questionUpdate.id}-label`}
+            label="Label"
+            id={`question-${questionUpdate.id}-label`}
+            bind:value={questionUpdate.label}
+        />
 
         <TextArea
             name={`question-${questionUpdate.id}-hint`}
             id={`question-${questionUpdate.id}-hint`}
             label={'Hinweis'}
             hint={'Ein Hinweis, wie die Frage gemeint oder zu beantworten ist'}
-            optional={true}
+            required={false}
             bind:value={questionUpdate.hint}
             splitLines={false}
         ></TextArea>
+
+        <CheckboxInput
+            label="Als Pflichtfrage markieren"
+            name={`question-${questionUpdate.id}-required`}
+            id={`question-${questionUpdate.id}-required`}
+            required={false}
+            bind:checked={questionUpdate.required}
+        >
+        </CheckboxInput>
         {#if questionHasOptions(questionUpdate)}
             <OptionsEditor bind:options={questionUpdate.options}></OptionsEditor>
         {/if}

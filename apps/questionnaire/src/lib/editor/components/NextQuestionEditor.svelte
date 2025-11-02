@@ -118,7 +118,7 @@ const createNewQuestion = () => {
                 label="Gesonderte Reihenfolge festlegen?"
                 hint="Hier kannst du pro Option eine gezielte Folgefrage festlegen"
                 bind:checked={enableCustomOrder}
-                optional
+                required={false}
             ></SwitchInput>
             {#if enableCustomOrder}
                 {#each options as option}
@@ -135,7 +135,7 @@ const createNewQuestion = () => {
                                     option.value,
                                     (event?.target as HTMLInputElement).value,
                                 )}
-                                optional
+                                required={false}
                             ></Select>
                         </div>
                     </div>

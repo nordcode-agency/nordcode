@@ -25,4 +25,10 @@ main {
     /* padding-block-start: 90px; equals <Navigation> block-size */
     min-block-size: 100dvh;
 }
+
+:global {
+    .nc-form {
+        inline-size: min(100%, 60rem);
+    }
+}
 </style>

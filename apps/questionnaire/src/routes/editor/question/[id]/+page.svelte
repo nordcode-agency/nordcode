@@ -1,7 +1,7 @@
 <script lang="ts">
 import QuestionEditor from '$lib/editor/components/QuestionEditor.svelte';
 import { currentQuestionnaire } from '$lib/editor/editorStore';
-import { createNewQuestion, NEW_QUESTION_ID } from '../../../../lib/editor/editorStore';
+import { createNewQuestion, NEW_QUESTION_ID } from '$lib/editor/editorStore';
 
 interface PageData {
     data: {

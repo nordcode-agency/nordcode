@@ -1,5 +1,6 @@
 <script lang="ts">
-import { Input, MarkdownEditor } from '@nordcode/forms-svelte';
+import { Input } from '@nordcode/forms-svelte';
+import { MarkdownEditor } from '@nordcode/forms-svelte/markdown';
 import { Navigation } from '../../common/config/Navigation';
 import { currentQuestionnaire, NEW_QUESTION_ID } from '../editorStore';
 import { createDataUrl } from '../utils/createDataUrl';
@@ -19,7 +20,7 @@ const createQuestionnaire = async (event: SubmitEvent) => {
         return;
     }
 
-    const cleanQuestionnaire = await finaliseQuestionnaire($currentQuestionnaire.questionnaire);
+    const cleanQuestionnaire = await finaliseQuestionnaire({ ...$currentQuestionnaire.questionnaire });
     download = {
         dataUri: createDataUrl(cleanQuestionnaire),
         title: encodeURI(cleanQuestionnaire.title),
@@ -63,8 +64,25 @@ const orderedQuestions = $derived.by(() => {
                 label="Fragebogen Beschreibung"
                 id="description"
                 hint="Markdown wird unterstützt."
-                optional={true}
                 bind:value={$currentQuestionnaire.questionnaire.description}
+            />
+
+            <MarkdownEditor
+                errors={$currentQuestionnaire.errors.summaryText}
+                name="summaryText"
+                label="Fragebogen Abschlusstest"
+                id="summaryText"
+                hint="Markdown wird unterstützt."
+                bind:value={$currentQuestionnaire.questionnaire.summaryText}
+            />
+
+            <Input
+                errors={$currentQuestionnaire.errors.finalCTA}
+                name="finalCTA"
+                label="Fragenbogen Abschluss Call to Action"
+                id="finalCTA"
+                type="text"
+                bind:value={$currentQuestionnaire.questionnaire.finalCTA}
             />
 
             <fieldset class="nc-fieldset" style="inline-size: 100%">

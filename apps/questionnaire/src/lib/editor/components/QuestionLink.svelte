@@ -28,7 +28,6 @@ const onDragStart = (event: DragEvent) => {
     document.documentElement.style.cursor = 'grabbing';
     event.dataTransfer.setData('application/question-id', question.id);
     event.dataTransfer.setDragImage(dragImage, 0, 0);
-    // event.dataTransfer.effectAllowed = 'move';
 };
 
 const onDragEnd = (event: DragEvent) => {
@@ -149,51 +148,69 @@ const onDrop = (event: DragEvent) => {
             ondragstart={onDragStart}
             ondragend={onDragEnd}
             draggable="true"
+            role="cell"
         >
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="nc-icon"
-                data-size="inline"
-                aria-hidden="true"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M9 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                <path d="M9 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                <path d="M9 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                <path d="M15 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                <path d="M15 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                <path d="M15 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="nc-icon" data-size="inline">
+                <title>Frage verschieben</title>
+                <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-width="4"
+                    d="M8.025 4.75h-.05M16.025 4.75h-.05M8.025 12h-.05M16.025 12h-.05M8.025 19.25h-.05M16.025 19.25h-.05"
+                />
             </svg>
-            <span class="sr-only">Frage verschieben</span>
         </div>
     </td>
     <td>
         <span class="nc-cluster -near -centered">
             <a href={questionLink}>{question.title}</a>
+            {#if question.required}
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    class="nc-icon"
+                    data-size="inline"
+                    style="color: var(--color-brand-primary-base)"
+                >
+                    <title>Required</title>
+                    <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-width="3"
+                        d="M12 2v20M3.34 7l17.32 10M3.34 17 20.66 7"
+                    />
+                </svg>
+            {/if}
             {#if question.next?.length}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
                     viewBox="0 0 24 24"
-                    stroke="var(--color-brand-primary-base)"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
                     class="nc-icon"
                     data-size="inline"
+                    style="color: var(--color-brand-primary-base)"
                 >
                     <title>Geänderte Reihenfolge</title>
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M16 21h3c.81 0 1.48 -.67 1.48 -1.48l.02 -.02c0 -.82 -.69 -1.5 -1.5 -1.5h-3v3z" />
-                    <path d="M16 15h2.5c.84 -.01 1.5 .66 1.5 1.5s-.66 1.5 -1.5 1.5h-2.5v-3z" />
-                    <path d="M4 9v-4c0 -1.036 .895 -2 2 -2s2 .964 2 2v4" />
-                    <path d="M2.99 11.98a9 9 0 0 0 9 9m9 -9a9 9 0 0 0 -9 -9" />
-                    <path d="M8 7h-4" />
+                    <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-width="3"
+                        d="m17.75 9 2.651-2.651c.297-.297.446-.446.502-.617a.75.75 0 0 0 0-.464c-.056-.171-.204-.32-.502-.617L17.75 2"
+                    />
+                    <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="bevel"
+                        stroke-width="3"
+                        d="M3.5 10.5v-.2c0-1.68 0-2.52.327-3.162a3 3 0 0 1 1.311-1.311C5.78 5.5 6.62 5.5 8.3 5.5h11.95m.25 8v.2c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311c-.642.327-1.482.327-3.162.327H3.75"
+                    />
+                    <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-width="3"
+                        d="m6.25 15-2.651 2.651c-.297.297-.446.446-.502.617a.75.75 0 0 0 0 .464c.056.171.205.32.502.617L6.25 22"
+                    />
                 </svg>
             {/if}
         </span>
