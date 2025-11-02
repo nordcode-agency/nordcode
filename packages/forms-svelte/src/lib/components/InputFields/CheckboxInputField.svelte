@@ -38,7 +38,13 @@ const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
 
 <fieldset class="nc-fieldset nc-input-field nc-checkbox-field" onchange={handleChange}>
     <legend class="nc-legend nc-stack">
-        <span class="nc-input-label" {id}>{label}{#if !required}(optional){/if}</span>
+        <span class="nc-input-label" {id}>{label}</span>
+        {#if !required}
+            <span class="nc-hint">
+                (optional)
+            </span>
+        {/if}
+
         {#if hint}
             <span class="nc-hint" id={`${id}-hint`}>{hint}</span>
         {/if}

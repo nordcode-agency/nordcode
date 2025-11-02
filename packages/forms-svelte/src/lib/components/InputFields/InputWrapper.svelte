@@ -15,10 +15,13 @@ let {
 <div class="nc-input-field">
     <label for={id} class="nc-stack">
         <span class="nc-input-label">{label}
-            {#if !required}
-                <span class="nc-hint"> (optional)</span>
-            {/if}
         </span>
+        {#if !required}
+            <span class="nc-hint">
+                (optional)
+            </span>
+        {/if}
+
         {#if hint}<span class="nc-hint">{hint}</span>{/if}
         {#if errors?.length > 0}
             {#each errors as error}

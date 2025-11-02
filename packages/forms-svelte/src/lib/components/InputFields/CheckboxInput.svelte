@@ -23,7 +23,13 @@ let {
 <div class="nc-cluster | nc-input-field | nc-checkbox-wrapper">
     <label for={id} class="nc-stack" data-label>
         <span class="nc-input-label">{label}
-            {#if !required}(optional){/if}</span>
+        </span>
+        {#if !required}
+            <span class="nc-hint">
+                (optional)
+            </span>
+        {/if}
+
         {#if hint}<span class="nc-input-hint">{hint}</span>{/if}
         {#if errors?.length > 0}
             {#each errors as error}

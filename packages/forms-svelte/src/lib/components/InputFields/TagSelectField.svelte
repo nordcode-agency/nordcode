@@ -32,10 +32,11 @@ const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
 >
     <legend class="nc-stack">
         <span class="nc-input-label" {id}>{label}
-            {#if !required}
-                <span class="nc-hint"> (optional)</span>
-            {/if}
         </span>
+        {#if !required}
+            <span class="nc-hint">(optional)</span>
+        {/if}
+
         {#if hint}
             <span class="nc-hint" id={`${id}-hint`}>{hint}</span>
         {/if}

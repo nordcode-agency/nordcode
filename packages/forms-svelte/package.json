@@ -7,7 +7,7 @@
         "forms",
         "svelte"
     ],
-    "version": "1.0.2",
+    "version": "1.0.4",
     "scripts": {
         "dev": "vite dev",
         "build": "vite build && npm run package",
@@ -37,19 +37,20 @@
         "esm-env": "^1.0.0"
     },
     "peerDependencies": {
-        "svelte": "^5"
+        "svelte": "^5",
+        "@markdoc/markdoc": "^0.5.4"
     },
     "devDependencies": {
-        "@markdoc/markdoc": "^0.4.0",
-        "@sveltejs/adapter-auto": "^3.3.1",
-        "@sveltejs/kit": "^2.7.3",
-        "@sveltejs/package": "^2.3.7",
-        "@sveltejs/vite-plugin-svelte": "^4.0.0",
-        "publint": "^0.2.12",
+        "@markdoc/markdoc": "^0.5.4",
+        "@sveltejs/adapter-auto": "^7.0.0",
+        "@sveltejs/kit": "^2.48.4",
+        "@sveltejs/package": "^2.5.4",
+        "@sveltejs/vite-plugin-svelte": "^6.2.1",
+        "publint": "^0.3.15",
         "svelte": "^5",
-        "svelte-check": "^4.0.5",
-        "typescript": "^5.6.3",
-        "vite": "^5.4.10"
+        "svelte-check": "^4.3.3",
+        "typescript": "^5.9.3",
+        "vite": "7.1.11"
     },
     "svelte": "./src/lib/index.ts",
     "types": "./src/lib/index.ts",
