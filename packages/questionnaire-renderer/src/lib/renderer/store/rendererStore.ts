@@ -1,7 +1,7 @@
-import type { AnswerValue, QuestionnaireAnswer } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
 import { localStore } from '@nordcode/forms-svelte';
 import { get, type Writable } from 'svelte/store';
 import type { Questionnaire } from '../../questionnaire/models/Questionnaire.model.ts';
+import type { AnswerValue, QuestionnaireAnswer } from '../../questionnaire/models/QuestionnaireAnswers.model.ts';
 
 const STORE_KEY = 'RENDERER_QUESTIONNAIRE';
 
@@ -14,6 +14,7 @@ export type CurrentQuestionnaireStore = {
     currentState: QuestionnaireState;
     answers: QuestionnaireAnswer[];
     errors: Partial<{ [name in keyof Questionnaire]: string[] }>;
+    hasFinished: boolean;
 };
 
 export const rendererStore: Writable<CurrentQuestionnaireStore> & {
@@ -27,6 +28,7 @@ export const rendererStore: Writable<CurrentQuestionnaireStore> & {
     currentQuestionIdx: 0,
     currentQuestionId: '',
     currentState: 'idle',
+    hasFinished: false,
     answers: [],
     errors: {},
 });
@@ -38,6 +40,7 @@ export const setQuestionnaire = (questionnaire: Questionnaire) => {
         currentQuestionIdx: 0,
         currentQuestionId: questionnaire.questionsOrder[0],
         currentState: 'start',
+        hasFinished: false,
         answers: [],
     });
 };
@@ -76,10 +79,29 @@ export const resetQuestionnaire = () => {
     });
 };
 
+export const goToSummary = () => {
+    rendererStore.update((store) => {
+        return {
+            ...store,
+            currentState: 'finished',
+        };
+    });
+};
+
 export const goBack = () => {
     rendererStore.update((store) => {
         if (store.currentState === 'start') {
             return store;
+        }
+
+        if (store.currentState === 'finished') {
+            const lastIdx = store.questionnaire ? store.questionnaire.questionsOrder.length - 1 : 0;
+            return {
+                ...store,
+                currentState: 'questions',
+                currentQuestionIdx: lastIdx,
+                currentQuestionId: store.questionnaire?.questionsOrder[lastIdx] ?? '',
+            };
         }
 
         if (store.currentQuestionIdx === 0) {
@@ -131,6 +153,7 @@ export const goToNextQuestion = () => {
                         store.questionnaire.questionsOrder.length - 1,
                     ),
                     currentQuestionId: nextQuestion.questionId,
+                    hasFinished: false,
                 };
             }
         }
@@ -142,6 +165,7 @@ export const goToNextQuestion = () => {
             return {
                 ...store,
                 currentState: 'finished',
+                hasFinished: true,
             };
         }
 

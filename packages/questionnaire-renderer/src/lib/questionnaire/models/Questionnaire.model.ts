@@ -4,8 +4,9 @@ export enum QuestionType {
     multiple_choice = 'multiple_choice',
     single_choice = 'single_choice',
     number = 'number',
-    // date = 'date',
-    // date_time = 'date_time',
+    date = 'date',
+    date_time = 'date_time',
+    image = 'image',
     // time = 'time',
     // score = 'score',
 }
@@ -60,12 +61,28 @@ export type NumberQuestion = QuestionBase & {
     type: QuestionType.number;
 };
 
+export type DateQuestion = QuestionBase & {
+    type: QuestionType.date;
+};
+
+export type DateTimeQuestion = QuestionBase & {
+    type: QuestionType.date_time;
+};
+
+export type ImageQuestion = QuestionBase & {
+    type: QuestionType.image;
+    maxSizeInBytes?: number;
+};
+
 export type Question =
     | TextQuestion
     | LongTextQuestion
     | MultipleChoiceQuestion
     | SingleChoiceQuestion
-    | NumberQuestion;
+    | NumberQuestion
+    | DateTimeQuestion
+    | DateQuestion
+    | ImageQuestion;
 
 export type QuestionWithOption = MultipleChoiceQuestion | SingleChoiceQuestion;
 

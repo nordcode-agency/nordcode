@@ -1,7 +1,14 @@
 <script lang="ts">
-import type { QuestionnaireAnswer } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
-import { CheckboxInputField, Input, MarkdownEditor, RadioInputField } from '@nordcode/forms-svelte';
+import {
+    CheckboxInputField,
+    DateTimeInput,
+    ImageInput,
+    Input,
+    RadioInputField,
+    TextArea,
+} from '@nordcode/forms-svelte';
 import { type Question, QuestionType } from '../../questionnaire/models/Questionnaire.model.ts';
+import type { QuestionnaireAnswer } from '../../questionnaire/models/QuestionnaireAnswers.model.ts';
 
 interface QuestionRendererProps {
     question: Question;
@@ -18,25 +25,25 @@ let { question, answer }: QuestionRendererProps = $props();
             name={question.id}
             id={question.id}
             hint={question.hint}
-            required={question.required}
+            required={question.required ?? false}
             value={answer?.answer}
         ></Input>
     {:else if question.type === QuestionType.long_text}
-        <MarkdownEditor
+        <TextArea
             label={question.title}
             name={question.id}
             id={question.id}
             hint={question.hint}
-            required={question.required}
+            required={question.required ?? false}
             value={answer?.answer as string}
-        ></MarkdownEditor>
+        ></TextArea>
     {:else if question.type === QuestionType.multiple_choice}
         <CheckboxInputField
             label={question.title}
             name={question.id}
             id={question.id}
             hint={question.hint}
-            required={question.required}
+            required={question.required ?? false}
             value={answer?.answer as string}
             options={question.options.map(o => ({
                 label: o.title,
@@ -50,7 +57,7 @@ let { question, answer }: QuestionRendererProps = $props();
             name={question.id}
             id={question.id}
             hint={question.hint}
-            required={question.required}
+            required={question.required ?? false}
             value={answer?.answer as string}
             options={question.options.map(o => ({
                 label: o.title,
@@ -64,9 +71,27 @@ let { question, answer }: QuestionRendererProps = $props();
             name={question.id}
             id={question.id}
             hint={question.hint}
-            required={question.required}
+            required={question.required ?? false}
             value={answer?.answer as number}
             type="number"
         ></Input>
+    {:else if question.type === QuestionType.date_time}
+        <DateTimeInput
+            label={question.title}
+            name={question.id}
+            id={question.id}
+            hint={question.hint}
+            required={question.required ?? false}
+            value={answer?.answer as Date}
+        ></DateTimeInput>
+    {:else if question.type === QuestionType.image}
+        <ImageInput
+            label={question.title}
+            name={question.id}
+            id={question.id}
+            hint={question.hint}
+            required={question.required ?? false}
+            value={answer?.answer as string}
+        ></ImageInput>
     {/if}
 </fieldset>

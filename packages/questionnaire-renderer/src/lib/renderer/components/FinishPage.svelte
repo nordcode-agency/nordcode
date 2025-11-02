@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { AnswerValue } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
+import type { AnswerValue } from '../../questionnaire/models/QuestionnaireAnswers.model.ts';
 import { rendererStore } from '../store/rendererStore.ts';
 import AnswerDisplay from './AnswerDisplay.svelte';
 import RendererLayout from './RendererLayout.svelte';

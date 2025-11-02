@@ -1,7 +1,7 @@
 <script lang="ts">
-import type { Question } from '$lib/index.ts';
-import type { AnswerValue, QuestionnaireAnswer } from '$lib/questionnaire/models/QuestionnaireAnswers.model.ts';
 import type { FormEventHandler } from 'svelte/elements';
+import { NotAnswered, type Question } from '../../index.ts';
+import type { AnswerValue, QuestionnaireAnswer } from '../../questionnaire/models/QuestionnaireAnswers.model.ts';
 import { answerQuestion, goToNextQuestion, rendererStore } from '../store/rendererStore.ts';
 import QuestionRenderer from './QuestionRenderer.svelte';
 import RendererLayout from './RendererLayout.svelte';
@@ -25,23 +25,28 @@ const answerCurrentQuestion = (form: HTMLFormElement) => {
     }
 
     const formData = new FormData(form as HTMLFormElement);
-    const answer = formData.get(currentQuestion.id);
+    let answer = formData.get(currentQuestion.id);
 
     if (!form.checkValidity()) {
         // @todo: show errors
         return;
     }
 
+    if (currentQuestion.type === 'image') {
+        answer = formData.get(`${currentQuestion.id}-base64`);
+    }
+
     if (answer === '' || answer === undefined || answer === null) {
         skipQuestion();
         return;
     }
+
     answerQuestion(answer as AnswerValue);
     goToNextQuestion();
 };
 
 const skipQuestion = () => {
-    answerQuestion('(nicht beantwortet)');
+    answerQuestion(NotAnswered);
     goToNextQuestion();
 };
 

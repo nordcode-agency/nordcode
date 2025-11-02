@@ -3,113 +3,101 @@ import type { Questionnaire } from '$lib/index.ts';
 import { QuestionnaireRenderer } from '../lib/renderer/index.ts';
 
 const json = {
-    id: 'questionnaire-Z6M9FW7JS1ySvtyP1R771',
-    title: 'Neuer Fragebogen',
-    description: '',
-    questions: {
-        'question-Wwn3gHT9nM4g_z32u6cmq': {
-            id: 'question-Wwn3gHT9nM4g_z32u6cmq',
-            title: 'Was macht die Kunst?',
-            type: 'single_choice',
-            description: '<article class="nc-markdown nc-flow"><p>Einfache Frage, einfache Antwort</p></article>',
-            hint: '',
-            options: [
-                {
-                    id: 'option-K-hXMZFj0Z8pGYWRjr-ph',
-                    title: 'Gut',
-                    description: '',
-                    value: 'Gut',
-                },
-                {
-                    id: 'option-vL8GlxhT0SvNGI-OxP7tU',
-                    title: 'Schlecht',
-                    description: '',
-                    value: 'Schlecht',
-                },
-            ],
-            next: [],
+    'id': 'questionnaire-mY9P_63BkEzaee3iAbs4W',
+    'title': 'Erstelle deinen Beitrag',
+    'description':
+        'Bitte beachte dabei unsere [Richtlinien](/richtlinien/) für Beiträge. Wenn du Genaueres über den Prozess wissen möchtest, schau dir unsere [FAQs](/faqs/) an.\n',
+    'questions': {
+        'question-HFRSvzU-qzbseg7A0jH8o': {
+            'id': 'question-HFRSvzU-qzbseg7A0jH8o',
+            'title': 'Dein Name',
+            'type': 'text',
+            'description': 'Damit deine Nachbarn wissen, von wem der Beitrag ist, gib bitte deinen Namen an.',
+            'next': [],
+            'hint': 'Kann auch der Name deiner Organisation sein.',
         },
-        'question-dZQ6bW17S-GaO_qkCfAQx': {
-            id: 'question-dZQ6bW17S-GaO_qkCfAQx',
-            title: 'Und sonst so?',
-            type: 'text',
-            description:
-                '<article class="nc-markdown nc-flow"><p>Bitte gib an, was dich sonst so beschäftigt?</p></article>',
-            next: [],
+        'question-oWfa1Sm5mCnyHbQx772_w': {
+            'id': 'question-oWfa1Sm5mCnyHbQx772_w',
+            'title': 'In welche Kategorie fällt dein Beitrag?',
+            'type': 'single_choice',
+            'description': 'Anhand der Kategorie können andere deinen Beitrag besser einordnen.',
+            'next': [],
+            'options': [{
+                'id': 'option-8H885_PP2M2KoVU82bPFq',
+                'title': 'Veranstaltung',
+                'description': 'Alles von Theateraufführung bis Informationsabend.',
+                'value': 'Veranstaltung',
+            }, {
+                'id': 'option-ZDk2ca1GBL1wbk3wp6o6w',
+                'title': 'Info',
+                'description': 'Verkündigungen, Benachrichtungen, etc.',
+                'value': 'Info',
+            }, {
+                'id': 'option-TsC5-i0gvyQoD3R8kt7nd',
+                'title': 'Gesucht & Gefunden',
+                'description': 'Du suchst etwas oder hast etwas gefunden.',
+                'value': 'Gesucht & Gefunden',
+            }, {
+                'id': 'option-i7PseAK5Mgumx0pfB8JO2',
+                'title': 'Nachbarschaftshilfe',
+                'description': 'Du suchst Hilfe bei etwas oder möchtest deine Hilfe anbieten.',
+                'value': 'Nachbarschaftshilfe',
+            }],
         },
-        'question-VWyBYVfnX1SYK1yRPk4xw': {
-            id: 'question-VWyBYVfnX1SYK1yRPk4xw',
-            title: 'Willst du was essen?',
-            type: 'single_choice',
-            description: '',
-            options: [
-                {
-                    id: 'option-fvewqIrr8vYvMq_AOG7nP',
-                    title: 'Ja, ein Eis',
-                    description: '',
-                    value: 'Ja, ein Eis',
-                },
-                {
-                    id: 'option-jP9WotRng7atPfzwt4uPj',
-                    title: 'Ja, eine Suppe',
-                    description: '',
-                    value: 'Ja, eine Suppe',
-                },
-                {
-                    id: 'option-UtV1cItVZ8YRQrE56AxRJ',
-                    title: 'Nein, danke',
-                    description: '',
-                    value: 'Nein, danke',
-                },
-            ],
-            next: [
-                {
-                    questionId: 'question-Wwn3gHT9nM4g_z32u6cmq',
-                    when: [
-                        {
-                            key: 'value',
-                            operator: 'EQ',
-                            compareValue: 'Ja, ein Eis',
-                        },
-                    ],
-                },
-                {
-                    questionId: 'question-x3qlYcC0NCY9Eid-DXyh3',
-                    when: [
-                        {
-                            key: 'value',
-                            operator: 'EQ',
-                            compareValue: 'Nein, danke',
-                        },
-                    ],
-                },
-                {
-                    questionId: 'question-x3qlYcC0NCY9Eid-DXyh3',
-                    when: [
-                        {
-                            key: 'value',
-                            operator: 'EQ',
-                            compareValue: 'Nein, danke',
-                        },
-                    ],
-                },
-            ],
-            hint: 'Erzähl uns, was du wirklich essen willst',
+        'question-jCRan3sz82x6x2tdatYA6': {
+            'id': 'question-jCRan3sz82x6x2tdatYA6',
+            'title': 'Gib deinem Beitrag einen Titel',
+            'type': 'text',
+            'description':
+                'Ein kurzer, klarer Titel sorgt dafür, dass deine Nachbarn auf den ersten Blick wissen, worum es geht.',
+            'next': [],
         },
-        'question-x3qlYcC0NCY9Eid-DXyh3': {
-            id: 'question-x3qlYcC0NCY9Eid-DXyh3',
-            title: 'Letzte Frage',
-            type: 'text',
-            description:
-                '<article class="nc-markdown nc-flow"><p>Dann sag uns noch kurz, was dich wirklich beschäftigt</p></article>',
-            next: [],
+        'question-qOIpe8i2Ve9iRnvNBTCFw': {
+            'id': 'question-qOIpe8i2Ve9iRnvNBTCFw',
+            'title': 'Hat dein Beitrag ein Startdatum?',
+            'type': 'single_choice',
+            'description':
+                'Entweder der Zeitpunkt, ab dem dein Beitrag gilt oder wann er beginnt. Wenn du kein Startdatum\nangibst, gilt dein Beitrag ab sofort.',
+            'next': [{
+                'questionId': 'question-ipu4BIPmJeZiTqEe1cgaE',
+                'when': [{ 'key': 'value', 'operator': 'EQ', 'compareValue': 'Nein' }],
+            }],
+            'options': [{
+                'id': 'option-wO4E8O-kJLPBalRwGQIbB',
+                'title': 'Ja, ich möchte ein Startdatum angeben',
+                'description': '',
+                'value': 'Ja',
+            }, {
+                'id': 'option-tXBb2y4ooCBb1CY8N5mge',
+                'title': 'Nein, ich habe kein Startdatum',
+                'description': '',
+                'value': 'Nein',
+            }],
+        },
+        'question-7SxnI7OitrFUQBJeV37UA': {
+            'id': 'question-7SxnI7OitrFUQBJeV37UA',
+            'title': 'Ab wann beginnt dein Beitrag?',
+            'type': 'date_time',
+            'description':
+                'Gib für eine **Veranstaltung** an, wann sie losgeht. Für alle anderen Kategorien ein Datum, ab wann dein Beitrag veröffentlicht werden soll.',
+            'next': [],
+        },
+        'question-ipu4BIPmJeZiTqEe1cgaE': {
+            'id': 'question-ipu4BIPmJeZiTqEe1cgaE',
+            'title': 'Hast du ein Vorschaubild für deinen Beitrag?',
+            'type': 'image',
+            'description':
+                'Ein Bild verleiht deinem Beitrag noch mehr Ausdruck. Reiche hier auch gerne deinen Flyer als Bild ein.',
+            'next': [],
         },
     },
-    questionsOrder: [
-        'question-dZQ6bW17S-GaO_qkCfAQx',
-        'question-VWyBYVfnX1SYK1yRPk4xw',
-        'question-Wwn3gHT9nM4g_z32u6cmq',
-        'question-x3qlYcC0NCY9Eid-DXyh3',
+    'questionsOrder': [
+        'question-HFRSvzU-qzbseg7A0jH8o',
+        'question-oWfa1Sm5mCnyHbQx772_w',
+        'question-jCRan3sz82x6x2tdatYA6',
+        'question-qOIpe8i2Ve9iRnvNBTCFw',
+        'question-7SxnI7OitrFUQBJeV37UA',
+        'question-ipu4BIPmJeZiTqEe1cgaE',
     ],
 };
 </script>

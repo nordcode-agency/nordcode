@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { Snippet } from 'svelte';
-import { goBack, rendererStore, resetQuestionnaire } from '../store/rendererStore.ts';
+import { goBack, goToSummary, rendererStore, resetQuestionnaire } from '../store/rendererStore.ts';
 import AnswerDisplay from './AnswerDisplay.svelte';
 
 let {
@@ -46,12 +46,22 @@ let {
                 {#if $rendererStore.currentState === 'questions'}
                     <section class="nc-region nc-stack -contained -stretched">
                         <h3>Deine Antworten</h3>
-                        <button
-                            onclick={resetQuestionnaire}
-                            class="nc-button -primary -stealth -aligned"
-                        >
-                            Von vorne beginnen
-                        </button>
+                        <div class="nc-cluster">
+                            <button
+                                onclick={resetQuestionnaire}
+                                class="nc-button -primary -stealth -aligned"
+                            >
+                                Von vorne beginnen
+                            </button>
+                            {#if $rendererStore.hasFinished}
+                                <button
+                                    onclick={goToSummary}
+                                    class="nc-button -primary -stealth"
+                                >
+                                    Zum Abschluss springen
+                                </button>
+                            {/if}
+                        </div>
                         <AnswerDisplay></AnswerDisplay>
                     </section>
                 {/if}
