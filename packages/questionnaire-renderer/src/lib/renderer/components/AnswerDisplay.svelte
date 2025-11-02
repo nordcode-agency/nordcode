@@ -22,7 +22,10 @@ import { goToQuestion, rendererStore } from '../store/rendererStore.ts';
                 </span>
                 <button
                     class="nc-button -primary -stealth -aligned"
-                    onclick={() => goToQuestion(idx)}
+                    onclick={() => {
+                        goToQuestion(idx);
+                        window.scrollTo(0, 0);
+                    }}
                 >
                     Bearbeiten
                 </button>

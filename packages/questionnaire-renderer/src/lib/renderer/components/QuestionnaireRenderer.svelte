@@ -15,9 +15,11 @@ interface QuestionnaireRendererProps {
             answer: AnswerValue;
         }[],
     ) => void;
+    isLoading?: boolean;
+    questionnaireStorageKey?: string;
 }
 
-let { questionnaire, onFinish }: QuestionnaireRendererProps = $props();
+let { questionnaire, onFinish, isLoading, questionnaireStorageKey }: QuestionnaireRendererProps = $props();
 
 function handlePopState() {
     const currentUrl = new URL(window.location.href);
@@ -125,6 +127,6 @@ $effect(() => {
     {:else if $rendererStore.currentState === 'questions'}
         <QuestionPage></QuestionPage>
     {:else if $rendererStore.currentState === 'finished'}
-        <FinishPage {onFinish}></FinishPage>
+        <FinishPage {onFinish} {isLoading}></FinishPage>
     {/if}
 {/if}

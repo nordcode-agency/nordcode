@@ -12,9 +12,10 @@ type Props = {
             answer: AnswerValue;
         }[],
     ) => void;
+    isLoading?: boolean;
 };
 
-let { onFinish }: Props = $props();
+let { onFinish, isLoading }: Props = $props();
 
 const finishQuestionnaire = () => {
     const formattedAnswers = $rendererStore.answers.map(answer => ({
@@ -32,15 +33,22 @@ const finishQuestionnaire = () => {
 <RendererLayout>
     {#snippet content()}
         <h1>{$rendererStore?.questionnaire?.title}</h1>
-        <p>Danke, dass du mit gemacht hast</p>
-        <p>
-            Hier sind nochmal deine Antworten. Wenn du nicht zufrieden bist, kannst du sie nochmal überarbeiten.
-        </p>
+        {#if $rendererStore?.questionnaire?.summaryText}
+            {@html $rendererStore.questionnaire.summaryText}
+        {/if}
         <AnswerDisplay></AnswerDisplay>
     {/snippet}
     {#snippet controls()}
-        <button class="nc-button -primary" type="button" onclick={finishQuestionnaire}>
-            Ich bin fertig
+        <button class="nc-button -primary" type="button" onclick={finishQuestionnaire} disabled={isLoading}>
+            {#if isLoading}
+                Wird abgeschlossen...
+            {:else}
+                {#if $rendererStore?.questionnaire?.finalCTA}
+                    {$rendererStore?.questionnaire?.finalCTA}
+                {:else}
+                    Fragebogen abschließen
+                {/if}
+            {/if}
         </button>
     {/snippet}
 </RendererLayout>

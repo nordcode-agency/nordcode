@@ -7,6 +7,8 @@ export enum QuestionType {
     date = 'date',
     date_time = 'date_time',
     image = 'image',
+    email = 'email',
+    phone = 'phone',
     // time = 'time',
     // score = 'score',
 }
@@ -26,9 +28,11 @@ export type NextQuestionConfig = {
 export type QuestionBase = {
     id: string;
     title: string;
+    label: string;
     description?: string;
     hint?: string;
     required?: boolean;
+    autocomplete?: string;
     next?: NextQuestionConfig[];
 };
 
@@ -41,6 +45,14 @@ export type Option = {
 
 export type TextQuestion = QuestionBase & {
     type: QuestionType.text;
+};
+
+export type EmailQuestion = QuestionBase & {
+    type: QuestionType.email;
+};
+
+export type PhoneQuestion = QuestionBase & {
+    type: QuestionType.phone;
 };
 
 export type LongTextQuestion = QuestionBase & {
@@ -82,7 +94,9 @@ export type Question =
     | NumberQuestion
     | DateTimeQuestion
     | DateQuestion
-    | ImageQuestion;
+    | ImageQuestion
+    | EmailQuestion
+    | PhoneQuestion;
 
 export type QuestionWithOption = MultipleChoiceQuestion | SingleChoiceQuestion;
 
@@ -91,5 +105,7 @@ export type Questionnaire = {
     title: string;
     description?: string;
     questions: Record<string, Question>;
+    summaryText?: string;
+    finalCTA?: string;
     questionsOrder: string[];
 };
