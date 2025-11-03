@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { AnswerValue } from '../../questionnaire/models/QuestionnaireAnswers.model.ts';
+import { type AnswerValue, NotAnswered } from '../../questionnaire/models/QuestionnaireAnswers.model.ts';
 import { rendererStore } from '../store/rendererStore.ts';
 import AnswerDisplay from './AnswerDisplay.svelte';
 import RendererLayout from './RendererLayout.svelte';
@@ -18,11 +18,13 @@ type Props = {
 let { onFinish, isLoading }: Props = $props();
 
 const finishQuestionnaire = () => {
-    const formattedAnswers = $rendererStore.answers.map(answer => ({
-        questionId: answer.question.id,
-        title: answer.question.title,
-        answer: answer.answer,
-    }));
+    const formattedAnswers = $rendererStore.answers
+        .filter(Boolean)
+        .map(answer => ({
+            questionId: answer.question.id,
+            title: answer.question.title,
+            answer: answer?.answer ?? NotAnswered,
+        }));
 
     if (onFinish) {
         onFinish(formattedAnswers);

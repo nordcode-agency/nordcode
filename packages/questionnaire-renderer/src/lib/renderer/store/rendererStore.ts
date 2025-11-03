@@ -1,7 +1,7 @@
 import { localStore } from '@nordcode/forms-svelte';
 import { get, type Writable } from 'svelte/store';
 import type { Questionnaire } from '../../questionnaire/models/Questionnaire.model.ts';
-import type { AnswerValue, QuestionnaireAnswer } from '../../questionnaire/models/QuestionnaireAnswers.model.ts';
+import { type AnswerValue, type QuestionnaireAnswer } from '../../questionnaire/models/QuestionnaireAnswers.model.ts';
 
 const STORE_KEY = 'RENDERER_QUESTIONNAIRE';
 
@@ -41,7 +41,7 @@ export const setQuestionnaire = (questionnaire: Questionnaire) => {
         currentQuestionId: questionnaire.questionsOrder[0],
         currentState: 'start',
         hasFinished: false,
-        answers: [],
+        answers: new Array(questionnaire.questionsOrder.length).fill(undefined),
     });
 };
 
@@ -111,8 +111,12 @@ export const goBack = () => {
             };
         }
 
-        const prevIdx = Math.max(store.currentQuestionIdx - 1, 0);
-        // prev question by answer to not confuse the user
+        let prevIdx = Math.max(store.currentQuestionIdx - 1, 0);
+
+        // find prev idx in answers that are not skipped
+        while (prevIdx > 0 && store.answers[prevIdx] !== undefined) {
+            prevIdx = Math.max(prevIdx - 1, 0);
+        }
 
         return {
             ...store,
@@ -146,10 +150,14 @@ export const goToNextQuestion = () => {
             });
 
             if (nextQuestion) {
+                const nextQuestionIdx = store.questionnaire.questionsOrder.findIndex((questionIdx) =>
+                    questionIdx === nextQuestion.questionId
+                );
+
                 return {
                     ...store,
                     currentQuestionIdx: Math.min(
-                        store.currentQuestionIdx + 1,
+                        nextQuestionIdx,
                         store.questionnaire.questionsOrder.length - 1,
                     ),
                     currentQuestionId: nextQuestion.questionId,

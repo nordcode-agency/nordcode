@@ -7,11 +7,15 @@ import { goToQuestion, rendererStore } from '../store/rendererStore.ts';
 
 <dl>
     {#each $rendererStore.answers as answer, idx}
-        {#if answer.answer}
+        {#if answer}
             <dt>{answer.question.title}</dt>
             <dd class="nc-cluster -between">
                 <span style="max-inline-size: var(--measure-base)">
-                    {#if answer.question.type === QuestionType.image && answer.answer !== NotAnswered}
+                    {#if answer.answer === undefined}
+                        {NotAnswered}
+                    {:else if answer.question.type === QuestionType.multiple_choice}
+                        {(answer.answer as string[]).join(', ')}
+                    {:else if answer.question.type === QuestionType.image && answer.answer !== NotAnswered}
                         <img src={answer.answer as string} alt="Vorschaubild" style="max-width: 12rem; height: auto" />
                     {:else if answer.question.type === QuestionType.date_time ||
                     answer.question.type === QuestionType.date}

@@ -46,7 +46,7 @@ const answerCurrentQuestion = (form: HTMLFormElement) => {
 };
 
 const skipQuestion = () => {
-    answerQuestion(NotAnswered);
+    answerQuestion(undefined);
     goToNextQuestion();
 };
 

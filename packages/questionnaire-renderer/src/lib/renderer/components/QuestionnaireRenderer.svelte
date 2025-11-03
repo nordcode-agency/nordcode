@@ -120,12 +120,10 @@ $effect(() => {
     if (questionnaire) {
         initialiseQuestionnaire(questionnaire);
         window.addEventListener('popstate', handlePopState);
-        // window.addEventListener('pushstate', handlePopState);
     }
 
     return () => {
         window.removeEventListener('popstate', handlePopState);
-        // window.removeEventListener('pushstate', handlePopState);
     };
 });
 </script>
