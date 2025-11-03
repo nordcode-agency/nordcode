@@ -99,9 +99,11 @@ export const removeQuestion = (questionToDelete: string) => {
 export const moveQuestion = (questionId: string, toIdx: number): void => {
     currentQuestionnaire?.update((currentState) => {
         const fromIdx = currentState.questionnaire.questionsOrder.indexOf(questionId);
+        const adjustedToIdx = fromIdx > toIdx ? toIdx + 1 : toIdx;
+
         const updatedOrder = [...currentState.questionnaire.questionsOrder];
         updatedOrder.splice(fromIdx, 1);
-        updatedOrder.splice(toIdx, 0, questionId);
+        updatedOrder.splice(adjustedToIdx, 0, questionId);
 
         return {
             errors: currentState.errors,

@@ -42,7 +42,6 @@ let startPos = $state({ x: 0, y: 0 });
 
 const onPointerDown = (event: PointerEvent) => {
     isDragging = true;
-    console.log(bounds);
     startPos = { x: event.x - position.x, y: event.y - position.y };
     // const startX = event.layerX + bounds.startX - startPos.x;
     // const startY = event.layerY + bounds.startY - startPos.y;
@@ -62,8 +61,6 @@ const onPointerMove = (event: PointerEvent) => {
         x: toFixed(clamp(event.x - startPos.x, bounds.startX, bounds.endX), 2),
         y: toFixed(clamp(event.y - startPos.y, bounds.startY, bounds.endY), 2),
     };
-
-    console.log(position.x);
 };
 
 const onPointerUp = (event: PointerEvent) => {

@@ -93,6 +93,8 @@ const onDragOver = (event: DragEvent) => {
     } else {
         position = undefined;
     }
+
+    console.log(position);
 };
 
 const onDragLeave = (event: DragEvent) => {
