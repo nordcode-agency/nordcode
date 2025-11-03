@@ -86,6 +86,7 @@ const json = {
             'id': 'question-ipu4BIPmJeZiTqEe1cgaE',
             'title': 'Hast du ein Vorschaubild für deinen Beitrag?',
             'type': 'image',
+            'maxSizeInBytes': 1048576,
             'description':
                 'Ein Bild verleiht deinem Beitrag noch mehr Ausdruck. Reiche hier auch gerne deinen Flyer als Bild ein.',
             'next': [],

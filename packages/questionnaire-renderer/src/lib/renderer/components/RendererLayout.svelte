@@ -12,7 +12,7 @@ let {
 } = $props();
 </script>
 
-<section class="nc-questionnaire-renderer nc-region">
+<section class="nc-questionnaire-renderer">
     <div class="nc-center page-center-layout nc-pile">
         <div class="nc-card nc-form">
             <div class="nc-stack -far">

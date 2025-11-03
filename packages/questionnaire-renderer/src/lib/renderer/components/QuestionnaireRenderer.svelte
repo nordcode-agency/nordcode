@@ -71,6 +71,11 @@ function handlePopState() {
 
         return store;
     });
+
+    const container = document.querySelector('.nc-questionnaire-renderer');
+    container?.scrollIntoView({
+        block: 'start',
+    });
 }
 
 rendererStore.subscribe((store) => {
@@ -99,6 +104,10 @@ rendererStore.subscribe((store) => {
     }
 
     currentUrl.searchParams.set('step', currentStep);
+    const container = document.querySelector('.nc-questionnaire-renderer');
+    container?.scrollIntoView({
+        block: 'start',
+    });
 
     window.history.pushState(
         {},
