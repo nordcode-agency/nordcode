@@ -47,6 +47,7 @@ export const createNewQuestion = (): Question => ({
     title: 'Neue Frage',
     type: QuestionType.text,
     description: '',
+    label: '',
 });
 
 export const createOrUpdateQuestion = (question: Question) => {

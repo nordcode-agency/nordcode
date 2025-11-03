@@ -74,7 +74,8 @@ const updateNextQuestionConfig = (
         return;
     }
 
-    nextQuestionConfig = nextQuestionConfig.concat({
+    // we only have one condition at the moment, so we can simply replace it
+    nextQuestionConfig = [{
         questionId: selectedQuestionId,
         when: [
             {
@@ -83,7 +84,7 @@ const updateNextQuestionConfig = (
                 compareValue: optionValue,
             },
         ],
-    });
+    }];
 };
 
 const createNewQuestion = () => {
