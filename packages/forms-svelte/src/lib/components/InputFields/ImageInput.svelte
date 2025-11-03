@@ -28,7 +28,40 @@ async function toBase64(file: File) {
     });
 }
 
-const handleInput: FormEventHandler<HTMLInputElement> = event => {
+const resizeOptions = {
+    maxSizeInBytes: maxSizeInBytes || 1024 * 1024, // 1 MB default
+    quality: 0.85,
+};
+
+async function resizeBase64Image(
+    base64Image: string,
+    options?: { maxSizeInBytes?: number; quality?: number },
+): Promise<string> {
+    const finalOptions = { ...resizeOptions, ...options };
+    const format = base64Image.substring(5, base64Image.indexOf(';'));
+    // data:image/jpeg;base64,
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = base64Image;
+        img.onload = function() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const width = img.width;
+            const height = img.height;
+            const aspectRatio = width / height;
+            const newWidth = Math.sqrt(finalOptions.maxSizeInBytes * aspectRatio);
+            const newHeight = Math.sqrt(finalOptions.maxSizeInBytes / aspectRatio);
+            canvas.width = newWidth;
+            canvas.height = newHeight;
+            ctx?.drawImage(img, 0, 0, newWidth, newHeight);
+            const quality = finalOptions.quality;
+            const dataURL = canvas.toDataURL(format, quality);
+            resolve(dataURL);
+        };
+    });
+}
+
+const handleInput: FormEventHandler<HTMLInputElement> = async event => {
     // in here, you can switch on type and implement
     // whatever behaviour you need
     const target = event.target as HTMLInputElement;
@@ -39,16 +72,15 @@ const handleInput: FormEventHandler<HTMLInputElement> = event => {
         return;
     }
 
+    let base64Image = await toBase64(file);
+
     if (maxSizeInBytes && file.size > maxSizeInBytes) {
-        // @todo handle error properly
-        console.error(`File size exceeds the maximum limit of ${maxSizeInBytes} bytes.`);
-        value = undefined;
-        return;
+        base64Image = await resizeBase64Image(base64Image, {
+            maxSizeInBytes,
+        });
     }
 
-    toBase64(file).then(base64 => {
-        value = base64;
-    });
+    value = base64Image;
 };
 </script>
 
