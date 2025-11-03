@@ -88,6 +88,18 @@ export const goToSummary = () => {
     });
 };
 
+function findPreviousAnsweredIndex(store: CurrentQuestionnaireStore, startFromIdx: number): number {
+    let prevIdx = Math.max(startFromIdx, 0);
+
+    // find prev idx in answers that are not skipped
+    while (prevIdx > 0 && !store.answers[prevIdx]) {
+        console.log(store.answers[prevIdx], prevIdx);
+        prevIdx = Math.max(prevIdx - 1, 0);
+    }
+
+    return prevIdx;
+}
+
 export const goBack = () => {
     rendererStore.update((store) => {
         if (store.currentState === 'start') {
@@ -95,7 +107,9 @@ export const goBack = () => {
         }
 
         if (store.currentState === 'finished') {
-            const lastIdx = store.questionnaire ? store.questionnaire.questionsOrder.length - 1 : 0;
+            // @todo: here as well
+            const lastIdx = findPreviousAnsweredIndex(store, store.answers.length - 1);
+
             return {
                 ...store,
                 currentState: 'questions',
@@ -111,12 +125,7 @@ export const goBack = () => {
             };
         }
 
-        let prevIdx = Math.max(store.currentQuestionIdx - 1, 0);
-
-        // find prev idx in answers that are not skipped
-        while (prevIdx > 0 && store.answers[prevIdx] !== undefined) {
-            prevIdx = Math.max(prevIdx - 1, 0);
-        }
+        const prevIdx = findPreviousAnsweredIndex(store, store.currentQuestionIdx - 1);
 
         return {
             ...store,
