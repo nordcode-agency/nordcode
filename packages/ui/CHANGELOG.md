@@ -1,3 +1,9 @@
+## 2.1.1 (2025-11-15)
+
+### changes
+
+- properly disable animations for users who prefer reduced motion
+
 ## 2.1.0 (2025-11-15)
 
 ### changes
