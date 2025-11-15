@@ -9,17 +9,18 @@
         "changeset:status": "changeset status",
         "changeset:add": "changeset",
         "changeset:version": "changeset version",
-        "changeset:publish": "changeset publish"
+        "changeset:publish": "changeset publish",
+        "update-dep": "pnpx npm-check-updates -u --deep --dep 'prod,dev,peer'"
     },
     "devDependencies": {
         "@changesets/cli": "2.27.9",
         "dprint": "^0.50.2",
         "prettier": "3.3.3"
     },
-    "packageManager": "pnpm@9.12.3",
+    "packageManager": "pnpm@10.22.0",
     "name": "nordcode",
     "engines": {
         "node": ">=20",
-        "pnpm": ">=9"
+        "pnpm": ">=10"
     }
 }

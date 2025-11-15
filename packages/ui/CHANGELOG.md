@@ -8,6 +8,7 @@
 
 - add `-validate` class to automatically style inputs using :user-valid & :user-invalid pseudo classes
 - Add `--border-radius-cond-*` tokens for conditional border-radius
+- Update transition timings
 
 ## 2.0.5 (2025-10-11)
 

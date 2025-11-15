@@ -109,7 +109,7 @@ $effect(() => {
                 <button class="nc-button -primary" type="button" onclick={submitForm}>
                     <span>Weiter</span>
                 </button>
-                <small>
+                <small class="nc-questionnaire-renderer-keycombo">
                     oder <kbd>{modifierKey}</kbd> +
                     <kbd>⏎</kbd> drücken
                 </small>
