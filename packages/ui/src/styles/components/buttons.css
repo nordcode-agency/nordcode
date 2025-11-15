@@ -1,5 +1,5 @@
 @layer components.buttons {
-    :where(button:not([class]), button[type]:not([class]), input[type="button"]:not([class]), input[type="submit"]:not([class]), input[type="reset"]:not([class]), input[type="file"], input[type="file"]::-webkit-file-upload-button, input[type="file"]::file-selector-button, .nc-button) {
+    :where(button, button, input[type="button"], input[type="submit"], input[type="reset"], input[type="file"], input[type="file"]::-webkit-file-upload-button, input[type="file"]::file-selector-button, .nc-button) {
         --_button-background: var(--button-background, var(--surface-hover));
         --_button-color: var(--button-color, var(--text-hover));
         --_button-border-color: var(--button-border-color, var(--surface-hover));
@@ -31,7 +31,6 @@
         font-size: inherit;
         cursor: pointer;
         display: inline-flex;
-        box-sizing: border-box;
         align-items: center;
         justify-content: center;
         text-align: center;
@@ -41,13 +40,14 @@
         text-decoration: unset;
         box-shadow: var(--_button-box-shadow);
         user-select: none;
+        gap: var(--control-spacing-tiny, 0.25em);
         -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none;
 
         line-height: var(--line-height-base);
     }
 
-    :where(button:not([class]), button[type]:not([class]), input[type="button"]:not([class]), input[type="submit"]:not([class]), input[type="reset"]:not([class]), .nc-button) {
+    :where(button, button[type], input[type="button"], input[type="submit"], input[type="reset"], .nc-button) {
         &:hover {
             background: var(--_button-background-hover);
             color: var(--_button-color-hover);
@@ -61,6 +61,10 @@
             font-weight: var(--font-weight-active);
         }
 
+        & > svg {
+            pointer-events: none;
+        }
+
         &:is(:active, .-active) {
             background-color: var(--_button-background-hover);
             color: var(--_button-color-hover);
@@ -70,20 +74,6 @@
             transform: none;
             filter: contrast(1.2) saturate(1.1);
             backdrop-filter: contrast(2);
-        }
-
-        &[disabled] {
-            --_button-background: none !important;
-            --_button-background-hover: none !important;
-            --_button-color: var(--color-text-subtle) !important;
-            --_button-color-hover: var(--_button-color) !important;
-            --_button-border-color: var(--color-text-subtle) !important;
-            --_button-border-color-hover: var(--_button-border-color);
-
-            box-shadow: none !important;
-            transform: none !important;
-            filter: contrast(0.72) opacity(0.72);
-            cursor: not-allowed;
         }
 
         &.-outline {
@@ -169,45 +159,6 @@
             }
         }
 
-        /*
-         * for inline icons
-         */
-
-        &:has(svg) {
-            gap: var(--control-spacing-tiny, 0.25em);
-        }
-
-        /*
-         * If there is no text node for the button,
-         * it is assumed that an `aria-label` is that
-         * and the button will be styled as an icon button.
-         */
-
-        &[aria-label],
-        &.-icon {
-            --_button-border-radius: var(--border-radius-round);
-            padding: 0;
-            aspect-ratio: 1;
-            fill: currentColor;
-
-            &:after {
-                content: "";
-                inline-size: max(var(--control-height-base), 100%);
-                block-size: max(var(--control-height-base), 100%);
-                aspect-ratio: 1;
-                border-radius: 100%;
-                inset-inline-start: calc(-0.5 * (var(--control-height-base) - 100%));
-                inset-block-start: calc(-0.5 * (var(--control-height-base) - 100%));
-                position: absolute;
-                z-index: -1;
-                pointer-events: all;
-            }
-
-            & > svg {
-                pointer-events: none;
-            }
-        }
-
         &.-icon.-small {
             padding: 0;
         }
@@ -215,6 +166,45 @@
         &.-aligned {
             margin-inline: calc(-1 * var(--_button-padding-inline));
         }
+    }
+
+    /*
+     * If there is no text node for the button,
+     * it is assumed that an `aria-label` is that
+     * and the button will be styled as an icon button.
+     */
+    :is([aria-label], .-icon):where(button, button[type], input[type="button"], input[type="submit"], input[type="reset"], .nc-button) {
+        --_button-border-radius: var(--border-radius-round);
+        padding: 0;
+        aspect-ratio: 1;
+        fill: currentColor;
+
+        &:after {
+            content: "";
+            inline-size: max(var(--control-height-base), 100%);
+            block-size: max(var(--control-height-base), 100%);
+            aspect-ratio: 1;
+            border-radius: 100%;
+            inset-inline-start: calc(-0.5 * (var(--control-height-base) - 100%));
+            inset-block-start: calc(-0.5 * (var(--control-height-base) - 100%));
+            position: absolute;
+            z-index: -1;
+            pointer-events: all;
+        }
+    }
+
+    [disabled]:where(button, button[type], input[type="button"], input[type="submit"], input[type="reset"], .nc-button) {
+        --_button-background: none !important;
+        --_button-background-hover: none !important;
+        --_button-color: var(--color-text-subtle) !important;
+        --_button-color-hover: var(--_button-color) !important;
+        --_button-border-color: var(--color-text-subtle) !important;
+        --_button-border-color-hover: var(--_button-border-color);
+
+        box-shadow: none !important;
+        transform: none !important;
+        filter: contrast(0.72) opacity(0.72);
+        cursor: not-allowed;
     }
 
     :where(input[type="file"]) {
@@ -244,7 +234,7 @@
         border-end-end-radius: 0;
     }
 
-    :where(button[type="reset"]:not([class]), .nc-button.-destructive) {
+    :where(button[type="reset"], .nc-button.-destructive) {
         --text: var(--color-status-danger-emphasis);
         --color: var(--color-status-danger-base);
         --surface: var(--color-status-danger-surface);
