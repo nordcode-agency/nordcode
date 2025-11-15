@@ -1,0 +1,7 @@
+@layer helpers.conditionalRadius {
+    :where(html) {
+        --border-radius-cond-small: clamp(0px, calc(100vw - 100%) * 1e5, var(--border-radius-small));
+        --border-radius-cond-medium: clamp(0px, calc(100vw - 100%) * 1e5, var(--border-radius-medium));
+        --border-radius-cond-large: clamp(0px, calc(100vw - 100%) * 1e5, var(--border-radius-large));
+    }
+}
