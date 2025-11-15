@@ -8,18 +8,7 @@ It's a collection of base styles, components and utilities, that can be imported
 **Note**: We only processed the exported in `/compiled`. The other files may use cutting edge CSS features, so be sure to process them to your desired target.
 You can use this browserlist config to target the Baseline Widely Adapted standard:
 
-```json
-[
-    "Chrome > 0 and last 2.5 years",
-    "ChromeAndroid > 0 and last 2.5 years",
-    "Edge > 0 and last 2.5 years",
-    "Firefox > 0 and last 2.5 years",
-    "FirefoxAndroid > 0 and last 2.5 years",
-    "Safari > 0 and last 2.5 years",
-    "iOS > 0 and last 2.5 years",
-    "not dead"
-]
-```
+https://github.com/web-platform-dx/browserslist-config-baseline
 
 ## Usecase examples
 

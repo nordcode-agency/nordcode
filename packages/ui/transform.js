@@ -3,14 +3,7 @@ import { browserslistToTargets, bundle } from 'lightningcss';
 import fs from 'node:fs';
 
 const browserlistTargtsWidelyAvailable = [
-    'Chrome > 0 and last 2.5 years',
-    'ChromeAndroid > 0 and last 2.5 years',
-    'Edge > 0 and last 2.5 years',
-    'Firefox > 0 and last 2.5 years',
-    'FirefoxAndroid > 0 and last 2.5 years',
-    'Safari > 0 and last 2.5 years',
-    'iOS > 0 and last 2.5 years',
-    'not dead',
+    'extends browserslist-config-baseline',
 ];
 
 const targets = browserslistToTargets(browserslist(browserlistTargtsWidelyAvailable));
