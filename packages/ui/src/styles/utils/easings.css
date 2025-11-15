@@ -405,13 +405,13 @@
         );
 
         @media (--motionNotOK) {
-            --transition-duration-quick-1: 80ms;
-            --transition-duration-quick-2: 120ms;
-            --transition-duration-moderate-1: 180ms;
-            --transition-duration-moderate-2: 260ms;
-            --transition-duration-gentle-1: 320ms;
-            --transition-duration-gentle-2: 420ms;
-            --transition-duration-calculated: 0;
+            --transition-duration-quick-1: 0ms;
+            --transition-duration-quick-2: 0ms;
+            --transition-duration-moderate-1: 0ms;
+            --transition-duration-moderate-2: 0ms;
+            --transition-duration-gentle-1: 0ms;
+            --transition-duration-gentle-2: 0ms;
+            --transition-duration-calculated: 0ms;
             --transition-duration-instant: 0ms;
             --transition-duration-entry: 0s;
             --transition-duration-exit: 0s;
