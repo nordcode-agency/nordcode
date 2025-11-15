@@ -24,7 +24,7 @@
         "@nordcode/postcss-config": "workspace:*",
         "@nordcode/types": "workspace:*",
         "@sveltejs/vite-plugin-svelte": "^6.2.1",
-        "browserslist": "4.26.3",
+        "browserslist": "4.28.0",
         "lightningcss": "1.30.2"
     },
     "overrides": {

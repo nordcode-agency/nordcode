@@ -34,7 +34,7 @@
         border-radius: var(--_card-border-radius);
         box-shadow: var(--_card-shadow);
 
-        transition: border-color var(--transition-duration-base) var(--ease-2);
+        transition: border-color var(--transition-duration-quick-2) var(--ease-2);
 
         @media (width >= 480px) {
             --_card-padding-inline: var(--card-padding-inline, var(--spacing-far));

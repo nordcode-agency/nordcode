@@ -1,3 +1,14 @@
+## 2.1.0 (2025-11-15)
+
+### changes
+
+- remove not([class]) from buttons and inputs to slim down CSS, increase CSS performance and simplify stylings
+
+### improvements
+
+- add `-validate` class to automatically style inputs using :user-valid & :user-invalid pseudo classes
+- Add `--border-radius-cond-*` tokens for conditional border-radius
+
 ## 2.0.5 (2025-10-11)
 
 ### fixes

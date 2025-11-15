@@ -16,14 +16,8 @@
         background-repeat: no-repeat;
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-        :where(:focus-visible) {
-            transition: outline-offset var(--transition-duration-short) var(--ease-2);
-        }
-
-        :where(:not(:active):focus-visible) {
-            transition-duration: var(--transition-duration-base);
-        }
+    :where(:focus-visible) {
+        transition: outline-offset var(--transition-duration-quick-1) var(--ease-2);
     }
 
     :where(:not(:active):focus-visible) {

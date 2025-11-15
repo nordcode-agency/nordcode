@@ -1,17 +1,18 @@
 @layer config.easings {
     :where(html) {
+        /* From https://github.com/argyleink/open-props/blob/main/src/props.easing.css */
         --ease-1: cubic-bezier(0.25, 0, 0.5, 1);
         --ease-2: cubic-bezier(0.25, 0, 0.4, 1);
         --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
         --ease-4: cubic-bezier(0.25, 0, 0.2, 1);
         --ease-5: cubic-bezier(0.25, 0, 0.1, 1);
         --ease-in-1: cubic-bezier(0.25, 0, 1, 1);
-        --ease-in-2: cubic-bezier(0.5, 0, 1, 1);
-        --ease-in-3: cubic-bezier(0.7, 0, 1, 1);
-        --ease-in-4: cubic-bezier(0.9, 0, 1, 1);
+        --ease-in-2: cubic-bezier(0.50, 0, 1, 1);
+        --ease-in-3: cubic-bezier(0.70, 0, 1, 1);
+        --ease-in-4: cubic-bezier(0.90, 0, 1, 1);
         --ease-in-5: cubic-bezier(1, 0, 1, 1);
         --ease-out-1: cubic-bezier(0, 0, 0.75, 1);
-        --ease-out-2: cubic-bezier(0, 0, 0.5, 1);
+        --ease-out-2: cubic-bezier(0, 0, 0.50, 1);
         --ease-out-3: cubic-bezier(0, 0, 0.3, 1);
         --ease-out-4: cubic-bezier(0, 0, 0.1, 1);
         --ease-out-5: cubic-bezier(0, 0, 0, 1);
@@ -26,9 +27,9 @@
         --ease-elastic-out-4: cubic-bezier(0.5, 1.5, 0.75, 1.25);
         --ease-elastic-out-5: cubic-bezier(0.5, 1.75, 0.75, 1.25);
         --ease-elastic-in-1: cubic-bezier(0.5, -0.25, 0.75, 1);
-        --ease-elastic-in-2: cubic-bezier(0.5, -0.5, 0.75, 1);
+        --ease-elastic-in-2: cubic-bezier(0.5, -0.50, 0.75, 1);
         --ease-elastic-in-3: cubic-bezier(0.5, -0.75, 0.75, 1);
-        --ease-elastic-in-4: cubic-bezier(0.5, -1, 0.75, 1);
+        --ease-elastic-in-4: cubic-bezier(0.5, -1.00, 0.75, 1);
         --ease-elastic-in-5: cubic-bezier(0.5, -1.25, 0.75, 1);
         --ease-elastic-in-out-1: cubic-bezier(0.5, -0.1, 0.1, 1.5);
         --ease-elastic-in-out-2: cubic-bezier(0.5, -0.3, 0.1, 1.5);
@@ -363,20 +364,55 @@
             1
         );
 
+        --easing-entry: cubic-bezier(0.1, 0, 0, 1);
+        --easing-exit: cubic-bezier(0.3, 0, 1.0, 0.8);
+
         --transition-duration-instant: 0ms;
-        --transition-duration-short: 100ms;
-        --transition-duration-base: 200ms;
-        --transition-duration-long: 300ms;
+
+        /* Animation duration based on https://design.brainly.com/8adfd5f36/p/091f75-ux-motion */
+
+        --transition-duration-quick-1: 80ms; /* e.g. checkbox, radio, hover */
+        --transition-duration-quick-2: 120ms; /* e.g. toggle, tab, chip, color, fade */
+        --transition-duration-moderate-1: 180ms; /* e.g. dropdown, tooltip */
+        --transition-duration-moderate-2: 260ms; /* e.g. modal, toast, dialog, notification */
+        --transition-duration-gentle-1: 320ms; /* e.g. bottom sheet, card expand */
+        --transition-duration-gentle-2: 420ms; /* e.g. advanced animations */
+
+        --transition-duration-short: var(--transition-duration-quick-1);
+        --transition-duration-base: var(--transition-duration-moderate-1);
+        --transition-duration-long: var(--transition-duration-gentle-1);
         --transition-duration-entry: 0s;
         --transition-duration-exit: 0s;
 
         --transition-target-scale: 0.9;
 
+        /*
+         * Calculated animation duration based on https://design.brainly.com/8adfd5f36/p/091f75-ux-motion/t/page-091f75-75547432-5018fa-12
+         * Demo: https://codepen.io/T3sT3ro/pen/RNwRLWx
+         * unitless
+         */
+        --animated-element-distance: 0;
+        --animated-element-width: 0;
+        --animated-element-height: 0;
+
+        /* Calculated animation duration in milliseconds */
+        --transition-duration-calculated: calc(
+            (
+                0.5 * var(--animated-element-distance, 0) + 0.35 * var(--animated-element-width, 0) +
+                    0.3 * var(--animated-element-height, 0)
+            ) *
+                1ms
+        );
+
         @media (--motionNotOK) {
+            --transition-duration-quick-1: 80ms;
+            --transition-duration-quick-2: 120ms;
+            --transition-duration-moderate-1: 180ms;
+            --transition-duration-moderate-2: 260ms;
+            --transition-duration-gentle-1: 320ms;
+            --transition-duration-gentle-2: 420ms;
+            --transition-duration-calculated: 0;
             --transition-duration-instant: 0ms;
-            --transition-duration-short: 0ms;
-            --transition-duration-base: 0ms;
-            --transition-duration-long: 0ms;
             --transition-duration-entry: 0s;
             --transition-duration-exit: 0s;
         }

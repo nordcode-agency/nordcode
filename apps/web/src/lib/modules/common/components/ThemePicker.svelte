@@ -189,7 +189,7 @@ $effect(() => {
     grid-column: 1;
     position: relative;
     z-index: -1;
-    transition: transform var(--transition-duration-base) var(--ease-squish-3);
+    transition: transform var(--transition-duration-quick-2) var(--ease-squish-3);
     background: var(--color-text-on-emphasis);
     border-radius: var(--border-radius-round);
 }

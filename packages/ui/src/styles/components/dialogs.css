@@ -5,7 +5,7 @@
         --_dialog-close-size: var(--dialog-close-size, var(--control-height-base));
         --_dialog-transition-duration: var(
             --dialog-transition-duration,
-            var(--transition-duration-base)
+            var(--transition-duration-moderate-2)
         );
         --_dialog-max-block-size: var(--dialog-max-block-size, 90dvh);
         --_dialog-max-inline-size: var(--dialog-max-inline-size, 28rem);
@@ -13,8 +13,8 @@
         --_dialog-radius: 0;
         display: block;
         z-index: var(--layer-important);
-        animation: close-dialog var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1) forwards;
-        transition: opacity var(--_dialog-transition-duration) cubic-bezier(0.7, 0, 1, 1);
+        animation: close-dialog var(--_dialog-transition-duration) var(--easing-exit) forwards;
+        transition: opacity var(--_dialog-transition-duration) var(--easing-exit);
         position: fixed;
         inset: 0;
         border: var(--border-width-thin) solid var(--color-border-base);
@@ -39,7 +39,7 @@
         }
 
         &[open] {
-            animation: open-dialog var(--_dialog-transition-duration) cubic-bezier(0, 0.6, 0.58, 1);
+            animation: open-dialog var(--_dialog-transition-duration) var(--easing-entry);
         }
 
         &:not([open]) {

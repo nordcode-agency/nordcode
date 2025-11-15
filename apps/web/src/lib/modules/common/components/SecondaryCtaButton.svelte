@@ -35,7 +35,7 @@ a {
     padding-inline-start: 0;
 
     & svg {
-        transition: transform var(--transition-duration-base) var(--ease-elastic-2);
+        transition: transform var(--transition-duration-quick-2) var(--ease-elastic-2);
     }
 
     &:hover svg {

@@ -116,7 +116,7 @@
         border: var(--_input-border);
         --current-background: var(--_input-background);
         background: var(--current-background);
-        transition: var(--transition-duration-short) background var(--ease-2);
+        transition: var(--transition-duration-quick-1) background var(--ease-2);
         box-shadow: var(--_input-box-shadow);
     }
 
@@ -134,7 +134,7 @@
             block-size: 0.75lh;
             background-color: var(--color-brand-primary-contrast);
             transform: scale(0.8) translateY(2em);
-            transition: transform var(--ease-out-2) var(--transition-duration-short);
+            transition: transform var(--ease-out-2) var(--transition-duration-quick-1);
             font-family: var(--font-family-sans);
             --font-weight: var(--font-weight-active);
             line-height: 1;
@@ -163,7 +163,7 @@
             border-radius: var(--border-radius-round);
             transform: scale(0.8) translateY(2em);
             background-color: var(--color-brand-primary-contrast);
-            transition: transform var(--ease-out-2) var(--transition-duration-short);
+            transition: transform var(--ease-out-2) var(--transition-duration-quick-1);
         }
 
         &:checked {

@@ -26,7 +26,7 @@
         "@sveltejs/vite-plugin-svelte": "^6.2.1",
         "@typescript-eslint/eslint-plugin": "^8.46.1",
         "@typescript-eslint/parser": "^8.46.1",
-        "browserslist": "^4.26.3",
+        "browserslist": "^4.28.0",
         "eslint": "^9.37.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-svelte": "^3.12.4",

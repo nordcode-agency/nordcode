@@ -66,7 +66,7 @@ form {
 }
 
 html::view-transition-group(*) {
-    animation-duration: var(--transition-duration-base);
+    animation-duration: var(--transition-duration-moderate-2);
     overflow: hidden;
 }
 

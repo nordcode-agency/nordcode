@@ -92,6 +92,6 @@ dialog {
     inline-size: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: var(--border-radius-round);
-    transition: background-color var(--transition-duration-base) var(--ease-2);
+    transition: background-color var(--transition-duration-quick-2) var(--ease-2);
 }
 </style>

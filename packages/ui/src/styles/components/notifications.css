@@ -26,7 +26,7 @@
         backdrop-filter: blur(3px);
         background-color: var(--_notification-center-background);
         transform: translate(100%, 0);
-        transition: transform var(--transition-duration-base) ease-in-out;
+        transition: transform var(--transition-duration-moderate-2) var(--ease-in-out-2);
     }
 
     :where(.nc-notification-output, .nc-notification-center-container) {
@@ -70,7 +70,7 @@
         inline-size: 100%;
         border-radius: var(--border-radius-small);
         box-shadow: var(--shadow-far);
-        animation: pop-in var(--transition-duration-base) cubic-bezier(0, 0.6, 0.58, 1);
+        animation: pop-in var(--transition-duration-moderate-2) var(--easing-entry);
         color: var(--color-text-base);
         pointer-events: all;
     }
@@ -108,7 +108,7 @@
     }
 
     :where(.nc-notification.-closing) {
-        animation: remove-notification var(--transition-duration-base) cubic-bezier(0.7, 0, 1, 1) forwards;
+        animation: remove-notification var(--transition-duration-moderate-2) var(--easing-exit) forwards;
     }
 
     @keyframes pop-in {

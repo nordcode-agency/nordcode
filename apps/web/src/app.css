@@ -193,7 +193,7 @@ section.nc-box {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: background-color;
-    transition-duration: var(--transition-duration-short);
+    transition-duration: var(--transition-duration-quick-1);
     transition-timing-function: var(--ease-2);
 
     &::selection {
