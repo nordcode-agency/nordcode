@@ -1,6 +1,18 @@
+## 2.1.3 (2025-11-15)
+
+### improvements
+
+- update checkbox, radio and switch hover styles
+
+## 2.1.2 (2025-11-15)
+
+### fixes
+
+- fix checkbox, radio and switch styles
+
 ## 2.1.1 (2025-11-15)
 
-### changes
+### fixes
 
 - properly disable animations for users who prefer reduced motion
 

@@ -129,7 +129,7 @@
             background-color: color-mix(
                 in oklch,
                 var(--current-checkbox-bg),
-                var(--_input-hover-background) 20%
+                var(--_input-hover-background) 8%
             );
         }
     }
