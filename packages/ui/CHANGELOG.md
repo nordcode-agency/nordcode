@@ -1,3 +1,9 @@
+## 2.1.4 (2025-11-15)
+
+### fixes
+
+- cleanup button
+
 ## 2.1.3 (2025-11-15)
 
 ### improvements

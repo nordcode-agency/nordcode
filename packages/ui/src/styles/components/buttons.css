@@ -1,5 +1,5 @@
 @layer components.buttons {
-    :where(button, button, input[type="button"], input[type="submit"], input[type="reset"], input[type="file"], input[type="file"]::-webkit-file-upload-button, input[type="file"]::file-selector-button, .nc-button) {
+    :where(button, input[type="button"], input[type="submit"], input[type="reset"], input[type="file"], input[type="file"]::-webkit-file-upload-button, input[type="file"]::file-selector-button, .nc-button) {
         --_button-background: var(--button-background, var(--surface-hover));
         --_button-color: var(--button-color, var(--text-hover));
         --_button-border-color: var(--button-border-color, var(--surface-hover));
@@ -35,7 +35,7 @@
         justify-content: center;
         text-align: center;
         position: relative;
-        transition: var(--transition-duration-base) var(--ease-2);
+        transition: var(--transition-duration-quick-2) var(--ease-2);
         transition-property: box-shadow, transform;
         text-decoration: unset;
         box-shadow: var(--_button-box-shadow);
@@ -173,7 +173,7 @@
      * it is assumed that an `aria-label` is that
      * and the button will be styled as an icon button.
      */
-    :is([aria-label], .-icon):where(button, button[type], input[type="button"], input[type="submit"], input[type="reset"], .nc-button) {
+    :is([aria-label], .-icon):where(button, button, input[type="button"], input[type="submit"], input[type="reset"], .nc-button) {
         --_button-border-radius: var(--border-radius-round);
         padding: 0;
         aspect-ratio: 1;
@@ -193,7 +193,7 @@
         }
     }
 
-    [disabled]:where(button, button[type], input[type="button"], input[type="submit"], input[type="reset"], .nc-button) {
+    [disabled]:where(button, input[type="button"], input[type="submit"], input[type="reset"], .nc-button) {
         --_button-background: none !important;
         --_button-background-hover: none !important;
         --_button-color: var(--color-text-subtle) !important;
