@@ -53,7 +53,7 @@ const visibleProjects = projects.slice(0, 4);
                 transform-origin: center 50%;
                 animation: project-slide-in linear both;
                 animation-timeline: view();
-                animation-range: cover 10% cover 30%;
+                animation-range: cover 10% cover 40%;
             }
 
             & > *:nth-of-type(2n+1) {
@@ -65,12 +65,12 @@ const visibleProjects = projects.slice(0, 4);
 
             & > *:nth-of-type(3) {
                 transform-origin: center -150%;
-                animation-range: cover 0% cover 13.5%;
+                animation-range: cover 0% cover 20%;
             }
 
             & > *:nth-of-type(4) {
                 transform-origin: center -50%;
-                animation-range: cover 0% cover 13.5%;
+                animation-range: cover 0% cover 20%;
             }
         }
     }
@@ -80,9 +80,24 @@ const visibleProjects = projects.slice(0, 4);
     @media (prefers-reduced-motion: no-preference) {
         @supports (animation-timeline: view()) {
             .more-work {
+                & > * {
+                    transform-origin: center 50%;
+                    animation: project-slide-in linear both;
+                    animation-timeline: view();
+                    animation-range: cover 10% cover 40%;
+                }
+
+                & > *:nth-of-type(2) {
+                    animation-range: cover 12.5% cover 45%;
+                }
+                & > *:nth-of-type(3) {
+                    transform-origin: center -150%;
+                    animation-range: cover 0% cover 30%;
+                }
+
                 & > *:nth-of-type(4) {
                     transform-origin: center -150%;
-                    animation-range: cover 0% cover 13.5%;
+                    animation-range: cover 2.5% cover 31.5%;
                 }
             }
         }

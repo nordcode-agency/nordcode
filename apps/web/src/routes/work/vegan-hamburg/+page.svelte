@@ -1,7 +1,7 @@
 <script lang="ts">
-import karte from '$lib/assets/projects/vegan-hamburg/vegan-hamburg-karte.webp?enhanced';
-import listing from '$lib/assets/projects/vegan-hamburg/vegan-hamburg-listing.webp?enhanced';
-import navigation from '$lib/assets/projects/vegan-hamburg/vegan-hamburg-navigation.webp?enhanced';
+import karte from '$lib/assets/projects/vegan-hamburg/vegan-hamburg-karte.png?enhanced';
+import listing from '$lib/assets/projects/vegan-hamburg/vegan-hamburg-listing.png?enhanced';
+import navigation from '$lib/assets/projects/vegan-hamburg/vegan-hamburg-navigation.png?enhanced';
 import BlogImagePreview from '$lib/modules/common/components/BlogImagePreview.svelte';
 </script>
 
