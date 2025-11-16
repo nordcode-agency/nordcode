@@ -33,7 +33,7 @@ export const projects = [
         },
         slug: '/work/readii',
         name: 'readii',
-        url: 'https://nordcode.agency/',
+        url: 'https://readii.de/',
         goal:
             'Ein einfacher RSS-Reader, der die Möglichkeiten von lokalen KI-Modellen (Gemini Nano) nutzt um Artikel zusammenzufassen.',
         tags: ['Design', 'Entwicklung', 'KI'],
