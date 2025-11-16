@@ -123,9 +123,20 @@ const services: TService[] = [
     block-size: var(--size);
     font-weight: bold;
     color: var(--color-surface-subtle);
+    transform-origin: center center;
     inset: 0;
     z-index: -1;
     line-height: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+        .item-counter {
+            animation: char-fade-in linear both;
+            animation-timeline: view();
+            animation-range: cover 0% contain 30%;
+        }
+    }
 }
 
 @media (--sm-n-above) {

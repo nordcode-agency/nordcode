@@ -81,15 +81,19 @@ let { heading, subheading = undefined, cover, slug, id = undefined }: Props = $p
             & .header {
                 display: grid;
                 place-items: end;
-                padding-block: var(--spacing-far);
+                padding: var(--spacing-far);
+                z-index: 1;
             }
 
             & .headings {
-                background: color-mix(in oklch, var(--color-surface-subtle), transparent 3%);
                 padding-block: var(--spacing-base);
                 padding-inline: var(--spacing-far);
                 border-radius: var(--border-radius-large);
-                box-shadow: var(--shadow-near);
+                background: linear-gradient(
+                    45deg in oklch,
+                    color-mix(in oklch, var(--color-border-base), transparent 3%),
+                    color-mix(in oklch, var(--color-surface-base), transparent 5%)
+                );
             }
         }
     }

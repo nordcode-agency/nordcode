@@ -215,12 +215,32 @@ section.nc-box {
 @keyframes char-fade-in {
     from {
         opacity: 0;
-        transform: translateX(4px);
+        transform: translateX(0.25ch);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0px);
+        transform: translateX(0);
+    }
+}
+
+@keyframes project-slide-in {
+    from {
+        transform: scale(0.5) translateY(var(--spacing-base)) translateX(calc(100% * var(--side)))
+            rotate(calc(-2deg * var(--side)));
+    }
+    to {
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes slide-through {
+    from {
+        transform: translateY(calc(10vh * var(--scaler, 1)));
+    }
+
+    to {
+        transform: translateY(calc(10vh * var(--scaler, 1) * -1));
     }
 }
 

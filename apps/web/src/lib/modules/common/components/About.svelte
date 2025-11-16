@@ -83,6 +83,19 @@ figure {
     justify-content: center;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+        figure {
+            animation: slide-through linear both;
+            animation-timeline: view();
+            animation-range: cover 0% cover 100%;
+
+            &:nth-child(2) {
+                --scaler: 1.5;
+            }
+        }
+    }
+}
 figure {
     --img-offset: var(--spacing-farthest);
 
@@ -103,7 +116,7 @@ figure {
     }
 
     &:last-of-type {
-        transform: translateY(var(--img-offset));
+        translate: 0 var(--img-offset);
     }
 
     margin-block-end: var(--spacing-farthest);
