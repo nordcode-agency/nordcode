@@ -61,8 +61,16 @@
             grid-area: checkbox;
         }
 
-        &:hover:not(:has(input:checked)) input {
-            background: var(--_input-hover-background);
+        &:hover input {
+            background-color: var(--_input-hover-background);
+        }
+
+        &:hover input:checked {
+            background-color: color-mix(
+                in oklch,
+                var(--current-checkbox-bg),
+                var(--_input-hover-background) 20%
+            );
         }
     }
 

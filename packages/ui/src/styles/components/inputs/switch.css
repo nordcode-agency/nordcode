@@ -11,7 +11,7 @@
         inline-size: var(--_switch-width);
         block-size: var(--_switch-height);
         border-radius: var(--_input-border-radius);
-        --current-background: var(--_switch-color);
+        --current-checkbox-bg: var(--_switch-color);
         justify-content: flex-start;
 
         &:before {
@@ -21,20 +21,23 @@
             margin-block: var(--_thumb-margin);
             transform: translateX(var(--_thumb-margin));
             block-size: calc(100% - 2 * var(--_thumb-margin));
+            inline-size: unset;
             background-color: var(--_thumb-color);
             border-radius: var(--_input-border-radius);
             box-shadow: var(--shadow-near);
             transition: transform, background-color;
             transition-duration: var(--transition-duration-quick-2);
             transition-timing-function: var(--ease-2);
+            clip-path: none;
         }
 
         &:checked {
-            --current-background: var(--_switch-color-checked);
+            --current-checkbox-bg: var(--_switch-color-checked);
         }
 
         &:checked:before {
             transform: translateX(calc(var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin)));
+            --_thumb-color: var(--thumb-color-checked, var(--_input-background));
         }
     }
 }
