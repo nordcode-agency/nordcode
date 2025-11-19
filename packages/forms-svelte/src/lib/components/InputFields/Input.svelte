@@ -12,7 +12,7 @@ const { id, label, required, errors, hint, type = 'text', children, name } = pro
 
 <InputWrapper {id} {label} {name} {required} {errors} {hint}>
     {#if type === 'date'}
-        <DateInput {...props} bind:value={value as Date | undefined} />
+        <DateInput {...props} bind:value={value as Date} />
     {:else if type === 'range'}
         <RangeInput {...props} bind:value />
     {:else}

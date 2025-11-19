@@ -28,6 +28,7 @@ let { question, answer }: QuestionRendererProps = $props();
                 hint={question.hint}
                 required={question.required ?? false}
                 value={answer?.answer}
+                autocomplete={question.autocomplete}
             ></Input>
         {:else if question.type === QuestionType.email}
             <Input
@@ -37,6 +38,7 @@ let { question, answer }: QuestionRendererProps = $props();
                 hint={question.hint}
                 required={question.required ?? false}
                 value={answer?.answer}
+                autocomplete={question.autocomplete}
                 type="email"
             ></Input>
         {:else if question.type === QuestionType.phone}
@@ -47,6 +49,7 @@ let { question, answer }: QuestionRendererProps = $props();
                 hint={question.hint}
                 required={question.required ?? false}
                 value={answer?.answer}
+                autocomplete={question.autocomplete}
                 type="phone"
             ></Input>
         {:else if question.type === QuestionType.date}
@@ -57,6 +60,7 @@ let { question, answer }: QuestionRendererProps = $props();
                 hint={question.hint}
                 required={question.required ?? false}
                 value={answer?.answer}
+                autocomplete={question.autocomplete}
                 type="date"
             ></Input>
         {:else if question.type === QuestionType.long_text}
@@ -67,6 +71,7 @@ let { question, answer }: QuestionRendererProps = $props();
                 hint={question.hint}
                 required={question.required ?? false}
                 value={answer?.answer as string}
+                autocomplete={question.autocomplete}
             ></TextArea>
         {:else if question.type === QuestionType.multiple_choice}
             <CheckboxInputField
@@ -76,6 +81,7 @@ let { question, answer }: QuestionRendererProps = $props();
                 hint={question.hint}
                 required={question.required ?? false}
                 value={answer?.answer as string}
+                autocomplete={question.autocomplete}
                 options={question.options.map(o => ({
                     label: o.title,
                     value: o.value,
@@ -90,6 +96,7 @@ let { question, answer }: QuestionRendererProps = $props();
                 hint={question.hint}
                 required={question.required ?? false}
                 value={answer?.answer as string}
+                autocomplete={question.autocomplete}
                 options={question.options.map(o => ({
                     label: o.title,
                     value: o.value,
@@ -104,6 +111,7 @@ let { question, answer }: QuestionRendererProps = $props();
                 hint={question.hint}
                 required={question.required ?? false}
                 value={answer?.answer as number}
+                autocomplete={question.autocomplete}
                 type="number"
             ></Input>
         {:else if question.type === QuestionType.date_time}
@@ -114,6 +122,7 @@ let { question, answer }: QuestionRendererProps = $props();
                 hint={question.hint}
                 required={question.required ?? false}
                 value={answer?.answer as Date}
+                autocomplete={question.autocomplete}
             ></DateTimeInput>
         {:else if question.type === QuestionType.image}
             <ImageInput
