@@ -36,6 +36,10 @@ html {
     scroll-timeline: --bodyTimeline vertical;
 }
 
+body {
+    overflow: clip;
+}
+
 .wrapper {
     inline-size: 100%;
 }
