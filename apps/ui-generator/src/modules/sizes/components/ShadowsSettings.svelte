@@ -5,6 +5,10 @@ import ShadowPreviewEntry from './ShadowPreviewEntry.svelte';
 
 const shadows = [
     {
+        name: 'Box',
+        description: 'Shadow with some inset to give the element a box-like appearance.',
+    },
+    {
         name: 'Inset',
         description:
             'Shadows that indicate that an element is embedded or pushed into the background. Used for inputs or pushed down buttons.',

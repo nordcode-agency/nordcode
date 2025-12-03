@@ -58,7 +58,6 @@ export const getColorTheme = (store: ConfigStore): Record<string, string> => {
         // the best contrast seems to be achieved by moving slightly upwards from the middle
         '--lightness-contrast-cutoff': 'calc(var(--lightness-min) + var(--lightness-diff) * 0.5 + 0.05)',
         '--neutral-chroma-scale': `${store.neutralChromaScale}`,
-        '--transparency-weaker': `${store.transparencyWeaker}`,
 
         ...generateColorValues('brand-primary', {
             l: +store.primaryLightness,

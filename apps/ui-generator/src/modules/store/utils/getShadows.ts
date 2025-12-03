@@ -1,5 +1,13 @@
 import type { ConfigStore } from '../configStore';
 
+const AmountOfShadows = {
+    inset: 1,
+    nearest: 1,
+    near: 3,
+    medium: 5,
+    far: 8,
+};
+
 export const getShadows = (store: ConfigStore) => {
     const shadowColorLightLch =
         `${store.lightShadowColorLightness}% ${store.lightShadowColorChroma} ${store.primaryHue}`;
@@ -18,18 +26,32 @@ export const getShadows = (store: ConfigStore) => {
         xOffsetFactor: +store.shadowConfigXOffsetFactor,
     };
 
-    const AmountOfShadows = {
-        inset: 1,
-        nearest: 1,
-        near: 3,
-        medium: 5,
-        far: 8,
-    };
-
     return `
             /* SHADOWS */
 
-
+        --shadow-box: ${
+        generateShadow(
+            AmountOfShadows.nearest,
+            shadowConfig,
+        )
+    }, ${
+        generateShadow(
+            AmountOfShadows.inset,
+            {
+                ...shadowConfig,
+                xOffsetFactor: shadowConfig.xOffsetFactor * -1,
+            },
+            true,
+            'var(--color-surface-base)',
+        )
+    }, ${
+        generateShadow(
+            AmountOfShadows.inset,
+            shadowConfig,
+            true,
+            'var(--color-surface-base)',
+        )
+    };
             --shadow-inset: ${
         generateShadow(
             AmountOfShadows.nearest,
@@ -37,7 +59,6 @@ export const getShadows = (store: ConfigStore) => {
             true,
         )
     };
-
             --shadow-nearest: ${
         generateShadow(
             AmountOfShadows.nearest,
@@ -76,9 +97,9 @@ export const getShadows = (store: ConfigStore) => {
 
 // ideas from: https://shadows.brumm.af/ and material design and https://www.joshwcomeau.com/shadow-palette/
 // const amountOfExtraShadows = 4;
-const round = (num: number) => Math.round(num * 100) / 100;
-const getShadowColor = (transparency: number) =>
-    `color-mix(in oklch, var(--shadow-color), transparent ${100 - round(transparency * 100)}%)`;
+const round = (num: number) => Math.round(num * 10) / 10;
+const getShadowColor = (transparency: number, shadowColor = 'var(--shadow-color)') =>
+    `color-mix(in oklch, ${shadowColor}, transparent ${100 - round(transparency * 100)}%)`;
 
 const getSpread = (min: number, max: number, totalSteps: number, step: number) => {
     const spread = min + ((max - min) / totalSteps) * step;
@@ -105,6 +126,7 @@ const generateShadow = (
         xOffsetFactor: number;
     },
     inset?: boolean,
+    shadowColorOverwrite?: string,
 ) => {
     const {
         baseDistance,
@@ -118,14 +140,15 @@ const generateShadow = (
 
     let shadowString = '';
 
-    for (let i = 0; i <= amountOfShadows; i++) {
+    for (let i = 0; i <= amountOfShadows - 1; i++) {
         const d = round(baseDistance * scaleFactor ** i);
         const blur = round(d * blurFactor);
         const shadowColor = getShadowColor(
             startTransparency * transparencyScale ** i,
+            shadowColorOverwrite,
         );
 
-        const spread = round(scaleSpread(+spreadMax, amountOfShadows, i));
+        const spread = round(scaleSpread(+spreadMax, AmountOfShadows.far, i));
 
         const newShadow = `${inset ? 'inset ' : ''}${
             round(
@@ -141,7 +164,7 @@ const generateShadow = (
         }
 
         shadowString = shadowString.concat(newShadow);
-        if (i < amountOfShadows) {
+        if (i < amountOfShadows - 1) {
             shadowString = shadowString.concat(', ');
         }
     }
