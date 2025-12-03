@@ -56,85 +56,48 @@
         --border-radius-large: 8px;
         --border-radius-round: 1e5px;
 
+        /* UI Density Elements */
+
+        --control-height-base: 2.5em;
+        --control-height-small: 2em;
+
+        --control-spacing-minimal: 0.125em;
+        --control-spacing-tiny: 0.25em;
+        --control-spacing-nearest: 0.375em;
+        --control-spacing-near: 0.5em;
+        --control-spacing-base: 0.75em;
+        --control-spacing-far: 1em;
+        --control-spacing-farthest: 1.5em;
+
         /* SHADOWS */
 
-        --shadow-inset:
-            inset 0.3px 1px 2px 0px color-mix(in oklch, var(--shadow-color), transparent 50%),
-            inset 0.9px 3px 6px -4px color-mix(in oklch, var(--shadow-color), transparent 60.5%);
+        --shadow-box:
+            0.4px 0.8px 1px 0px color-mix(in oklch, var(--shadow-color), transparent 68%),
+            inset -0.4px 0.8px 1px 0px color-mix(in oklch, var(--color-surface-base), transparent 68%),
+            inset 0.4px 0.8px 1px 0px color-mix(in oklch, var(--color-surface-base), transparent 68%);
 
-        --shadow-nearest:
-            0.3px 1px 2px 0px color-mix(in oklch, var(--shadow-color), transparent 50%),
-            0.9px 3px 6px -4px color-mix(in oklch, var(--shadow-color), transparent 60.5%);
+        --shadow-inset: inset 0.4px 0.8px 1px 0px color-mix(in oklch, var(--shadow-color), transparent 68%);
+
+        --shadow-nearest: 0.4px 0.8px 1px 0px color-mix(in oklch, var(--shadow-color), transparent 68%);
         --shadow-near:
-            0.3px 1px 2px 0px color-mix(in oklch, var(--shadow-color), transparent 50%),
-            0.9px 3px 6px -1.33px color-mix(
-            in oklch,
-            var(--shadow-color),
-            transparent 60.5%
-        ),
-            2.7px 9px 18px -2.67px color-mix(
-            in oklch,
-            var(--shadow-color),
-            transparent 68.78999999999999%
-        ),
-            8.1px 27px 54px -4px color-mix(in oklch, var(--shadow-color), transparent 75.35%);
+            0.4px 0.8px 1px 0px color-mix(in oklch, var(--shadow-color), transparent 68%),
+            0.7px 1.4px 1.8px -0.5px color-mix(in oklch, var(--shadow-color), transparent 72.8%),
+            1.3px 2.6px 3.4px -1px color-mix(in oklch, var(--shadow-color), transparent 76.9%);
         --shadow-medium:
-            0.3px 1px 2px 0px color-mix(in oklch, var(--shadow-color), transparent 50%),
-            0.9px 3px 6px -0.8px color-mix(
-            in oklch,
-            var(--shadow-color),
-            transparent 60.5%
-        ),
-            2.7px 9px 18px -1.6px color-mix(
-            in oklch,
-            var(--shadow-color),
-            transparent 68.78999999999999%
-        ),
-            8.1px 27px 54px -2.4px color-mix(in oklch, var(--shadow-color), transparent 75.35%),
-            24.3px 81px 162px -3.2px color-mix(
-            in oklch,
-            var(--shadow-color),
-            transparent 80.52%
-        ),
-            72.9px 243px 486px -4px color-mix(in oklch, var(--shadow-color), transparent 84.61%);
+            0.4px 0.8px 1px 0px color-mix(in oklch, var(--shadow-color), transparent 68%),
+            0.7px 1.4px 1.8px -0.5px color-mix(in oklch, var(--shadow-color), transparent 72.8%),
+            1.3px 2.6px 3.4px -1px color-mix(in oklch, var(--shadow-color), transparent 76.9%),
+            2.4px 4.7px 6.1px -1.5px color-mix(in oklch, var(--shadow-color), transparent 80.3%),
+            4.2px 8.4px 10.9px -2px color-mix(in oklch, var(--shadow-color), transparent 83.3%);
         --shadow-far:
-            0.3px 1px 2px 0px color-mix(in oklch, var(--shadow-color), transparent 50%),
-            0.9px 3px 6px -0.5px color-mix(
-            in oklch,
-            var(--shadow-color),
-            transparent 60.5%
-        ),
-            2.7px 9px 18px -1px color-mix(
-            in oklch,
-            var(--shadow-color),
-            transparent 68.78999999999999%
-        ),
-            8.1px 27px 54px -1.5px color-mix(in oklch, var(--shadow-color), transparent 75.35%),
-            24.3px 81px 162px -2px color-mix(
-            in oklch,
-            var(--shadow-color),
-            transparent 80.52%
-        ),
-            72.9px 243px 486px -2.5px color-mix(
-            in oklch,
-            var(--shadow-color),
-            transparent 84.61%
-        ),
-            218.7px 729px 1458px -3px color-mix(
-            in oklch,
-            var(--shadow-color),
-            transparent 87.85%
-        ),
-            656.1px 2187px 4374px -3.5px color-mix(
-            in oklch,
-            var(--shadow-color),
-            transparent 90.4%
-        ),
-            1968.3px 6561px 13122px -4px color-mix(
-            in oklch,
-            var(--shadow-color),
-            transparent 92.41%
-        );
+            0.4px 0.8px 1px 0px color-mix(in oklch, var(--shadow-color), transparent 68%),
+            0.7px 1.4px 1.8px -0.5px color-mix(in oklch, var(--shadow-color), transparent 72.8%),
+            1.3px 2.6px 3.4px -1px color-mix(in oklch, var(--shadow-color), transparent 76.9%),
+            2.4px 4.7px 6.1px -1.5px color-mix(in oklch, var(--shadow-color), transparent 80.3%),
+            4.2px 8.4px 10.9px -2px color-mix(in oklch, var(--shadow-color), transparent 83.3%),
+            7.6px 15.1px 19.6px -2.5px color-mix(in oklch, var(--shadow-color), transparent 85.8%),
+            13.6px 27.2px 35.4px -3px color-mix(in oklch, var(--shadow-color), transparent 87.9%),
+            24.5px 49px 63.7px -3.5px color-mix(in oklch, var(--shadow-color), transparent 89.7%);
         /* Light Theme */
 
         --shadow-color-light: oklch(80% 0.03 265);
