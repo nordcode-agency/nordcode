@@ -57,6 +57,7 @@ $effect(() => {
     inline-size: 6rem;
     block-size: 6rem;
     background: var(--color-surface-base);
-    box-shadow: var(--shadow-near);
+    box-shadow: var(--shadow-nearest);
+    background: linear-gradient(150deg, var(--color-surface-muted), var(--color-surface-base));
 }
 </style>

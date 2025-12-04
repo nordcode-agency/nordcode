@@ -201,12 +201,12 @@ const defaultStore: ConfigStore = {
     // Shadows
 
     shadowConfigDistanceBase: 0.8,
-    shadowConfigDistanceScaleFactor: 1.3,
-    shadowConfigBlurScaleFactor: 2,
-    shadowConfigStartTransparency: 0.3,
+    shadowConfigDistanceScaleFactor: 1.8,
+    shadowConfigBlurScaleFactor: 1.3,
+    shadowConfigStartTransparency: 0.32,
     shadowConfigTransparencyScale: 0.85,
     shadowConfigSpreadMax: -4,
-    shadowConfigXOffsetFactor: 0.3,
+    shadowConfigXOffsetFactor: 0.5,
 
     lightShadowColorLightness: 80,
     darkShadowColorLightness: 30,
