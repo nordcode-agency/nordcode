@@ -60,7 +60,7 @@
             filter: blur(24px);
 		}
         20% {
-            opacity: light-dark(0.3, 0.8);
+            opacity: light-dark(0.1, 0.1);
         }
         70% {
             filter: blur(0px);
@@ -68,7 +68,7 @@
         100% {
             fill: var(--color-surface-base);
             transform: translateY(0%) perspective(1600px) rotateX(0deg);
-            opacity: light-dark(0.3, 0.8);
+            opacity: light-dark(0.1, 0.1);
             
         }
 	}
@@ -88,7 +88,7 @@
         
 		& path {
 			/* fill: url("#myGradient"); */
-            --fill: light-dark(var(--color-text-subtle), var(--color-surface-base));
+            --fill: light-dark(var(--color-text-base), var(--color-text-base));
             fill: var(--fill);
 		}
 	}
