@@ -47,7 +47,7 @@ svg {
     animation-range: entry 0% entry 100%;
 
     & path {
-        fill: var(--color-brand-secondary-emphasis);
+        fill: light-dark(var(--color-brand-primary-emphasis), var(--color-brand-primary-base));
     }
 }
 </style>
