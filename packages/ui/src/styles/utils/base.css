@@ -202,7 +202,7 @@
     ::selection,
     ::target-text {
         background-color: var(--color-brand-primary-base);
-        color: var(--color-brand-primary-emphasis);
+        color: var(--color-brand-primary-contrast);
     }
 
     :where(a, .nc-link) {
