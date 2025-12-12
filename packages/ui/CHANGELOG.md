@@ -1,3 +1,9 @@
+## 2.1.5 (2025-12-12)
+
+### fixes
+
+- fix selection styles not being readable
+
 ## 2.1.4 (2025-11-15)
 
 ### fixes
