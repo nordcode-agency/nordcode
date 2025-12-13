@@ -34,6 +34,7 @@ const handleInput: FormEventHandler<HTMLInputElement> = event => {
         {id}
         {name}
         {required}
+        aria-readonly={required}
         {autocomplete}
         {type}
         {value}

@@ -22,8 +22,6 @@ let {
 
 const handleDateInput: FormEventHandler<HTMLInputElement> = event => {
     const target = event.target as HTMLInputElement;
-
-    console.log(target.value);
     value = new Date(target.value);
 };
 
@@ -47,6 +45,7 @@ let internalDate = $derived(value ? formatDate(value) : '');
             type="datetime-local"
             value={value}
             {required}
+            aria-required={required}
             {...rest}
         />
     </div>

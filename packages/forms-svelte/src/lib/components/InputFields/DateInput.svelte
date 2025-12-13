@@ -45,6 +45,7 @@ let internalValue = $derived(value ? formatDate(value) : '');
         value={internalValue}
         oninput={handleInput}
         {required}
+        aria-required={required}
         {...rest}
     />
     <button type="button" class="nc-button" onclick={setToday}>Heute</button>

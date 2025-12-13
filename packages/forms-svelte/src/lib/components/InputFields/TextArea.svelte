@@ -46,6 +46,7 @@ const handleInput: FormEventHandler<HTMLTextAreaElement> = event => {
         value={splitLines && Array.isArray(value) ? value?.join('\n') : value}
         oninput={handleInput}
         {required}
+        aria-required={required}
         {...rest}
     ></textarea>
     {@render children?.()}

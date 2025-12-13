@@ -22,13 +22,13 @@ let {
 
 <div class="nc-cluster | nc-input-field | nc-checkbox-wrapper">
     <label for={id} class="nc-stack" data-label>
-        <span class="nc-input-label">{label}
+        <span>{label}
+            {#if required}
+                <span class="nc-input-required-mark">
+                    *
+                </span>
+            {/if}
         </span>
-        {#if !required}
-            <span class="nc-hint">
-                (optional)
-            </span>
-        {/if}
 
         {#if hint}<span class="nc-input-hint">{hint}</span>{/if}
         {#if errors?.length > 0}
@@ -43,6 +43,7 @@ let {
         {id}
         {name}
         {required}
+        aria-required={required}
         type={'checkbox'}
         {checked}
         {value}

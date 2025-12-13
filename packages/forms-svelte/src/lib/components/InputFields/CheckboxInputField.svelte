@@ -38,12 +38,14 @@ const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
 
 <fieldset class="nc-fieldset nc-input-field nc-checkbox-field" onchange={handleChange}>
     <legend class="nc-legend nc-stack">
-        <span class="nc-input-label" {id}>{label}</span>
-        {#if !required}
-            <span class="nc-hint">
-                (optional)
+        <span class="nc-input-label" {id}><span>{label}
+                {#if required}
+                    <span class="nc-input-required-mark">
+                        *
+                    </span>
+                {/if}
             </span>
-        {/if}
+        </span>
 
         {#if hint}
             <span class="nc-hint" id={`${id}-hint`}>{hint}</span>
@@ -72,6 +74,7 @@ const handleChange: FormEventHandler<HTMLFieldSetElement> = event => {
                 checked={value?.includes(option.value)}
                 {name}
                 {required}
+                aria-required={required}
                 {...rest}
             />
         </div>

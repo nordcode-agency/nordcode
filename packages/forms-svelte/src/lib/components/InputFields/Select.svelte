@@ -37,6 +37,7 @@ const handleInput: FormEventHandler<HTMLSelectElement> = event => {
         {id}
         {name}
         {required}
+        aria-readonly={required}
         oninput={handleInput}
         {...rest}
     >

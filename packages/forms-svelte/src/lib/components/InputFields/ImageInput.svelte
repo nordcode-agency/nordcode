@@ -94,6 +94,7 @@ const handleInput: FormEventHandler<HTMLInputElement> = async event => {
             {id}
             {name}
             {required}
+            aria-readonly={required}
             oninput={handleInput}
             {...rest}
         />
