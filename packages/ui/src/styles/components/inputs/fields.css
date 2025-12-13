@@ -81,4 +81,9 @@
             margin-block-start: var(--control-spacing-far, 0.75em);
         }
     }
+
+    :where(.nc-input-required-mark) {
+        color: var(--color-status-danger-emphasis);
+        font-size: 1.25em;
+    }
 }

@@ -1,3 +1,13 @@
+## 2.1.6 (2025-12-12)
+
+### fixes
+
+- fix required checkboxes looking broken
+
+### features
+
+- add style for required markers
+
 ## 2.1.5 (2025-12-12)
 
 ### fixes

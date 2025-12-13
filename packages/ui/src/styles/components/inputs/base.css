@@ -63,10 +63,6 @@
             background-color: var(--_input-hover-background);
         }
 
-        &[required] {
-            border-inline-start-width: var(--border-width-thick);
-        }
-
         &::placeholder {
             color: var(--color-text-subtle);
         }
