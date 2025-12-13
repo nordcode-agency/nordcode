@@ -2,6 +2,7 @@
 import type { Question } from '@nordcode/questionnaire-renderer';
 import { Navigation } from '../../common/config/Navigation';
 import { moveQuestion, removeQuestion } from '../editorStore';
+import { currentQuestionnaire } from '../editorStore';
 
 type Position = 'below' | 'above';
 interface QuestionLinkProps {
@@ -12,6 +13,28 @@ interface QuestionLinkProps {
 let { question, questionOrderIdx }: QuestionLinkProps = $props();
 
 const questionLink = Navigation.question.url.replace(':id', question.id);
+
+const changedOrderConfig = $derived.by(() => {
+    const hasChangedOrder = Boolean(question.next && question.next.length > 0);
+
+    if (!hasChangedOrder) {
+        return {
+            hasChangedOrder: false,
+            title: '',
+        };
+    }
+
+    // only when condition exists at the moment
+    const condition = question.next![0];
+    const nextQuestionId = condition.questionId;
+    const nextQuestion = $currentQuestionnaire?.questionnaire.questions[nextQuestionId];
+    const title = `Wenn "${condition.when[0]?.compareValue}", dann gehe zu "${nextQuestion?.title}"`;
+
+    return {
+        hasChangedOrder: true,
+        title,
+    };
+});
 
 let isGrabbing = $state(false);
 let isDraggedOver = $state(false);
@@ -184,7 +207,7 @@ const onDrop = (event: DragEvent) => {
                     />
                 </svg>
             {/if}
-            {#if question.next?.length}
+            {#if changedOrderConfig.hasChangedOrder}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -193,7 +216,7 @@ const onDrop = (event: DragEvent) => {
                     data-size="inline"
                     style="color: var(--color-brand-primary-base)"
                 >
-                    <title>Geänderte Reihenfolge</title>
+                    <title>{changedOrderConfig.title}</title>
                     <path
                         stroke="currentColor"
                         stroke-linecap="round"
