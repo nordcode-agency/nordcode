@@ -20,6 +20,7 @@ let { htmlOutput = $bindable(), value = $bindable(), ...rest }: MarkdownInputPro
     inline-size: 100%;
 
     --input-field-max-inline-size: 100%;
+    --input-inline-size: auto;
     min-block-size: var(--nc-markdown-min-block-size, 8lh);
     isolation: isolate;
 
