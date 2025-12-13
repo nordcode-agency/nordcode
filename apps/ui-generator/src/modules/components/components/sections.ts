@@ -221,7 +221,7 @@ const sections: Array<Section> = [
                 description:
                     'Basic text input with a label and optional hint(s) and error(s). Use it for short text inputs like names and emails.',
                 notes: [
-                    'Ideally, mark labels and inputs as optional and set aria-required="false"',
+                    'Ideally, mark labels and inputs as required and set aria-required="true"',
                     'You can set min and max-widths globally using <var>--input-field-min-inline-size</var> and <var>--input-field-max-inline-size</var>',
                 ],
             },
