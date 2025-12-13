@@ -20,6 +20,8 @@ const cleanupQuestions = (questions: Record<string, Question>): Record<string, Q
 export const finaliseQuestionnaire = async (questionnaire: Questionnaire) => {
     return {
         ...questionnaire,
+        // overwrite id to ensure old cached questionnaire is overwritten
+        id: `${questionnaire.id}-${Date.now()}`,
         description: questionnaire.description ? convertToHtml(questionnaire.description) : '',
         questions: cleanupQuestions(structuredClone(questionnaire.questions)),
     };
