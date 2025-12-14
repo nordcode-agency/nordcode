@@ -1,6 +1,44 @@
-<script>
+<script lang="ts">
+import cat1 from '$lib/assets/cat1.png?enhanced';
+import cat2 from '$lib/assets/cat2.png?enhanced';
+import cat3 from '$lib/assets/cat3.png?enhanced';
+import cat4 from '$lib/assets/cat4.png?enhanced';
 import Header from '$lib/modules/common/components/Header.svelte';
 import Meta from '$lib/modules/common/components/Meta.svelte';
+
+let isPlaying = $state(false);
+let clickCount = $state(0);
+
+function onCatClick(e: MouseEvent) {
+    const button = (e.target as HTMLElement)?.closest('button') as HTMLButtonElement;
+
+    if (!button) {
+        return;
+    }
+
+    if (isPlaying) {
+        return;
+    }
+
+    if (clickCount < 2) {
+        clickCount += 1;
+        return;
+    }
+
+    clickCount = 0;
+    isPlaying = true;
+
+    setTimeout(() => {
+        isPlaying = false;
+        button.setAttribute('data-play-state', '');
+    }, 6000);
+
+    button.setAttribute('data-play-state', 'wake-up');
+
+    setTimeout(() => {
+        button.setAttribute('data-play-state', 'awake');
+    }, 2000);
+}
 </script>
 
 <Meta title="Impressum | nordcode" description="Schau dir das Impressum von nordcode an"></Meta>
@@ -71,5 +109,94 @@ import Meta from '$lib/modules/common/components/Meta.svelte';
                 >Erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke</a>
             </p>
         </div>
+        <div class="sleeping-cat-container">
+            <button
+                class="nc-pile cat-button"
+                data-play-state=""
+                onclick={onCatClick}
+                aria-label="Schlafende Katzen Animation abspielen"
+            >
+                <enhanced:img class="sleeping-cat -cat1" src={cat1} alt="Schlafende Katze 1" />
+                <enhanced:img class="sleeping-cat -cat2" src={cat2} alt="Schlafende Katze 2" />
+                <enhanced:img class="sleeping-cat -cat3" src={cat3} alt="Schlafende Katze 3" />
+                <enhanced:img class="sleeping-cat -cat4" src={cat4} alt="Nicht mehr schlafende Katze" />
+            </button>
+        </div>
     </section>
 </div>
+
+<style>
+.sleeping-cat-container {
+    position: relative;
+
+    &:before {
+        content: "";
+        background: var(--color-surface-emphasis);
+        block-size: 1px;
+        inline-size: 100%;
+        display: block;
+        position: absolute;
+        inset-block-start: 169px;
+        z-index: -1;
+    }
+}
+
+.cat-button :global {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    display: grid;
+    inline-size: 256px;
+    block-size: 256px;
+
+    &:hover, &:focus-visible, &:active {
+        background: none;
+        box-shadow: none;
+        filter: none;
+        backdrop-filter: none;
+    }
+
+    &:not([data-play-state=""]) .-cat1 {
+        display: none;
+    }
+
+    &:not([data-play-state=""]) .-cat2 {
+        display: none;
+    }
+
+    &[data-play-state="wake-up"] .sleeping-cat.-cat3 {
+        display: block;
+    }
+
+    &[data-play-state="awake"] .sleeping-cat.-cat4 {
+        display: block;
+    }
+}
+
+@keyframes sleeping-cat {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.sleeping-cat {
+    &.-cat2 {
+        animation: sleeping-cat infinite 2s steps(1, jump-start);
+    }
+
+    &.-cat3 {
+        display: none;
+    }
+
+    &.-cat4 {
+        display: none;
+    }
+}
+</style>
