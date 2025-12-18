@@ -35,8 +35,8 @@
         justify-content: center;
         text-align: center;
         position: relative;
-        transition: var(--transition-duration-quick-2) var(--ease-2);
-        transition-property: box-shadow, transform;
+        transition: var(--transition-duration-quick-1) var(--ease-2);
+        transition-property: box-shadow, transform, scale;
         text-decoration: unset;
         box-shadow: var(--_button-box-shadow);
         user-select: none;
@@ -69,11 +69,7 @@
             background-color: var(--_button-background-hover);
             color: var(--_button-color-hover);
             border-color: var(--_button-border-color-hover);
-
-            box-shadow: none;
-            transform: none;
-            filter: contrast(1.2) saturate(1.1);
-            backdrop-filter: contrast(2);
+            scale: 0.98;
         }
 
         &.-outline {

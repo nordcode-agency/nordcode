@@ -1,3 +1,10 @@
+## 2.1.7 (2025-12-18)
+
+### features
+
+- add subtle transitions to buttons and clickable cards
+- update old transitions for active buttons and radios and checkboxes
+
 ## 2.1.6 (2025-12-12)
 
 ### fixes

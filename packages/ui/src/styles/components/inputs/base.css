@@ -143,7 +143,7 @@
             inline-size: 0.75lh;
             block-size: 0.75lh;
             background-color: var(--color-brand-primary-contrast);
-            transform: scale(0.8) translateY(2em);
+            transform: scale(0.85) translateX(2em);
             transition: transform var(--ease-out-2) var(--transition-duration-quick-1);
             font-family: var(--font-family-sans);
             --font-weight: var(--font-weight-active);
@@ -153,7 +153,7 @@
         }
 
         &:checked:before {
-            transform: scale(1) translateY(0%);
+            transform: scale(1) translateX(0%);
         }
     }
 
@@ -167,13 +167,13 @@
             block-size: 50%;
             inline-size: 50%;
             border-radius: var(--border-radius-round);
-            transform: scale(0.8) translateY(2em);
+            transform: scale(0.85) translateX(2em);
             background-color: var(--color-brand-primary-contrast);
             transition: transform var(--ease-out-2) var(--transition-duration-quick-1);
         }
 
         &:checked:before {
-            transform: scale(1) translateY(0%);
+            transform: scale(1) translateX(0%);
         }
     }
 
