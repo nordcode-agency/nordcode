@@ -1,3 +1,9 @@
+## 2.1.8 (2026-01-02)
+
+### features
+
+- use starting style & new animation for dialogs
+
 ## 2.1.7 (2025-12-18)
 
 ### features

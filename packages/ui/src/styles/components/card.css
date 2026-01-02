@@ -56,7 +56,7 @@
     :where(.nc-clickable-card) {
         cursor: pointer;
         position: relative;
-        transition: scale var(--transition-duration-quick-2) var(--ease-2);
+        transition: scale var(--transition-duration-quick-2) var(--ease-out-2);
 
         &:focus-within,
         &:hover {

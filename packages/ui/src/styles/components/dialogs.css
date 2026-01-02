@@ -3,18 +3,13 @@
         --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
         --_dialog-layout-padding: var(--layout-padding, var(--spacing-base));
         --_dialog-close-size: var(--dialog-close-size, var(--control-height-base));
-        --_dialog-transition-duration: var(
-            --dialog-transition-duration,
-            var(--transition-duration-moderate-2)
-        );
+
         --_dialog-max-block-size: var(--dialog-max-block-size, 90dvh);
         --_dialog-max-inline-size: var(--dialog-max-inline-size, 28rem);
 
         --_dialog-radius: 0;
         display: block;
         z-index: var(--layer-important);
-        animation: close-dialog var(--_dialog-transition-duration) var(--easing-exit) forwards;
-        transition: opacity var(--_dialog-transition-duration) var(--easing-exit);
         position: fixed;
         inset: 0;
         border: var(--border-width-thin) solid var(--color-border-base);
@@ -38,13 +33,60 @@
             box-shadow: var(--shadow-medium);
         }
 
-        &[open] {
-            animation: open-dialog var(--_dialog-transition-duration) var(--easing-entry);
+        /* Credits to Adam Argyle. Modified from: https://nerdy.dev/notebook/dialog-starter.html */
+
+        /* Exit Stage To */
+        --transform-in: perspective(80px) rotateX(0.5deg) scale(0.9);
+        --transform-out: perspective(80px) rotateX(0.5deg) scale(0.95);
+        --transition-time-in: var(--transition-duration-gentle-1);
+        --transition-time-out: var(--transition-duration-moderate-1);
+
+        transform: var(--transform-in);
+
+        &, &::backdrop {
+            transition:
+                display var(--transition-time-out) allow-discrete,
+                overlay var(--transition-time-out) allow-discrete,
+                transform var(--transition-time-out) var(--ease-in-out-2),
+                opacity var(--transition-duration-moderate-1) var(--ease-in-out-2);
+
+            /* Exit Stage To */
+            opacity: 0;
         }
 
-        &:not([open]) {
-            opacity: 0;
-            pointer-events: none;
+        & {
+            transform: var(--transform-out);
+        }
+
+        /* On Stage */
+        &[open] {
+            opacity: 1;
+            transform: perspective(80px) rotateX(0deg) scale(1);
+
+            &, &::backdrop {
+                transition:
+                    display var(--transition-time-in) allow-discrete,
+                    overlay var(--transition-time-in) allow-discrete,
+                    transform var(--transition-time-in) var(--ease-in-out-2),
+                    opacity var(--transition-time-in) var(--ease-in-out-2);
+            }
+
+            &::backdrop {
+                backdrop-filter: blur(20px);
+                opacity: 1;
+            }
+        }
+
+        /* Enter Stage From */
+        @starting-style {
+            &[open],
+            &[open]::backdrop {
+                opacity: 0;
+            }
+
+            &[open] {
+                transform: var(--transform-in);
+            }
         }
 
         &::backdrop {
@@ -115,26 +157,6 @@
             align-items: flex-start;
             border-block-start: var(--border-width-thin) solid var(--color-border-muted);
             background-color: var(--color-surface-subtle);
-        }
-    }
-
-    @keyframes open-dialog {
-        from {
-            transform: translate(0%, 100dvh) rotate(0deg);
-        }
-
-        to {
-            transform: translate(0dvh, 0%) rotate(0deg);
-        }
-    }
-
-    @keyframes close-dialog {
-        from {
-            transform: translate(0dvh, 0%) rotate(0deg);
-        }
-
-        to {
-            transform: translate(0%, 100dvh) rotate(10deg);
         }
     }
 }
