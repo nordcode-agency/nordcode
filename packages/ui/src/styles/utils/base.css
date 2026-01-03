@@ -39,7 +39,7 @@
     @container description-list (min-width: 30rem) {
         :where(dt) {
             grid-column: 1 / 1;
-            padding-inline-end: 1em;
+            padding-inline-end: var(--control-spacing-base, 1em);
             padding-block-end: 0;
             min-block-size: 100%;
 

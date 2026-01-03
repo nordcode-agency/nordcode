@@ -58,11 +58,11 @@
         }
 
         > * {
-            max-inline-size: var(--flow-base-meassure, 44em);
+            max-inline-size: var(--flow-base-meassure, 72ch);
         }
 
         > *:is(h1, h2, h3, h4, h5, h6) {
-            max-inline-size: var(--flow-headline-meassure, 22em);
+            max-inline-size: var(--flow-headline-meassure, 32ch);
             --flow-gap: 1.5lh;
         }
 

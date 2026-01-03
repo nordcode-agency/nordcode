@@ -17,12 +17,12 @@
         --line-height-small: 1.1;
 
         --tracking-base: normal;
-        --tracking-tight: -0.02em;
-        --tracking-wide: 0.03em;
+        --tracking-tight: -0.04ch;
+        --tracking-wide: 0.06ch;
 
-        --measure-large: 56em;
-        --measure-base: 44em;
-        --measure-small: 28em;
+        --measure-large: 88ch;
+        --measure-base: 72ch;
+        --measure-small: 44ch;
 
         --font-size-smallest: max(0.75rem, 12px);
         --font-size-small: max(0.875rem, 14px);
@@ -113,7 +113,6 @@
         --lightness-diff: calc(var(--lightness-max) - var(--lightness-min));
         --lightness-contrast-cutoff: calc(var(--lightness-min) + var(--lightness-diff) * 0.5 + 0.05);
         --neutral-chroma-scale: 0.95;
-        --transparency-weaker: 0.8;
         --c-brand-primary: 0.3;
         --h-brand-primary: 265;
         --l-brand-primary-light: 0.56;

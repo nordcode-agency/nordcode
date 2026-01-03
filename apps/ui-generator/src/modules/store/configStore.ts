@@ -154,18 +154,18 @@ const defaultStore: ConfigStore = {
     lineHeightBase: 1.55,
     lineHeightSmall: 1.1,
 
-    trackingTight: -0.02,
+    trackingTight: -0.04,
     trackingStandard: 0,
-    trackingWide: 0.03,
+    trackingWide: 0.06,
 
     fontWeightHeading: 600,
     fontWeightDefault: 400,
     fontWeightActive: 600,
     fontWeightStrong: 600,
 
-    measureLarge: 56,
-    measureBase: 44,
-    measureSmall: 28,
+    measureLarge: 88,
+    measureBase: 72,
+    measureSmall: 44,
 
     // SIZES
     spacingTiny: 0.125,
