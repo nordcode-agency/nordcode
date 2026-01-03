@@ -1,3 +1,9 @@
+## 2.2.1 (2026-01-03)
+
+### fixes
+
+- fix non input label font weights
+
 ## 2.2.0 (2026-01-03)
 
 ### features

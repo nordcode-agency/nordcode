@@ -8,6 +8,10 @@
         font-size: inherit;
         gap: 0;
         align-items: center;
+
+        & .nc-hint, & .nc-input-error {
+            font-weight: var(--font-weight-default);
+        }
     }
 
     :where(input, textarea, select, .nc-input, .nc-select, .nc-textarea, .nc-input-checkbox, .nc-input-radio, .nc-input-label, .nc-input-color, .nc-input-field, .nc-input-error, .nc-checkbox-wrapper, .nc-input-switch, .nc-radio-field, .nc-checkbox-field) {
