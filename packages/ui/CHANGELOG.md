@@ -1,3 +1,17 @@
+## 2.2.0 (2026-01-03)
+
+### features
+
+- simplify dialog styles
+- use ch/lh in few select places (measures, tracking)
+- extend `nc-segmented-control` to be usable for button groups, tabgroups and horizontal controls
+
+## 2.1.9 (2026-01-02)
+
+### fixes
+
+- fix dialog styles
+
 ## 2.1.8 (2026-01-02)
 
 ### features

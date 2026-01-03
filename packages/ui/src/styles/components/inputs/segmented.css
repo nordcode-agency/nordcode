@@ -34,12 +34,16 @@
             outline-offset: 0;
         }
 
+        &:focus-within:has(> button) {
+            outline: none;
+        }
+
         & input {
             opacity: 0;
             position: absolute;
         }
 
-        & label {
+        & > * {
             display: flex;
             padding-inline: var(--_input-padding-inline);
             padding-block: var(--_input-padding-block);
@@ -48,9 +52,26 @@
             border: var(--_input-border);
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            background: none;
 
             > .nc-input-label {
                 color: inherit;
+            }
+
+            &button {
+                transform: none;
+                box-shadow: none;
+                border-radius: 0;
+
+                &:active {
+                    scale: 1;
+                }
+
+                &:focus-within {
+                    outline-offset: 0;
+                    outline: 1px auto;
+                }
             }
 
             &:hover {
@@ -74,29 +95,60 @@
                 border-block-start: none;
             }
 
-            &:has(input:checked) {
+            &:has(input:checked), &[aria-pressed="true"], &[aria-current] {
                 background: var(--_segmented-control-checked-surface-color);
                 color: var(--_segmented-control-checked-text-color);
                 box-shadow: var(--shadow-near);
+                font-weight: var(--font-weight-default);
             }
 
             &:focus-within {
                 outline: none;
             }
 
-            &:has(input:disabled) {
+            &:has(input:disabled), &:disabled, &[aria-disabled="true"] {
                 filter: var(--_input-disabled-filter);
                 cursor: not-allowed;
             }
         }
     }
 
-    @container segmented-control (min-width: 32rem) {
+    @container segmented-control (min-width: 32rem) or style(--horizontal: true) {
         :where(.nc-segmented-control) {
             grid-auto-columns: 1fr;
             grid-auto-flow: column;
+            inline-size: auto;
 
-            > label {
+            > * {
+                &:first-child {
+                    border-radius: var(--_segmented-control-border-radius) 0 0 var(--_segmented-control-border-radius);
+                }
+
+                &:last-child {
+                    border-radius: 0 var(--_segmented-control-border-radius) var(--_segmented-control-border-radius) 0;
+                }
+
+                &:not(:last-child) {
+                    border-block-end: var(--_input-border);
+                    border-inline-end: var(--border-width-thin) solid var(--color-border-muted);
+                }
+
+                &:not(:first-child) {
+                    border-block-start: var(--_input-border);
+                    border-inline-start: none;
+                }
+            }
+        }
+    }
+
+    /* @todo: remove once style container queries are widely supported */
+    :where(.nc-segmented-control-group.-horizontal) {
+        :where(.nc-segmented-control) {
+            grid-auto-columns: 1fr;
+            grid-auto-flow: column;
+            inline-size: auto;
+
+            > * {
                 &:first-child {
                     border-radius: var(--_segmented-control-border-radius) 0 0 var(--_segmented-control-border-radius);
                 }
