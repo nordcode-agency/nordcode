@@ -17,6 +17,8 @@ import inputDate from '../examples/input/inputDate.html?raw';
 import inputRadioField from '../examples/input/inputRadioField.html?raw';
 import inputRange from '../examples/input/inputRange.html?raw';
 import inputSegmentedControl from '../examples/input/inputSegmentedControl.html?raw';
+import inputSegmentedControlButtonGroup from '../examples/input/inputSegmentedControlButtonGroup.html?raw';
+import inputSegmentedControlHorizontal from '../examples/input/inputSegmentedControlHorizontal.html?raw';
 import inputSelect from '../examples/input/inputSelect.html?raw';
 import inputSwitch from '../examples/input/inputSwitch.html?raw';
 import inputTagSelect from '../examples/input/inputTagSelect.html?raw';
@@ -253,7 +255,7 @@ const sections: Array<Section> = [
             },
             {
                 title: 'Select',
-                description: 'Selects are useful for when you have more than 5 items, but still a managable amount.',
+                description: 'Selects are useful for when you have more than 5 items, but still a manageable amount.',
                 component: inputSelect,
                 preview: selectPreview,
             },
@@ -270,6 +272,44 @@ const sections: Array<Section> = [
                     'A styled radio control. Use when you have a small amount of options (2-5). Can be used for on/off switches. Has intrinsic sizing and switches between column and row.',
                 component: inputSegmentedControl,
                 preview: segmentedPreview,
+                cssVariables: [
+                    {
+                        name: '--segmented-control-border-radius',
+                        description:
+                            'Controls the border radius of the segmented control. Defaults to <code>--_input-border-radius</code>.',
+                    },
+                    {
+                        name: '--segmented-control-checked-text-color',
+                        description:
+                            'Controls the text color of the selected segment. Defaults to <code>---color-brand-primary-contrast</code>.',
+                    },
+                    {
+                        name: '--segmented-control-checked-surface-color',
+                        description:
+                            'Controls the background color of the selected segment. Defaults to <code>--color-brand-primary-base</code>.',
+                    },
+                    {
+                        name: '--segmented-control-min-height',
+                        description:
+                            'Controls the height of each segment. Defaults to <code>--control-height-base</code>.',
+                    },
+                ],
+                examples: [
+                    {
+                        title: 'Horizontal Segmented Control',
+                        description:
+                            'You can also force a horizontal layout by using either -horizontal as class or a style query if full browser support is not relevant to you.',
+                        code: inputSegmentedControlHorizontal,
+                        notes: [
+                            'Pay attention to the modified markup: the legend is made visually hidden, the visual label has <code>aria-hidden</code> and an extra wrapper is added, since fieldsets can not be set to flex containers.',
+                        ],
+                    },
+                    {
+                        title: 'Button Group',
+                        description: 'The same segmented control can be used to create a sort of button group.',
+                        code: inputSegmentedControlButtonGroup,
+                    },
+                ],
             },
             {
                 title: 'Radio Input Field',

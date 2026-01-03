@@ -83,11 +83,27 @@ const {
                             <h3>{ex.title}</h3>
                             {ex.description ? <p>{ex.description}</p> : null}
 
-                            <div class="nc-stack -nogap -stretched -contained">
+                            <div class="nc-stack -stretched -contained">
                                 <div class="nc-box -bordered preview-box">
                                     <Fragment set:html={ex.code} />
                                 </div>
                                 <SourceCodeDisplay code={ex.code} title={ex.title} />
+                                {
+                                    ex.notes ? (
+                                        <div class="nc-stack">
+                                            <h4>Notes</h4>
+                                            <ul>
+                                                {
+                                                    ex.notes.map(note => (
+                                                        <li>
+                                                            <Fragment set:html={note} />
+                                                        </li>
+                                                    ))
+                                                }
+                                            </ul>
+                                        </div>
+                                    ) : null
+                                }
                             </div>
                         </div>
                     ))
