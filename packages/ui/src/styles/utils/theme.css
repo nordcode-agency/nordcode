@@ -50,7 +50,7 @@
     .-muted {
         --text: var(--color-text-muted);
         --color: var(--color-text-muted);
-        --surface: transparent;
+        --surface: var(--color-surface-base);
 
         --text-hover: var(--color-text-base);
         --color-hover: var(--color-text-base);

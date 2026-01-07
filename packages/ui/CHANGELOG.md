@@ -1,87 +1,93 @@
 ## 2.2.1 (2026-01-03)
 
+## 2.2.2
+
+### Patch Changes
+
+-   fix for nc-button -muted (no transparent bg on hover)
+
 ### fixes
 
-- fix non input label font weights
+-   fix non input label font weights
 
 ## 2.2.0 (2026-01-03)
 
 ### features
 
-- simplify dialog styles
-- use ch/lh in few select places (measures, tracking)
-- extend `nc-segmented-control` to be usable for button groups, tabgroups and horizontal controls
+-   simplify dialog styles
+-   use ch/lh in few select places (measures, tracking)
+-   extend `nc-segmented-control` to be usable for button groups, tabgroups and horizontal controls
 
 ## 2.1.9 (2026-01-02)
 
 ### fixes
 
-- fix dialog styles
+-   fix dialog styles
 
 ## 2.1.8 (2026-01-02)
 
 ### features
 
-- use starting style & new animation for dialogs
+-   use starting style & new animation for dialogs
 
 ## 2.1.7 (2025-12-18)
 
 ### features
 
-- add subtle transitions to buttons and clickable cards
-- update old transitions for active buttons and radios and checkboxes
+-   add subtle transitions to buttons and clickable cards
+-   update old transitions for active buttons and radios and checkboxes
 
 ## 2.1.6 (2025-12-12)
 
 ### fixes
 
-- fix required checkboxes looking broken
+-   fix required checkboxes looking broken
 
 ### features
 
-- add style for required markers
+-   add style for required markers
 
 ## 2.1.5 (2025-12-12)
 
 ### fixes
 
-- fix selection styles not being readable
+-   fix selection styles not being readable
 
 ## 2.1.4 (2025-11-15)
 
 ### fixes
 
-- cleanup button
+-   cleanup button
 
 ## 2.1.3 (2025-11-15)
 
 ### improvements
 
-- update checkbox, radio and switch hover styles
+-   update checkbox, radio and switch hover styles
 
 ## 2.1.2 (2025-11-15)
 
 ### fixes
 
-- fix checkbox, radio and switch styles
+-   fix checkbox, radio and switch styles
 
 ## 2.1.1 (2025-11-15)
 
 ### fixes
 
-- properly disable animations for users who prefer reduced motion
+-   properly disable animations for users who prefer reduced motion
 
 ## 2.1.0 (2025-11-15)
 
 ### changes
 
-- remove not([class]) from buttons and inputs to slim down CSS, increase CSS performance and simplify stylings
+-   remove not([class]) from buttons and inputs to slim down CSS, increase CSS performance and simplify stylings
 
 ### improvements
 
-- add `-validate` class to automatically style inputs using :user-valid & :user-invalid pseudo classes
-- Add `--border-radius-cond-*` tokens for conditional border-radius
-- Update transition timings
+-   add `-validate` class to automatically style inputs using :user-valid & :user-invalid pseudo classes
+-   Add `--border-radius-cond-*` tokens for conditional border-radius
+-   Update transition timings
 
 ## 2.0.5 (2025-10-11)
 
@@ -99,25 +105,25 @@
 
 ### improvements
 
-- add :active state to buttons
-- use more accessbile emhpasis color for selections
+-   add :active state to buttons
+-   use more accessbile emhpasis color for selections
 
 ### removals
 
-- remove unused .buttonReset class
+-   remove unused .buttonReset class
 
 ## 2.0.2 (2025-05-10)
 
 ### improvements
 
-- increase focus-visible visibility
-- small utility tweaks
+-   increase focus-visible visibility
+-   small utility tweaks
 
 ## 2.0.1 (2025-05-04)
 
 ### improvements
 
-- change theme default surface to --color-surface-base instead of transparent to fix contrast issue over colored backgrounds
+-   change theme default surface to --color-surface-base instead of transparent to fix contrast issue over colored backgrounds
 
 ## 2.0.0 (2025-05-02)
 
@@ -144,66 +150,66 @@ These tokens are `em` based and are used to style the control elements, mostly i
 
 ### improvements
 
-- Tweak measure to better resemble old ch measurements in `.nc-flow`
+-   Tweak measure to better resemble old ch measurements in `.nc-flow`
 
 ## 1.3.1 (2025-04-18)
 
 ### improvements
 
-- Tweak measure to better resemble old ch measurements
+-   Tweak measure to better resemble old ch measurements
 
 ## 1.3.0 (2025-04-18)
 
 ### improvements
 
-- Switch from ch (and in some cases lh) to em for more consistent sizing and to prevent possible CLS due to font switching
-- Add new typography token: `--font-size-medium` to provide a token for slightly larger text
+-   Switch from ch (and in some cases lh) to em for more consistent sizing and to prevent possible CLS due to font switching
+-   Add new typography token: `--font-size-medium` to provide a token for slightly larger text
 
 ## 1.2.0 (2025-04-03)
 
 ### Improvements
 
-- Add clickable card class
+-   Add clickable card class
 
 ## 1.1.6 (2025-01-09)
 
 ### Improvements
 
-- Small changes to spacings.
+-   Small changes to spacings.
 
 ## 1.1.5 (2025-01-09)
 
 ### Improvements
 
-- Add `themed` class to apply `var(--text)` and `var(--surface)` colors
+-   Add `themed` class to apply `var(--text)` and `var(--surface)` colors
 
 ### Fixes
 
-- Fix text colors for `<ins>` and `<del>`
+-   Fix text colors for `<ins>` and `<del>`
 
 ## 1.1.4 (2025-01-04)
 
 ### Fixes
 
-- Fix summary border-radius by using a border-radius token
+-   Fix summary border-radius by using a border-radius token
 
 ## 1.1.3 (2025-01-04)
 
 ### Fixes
 
-- Small design fixes and improvements
+-   Small design fixes and improvements
 
 ## 1.1.2 (2025-01-03)
 
 ### Fixes
 
-- Fix switch component not working
+-   Fix switch component not working
 
 ## 1.1.1 (2025-01-03)
 
 ### Fixes
 
-- Made details full width again
+-   Made details full width again
 
 ## 1.1.0 (2025-01-03)
 
@@ -211,38 +217,38 @@ Lots of spring cleaning
 
 ### Improvements
 
-- Line height tokens now use unitless values to allow proper inheritance
-- Changed default styling for details
-- Cleanup unused styles
+-   Line height tokens now use unitless values to allow proper inheritance
+-   Changed default styling for details
+-   Cleanup unused styles
 
 ## 1.0.10 (2024-12-27)
 
 ### Fixes
 
-- Fix radius for real
+-   Fix radius for real
 
 ## 1.0.9 (2024-12-27)
 
 ### Improvements
 
-- Tweak Dialog Radius and mobile styles
+-   Tweak Dialog Radius and mobile styles
 
 ## 1.0.8 (2024-12-27)
 
 ### Improvements
 
-- Tweak Dialog Styles
-- Disable scroll when modal dialog is open
+-   Tweak Dialog Styles
+-   Disable scroll when modal dialog is open
 
 ### Fixes
 
-- Fix user selection styles
+-   Fix user selection styles
 
 ## v1.0.5 (2024-11-28)
 
 ### Fixes
 
-- Fix fields not compiling
+-   Fix fields not compiling
 
 ## v1.0.5 (2024-11-28)
 
@@ -250,10 +256,10 @@ Lots of spring cleaning
 
 Make fieldset-based inputs more accessible by adding legends. This affects:
 
-- `nc-tag-select`
-- `nc-segmented-control`
-- `nc-radio-field`
-- `nc-checkbox-field`
+-   `nc-tag-select`
+-   `nc-segmented-control`
+-   `nc-radio-field`
+-   `nc-checkbox-field`
 
 Be sure to checkout the updated markup for these components in the documentation.
 
@@ -261,10 +267,10 @@ Be sure to checkout the updated markup for these components in the documentation
 
 ### New Features
 
-- Added `.nc-alert` class, an alert and utility class for notifications.
-- Added `-aligned` variant to `.nc-button`, which applies negative margin, so you can visually align stealth buttons
+-   Added `.nc-alert` class, an alert and utility class for notifications.
+-   Added `-aligned` variant to `.nc-button`, which applies negative margin, so you can visually align stealth buttons
 
 ### Fixes
 
-- Fixed Webkit `<detail>` style
-- Shadows not working using `light-dark`
+-   Fixed Webkit `<detail>` style
+-   Shadows not working using `light-dark`
