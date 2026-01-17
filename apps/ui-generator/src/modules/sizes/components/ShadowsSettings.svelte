@@ -89,8 +89,9 @@ const shadows = [
                     <SettingsInput
                         label="Blur Scale Factor"
                         bind:value={$configStore.shadowConfigBlurScaleFactor}
+                        hint="A blur factor of 0 will generate flat shadows"
                         step="0.1"
-                        min="1"
+                        min="0"
                         max="10"
                     ></SettingsInput>
                     <SettingsInput

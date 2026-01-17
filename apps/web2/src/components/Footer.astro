@@ -1,0 +1,108 @@
+---
+import { EMAIL_ADDRESS } from '../config/constants.ts';
+import { getIconPath } from '../config/getIconPath.ts';
+import { Navigation } from '../config/navigation.ts';
+import { ensureTrailingSlash } from '../utils/ensureTrailingSlash.ts';
+import Themepicker from './Themepicker.astro';
+---
+
+<footer class="footer-outer">
+    <div class="footer nc-box nc-center">
+        <div class="misc nc-stack -farthest">
+            <span class="greeting">Liebe Grüße aus<br />Zeetze & Hamburg</span>
+            <div class="nc-stack -near">
+                <a href={ensureTrailingSlash(Navigation.impressum.url)}>{Navigation.impressum.name}</a>
+                <a href={ensureTrailingSlash(Navigation.datenschutz.url)}>{Navigation.datenschutz.name}</a>
+            </div>
+            <Themepicker />
+        </div>
+        <div class="nc-stack -far">
+            <div class="nc-stack contact-item">
+                <span class="nc-input-label">E-Mail</span>
+                <a class="gradient-text contact-links" href={`mailto:${EMAIL_ADDRESS}`}>
+                    {EMAIL_ADDRESS}
+                </a>
+            </div>
+            <div class="nc-stack contact-item">
+                <span class="nc-input-label">Schreib uns auf</span>
+                <a class="gradient-text contact-links" href="https://wa.me/message/6D6KQFSIQQ6EG1">Whatsapp</a>
+            </div>
+            <!-- <a class="gradient-text contact-links" href="https://signal.me/#p/+490000"> Signal </a> -->
+            <div class="nc-stack contact-item">
+                <span class="nc-input-label">Telefon</span>
+                <a class="gradient-text contact-links" href="tel:+4915563134234">+49 155 63 134 234</a>
+            </div>
+        </div>
+    </div>
+    <svg class="footer-logo" aria-hidden="true">
+        <use href={getIconPath('logo-footer')} />
+    </svg>
+</footer>
+
+<style>
+@custom-media --md-n-above (width >= 768px);
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-farthest);
+    justify-content: space-between;
+    padding-block-end: var(--spacing-farthest);
+
+    @media (--md-n-above) {
+        padding-block-end: calc(var(--spacing-farthest) * 2);
+    }
+}
+
+.greeting {
+    display: block;
+    max-inline-size: 24ch;
+    font-size: 1.5rem;
+    line-height: 3ex;
+    color: var(--color-text-muted);
+}
+
+.contact-item {
+    gap: 0.25lh;
+}
+
+.contact-links {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--color-text-base);
+}
+
+@keyframes reveal {
+    0% {
+        transform: translateY(-100%) perspective(1600px) rotateX(60deg) scale(0.8);
+        opacity: 0;
+        filter: blur(24px);
+    }
+
+    70% {
+        filter: blur(0);
+        scale: 1.1;
+    }
+
+    100% {
+        transform: translateY(0) perspective(1600px) rotateX(0deg) scale(1);
+        opacity: 1;
+        filter: blur(0);
+        scale: 1;
+    }
+}
+
+.footer-logo {
+    position: relative;
+    z-index: -1;
+    inline-size: min(90vw, 2700px);
+    margin-inline: auto;
+    padding: 5vw;
+
+    animation: reveal var(--ease-in-out-1) both;
+    animation-timeline: view(block);
+    animation-range: entry 0% entry 100%;
+    fill: currentColor;
+    color: light-dark(var(--color-brand-primary-emphasis), var(--color-brand-primary-base));
+}
+</style>

@@ -1,0 +1,46 @@
+---
+import type { TNavigationItem } from '../config/navigation.ts';
+import { ensureTrailingSlash } from '../utils/ensureTrailingSlash.ts';
+interface Props {
+    breadcrumbs: TNavigationItem[];
+}
+
+const { breadcrumbs } = Astro.props;
+---
+<style is:global>
+.breadcrumbs {
+    inline-size: max-content;
+    max-inline-size: 100%;
+}
+
+.nc-breadcrumbs {
+    color: var(--color-text-muted);
+}
+
+.b-listitem:not(:last-child):after {
+    padding-inline: 0.5ch;
+    content: "→";
+}
+
+.b-listitem:last-child {
+    color: var(--color-brand-primary-emphasis);
+}
+</style>
+
+<!-- COMPONENT-START: nc-breadcrumbs -->
+<nav class="breadcrumbs" aria-label="Du bist hier:">
+    <ol class="nc-list-reset nc-cluster -nogap nc-breadcrumbs">
+        {
+            breadcrumbs.map((bc, index) => (
+                <li class="nc-breadcrumb-item b-listitem">
+                    <a
+                        class="nc-breadcrumb-link slub"
+                        href={ensureTrailingSlash(bc.url)}
+                        aria-current={index === breadcrumbs.length - 1 ? 'page' : undefined}
+                    >{bc.name}</a>
+                </li>
+            ))
+        }
+    </ol>
+</nav>
+<!-- COMPONENT-END: nc-breadcrumbs -->

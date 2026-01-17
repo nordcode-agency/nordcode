@@ -1,0 +1,18 @@
+---
+import Image from 'astro/components/Image.astro';
+
+interface Props {
+    image: ImageMetadata;
+}
+
+const { image } = Astro.props;
+---
+
+<figure class="case-img-container card-bg">
+    <a href={image.src} aria-hidden="true">
+        <Image class="case-img" alt="" src={image} />
+    </a>
+    <figcaption>
+        <slot />
+    </figcaption>
+</figure>

@@ -1,0 +1,83 @@
+---
+import { getIconPath } from '../config/getIconPath.ts';
+---
+
+<header class="nc-box">
+    <nav aria-label="Hauptnavigation">
+        <a href="#inhalt-start" class="skip-link">Zum Anfang des Inhalts springen</a>
+        <div class="nc-cluster -centered -between">
+            <a href={'/'} aria-label="Startseite" class="home">
+                <svg class="logo nc-icon" aria-hidden="true">
+                    <use href={getIconPath('logo')} />
+                </svg>
+            </a>
+            <div class="nc-cluster -nowrap nav-right">
+                <a class="gradient-text work" href="/#work">Unsere Projekte</a>
+                <a class="gradient-text about" href="/#about">Das Team</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<style>
+@custom-media --sm-n-above (width >= 480px);
+@custom-media --md-n-above (width >= 768px);
+@custom-media --lg-n-above (width >= 1024px);
+
+header {
+    pointer-events: none;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    inline-size: 100%;
+    padding-block: var(--spacing-far);
+}
+
+nav {
+    pointer-events: auto;
+    inline-size: 100%;
+
+    & a:focus-visible {
+        outline-offset: 0.1lh;
+    }
+}
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+.work,
+.about {
+    display: block;
+    font-size: calc(var(--font-size-base) * 1.25);
+    text-decoration: none;
+    inline-size: fit-content;
+
+    @media (--md-n-above) {
+        font-size: calc(var(--font-size-base) * 1.35);
+        padding-block: var(--spacing-base);
+        text-align: end;
+    }
+}
+
+.skip-link {
+    transform: translateY(calc(-100% - var(--spacing-base) - var(--header-offset-block)));
+    position: absolute;
+    inset: 0 auto auto;
+    transition: transform var(--transition-duration-moderate-1) var(--ease-elastic-2);
+    padding: var(--spacing-near) var(--spacing-base);
+    background: var(--color-surface-emphasis);
+    color: var(--color-text-on-emphasis);
+    z-index: 10000;
+}
+
+.skip-link:focus-within {
+    transform: translateY(0%);
+}
+
+.logo {
+    inline-size: 12.5rem;
+    color: var(--color-text-base);
+    fill: currentColor;
+}
+</style>
