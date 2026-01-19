@@ -62,6 +62,10 @@ body {
     overflow: clip;
 }
 
+@view-transition {
+    navigation: auto;
+}
+
 .wrapper {
     inline-size: 100%;
 }

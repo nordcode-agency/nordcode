@@ -86,7 +86,7 @@ const visibleProjects = projects.slice(0, 4);
             .more-work {
                 & > * {
                     transform-origin: center 50%;
-                    animation: project-slide-in linear both;
+                    animation: project-slide-in var(--ease-2) both;
                     animation-timeline: view();
                     animation-range: cover 10% cover 40%;
                 }
@@ -95,13 +95,17 @@ const visibleProjects = projects.slice(0, 4);
                     animation-range: cover 12.5% cover 45%;
                 }
                 & > *:nth-of-type(3) {
+                    position: relative;
+                    z-index: -1;
                     transform-origin: center -150%;
-                    animation-range: cover 0% cover 30%;
+                    animation-range: cover 0% cover 43.5%;
                 }
 
                 & > *:nth-of-type(4) {
+                    position: relative;
+                    z-index: -2;
                     transform-origin: center -150%;
-                    animation-range: cover 2.5% cover 31.5%;
+                    animation-range: cover 2.5% cover 45%;
                 }
             }
         }
