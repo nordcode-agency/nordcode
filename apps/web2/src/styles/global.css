@@ -32,6 +32,7 @@
     --center-padding: var(--spacing-adaptive);
     --control-height-base: 2.5rem;
     --control-height-small: 2rem;
+    font-size: clamp(1.125rem, 1rem + 0.25vw, 1.25rem);
 
     --layout-max-width: 80rem;
     --layout-narrow-max-width: 65rem;
@@ -45,13 +46,16 @@
 
     --header-offset-block: var(--spacing-base);
     /* logo size + spacing */
-    --header-block-size: calc(var(--spacing-far) * 2 + 9.375rem);
+    --header-block-size: calc(var(--spacing-far) * 2 + 4.125rem);
 }
 
 html {
     scroll-timeline: --bodyTimeline y;
     /* Firefox supports the older "vertical" syntax */
     scroll-timeline: --bodyTimeline vertical;
+
+    font-family: var(--font-family-default);
+    background-color: var(--color-surface-muted);
 }
 
 body {
@@ -68,7 +72,7 @@ body {
 }
 
 .section-title {
-    font-weight: 700;
+    font-weight: var(--font-weight-heading);
     font-size: 3rem;
     line-height: var(--line-height-small);
     max-inline-size: 12ch;
@@ -78,12 +82,15 @@ body {
     }
 }
 
-p {
-    font-size: 1.125rem;
-    text-wrap: pretty;
+:is(h2, h3, h4, h5, h6) {
+    font-weight: var(--font-weight-strong);
 }
 
-.slide-up-from {
+.prose :is(h2, h3, h4, h5, h6) {
+    font-weight: var(--font-weight-heading);
+}
+
+& .slide-up-from {
     transform: translateY(var(--spacing-base));
     opacity: 0;
 }
@@ -93,7 +100,7 @@ p {
 }
 
 .nc-button {
-    font-weight: bold;
+    font-family: var(--font-family-mono);
     transition: background 0.3s ease;
 
     &.-brand {
@@ -279,6 +286,8 @@ section.nc-box {
 }
 
 :is(a:not(.nc-button)) {
+    font-family: var(--font-family-mono);
+
     text-decoration-color: var(--color-brand-primary-base);
 
     &:hover,

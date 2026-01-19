@@ -40,9 +40,11 @@ const description =
     inline-size: 100%;
     block-size: 100svh;
     background: linear-gradient(transparent 60%, var(--color-surface-muted));
+    margin-block-start: calc(var(--header-block-size) * -1);
 }
 
 .title-wrapper {
+    padding-block-start: var(--header-block-size);
     grid-area: 1 / 1;
 }
 

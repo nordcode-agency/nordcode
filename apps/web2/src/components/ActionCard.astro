@@ -12,7 +12,7 @@ let { heading, subheading = undefined } = Astro.props;
         <div class="header">
             <div class="headings">
                 {subheading && <span>{subheading}</span>}
-                <h2>{heading}</h2>
+                <h2 class="action-card-title">{heading}</h2>
             </div>
         </div>
         <div class="action">
@@ -26,6 +26,11 @@ let { heading, subheading = undefined } = Astro.props;
     /* container-type: inline-size; */
     inline-size: 100%;
     block-size: 100%;
+}
+
+.action-card-title {
+    font-weight: var(--font-weight-default);
+    font-size: var(--font-size-medium);
 }
 
 .card {
@@ -61,8 +66,7 @@ let { heading, subheading = undefined } = Astro.props;
 }
 
 h2 {
-    font-size: var(--font-size-base);
-    line-height: 2.8ex;
+    line-height: var(--line-height-base);
 }
 
 .headings {

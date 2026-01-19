@@ -20,7 +20,7 @@ const {} = Astro.props;
         </h1>
     </div>
     <div class="footer nc-box">
-        <div style="inline-size: min(240px, 100%)">
+        <div style="inline-size: min(19rem, 100%)">
             <ActionCard heading="Lass uns schauen, wie wir dir helfen können">
                 <a
                     href={ensureTrailingSlash(Navigation.start.url)}
@@ -29,15 +29,16 @@ const {} = Astro.props;
             </ActionCard>
         </div>
     </div>
-</div>
+</div>\
 
 <style>
 @custom-media --sm-n-above (width >= 480px);
 
 .subtitle {
     font-weight: var(--font-weight-default);
-    font-size: 1.125rem;
-    background-filter: blur(2px);
+    letter-spacing: var(--tracking-base);
+    font-size: var(--font-size-large);
+    transform: translateX(0.3ch);
 }
 
 .container {
@@ -67,9 +68,10 @@ const {} = Astro.props;
     inline-size: 100%;
 
     @media (--sm-n-above) {
-        --control-height-base: 4rem;
+        --control-height-base: 3rem;
 
-        font-size: var(--font-size-large);
+        font-size: var(--font-size-medium);
+        letter-spacing: var(--tracking-tight);
     }
 }
 </style>

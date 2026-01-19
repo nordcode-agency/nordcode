@@ -32,7 +32,7 @@ const { heading, subheading = undefined, cover, coverAlt, slug, id = undefined }
         </figure>
         <div class="header">
             <div class="headings">
-                {subheading ? <span>{subheading}</span> : null}
+                {subheading ? <span class="nc-slub">{subheading}</span> : null}
                 <h2 class="font-size-base | heading">
                     <a href={ensureTrailingSlash(slug)} data-link="main">{heading}</a>
                 </h2>
@@ -86,9 +86,9 @@ const { heading, subheading = undefined, cover, coverAlt, slug, id = undefined }
                 padding-inline: var(--spacing-far);
                 border-radius: var(--border-radius-large);
                 background: linear-gradient(
-                    45deg in oklch,
-                    color-mix(in oklch, var(--color-border-base), transparent 3%),
-                    color-mix(in oklch, var(--color-surface-base), transparent 5%)
+                    45deg,
+                    color-mix(in oklch, var(--color-border-base), transparent 8%),
+                    color-mix(in oklch, var(--color-surface-base), transparent 3%)
                 );
             }
         }
@@ -118,12 +118,12 @@ const { heading, subheading = undefined, cover, coverAlt, slug, id = undefined }
 }
 
 .heading {
-    line-height: 2.8ex;
+    & > a {
+        font-family: inherit;
+    }
 }
 
 .headings {
-    & span {
-        color: var(--color-text-muted);
-    }
+    & span {}
 }
 </style>

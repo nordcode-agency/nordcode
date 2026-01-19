@@ -7,11 +7,11 @@ import { getIconPath } from '../config/getIconPath.ts';
         <a href="#inhalt-start" class="skip-link">Zum Anfang des Inhalts springen</a>
         <div class="nc-cluster -centered -between">
             <a href={'/'} aria-label="Startseite" class="home">
-                <svg class="logo nc-icon" aria-hidden="true">
+                <svg class="logo" aria-hidden="true">
                     <use href={getIconPath('logo')} />
                 </svg>
             </a>
-            <div class="nc-cluster -nowrap nav-right">
+            <div class="nc-cluster -far -nowrap nav-right">
                 <a class="gradient-text work" href="/#work">Unsere Projekte</a>
                 <a class="gradient-text about" href="/#about">Das Team</a>
             </div>
@@ -31,6 +31,8 @@ header {
     place-items: center;
     inline-size: 100%;
     padding-block: var(--spacing-far);
+    position: relative;
+    z-index: 10;
 }
 
 nav {
@@ -49,12 +51,11 @@ nav {
 .work,
 .about {
     display: block;
-    font-size: calc(var(--font-size-base) * 1.25);
+    font-size: var(--font-size-medium);
     text-decoration: none;
     inline-size: fit-content;
 
     @media (--md-n-above) {
-        font-size: calc(var(--font-size-base) * 1.35);
         padding-block: var(--spacing-base);
         text-align: end;
     }
@@ -77,6 +78,7 @@ nav {
 
 .logo {
     inline-size: 12.5rem;
+    aspect-ratio: 240 / 37;
     color: var(--color-text-base);
     fill: currentColor;
 }
