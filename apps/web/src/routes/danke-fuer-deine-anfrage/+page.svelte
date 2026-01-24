@@ -18,3 +18,6 @@ import Meta from '$lib/modules/common/components/Meta.svelte';
         </div>
     </section>
 </div>
+
+<style>
+</style>

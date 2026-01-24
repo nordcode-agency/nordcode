@@ -77,11 +77,15 @@ body {
 
 .section-title {
     font-weight: var(--font-weight-heading);
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: var(--line-height-small);
     max-inline-size: 12ch;
 
     @media (--sm-n-above) {
+        font-size: 3.5rem;
+    }
+
+    @media (--lg-n-above) {
         font-size: 5rem;
     }
 }
@@ -196,24 +200,6 @@ section.nc-box {
 .heading-bg {
     position: relative;
     margin-block-end: var(--spacing-far);
-
-    /* &::after {
-    	--conic-size: min(60ch, 100vw);
-    	position: absolute;
-    	z-index: -1;
-    	content: '';
-    	inset: 0;
-    	left: calc(var(--conic-size) / 2 * -1);
-    	top: calc(var(--conic-size) / 2 * -1 + 1.1lh);
-    	inline-size: var(--conic-size);
-    	aspect-ratio: 1;
-    	border-radius: 100%;
-    	background-image: conic-gradient(
-    		from 90deg,
-    		oklch(var(--color-surface-subtle-lch) / 0.7),
-    		oklch(var(--color-surface-default-lch) / 0.7)
-    	);
-    } */
 }
 
 :is(.styled-base-text strong, .gradient-text) {
@@ -290,8 +276,6 @@ section.nc-box {
 }
 
 :is(a:not(.nc-button)) {
-    font-family: var(--font-family-mono);
-
     text-decoration-color: var(--color-brand-primary-base);
 
     &:hover,
@@ -414,4 +398,20 @@ section.nc-box {
         color-mix(in oklch, var(--color-surface-base), transparent 20%)
     );
     backdrop-filter: blur(var(--spacing-base));
+}
+
+.questionnaire-title {
+    font-size: calc(var(--font-size-display) * 0.6);
+
+    @media (--md-n-above) {
+        view-transition-name: title;
+        font-size: var(--font-size-display);
+    }
+}
+
+.questionnaire-grid {
+    --nc-ram-grid-gap: var(--spacing-base);
+    --nc-ram-grid-min-width: 40ch;
+
+    inline-size: 100%;
 }

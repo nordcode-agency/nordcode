@@ -215,19 +215,21 @@ export function main() {
         }
     });
 
+    const container = document.getElementById('hero-wrap');
+
     /**
      * Sizes
      */
     const sizes = {
-        width: window.innerWidth,
+        width: container?.clientWidth ?? window.innerWidth,
         // safe height to prevent overflow
-        height: window.screen.availHeight,
+        height: container?.clientHeight ?? window.screen.availHeight,
     };
 
     window.addEventListener('resize', () => {
         // Update sizes
-        sizes.width = window.innerWidth;
-        sizes.height = window.screen.availHeight;
+        sizes.width = container?.clientWidth ?? window.innerWidth;
+        sizes.height = container?.clientHeight ?? window.screen.availHeight;
 
         // Update camera
         camera.aspect = sizes.width / sizes.height;

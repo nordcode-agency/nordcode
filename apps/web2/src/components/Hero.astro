@@ -29,7 +29,7 @@ const {} = Astro.props;
             </ActionCard>
         </div>
     </div>
-</div>\
+</div>
 
 <style>
 @custom-media --sm-n-above (width >= 480px);
@@ -37,8 +37,14 @@ const {} = Astro.props;
 .subtitle {
     font-weight: var(--font-weight-default);
     letter-spacing: var(--tracking-base);
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-base);
     transform: translateX(0.3ch);
+}
+
+@media (--sm-n-above) {
+    .subtitle {
+        font-size: var(--font-size-large);
+    }
 }
 
 .container {

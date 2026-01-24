@@ -73,6 +73,7 @@ const services: TService[] = [
 <style>
 @custom-media --sm-n-above (width >= 480px);
 @custom-media --md-n-above (width >= 768px);
+@custom-media --lg-n-above (width >= 1024px);
 
 .inner-section {
     display: flex;
@@ -119,8 +120,7 @@ const services: TService[] = [
 }
 
 .item-counter {
-    display: none;
-    position: absolute;
+    display: block;
     font-size: var(--size);
     block-size: var(--size);
     font-weight: var(--font-weight-strong);
@@ -129,6 +129,9 @@ const services: TService[] = [
     inset: 0;
     z-index: -1;
     line-height: 1;
+    position: relative;
+    inset-inline-start: calc(var(--size) * -0.1);
+    inset-block-start: calc(var(--size) * 0.1);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -141,7 +144,7 @@ const services: TService[] = [
     }
 }
 
-@media (--sm-n-above) {
+@media (--lg-n-above) {
     .item {
         --size: 10rem;
 
@@ -150,8 +153,9 @@ const services: TService[] = [
     }
 
     .item-counter {
-        display: block;
-        transform: translateY(-10%);
+        position: absolute;
+        inset-inline-start: 0;
+        inset-block-start: calc(var(--size) * -0.08);
     }
 }
 </style>

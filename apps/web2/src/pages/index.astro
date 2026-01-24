@@ -14,7 +14,7 @@ const description =
 ---
 
 <Layout title={title} description={description}>
-    <div class="wrapper hero-wrapper">
+    <div class="wrapper hero-wrapper" id="hero-wrap">
         <div class="title-wrapper nc-stack container">
             <Hero projects={projects} />
         </div>
@@ -38,7 +38,7 @@ const description =
     position: relative;
     overflow: clip;
     inline-size: 100%;
-    block-size: 100svh;
+    min-block-size: 100svh;
     background: linear-gradient(transparent 60%, var(--color-surface-muted));
     margin-block-start: calc(var(--header-block-size) * -1);
 }
