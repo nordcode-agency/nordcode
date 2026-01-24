@@ -135,7 +135,7 @@ export type ConfigStore = {
 const defaultStore: ConfigStore = {
     // TYPOGRAPHY
     fontFamilyMono: 'monospace',
-    fontFamilySans: 'system-ui, sans-serif',
+    fontFamilySans: '"Armin Grotesk", system-ui, sans-serif',
     fontFamilySerif: 'serif',
     fontFamilyDefault: 'sans',
 
@@ -158,7 +158,7 @@ const defaultStore: ConfigStore = {
     trackingStandard: 0,
     trackingWide: 0.06,
 
-    fontWeightHeading: 600,
+    fontWeightHeading: 800,
     fontWeightDefault: 400,
     fontWeightActive: 600,
     fontWeightStrong: 600,
@@ -216,41 +216,41 @@ const defaultStore: ConfigStore = {
     // COLORS
 
     // basics
-    lightnessMax: 0.99,
+    lightnessMax: 1,
     lightnessMin: 0.03,
     neutralChromaScale: 0.95,
     transparencyWeaker: 0.8,
 
     primaryHue: 265,
     primaryLightness: 56,
-    primaryLightnessDark: 75,
-    primaryChroma: 0.3,
-    secondaryHue: 215,
-    secondaryLightness: 51,
-    secondaryLightnessDark: 76,
-    secondaryChroma: 0.4,
+    primaryLightnessDark: 57,
+    primaryChroma: 0.2515,
+    secondaryHue: 245,
+    secondaryLightness: 65,
+    secondaryLightnessDark: 65,
+    secondaryChroma: 0.208,
 
     useSecondaryColorForFG: false,
     useSecondaryColorForBG: false,
     useSecondaryColorForBorders: false,
     lightNeutralChromaFG: 0.03,
-    lightNeutralChromaBG: 0.03,
+    lightNeutralChromaBG: 0.013,
     lightNeutralChromaBorder: 0.03,
     lightNeutralTextLightness: 28,
-    lightNeutralSurfaceLightness: 99,
+    lightNeutralSurfaceLightness: 100,
     lightNeutralBorderLightness: 87,
-    lightTextLightnessScaleFactor: 1.25,
-    lightSurfaceLightnessScaleFactor: 0.98,
+    lightTextLightnessScaleFactor: 1.3,
+    lightSurfaceLightnessScaleFactor: 0.975,
     lightBorderLightnessScaleFactor: 1.025,
 
-    darkNeutralChromaFG: 0.05,
+    darkNeutralChromaFG: 0.04,
     darkNeutralChromaBG: 0.05,
     darkNeutralChromaBorder: 0.05,
     darkNeutralTextLightness: 88,
     darkNeutralSurfaceLightness: 15,
     darkNeutralBorderLightness: 30,
     darkTextLightnessScaleFactor: 0.88,
-    darkSurfaceLightnessScaleFactor: 1.3,
+    darkSurfaceLightnessScaleFactor: 1.25,
     darkBorderLightnessScaleFactor: 0.98,
 
     controlHeightBase: 2.5,
