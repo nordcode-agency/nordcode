@@ -317,6 +317,7 @@
         text-align: left;
         border: var(--border-width-medium) solid var(--color-border-base);
         border-radius: var(--_nc-table-border-radius);
+        font-variant-numeric: tabular-nums lining-nums;
     }
 
     :where(table > thead th:first-child) {
@@ -483,16 +484,16 @@
         hyphenate-limit-zone: 8%;
         hyphenate-limit-last: always;
         text-wrap: pretty;
-    }
 
-    :where(.prose p) {
-        text-wrap: pretty;
-        font-variant-numeric: oldstyle-nums proportional-nums;
-        max-inline-size: var(--measure-base);
-    }
+        & p {
+            text-wrap: pretty;
+            font-variant-numeric: proportional-nums;
+            max-inline-size: var(--measure-base);
+        }
 
-    :where(.prose pre, .prose code, .prose var, .prose samp, .prose kbd, .prose h1, .prose h2, .prose h3, .prose
-        h4, .prose h5, .prose h6) {
-        hyphens: manual;
+        & :is(pre, code, var, samp, kbd, h1, h2, h3, h4, h5, h6) {
+            hyphens: manual;
+            font-variant-numeric: lining-nums;
+        }
     }
 }
