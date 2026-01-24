@@ -108,7 +108,7 @@ body {
 }
 
 .nc-button {
-    font-family: var(--font-family-mono);
+    font-weight: var(--font-weight-strong);
     transition: background 0.3s ease;
 
     &.-brand {
