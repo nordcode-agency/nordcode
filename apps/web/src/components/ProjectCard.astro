@@ -1,0 +1,24 @@
+---
+interface Props {
+    heading: string;
+    subheading?: string | undefined;
+    cover: MediaImage;
+    slug: string;
+    name: string;
+}
+
+const { heading, subheading = undefined, cover, slug, name } = Astro.props;
+
+// let vtName = '';
+// beforeNavigate((navigation) => {
+//     const projectName = navigation?.to?.params?.project;
+//     if (projectName === name) {
+//         vtName = name;
+//     }
+// });
+// afterNavigate(() => {
+//     vtName = '';
+// });
+---
+
+<!--<FeatureCard {heading} {subheading} {cover} {slug} id={name} />-->

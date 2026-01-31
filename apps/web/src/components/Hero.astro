@@ -1,0 +1,83 @@
+---
+import { Navigation } from '../config/navigation.ts';
+import type { TProjects } from '../content/projects.ts';
+import { ensureTrailingSlash } from '../utils/ensureTrailingSlash.ts';
+import ActionCard from './ActionCard.astro';
+
+interface Props {
+    projects?: TProjects;
+}
+
+const {} = Astro.props;
+---
+
+<div class="nc-stack container">
+    <div class="headings">
+        <h1 class="section-title nc-stack">
+            <span class="maintitle">Webseiten, die begeistern</span>
+            <span class="subtitle"><strong>
+                    Deine</strong> Webagentur für gute digitale Projekte</span>
+        </h1>
+    </div>
+    <div class="footer nc-box">
+        <div style="inline-size: min(19rem, 100%)">
+            <ActionCard heading="Lass uns schauen, wie wir dir helfen können">
+                <a
+                    href={ensureTrailingSlash(Navigation.start.url)}
+                    class="nc-button -brand -big"
+                >Starte dein Projekt</a>
+            </ActionCard>
+        </div>
+    </div>
+</div>
+
+<style>
+@custom-media --sm-n-above (width >= 480px);
+
+.subtitle {
+    font-weight: var(--font-weight-default);
+    letter-spacing: var(--tracking-base);
+    font-size: var(--font-size-base);
+    transform: translateX(0.3ch);
+}
+
+@media (--sm-n-above) {
+    .subtitle {
+        font-size: var(--font-size-large);
+    }
+}
+
+.container {
+    inline-size: 100%;
+    flex-grow: 1;
+}
+
+.headings {
+    max-inline-size: 68ch;
+    padding-inline: var(--spacing-adaptive);
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.footer {
+    margin-inline-start: auto;
+    inline-size: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: stretch;
+    gap: var(--spacing-far);
+    padding-block: var(--spacing-far);
+}
+
+.-big {
+    inline-size: 100%;
+
+    @media (--sm-n-above) {
+        --control-height-base: 3rem;
+
+        font-size: var(--font-size-medium);
+        letter-spacing: var(--tracking-tight);
+    }
+}
+</style>

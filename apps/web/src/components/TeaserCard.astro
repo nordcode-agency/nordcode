@@ -1,0 +1,21 @@
+---
+interface Props {
+    heading?: string;
+}
+
+const { heading = '' } = Astro.props;
+---
+
+<div class="nc-card nc-stack">
+    <!-- <p>Lass uns schauen, wie wir dich unterstützen können.</p> -->
+    <div class="action">
+        <slot />
+    </div>
+    {heading ? <h3>{heading}</h3> : null}
+</div>
+
+<style>
+.action {
+    align-self: end;
+}
+</style>
