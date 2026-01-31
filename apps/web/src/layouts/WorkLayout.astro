@@ -12,7 +12,7 @@ interface Props {
 
 const { name } = Astro.props;
 
-const project = projects.find((p) => p.name === name)!;
+const project = projects.find(p => p.name === name)!;
 
 const breadcrumbItems: TNavigationItem[] = [
     {
@@ -39,19 +39,21 @@ const breadcrumbItems: TNavigationItem[] = [
                             alt={project.coverAlt}
                             widths={[400, 600, 800, 1000]}
                             sizes={`
-                            (min-width: 90rem) 800px 
-                            (min-width: 75rem) 600px 
+                            (min-width: 90rem) 800px
+                            (min-width: 75rem) 600px
                             (min-width: 60rem) 400px
                             (min-width: 840px) 1000px,
                                 (min-width: 640px) 800px,
                                 (min-width: 440px) 600px,
                                 400x`}
-                        ></Image>
+                        />
                         <figcaption class="sr-only">{project.coverAlt}</figcaption>
                     </figure>
                     <div class="nc-stack">
                         <div class="headings">
-                            <span class="subheading nc-slub slide-up-from">{project.subheading}</span>
+                            <span class="subheading nc-slub slide-up-from"
+                                >{project.subheading}</span
+                            >
                             <h1 class="gradient-text slide-up-from">{project.heading}</h1>
                         </div>
                     </div>
@@ -85,132 +87,133 @@ const breadcrumbItems: TNavigationItem[] = [
 </Layout>
 
 <style>
-@custom-media --md-n-above (width >= 768px);
-@custom-media --xl-n-above (width >= 1440px);
+    @custom-media --md-n-above (width >= 768px);
+    @custom-media --xl-n-above (width >= 1440px);
 
-.work-page {
-    --center-measure: 120ch;
-}
-
-.header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-far);
-
-    @media (width >= 60rem) {
-        flex-direction: row;
+    .work-page {
+        --center-measure: 120ch;
     }
-}
 
-.thumbnail {
-    view-transition-name: work-figure;
-    flex-basis: min(48ch, 40vw, 100%);
-    aspect-ratio: 3/2;
-    margin: 0;
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-far);
 
-    & * {
-        inline-size: 100%;
-        block-size: 100%;
-        border-radius: inherit;
-    }
-}
-
-@keyframes slide-up {
-    to {
-        transform: translateY(0%);
-        opacity: 1;
-    }
-}
-
-.headings {
-    /* view-transition-name: work-headings; */
-    max-inline-size: 100%;
-
-    & h1 {
-        animation: var(--animation-slide-up) 0.2s;
-        font-size: calc(var(--font-size-display) * 0.6);
-        text-wrap: pretty;
-        max-inline-size: min(100%, 24ch);
-        hyphens: auto;
-        line-height: var(--line-height-small);
-
-        @media (--md-n-above) {
-            font-size: var(--font-size-display);
+        @media (width >= 60rem) {
+            flex-direction: row;
         }
     }
-}
 
-.subheading {
-    display: block;
+    .thumbnail {
+        view-transition-name: work-figure;
+        flex-basis: min(48ch, 40vw, 100%);
+        aspect-ratio: 3/2;
+        margin: 0;
 
-    font-size: var(--font-size-large);
-    animation: var(--animation-slide-up);
-}
-
-.hero {
-    padding-inline: 0;
-
-    @media (--md-n-above) {
-        --stack-gap: var(--spacing-far);
-    }
-}
-
-.main {
-    --with-sidebar-target-width: 32ch;
-    --with-sidebar-min-size: 60%;
-
-    padding-inline: 0;
-    margin-inline-start: 0;
-    animation: var(--animation-slide-up) 0.4s;
-    gap: var(--spacing-farthest);
-
-    @media (--xl-n-above) {
-        margin-inline-start: auto;
-    }
-}
-
-article {
-    padding-block-start: 0;
-    color: var(--color-text-muted);
-}
-
-.overview {
-    position: sticky;
-    top: calc(var(--spacing-adaptive) / 2);
-    flex-wrap: wrap;
-    flex-direction: row;
-
-    @media (--md-n-above) {
-        gap: var(--spacing-far);
+        & * {
+            inline-size: 100%;
+            block-size: 100%;
+            border-radius: inherit;
+        }
     }
 
-    & > * {
-        flex-basis: 32ch;
+    @keyframes slide-up {
+        to {
+            transform: translateY(0%);
+            opacity: 1;
+        }
     }
-}
 
-.actions {
-    padding-block: var(--spacing-base);
-}
+    .headings {
+        /* view-transition-name: work-headings; */
+        max-inline-size: 100%;
 
-.img {
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-}
+        & h1 {
+            animation: var(--animation-slide-up) 0.2s;
+            font-size: calc(var(--font-size-display) * 0.6);
+            text-wrap: pretty;
+            max-inline-size: min(100%, 24ch);
+            hyphens: auto;
+            line-height: var(--line-height-small);
 
-.tags {
-    padding-inline-start: 0;
-}
-
-.tag {
-    padding-inline-start: 0;
-    display: flex;
-    line-height: var(--line-height-small);
-
-    &::before {
-        content: "—";
-        margin-inline-end: 1ch;
+            @media (--md-n-above) {
+                font-size: var(--font-size-display);
+            }
+        }
     }
-}
+
+    .subheading {
+        display: block;
+
+        font-size: var(--font-size-large);
+        animation: var(--animation-slide-up);
+    }
+
+    .hero {
+        inline-size: 100%;
+        padding-inline: 0;
+
+        @media (--md-n-above) {
+            --stack-gap: var(--spacing-far);
+        }
+    }
+
+    .main {
+        --with-sidebar-target-width: 32ch;
+        --with-sidebar-min-size: 60%;
+
+        padding-inline: 0;
+        margin-inline-start: 0;
+        animation: var(--animation-slide-up) 0.4s;
+        gap: var(--spacing-farthest);
+
+        @media (--xl-n-above) {
+            margin-inline-start: auto;
+        }
+    }
+
+    article {
+        padding-block-start: 0;
+        color: var(--color-text-muted);
+    }
+
+    .overview {
+        position: sticky;
+        top: calc(var(--spacing-adaptive) / 2);
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        @media (--md-n-above) {
+            gap: var(--spacing-far);
+        }
+
+        & > * {
+            flex-basis: 32ch;
+        }
+    }
+
+    .actions {
+        padding-block: var(--spacing-base);
+    }
+
+    .img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+    }
+
+    .tags {
+        padding-inline-start: 0;
+    }
+
+    .tag {
+        padding-inline-start: 0;
+        display: flex;
+        line-height: var(--line-height-small);
+
+        &::before {
+            content: '—';
+            margin-inline-end: 1ch;
+        }
+    }
 </style>
