@@ -11,10 +11,9 @@ export type WorkProject = {
     slug: string;
     name: string;
     // @todo: make these mandatory maybe
-    url?: string;
+    url: string;
     colorPalette?: ColorPalette;
-    goal?: string;
+    goal: string;
     // what we did
-    tags?: string[];
-    hue?: [number, number];
+    tags: string[];
 };

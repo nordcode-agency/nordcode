@@ -6,7 +6,11 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
     site: 'https://nordcode.agency',
     trailingSlash: 'never',
-    integrations: [sitemap()],
+    integrations: [sitemap({
+        filter: (page) => {
+            return !page.includes('/start') && !page.includes('danke-fuer-deine-anfrage');
+        },
+    })],
     build: {
         inlineStylesheets: 'never',
     },

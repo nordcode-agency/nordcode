@@ -31,12 +31,17 @@ import { ensureTrailingSlash } from '../utils/ensureTrailingSlash.ts';
 }
 
 .finalCTA-headline {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 2.25rem;
+    font-weight: var(--font-weight-heading);
+}
+
+@media (min-width: 600px) {
+    .finalCTA-headline {
+        font-size: 3rem;
+    }
 }
 
 .container {
-    /* --center-measure: 140ch; */
     --bg-top: light-dark(var(--color-surface-subtle), var(--color-surface-subtle));
     --bg-bottom: light-dark(var(--color-surface-muted), var(--color-surface-muted));
 
@@ -63,12 +68,8 @@ import { ensureTrailingSlash } from '../utils/ensureTrailingSlash.ts';
     align-items: center;
     gap: var(--spacing-base);
 
-    & a {
-        font-size: var(--font-size-large);
-
-        &:not(.nc-button) {
-            font-weight: var(--font-weight-active);
-        }
+    @media (min-width: 24rem) {
+        font-size: var(--font-size-medium);
     }
 }
 </style>

@@ -12,7 +12,7 @@ let { heading, subheading = undefined } = Astro.props;
         <div class="header">
             <div class="headings">
                 {subheading && <span>{subheading}</span>}
-                <h2>{heading}</h2>
+                <h2 class="action-card-title">{heading}</h2>
             </div>
         </div>
         <div class="action">
@@ -23,46 +23,37 @@ let { heading, subheading = undefined } = Astro.props;
 
 <style>
 .container {
-    /* container-type: inline-size; */
+    container-type: inline-size;
     inline-size: 100%;
     block-size: 100%;
+}
+
+.action-card-title {
+    font-weight: var(--font-weight-default);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
 }
 
 .card {
     --card-padding-inline: 0px;
     --card-padding-block: 0px;
 
-    display: grid;
-    grid-template:
-        [header-start]
-        1fr
-        [header-end action-start]
-        auto
-        [action-end]
-        / 1fr;
     background: linear-gradient(
         45deg,
         color-mix(in oklch, var(--color-border-base), transparent 97%),
         color-mix(in oklch, var(--color-surface-base), transparent 20%)
     );
-    backdrop-filter: blur(var(--spacing-base));
+    backdrop-filter: blur(4px);
     box-shadow:
         var(--_card-shadow),
         inset 0px 0px var(--spacing-base) calc(var(--spacing-near) * -1)
         color-mix(in oklch, var(--color-border-base), transparent 20%);
     block-size: 100%;
-    text-decoration: none;
-    transition: border-color 300ms ease, box-shadow 300ms;
 }
 
 .header {
     grid-area: header;
     padding: var(--spacing-base);
-}
-
-h2 {
-    font-size: var(--font-size-base);
-    line-height: 2.8ex;
 }
 
 .headings {
@@ -77,5 +68,11 @@ h2 {
     display: flex;
     justify-content: end;
     line-height: var(--line-height-base);
+}
+
+@media (min-width: 24rem) {
+    .action-card-title {
+        font-size: var(--font-size-medium);
+    }
 }
 </style>

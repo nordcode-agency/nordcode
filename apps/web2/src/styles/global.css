@@ -32,6 +32,7 @@
     --center-padding: var(--spacing-adaptive);
     --control-height-base: 2.5rem;
     --control-height-small: 2rem;
+    font-size: clamp(1.125rem, 1rem + 0.25vw, 1.25rem);
 
     --layout-max-width: 80rem;
     --layout-narrow-max-width: 65rem;
@@ -45,17 +46,24 @@
 
     --header-offset-block: var(--spacing-base);
     /* logo size + spacing */
-    --header-block-size: calc(var(--spacing-far) * 2 + 9.375rem);
+    --header-block-size: calc(var(--spacing-far) * 2 + 4.125rem);
 }
 
 html {
     scroll-timeline: --bodyTimeline y;
     /* Firefox supports the older "vertical" syntax */
     scroll-timeline: --bodyTimeline vertical;
+
+    font-family: var(--font-family-default);
+    background-color: var(--color-surface-muted);
 }
 
 body {
     overflow: clip;
+}
+
+@view-transition {
+    navigation: auto;
 }
 
 .wrapper {
@@ -68,22 +76,29 @@ body {
 }
 
 .section-title {
-    font-weight: 700;
-    font-size: 3rem;
+    font-weight: var(--font-weight-heading);
+    font-size: 2.5rem;
     line-height: var(--line-height-small);
     max-inline-size: 12ch;
 
     @media (--sm-n-above) {
+        font-size: 3.5rem;
+    }
+
+    @media (--lg-n-above) {
         font-size: 5rem;
     }
 }
 
-p {
-    font-size: 1.125rem;
-    text-wrap: pretty;
+:is(h2, h3, h4, h5, h6) {
+    font-weight: var(--font-weight-strong);
 }
 
-.slide-up-from {
+.prose :is(h2, h3, h4, h5, h6) {
+    font-weight: var(--font-weight-heading);
+}
+
+& .slide-up-from {
     transform: translateY(var(--spacing-base));
     opacity: 0;
 }
@@ -93,7 +108,7 @@ p {
 }
 
 .nc-button {
-    font-weight: bold;
+    font-weight: var(--font-weight-strong);
     transition: background 0.3s ease;
 
     &.-brand {
@@ -185,24 +200,6 @@ section.nc-box {
 .heading-bg {
     position: relative;
     margin-block-end: var(--spacing-far);
-
-    /* &::after {
-    	--conic-size: min(60ch, 100vw);
-    	position: absolute;
-    	z-index: -1;
-    	content: '';
-    	inset: 0;
-    	left: calc(var(--conic-size) / 2 * -1);
-    	top: calc(var(--conic-size) / 2 * -1 + 1.1lh);
-    	inline-size: var(--conic-size);
-    	aspect-ratio: 1;
-    	border-radius: 100%;
-    	background-image: conic-gradient(
-    		from 90deg,
-    		oklch(var(--color-surface-subtle-lch) / 0.7),
-    		oklch(var(--color-surface-default-lch) / 0.7)
-    	);
-    } */
 }
 
 :is(.styled-base-text strong, .gradient-text) {
@@ -401,4 +398,20 @@ section.nc-box {
         color-mix(in oklch, var(--color-surface-base), transparent 20%)
     );
     backdrop-filter: blur(var(--spacing-base));
+}
+
+.questionnaire-title {
+    font-size: calc(var(--font-size-display) * 0.6);
+
+    @media (--md-n-above) {
+        view-transition-name: title;
+        font-size: var(--font-size-display);
+    }
+}
+
+.questionnaire-grid {
+    --nc-ram-grid-gap: var(--spacing-base);
+    --nc-ram-grid-min-width: 40ch;
+
+    inline-size: 100%;
 }

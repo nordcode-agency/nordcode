@@ -20,7 +20,6 @@ export const projects: WorkProject[] = [
         goal:
             'Eine moderne Vorzeigewebseite, auf der Landwirte, interessierte Freiwillige und neue Helfer leicht finde, wonach sie suchen.',
         tags: ['Design', 'Entwicklung', 'Content', 'SEO'],
-        hue: [142, 115],
     },
     {
         heading: 'Ein einfacher, KI-gestützter RSS Reader',
@@ -33,7 +32,6 @@ export const projects: WorkProject[] = [
         goal:
             'Ein einfacher RSS-Reader, der die Möglichkeiten von lokalen KI-Modellen (Gemini Nano) nutzt um Artikel zusammenzufassen.',
         tags: ['Design', 'Entwicklung', 'KI'],
-        hue: [83, 83],
     },
     {
         heading: 'Fitnessprogramm mit vielen Videos',
@@ -45,7 +43,6 @@ export const projects: WorkProject[] = [
         url: 'https://www.stahlmannlinda.com/',
         goal: 'Eine Fitnessprogramm-Webseite, mit Fokus auf Videos und intuitiver Bedienung',
         tags: ['Design', 'Entwicklung', 'Beratung', 'CMS'],
-        hue: [25, 25],
     },
     {
         heading: 'Verzeichniswebseite für veganes Essen in Hamburg',
@@ -57,7 +54,6 @@ export const projects: WorkProject[] = [
         url: 'https://vegan-hamburg.com',
         goal: 'Eine SEO- und Performance-optimierte Webseite mit allen veganen Orten in Hamburg',
         tags: ['Design', 'Entwicklung', 'Performance'],
-        hue: [25, 25],
     },
 ] as const;
 

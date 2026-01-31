@@ -1,4 +1,5 @@
 ---
+import { ProjectCategories } from '../content/questionnaire.ts';
 import SecondaryCtaButton from './SecondaryCtaButton.astro';
 
 type TService = {
@@ -16,7 +17,7 @@ const services: TService[] = [
         description:
             'Wir bauen dir moderne Webseiten und Webanwendungen, die SEO-optimiert und barrierefrei sind und natürlich auf allen Geräten gut aussehen.',
         cta: {
-            href: '/start/website',
+            href: `/start/${ProjectCategories.website.slug}`,
             label: 'Website erstellen',
         },
     },
@@ -25,7 +26,7 @@ const services: TService[] = [
         description:
             'Wir erstellen Online-Shops, die Kunden lieben. Leicht zu bedienen, sicher und schnell, damit dein Projekt ein Erfolg wird.',
         cta: {
-            href: '/start/shop',
+            href: `/start/${ProjectCategories['e-commerce'].slug}`,
             label: 'Shop eröffnen',
         },
     },
@@ -34,7 +35,7 @@ const services: TService[] = [
         description:
             'Du hast größere Pläne? Super! Wir beraten oder entwickeln Deine individuelle Softwarelösung mit modernen Frameworks, wie Svelte oder React.',
         cta: {
-            href: '/start/app',
+            href: `/start/${ProjectCategories.apps.slug}`,
             label: 'App erstellen',
         },
     },
@@ -43,7 +44,7 @@ const services: TService[] = [
         description:
             'Du hast ein ganz besonderes Projekt im Kopf und möchtest unsere Hilfe? Wir stehen dir gerne mit Rat & Tat zur Seite!',
         cta: {
-            href: '/start/custom',
+            href: `/start/${ProjectCategories.individuell.slug}`,
             label: 'Anfragen',
         },
     },
@@ -73,6 +74,7 @@ const services: TService[] = [
 <style>
 @custom-media --sm-n-above (width >= 480px);
 @custom-media --md-n-above (width >= 768px);
+@custom-media --lg-n-above (width >= 1024px);
 
 .inner-section {
     display: flex;
@@ -119,16 +121,18 @@ const services: TService[] = [
 }
 
 .item-counter {
-    display: none;
-    position: absolute;
+    display: block;
     font-size: var(--size);
     block-size: var(--size);
-    font-weight: bold;
+    font-weight: var(--font-weight-strong);
     color: var(--color-surface-subtle);
     transform-origin: center center;
     inset: 0;
     z-index: -1;
     line-height: 1;
+    position: relative;
+    inset-inline-start: calc(var(--size) * -0.1);
+    inset-block-start: calc(var(--size) * 0.1);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -141,7 +145,7 @@ const services: TService[] = [
     }
 }
 
-@media (--sm-n-above) {
+@media (--lg-n-above) {
     .item {
         --size: 10rem;
 
@@ -150,8 +154,9 @@ const services: TService[] = [
     }
 
     .item-counter {
-        display: block;
-        transform: translateY(-10%);
+        position: absolute;
+        inset-inline-start: 0;
+        inset-block-start: calc(var(--size) * -0.08);
     }
 }
 </style>

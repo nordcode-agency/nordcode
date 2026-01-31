@@ -20,10 +20,13 @@ const { heading, subheading = undefined, cover, coverAlt, slug, id = undefined }
         <figure class="figure" style={`view-transition-name: ${id}`}>
             <Image
                 src={cover}
-                alt=""
+                alt={`Projekt ${subheading ? 'für' : ''} "${subheading ?? heading}" von nordcode`}
                 class="img"
-                widths={[360, 585, 980]}
-                sizes={`(min-width: 1100px) 585px,
+                widths={[360, 585, 980, 1200]}
+                sizes={`
+                (min-width: 2000px) 1200px
+                (min-width: 1250px) 980px
+                (min-width: 1100px) 585px,
                     (min-width: 585px) 980px,
                     (min-width: 480px) 585px,
                     360px`}
@@ -32,7 +35,7 @@ const { heading, subheading = undefined, cover, coverAlt, slug, id = undefined }
         </figure>
         <div class="header">
             <div class="headings">
-                {subheading ? <span>{subheading}</span> : null}
+                {subheading ? <span class="nc-slub">{subheading}</span> : null}
                 <h2 class="font-size-base | heading">
                     <a href={ensureTrailingSlash(slug)} data-link="main">{heading}</a>
                 </h2>
@@ -86,9 +89,9 @@ const { heading, subheading = undefined, cover, coverAlt, slug, id = undefined }
                 padding-inline: var(--spacing-far);
                 border-radius: var(--border-radius-large);
                 background: linear-gradient(
-                    45deg in oklch,
-                    color-mix(in oklch, var(--color-border-base), transparent 3%),
-                    color-mix(in oklch, var(--color-surface-base), transparent 5%)
+                    45deg,
+                    color-mix(in oklch, var(--color-border-base), transparent 8%),
+                    color-mix(in oklch, var(--color-surface-base), transparent 3%)
                 );
             }
         }
@@ -118,12 +121,12 @@ const { heading, subheading = undefined, cover, coverAlt, slug, id = undefined }
 }
 
 .heading {
-    line-height: 2.8ex;
+    & > a {
+        font-family: inherit;
+    }
 }
 
 .headings {
-    & span {
-        color: var(--color-text-muted);
-    }
+    & span {}
 }
 </style>

@@ -61,12 +61,12 @@
             max-inline-size: var(--flow-base-meassure, 72ch);
         }
 
-        > *:is(h1, h2, h3, h4, h5, h6) {
+        > :is(h1, h2, h3, h4, h5, h6) {
             max-inline-size: var(--flow-headline-meassure, 32ch);
             --flow-gap: 1.5lh;
         }
 
-        > *:is(h1, h2, h3, h4, h5, h6) + :not([class]) {
+        > :is(h1, h2, h3, h4, h5, h6) + :not([class]) {
             --flow-gap: 0.5lh;
         }
 
