@@ -1,45 +1,28 @@
 {
     "name": "@nordcode/web",
-    "version": "0.1.8",
-    "private": true,
+    "type": "module",
+    "version": "0.0.1",
     "scripts": {
-        "dev": "vite dev --host",
-        "build": "vite build",
-        "preview": "vite preview",
-        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-        "test": "vitest",
-        "lint": "prettier --plugin-search-dir . --check . && eslint .",
-        "format": "prettier --write ."
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
     },
     "dependencies": {
+        "@astrojs/check": "^0.9.6",
+        "@astrojs/rss": "^4.0.15",
+        "@astrojs/sitemap": "^3.7.0",
         "@nordcode/ui": "workspace:^",
+        "astro": "^5.17.1",
         "lil-gui": "^0.21.0",
-        "three": "^0.180.0"
+        "sharp": "^0.34.5",
+        "three": "^0.182.0"
     },
     "devDependencies": {
         "@nordcode/types": "workspace:^",
-        "@sveltejs/adapter-auto": "^6.1.1",
-        "@sveltejs/adapter-static": "^3.0.10",
-        "@sveltejs/enhanced-img": "^0.8.4",
-        "@sveltejs/kit": "^2.47.0",
-        "@sveltejs/vite-plugin-svelte": "^6.2.1",
-        "@typescript-eslint/eslint-plugin": "^8.46.1",
-        "@typescript-eslint/parser": "^8.46.1",
-        "browserslist": "^4.28.0",
-        "eslint": "^9.37.0",
-        "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-svelte": "^3.12.4",
-        "lightningcss": "^1.30.2",
-        "prettier": "^3.6.2",
-        "prettier-plugin-svelte": "^3.4.0",
-        "super-sitemap": "^1.0.5",
-        "svelte": "^5.40.1",
-        "svelte-check": "^4.3.3",
-        "tslib": "^2.8.1",
-        "typescript": "^5.9.3",
-        "vite": "^7.1.10",
-        "vitest": "^3.2.4"
-    },
-    "type": "module"
+        "@types/three": "^0.182.0",
+        "browserslist": "^4.28.1",
+        "dprint": "^0.51.1",
+        "lightningcss": "^1.31.1"
+    }
 }

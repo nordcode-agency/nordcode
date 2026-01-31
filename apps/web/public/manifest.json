@@ -1,0 +1,24 @@
+{
+    "short_name": "nordcode",
+    "name": "nordcode",
+    "description": " Deine Webagentur für gute digitale Projekte",
+    "dir": "ltr",
+    "lang": "de",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "theme_color": "#295EFF",
+    "background_color": "#FBFFFF"
+}
