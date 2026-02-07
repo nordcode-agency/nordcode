@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Immobilienmarketing neu gedacht';
+const description = 'nordcodeImmos: Ihre Immobilien perfekt in Szene gesetzt.';
+---
+
+<Layout title={title} description={description}>
+    <h1>Moderne Websites für Immobilienmakler.</h1>
+</Layout>
+
+<style>
+    @custom-media --md-n-above (width >= 768px);
+    @custom-media --xl-n-above (width >= 1440px);
+</style>
