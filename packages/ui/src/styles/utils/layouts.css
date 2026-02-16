@@ -109,6 +109,10 @@
             align-items: center;
         }
 
+        &.-baseline {
+            align-items: baseline;
+        }
+
         &.-nowrap {
             flex-wrap: nowrap;
         }
