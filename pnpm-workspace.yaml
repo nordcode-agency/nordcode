@@ -5,4 +5,5 @@ packages:
 onlyBuiltDependencies:
   - '@sveltejs/kit'
   - dprint
+  - esbuild
   - sharp

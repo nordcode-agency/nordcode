@@ -5,6 +5,10 @@ export type TextColorDefinition = {
     scalingFactor: number;
 };
 
+// this is tricky, because it's not completely uniform
+// the best contrast seems to be achieved by moving slightly upwards from the middle
+const contrastCutOff = 57;
+
 export const generateLightSurfaceColorValues = (
     tokenName: string,
     colorDef: TextColorDefinition,
@@ -14,19 +18,20 @@ export const generateLightSurfaceColorValues = (
     const cTokenName = `--c-${tokenName}-${themeSuffix}`;
     const hTokenName = `--h-${tokenName}-${themeSuffix}`;
     const scaleTokenName = `--scale-${tokenName}-${themeSuffix}`;
+    const baseColorName = `--color-${tokenName}-base-${themeSuffix}`;
 
     return {
         [lTokenName]: `${colorDef.l / 100}`,
         [cTokenName]: `${colorDef.c}`,
         [hTokenName]: `var(${colorDef.hueToken})`,
         [scaleTokenName]: `${colorDef.scalingFactor}`,
-        [`--color-${tokenName}-base-${themeSuffix}`]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
+        [baseColorName]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-muted-${themeSuffix}`]:
-            `oklch(calc(var(${lTokenName}) * var(${scaleTokenName})) calc(var(${cTokenName}) * var(--neutral-chroma-scale)) var(${hTokenName}))`,
+            `oklch(from var(${baseColorName}) calc(l * var(${scaleTokenName})) calc(c * var(--neutral-chroma-scale)) h)`,
         [`--color-${tokenName}-subtle-${themeSuffix}`]:
-            `oklch(calc(var(${lTokenName}) * var(${scaleTokenName}) * var(${scaleTokenName})) calc(var(${cTokenName}) * var(--neutral-chroma-scale) * var(--neutral-chroma-scale)) var(${hTokenName}))`,
+            `oklch(from var(${baseColorName}) calc(l * var(${scaleTokenName}) * var(${scaleTokenName})) calc(c * var(--neutral-chroma-scale) * var(--neutral-chroma-scale)) h)`,
         [`--color-${tokenName}-emphasis-${themeSuffix}`]:
-            `oklch(var(--lightness-min) var(${cTokenName}) var(${hTokenName}))`,
+            `oklch(from var(${baseColorName}) var(--lightness-min) c h)`,
     };
 };
 
@@ -39,18 +44,19 @@ export const generateDarkSurfaceColorValues = (
     const cTokenName = `--c-${tokenName}-${themeSuffix}`;
     const hTokenName = `--h-${tokenName}-${themeSuffix}`;
     const scaleTokenName = `--scale-${tokenName}-${themeSuffix}`;
+    const baseColorName = `--color-${tokenName}-base-${themeSuffix}`;
 
     return {
         [lTokenName]: `${colorDef.l / 100}`,
         [cTokenName]: `${colorDef.c}`,
         [hTokenName]: `var(${colorDef.hueToken})`,
         [scaleTokenName]: `${colorDef.scalingFactor}`,
-        [`--color-${tokenName}-base-${themeSuffix}`]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
+        [baseColorName]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-muted-${themeSuffix}`]:
-            `oklch(calc(var(${lTokenName}) * var(${scaleTokenName})) calc(var(${cTokenName}) * var(--neutral-chroma-scale)) var(${hTokenName}))`,
+            `oklch(from var(${baseColorName}) calc(l * var(${scaleTokenName})) calc(c * var(--neutral-chroma-scale)) h)`,
         [`--color-${tokenName}-subtle-${themeSuffix}`]:
-            `oklch(calc(var(${lTokenName}) * var(${scaleTokenName}) * var(${scaleTokenName})) calc(var(${cTokenName}) * var(--neutral-chroma-scale) * var(--neutral-chroma-scale)) var(${hTokenName}))`,
+            `oklch(from var(${baseColorName}) calc(l * var(${scaleTokenName}) * var(${scaleTokenName})) calc(c * var(--neutral-chroma-scale) * var(--neutral-chroma-scale)) h)`,
         [`--color-${tokenName}-emphasis-${themeSuffix}`]:
-            `oklch(var(--lightness-max) calc(var(${cTokenName}) * 0.1) var(${hTokenName}))`,
+            `oklch(from var(${baseColorName}) var(--lightness-max) calc(c * 0.1) h)`,
     };
 };

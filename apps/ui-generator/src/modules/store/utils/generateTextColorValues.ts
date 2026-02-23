@@ -14,21 +14,22 @@ export const generateLightTextColorValues = (
     const cTokenName = `--c-${tokenName}-${themeSuffix}`;
     const hTokenName = `--h-${tokenName}-${themeSuffix}`;
     const scaleTokenName = `--scale-${tokenName}-${themeSuffix}`;
+    const baseColorName = `--color-${tokenName}-base-${themeSuffix}`;
 
     return {
         [lTokenName]: `${colorDef.l / 100}`,
         [cTokenName]: `${colorDef.c}`,
         [hTokenName]: `var(${colorDef.hueToken})`,
         [scaleTokenName]: `${colorDef.scalingFactor}`,
-        [`--color-${tokenName}-base-${themeSuffix}`]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
+        [baseColorName]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-muted-${themeSuffix}`]:
-            `oklch(calc(var(${lTokenName}) * var(${scaleTokenName})) calc(var(${cTokenName}) * var(--neutral-chroma-scale)) var(${hTokenName}))`,
+            `oklch(from var(${baseColorName}) calc(l * var(${scaleTokenName})) calc(c * var(--neutral-chroma-scale)) h)`,
         [`--color-${tokenName}-subtle-${themeSuffix}`]:
-            `oklch(calc(var(${lTokenName}) * var(${scaleTokenName}) * var(${scaleTokenName})) calc(var(${cTokenName}) * var(--neutral-chroma-scale) * var(--neutral-chroma-scale)) var(${hTokenName}))`,
+            `oklch(from var(${baseColorName}) calc(l * var(${scaleTokenName}) * var(${scaleTokenName})) calc(c * var(--neutral-chroma-scale) * var(--neutral-chroma-scale)) h)`,
         [`--color-${tokenName}-on-emphasis-${themeSuffix}`]:
-            `oklch(var(--lightness-max) calc(var(${cTokenName}) * 0.1) var(${hTokenName}))`,
+            `oklch(from var(${baseColorName}) var(--lightness-max) calc(c * 0.1) h)`,
         [`--color-${tokenName}-hover-${themeSuffix}`]:
-            `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}) / calc(var(--transparency-weaker) / 10))`,
+            `oklch(from var(${baseColorName}) l c h / var(--transparency-weaker) / 10))`,
     };
 };
 
@@ -41,20 +42,21 @@ export const generateDarkTextColorValues = (
     const cTokenName = `--c-${tokenName}-${themeSuffix}`;
     const hTokenName = `--h-${tokenName}-${themeSuffix}`;
     const scaleTokenName = `--scale-${tokenName}-${themeSuffix}`;
+    const baseColorName = `--color-${tokenName}-base-${themeSuffix}`;
 
     return {
         [lTokenName]: `${colorDef.l / 100}`,
         [cTokenName]: `${colorDef.c}`,
         [hTokenName]: `var(${colorDef.hueToken})`,
         [scaleTokenName]: `${colorDef.scalingFactor}`,
-        [`--color-${tokenName}-base-${themeSuffix}`]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
+        [baseColorName]: `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}))`,
         [`--color-${tokenName}-muted-${themeSuffix}`]:
-            `oklch(calc(var(${lTokenName}) * var(${scaleTokenName})) calc(var(${cTokenName}) * var(--neutral-chroma-scale)) var(${hTokenName}))`,
+            `oklch(from var(${baseColorName}) calc(l * var(${scaleTokenName})) calc(c * var(--neutral-chroma-scale)) h)`,
         [`--color-${tokenName}-subtle-${themeSuffix}`]:
-            `oklch(calc(var(${lTokenName}) * var(${scaleTokenName}) * var(${scaleTokenName})) calc(var(${cTokenName}) * var(--neutral-chroma-scale) * var(--neutral-chroma-scale)) var(${hTokenName}))`,
+            `oklch(from var(${baseColorName}) calc(l * var(${scaleTokenName}) * var(${scaleTokenName})) calc(c * var(--neutral-chroma-scale) * var(--neutral-chroma-scale)) h)`,
         [`--color-${tokenName}-on-emphasis-${themeSuffix}`]:
-            `oklch(var(--lightness-min) var(${cTokenName}) var(${hTokenName}))`,
+            `oklch(from var(${baseColorName}) var(--lightness-min) c h)`,
         [`--color-${tokenName}-hover-${themeSuffix}`]:
-            `oklch(var(${lTokenName}) var(${cTokenName}) var(${hTokenName}) / calc(var(--transparency-weaker) / 10))`,
+            `oklch(from var(${baseColorName}) l c h / var(--transparency-weaker) / 10))`,
     };
 };
