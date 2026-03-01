@@ -29,7 +29,7 @@ export const generateLightBorderColorValues = (
         [`--color-${tokenName}-on-emphasis-${themeSuffix}`]:
             `oklch(from var(${baseColorName}) var(--lightness-max) c h)`,
         [`--color-${tokenName}-hover-${themeSuffix}`]:
-            `oklch(from var(${baseColorName}) l c h / var(--transparency-weaker) / 10))`,
+            `oklch(from var(${baseColorName}) l c h / calc(var(--transparency-weaker) / 10))`,
     };
 };
 
@@ -57,6 +57,6 @@ export const generateDarkBorderColorValues = (
         [`--color-${tokenName}-on-emphasis-${themeSuffix}`]:
             `oklch(from var(${baseColorName}) var(--lightness-max) c h)`,
         [`--color-${tokenName}-hover-${themeSuffix}`]:
-            `oklch(from var(${baseColorName}) l c h / var(--transparency-weaker) / 10))`,
+            `oklch(from var(${baseColorName}) l c h / calc(var(--transparency-weaker) / 10))`,
     };
 };
