@@ -85,5 +85,7 @@
     :where(.nc-input-required-mark) {
         color: var(--color-status-danger-emphasis);
         font-size: 1.25em;
+        display: inline-block;
+        margin-block-start: -0.25em;
     }
 }
