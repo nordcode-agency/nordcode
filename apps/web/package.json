@@ -22,7 +22,6 @@
         "@nordcode/types": "workspace:^",
         "@types/three": "^0.182.0",
         "browserslist": "^4.28.1",
-        "dprint": "^0.51.1",
         "lightningcss": "^1.31.1"
     }
 }
