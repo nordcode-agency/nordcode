@@ -121,26 +121,26 @@ const { features, title, id } = Astro.props;
     @supports (animation-timeline: view()) {
         .feature-marker {
             position: absolute;
-            top: var(--overflow-size);
+            top: 0;
             left: 0;
             bottom: 0;
             width: var(--border-width);
-            height: 30rem;
-            background: linear-gradient(in oklch, var(--color-border-muted), var(--color-brand-primary-base), var(--color-border-muted));
+            height: 100%;
+            background: linear-gradient(in oklch to bottom, var(--color-border-muted) calc(var(--feature-gradient) - 20%), var(--color-brand-primary-base) var(--feature-gradient), var(--color-border-muted) calc(var(--feature-gradient) + 5%));
             animation: highlight-feature linear both;
             animation-duration: 1ms;
             animation-timeline: view();
-            animation-range: cover 50% cover 150%;
+            animation-range: cover 10% cover 90%;
         }
     }
 }
 
 @keyframes highlight-feature {
     0% {
-        transform: translateY(0);
+        --feature-gradient: 0%;
     }
     100% {
-        transform: translateY(100vh);
+        --feature-gradient: 100%;
     }
 }
 
