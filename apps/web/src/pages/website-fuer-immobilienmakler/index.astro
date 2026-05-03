@@ -105,9 +105,6 @@ const features = [
     @custom-media --xl-n-above (width >= 1440px);
 
     section.hero {
-        /* display: flex;
-        flex-wrap: wrap;
-        gap: var(--spacing-far); */
         display: grid;
         padding-block: 0;
 
@@ -117,7 +114,6 @@ const features = [
         }
 
         & > div {
-            /* flex: 1 1 24rem; */
             grid-area: 1 / 1;
 
             @media (--lg-n-above) {
@@ -127,7 +123,6 @@ const features = [
     }
 
     .hero-content {
-        /* overflow: clip; */
         padding-block: calc(var(--spacing-adaptive) * 2);
         z-index: 2;
         background: linear-gradient(to bottom, var(--color-surface-muted) 30%, transparent);
@@ -164,12 +159,11 @@ const features = [
             content: "";
             position: absolute;
             inset: 0;
-            border-radius: 100%;
             pointer-events: none;
             block-size: var(--gap);
             z-index: 1;
             transform: translateY(-100%);
-            box-shadow: 0px 0px calc(var(--gap) * 1) calc(var(--gap) * 0.7)
+            box-shadow: 0px 0px calc(var(--gap) * 1) calc(var(--gap) * 1.1)
                 var(--color-surface-muted);
             overflow: clip;
         }
@@ -177,7 +171,7 @@ const features = [
         &::after {
             inset-block-start: 100%;
             inset-block-end: 0;
-            transform: translateY(100%);
+            transform: translateY(calc(100% - var(--gap)));
         }
     }
 
