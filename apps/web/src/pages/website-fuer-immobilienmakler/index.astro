@@ -18,7 +18,7 @@ import Layout from "../../layouts/Layout.astro";
         <div class="hero-image">
             <div class="track nc-stack">
                 {
-                    Array.from({ length: 12 }, (_, i) => (
+                    Array.from({ length: 3 }, (_, i) => (
                         <div class="item" style={`--nth-child: ${i + 1}`}>
                             <ExposeCard
                                 address="Blumenviertel, 20257 Hamburg"
@@ -97,7 +97,7 @@ import Layout from "../../layouts/Layout.astro";
         margin-inline: auto;
         padding-block: var(--spacing-base);
         padding-inline: calc(var(--spacing-base) * 2);
-        animation: track-rise linear both;
+        animation: track-rise var(--ease-in-out-1) both;
         animation-timeline: scroll(root);
         animation-range: 0 50vh;
     }
@@ -107,7 +107,7 @@ import Layout from "../../layouts/Layout.astro";
             translate: 0 0;
         }
         to {
-            translate: 0 -10rem;
+            translate: 0 -20rem;
         }
     }
 
