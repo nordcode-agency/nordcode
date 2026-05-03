@@ -1,6 +1,32 @@
 ---
 import ExposeCard from "../../components/ExposeCard.astro";
 import Layout from "../../layouts/Layout.astro";
+import Features from '../../components/Features.astro';
+
+
+const features = [
+    {
+    title: "Professioneller erster Eindruck",
+    description: "Eine moderne, individuelle Website, die Vertrauen schafft und Ihre Immobilien ins beste Licht rückt.",
+},
+{
+title: "Mehr Anfragen, weniger Aufwand",
+description: "Bessere Sichtbarkeit in Suchmaschinen und KI-Assistenten bringt qualifizierte Interessenten direkt zu Ihnen – ohne Abhängigkeit von teuren Portalen.",
+},
+{
+    title: "Ihr Auftritt, Ihre Marke",
+description: "Design und Inhalte werden passgenau auf Ihr Branding abgestimmt, sodass Ihre Website unverwechselbar bleibt.",
+},
+{
+title: "Automatisch aktuell",
+description: "Ihre Exposés werden direkt aus Ihren bestehenden CRM-Daten (OpenImmo) generiert – kein doppeltes Einpflegen, keine veralteten Angebote.",
+},
+{
+title: "Unabhängigkeit von großen Portalen",
+description: "Obwohl Sie vermutlich aktuell nicht auf ImmobilienScout & Co verzichten können, sparen Sie richtig Geld, wenn Interessierte sie direkt kontaktieren.",
+},
+
+]
 ---
 
 <Layout
@@ -36,6 +62,7 @@ import Layout from "../../layouts/Layout.astro";
             </div>
         </div>
     </section>
+    <Features features={features} title="Geben Sie Ihren Immobilien die Sichtbarkeit die sie verdienen" id="immofeatures" />
 </Layout>
 
 <style>
