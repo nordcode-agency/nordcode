@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 import { ensureTrailingSlash } from "../utils/ensureTrailingSlash.ts";
 import { formatPrice } from "../utils/numberFormatter.ts";
-import mainImageSrc from "../assets/images/house-baltic-sea-nordcode.jpg";
 
 export const spriteMapVersion = "?v=1";
 
@@ -16,21 +15,22 @@ interface Props {
     address: string;
     id: string;
     imageDesc: string | null | undefined;
-    imagePath: string | null | undefined;
+    imageSrc: ImageMetadata;
     price: number;
     rooms: string | null | undefined;
     squareMeters: string | null | undefined;
     title: string;
 }
 
-const { imagePath, imageDesc, id, address, price, rooms, squareMeters, title } = Astro.props;
+const { imageSrc, imageDesc, id, address, price, rooms, squareMeters, title } = Astro.props;
+console.log(imageSrc);
 ---
 
 <article class="nc-clickable-card">
     {
-        imagePath ? (
+        imageSrc ? (
             <Image
-                src={mainImageSrc}
+                src={imageSrc}
                 widths={[400, 600, 800]}
                 sizes="(max-width: 600px) 400px, (max-width: 900px) 600px, 800px"
                 alt={imageDesc ?? ""}
@@ -41,7 +41,7 @@ const { imagePath, imageDesc, id, address, price, rooms, squareMeters, title } =
     }
     <div class="nc-stack content -nearest">
         <h2>
-            <a href={ensureTrailingSlash(`/expose/${id}`)} data-link="main">
+            <a href={`https://immos.nordcode.agency/expose/${id}`} data-link="main">
                 {title}
             </a>
         </h2>
