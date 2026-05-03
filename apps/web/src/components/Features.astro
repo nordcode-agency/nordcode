@@ -57,28 +57,10 @@ const { features, title, id } = Astro.props;
     .feature-list {
         --border-width: 3px;
         --overflow-size: calc(var(--spacing-adaptive) * 1.5);
-        margin-block: calc(var(--overflow-size) * -1);
+        --overflow-size: 25vh;
+
         counter-reset: feature-counter;
         position: relative;
-
-        &:before, &:after {
-            content: "";
-            position: sticky;
-            margin-inline-start: var(--border-width);
-            inline-size: calc(100% - var(--border-width));
-            block-size: var(--overflow-size);
-            z-index: 1;
-        }
-
-        &:before {
-            top: 0;
-            background: linear-gradient(to bottom in oklch, var(--color-surface-muted), transparent);
-        }
-
-        &:after {
-            bottom: 0;
-            background: linear-gradient(to top in oklch, var(--color-surface-muted), transparent);
-        }
     }
 
     .feature-item {
@@ -115,8 +97,6 @@ const { features, title, id } = Astro.props;
     }
 
     .feature-list {
-        --overflow-size: 25vh;
-
     }
 
 }
@@ -127,6 +107,14 @@ const { features, title, id } = Astro.props;
             animation: char-fade-in linear both;
             animation-timeline: view();
             animation-range: cover 0% contain 50%;
+        }
+    }
+
+    @supports (animation-timeline: view()) {
+        .feature-item {
+            animation: in-and-out linear both;
+            animation-timeline: view();
+            animation-range: cover 0% cover 100%;
         }
     }
 
@@ -153,6 +141,18 @@ const { features, title, id } = Astro.props;
     }
     100% {
         transform: translateY(100vh);
+    }
+}
+
+@keyframes in-and-out {
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: .5;
     }
 }
 
