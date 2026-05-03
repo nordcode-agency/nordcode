@@ -1,0 +1,159 @@
+---
+interface Feature {
+    title: string;
+    description: string;
+}
+
+interface Props {
+    title: string;
+    features: Feature[];
+    id: string;
+}
+
+const { features, title, id } = Astro.props;
+---
+
+<section class="section nc-box features">
+    <aside data-aside>
+        <h2 class="font-size-largest feature-title" id={id}>{title}</h2>
+    </aside>
+    <main data-grow>
+        <ul class="nc-stack -nogap nc-list-reset feature-list" aria-labelledby={id}>
+            {features.map((feature) => (
+                <li class="nc-stack feature-item">
+                    <h3>{feature.title}</h3>
+                    <p class="feature-desc">{feature.description}</p>
+                </li>
+            ))}
+            <span aria-hidden="true" class="feature-marker"></span>
+        </ul>
+    </main>
+</section>
+
+<style>
+@property --feature-gradient {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0%;
+}
+
+.features {
+    display: grid;
+    gap: calc(var(--spacing-adaptive) * 1.5);
+}
+
+.feature-item {
+    padding-block: calc(var(--spacing-adaptive) * 0.75);
+}
+
+
+@media (min-width: 600px) {
+    .features {
+    h3 {
+                font-size: 1.9rem;
+        }
+    }
+
+    .feature-list {
+        --border-width: 3px;
+        --overflow-size: calc(var(--spacing-adaptive) * 1.5);
+        margin-block: calc(var(--overflow-size) * -1);
+        counter-reset: feature-counter;
+        position: relative;
+
+        &:before, &:after {
+            content: "";
+            position: sticky;
+            margin-inline-start: var(--border-width);
+            inline-size: calc(100% - var(--border-width));
+            block-size: var(--overflow-size);
+            z-index: 1;
+        }
+
+        &:before {
+            top: 0;
+            background: linear-gradient(to bottom in oklch, var(--color-surface-muted), transparent);
+        }
+
+        &:after {
+            bottom: 0;
+            background: linear-gradient(to top in oklch, var(--color-surface-muted), transparent);
+        }
+    }
+
+    .feature-item {
+        border-inline-start: var(--border-width) solid var(--color-border-muted);
+        padding-inline-start: max(calc(var(--spacing-adaptive) * 1), var(--spacing-farthest));
+        position: relative;
+
+        &:before {
+            counter-increment: feature-counter;
+            content: "0" counter(feature-counter);
+            position: absolute;
+            left: var(--spacing-near);
+            font-size: var(--font-size-medium);
+            font-weight: var(--font-weight-strong);
+            color: var(--color-text-muted);
+        }
+    }
+
+    .feature-title {
+        font-size: 2.5rem;
+    }
+
+
+    .feature-desc {
+        max-inline-size: 52ch;
+    }
+
+
+}
+
+@media (min-width: 1024px) {
+    .features {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .feature-list {
+        --overflow-size: 25vh;
+
+    }
+
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+        .feature-item:before {
+            animation: char-fade-in linear both;
+            animation-timeline: view();
+            animation-range: cover 0% contain 50%;
+        }
+    }
+
+    @supports (animation-timeline: view()) {
+        .feature-marker {
+            position: absolute;
+            top: var(--overflow-size);
+            left: 0;
+            bottom: 0;
+            width: var(--border-width);
+            height: 30rem;
+            background: linear-gradient(in oklch, var(--color-border-muted), var(--color-brand-primary-base), var(--color-border-muted));
+            animation: highlight-feature linear both;
+            animation-duration: 1ms;
+            animation-timeline: view();
+            animation-range: cover 50% cover 150%;
+        }
+    }
+}
+
+@keyframes highlight-feature {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+</style>
