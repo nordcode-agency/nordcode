@@ -1,0 +1,137 @@
+---
+import { Image } from "astro:assets";
+import { ensureTrailingSlash } from "../utils/ensureTrailingSlash.ts";
+import { formatPrice } from "../utils/numberFormatter.ts";
+import mainImageSrc from "../assets/images/house-baltic-sea-nordcode.jpg";
+
+export const spriteMapVersion = "?v=1";
+
+const getIconPath = (iconName: string): string => {
+    return `/icons.svg${spriteMapVersion}#${iconName}`;
+};
+
+const NOT_AVAIL_TEXT = "-";
+
+interface Props {
+    address: string;
+    id: string;
+    imageDesc: string | null | undefined;
+    imagePath: string | null | undefined;
+    price: number;
+    rooms: string | null | undefined;
+    squareMeters: string | null | undefined;
+    title: string;
+}
+
+const { imagePath, imageDesc, id, address, price, rooms, squareMeters, title } = Astro.props;
+---
+
+<article class="nc-clickable-card">
+    {
+        imagePath ? (
+            <Image
+                src={mainImageSrc}
+                widths={[400, 600, 800]}
+                sizes="(max-width: 600px) 400px, (max-width: 900px) 600px, 800px"
+                alt={imageDesc ?? ""}
+                loading="lazy"
+                class="preview-image"
+            />
+        ) : null
+    }
+    <div class="nc-stack content -nearest">
+        <h2>
+            <a href={ensureTrailingSlash(`/expose/${id}`)} data-link="main">
+                {title}
+            </a>
+        </h2>
+        <address><small class="nc-hint">{address}</small></address>
+        <div class="details nc-cluster -between -centered">
+            <div class="tags nc-hint">
+                <div class="tag">
+                    <svg class="nc-icon -colored" data-size="inline" aria-hidden="true">
+                        <use href={getIconPath("img-door")}></use>
+                    </svg>
+                    {rooms ?? NOT_AVAIL_TEXT}
+                </div>
+                <div class="tag">
+                    <svg class="nc-icon -colored" data-size="inline" aria-hidden="true">
+                        <use href={getIconPath("img-fullscreen")}></use>
+                    </svg>
+                    {squareMeters ?? NOT_AVAIL_TEXT}
+                </div>
+            </div>
+            <span class="price">{formatPrice(price)}</span>
+        </div>
+    </div>
+</article>
+
+<style>
+    article {
+        --spacing-base: 0.75em;
+        --spacing-near: 0.5em;
+
+        font-size: 16px;
+        padding: var(--spacing-base);
+        padding-block-end: calc(var(--spacing-base) * 1.5);
+        border-radius: var(--border-radius-large);
+        background-color: var(--color-surface-subtle);
+    }
+
+    .preview-image {
+        border-radius: var(--border-radius-large);
+    }
+
+    h2 {
+        font-weight: var(--font-weight-strong);
+        font-size: 1em;
+        hyphens: auto;
+        color: var(--color-text-base);
+    }
+
+    .content {
+        margin-block-start: var(--spacing-base);
+    }
+
+    address {
+        font-style: normal;
+        margin-block-start: 0;
+    }
+
+    .nc-hint {
+        font-size: max(0.875em, 14px);
+    }
+
+    .details {
+        inline-size: 100%;
+        margin-block-start: var(--spacing-base);
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-near);
+    }
+
+    .tag {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-nearest);
+        padding-inline: 0.25rlh;
+        background-color: var(--color-surface-subtle);
+        border-radius: var(--border-radius-round);
+    }
+
+    .price {
+        font-size: 1em;
+        font-weight: var(--font-weight-strong);
+        border-block-end: var(--border-width-medium) solid var(--color-brand-primary-base);
+    }
+
+    .nc-icon {
+        fill: none;
+    }
+</style>

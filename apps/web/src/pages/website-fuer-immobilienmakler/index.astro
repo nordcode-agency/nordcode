@@ -1,0 +1,116 @@
+---
+import ExposeCard from "../../components/ExposeCard.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+    title="Ansprechende Website für Immobilienmakler"
+    noIndex
+    description="Wir bieten auf dein Unternehmen zugeschnittene Weblösungen im Immobilienbereich. Präsentieren Sie Ihre Objekte effizient und portalunabhängig – einmalig investiert, ohne Abo-Gebühren."
+>
+    <section class="nc-box section hero">
+        <div class="hero-content">
+            <h1 class="title">Moderne Websites für Immobilienmakler.</h1>
+            <h2 class="subtitle">
+                Geben Sie Ihren Immobilien die Sichtbarkeit, die sie verdienen.
+            </h2>
+        </div>
+        <div class="hero-image">
+            <div class="track nc-stack">
+                {
+                    Array.from({ length: 12 }, (_, i) => (
+                        <div class="item" style={`--nth-child: ${i + 1}`}>
+                            <ExposeCard
+                                address="Blumenviertel, 20257 Hamburg"
+                                id="144841147"
+                                imageDesc="Frontansicht des Hauses"
+                                imagePath="image-1.jpg"
+                                price={119000}
+                                rooms="5 Zi."
+                                squareMeters="125 m²"
+                                title="Schönes Apartment im Stadtzentrum"
+                            />
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    section.hero {
+        display: flex;
+        gap: var(--spacing-far);
+        padding-block: 0;
+
+        & > div {
+            flex: 1;
+        }
+    }
+
+    .hero-content {
+        max-inline-size: 40rem;
+        overflow: clip;
+        padding-block: calc(var(--spacing-adaptive) * 2);
+    }
+
+    .hero-image {
+        --gap: var(--spacing-base);
+
+        position: relative;
+        overflow: clip;
+        max-block-size: 70vh;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 100%;
+            pointer-events: none;
+            block-size: var(--gap);
+            z-index: 2;
+            transform: translateY(-100%);
+            box-shadow: 0px 0px calc(var(--gap) * 2) calc(var(--gap) * 1.5)
+                var(--color-surface-muted);
+            overflow: clip;
+        }
+
+        &::after {
+            inset-block-start: 100%;
+            inset-block-end: 0;
+            transform: translateY(0%);
+        }
+    }
+
+    .title {
+        margin-block-end: var(--spacing-base);
+    }
+
+    .subtitle {
+        opacity: 0.6;
+    }
+
+    .track {
+        max-inline-size: 28rem;
+        margin-inline: auto;
+        padding-block: var(--spacing-base);
+        padding-inline: calc(var(--spacing-base) * 2);
+        animation: track-rise linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0 50vh;
+    }
+
+    @keyframes track-rise {
+        from {
+            translate: 0 0;
+        }
+        to {
+            translate: 0 -10rem;
+        }
+    }
+
+    .item {
+    }
+</style>
