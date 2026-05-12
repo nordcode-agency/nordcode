@@ -15,7 +15,7 @@ const { features, title, id } = Astro.props;
 
 <section class="section nc-box features">
     <aside data-aside>
-        <h2 class="font-size-largest feature-title" id={id}>{title}</h2>
+        <h2 class="feature-title" id={id}>{title}</h2>
     </aside>
     <main data-grow>
         <ul class="nc-stack -nogap nc-list-reset feature-list" aria-labelledby={id}>
@@ -40,11 +40,18 @@ const { features, title, id } = Astro.props;
 .features {
     display: grid;
     gap: calc(var(--spacing-adaptive) * 1.5);
+    row-gap: var(--spacing-base);
 }
 
 .feature-item {
     padding-block: calc(var(--spacing-adaptive) * 0.75);
 }
+
+.feature-title {
+font-size: 1.9rem;
+font-weight: var(--font-weight-heading);
+}
+
 
 
 @media (min-width: 600px) {

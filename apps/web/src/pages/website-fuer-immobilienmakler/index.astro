@@ -13,43 +13,38 @@ const DEMO_LINK = "https://immos.nordcode.agency";
 const features = [
     {
         title: "Professioneller erster Eindruck",
-        description:
-            "Eine moderne, individuelle Website, die Vertrauen schafft und Ihre Immobilien ins beste Licht rückt.",
+        description: "Eine moderne, individuelle Website, die Vertrauen schafft und deine Immobilien ins beste Licht rückt.",
     },
     {
         title: "Mehr Anfragen, weniger Aufwand",
-        description:
-            "Bessere Sichtbarkeit in Suchmaschinen und KI-Assistenten bringt qualifizierte Interessenten direkt zu Ihnen – ohne Abhängigkeit von teuren Portalen.",
+        description: "Bessere Sichtbarkeit in Suchmaschinen und KI-Assistenten bringt qualifizierte Interessenten direkt zu dir – ohne Abhängigkeit von teuren Portalen.",
     },
     {
-        title: "Ihr Auftritt, Ihre Marke",
-        description:
-            "Design und Inhalte werden passgenau auf Ihr Branding abgestimmt, sodass Ihre Website unverwechselbar bleibt.",
+        title: "Dein Auftritt, deine Marke",
+	description: "Design und Inhalte werden passgenau auf dein Branding abgestimmt, sodass deine Website unverwechselbar bleibt.",
     },
     {
         title: "Automatisch aktuell",
-        description:
-            "Ihre Exposés werden direkt aus Ihren bestehenden CRM-Daten (OpenImmo) generiert – kein doppeltes Einpflegen, keine veralteten Angebote.",
+        description: "Deine Exposés werden direkt aus deinen bestehenden CRM-Daten (OpenImmo) generiert – kein doppeltes Einpflegen, keine veralteten Angebote.",
     },
     {
-        title: "Unabhängigkeit von großen Portalen",
-        description:
-            "Obwohl Sie vermutlich aktuell nicht auf ImmobilienScout & Co verzichten können, sparen Sie richtig Geld, wenn Interessierte sie direkt kontaktieren.",
+        title: "Unabhängigkeit, die sich auszahlt",
+	description: "Jede Anfrage, die über deine Website statt ein großes Portal geht, spart bares Geld.",
     },
 ];
 ---
 
 <Layout
-    title="Ansprechende Website für Immobilienmakler"
+    title="Moderne Websites für Immobilienmakler."
     noIndex
-    description="Wir bieten auf dein Unternehmen zugeschnittene Weblösungen im Immobilienbereich. Präsentieren Sie Ihre Objekte effizient und portalunabhängig – einmalig investiert, ohne Abo-Gebühren."
+    description="Wir bieten auf dein Unternehmen zugeschnittene Weblösungen im Immobilienbereich. Präsentiere deine Objekte effizient und portalunabhängig – einmalig investiert, ohne Abo-Gebühren."
 >
     <section class="nc-box section hero">
         <div class="hero-content">
             <div class="content">
                 <h1 class="title">Moderne Websites für Immobilienmakler.</h1>
                 <h2 class="subtitle">
-                    Moderne Darstellung und einfache Verwaltung Ihres Immobilienportfolios.
+                    Ein <strong>neues Zuhause</strong> für deine Immobilien
                 </h2>
                 <div class="nc-cluster">
                     <a href={BOOK_APPOINTMENT_LINK} target="_blank" class="nc-button cta"
@@ -104,16 +99,26 @@ const features = [
             </div>
         </div>
     </section>
-    <Features
-        features={features}
-        title="Geben Sie Ihren Immobilien die Sichtbarkeit die sie verdienen"
-        id="immofeatures"
-    />
-    <FinalCTA>
+    <Features features={features} title="Gib deinen Immobilien die Sichtbarkeit, die sie verdienen" id="immofeatures" />
+	    <section class="section nc-box container nc-center">
+	        <div class="nc-flow prose immo-teaser">
+	        <h2 class="title">Neugierig geworden?</h2>
+	        <p>Wenn du dir ein Bild davon machen willst, wie deine Immobilien auf der Website aussiehen, haben wir eine Demonstrationsseite aufgesetzt.</p>
+	        <p>Dort kannst du dir direkt angucken, wie die Immobilienexposés in modernem Design ansehen. <strong>Sie wird natürlich noch ein dein Design angepasst.</strong></p>
+	        <a href="https://immos.nordcode.agency" class="nc-button -brand -big">Guck dir die Demo an</a>
+	        </div>
+
+	    </section>
+	    <section class="section">
+	        <div class="nc-box">
+									<FinalCTA>
         <a slot="firstCTA" class="nc-button -brand" href={BOOK_APPOINTMENT_LINK} target="_blank"
             >Jetzt anfragen</a
         >
     </FinalCTA>
+	        </div>
+	    </section>
+
 </Layout>
 
 <style>
@@ -208,22 +213,23 @@ const features = [
         }
     }
 
-    .subtitle {
-        opacity: 0.6;
-        font-size: 1.2rem;
-        font-weight: var(--font-weight-normal);
-        line-height: 1.3;
+    @custom-media --sm-n-above (width >= 480px);
 
-        @media (--md-n-above) {
-            font-size: var(--font-size-largest);
-        }
-        @media (--lg-n-above) {
-            font-size: var(--font-size-largest);
+    .subtitle {
+        font-weight: var(--font-weight-default);
+        letter-spacing: var(--tracking-base);
+        font-size: var(--font-size-base);
+        transform: translateX(0.3ch);
+    }
+
+    @media (--sm-n-above) {
+        .subtitle {
+            font-size: var(--font-size-large);
         }
     }
 
     .cta {
-        margin-block-start: var(--spacing-base);
+        margin-block-start: var(--spacing-far);
     }
 
     .track {
@@ -243,6 +249,21 @@ const features = [
         }
     }
 
-    .item {
-    }
+
+    .immo-teaser {
+	        inline-size: 100%;
+
+	        @media (--lg-n-above) {
+	            inline-size: min(48ch, 100%);
+	        }
+	        margin-inline: auto;
+
+	        & > h2 {
+	            margin-block-end: 0;
+	        }
+
+	        & > a {
+	            max-inline-size: 18rem;
+	        }
+	    }
 </style>
