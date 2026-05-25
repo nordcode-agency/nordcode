@@ -1,20 +1,22 @@
 ---
-import { BudgetRanges, ProjectCategories } from '../../../../content/questionnaire.ts';
-import Layout from '../../../../layouts/Layout.astro';
+import { BudgetRanges, ProjectCategories } from "../../../../content/questionnaire.ts";
+import Layout from "../../../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
-    return Object.values(ProjectCategories).map((category) => {
-        return Object.values(BudgetRanges).map((budget) => ({
-            params: { category: category.slug, budget: budget.slug },
-        }));
-    }).flat();
+    return Object.values(ProjectCategories)
+        .map((category) => {
+            return Object.values(BudgetRanges).map((budget) => ({
+                params: { category: category.slug, budget: budget.slug },
+            }));
+        })
+        .flat();
 }
 
 const { category, budget } = Astro.params;
 const readableCategory = ProjectCategories[category as keyof typeof ProjectCategories].name;
 const readableBudget = BudgetRanges[budget as keyof typeof BudgetRanges].name;
 
-const title = 'Letzter Schritt für deine Anfrage!';
+const title = "Letzter Schritt für deine Anfrage!";
 ---
 
 <Layout
@@ -26,8 +28,8 @@ const title = 'Letzter Schritt für deine Anfrage!';
         <div class="nc-stack prose nc-flow">
             <h1 class="questionnaire-title">Vielen Dank! Wir melden uns bei dir.</h1>
             <p>
-                Danke für dein Vertrauen, das hilft uns einen guten ersten Einblick zu kriegen, was dir vorschwebt. Hier
-                ist nochmal deine Konfiguration:
+                Danke für dein Vertrauen, das hilft uns einen guten ersten Einblick zu kriegen, was
+                dir vorschwebt. Hier ist nochmal deine Konfiguration:
             </p>
             <dl>
                 <dt>Was du vorhast</dt>
@@ -36,17 +38,19 @@ const title = 'Letzter Schritt für deine Anfrage!';
                 <dd>{readableBudget}</dd>
             </dl>
             <p>
-                Gib jetzt deine Email an, damit wir dich erreichen können. Du kannst deiner Nachricht auch noch eine
-                Nachricht mit mehr Details oder Wünschen hinzufügen. Zusammen finden wir eine Lösung, die zu dir und
-                deinem Budget passt.
+                Gib jetzt deine Email an, damit wir dich erreichen können. Du kannst deiner
+                Nachricht auch noch eine Nachricht mit mehr Details oder Wünschen hinzufügen.
+                Zusammen finden wir eine Lösung, die zu dir und deinem Budget passt.
             </p>
         </div>
         <form class="nc-stack -far" method="post" action="https://mailings.whats-this.org/nordcode">
             <div class="nc-input-field">
                 <label for="email" class="nc-stack -stretched">
-                    <span class="nc-input-label">E-Mail &nbsp;<span class="nc-input-required-mark">*<span
-                                class="sr-only"
-                            >Pflichtfeld</span></span></span>
+                    <span class="nc-input-label"
+                        >E-Mail &nbsp;<span class="nc-input-required-mark"
+                            >*<span class="sr-only">Pflichtfeld</span></span
+                        ></span
+                    >
                 </label>
                 <input
                     id="email"
@@ -67,8 +71,7 @@ const title = 'Letzter Schritt für deine Anfrage!';
                     id="message"
                     name="message"
                     class="nc-input nc-textarea textarea"
-                    aria-required="false"
-                ></textarea>
+                    aria-required="false"></textarea>
             </div>
 
             <input type="text" name="budget" hidden value={readableBudget} />
@@ -88,30 +91,30 @@ const title = 'Letzter Schritt für deine Anfrage!';
 </Layout>
 
 <style>
-form {
-    inline-size: 100%;
+    form {
+        inline-size: 100%;
 
-    & :is(input, textarea) {
-        --control-height-base: 2.25em;
-        --input-padding-block: 0.25lh;
+        & :is(input, textarea) {
+            --control-height-base: 2.25em;
+            --input-padding-block: 0.25lh;
 
-        font-size: var(--font-size-medium);
+            font-size: var(--font-size-medium);
+        }
     }
-}
 
-.input {
-    min-inline-size: min(32ch, 100%);
-}
-
-.textarea {
-    min-inline-size: min(50ch, 100%);
-    min-block-size: 4rlh;
-    max-block-size: 80svh;
-    padding-block: var(--input-padding-block);
-    font-size: var(--font-size-base);
-
-    @supports (field-sizing: content) {
-        field-sizing: content;
+    .input {
+        min-inline-size: min(32ch, 100%);
     }
-}
+
+    .textarea {
+        min-inline-size: min(50ch, 100%);
+        min-block-size: 4rlh;
+        max-block-size: 80svh;
+        padding-block: var(--input-padding-block);
+        font-size: var(--font-size-base);
+
+        @supports (field-sizing: content) {
+            field-sizing: content;
+        }
+    }
 </style>

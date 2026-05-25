@@ -7,27 +7,27 @@ export type TNavgation = Record<string, TNavigationItem>;
 
 export const Navigation = {
     home: {
-        url: '/',
-        name: 'Home',
+        url: "/",
+        name: "Home",
     },
     start: {
-        url: '/start',
-        name: 'Loslegen',
+        url: "/start",
+        name: "Loslegen",
     },
     work: {
-        url: '/work',
-        name: 'Work',
+        url: "/work",
+        name: "Work",
     },
     about: {
-        url: '/about',
-        name: 'About',
+        url: "/about",
+        name: "About",
     },
     impressum: {
-        url: '/impressum',
-        name: 'Impressum',
+        url: "/impressum",
+        name: "Impressum",
     },
     datenschutz: {
-        url: '/datenschutz',
-        name: 'Datenschutzerklärung',
+        url: "/datenschutz",
+        name: "Datenschutzerklärung",
     },
 } as const;

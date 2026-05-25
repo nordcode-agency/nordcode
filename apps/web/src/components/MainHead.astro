@@ -1,7 +1,7 @@
 ---
-import { getVersionedCSS } from '../config/staticCSS';
-import '../styles/global.css';
-import { ensureTrailingSlash } from '../utils/ensureTrailingSlash';
+import { getVersionedCSS } from "../config/staticCSS";
+import "../styles/global.css";
+import { ensureTrailingSlash } from "../utils/ensureTrailingSlash";
 
 export interface Props {
     title: string;
@@ -13,9 +13,8 @@ export interface Props {
 }
 
 const {
-    title = 'Willkommen bei nordcode | nordcode',
-    description =
-        'Du bist auf der Suche nach einer kleinen, lokalen Agentur, die dir hilft, deine Onlinepräsenz zu verbessern? Dann bist du bei uns genau richtig.',
+    title = "Willkommen bei nordcode | nordcode",
+    description = "Du bist auf der Suche nach einer kleinen, lokalen Agentur, die dir hilft, deine Onlinepräsenz zu verbessern? Dann bist du bei uns genau richtig.",
     structuredData,
     canonical = ensureTrailingSlash(Astro.url.toString()),
     ogImage,
@@ -23,7 +22,7 @@ const {
     noIndex = true,
 } = Astro.props;
 
-const baseUrl = Astro.site?.href.endsWith('/') ? Astro.site?.href.slice(0, -1) : Astro.site?.href;
+const baseUrl = Astro.site?.href.endsWith("/") ? Astro.site?.href.slice(0, -1) : Astro.site?.href;
 const ogImagePath = ogImage ? `${baseUrl}${ogImage}` : `${baseUrl}/assets/images/og-image.jpg`;
 const buildTime = new Date().toISOString();
 ---
@@ -37,7 +36,7 @@ const buildTime = new Date().toISOString();
     <meta name="description" content={description} />
     <meta name="theme-color" content="#012FFD" />
     <meta name="theme-color" content="#012FFD" media="(prefers-color-scheme: dark)" />
-    <meta name="color-scheme" content="light dark">
+    <meta name="color-scheme" content="light dark" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -62,31 +61,27 @@ const buildTime = new Date().toISOString();
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="twitter:image" content={ogImagePath} />
 
-    {noIndex ? <meta name="robots" content="nofollow, noindex" /> : ''}
+    {noIndex ? <meta name="robots" content="nofollow, noindex" /> : ""}
 
     <script>
-    const colorScheme = localStorage?.getItem('color-scheme');
-    if (colorScheme) {
-        document.documentElement.setAttribute('data-theme', colorScheme);
-    }
+        const colorScheme = localStorage?.getItem("color-scheme");
+        if (colorScheme) {
+            document.documentElement.setAttribute("data-theme", colorScheme);
+        }
     </script>
 
     {
-        structuredData?.map(data => (
-            <script
-                is:inline
-                type="application/ld+json"
-                set:html={JSON.stringify(data)}
-            />
+        structuredData?.map((data) => (
+            <script is:inline type="application/ld+json" set:html={JSON.stringify(data)} />
         ))
     }
 
     <!-- Links -->
     <link rel="canonical" href={canonical} />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/manifest.json" />
 
     <link
         rel="preload"
@@ -112,5 +107,8 @@ const buildTime = new Date().toISOString();
     />
 
     <link rel="stylesheet" href="/assets/fonts/fonts.css" />
-    <script defer src="http://tracking.suri-alaia.com/script.js" data-website-id="f47d5c65-d949-437d-b277-b1fa2fe64ff8"></script>
+    <script
+        defer
+        src="http://tracking.suri-alaia.com/script.js"
+        data-website-id="f47d5c65-d949-437d-b277-b1fa2fe64ff8"></script>
 </head>

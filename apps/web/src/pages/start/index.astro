@@ -1,31 +1,27 @@
 ---
-import { ProjectCategories } from '../../content/questionnaire.ts';
-import Layout from '../../layouts/Layout.astro';
-import { ensureTrailingSlash } from '../../utils/ensureTrailingSlash.ts';
+import { ProjectCategories } from "../../content/questionnaire.ts";
+import Layout from "../../layouts/Layout.astro";
+import { ensureTrailingSlash } from "../../utils/ensureTrailingSlash.ts";
 
 const questions = [
     {
         heading: ProjectCategories.website.name,
-        desc:
-            'Dazu zählen beispielsweise Blogs, Websites für Ihr Geschäft oder Ihre selbstständige Arbeit, umfangreiche Unternehmensseiten, Web-Apps, interne Tools oder Managementsysteme.',
+        desc: "Dazu zählen beispielsweise Blogs, Websites für Ihr Geschäft oder Ihre selbstständige Arbeit, umfangreiche Unternehmensseiten, Web-Apps, interne Tools oder Managementsysteme.",
         slug: `/start/${ProjectCategories.website.slug}`,
     },
     {
-        heading: ProjectCategories['e-commerce'].name,
-        desc:
-            'Unser Leistungsspektrum umfasst die Konzeption und Umsetzung von Online-Shops, Marktplätzen sowie individuellen E-Commerce-Lösungen. Im Rahmen dessen setzen wir auch E-Commerce-Plattformen wie Shopify oder PrestaShop ein.',
-        slug: `/start/${ProjectCategories['e-commerce'].slug}`,
+        heading: ProjectCategories["e-commerce"].name,
+        desc: "Unser Leistungsspektrum umfasst die Konzeption und Umsetzung von Online-Shops, Marktplätzen sowie individuellen E-Commerce-Lösungen. Im Rahmen dessen setzen wir auch E-Commerce-Plattformen wie Shopify oder PrestaShop ein.",
+        slug: `/start/${ProjectCategories["e-commerce"].slug}`,
     },
     {
         heading: ProjectCategories.apps.name,
-        desc:
-            'Diese Option ist für Projekte geeignet, die für Smartphones und Tablets konzipiert werden. Hierzu zählt die Entwicklung nativer Apps für iOS und Android.',
+        desc: "Diese Option ist für Projekte geeignet, die für Smartphones und Tablets konzipiert werden. Hierzu zählt die Entwicklung nativer Apps für iOS und Android.",
         slug: `/start/${ProjectCategories.apps.slug}`,
     },
     {
         heading: ProjectCategories.individuell.name,
-        desc:
-            'Für Projekte geeignet, die nicht zu den restlichen Optionen passen. Hierzu zählen beispielsweise individuelle Softwarelösungen, Schnittstellen oder Automatisierungen. In enger Zusammenarbeit erarbeiten wir eine maßgeschneiderte Lösung und setzen diese um.',
+        desc: "Für Projekte geeignet, die nicht zu den restlichen Optionen passen. Hierzu zählen beispielsweise individuelle Softwarelösungen, Schnittstellen oder Automatisierungen. In enger Zusammenarbeit erarbeiten wir eine maßgeschneiderte Lösung und setzen diese um.",
         slug: `/start/${ProjectCategories.individuell.slug}`,
     },
 ];
@@ -41,11 +37,13 @@ const questions = [
             <h1 class="questionnaire-title">Wähle, was am besten für dich passt.</h1>
             <ul class="nc-list-reset nc-ram-grid questionnaire-grid">
                 {
-                    questions.map(question => (
+                    questions.map((question) => (
                         <li class="nc-card card nc-clickable-card">
                             <div class="nc-stack">
                                 <h3 class="gradient-text">
-                                    <a href={ensureTrailingSlash(question.slug)} data-link="main">{question.heading}</a>
+                                    <a href={ensureTrailingSlash(question.slug)} data-link="main">
+                                        {question.heading}
+                                    </a>
                                 </h3>
                                 <p class="nc-hint">{question.desc}</p>
                             </div>
@@ -57,20 +55,23 @@ const questions = [
                 <summary>Weitere Informationen</summary>
                 <div class="nc-flow">
                     <p>
-                        Bei der Umsetzung von Projekten legen wir besonderen Wert auf die Entwicklung maßgeschneiderter
-                        Lösungen, die exakt Ihren Anforderungen und Wünschen entsprechen.
+                        Bei der Umsetzung von Projekten legen wir besonderen Wert auf die
+                        Entwicklung maßgeschneiderter Lösungen, die exakt Ihren Anforderungen und
+                        Wünschen entsprechen.
                     </p>
                     <p>
-                        Ein weiterer Schwerpunkt liegt auf einer umfassenden Suchmaschinenoptimierung (<abbr
+                        Ein weiterer Schwerpunkt liegt auf einer umfassenden
+                        Suchmaschinenoptimierung (<abbr
                             class="smallcaps"
-                            title="Search Engine Optimization"
-                        >SEO</abbr>) sowie der Optimierung für verschiedene Endgeräte wie Smartphones, Tablets und
-                        Desktops.
+                            title="Search Engine Optimization">SEO</abbr
+                        >) sowie der Optimierung für verschiedene Endgeräte wie Smartphones, Tablets
+                        und Desktops.
                     </p>
                     <p>
-                        Ein attraktives Design (<abbr title="User Interface">UI</abbr>) und eine hohe
-                        Benutzerfreundlichkeit (<abbr title="User Experience">UX</abbr>) sind für uns ebenso
-                        selbstverständlich wie die Fokussierung auf Performance und Sicherheit.
+                        Ein attraktives Design (<abbr title="User Interface">UI</abbr>) und eine
+                        hohe Benutzerfreundlichkeit (<abbr title="User Experience">UX</abbr>) sind
+                        für uns ebenso selbstverständlich wie die Fokussierung auf Performance und
+                        Sicherheit.
                     </p>
                 </div>
             </details>
@@ -79,16 +80,16 @@ const questions = [
 </Layout>
 
 <style>
-@custom-media --md-n-above (width >= 768px);
+    @custom-media --md-n-above (width >= 768px);
 
-.grid {
-    --nc-ram-grid-gap: var(--spacing-base);
-    --nc-ram-grid-min-width: 40ch;
+    .grid {
+        --nc-ram-grid-gap: var(--spacing-base);
+        --nc-ram-grid-min-width: 40ch;
 
-    inline-size: 100%;
+        inline-size: 100%;
 
-    & > li {
-        block-size: 100%;
+        & > li {
+            block-size: 100%;
+        }
     }
-}
 </style>

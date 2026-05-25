@@ -9,7 +9,7 @@ declare global {
 
 type YieldOptions = {
     signal?: AbortSignal;
-    priority?: 'user-blocking' | 'user-visible' | 'background';
+    priority?: "user-blocking" | "user-visible" | "background";
 };
 /**
  * Yields to main thread before continuing execution.
@@ -18,19 +18,19 @@ type YieldOptions = {
  * @see https://kurtextrem.de/posts/improve-inp for reference
  */
 export const yieldToMain = (options?: YieldOptions) => {
-    if ('scheduler' in window) {
-        if ('yield' in window.scheduler) {
+    if ("scheduler" in window) {
+        if ("yield" in window.scheduler) {
             return window.scheduler.yield?.(options);
         }
 
-        if ('postTask' in window.scheduler) {
+        if ("postTask" in window.scheduler) {
             return window.scheduler.postTask?.(() => {}, options);
         }
     }
 
     // `setTimeout` could suffer from being delayed for longer - so for browsers not supporting yield,
     // we guarantee execution for high priority actions, but it doesn't yield as trade-off.
-    if (options?.priority === 'user-blocking') {
+    if (options?.priority === "user-blocking") {
         return Promise.resolve();
     }
     return new Promise((resolve) => setTimeout(resolve));

@@ -1,6 +1,6 @@
 ---
-import type { WorkProject } from '../types';
-import FeatureCard from './FeatureCard.astro';
+import type { WorkProject } from "../types";
+import FeatureCard from "./FeatureCard.astro";
 interface Props {
     projects: WorkProject[];
 }
@@ -29,86 +29,87 @@ const visibleProjects = projects.slice(0, 4);
 </section>
 
 <style>
-.more-work {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-base);
-
-    inline-size: 100%;
-
-    & > * {}
-
-    & > *:nth-of-type(2n) {
-        --side: 1;
-    }
-}
-
-@media (min-width: 44rem) {
     .more-work {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--spacing-far);
-    }
-}
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-base);
 
-@media (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: view()) {
-        .more-work {
-            & > * {
-                transform-origin: center 50%;
-                animation: project-slide-in linear both;
-                animation-timeline: view();
-                animation-range: cover 10% cover 40%;
-            }
+        inline-size: 100%;
 
-            & > *:nth-of-type(2n+1) {
-                --side: 1;
-            }
-            & > *:nth-of-type(2n) {
-                --side: -1;
-            }
+        & > * {
+        }
 
-            & > *:nth-of-type(3) {
-                transform-origin: center -150%;
-                animation-range: cover 0% cover 20%;
-            }
-
-            & > *:nth-of-type(4) {
-                transform-origin: center -50%;
-                animation-range: cover 0% cover 20%;
-            }
+        & > *:nth-of-type(2n) {
+            --side: 1;
         }
     }
-}
 
-@media (min-width: 44rem) {
+    @media (min-width: 44rem) {
+        .more-work {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-far);
+        }
+    }
+
     @media (prefers-reduced-motion: no-preference) {
         @supports (animation-timeline: view()) {
             .more-work {
                 & > * {
                     transform-origin: center 50%;
-                    animation: project-slide-in var(--ease-2) both;
+                    animation: project-slide-in linear both;
                     animation-timeline: view();
                     animation-range: cover 10% cover 40%;
                 }
 
-                & > *:nth-of-type(2) {
-                    animation-range: cover 12.5% cover 45%;
+                & > *:nth-of-type(2n + 1) {
+                    --side: 1;
                 }
+                & > *:nth-of-type(2n) {
+                    --side: -1;
+                }
+
                 & > *:nth-of-type(3) {
-                    position: relative;
-                    z-index: -1;
                     transform-origin: center -150%;
-                    animation-range: cover 0% cover 43.5%;
+                    animation-range: cover 0% cover 20%;
                 }
 
                 & > *:nth-of-type(4) {
-                    position: relative;
-                    z-index: -2;
-                    transform-origin: center -150%;
-                    animation-range: cover 2.5% cover 45%;
+                    transform-origin: center -50%;
+                    animation-range: cover 0% cover 20%;
                 }
             }
         }
     }
-}
+
+    @media (min-width: 44rem) {
+        @media (prefers-reduced-motion: no-preference) {
+            @supports (animation-timeline: view()) {
+                .more-work {
+                    & > * {
+                        transform-origin: center 50%;
+                        animation: project-slide-in var(--ease-2) both;
+                        animation-timeline: view();
+                        animation-range: cover 10% cover 40%;
+                    }
+
+                    & > *:nth-of-type(2) {
+                        animation-range: cover 12.5% cover 45%;
+                    }
+                    & > *:nth-of-type(3) {
+                        position: relative;
+                        z-index: -1;
+                        transform-origin: center -150%;
+                        animation-range: cover 0% cover 43.5%;
+                    }
+
+                    & > *:nth-of-type(4) {
+                        position: relative;
+                        z-index: -2;
+                        transform-origin: center -150%;
+                        animation-range: cover 2.5% cover 45%;
+                    }
+                }
+            }
+        }
+    }
 </style>

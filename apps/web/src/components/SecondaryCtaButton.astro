@@ -1,6 +1,6 @@
 ---
-import { getIconPath } from '../config/getIconPath.ts';
-import { ensureTrailingSlash } from '../utils/ensureTrailingSlash.ts';
+import { getIconPath } from "../config/getIconPath.ts";
+import { ensureTrailingSlash } from "../utils/ensureTrailingSlash.ts";
 interface Props {
     href: string;
 }
@@ -16,20 +16,20 @@ const { href } = Astro.props;
         stroke="var(--color-brand-secondary-base)"
         aria-hidden="true"
     >
-        <use href={getIconPath('arrow-right')} />
+        <use href={getIconPath("arrow-right")}></use>
     </svg>
 </a>
 
 <style>
-a {
-    padding-inline-start: 0;
+    a {
+        padding-inline-start: 0;
 
-    & svg {
-        transition: transform var(--transition-duration-quick-2) var(--ease-elastic-2);
-    }
+        & svg {
+            transition: transform var(--transition-duration-quick-2) var(--ease-elastic-2);
+        }
 
-    &:hover svg {
-        transform: translateX(0.5ch);
+        &:hover svg {
+            transform: translateX(0.5ch);
+        }
     }
-}
 </style>

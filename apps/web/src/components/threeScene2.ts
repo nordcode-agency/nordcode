@@ -1,12 +1,13 @@
-import GUI from 'lil-gui';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import fragmentShader from '../shaders/fragment.glsl?raw';
-import vertexShader from '../shaders/vertex.glsl?raw';
+import GUI from "lil-gui";
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import fragmentShader from "../shaders/fragment.glsl?raw";
+import vertexShader from "../shaders/vertex.glsl?raw";
 
 function konami(callback: (args: unknown) => void) {
     let keyboardKeys: string[] = [];
-    const konami = 'ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,KeyB,KeyA';
+    const konami =
+        "ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,KeyB,KeyA";
     return (event: KeyboardEvent) => {
         keyboardKeys.push(event.code);
         if (keyboardKeys.toString().indexOf(konami) >= 0) {
@@ -16,13 +17,13 @@ function konami(callback: (args: unknown) => void) {
     };
 }
 
-const setUniformColors = (colorSchema: 'light' | 'dark', material: THREE.ShaderMaterial) => {
-    if (colorSchema === 'dark') {
-        material.uniforms.uDepthColor?.value.set('#0b152d');
-        material.uniforms.uSurfaceColor?.value.set('#006eff');
+const setUniformColors = (colorSchema: "light" | "dark", material: THREE.ShaderMaterial) => {
+    if (colorSchema === "dark") {
+        material.uniforms.uDepthColor?.value.set("#0b152d");
+        material.uniforms.uSurfaceColor?.value.set("#006eff");
     } else {
-        material.uniforms.uDepthColor?.value.set('#ecf6ff');
-        material.uniforms.uSurfaceColor?.value.set('#45b8f2');
+        material.uniforms.uDepthColor?.value.set("#ecf6ff");
+        material.uniforms.uSurfaceColor?.value.set("#45b8f2");
     }
 };
 
@@ -34,21 +35,21 @@ export function main() {
     const gui = new GUI({ width: 340 });
     gui.hide();
     window.addEventListener(
-        'keydown',
+        "keydown",
         konami(() => {
             gui.show();
         }),
     );
 
     // Canvas
-    const canvas = document.querySelector('canvas.webgl');
+    const canvas = document.querySelector("canvas.webgl");
 
     // Scene
     const scene = new THREE.Scene();
 
     const debugObject = {
-        depthColor: '#000000',
-        surfaceColor: '#006eff',
+        depthColor: "#000000",
+        surfaceColor: "#006eff",
     };
 
     /**
@@ -66,7 +67,7 @@ export function main() {
         uniforms: {
             uTime: { value: 0 },
             uSpeed: { value: 0.05 },
-            uBackgroundColor: { value: new THREE.Color('#0b152d') },
+            uBackgroundColor: { value: new THREE.Color("#0b152d") },
 
             uBigWavesElevation: { value: 0.2 },
 
@@ -87,26 +88,26 @@ export function main() {
     });
 
     const setThemeAwareUniformColors = (htmlElement: HTMLElement) => {
-        const dataThemeValue = htmlElement.getAttribute('data-theme');
-        if (dataThemeValue === 'light' || dataThemeValue === 'dark') {
-            setUniformColors(dataThemeValue as 'light' | 'dark', waterMaterial);
+        const dataThemeValue = htmlElement.getAttribute("data-theme");
+        if (dataThemeValue === "light" || dataThemeValue === "dark") {
+            setUniformColors(dataThemeValue as "light" | "dark", waterMaterial);
         } else {
             setUniformColors(
-                window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+                window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
                 waterMaterial,
             );
         }
     };
 
-    const attributeObserver = new MutationObserver(function(mutationList) {
+    const attributeObserver = new MutationObserver(function (mutationList) {
         for (const mutation of mutationList) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+            if (mutation.type === "attributes" && mutation.attributeName === "data-theme") {
                 const htmlElement = mutation.target as HTMLElement;
                 setThemeAwareUniformColors(htmlElement);
             }
         }
     });
-    const htmlEl = document.querySelector('html');
+    const htmlEl = document.querySelector("html");
 
     if (htmlEl) {
         attributeObserver.observe(htmlEl, {
@@ -114,9 +115,9 @@ export function main() {
         });
         setThemeAwareUniformColors(htmlEl);
     } else {
-        console.warn('Expected to find an html element in the document');
+        console.warn("Expected to find an html element in the document");
         setUniformColors(
-            window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+            window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
             waterMaterial,
         );
     }
@@ -126,96 +127,96 @@ export function main() {
     water.rotation.x = -Math.PI * 0.5;
     scene.add(water);
 
-    gui.add(waterMaterial.uniforms.uSpeed, 'value').min(0).max(1).step(0.001).name('uSpeed');
+    gui.add(waterMaterial.uniforms.uSpeed, "value").min(0).max(1).step(0.001).name("uSpeed");
 
-    const bigWavesGroup = gui.addFolder('Big Waves');
+    const bigWavesGroup = gui.addFolder("Big Waves");
     bigWavesGroup
-        .add(waterMaterial.uniforms.uBigWavesElevation, 'value')
+        .add(waterMaterial.uniforms.uBigWavesElevation, "value")
         .min(0)
         .max(3)
         .step(0.001)
-        .name('elevation');
+        .name("elevation");
 
-    const smallWavesGroup = gui.addFolder('Small Waves');
+    const smallWavesGroup = gui.addFolder("Small Waves");
     smallWavesGroup
-        .add(waterMaterial.uniforms.uSmallWavesElevation, 'value')
+        .add(waterMaterial.uniforms.uSmallWavesElevation, "value")
         .min(0)
         .max(3)
         .step(0.001)
-        .name('elevation');
+        .name("elevation");
     smallWavesGroup
-        .add(waterMaterial.uniforms.uSmallIterations, 'value')
+        .add(waterMaterial.uniforms.uSmallIterations, "value")
         .min(0)
         .max(5)
         .step(1)
-        .name('iterations');
+        .name("iterations");
     smallWavesGroup
-        .add(waterMaterial.uniforms.uSmallWavesFrequency, 'value')
+        .add(waterMaterial.uniforms.uSmallWavesFrequency, "value")
         .min(0)
         .max(30)
         .step(0.001)
-        .name('frequency');
+        .name("frequency");
 
-    const distortionFrequencyGroup = gui.addFolder('Distortion Frequency');
+    const distortionFrequencyGroup = gui.addFolder("Distortion Frequency");
     distortionFrequencyGroup
-        .add(waterMaterial.uniforms.uDistortionFrequency.value, 'x')
+        .add(waterMaterial.uniforms.uDistortionFrequency.value, "x")
         .min(0)
         .max(20)
         .step(0.1)
-        .name('x');
+        .name("x");
     distortionFrequencyGroup
-        .add(waterMaterial.uniforms.uDistortionFrequency.value, 'y')
+        .add(waterMaterial.uniforms.uDistortionFrequency.value, "y")
         .min(0)
         .max(20)
         .step(0.1)
-        .name('z');
+        .name("z");
 
-    const frequencyGroup = gui.addFolder('Frequency');
+    const frequencyGroup = gui.addFolder("Frequency");
     frequencyGroup
-        .add(waterMaterial.uniforms.uBigWavesFrequency.value, 'x')
+        .add(waterMaterial.uniforms.uBigWavesFrequency.value, "x")
         .min(0)
         .max(20)
         .step(0.1)
-        .name('x');
+        .name("x");
     frequencyGroup
-        .add(waterMaterial.uniforms.uBigWavesFrequency.value, 'y')
+        .add(waterMaterial.uniforms.uBigWavesFrequency.value, "y")
         .min(0)
         .max(20)
         .step(0.1)
-        .name('z');
+        .name("z");
 
-    const colorsGroup = gui.addFolder('Colors');
-    colorsGroup.addColor(debugObject, 'depthColor').onChange(() => {
+    const colorsGroup = gui.addFolder("Colors");
+    colorsGroup.addColor(debugObject, "depthColor").onChange(() => {
         waterMaterial.uniforms.uDepthColor.value.set(debugObject.depthColor);
     });
-    colorsGroup.addColor(debugObject, 'surfaceColor').onChange(() => {
+    colorsGroup.addColor(debugObject, "surfaceColor").onChange(() => {
         waterMaterial.uniforms.uSurfaceColor.value.set(debugObject.surfaceColor);
     });
     colorsGroup
-        .add(waterMaterial.uniforms.uColorMultiplier, 'value')
+        .add(waterMaterial.uniforms.uColorMultiplier, "value")
         .min(0)
         .max(20)
         .step(0.1)
-        .name('uColorMultiplier');
+        .name("uColorMultiplier");
     colorsGroup
-        .add(waterMaterial.uniforms.uColorOffset, 'value')
+        .add(waterMaterial.uniforms.uColorOffset, "value")
         .min(0)
         .max(3)
         .step(0.001)
-        .name('uColorOffset');
+        .name("uColorOffset");
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
         // const dataTheme = document.querySelector('html')?.getAttribute("data-theme") as "light" | "dark" | "system" | null;
-        const newColorScheme = event.matches ? 'dark' : 'light';
+        const newColorScheme = event.matches ? "dark" : "light";
         if (
-            htmlEl?.getAttribute('data-theme') !== 'light' &&
-            htmlEl?.getAttribute('data-theme') !== 'dark'
+            htmlEl?.getAttribute("data-theme") !== "light" &&
+            htmlEl?.getAttribute("data-theme") !== "dark"
         ) {
             setUniformColors(newColorScheme, waterMaterial);
         }
     });
 
-    const container = document.getElementById('hero-wrap');
+    const container = document.getElementById("hero-wrap");
 
     /**
      * Sizes
@@ -226,7 +227,7 @@ export function main() {
         height: container?.clientHeight ?? window.screen.availHeight,
     };
 
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
         // Update sizes
         sizes.width = container?.clientWidth ?? window.innerWidth;
         sizes.height = container?.clientHeight ?? window.screen.availHeight;

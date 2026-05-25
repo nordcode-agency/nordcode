@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
-import FinalCTA from '../components/FinalCTA.astro';
-import type { TNavigationItem } from '../config/navigation.ts';
-import { projects } from '../content/projects.ts';
-import Layout from './Layout.astro';
+import { Image } from "astro:assets";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import FinalCTA from "../components/FinalCTA.astro";
+import type { TNavigationItem } from "../config/navigation.ts";
+import { projects } from "../content/projects.ts";
+import Layout from "./Layout.astro";
 
 interface Props {
     name: string;
@@ -12,21 +12,21 @@ interface Props {
 
 const { name } = Astro.props;
 
-const project = projects.find(p => p.name === name)!;
+const project = projects.find((p) => p.name === name)!;
 
 const breadcrumbItems: TNavigationItem[] = [
     {
-        name: 'Work',
-        url: '/#work',
+        name: "Work",
+        url: "/#work",
     },
     {
         name: project.heading,
-        url: project.url?.toString() ?? '',
+        url: project.url?.toString() ?? "",
     },
 ];
 ---
 
-<Layout title={project.heading} description={project.goal ?? ''}>
+<Layout title={project.heading} description={project.goal ?? ""}>
     <article class="section nc-center work-page">
         <div class="nc-stack">
             <div class="nc-box nc-stack -inherit hero">
@@ -68,7 +68,7 @@ const breadcrumbItems: TNavigationItem[] = [
                             </strong>
                         </p>
                         <ul class="tags">
-                            {project.tags.map(tag => <li class="nc-slub tag">{tag}</li>)}
+                            {project.tags.map((tag) => <li class="nc-slub tag">{tag}</li>)}
                         </ul>
                         <div class="actions">
                             <a href={project.url} target="_blank">{project.heading} angucken</a>
@@ -212,7 +212,7 @@ const breadcrumbItems: TNavigationItem[] = [
         line-height: var(--line-height-small);
 
         &::before {
-            content: '—';
+            content: "—";
             margin-inline-end: 1ch;
         }
     }
