@@ -14,6 +14,10 @@ export const Navigation = {
         url: "/start",
         name: "Loslegen",
     },
+    immo: {
+        url: "/website-fuer-immobilienmakler",
+        name: "Loslegen",
+    },
     work: {
         url: "/work",
         name: "Work",
