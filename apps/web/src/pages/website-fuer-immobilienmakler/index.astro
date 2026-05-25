@@ -140,6 +140,7 @@ const features = [
 </Layout>
 
 <style>
+    @custom-media --sm-n-above (width >= 480px);
     @custom-media --md-n-above (width >= 768px);
     @custom-media --lg-n-above (width >= 1024px);
     @custom-media --xl-n-above (width >= 1440px);
@@ -147,16 +148,20 @@ const features = [
     section.hero {
         display: grid;
         padding-block: 0;
+        gap: var(--spacing-base);
 
-        @media (--lg-n-above) {
-            grid-template-rows: auto;
-            grid-template-columns: 1fr 1fr;
+        @media (--sm-n-above) {
+            & > div {
+                grid-area: 1 / 1;
+            }
         }
 
-        & > div {
-            /* grid-area: 1 / 1; */
+        @media (--lg-n-above) {
+            gap: var(--spacing-far);
+            grid-template-rows: auto;
+            grid-template-columns: 1fr 1fr;
 
-            @media (--lg-n-above) {
+            & > div {
                 grid-area: auto;
             }
         }
