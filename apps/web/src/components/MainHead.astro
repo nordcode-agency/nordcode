@@ -18,8 +18,7 @@ const {
     structuredData,
     canonical = ensureTrailingSlash(Astro.url.toString()),
     ogImage,
-    // @todo: remove noIndex for clients
-    noIndex = true,
+    noIndex = false,
 } = Astro.props;
 
 const baseUrl = Astro.site?.href.endsWith("/") ? Astro.site?.href.slice(0, -1) : Astro.site?.href;
