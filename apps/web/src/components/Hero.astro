@@ -21,7 +21,14 @@ const {} = Astro.props;
         </h1>
     </div>
     <div class="footer nc-box">
-        <div style="inline-size: min(19rem, 100%)">
+        <div class="footer-box">
+            <ActionCard heading="Jetzt neu! Weblösung für Immobilienmakler">
+                <a href={ensureTrailingSlash(Navigation.start.url)} class="nc-button -muted -big"
+                    >Loslegen</a
+                >
+            </ActionCard>
+        </div>
+        <div class="footer-box">
             <ActionCard heading="Lass uns schauen, wie wir dir helfen können">
                 <a href={ensureTrailingSlash(Navigation.start.url)} class="nc-button -brand -big"
                     >Starte dein Projekt</a
@@ -61,13 +68,22 @@ const {} = Astro.props;
     }
 
     .footer {
+        --size: 16rem;
+        --gap: var(--spacing-far);
+
         margin-inline-start: auto;
-        inline-size: 100%;
+        inline-size: min(100%, calc(3 * var(--size) + var(--gap)));
         display: flex;
+        flex-wrap: wrap;
         justify-content: end;
         align-items: stretch;
-        gap: var(--spacing-far);
+        gap: var(--gap);
         padding-block: var(--spacing-far);
+    }
+
+    .footer-box {
+        flex: 1 1 var(--size);
+        backdrop-filter: blur(var(--spacing-base));
     }
 
     .-big {
