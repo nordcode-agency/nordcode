@@ -4,6 +4,7 @@ import { Select, SwitchInput } from '@nordcode/forms-svelte';
 import type { NextQuestionConfig } from '@nordcode/questionnaire-renderer';
 import type { Option } from '@nordcode/questionnaire-renderer';
 import { currentQuestionnaire, NEW_QUESTION_ID } from '../editorStore';
+import { setOptionJump, setUnconditionalJump } from '../utils/nextQuestionConfig';
 
 interface Props {
     nextQuestionConfig: NextQuestionConfig[];
@@ -65,26 +66,15 @@ const updateNextQuestionConfig = (
     optionValue: string | number | boolean,
     selectedQuestionId: string,
 ) => {
-    // Default is selected, so filter this option out
-    if (selectedQuestionId === '') {
-        // at the moment, we only have one when value
-        nextQuestionConfig = nextQuestionConfig.filter(
-            questionConfig => questionConfig.when[0].compareValue !== optionValue,
-        );
-        return;
-    }
+    nextQuestionConfig = setOptionJump(nextQuestionConfig, optionValue, selectedQuestionId);
+};
 
-    // we only have one condition at the moment, so we can simply replace it
-    nextQuestionConfig = [{
-        questionId: selectedQuestionId,
-        when: [
-            {
-                key: 'value',
-                operator: 'EQ',
-                compareValue: optionValue,
-            },
-        ],
-    }];
+const unconditionalNextId = $derived(
+    nextQuestionConfig.find(questionConfig => questionConfig.when.length === 0)?.questionId ?? '',
+);
+
+const updateUnconditionalNext = (selectedQuestionId: string) => {
+    nextQuestionConfig = setUnconditionalJump(selectedQuestionId);
 };
 
 const createNewQuestion = () => {
@@ -113,7 +103,18 @@ const createNewQuestion = () => {
         </div>
     {/if}
 
-    {#if options}
+    {#if !options}
+        <div class="nc-stack -far mt-base">
+            <Select
+                label="Abweichende nächste Frage"
+                hint="Ersetzt die normale Reihenfolge für diese Frage"
+                options={allQuestionsOptions}
+                value={unconditionalNextId}
+                oninput={evt => updateUnconditionalNext((evt.target as HTMLSelectElement).value)}
+                required={false}
+            ></Select>
+        </div>
+    {:else}
         <div class="nc-stack -far mt-base">
             <SwitchInput
                 label="Gesonderte Reihenfolge festlegen?"
@@ -129,12 +130,12 @@ const createNewQuestion = () => {
                                 label="Wenn {option.title} ausgewählt, dann gehe zu"
                                 options={allQuestionsOptions}
                                 value={nextQuestionConfig.find(
-                                    questionConfig => questionConfig.when[0].compareValue === option.value,
+                                    questionConfig => questionConfig.when[0]?.compareValue === option.value,
                                 )?.questionId ?? ''}
                                 oninput={evt =>
                                 updateNextQuestionConfig(
                                     option.value,
-                                    (event?.target as HTMLInputElement).value,
+                                    (evt.target as HTMLSelectElement).value,
                                 )}
                                 required={false}
                             ></Select>

@@ -11,5 +11,6 @@ import { Navigation } from '$lib/common/config/Navigation.js';
     <ul>
         <li><a href={Navigation.editor.url}>{Navigation.editor.name}</a></li>
         <li><a href={Navigation.management.url}>{Navigation.management.name}</a></li>
+        <li><a href={Navigation.flow.url}>{Navigation.flow.name}</a></li>
     </ul>
 </div>

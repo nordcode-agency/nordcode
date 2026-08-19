@@ -1,6 +1,7 @@
 import { localStore } from '@nordcode/forms-svelte';
 import { type Option, type Question, type Questionnaire, QuestionType } from '@nordcode/questionnaire-renderer';
 import { nanoid } from 'nanoid';
+import { reorderQuestions } from './utils/reorderQuestions';
 
 const STORE_KEY = 'CURRENT_QUESTIONNAIRE';
 
@@ -96,14 +97,13 @@ export const removeQuestion = (questionToDelete: string) => {
     });
 };
 
-export const moveQuestion = (questionId: string, toIdx: number): void => {
+export const moveQuestion = (questionId: string, insertBeforeIdx: number): void => {
     currentQuestionnaire?.update((currentState) => {
-        const fromIdx = currentState.questionnaire.questionsOrder.indexOf(questionId);
-        const adjustedToIdx = fromIdx > toIdx ? toIdx + 1 : toIdx;
-
-        const updatedOrder = [...currentState.questionnaire.questionsOrder];
-        updatedOrder.splice(fromIdx, 1);
-        updatedOrder.splice(adjustedToIdx, 0, questionId);
+        const updatedOrder = reorderQuestions(
+            currentState.questionnaire.questionsOrder,
+            questionId,
+            insertBeforeIdx,
+        );
 
         return {
             errors: currentState.errors,

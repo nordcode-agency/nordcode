@@ -15,4 +15,8 @@ export const Navigation = {
         url: '/management',
         name: 'All questionnaires',
     },
+    flow: {
+        url: '/flow',
+        name: 'Flow',
+    },
 } as const;

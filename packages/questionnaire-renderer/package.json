@@ -7,6 +7,7 @@
         "preview": "vite preview",
         "package": "svelte-kit sync && svelte-package && publint",
         "prepublishOnly": "npm run package",
+        "test": "vitest run",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
     },
@@ -21,10 +22,12 @@
         "dist"
     ],
     "peerDependencies": {
-        "svelte": "^5",
-        "@nordcode/forms-svelte": "^1"
+        "@nordcode/forms-svelte": "^1",
+        "svelte": "^5"
     },
     "devDependencies": {
+        "@nordcode/forms-svelte": "workspace:^",
+        "@nordcode/ui": "workspace:^",
         "@sveltejs/adapter-auto": "7.0.0",
         "@sveltejs/kit": "2.20.6",
         "@sveltejs/package": "^2.5.4",
@@ -34,8 +37,7 @@
         "svelte-check": "4.3.3",
         "typescript": "5.9.3",
         "vite": "7.1.11",
-        "@nordcode/forms-svelte": "workspace:^",
-        "@nordcode/ui": "workspace:^"
+        "vitest": "^3.2.7"
     },
     "type": "module"
 }

@@ -148,7 +148,7 @@ export const goToNextQuestion = () => {
         const customNextConfig = store.questionnaire.questions[store.currentQuestionId].next;
 
         if (customNextConfig && customNextConfig.length > 0) {
-            const currentAnswer = store.answers[store.currentQuestionIdx].answer;
+            const currentAnswer = store.answers[store.currentQuestionIdx]?.answer;
 
             // this is a very simplistic implementation that regards most options
             // @todo: implement correctly and move elsewhere

@@ -24,15 +24,19 @@ const changedOrderConfig = $derived.by(() => {
         };
     }
 
-    // only when condition exists at the moment
-    const condition = question.next![0];
-    const nextQuestionId = condition.questionId;
-    const nextQuestion = $currentQuestionnaire?.questionnaire.questions[nextQuestionId];
-    const title = `Wenn "${condition.when[0]?.compareValue}", dann gehe zu "${nextQuestion?.title}"`;
+    const titles = question.next!.map((config) => {
+        const nextQuestion = $currentQuestionnaire?.questionnaire.questions[config.questionId];
+
+        if (config.when.length === 0) {
+            return `Gehe immer zu "${nextQuestion?.title}"`;
+        }
+
+        return `Wenn "${config.when[0]?.compareValue}", dann gehe zu "${nextQuestion?.title}"`;
+    });
 
     return {
         hasChangedOrder: true,
-        title,
+        title: titles.join('\n'),
     };
 });
 
@@ -103,21 +107,7 @@ const onDragOver = (event: DragEvent) => {
         return;
     }
 
-    const y = event.clientY;
-    const top = bounds.top;
-    const bottom = bounds.bottom;
-    const height = bounds.height;
-
-    // in upper third
-    if (y < top + height / 3) {
-        position = 'above';
-    } else if (y > bottom - height / 3) {
-        position = 'below';
-    } else {
-        position = undefined;
-    }
-
-    console.log(position);
+    position = event.clientY < bounds.top + bounds.height / 2 ? 'above' : 'below';
 };
 
 const onDragLeave = (event: DragEvent) => {
@@ -141,7 +131,7 @@ const onDrop = (event: DragEvent) => {
         return;
     }
     const questionsId = event.dataTransfer.getData('application/question-id');
-    const newIndex = position === 'above' ? Math.max(questionOrderIdx - 1, 0) : questionOrderIdx;
+    const newIndex = position === 'above' ? questionOrderIdx : questionOrderIdx + 1;
 
     if (document.startViewTransition) {
         document.startViewTransition(() => moveQuestion(questionsId, newIndex));

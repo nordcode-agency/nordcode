@@ -120,6 +120,7 @@ const orderedQuestions = $derived.by(() => {
                             </tbody>
                         </table>
                     </div>
+                    <a href={Navigation.flow.url}>Fragenfluss visualisieren</a>
                 </div>
             </fieldset>
 
