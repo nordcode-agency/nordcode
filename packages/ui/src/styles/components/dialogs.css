@@ -2,6 +2,7 @@
     :where(.nc-dialog) {
         --_dialog-padding-inline: var(--dialog-padding-inline, var(--spacing-base));
         --_dialog-close-size: var(--dialog-close-size, var(--control-height-base));
+        --_dialog-radius: var(--dialog-radius, var(--border-radius-medium));
 
         border: var(--border-width-thin) solid var(--color-border-base);
         inline-size: 100dvw;
@@ -11,7 +12,7 @@
         background: var(--color-surface-base);
         padding: 0;
         overflow: hidden;
-        border-radius: var(--dialog-radius, var(--border-radius-medium));
+        border-radius: var(--_dialog-radius);
 
         @media (min-width: 36rem) {
             inline-size: calc(100dvw - 2 * var(--layout-padding, var(--spacing-base)));

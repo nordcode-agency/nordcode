@@ -31,7 +31,7 @@
 
         --color-brand-primary-hover: light-dark(
             var(--color-brand-primary-hover-light),
-            var(--color-brand-primary-hover-light)
+            var(--color-brand-primary-hover-dark)
         );
 
         --color-brand-primary-contrast-lightness: light-dark(
@@ -114,7 +114,7 @@
 
         --color-status-info-hover: light-dark(
             var(--color-status-info-hover-light),
-            var(--color-status-info-hover-light)
+            var(--color-status-info-hover-dark)
         );
 
         --color-status-info-contrast-lightness: light-dark(
@@ -144,7 +144,7 @@
 
         --color-status-success-hover: light-dark(
             var(--color-status-success-hover-light),
-            var(--color-status-success-hover-light)
+            var(--color-status-success-hover-dark)
         );
 
         --color-status-success-contrast-lightness: light-dark(
@@ -174,7 +174,7 @@
 
         --color-status-warning-hover: light-dark(
             var(--color-status-warning-hover-light),
-            var(--color-status-warning-hover-light)
+            var(--color-status-warning-hover-dark)
         );
 
         --color-status-warning-contrast-lightness: light-dark(
@@ -204,7 +204,7 @@
 
         --color-status-danger-hover: light-dark(
             var(--color-status-danger-hover-light),
-            var(--color-status-danger-hover-light)
+            var(--color-status-danger-hover-dark)
         );
 
         --color-status-danger-contrast-lightness: light-dark(

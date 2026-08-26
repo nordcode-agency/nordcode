@@ -23,7 +23,7 @@
                 content: "";
                 border-right: var(--border-width-medium) solid var(--color-border-muted);
                 margin: 0 var(--control-spacing-base, 0.75em);
-                transform: calc(var(--border-width-medium) / 2);
+                transform: translateX(calc(var(--border-width-medium) / 2));
             }
         }
     }

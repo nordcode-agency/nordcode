@@ -5,7 +5,7 @@
         --_notification-border-color: var(--notification-border-color, var(--color-border-base));
         --_notification-center-background: var(
             --notification-center-background,
-            color-mix(in oklch, var(---color-surface-subtle), transparent 95%)
+            color-mix(in oklch, var(--color-surface-subtle), transparent 95%)
         );
     }
 

@@ -150,7 +150,7 @@
             transform: scale(0.85) translateX(2em);
             transition: transform var(--ease-out-2) var(--transition-duration-quick-1);
             font-family: var(--font-family-sans);
-            --font-weight: var(--font-weight-active);
+            font-weight: var(--font-weight-active);
             line-height: 1;
             color: var(--_input-background);
             clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
@@ -196,8 +196,7 @@
             margin-inline-start: auto;
         }
 
-        &::-webkit-slider-thumb,
-        &::-moz-range-thumb {
+        & :is(::-webkit-slider-thumb, ::-moz-range-thumb) {
             appearance: none;
             inline-size: calc(var(--control-height-base) * 0.625);
             block-size: calc(var(--control-height-base) * 0.625);

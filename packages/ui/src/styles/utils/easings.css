@@ -404,7 +404,7 @@
                 1ms
         );
 
-        @media (--motionNotOK) {
+        @media (prefers-reduced-motion: reduce) {
             --transition-duration-quick-1: 0ms;
             --transition-duration-quick-2: 0ms;
             --transition-duration-moderate-1: 0ms;

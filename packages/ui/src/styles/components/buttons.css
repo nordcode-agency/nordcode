@@ -208,7 +208,7 @@
         background-color: var(--_input-background);
         border: var(--_input-border);
         min-block-size: var(--control-height-base);
-        padding-inline-end: var(--contol-spacing-near, 0.5em);
+        padding-inline-end: var(--control-spacing-near, 0.5em);
         padding-inline-start: 0 !important;
         border-radius: var(--_input-border-radius);
     }
@@ -218,7 +218,7 @@
         background-color: var(--_button-background);
         color: var(--_button-color);
         padding-inline: var(--_button-padding-inline);
-        margin-inline-end: var(--contol-spacing-near, 0.5em);
+        margin-inline-end: var(--control-spacing-near, 0.5em);
         cursor: pointer;
         box-shadow: none;
         min-block-size: 100%;

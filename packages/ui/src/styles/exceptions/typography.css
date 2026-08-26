@@ -12,18 +12,14 @@
     font-size: var(--font-size-smallest);
 }
 
-.allcaps {
-    text-transform: capitalize;
-}
 
 .centered {
     text-align: center;
     text-wrap: balance;
 }
 
-.uppercase {
+.uppercase, .allcaps {
     text-transform: uppercase;
-    --opentype-case: on;
 }
 
 .smallcaps {

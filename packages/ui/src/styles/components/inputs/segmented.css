@@ -59,7 +59,7 @@
                 color: inherit;
             }
 
-            &button {
+            &:is(button) {
                 transform: none;
                 box-shadow: none;
                 border-radius: 0;
