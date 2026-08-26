@@ -1,4 +1,9 @@
-## 2.2.1 (2026-01-03)
+## 2.2.3
+
+### fixes
+
+- fixes lots of small issues, like typos and invalid rules. Deprecate some outdated syntax.
+
 
 ## 2.2.2
 
