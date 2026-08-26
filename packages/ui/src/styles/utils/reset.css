@@ -1,7 +1,7 @@
 @layer reset {
     *,
-    :after,
-    :before {
+    ::after,
+    ::before {
         box-sizing: border-box;
     }
 
@@ -49,11 +49,11 @@
         -webkit-font-smoothing: antialiased;
 
         hanging-punctuation: first allow-end last;
-        word-break: break-word;
+        overflow-wrap: break-word
     }
 
     :where(body) {
-        min-block-size: 100vh;
+        min-block-size: 100dvh;
 
         text-decoration-skip-ink: auto;
         font-optical-sizing: auto;

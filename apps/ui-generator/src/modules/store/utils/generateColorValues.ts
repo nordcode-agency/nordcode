@@ -43,7 +43,7 @@ const generateDarkColorValues = (
     const cTokenName = `--c-${tokenName}`;
     const hTokenName = `--h-${tokenName}`;
     const baseColorName = `--color-${tokenName}-base-${themeSuffix}`;
-    const contrastToken = colorDef.l > contrastCutOff ? 'var(--lightness-min)' : 'var(--lightness-max)';
+    const contrastToken = colorDef.lDark > contrastCutOff ? 'var(--lightness-min)' : 'var(--lightness-max)';
 
     return {
         [lTokenName]: `${colorDef.lDark / 100}`,

@@ -42,10 +42,6 @@
             opacity: 0;
         }
 
-        & {
-            transform: var(--transform-out);
-        }
-
         /* On Stage */
         &[open] {
             opacity: 1;

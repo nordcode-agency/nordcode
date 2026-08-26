@@ -12,8 +12,6 @@
     }
 
     :where(:root) {
-        --l-brand-primary: light-dark(var(--l-brand-primary-light), var(--l-brand-primary-dark));
-
         --color-brand-primary-emphasis: light-dark(
             var(--color-brand-primary-emphasis-light),
             var(--color-brand-primary-emphasis-dark)
@@ -32,11 +30,6 @@
         --color-brand-primary-hover: light-dark(
             var(--color-brand-primary-hover-light),
             var(--color-brand-primary-hover-dark)
-        );
-
-        --color-brand-primary-contrast-lightness: light-dark(
-            var(--color-brand-primary-contrast-lightness-light),
-            var(--color-brand-primary-contrast-lightness-dark)
         );
 
         --color-brand-primary-contrast: light-dark(
@@ -117,11 +110,6 @@
             var(--color-status-info-hover-dark)
         );
 
-        --color-status-info-contrast-lightness: light-dark(
-            var(--color-status-info-contrast-lightness-light),
-            var(--color-status-info-contrast-lightness-dark)
-        );
-
         --color-status-info-contrast: light-dark(
             var(--color-status-info-contrast-light),
             var(--color-status-info-contrast-dark)
@@ -145,11 +133,6 @@
         --color-status-success-hover: light-dark(
             var(--color-status-success-hover-light),
             var(--color-status-success-hover-dark)
-        );
-
-        --color-status-success-contrast-lightness: light-dark(
-            var(--color-status-success-contrast-lightness-light),
-            var(--color-status-success-contrast-lightness-dark)
         );
 
         --color-status-success-contrast: light-dark(
@@ -177,11 +160,6 @@
             var(--color-status-warning-hover-dark)
         );
 
-        --color-status-warning-contrast-lightness: light-dark(
-            var(--color-status-warning-contrast-lightness-light),
-            var(--color-status-warning-contrast-lightness-dark)
-        );
-
         --color-status-warning-contrast: light-dark(
             var(--color-status-warning-contrast-light),
             var(--color-status-warning-contrast-dark)
@@ -205,11 +183,6 @@
         --color-status-danger-hover: light-dark(
             var(--color-status-danger-hover-light),
             var(--color-status-danger-hover-dark)
-        );
-
-        --color-status-danger-contrast-lightness: light-dark(
-            var(--color-status-danger-contrast-lightness-light),
-            var(--color-status-danger-contrast-lightness-dark)
         );
 
         --color-status-danger-contrast: light-dark(

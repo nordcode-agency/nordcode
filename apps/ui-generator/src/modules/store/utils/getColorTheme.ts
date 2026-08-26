@@ -3,26 +3,7 @@ import { generateDarkBorderColorValues, generateLightBorderColorValues } from '.
 import { generateColorValues } from './generateColorValues';
 import { generateDarkSurfaceColorValues, generateLightSurfaceColorValues } from './generateSurfaceColorValues.ts';
 import { generateDarkTextColorValues, generateLightTextColorValues } from './generateTextColorValues.ts';
-import {
-    dangerHue,
-    getBorderDarkValues,
-    getBorderLightValues,
-    getDangerLightness,
-    getDarkColorValues,
-    getInfoLightness,
-    getLightColorValues,
-    getStatusDarkColorValues,
-    getStatusLightColorValues,
-    getSuccessLightness,
-    getSurfaceDarkValues,
-    getSurfaceLightValues,
-    getTextDarkValues,
-    getTextLightValues,
-    getWarningLightness,
-    infoHue,
-    successHue,
-    warningHue,
-} from './SharedThemeValues';
+import { dangerHue, infoHue, successHue, warningHue } from './SharedThemeValues';
 import type { AdapterMapFn } from './ThemeAdapters';
 
 export const getMappedColors = <T>(

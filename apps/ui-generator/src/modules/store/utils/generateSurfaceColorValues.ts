@@ -5,10 +5,6 @@ export type TextColorDefinition = {
     scalingFactor: number;
 };
 
-// this is tricky, because it's not completely uniform
-// the best contrast seems to be achieved by moving slightly upwards from the middle
-const contrastCutOff = 57;
-
 export const generateLightSurfaceColorValues = (
     tokenName: string,
     colorDef: TextColorDefinition,

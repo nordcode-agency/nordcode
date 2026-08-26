@@ -58,11 +58,11 @@
         }
 
         > * {
-            max-inline-size: var(--flow-base-meassure, 72ch);
+            max-inline-size: var(--flow-base-measure, 72ch);
         }
 
         > :is(h1, h2, h3, h4, h5, h6) {
-            max-inline-size: var(--flow-headline-meassure, 32ch);
+            max-inline-size: var(--flow-headline-measure, 32ch);
             --flow-gap: 1.5lh;
         }
 
@@ -216,9 +216,6 @@
             flex-grow: 1;
             flex-basis: calc((var(--switcher-target-container-width, 40rem) - 100%) * 999);
         }
-
-        /* Max 2 items,
-        so anything greater than 2 is ful width */
 
         & > :nth-child(n+4) {
             flex-basis: 100%;

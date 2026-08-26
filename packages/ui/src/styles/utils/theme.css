@@ -1,5 +1,5 @@
 @layer helpers.theme {
-    * {
+    :root {
         --text: var(--color-text-muted);
         --color: var(--color-text-muted);
         --surface: var(--color-surface-base);
@@ -33,18 +33,6 @@
         --color-hover: var(--color-brand-secondary-contrast);
         --surface-hover: var(--color-brand-secondary-base);
         --border-hover: var(--color-brand-secondary-base);
-    }
-
-    .-neutral {
-        --text: var(--color-text-muted);
-        --color: var(--color-text-muted);
-        --surface: var(--color-surface-base);
-        --border: var(--color-border-muted);
-
-        --text-hover: var(--color-text-on-emphasis);
-        --color-hover: var(--color-text-on-emphasis);
-        --surface-hover: var(--color-surface-emphasis);
-        --border-hover: var(--color-border-base);
     }
 
     .-muted {
