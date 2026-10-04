@@ -8,17 +8,6 @@
         --_card-padding-block: var(--card-padding-block, var(--spacing-far));
         --_card-border-radius: var(--card-border-radius, var(--border-radius-large));
 
-        &[data-size="xs"] {
-            --_card-padding-inline: var(--card-padding-inline, var(--spacing-nearest));
-            --_card-padding-block: var(--card-padding-block, var(--spacing-near));
-            --_card-border-radius: var(--card-border-radius, var(--border-radius-medium));
-        }
-
-        &[data-size="sm"] {
-            --_card-padding-inline: var(--card-padding-inline, var(--spacing-near));
-            --_card-padding-block: var(--card-padding-block, var(--spacing-base));
-        }
-
         inline-size: 100%;
         display: inline-block;
         box-sizing: border-box;
@@ -35,6 +24,17 @@
         box-shadow: var(--_card-shadow);
 
         transition: border-color var(--transition-duration-quick-2) var(--ease-2);
+
+        &[data-size="xs"] {
+            --_card-padding-inline: var(--card-padding-inline, var(--spacing-nearest));
+            --_card-padding-block: var(--card-padding-block, var(--spacing-near));
+            --_card-border-radius: var(--card-border-radius, var(--border-radius-medium));
+        }
+
+        &[data-size="sm"] {
+            --_card-padding-inline: var(--card-padding-inline, var(--spacing-near));
+            --_card-padding-block: var(--card-padding-block, var(--spacing-base));
+        }
 
         @media (width >= 480px) {
             --_card-padding-inline: var(--card-padding-inline, var(--spacing-far));
