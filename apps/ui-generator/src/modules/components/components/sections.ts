@@ -42,6 +42,9 @@ import clickableCardWithReadMore from '../examples/navigation/clickableCardWithR
 import tableHorizontal from '../examples/table/tableHorizontal.html?raw';
 import tableStandard from '../examples/table/tableStandard.html?raw';
 
+import tooltip from "../examples/tooltips/tooltip.html?raw"
+import tooltipPositions from "../examples/tooltips/tooltipPositions.html?raw"
+
 import { slugify } from '../../common/utils/slugify';
 import { buttonVariables } from '../cssVariables/buttonVariables';
 import { buttonModifiers } from '../modifiers/buttonModifiers';
@@ -79,6 +82,7 @@ import switcherPreview from '../cardPreviews/Switcher.svg?raw';
 import tablePreview from '../cardPreviews/Table.svg?raw';
 import tagSelectPreview from '../cardPreviews/TagSelect.svg?raw';
 import textareaPreview from '../cardPreviews/TextArea.svg?raw';
+import tooltipPreview from "../cardPreviews/Tooltip.svg?raw";
 import withSidebarPreview from '../cardPreviews/WithSidebar.svg?raw';
 
 interface Component {
@@ -340,6 +344,26 @@ const sections: Array<Section> = [
                 preview: tagSelectPreview,
             },
         ],
+    },
+    {
+        title: "Feedback",
+        components: [
+            {
+                title: "Tooltip",
+                component: tooltip,
+                description: "Provides ADDITIONAL information on hover or focus. You know the drill.",
+                preview: tooltipPreview,
+                examples: [
+                    {
+                        title: "All positions",
+                        description: "If you need to position it to the bottom or to either side.",
+                        code: tooltipPositions,
+                    }
+
+                ]
+            },
+        ]
+
     },
     {
         title: 'Data Display',
