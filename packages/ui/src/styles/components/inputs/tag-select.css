@@ -13,7 +13,7 @@
         --nc-legend-spacing: var(--control-spacing-near, 0.5em);
 
         &:focus-within:has(:focus-visible) {
-            outline-offset: var(--controls-spacing-near, 0.5em);
+            outline-offset: var(--control-spacing-near, 0.5em);
             outline: var(--_input-outline);
             border-radius: var(--_tag-select-border-radius);
         }

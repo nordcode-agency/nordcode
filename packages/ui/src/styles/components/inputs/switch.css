@@ -6,6 +6,7 @@
         --_switch-color-checked: var(--switch-color-checked, var(--color-brand-primary-base));
         --_thumb-margin: var(--thumb-margin, calc(var(--_switch-width) / 12));
         --_thumb-color: var(--thumb-color, var(--_input-color));
+        --_thumb-direction: 1;
 
         vertical-align: var(--_thumb-margin);
         inline-size: var(--_switch-width);
@@ -14,12 +15,16 @@
         --current-checkbox-bg: var(--_switch-color);
         justify-content: flex-start;
 
-        &:before {
+        &:dir(rtl) {
+            --_thumb-direction: -1;
+        }
+
+        &::before {
             content: "";
             display: block;
             aspect-ratio: 1;
             margin-block: var(--_thumb-margin);
-            transform: translateX(var(--_thumb-margin));
+            transform: translateX(calc(var(--_thumb-direction) * var(--_thumb-margin)));
             block-size: calc(100% - 2 * var(--_thumb-margin));
             inline-size: unset;
             background-color: var(--_thumb-color);
@@ -35,8 +40,8 @@
             --current-checkbox-bg: var(--_switch-color-checked);
         }
 
-        &:checked:before {
-            transform: translateX(calc(var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin)));
+        &:checked::before {
+            transform: translateX(calc(var(--_thumb-direction) * (var(--_switch-width) - var(--_switch-height) + var(--_thumb-margin))));
             --_thumb-color: var(--thumb-color-checked, var(--_input-background));
         }
     }

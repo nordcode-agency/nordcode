@@ -73,7 +73,7 @@
                 outline: none;
             }
 
-            &:before {
+            &::before {
                 content: "";
                 position: absolute;
                 inset: 0;
@@ -85,7 +85,7 @@
         }
 
         &:has(a[data-link="main"]:active) {
-            transform: scale(0.99);
+            scale: 0.99;
         }
     }
 }

@@ -131,14 +131,14 @@
 
         & > [data-aside] {
             flex-grow: 1;
-            min-width: min-content;
+            min-inline-size: min-content;
             flex-basis: var(--with-sidebar-target-width, 20rem);
         }
 
         & > [data-grow] {
             flex-basis: 0;
             flex-grow: 999;
-            min-width: var(--with-sidebar-min-size, 50%);
+            min-inline-size: var(--with-sidebar-min-size, 50%);
         }
 
         &[data-direction="rtl"] {
@@ -157,10 +157,10 @@
     configurable grid item sizes
 
     CUSTOM PROPERTIES AND CONFIGURATION
-    --gutter (var(--space-s-m)): This defines the space
+    --grid-gap (var(--spacing-base)): This defines the space
     between each item.
 
-    --grid-min-item-size (14rem): How large each item should be
+    --grid-min-item-size (16rem): How large each item should be
     ideally, as a minimum.
 
     --grid-placement (auto-fill): Set either auto-fit or auto-fill
@@ -171,7 +171,7 @@
         grid-template-columns:
             repeat(
             var(--grid-placement, auto-fill),
-            minmax(var(--grid-min-item-size, 16rem), 1fr)
+            minmax(min(var(--grid-min-item-size, 16rem), 100%), 1fr)
         );
         gap: var(--grid-gap, var(--spacing-base));
 
@@ -197,7 +197,7 @@
     until there is not enough horizontal space to allow that.
 
     CUSTOM PROPERTIES AND CONFIGURATION
-    --gutter (var(--space-size-1)): This defines the space
+    --switcher-gap (var(--spacing-base)): This defines the space
     between each item
 
     --switcher-target-container-width (40rem): How large the container
@@ -243,7 +243,7 @@
         --_nc-ram-grid-repeat-count: var(--nc-ram-grid-repeat-count, auto-fit);
 
         display: grid;
-        gap: var(--_nc-ram-grid-gap-column) var(--_nc-ram-grid-gap-row);
+        gap: var(--_nc-ram-grid-gap-row) var(--_nc-ram-grid-gap-column);
         grid-template-columns:
             repeat(
             var(--_nc-ram-grid-repeat-count),

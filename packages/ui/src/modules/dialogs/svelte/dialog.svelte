@@ -1,10 +1,13 @@
 <script lang="ts">
+import type { Snippet } from 'svelte';
+
 interface DialogProps {
     heading: string;
     id: string;
+    children?: Snippet;
 }
 
-let { heading, id }: DialogProps = $props();
+let { heading, id, children }: DialogProps = $props();
 </script>
 
 <dialog
@@ -19,8 +22,7 @@ let { heading, id }: DialogProps = $props();
             <button data-closes-dialog>×</button>
         </div>
         <div class="dialog-content">
-            <slot />
-            <button data-opens-dialog="dialog-2">Show me the next dialog</button>
+            {@render children?.()}
         </div>
     </form>
 </dialog>

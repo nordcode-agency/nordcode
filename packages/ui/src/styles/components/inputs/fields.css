@@ -23,7 +23,7 @@
         color: var(--color-base);
         font-size: var(--font-size-small);
 
-        &:before {
+        &::before {
             content: "!";
             font-family: var(--font-family-default);
             letter-spacing: var(--tracking-tight);

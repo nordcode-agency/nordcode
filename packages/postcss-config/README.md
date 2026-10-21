@@ -24,14 +24,14 @@ pnpm add -D @nordcode/postcss-config
 
 Following the getting started section allows you to extend the postcss config in your project with any plugin you like.
 
-A common scenario is the usage of custom media queries like offered by `@nordcode/ui/media`. You can achieve this by adding the [`@csstools/postcss-global-data`](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-global-data#readme) to your app.
+A common scenario is the usage of custom media queries like offered by `@nordcode/ui/utils/media`. You can achieve this by adding the [`@csstools/postcss-global-data`](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-global-data#readme) to your app.
 
 Extend `postcss.config.cjs` as follows:
 
 ```js
 const config = require('@nordcode/postcss-config');
 const postcssGlobalData = require('@csstools/postcss-global-data');
-const customMediaUrl = require.resolve('@nordcode/ui/media');
+const customMediaUrl = require.resolve('@nordcode/ui/utils/media');
 
 module.exports = {
     plugins: [

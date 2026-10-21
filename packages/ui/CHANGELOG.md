@@ -1,3 +1,38 @@
+## 2.4.0
+
+### features
+
+- tooltips anchor to their `.nc-has-tooltip` by default, inline `anchor-name`/`position-anchor` are optional now
+- add a positioning fallback for tooltips in browsers without anchor positioning
+- add `--disabled-filter` token, used for all disabled elements, buttons and inputs
+- add default `--triangle-*-url-light/dark` icons, so selects have an arrow without extra config
+- export `@nordcode/ui/components/tooltips` and `@nordcode/ui/utils/conditionalRadius`
+
+### fixes
+
+- fix range thumb styles never being applied
+- fix `data-size` being ignored for icons inside buttons
+- fix switch and horizontal segmented control in RTL
+- fix segmented control and tag select missing input styles outside of `.nc-input-field`
+- fix select arrow in browsers without `light-dark()` image support
+- fix `inline-end` tooltip transition, breadcrumb colors, tag select focus outline offset, swapped `.nc-ram-grid` gaps
+- fix hover overriding the focus background of inputs
+- fix pointer cursor on text inputs without a `type` attribute
+- fix the font reset being dropped in Firefox (`::file-selector-button` instead of `::-webkit-file-upload-button`)
+- fix clickable card `:active` scale not transitioning
+- `.nc-grid` no longer overflows containers smaller than its min item size
+- `--*-only` custom media no longer overlap at their boundaries
+- fix `./compiled/bundle-configless` and `./config` exports
+- notifications: fix "dismiss all" stopping early, escape ids in selectors, make the closed notification center inert
+- dialog svelte component: remove leftover demo button, use snippets instead of `<slot />`
+
+### changes
+
+- disabled elements use `contrast(0.72) opacity(0.72)` everywhere (was 0.64 for non-buttons)
+- remove dead or unsupported CSS (`a:visited` opacity, `-webkit-overflow-scrolling`, unsupported `hyphenate-limit-*`, unused variables)
+- use `::before`/`::after`, logical properties and individual transform properties (`scale`, `rotate`) where possible
+- spinning icons slow down for users who prefer reduced motion
+
 ## 2.3.0
 
 ### features

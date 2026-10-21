@@ -12,7 +12,7 @@
         "type": "git",
         "url": "https://github.com/nordcode-agency/nordcode/tree/main/packages/ui"
     },
-    "version": "2.3.0",
+    "version": "2.4.0",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "./complete": "./src/styles/complete.css",
         "./complete-configless": "./src/styles/complete_configless.css",
         "./compiled/bundle": "./out/bundle.css",
-        "./compiled/bundle-configless": "./out/bundle-configless.css",
+        "./compiled/bundle-configless": "./out/bundle_configless.css",
         "./compiled/complete": "./out/complete.css",
         "./compiled/complete-configless": "./out/complete_configless.css",
         "./compiled/colors": "./out/colors.css",
@@ -34,6 +34,7 @@
         "./utils/easings": "./src/styles/utils/easings.css",
         "./utils/layouts": "./src/styles/utils/layouts.css",
         "./utils/theme": "./src/styles/utils/theme.css",
+        "./utils/conditionalRadius": "./src/styles/utils/conditionalRadius.css",
         "./components": "./src/styles/components/bundle.css",
         "./components/alerts": "./src/styles/components/alerts.css",
         "./components/badges": "./src/styles/components/badges.css",
@@ -47,6 +48,7 @@
         "./components/lists": "./src/styles/components/lists.css",
         "./components/notifications": "./src/styles/components/notifications.css",
         "./components/tables": "./src/styles/components/tables.css",
+        "./components/tooltips": "./src/styles/components/tooltips.css",
         "./components/inputs": "./src/styles/components/inputs/bundle.css",
         "./components/inputs/base": "./src/styles/components/inputs/base.css",
         "./components/inputs/fields": "./src/styles/components/inputs/fields.css",
@@ -58,7 +60,7 @@
         "./exceptions/typography": "./src/styles/exceptions/typography.css",
         "./exceptions/misc": "./src/styles/exceptions/misc.css",
         "./colors": "./src/styles/theme/colors.css",
-        "./config": "./src/styles/config.css",
+        "./config": "./src/styles/config/bundle.css",
         "./logo": "./src/assets/logos/nordcode-logo.svg",
         "./ArrowRightSolid": "./src/assets/icons/ArrowRightSolid.svelte",
         "./src/modules/dialogs/": "./src/modules/dialogs/",

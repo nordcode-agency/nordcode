@@ -21,7 +21,6 @@
         overflow-x: auto;
         overscroll-behavior-inline: contain;
         scroll-snap-type: inline mandatory;
-        scroll-snap-stop: normal;
         scroll-padding-inline: var(--gallery-scroll-padding-inline, var(--spacing-base));
         list-style: none;
 
@@ -30,7 +29,6 @@
         }
 
         & > * {
-            display: inline-block;
             scroll-snap-align: start;
             flex: 0 0 var(--gallery-item-size, auto);
         }
@@ -39,31 +37,34 @@
             scrollbar-color: var(--gallery-scrollbar-fg, var(--color-text-on-emphasis))
                 var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
 
-            &::-webkit-scrollbar {
-                block-size: var(--gallery-scrollbar-height, var(--spacing-base));
-            }
+            /* Legacy fallback, Chromium ignores it once scrollbar-color is supported */
+            @supports not (scrollbar-color: auto) {
+                &::-webkit-scrollbar {
+                    block-size: var(--gallery-scrollbar-height, var(--spacing-base));
+                }
 
-            &::-webkit-scrollbar-track {
-                background-color: var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
-            }
+                &::-webkit-scrollbar-track {
+                    background-color: var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
+                }
 
-            &::-webkit-scrollbar-thumb {
-                background-color: var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
-                background-image: linear-gradient(
-                    var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) 0,
-                    var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) calc(
-                        var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25
-                    ),
-                    var(--gallery-scrollbar-fg, var(--color-text-on-emphasis)) calc(
-                        var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25
-                    ),
-                    var(--gallery-scrollbar-fg, var(--color-text-on-emphasis)) calc(
-                        var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75
-                    ),
-                    var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) calc(
-                        var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75
-                    )
-                );
+                &::-webkit-scrollbar-thumb {
+                    background-color: var(--gallery-scrollbar-bg, var(--color-surface-emphasis));
+                    background-image: linear-gradient(
+                        var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) 0,
+                        var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) calc(
+                            var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25
+                        ),
+                        var(--gallery-scrollbar-fg, var(--color-text-on-emphasis)) calc(
+                            var(--gallery-scrollbar-height, var(--spacing-base)) * 0.25
+                        ),
+                        var(--gallery-scrollbar-fg, var(--color-text-on-emphasis)) calc(
+                            var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75
+                        ),
+                        var(--gallery-scrollbar-bg, var(--color-surface-emphasis)) calc(
+                            var(--gallery-scrollbar-height, var(--spacing-base)) * 0.75
+                        )
+                    );
+                }
             }
         }
     }

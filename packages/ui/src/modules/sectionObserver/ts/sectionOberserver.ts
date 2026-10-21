@@ -8,14 +8,7 @@ const buildThresholds = (steps: number) => {
 };
 
 const createObserver = (selector: string, steps: number) => {
-    // if the browser does not support the IntersectionObserver API, return
-    if (!('IntersectionObserver' in window)) {
-        return;
-    }
-
     const options = {
-        root: null,
-        rootMargin: '0px',
         threshold: buildThresholds(steps),
     };
 

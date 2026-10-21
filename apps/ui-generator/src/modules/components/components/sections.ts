@@ -123,7 +123,7 @@ const sections: Array<Section> = [
                 requirements: [
                     '@nordcode/ui/colors',
                     '@nordcode/ui/utils/theme',
-                    '@nordcode/ui/components/button',
+                    '@nordcode/ui/components/buttons',
                 ],
                 component: buttonBase,
                 modifiers: [...buttonModifiers, ...colorUtilModifiers],
@@ -155,7 +155,7 @@ const sections: Array<Section> = [
                 requirements: [
                     '@nordcode/ui/colors',
                     '@nordcode/ui/utils/theme',
-                    '@nordcode/ui/components/button',
+                    '@nordcode/ui/components/buttons',
                     '@nordcode/ui/components/icons',
                 ],
                 component: buttonIcon,
@@ -421,7 +421,7 @@ const sections: Array<Section> = [
                 requirements: [
                     '@nordcode/ui/colors',
                     '@nordcode/ui/utils/theme',
-                    '@nordcode/ui/components/cards',
+                    '@nordcode/ui/components/card',
                 ],
                 description:
                     'Clickable cards are a common way to display article links or products. They are oftentimes used wrongly, so this should guide you well.',

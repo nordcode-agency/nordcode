@@ -3,6 +3,8 @@
         accent-color: var(--color-brand-primary-base);
         caret-color: var(--color-brand-primary-base);
         scrollbar-color: var(--color-text-subtle) transparent;
+
+        --disabled-filter: contrast(0.72) opacity(0.72);
     }
 
     :where(dt) {
@@ -38,7 +40,7 @@
 
     @container description-list (min-width: 30rem) {
         :where(dt) {
-            grid-column: 1 / 1;
+            grid-column: 1;
             padding-inline-end: var(--control-spacing-base, 1em);
             padding-block-end: 0;
             min-block-size: 100%;
@@ -50,7 +52,7 @@
         }
 
         :where(dd) {
-            grid-column: 2 / 2;
+            grid-column: 2;
             min-block-size: 100%;
         }
     }
@@ -88,7 +90,6 @@
 
         background-color: var(--color-surface-muted);
         border-radius: var(--b-r-details);
-        /* border: var(--border-width-thin) solid var(--color-border-base); */
         padding: var(--p-y-details) var(--p-x-details);
         inline-size: 100%;
         box-shadow: 0 0 0 var(--border-width-thin) var(--color-border-base);
@@ -109,8 +110,12 @@
         }
     }
 
-    .note,
-    blockquote {
+    :where(cite) {
+        font-family: var(--font-family-serif);
+        font-style: normal;
+    }
+
+    :where(.note, blockquote) {
         padding: 0;
         padding-inline-start: var(--control-spacing-far, 1em);
         inline-size: 100%;
@@ -124,11 +129,11 @@
         & p {
             max-inline-size: var(--measure-base);
 
-            &:first-of-type:before {
+            &:first-of-type::before {
                 content: open-quote;
             }
 
-            &:last-of-type:after {
+            &:last-of-type::after {
                 content: close-quote;
             }
         }
@@ -146,15 +151,10 @@
             );
         }
 
-        & cite:before {
+        & cite::before {
             content: "—";
             margin-inline-end: var(--control-spacing-near, 0.5em);
         }
-    }
-
-    cite {
-        font-family: var(--font-family-serif);
-        font-style: normal;
     }
 
     :where(hr) {
@@ -216,10 +216,6 @@
         cursor: pointer;
         letter-spacing: var(--tracking-tight);
 
-        &:visited {
-            opacity: 0.72;
-        }
-
         &:hover {
             text-decoration-color: var(--color-brand-primary-base);
         }
@@ -250,7 +246,7 @@
         color: inherit;
         opacity: 1;
         cursor: not-allowed;
-        filter: contrast(0.64) opacity(0.64);
+        filter: var(--disabled-filter);
     }
 
     :where(del, ins, mark, code, kbd, var) {
@@ -299,7 +295,6 @@
         border: var(--border-width-medium) solid var(--color-border-base);
         border-radius: var(--border-radius-medium);
         background: var(--color-surface-subtle);
-        -webkit-overflow-scrolling: touch;
 
         & code {
             white-space: pre;
@@ -314,7 +309,7 @@
         inline-size: 100%;
         border-collapse: separate;
         border-spacing: 0;
-        text-align: left;
+        text-align: start;
         border: var(--border-width-medium) solid var(--color-border-base);
         border-radius: var(--_nc-table-border-radius);
         font-variant-numeric: tabular-nums lining-nums;
@@ -340,7 +335,6 @@
         padding: var(--control-spacing-near, 0.5em);
         line-height: var(--line-height-small);
         white-space: nowrap;
-        font-variant-numeric: tabular-nums;
     }
 
     :where(td) {
@@ -356,6 +350,7 @@
     }
 
     :where(th) {
+        font-variant-numeric: tabular-nums;
         font-weight: var(--font-weight-active);
         color: var(--color-text-muted);
         background-color: var(--color-surface-subtle);
@@ -444,10 +439,10 @@
     11. Quotes
     */
 
-    :lang(en) > * {
+    :where(:lang(en) > *) {
         quotes: "“" "”" "‘" "’";
     }
-    :lang(de) > * {
+    :where(:lang(de) > *) {
         quotes: "„" "“" "‚" "‘";
     }
 
@@ -460,14 +455,12 @@
 
     :where(.quoted p:first-of-type::before) {
         content: "“";
+        margin-inline-start: calc(-1 * var(--control-spacing-near, 0.5em));
     }
     :where(.quoted p:last-of-type::after) {
         content: "”";
     }
 
-    :where(.quoted p:first-of-type::before) {
-        margin-inline-start: calc(-1 * var(--control-spacing-near, 0.5em));
-    }
     :where(.quoted p) {
         hanging-punctuation: first last;
     }
@@ -480,9 +473,6 @@
     :where(.prose) {
         hyphens: auto;
         hyphenate-limit-chars: 7 4 3;
-        hyphenate-limit-lines: 2;
-        hyphenate-limit-zone: 8%;
-        hyphenate-limit-last: always;
         text-wrap: pretty;
 
         & p {

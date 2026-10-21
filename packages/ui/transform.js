@@ -8,57 +8,22 @@ const browserlistTargtsWidelyAvailable = [
 
 const targets = browserslistToTargets(browserslist(browserlistTargtsWidelyAvailable));
 
-const { code: colors } = bundle({
-    // ...
-    targets,
-    drafts: {
-        customMedia: true,
-    },
-    filename: 'src/styles/theme/colors.css',
-});
+const entries = {
+    'src/styles/theme/colors.css': 'out/colors.css',
+    'src/styles/bundle.css': 'out/bundle.css',
+    'src/styles/bundle_configless.css': 'out/bundle_configless.css',
+    'src/styles/complete.css': 'out/complete.css',
+    'src/styles/complete_configless.css': 'out/complete_configless.css',
+};
 
-fs.writeFileSync('out/colors.css', colors);
+for (const [filename, outFile] of Object.entries(entries)) {
+    const { code } = bundle({
+        targets,
+        drafts: {
+            customMedia: true,
+        },
+        filename,
+    });
 
-const { code } = bundle({
-    // ...
-    targets,
-    drafts: {
-        customMedia: true,
-    },
-    filename: 'src/styles/bundle.css',
-});
-
-fs.writeFileSync('out/bundle.css', code);
-
-const { code: bundleConfigless } = bundle({
-    // ...
-    targets,
-    drafts: {
-        customMedia: true,
-    },
-    filename: 'src/styles/bundle_configless.css',
-});
-
-fs.writeFileSync('out/bundle_configless.css', bundleConfigless);
-
-const { code: codeComplete } = bundle({
-    // ...
-    targets,
-    drafts: {
-        customMedia: true,
-    },
-    filename: 'src/styles/complete.css',
-});
-
-fs.writeFileSync('out/complete.css', codeComplete);
-
-const { code: codeCompleteConfigless } = bundle({
-    // ...
-    targets,
-    drafts: {
-        customMedia: true,
-    },
-    filename: 'src/styles/complete_configless.css',
-});
-
-fs.writeFileSync('out/complete_configless.css', codeCompleteConfigless);
+    fs.writeFileSync(outFile, code);
+}

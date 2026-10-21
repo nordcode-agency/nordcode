@@ -15,7 +15,7 @@ https://github.com/web-platform-dx/browserslist-config-baseline
 ### Bundle
 
 `bundle.css`
-Imported as `"@nordcode/compiled/bundle"` / `"@nordcode/bundle"`:
+Imported as `"@nordcode/ui/compiled/bundle"` / `"@nordcode/ui/bundle"`:
 
 This is the a good starting point for most. It includes base styles and utilities, but no components.
 You can start right away with this one, as it includes our color palette and config.
@@ -26,14 +26,14 @@ You can grab your from our Design Config generator: [https://design-ui.nordcode.
 ### Complete
 
 `complete.css`
-Imported as `"@nordcode/compiled/complete"` / `"@nordcode/complete"`:
+Imported as `"@nordcode/ui/compiled/complete"` / `"@nordcode/ui/complete"`:
 
 This one is the full package. All our styles and included.
 
 First, add all the base styles by importing:
 
 ```css
-@import "@nordcode/compiled/bundle";
+@import "@nordcode/ui/compiled/bundle";
 ```
 
 ### Granular
@@ -45,10 +45,10 @@ Check out the package.json for a full list.
 
 All components heavily rely on `@nordcode/ui/colors` for their default styles, but can be overriden using CSS custom properties.
 
-- Many components use classes from `@norcode/ui/utils/layouts.css` internally.
-- `@norcode/ui/buttons.css` depends on `@nordcode/ui/utils/theme.css`.
-- `@norcode/ui/badges.css` depends on `@nordcode/ui/utils/theme.css`.
-- `@norcode/ui/inputs/*.css` all depend on `@nordcode/ui/inputs/base.css`. Be sure to import that first.
+- Many components use classes from `@nordcode/ui/utils/layouts` internally.
+- `@nordcode/ui/components/buttons` depends on `@nordcode/ui/utils/theme`.
+- `@nordcode/ui/components/badges` depends on `@nordcode/ui/utils/theme`.
+- `@nordcode/ui/components/inputs/*` all depend on `@nordcode/ui/components/inputs/base`. Be sure to import that first.
 
 ## Using Components
 
@@ -60,12 +60,12 @@ You can of course adapt them to your needs or copy them directly.
 We also provide our font packages for ease of use. You can import them like this:
 
 ```css
-@import "@nordcode/fonts";
+@import "@nordcode/ui/fonts";
 ```
 
 ## Extras
 
-There are some utility svelte and typescript modules exported under `@nordcode/modules`.
+There are some utility svelte and typescript modules exported under `@nordcode/ui/src/modules/`.
 They are not strictly part of the design system, but can be useful for your projects.
 
 **Note**: They may be removed in the future. Use them at your own risk.

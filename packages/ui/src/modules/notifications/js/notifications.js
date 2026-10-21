@@ -42,6 +42,8 @@ export const Selector = {
 /** @type {Set<string>} */
 const notifications = new Set();
 
+let notificationCount = 0;
+
 /** @type {function(): HTMLTemplateElement | null} */
 const getNotificationTemplate = () => document.querySelector(Selector.notificationTemplate);
 
@@ -66,7 +68,8 @@ const getNotificationCenterContainer = () => document.querySelector(Selector.not
  * @return {`${string}-${number}`}
  */
 const createNotificationId = (title) => {
-    return `${title}-${Date.now()}`;
+    notificationCount += 1;
+    return `${title}-${Date.now()}-${notificationCount}`;
 };
 
 /**
@@ -92,10 +95,10 @@ const setElementTextIfItExists = (notification, selector, text) => {
 const dismissAllNotifications = () => {
     for (const notificationId of notifications) {
         /** @type {HTMLElement | null} */
-        const notification = document.querySelector(`[data-notification-id="${notificationId}"]`);
+        const notification = document.querySelector(`[data-notification-id="${CSS.escape(notificationId)}"]`);
 
         if (!notification) {
-            return;
+            continue;
         }
 
         removeNotification(notificationId, notification);
@@ -130,8 +133,20 @@ const setupNotificationButtons = () => {
 
     for (const button of getNotificationCenterToggle()) {
         button.addEventListener('click', () => {
-            getNotificationCenter()?.classList.toggle('-open');
+            const notificationCenter = getNotificationCenter();
+            if (!notificationCenter) {
+                return;
+            }
+
+            const isOpen = notificationCenter.classList.toggle('-open');
+            notificationCenter.inert = !isOpen;
         });
+    }
+
+    const notificationCenter = getNotificationCenter();
+    if (notificationCenter) {
+        // keep the off-screen notification center out of the tab order
+        notificationCenter.inert = !notificationCenter.classList.contains('-open');
     }
 };
 
@@ -139,7 +154,13 @@ const setupNotificationButtons = () => {
  * Hide the notification center
  */
 const closeNavigationCenter = () => {
-    getNotificationCenter()?.classList?.remove('-open');
+    const notificationCenter = getNotificationCenter();
+    if (!notificationCenter) {
+        return;
+    }
+
+    notificationCenter.classList.remove('-open');
+    notificationCenter.inert = true;
 };
 
 /**
@@ -210,7 +231,7 @@ export const addNotification = (title, description) => {
     setTimeout(() => {
         /** @type {HTMLElement | null} */
         const notification = notificationOutput.querySelector(
-            `[data-notification-id="${notificationId}"]`,
+            `[data-notification-id="${CSS.escape(notificationId)}"]`,
         );
 
         if (!notification) {
@@ -280,7 +301,7 @@ const removeNotification = (notificationId, notification, removeId = true) => {
 const removeAllNotificationsWithId = (notificationId) => {
     /** @type {NodeListOf<HTMLElement>} */
     const relatedNotifications = document.querySelectorAll(
-        `[data-notification-id="${notificationId}"]`,
+        `[data-notification-id="${CSS.escape(notificationId)}"]`,
     );
 
     for (const n of relatedNotifications) {

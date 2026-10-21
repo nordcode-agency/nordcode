@@ -1,5 +1,5 @@
 @layer components.buttons {
-    :where(button, input[type="button"], input[type="submit"], input[type="reset"], input[type="file"], input[type="file"]::file-selector-button, .nc-button) {
+    :where(button, input[type="button"], input[type="submit"], input[type="reset"], input[type="file"], .nc-button) {
         --_button-background: var(--button-background, var(--surface-hover));
         --_button-color: var(--button-color, var(--text-hover));
         --_button-border-color: var(--button-border-color, var(--surface-hover));
@@ -47,7 +47,7 @@
         line-height: var(--line-height-base);
     }
 
-    :where(button, button[type], input[type="button"], input[type="submit"], input[type="reset"], .nc-button) {
+    :where(button, input[type="button"], input[type="submit"], input[type="reset"], .nc-button) {
         &:hover {
             background: var(--_button-background-hover);
             color: var(--_button-color-hover);
@@ -169,13 +169,13 @@
      * it is assumed that an `aria-label` is that
      * and the button will be styled as an icon button.
      */
-    :is([aria-label], .-icon):where(button, button, input[type="button"], input[type="submit"], input[type="reset"], .nc-button) {
+    :is([aria-label], .-icon):where(button, input[type="button"], input[type="submit"], input[type="reset"], .nc-button) {
         --_button-border-radius: var(--border-radius-round);
         padding: 0;
         aspect-ratio: 1;
         fill: currentColor;
 
-        &:after {
+        &::after {
             content: "";
             inline-size: max(var(--control-height-base), 100%);
             block-size: max(var(--control-height-base), 100%);
@@ -185,7 +185,7 @@
             inset-block-start: calc(-0.5 * (var(--control-height-base) - 100%));
             position: absolute;
             z-index: -1;
-            pointer-events: all;
+            pointer-events: auto;
         }
     }
 
@@ -199,7 +199,7 @@
 
         box-shadow: none !important;
         transform: none !important;
-        filter: contrast(0.72) opacity(0.72);
+        filter: var(--disabled-filter);
         cursor: not-allowed;
     }
 

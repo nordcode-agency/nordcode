@@ -103,7 +103,7 @@ htmlEl?.addEventListener('click', (e: MouseEvent) => {
 
     if (el.hasAttribute('data-dialogtarget')) {
         const dialogId = el.getAttribute('data-dialogtarget');
-        if (dialogId) window[dialogId].showModal();
+        if (dialogId) (document.getElementById(dialogId) as HTMLDialogElement | null)?.showModal();
     }
 
     if (el.hasAttribute('data-closes-dialog')) {
