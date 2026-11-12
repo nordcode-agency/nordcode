@@ -133,6 +133,9 @@
                 <div class="nc-box" style="box-shadow: var(--shadow-inset)">
                     <small>Shadow inset</small>
                 </div>
+                <div class="nc-box" style="box-shadow: var(--shadow-inset-deep)">
+                    <small>Shadow inset deep</small>
+                </div>
                 <div class="nc-box" style="box-shadow: var(--shadow-nearest)">
                     <small>Shadow nearest</small>
                 </div>
@@ -144,6 +147,9 @@
                 </div>
                 <div class="nc-box" style="box-shadow: var(--shadow-far)">
                     <small>Shadow far</small>
+                </div>
+                <div class="nc-box" style="box-shadow: var(--shadow-farthest)">
+                    <small>Shadow farthest</small>
                 </div>
 
             </div>

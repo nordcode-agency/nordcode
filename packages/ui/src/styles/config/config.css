@@ -71,42 +71,24 @@
 
         /* SHADOWS */
 
-        /* SHADOWS */
+        --shadow-box: 0px 1px 2px -1px var(--shadow-color-10), inset -0.4px 0.8px 1px 0px color-mix(in oklch, var(--color-surface-base), transparent 68%), inset 0.4px 0.8px 1px 0px color-mix(in oklch, var(--color-surface-base), transparent 68%);
+        --shadow-inset: inset 0px 1px 2px 0px var(--shadow-color-10), var(--shadow-highlight);
+        --shadow-inset-deep: inset 0px 2px 8px 0px var(--shadow-color-10), var(--shadow-highlight);
+        --shadow-nearest: 0px 1px 2px -1px var(--shadow-color-10);
+        --shadow-near: 0px 3px 5px -2px var(--shadow-color-4), 0px 7px 14px -5px var(--shadow-color-6);
+        --shadow-medium: 0px -1px 3px 0px var(--shadow-color-3), 0px 1px 2px -5px var(--shadow-color-3), 0px 2px 5px -5px var(--shadow-color-5), 0px 4px 12px -5px var(--shadow-color-6), 0px 12px 15px -5px var(--shadow-color-8);
+        --shadow-far: 0px -1px 2px 0px var(--shadow-color-3), 0px 2px 1px -2px var(--shadow-color-4), 0px 5px 5px -2px var(--shadow-color-4), 0px 10px 10px -2px var(--shadow-color-5), 0px 20px 20px -2px var(--shadow-color-6), 0px 40px 40px -2px var(--shadow-color-8);
+        --shadow-farthest: 0px -1px 2px 0px var(--shadow-color-3), 0px 3px 2px -2px var(--shadow-color-4), 0px 7px 5px -2px var(--shadow-color-4), 0px 12px 10px -2px var(--shadow-color-5), 0px 22px 18px -2px var(--shadow-color-6), 0px 41px 33px -2px var(--shadow-color-7), 0px 100px 80px -2px var(--shadow-color-8);
 
-        --shadow-box:
-            0.4px 0.8px 1px 0px color-mix(in oklch, var(--shadow-color), transparent 68%),
-            inset -0.4px 0.8px 1px 0px color-mix(in oklch, var(--color-surface-base), transparent 68%),
-            inset 0.4px 0.8px 1px 0px color-mix(in oklch, var(--color-surface-base), transparent 68%);
-        --shadow-inset: inset 0.4px 0.8px 1px 0px color-mix(in oklch, var(--shadow-color), transparent 68%);
-        --shadow-nearest: 0.4px 0.8px 1px 0px color-mix(in oklch, var(--shadow-color), transparent 68%);
-        --shadow-near:
-            0.4px 0.8px 1px 0px color-mix(in oklch, var(--shadow-color), transparent 68%),
-            0.7px 1.4px 1.8px -0.5px color-mix(in oklch, var(--shadow-color), transparent 72.8%),
-            1.3px 2.6px 3.4px -1px color-mix(in oklch, var(--shadow-color), transparent 76.9%);
-        --shadow-medium:
-            0.4px 0.8px 1px 0px color-mix(in oklch, var(--shadow-color), transparent 68%),
-            0.7px 1.4px 1.8px -0.5px color-mix(in oklch, var(--shadow-color), transparent 72.8%),
-            1.3px 2.6px 3.4px -1px color-mix(in oklch, var(--shadow-color), transparent 76.9%),
-            2.4px 4.7px 6.1px -1.5px color-mix(in oklch, var(--shadow-color), transparent 80.3%),
-            4.2px 8.4px 10.9px -2px color-mix(in oklch, var(--shadow-color), transparent 83.3%);
-        --shadow-far:
-            0.4px 0.8px 1px 0px color-mix(in oklch, var(--shadow-color), transparent 68%),
-            0.7px 1.4px 1.8px -0.5px color-mix(in oklch, var(--shadow-color), transparent 72.8%),
-            1.3px 2.6px 3.4px -1px color-mix(in oklch, var(--shadow-color), transparent 76.9%),
-            2.4px 4.7px 6.1px -1.5px color-mix(in oklch, var(--shadow-color), transparent 80.3%),
-            4.2px 8.4px 10.9px -2px color-mix(in oklch, var(--shadow-color), transparent 83.3%),
-            7.6px 15.1px 19.6px -2.5px color-mix(in oklch, var(--shadow-color), transparent 85.8%),
-            13.6px 27.2px 35.4px -3px color-mix(in oklch, var(--shadow-color), transparent 87.9%),
-            24.5px 49px 63.7px -3.5px color-mix(in oklch, var(--shadow-color), transparent 89.7%);
         /* Light Theme */
 
-        --shadow-color-light: oklch(80% 0.03 265);
-        --shadow-color-light-lch: 80% 0.03 265;
+        --shadow-color-light: oklch(26.8% 0.003 265);
+        --shadow-strength-light: 1%;
 
         /* Dark Theme */
 
         --shadow-color-dark: oklch(30% 0.05 265);
-        --shadow-color-dark-lch: 30% 0.05 265;
+        --shadow-strength-dark: 25%;
 
         --lightness-max: 1;
         --lightness-min: 0.03;

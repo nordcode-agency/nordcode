@@ -1,4 +1,5 @@
 <script lang="ts">
+import { slugify } from '../../common/utils/slugify.ts';
 import TokenDescriptor from '../../common/components/TokenDescriptor.svelte';
 import {
     getThemeMutationObserver,
@@ -16,9 +17,7 @@ const { entry }: ShadowPreviewEntryProps = $props();
 
 let resolvedValue = $state('');
 
-let token = $derived(`--shadow-${entry.name.toLowerCase()}`);
-let lightShadow = $derived(`${token}-light`);
-let darkShadow = $derived(`${token}-dark`);
+let token = $derived(`--shadow-${slugify(entry.name)}`);
 
 const updateResolvedValue: ThemeMutationObserverListener = style => {
     if (!style) {
@@ -42,14 +41,14 @@ $effect(() => {
     <div class="nc-box lightpreview nc-cluster">
         <div
             class="nc-box preview-box"
-            style="--shadow-color: var(--shadow-color-light); box-shadow: var({token}); border-color: var(--color-border-base-light)"
+            style="box-shadow: var({token}); border-color: var(--color-border-base-light)"
         >
         </div>
     </div>
     <div class="nc-box darkpreview nc-cluster">
         <div
             class="nc-box preview-box"
-            style="--shadow-color: var(--shadow-color-dark); box-shadow: var({token}); border-color: var(--color-border-base-dark)"
+            style="box-shadow: var({token}); border-color: var(--color-border-base-dark)"
         >
         </div>
     </div>
@@ -79,10 +78,12 @@ $effect(() => {
 }
 
 .lightpreview {
+    color-scheme: light;
     background: var(--color-surface-base-light);
 }
 
 .darkpreview {
+    color-scheme: dark;
     background: var(--color-surface-base-dark);
 }
 </style>

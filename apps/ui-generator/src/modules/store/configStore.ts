@@ -72,18 +72,15 @@ export type ConfigStore = {
 
     borderRadiusScale: number;
 
-    shadowConfigDistanceBase: number;
-    shadowConfigDistanceScaleFactor: number;
-    shadowConfigBlurScaleFactor: number;
-    shadowConfigStartTransparency: number;
-    shadowConfigTransparencyScale: number;
-    shadowConfigSpreadMax: number;
-    shadowConfigXOffsetFactor: number;
+    shadowFlat: boolean;
+    shadowXOffsetFactor: number;
 
     lightShadowColorLightness: number;
     darkShadowColorLightness: number;
     lightShadowColorChroma: number;
     darkShadowColorChroma: number;
+    lightShadowStrength: number;
+    darkShadowStrength: number;
 
     // COLORS
 
@@ -200,18 +197,15 @@ const defaultStore: ConfigStore = {
 
     // Shadows
 
-    shadowConfigDistanceBase: 0.8,
-    shadowConfigDistanceScaleFactor: 1.8,
-    shadowConfigBlurScaleFactor: 1.3,
-    shadowConfigStartTransparency: 0.32,
-    shadowConfigTransparencyScale: 0.85,
-    shadowConfigSpreadMax: -4,
-    shadowConfigXOffsetFactor: 0.5,
+    shadowFlat: false,
+    shadowXOffsetFactor: 0,
 
-    lightShadowColorLightness: 80,
+    lightShadowColorLightness: 26.8,
     darkShadowColorLightness: 30,
-    lightShadowColorChroma: 0.03,
+    lightShadowColorChroma: 0.003,
     darkShadowColorChroma: 0.05,
+    lightShadowStrength: 1,
+    darkShadowStrength: 25,
 
     // COLORS
 

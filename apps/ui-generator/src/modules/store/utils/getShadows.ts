@@ -1,173 +1,91 @@
 import type { ConfigStore } from '../configStore';
 
-const AmountOfShadows = {
-    inset: 1,
-    nearest: 1,
-    near: 3,
-    medium: 5,
-    far: 8,
+// values from open-props: https://github.com/argyleink/open-props/blob/main/src/props.shadows.css
+// each layer: [y offset, blur, spread, strength step], the step picks --shadow-color-{step} from colors.css
+type ShadowLayer = [number, number, number, number];
+
+const Shadows: Record<string, ShadowLayer[]> = {
+    nearest: [[1, 2, -1, 10]],
+    near: [
+        [3, 5, -2, 4],
+        [7, 14, -5, 6],
+    ],
+    medium: [
+        [-1, 3, 0, 3],
+        [1, 2, -5, 3],
+        [2, 5, -5, 5],
+        [4, 12, -5, 6],
+        [12, 15, -5, 8],
+    ],
+    far: [
+        [-1, 2, 0, 3],
+        [2, 1, -2, 4],
+        [5, 5, -2, 4],
+        [10, 10, -2, 5],
+        [20, 20, -2, 6],
+        [40, 40, -2, 8],
+    ],
+    farthest: [
+        [-1, 2, 0, 3],
+        [3, 2, -2, 4],
+        [7, 5, -2, 4],
+        [12, 10, -2, 5],
+        [22, 18, -2, 6],
+        [41, 33, -2, 7],
+        [100, 80, -2, 8],
+    ],
 };
 
+const InsetShadows: Record<string, ShadowLayer[]> = {
+    inset: [[1, 2, 0, 10]],
+    insetDeep: [[2, 8, 0, 10]],
+};
+
+const round = (num: number) => Math.round(num * 10) / 10;
+
+// flat shadows collapse to the outermost layer without blur or spread, negative spreads would hide them otherwise
+// the x offset scales with the y offset, so farther shadows are thrown further sideways
+const generateShadow = (layers: ShadowLayer[], flat: boolean, xOffsetFactor: number, inset = false) =>
+    (flat ? layers.slice(-1) : layers)
+        .map(([y, blur, spread, step]) =>
+            `${inset ? 'inset ' : ''}${round(y * xOffsetFactor)}px ${y}px ${flat ? 0 : blur}px ${flat ? 0 : spread}px var(--shadow-color-${step})`
+        )
+        .join(', ');
+
 export const getShadows = (store: ConfigStore) => {
-    const shadowColorLightLch =
-        `${store.lightShadowColorLightness}% ${store.lightShadowColorChroma} ${store.primaryHue}`;
-    const shadowColorLight = `oklch(${shadowColorLightLch})`;
+    const flat = !!store.shadowFlat;
+    const x = +(store.shadowXOffsetFactor ?? 0);
+    const boxInsetBlur = flat ? 0 : 1;
+    const boxInsetColor = 'color-mix(in oklch, var(--color-surface-base), transparent 68%)';
 
-    const shadowColorDarkLch = `${store.darkShadowColorLightness}% ${store.darkShadowColorChroma} ${store.primaryHue}`;
-    const shadowColorDark = `oklch(${shadowColorDarkLch})`;
+    const shadowColorLight =
+        `oklch(${store.lightShadowColorLightness}% ${store.lightShadowColorChroma} ${store.primaryHue})`;
+    const shadowColorDark = `oklch(${store.darkShadowColorLightness}% ${store.darkShadowColorChroma} ${store.primaryHue})`;
 
-    const shadowConfig = {
-        baseDistance: +store.shadowConfigDistanceBase,
-        scaleFactor: +store.shadowConfigDistanceScaleFactor,
-        blurFactor: +store.shadowConfigBlurScaleFactor,
-        startTransparency: +store.shadowConfigStartTransparency,
-        transparencyScale: +store.shadowConfigTransparencyScale,
-        spreadMax: +store.shadowConfigSpreadMax,
-        xOffsetFactor: +store.shadowConfigXOffsetFactor,
-    };
+    // stored configs from before the strength and x offset controls lack these keys
+    const shadowStrengthLight = store.lightShadowStrength ?? 1;
+    const shadowStrengthDark = store.darkShadowStrength ?? 25;
 
     return `
             /* SHADOWS */
 
-        --shadow-box: ${
-        generateShadow(
-            AmountOfShadows.nearest,
-            shadowConfig,
-        )
-    }, ${
-        generateShadow(
-            AmountOfShadows.inset,
-            {
-                ...shadowConfig,
-                xOffsetFactor: shadowConfig.xOffsetFactor * -1,
-            },
-            true,
-            'var(--color-surface-base)',
-        )
-    }, ${
-        generateShadow(
-            AmountOfShadows.inset,
-            shadowConfig,
-            true,
-            'var(--color-surface-base)',
-        )
-    };
-            --shadow-inset: ${
-        generateShadow(
-            AmountOfShadows.nearest,
-            shadowConfig,
-            true,
-        )
-    };
-            --shadow-nearest: ${
-        generateShadow(
-            AmountOfShadows.nearest,
-            shadowConfig,
-        )
-    };
-            --shadow-near: ${
-        generateShadow(
-            AmountOfShadows.near,
-            shadowConfig,
-        )
-    };
-            --shadow-medium: ${
-        generateShadow(
-            AmountOfShadows.medium,
-            shadowConfig,
-        )
-    };
-            --shadow-far: ${
-        generateShadow(
-            AmountOfShadows.far,
-            shadowConfig,
-        )
-    };
+            --shadow-box: ${generateShadow(Shadows.nearest, flat, x)}, inset -0.4px 0.8px ${boxInsetBlur}px 0px ${boxInsetColor}, inset 0.4px 0.8px ${boxInsetBlur}px 0px ${boxInsetColor};
+            --shadow-inset: ${generateShadow(InsetShadows.inset, flat, x, true)}, var(--shadow-highlight);
+            --shadow-inset-deep: ${generateShadow(InsetShadows.insetDeep, flat, x, true)}, var(--shadow-highlight);
+            --shadow-nearest: ${generateShadow(Shadows.nearest, flat, x)};
+            --shadow-near: ${generateShadow(Shadows.near, flat, x)};
+            --shadow-medium: ${generateShadow(Shadows.medium, flat, x)};
+            --shadow-far: ${generateShadow(Shadows.far, flat, x)};
+            --shadow-farthest: ${generateShadow(Shadows.farthest, flat, x)};
+
             /* Light Theme */
 
             --shadow-color-light: ${shadowColorLight};
-            --shadow-color-light-lch: ${shadowColorLightLch};
+            --shadow-strength-light: ${shadowStrengthLight}%;
 
             /* Dark Theme */
 
             --shadow-color-dark: ${shadowColorDark};
-            --shadow-color-dark-lch: ${shadowColorDarkLch};
+            --shadow-strength-dark: ${shadowStrengthDark}%;
         `;
-};
-
-// ideas from: https://shadows.brumm.af/ and material design and https://www.joshwcomeau.com/shadow-palette/
-// const amountOfExtraShadows = 4;
-const round = (num: number) => Math.round(num * 10) / 10;
-const getShadowColor = (transparency: number, shadowColor = 'var(--shadow-color)') =>
-    `color-mix(in oklch, ${shadowColor}, transparent ${100 - round(transparency * 100)}%)`;
-
-const getSpread = (min: number, max: number, totalSteps: number, step: number) => {
-    const spread = min + ((max - min) / totalSteps) * step;
-    return round(spread);
-};
-
-const scaleSpread = (target: number, totalSteps: number, currentStep: number): number => {
-    return (currentStep / totalSteps) * target;
-};
-// def scale(i, x):
-//     y = ((i - 1) / (3 - 1)) * x
-//     return y
-
-// use color for creating the correct one
-const generateShadow = (
-    amountOfShadows: number,
-    config: {
-        baseDistance: number;
-        scaleFactor: number;
-        blurFactor: number;
-        startTransparency: number;
-        transparencyScale: number;
-        spreadMax: number;
-        xOffsetFactor: number;
-    },
-    inset?: boolean,
-    shadowColorOverwrite?: string,
-) => {
-    const {
-        baseDistance,
-        scaleFactor,
-        blurFactor,
-        startTransparency,
-        transparencyScale,
-        spreadMax,
-        xOffsetFactor,
-    } = config;
-
-    let shadowString = '';
-
-    for (let i = 0; i <= amountOfShadows - 1; i++) {
-        const d = round(baseDistance * scaleFactor ** i);
-        const blur = round(d * blurFactor);
-        const shadowColor = getShadowColor(
-            startTransparency * transparencyScale ** i,
-            shadowColorOverwrite,
-        );
-
-        const spread = round(scaleSpread(+spreadMax, AmountOfShadows.far, i));
-
-        const newShadow = `${inset ? 'inset ' : ''}${
-            round(
-                d * xOffsetFactor,
-            )
-        }px ${d}px ${blur}px ${spread}px ${shadowColor}`;
-
-        const isFlat = blurFactor === 0;
-        // it's a flat theme, so we dont need extra shadows
-        if (isFlat) {
-            shadowString = newShadow;
-            continue;
-        }
-
-        shadowString = shadowString.concat(newShadow);
-        if (i < amountOfShadows - 1) {
-            shadowString = shadowString.concat(', ');
-        }
-    }
-
-    return shadowString;
 };

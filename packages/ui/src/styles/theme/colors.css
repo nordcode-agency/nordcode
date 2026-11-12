@@ -190,6 +190,39 @@
             var(--color-status-danger-contrast-dark)
         );
         --shadow-color: light-dark(var(--shadow-color-light), var(--shadow-color-dark));
+
+        /* strength steps for the layered shadows, light-dark() only switches colors, so the strength lives in the alpha */
+        --shadow-color-3: light-dark(
+            oklch(from var(--shadow-color-light) l c h / calc(var(--shadow-strength-light) + 2%)),
+            oklch(from var(--shadow-color-dark) l c h / calc(var(--shadow-strength-dark) + 2%))
+        );
+        --shadow-color-4: light-dark(
+            oklch(from var(--shadow-color-light) l c h / calc(var(--shadow-strength-light) + 3%)),
+            oklch(from var(--shadow-color-dark) l c h / calc(var(--shadow-strength-dark) + 3%))
+        );
+        --shadow-color-5: light-dark(
+            oklch(from var(--shadow-color-light) l c h / calc(var(--shadow-strength-light) + 4%)),
+            oklch(from var(--shadow-color-dark) l c h / calc(var(--shadow-strength-dark) + 4%))
+        );
+        --shadow-color-6: light-dark(
+            oklch(from var(--shadow-color-light) l c h / calc(var(--shadow-strength-light) + 5%)),
+            oklch(from var(--shadow-color-dark) l c h / calc(var(--shadow-strength-dark) + 5%))
+        );
+        --shadow-color-7: light-dark(
+            oklch(from var(--shadow-color-light) l c h / calc(var(--shadow-strength-light) + 6%)),
+            oklch(from var(--shadow-color-dark) l c h / calc(var(--shadow-strength-dark) + 6%))
+        );
+        --shadow-color-8: light-dark(
+            oklch(from var(--shadow-color-light) l c h / calc(var(--shadow-strength-light) + 7%)),
+            oklch(from var(--shadow-color-dark) l c h / calc(var(--shadow-strength-dark) + 7%))
+        );
+        --shadow-color-10: light-dark(
+            oklch(from var(--shadow-color-light) l c h / calc(var(--shadow-strength-light) + 9%)),
+            oklch(from var(--shadow-color-dark) l c h / calc(var(--shadow-strength-dark) + 9%))
+        );
+        --shadow-highlight:
+            inset 0 -0.5px 0 0 light-dark(#fff, #fff1),
+            inset 0 0.5px 0 0 light-dark(#0001, #0007);
         --triangle-down-url: var(--triangle-down-url-light);
         --triangle-up-url: var(--triangle-up-url-light);
     }
