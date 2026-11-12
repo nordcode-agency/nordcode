@@ -1,3 +1,12 @@
+## 2.5.0
+
+### features
+
+- redesigned the shadows and their calculations (derived from [OpenProps](https://open-props.style/#shadows))
+- added three new shadows: `--shadow-inset-deep`, `--shadow-farthest` and `--shadow-highlight`
+- added new icon classes: `.icon`, `.icon-start`, `.icon-end` and `.icon-duo` (derived from
+[nudeui/icons](https://github.com/nudeui/icons/tree/main)
+
 ## 2.4.0
 
 ### features
