@@ -48,7 +48,7 @@
         }
     }
 
-    :where(button, .nc-button) > .nc-icon:not([data-size]) {
+    :where(button, .nc-button)>.nc-icon:not([data-size]) {
         --icon-size: 2ex;
     }
 
@@ -60,5 +60,48 @@
         to {
             rotate: 360deg;
         }
+    }
+
+
+    :where(.icon, .icon-start)::before,
+    :where(.icon-end, .icon-duo)::after {
+        content: "";
+        display: inline-block;
+        flex: none;
+        inline-size: var(--icon-size, 1em);
+        block-size: var(--icon-size, 1em);
+        background-color: currentColor;
+        mask: var(--icon) no-repeat center / contain;
+        vertical-align: middle;
+        vertical-align: calc(0.5cap - var(--icon-size, 1em) / 2 - 0.02em);
+        pointer-events: none;
+        forced-color-adjust: none;
+    }
+
+    :where(.icon-start)::before {
+        margin-inline-end: var(--icon-spacing, var(--control-spacing-tiny));
+    }
+
+    :where(.icon-end)::after {
+        mask-image: var(--icon-end);
+        margin-inline-start: var(--icon-spacing, var(--control-spacing-tiny));
+    }
+
+    /* Two-color icon on an empty .icon element: --icon filled with --icon-fill, --icon-outline on top in currentColor */
+    :where(.icon-duo) {
+        display: grid;
+    }
+
+    :where(.icon-duo)::before,
+    :where(.icon-duo)::after {
+        grid-area: 1 / 1;
+    }
+
+    :where(.icon-duo)::before {
+        background-color: var(--icon-fill, currentColor);
+    }
+
+    :where(.icon-duo)::after {
+        mask-image: var(--icon-outline);
     }
 }
