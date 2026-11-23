@@ -1,5 +1,6 @@
 @layer config, theme, reset, base, utils, components, helpers;
 
 @import "./bundle_configless.css";
+@import "./utils/media.css";
 
 @import "./components/bundle.css";

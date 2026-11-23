@@ -1,3 +1,10 @@
+### 3.0.0
+
+### changes
+
+- BREAKING: removed custom media queries from bundle.css. You can still import it directly if you
+want to use it.
+
 ## 2.5.0
 
 ### features
